@@ -1,4 +1,4 @@
-﻿Public Class ConnectionDB
+﻿Module ConnectionBD
 
     Dim cx As New Odbc.OdbcConnection
     Dim cm As New Odbc.OdbcCommand
@@ -32,18 +32,31 @@
     'Abrir y cerrar la conexión con la BD. La idea es abrirla antes de ejecutar una sentencia, y cerrarla al finalizar.
     Function conectar(Usuario, Contraseña) As Boolean
         Try
-            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranth_solutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            'SERVIDOR UTU
+            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranth_solutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+
+            'SERVIDOR VICTOR
+            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
             cx.Open()
             Return True
 
-        Catch ex As Exception
-            If ex.Message.Contains(" [HY000] [Informix][Informix ODBC Driver][-11302] Insufficient Connection information was supplied") Then
+        Catch ex As Odbc.OdbcException
+
+            If ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]" Or "[28000] [Informix][Informix ODBC Driver]") Then
+
                 MsgBox("Usuario y/o Contraseña incorrectos.", MsgBoxStyle.Information, "Datos Incorrectos")
-            ElseIf ex.Message.Contains("ERROR [28000] [Informix][Informix ODBC Driver][Informix]") Then
-                MsgBox("Usuario y/o Contraseña incorrectos.", MsgBoxStyle.Information, "Datos Incorrectos")
+
             Else
                 MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
+                'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
+                MsgBox(ex.Message)
             End If
+
+            Return False
+
+        Catch ex As Exception
+
+            MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
 
             Return False
 
@@ -62,13 +75,6 @@
         End Try
 
     End Function
-
-
-
-
-
-
-
 
 
 
@@ -168,4 +174,4 @@
 
 
 
-End Class
+End Module

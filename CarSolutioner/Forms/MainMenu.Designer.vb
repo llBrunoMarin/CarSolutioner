@@ -459,7 +459,7 @@ Partial Class MainMenu
         '
         'pbxVehiculo
         '
-        Me.pbxVehiculo.Image = Global.FormDesignTest.My.Resources.Resources.blanco
+        Me.pbxVehiculo.Image = Global.CarSolutioner.My.Resources.Resources.blanco
         Me.pbxVehiculo.Location = New System.Drawing.Point(61, 30)
         Me.pbxVehiculo.Name = "pbxVehiculo"
         Me.pbxVehiculo.Size = New System.Drawing.Size(128, 96)
@@ -1329,6 +1329,7 @@ Partial Class MainMenu
         '
         'tbpClientes
         '
+        Me.tbpClientes.BackColor = System.Drawing.Color.Silver
         Me.tbpClientes.Controls.Add(Me.pnlBcli)
         Me.tbpClientes.Controls.Add(Me.pnlMcli)
         Me.tbpClientes.Controls.Add(Me.pnlFcli)
@@ -1341,7 +1342,6 @@ Partial Class MainMenu
         Me.tbpClientes.Size = New System.Drawing.Size(1379, 862)
         Me.tbpClientes.TabIndex = 1
         Me.tbpClientes.Text = "Clientes"
-        Me.tbpClientes.UseVisualStyleBackColor = True
         '
         'pnlBcli
         '
@@ -3311,15 +3311,16 @@ Partial Class MainMenu
         '
         'tbpMantenimiento
         '
+        Me.tbpMantenimiento.BackColor = System.Drawing.Color.Silver
         Me.tbpMantenimiento.Location = New System.Drawing.Point(4, 25)
         Me.tbpMantenimiento.Name = "tbpMantenimiento"
         Me.tbpMantenimiento.Size = New System.Drawing.Size(1379, 862)
         Me.tbpMantenimiento.TabIndex = 5
         Me.tbpMantenimiento.Text = "Mantenimiento"
-        Me.tbpMantenimiento.UseVisualStyleBackColor = True
         '
         'Button18
         '
+        Me.Button18.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button18.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat

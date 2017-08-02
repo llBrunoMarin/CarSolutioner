@@ -107,7 +107,7 @@ Partial Class Login
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.FormDesignTest.My.Resources.Resources._105534_OMR08U_303
+        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources._105534_OMR08U_303
         Me.PictureBox1.Location = New System.Drawing.Point(120, 5)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(305, 188)
@@ -118,7 +118,7 @@ Partial Class Login
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.FormDesignTest.My.Resources.Resources.mk
+        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.mk
         Me.PictureBox2.Location = New System.Drawing.Point(432, 56)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(295, 407)

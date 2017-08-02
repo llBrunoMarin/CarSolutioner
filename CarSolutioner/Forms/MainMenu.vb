@@ -1,10 +1,9 @@
 ﻿Public Class MainMenu
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        'Asignamos el tamaño de las tabs a 1 para ocultarlas.
         tbcTabControl.ItemSize = New Size(0, 1)
-        tbpMenuPrincipal.BackColor = Color.Silver
         btnReservas.PerformClick()
-
 
     End Sub
 
@@ -69,13 +68,13 @@
     End Sub
 
 
-    Public Function SetColors(Button As Button, TabPage As TabPage, Color As Color)
+    Private Sub SetColors(Button As Button, TabPage As TabPage, Color As Color)
 
         Button.BackColor = Color
         Button.FlatAppearance.MouseOverBackColor = Color
         TabPage.BackColor = Color
 
-    End Function
+    End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked Then
@@ -85,11 +84,6 @@
             dtpFAResF.Enabled = False
             dtpFAResI.Enabled = False
         End If
-    End Sub
-
-
-    Private Sub dtvEmp_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtvEmp.CellContentClick
-
     End Sub
 
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click

@@ -1,5 +1,5 @@
 ﻿Public Class Login
-    Public conexion As New ConnectionDB
+
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -18,18 +18,18 @@
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
-        conexion.SetUsuario(txtUsuario.Text)
-        conexion.SetContraseña(txtContraseña.Text)
+        SetUsuario(txtUsuario.Text)
+        SetContraseña(txtContraseña.Text)
 
-        If (conexion.conectar(conexion.GetUsuario, conexion.GetContraseña)) Then
+        If (conectar(GetUsuario, GetContraseña)) Then
             Me.Hide()
             MainMenu.Show()
-            conexion.cerrar()
+            cerrar()
 
         Else
             txtContraseña.Text = ""
             txtUsuario.Text = ""
-            conexion.cerrar()
+            cerrar()
 
         End If
 

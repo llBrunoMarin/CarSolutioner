@@ -76,8 +76,8 @@
 
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        If CheckBox1.Checked Then
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles chboxFechaFRes.CheckedChanged
+        If chboxFechaFRes.Checked Then
             dtpFAResF.Enabled = True
             dtpFAResI.Enabled = True
         Else
@@ -90,6 +90,5 @@
         Login.Dispose()
         Me.Dispose()
     End Sub
-
 
 End Class

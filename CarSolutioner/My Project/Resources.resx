@@ -118,43 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lgin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lgin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="105534-OMR08U-303" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\105534-OMR08U-303.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="dff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="34" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\34.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ImagenLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ImagenLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ff" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="df" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\df.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CARWHITE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CARWHITE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="105534-OMR08U-303" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\105534-OMR08U-303.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ImagenLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImagenLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vintage-logo-car-pack_23-2147609802 copia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vintage-logo-car-pack_23-2147609802 copia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lgin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lgin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CARWHITE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CARWHITE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="34" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\34.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Copyright xd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Copyright xd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -20,11 +20,8 @@
 
         SetUsuario(txtUsuario.Text)
         SetContraseña(txtContraseña.Text)
-        If txtUsuario.Text = "" Then
-            MsgBox("Usuario y/o Contraseña incorrectos.", MsgBoxStyle.Information, "Datos Incorrectos")
-        ElseIf txtContraseña.Text = "" Then
-            MsgBox("Usuario y/o Contraseña incorrectos.", MsgBoxStyle.Information, "Datos Incorrectos")
 
+        If txtContraseña.Text = "" Or txtUsuario.Text = "" Then
 
 
 

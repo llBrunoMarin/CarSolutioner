@@ -91,5 +91,7 @@
         Me.Dispose()
     End Sub
 
+    Private Sub tbpMantenimiento_Click(sender As Object, e As EventArgs) Handles tbpMantenimiento.Click
 
+    End Sub
 End Class

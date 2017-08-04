@@ -27,20 +27,10 @@ Partial Class MainMenu
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProgramaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AgregarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MantenimientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CategoriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ModelosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MarcasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.KilometrajeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EstadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TiposDeDocumentoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.btnReservas = New System.Windows.Forms.Button()
         Me.btnMantenimiento = New System.Windows.Forms.Button()
-        Me.pbxVehiculo = New System.Windows.Forms.PictureBox()
         Me.btnEmpleados = New System.Windows.Forms.Button()
         Me.btnVehiculos = New System.Windows.Forms.Button()
         Me.btnClientes = New System.Windows.Forms.Button()
@@ -118,7 +108,6 @@ Partial Class MainMenu
         Me.cbxSucSalidaARes = New System.Windows.Forms.ComboBox()
         Me.cbxSucLlegadaARes = New System.Windows.Forms.ComboBox()
         Me.tbpMenuPrincipal = New System.Windows.Forms.TabPage()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tbpClientes = New System.Windows.Forms.TabPage()
         Me.pnlBcli = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -350,9 +339,11 @@ Partial Class MainMenu
         Me.ComboBox51 = New System.Windows.Forms.ComboBox()
         Me.TextBox39 = New System.Windows.Forms.TextBox()
         Me.Button18 = New System.Windows.Forms.Button()
+        Me.pbxVehiculo = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.AgregarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mstMenuStrip.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbcTabControl.SuspendLayout()
         Me.tbpReservas.SuspendLayout()
         Me.pnlBRes.SuspendLayout()
@@ -361,7 +352,6 @@ Partial Class MainMenu
         CType(Me.dtvRes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlARes.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpClientes.SuspendLayout()
         Me.pnlBcli.SuspendLayout()
         Me.pnlMcli.SuspendLayout()
@@ -386,6 +376,8 @@ Partial Class MainMenu
         Me.pnlFmant.SuspendLayout()
         CType(Me.dtvmant, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAmant.SuspendLayout()
+        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -425,62 +417,6 @@ Partial Class MainMenu
         Me.ProgramaToolStripMenuItem.Name = "ProgramaToolStripMenuItem"
         Me.ProgramaToolStripMenuItem.Size = New System.Drawing.Size(107, 20)
         Me.ProgramaToolStripMenuItem.Text = "HERRAMIENTAS"
-        '
-        'AgregarToolStripMenuItem
-        '
-        Me.AgregarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SucursalesToolStripMenuItem, Me.MantenimientoToolStripMenuItem, Me.CategoriasToolStripMenuItem, Me.ModelosToolStripMenuItem, Me.MarcasToolStripMenuItem, Me.KilometrajeToolStripMenuItem, Me.TiposDeDocumentoToolStripMenuItem})
-        Me.AgregarToolStripMenuItem.Name = "AgregarToolStripMenuItem"
-        Me.AgregarToolStripMenuItem.Size = New System.Drawing.Size(199, 22)
-        Me.AgregarToolStripMenuItem.Text = "Cambios Opcionales"
-        '
-        'SucursalesToolStripMenuItem
-        '
-        Me.SucursalesToolStripMenuItem.Name = "SucursalesToolStripMenuItem"
-        Me.SucursalesToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
-        Me.SucursalesToolStripMenuItem.Text = "Sucursales"
-        '
-        'MantenimientoToolStripMenuItem
-        '
-        Me.MantenimientoToolStripMenuItem.Name = "MantenimientoToolStripMenuItem"
-        Me.MantenimientoToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
-        Me.MantenimientoToolStripMenuItem.Text = "Mantenimiento"
-        '
-        'CategoriasToolStripMenuItem
-        '
-        Me.CategoriasToolStripMenuItem.Name = "CategoriasToolStripMenuItem"
-        Me.CategoriasToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
-        Me.CategoriasToolStripMenuItem.Text = "Categorias"
-        '
-        'ModelosToolStripMenuItem
-        '
-        Me.ModelosToolStripMenuItem.Name = "ModelosToolStripMenuItem"
-        Me.ModelosToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
-        Me.ModelosToolStripMenuItem.Text = "Modelos"
-        '
-        'MarcasToolStripMenuItem
-        '
-        Me.MarcasToolStripMenuItem.Name = "MarcasToolStripMenuItem"
-        Me.MarcasToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
-        Me.MarcasToolStripMenuItem.Text = "Marcas"
-        '
-        'KilometrajeToolStripMenuItem
-        '
-        Me.KilometrajeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EstadoToolStripMenuItem})
-        Me.KilometrajeToolStripMenuItem.Name = "KilometrajeToolStripMenuItem"
-        Me.KilometrajeToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
-        Me.KilometrajeToolStripMenuItem.Text = "Reservas"
-        '
-        'EstadoToolStripMenuItem
-        '
-        Me.EstadoToolStripMenuItem.Name = "EstadoToolStripMenuItem"
-        Me.EstadoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
-        Me.EstadoToolStripMenuItem.Text = "Estado"
-        '
-        'TiposDeDocumentoToolStripMenuItem
-        '
-        Me.TiposDeDocumentoToolStripMenuItem.Name = "TiposDeDocumentoToolStripMenuItem"
-        Me.TiposDeDocumentoToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
-        Me.TiposDeDocumentoToolStripMenuItem.Text = "Tipos de Documento"
         '
         'Panel1
         '
@@ -539,16 +475,6 @@ Partial Class MainMenu
         Me.btnMantenimiento.TabIndex = 2
         Me.btnMantenimiento.Text = "MANTENIMIENTO"
         Me.btnMantenimiento.UseVisualStyleBackColor = False
-        '
-        'pbxVehiculo
-        '
-        Me.pbxVehiculo.Image = Global.CarSolutioner.My.Resources.Resources.blanco
-        Me.pbxVehiculo.Location = New System.Drawing.Point(61, 30)
-        Me.pbxVehiculo.Name = "pbxVehiculo"
-        Me.pbxVehiculo.Size = New System.Drawing.Size(128, 96)
-        Me.pbxVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxVehiculo.TabIndex = 1
-        Me.pbxVehiculo.TabStop = False
         '
         'btnEmpleados
         '
@@ -1466,16 +1392,6 @@ Partial Class MainMenu
         Me.tbpMenuPrincipal.Size = New System.Drawing.Size(1379, 862)
         Me.tbpMenuPrincipal.TabIndex = 4
         Me.tbpMenuPrincipal.Text = "MenuPrincipal"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.Copyright_xd
-        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
         '
         'tbpClientes
         '
@@ -4140,6 +4056,32 @@ Partial Class MainMenu
         Me.Button18.Text = "✕"
         Me.Button18.UseVisualStyleBackColor = False
         '
+        'pbxVehiculo
+        '
+        Me.pbxVehiculo.Image = Global.CarSolutioner.My.Resources.Resources.blanco
+        Me.pbxVehiculo.Location = New System.Drawing.Point(61, 30)
+        Me.pbxVehiculo.Name = "pbxVehiculo"
+        Me.pbxVehiculo.Size = New System.Drawing.Size(128, 96)
+        Me.pbxVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxVehiculo.TabIndex = 1
+        Me.pbxVehiculo.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.Copyright_xd
+        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'AgregarToolStripMenuItem
+        '
+        Me.AgregarToolStripMenuItem.Name = "AgregarToolStripMenuItem"
+        Me.AgregarToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.AgregarToolStripMenuItem.Text = "Cambios Generales"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4160,7 +4102,6 @@ Partial Class MainMenu
         Me.mstMenuStrip.ResumeLayout(False)
         Me.mstMenuStrip.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbcTabControl.ResumeLayout(False)
         Me.tbpReservas.ResumeLayout(False)
         Me.pnlBRes.ResumeLayout(False)
@@ -4173,7 +4114,6 @@ Partial Class MainMenu
         Me.pnlARes.ResumeLayout(False)
         Me.pnlARes.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpClientes.ResumeLayout(False)
         Me.pnlBcli.ResumeLayout(False)
         Me.pnlBcli.PerformLayout()
@@ -4214,6 +4154,8 @@ Partial Class MainMenu
         CType(Me.dtvmant, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAmant.ResumeLayout(False)
         Me.pnlAmant.PerformLayout()
+        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -4523,15 +4465,6 @@ Partial Class MainMenu
     Friend WithEvents Label123 As Label
     Friend WithEvents DateTimePicker14 As DateTimePicker
     Friend WithEvents DateTimePicker15 As DateTimePicker
-    Friend WithEvents AgregarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SucursalesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MantenimientoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CategoriasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ModelosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MarcasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents KilometrajeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EstadoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TiposDeDocumentoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents dtvRes As DataGridView
     Friend WithEvents Label114 As Label
     Friend WithEvents cbxEstadoFVeh As ComboBox
@@ -4544,4 +4477,5 @@ Partial Class MainMenu
     Friend WithEvents ComboBox40 As ComboBox
     Friend WithEvents Label108 As Label
     Friend WithEvents ComboBox41 As ComboBox
+    Friend WithEvents AgregarToolStripMenuItem As ToolStripMenuItem
 End Class

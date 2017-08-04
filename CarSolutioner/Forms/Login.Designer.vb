@@ -30,32 +30,36 @@ Partial Class Login
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.lblmayus = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtContraseña
         '
+        Me.txtContraseña.ForeColor = System.Drawing.Color.Gray
         Me.txtContraseña.Location = New System.Drawing.Point(218, 242)
         Me.txtContraseña.Name = "txtContraseña"
         Me.txtContraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.txtContraseña.Size = New System.Drawing.Size(99, 20)
         Me.txtContraseña.TabIndex = 0
+        Me.txtContraseña.Text = "Contraseña"
         '
         'txtUsuario
         '
+        Me.txtUsuario.ForeColor = System.Drawing.SystemColors.WindowFrame
         Me.txtUsuario.Location = New System.Drawing.Point(218, 196)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(99, 20)
         Me.txtUsuario.TabIndex = 0
+        Me.txtUsuario.Text = "Usuario"
         '
         'btnLogin
         '
@@ -106,28 +110,6 @@ Partial Class Login
         Me.Label2.Size = New System.Drawing.Size(103, 19)
         Me.Label2.TabIndex = 27
         Me.Label2.Text = "Contraseña"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources._105534_OMR08U_303
-        Me.PictureBox1.Location = New System.Drawing.Point(120, 38)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(305, 188)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.mk
-        Me.PictureBox2.Location = New System.Drawing.Point(432, 56)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(295, 407)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 28
-        Me.PictureBox2.TabStop = False
         '
         'Button1
         '
@@ -187,6 +169,28 @@ Partial Class Login
         Me.Panel1.Size = New System.Drawing.Size(536, 29)
         Me.Panel1.TabIndex = 32
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources._105534_OMR08U_303
+        Me.PictureBox1.Location = New System.Drawing.Point(120, 38)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(305, 188)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.mk
+        Me.PictureBox2.Location = New System.Drawing.Point(432, 56)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(295, 407)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 28
+        Me.PictureBox2.TabStop = False
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -209,9 +213,9 @@ Partial Class Login
         Me.Name = "Login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
+        Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

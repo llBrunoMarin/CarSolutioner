@@ -95,4 +95,8 @@
     Private Sub btnVaciarFRes_Click(sender As Object, e As EventArgs) Handles btnVaciarFRes.Click
 
     End Sub
+
+    Private Sub AgregarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AgregarToolStripMenuItem.Click
+        tbpCambiosGenerales.Show()
+    End Sub
 End Class

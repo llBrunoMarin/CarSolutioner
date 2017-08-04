@@ -22,10 +22,6 @@
         SetContraseña(txtContraseña.Text)
 
         If txtContraseña.Text = "" Or txtUsuario.Text = "" Then
-
-
-
-
         ElseIf (conectar(GetUsuario, GetContraseña)) Then
 
             Me.Hide()
@@ -38,11 +34,7 @@
             cerrar()
 
         End If
-
-
     End Sub
-
-
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Dispose()
@@ -57,4 +49,6 @@
             e.SuppressKeyPress = True
         End If
     End Sub
+
+
 End Class

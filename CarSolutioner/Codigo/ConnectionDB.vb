@@ -45,8 +45,8 @@
             If ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]") Or ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]") Then
 
                 MsgBox("Usuario y/o Contraseña incorrectos.", MsgBoxStyle.Information, "Datos Incorrectos")
-
             Else
+
                 MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
                 'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
                 MsgBox(ex.Message)

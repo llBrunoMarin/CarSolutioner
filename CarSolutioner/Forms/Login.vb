@@ -27,6 +27,7 @@
 
 
         ElseIf (conectar(GetUsuario, GetContraseña)) Then
+
             Me.Hide()
             MainMenu.Show()
             cerrar()

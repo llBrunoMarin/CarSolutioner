@@ -390,13 +390,14 @@ Partial Class MainMenu
         '
         'mstMenuStrip
         '
+        Me.mstMenuStrip.AutoSize = False
         Me.mstMenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.mstMenuStrip.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.999999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mstMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.ProgramaToolStripMenuItem})
-        Me.mstMenuStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.mstMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mstMenuStrip.Name = "mstMenuStrip"
-        Me.mstMenuStrip.Size = New System.Drawing.Size(1604, 25)
+        Me.mstMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.mstMenuStrip.Size = New System.Drawing.Size(1604, 24)
         Me.mstMenuStrip.TabIndex = 1
         Me.mstMenuStrip.Text = "MenuStrip1"
         '
@@ -405,7 +406,7 @@ Partial Class MainMenu
         Me.ArchivoToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ArchivoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(75, 21)
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
         Me.ArchivoToolStripMenuItem.Text = "ARCHIVO"
         '
         'EditarToolStripMenuItem
@@ -413,7 +414,7 @@ Partial Class MainMenu
         Me.EditarToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EditarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(59, 21)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
         Me.EditarToolStripMenuItem.Text = "EDITAR"
         '
         'ProgramaToolStripMenuItem
@@ -422,7 +423,7 @@ Partial Class MainMenu
         Me.ProgramaToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProgramaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.ProgramaToolStripMenuItem.Name = "ProgramaToolStripMenuItem"
-        Me.ProgramaToolStripMenuItem.Size = New System.Drawing.Size(107, 21)
+        Me.ProgramaToolStripMenuItem.Size = New System.Drawing.Size(107, 20)
         Me.ProgramaToolStripMenuItem.Text = "HERRAMIENTAS"
         '
         'AgregarToolStripMenuItem
@@ -515,9 +516,9 @@ Partial Class MainMenu
         Me.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReservas.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReservas.ForeColor = System.Drawing.Color.White
-        Me.btnReservas.Location = New System.Drawing.Point(12, 127)
+        Me.btnReservas.Location = New System.Drawing.Point(0, 127)
         Me.btnReservas.Name = "btnReservas"
-        Me.btnReservas.Size = New System.Drawing.Size(248, 65)
+        Me.btnReservas.Size = New System.Drawing.Size(260, 65)
         Me.btnReservas.TabIndex = 0
         Me.btnReservas.Text = "RESERVAS/ALQUILER"
         Me.btnReservas.UseVisualStyleBackColor = False
@@ -532,9 +533,9 @@ Partial Class MainMenu
         Me.btnMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMantenimiento.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMantenimiento.ForeColor = System.Drawing.Color.White
-        Me.btnMantenimiento.Location = New System.Drawing.Point(7, 402)
+        Me.btnMantenimiento.Location = New System.Drawing.Point(0, 402)
         Me.btnMantenimiento.Name = "btnMantenimiento"
-        Me.btnMantenimiento.Size = New System.Drawing.Size(248, 65)
+        Me.btnMantenimiento.Size = New System.Drawing.Size(255, 65)
         Me.btnMantenimiento.TabIndex = 2
         Me.btnMantenimiento.Text = "MANTENIMIENTO"
         Me.btnMantenimiento.UseVisualStyleBackColor = False
@@ -559,9 +560,9 @@ Partial Class MainMenu
         Me.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEmpleados.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEmpleados.ForeColor = System.Drawing.Color.White
-        Me.btnEmpleados.Location = New System.Drawing.Point(12, 331)
+        Me.btnEmpleados.Location = New System.Drawing.Point(0, 331)
         Me.btnEmpleados.Name = "btnEmpleados"
-        Me.btnEmpleados.Size = New System.Drawing.Size(248, 65)
+        Me.btnEmpleados.Size = New System.Drawing.Size(260, 65)
         Me.btnEmpleados.TabIndex = 0
         Me.btnEmpleados.Text = "EMPLEADOS"
         Me.btnEmpleados.UseVisualStyleBackColor = False
@@ -576,9 +577,9 @@ Partial Class MainMenu
         Me.btnVehiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVehiculos.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVehiculos.ForeColor = System.Drawing.Color.White
-        Me.btnVehiculos.Location = New System.Drawing.Point(12, 269)
+        Me.btnVehiculos.Location = New System.Drawing.Point(0, 269)
         Me.btnVehiculos.Name = "btnVehiculos"
-        Me.btnVehiculos.Size = New System.Drawing.Size(248, 65)
+        Me.btnVehiculos.Size = New System.Drawing.Size(260, 65)
         Me.btnVehiculos.TabIndex = 0
         Me.btnVehiculos.Text = "VEHÍCULOS"
         Me.btnVehiculos.UseVisualStyleBackColor = False
@@ -593,9 +594,9 @@ Partial Class MainMenu
         Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClientes.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClientes.ForeColor = System.Drawing.Color.White
-        Me.btnClientes.Location = New System.Drawing.Point(12, 198)
+        Me.btnClientes.Location = New System.Drawing.Point(0, 198)
         Me.btnClientes.Name = "btnClientes"
-        Me.btnClientes.Size = New System.Drawing.Size(248, 65)
+        Me.btnClientes.Size = New System.Drawing.Size(260, 65)
         Me.btnClientes.TabIndex = 0
         Me.btnClientes.Text = "CLIENTES/USUARIOS"
         Me.btnClientes.UseVisualStyleBackColor = False
@@ -718,6 +719,11 @@ Partial Class MainMenu
         '
         'dtpFinBRes
         '
+        Me.dtpFinBRes.CalendarForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtpFinBRes.CalendarMonthBackground = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtpFinBRes.CalendarTitleBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtpFinBRes.CalendarTitleForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtpFinBRes.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dtpFinBRes.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFinBRes.Location = New System.Drawing.Point(203, 65)
         Me.dtpFinBRes.Name = "dtpFinBRes"
@@ -733,6 +739,11 @@ Partial Class MainMenu
         '
         'dtpInicioBRes
         '
+        Me.dtpInicioBRes.CalendarForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtpInicioBRes.CalendarMonthBackground = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtpInicioBRes.CalendarTitleBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtpInicioBRes.CalendarTitleForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtpInicioBRes.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dtpInicioBRes.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpInicioBRes.Location = New System.Drawing.Point(119, 65)
         Me.dtpInicioBRes.Name = "dtpInicioBRes"
@@ -775,7 +786,7 @@ Partial Class MainMenu
         Me.Label103.AutoSize = True
         Me.Label103.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label103.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label103.Location = New System.Drawing.Point(119, 92)
+        Me.Label103.Location = New System.Drawing.Point(119, 91)
         Me.Label103.Name = "Label103"
         Me.Label103.Size = New System.Drawing.Size(48, 17)
         Me.Label103.TabIndex = 37
@@ -783,6 +794,7 @@ Partial Class MainMenu
         '
         'cbxEstadoMRes
         '
+        Me.cbxEstadoMRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxEstadoMRes.FormattingEnabled = True
         Me.cbxEstadoMRes.Location = New System.Drawing.Point(122, 108)
         Me.cbxEstadoMRes.Name = "cbxEstadoMRes"
@@ -941,6 +953,7 @@ Partial Class MainMenu
         '
         'cbxCatMRes
         '
+        Me.cbxCatMRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxCatMRes.FormattingEnabled = True
         Me.cbxCatMRes.Location = New System.Drawing.Point(119, 64)
         Me.cbxCatMRes.Name = "cbxCatMRes"
@@ -949,6 +962,7 @@ Partial Class MainMenu
         '
         'txtDocumMRes
         '
+        Me.txtDocumMRes.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtDocumMRes.Location = New System.Drawing.Point(13, 65)
         Me.txtDocumMRes.Name = "txtDocumMRes"
         Me.txtDocumMRes.Size = New System.Drawing.Size(100, 20)
@@ -956,6 +970,7 @@ Partial Class MainMenu
         '
         'cbxKmMRes
         '
+        Me.cbxKmMRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxKmMRes.FormattingEnabled = True
         Me.cbxKmMRes.Location = New System.Drawing.Point(500, 66)
         Me.cbxKmMRes.Name = "cbxKmMRes"
@@ -972,6 +987,7 @@ Partial Class MainMenu
         '
         'cbxSucSalidaMRes
         '
+        Me.cbxSucSalidaMRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxSucSalidaMRes.FormattingEnabled = True
         Me.cbxSucSalidaMRes.Location = New System.Drawing.Point(246, 64)
         Me.cbxSucSalidaMRes.Name = "cbxSucSalidaMRes"
@@ -980,6 +996,7 @@ Partial Class MainMenu
         '
         'cbxSucLlegadaMRes
         '
+        Me.cbxSucLlegadaMRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxSucLlegadaMRes.FormattingEnabled = True
         Me.cbxSucLlegadaMRes.Location = New System.Drawing.Point(373, 65)
         Me.cbxSucLlegadaMRes.Name = "cbxSucLlegadaMRes"
@@ -1030,6 +1047,7 @@ Partial Class MainMenu
         '
         'cbxEstadoRes
         '
+        Me.cbxEstadoRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxEstadoRes.FormattingEnabled = True
         Me.cbxEstadoRes.Location = New System.Drawing.Point(119, 70)
         Me.cbxEstadoRes.Name = "cbxEstadoRes"
@@ -1188,6 +1206,7 @@ Partial Class MainMenu
         '
         'cbxCatFRes
         '
+        Me.cbxCatFRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxCatFRes.FormattingEnabled = True
         Me.cbxCatFRes.Location = New System.Drawing.Point(119, 121)
         Me.cbxCatFRes.Name = "cbxCatFRes"
@@ -1203,6 +1222,7 @@ Partial Class MainMenu
         '
         'cbxKilomFRes
         '
+        Me.cbxKilomFRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxKilomFRes.FormattingEnabled = True
         Me.cbxKilomFRes.Location = New System.Drawing.Point(500, 123)
         Me.cbxKilomFRes.Name = "cbxKilomFRes"
@@ -1220,6 +1240,7 @@ Partial Class MainMenu
         '
         'cbxSucSalFres
         '
+        Me.cbxSucSalFres.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxSucSalFres.FormattingEnabled = True
         Me.cbxSucSalFres.Location = New System.Drawing.Point(246, 121)
         Me.cbxSucSalFres.Name = "cbxSucSalFres"
@@ -1228,6 +1249,7 @@ Partial Class MainMenu
         '
         'cbxSucLlegFRes
         '
+        Me.cbxSucLlegFRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxSucLlegFRes.FormattingEnabled = True
         Me.cbxSucLlegFRes.Location = New System.Drawing.Point(373, 122)
         Me.cbxSucLlegFRes.Name = "cbxSucLlegFRes"
@@ -1387,7 +1409,7 @@ Partial Class MainMenu
         '
         'cbxCatARes
         '
-        Me.cbxCatARes.FormattingEnabled = True
+        Me.cbxCatARes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxCatARes.Location = New System.Drawing.Point(119, 64)
         Me.cbxCatARes.Name = "cbxCatARes"
         Me.cbxCatARes.Size = New System.Drawing.Size(121, 21)
@@ -1402,6 +1424,7 @@ Partial Class MainMenu
         '
         'cbxKmARes
         '
+        Me.cbxKmARes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxKmARes.FormattingEnabled = True
         Me.cbxKmARes.Location = New System.Drawing.Point(500, 66)
         Me.cbxKmARes.Name = "cbxKmARes"
@@ -1418,6 +1441,7 @@ Partial Class MainMenu
         '
         'cbxSucSalidaARes
         '
+        Me.cbxSucSalidaARes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxSucSalidaARes.FormattingEnabled = True
         Me.cbxSucSalidaARes.Location = New System.Drawing.Point(246, 64)
         Me.cbxSucSalidaARes.Name = "cbxSucSalidaARes"
@@ -1426,6 +1450,7 @@ Partial Class MainMenu
         '
         'cbxSucLlegadaARes
         '
+        Me.cbxSucLlegadaARes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cbxSucLlegadaARes.FormattingEnabled = True
         Me.cbxSucLlegadaARes.Location = New System.Drawing.Point(373, 65)
         Me.cbxSucLlegadaARes.Name = "cbxSucLlegadaARes"
@@ -4119,7 +4144,7 @@ Partial Class MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(190, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1604, 882)
         Me.Controls.Add(Me.Button18)
         Me.Controls.Add(Me.mstMenuStrip)
@@ -4190,7 +4215,6 @@ Partial Class MainMenu
         Me.pnlAmant.ResumeLayout(False)
         Me.pnlAmant.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents mstMenuStrip As MenuStrip

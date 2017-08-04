@@ -2,6 +2,7 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Asignamos el tamaño de las tabs a 1 para ocultarlas.
+        Asignarmenustrip(mstMenuStrip)
         tbcTabControl.ItemSize = New Size(0, 1)
         btnReservas.PerformClick()
 
@@ -91,4 +92,7 @@
         Me.Dispose()
     End Sub
 
+    Private Sub btnVaciarFRes_Click(sender As Object, e As EventArgs) Handles btnVaciarFRes.Click
+
+    End Sub
 End Class

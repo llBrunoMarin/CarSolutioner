@@ -166,13 +166,13 @@ Partial Class Login
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(536, 29)
+        Me.Panel1.Size = New System.Drawing.Size(536, 30)
         Me.Panel1.TabIndex = 32
         '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources._105534_OMR08U_303
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(120, 38)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(305, 188)
@@ -183,7 +183,7 @@ Partial Class Login
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.mk
+        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.Circles
         Me.PictureBox2.Location = New System.Drawing.Point(432, 56)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(295, 407)

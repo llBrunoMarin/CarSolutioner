@@ -1,9 +1,14 @@
 ﻿Public Class MainMenu
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'Le cambiamos el renderer al MenuStrip (cuestiones de diseño)
+        CambiarRenderMenuStrip(mstMenuStrip)
+
         'Asignamos el tamaño de las tabs a 1 para ocultarlas.
-        Asignarmenustrip(mstMenuStrip)
         tbcTabControl.ItemSize = New Size(0, 1)
+
+        '"Clickeamos" el botón Reservas (para que sea el botón presionado por defecto)
         btnReservas.PerformClick()
 
     End Sub
@@ -15,40 +20,23 @@
         Select Case sender.Name
 
             Case "btnMantenimiento"
-                tbcTabControl.SelectedTab = tbpMantenimiento
-                Dim color As Color = Color.Silver
-                SetColors(btnMantenimiento, tbpMantenimiento, color)
-                btnMantenimiento.ForeColor = Color.FromArgb(100, 38, 38)
-            Case "btnReservas"
+                SetTabAndColors(btnMantenimiento, tbpMantenimiento, Color.Silver)
 
-                tbcTabControl.SelectedTab = tbpReservas
-                Dim color As Color = Color.Silver
-                SetColors(btnReservas, tbpReservas, color)
-                btnReservas.ForeColor = Color.FromArgb(100, 38, 38)
+            Case "btnReservas"
+                SetTabAndColors(btnReservas, tbpReservas, Color.Silver)
 
             Case "btnClientes"
-                tbcTabControl.SelectedTab = tbpClientes
-                Dim color As Color = Color.Silver
-                SetColors(btnClientes, tbpClientes, color)
-                btnClientes.ForeColor = Color.FromArgb(100, 38, 38)
+                SetTabAndColors(btnClientes, tbpClientes, Color.Silver)
 
             Case "btnVehiculos"
-                tbcTabControl.SelectedTab = tbpVehiculos
-                Dim color As Color = Color.Silver
-                SetColors(btnVehiculos, tbpVehiculos, color)
-                btnVehiculos.ForeColor = Color.FromArgb(100, 38, 38)
+                SetTabAndColors(btnVehiculos, tbpVehiculos, Color.Silver)
 
             Case "btnEmpleados"
-                tbcTabControl.SelectedTab = tbpEmpleados
-                Dim color As Color = Color.Silver
-                SetColors(btnEmpleados, tbpEmpleados, color)
-                btnEmpleados.ForeColor = Color.FromArgb(100, 38, 38)
+                SetTabAndColors(btnEmpleados, tbpEmpleados, Color.Silver)
 
             Case "pbxVehiculo"
                 tbcTabControl.SelectedTab = tbpMenuPrincipal
                 tbpMenuPrincipal.BackColor = Color.Silver
-
-
 
         End Select
 
@@ -56,28 +44,32 @@
 
     Sub ResetColors()
 
-        btnClientes.BackColor = Color.Transparent
-        btnReservas.BackColor = Color.Transparent
-        btnVehiculos.BackColor = Color.Transparent
-        btnMantenimiento.BackColor = Color.Transparent
-        btnEmpleados.BackColor = Color.Transparent
-        btnClientes.ForeColor = Color.White
-        btnEmpleados.ForeColor = Color.White
-        btnReservas.ForeColor = Color.White
-        btnVehiculos.ForeColor = Color.White
-        btnMantenimiento.ForeColor = Color.White
-    End Sub
+        'Recorrer todos los controles del panel Sidebar
+        For Each control In pnlSidebar.Controls
+            'Si el control es un botón
+            If TypeOf control Is Button Then
+                control.BackColor = Color.Transparent
+                control.ForeColor = Color.White
+                control.FlatAppearance.MouseOverBackColor = Color.FromArgb(130, 55, 55)
+            End If
 
-
-    Private Sub SetColors(Button As Button, TabPage As TabPage, Color As Color)
-
-        Button.BackColor = Color
-        Button.FlatAppearance.MouseOverBackColor = Color
-        TabPage.BackColor = Color
+        Next
 
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles chboxFechaFRes.CheckedChanged
+    Private Sub SetTabAndColors(boton As Button, pagina As TabPage, Color As Color)
+
+        boton.BackColor = Color
+        boton.FlatAppearance.MouseOverBackColor = Color
+        boton.FlatAppearance.MouseDownBackColor = Color
+        boton.ForeColor = Color.FromArgb(100, 38, 38)
+
+        pagina.BackColor = Color
+        tbcTabControl.SelectedTab = pagina
+
+    End Sub
+
+    Private Sub chboxFechaFRes_CheckedChanged(sender As Object, e As EventArgs) Handles chboxFechaFRes.CheckedChanged
         If chboxFechaFRes.Checked Then
             dtpFAResF.Enabled = True
             dtpFAResI.Enabled = True
@@ -87,16 +79,13 @@
         End If
     End Sub
 
-    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
+    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
         Login.Dispose()
         Me.Dispose()
     End Sub
 
-    Private Sub btnVaciarFRes_Click(sender As Object, e As EventArgs) Handles btnVaciarFRes.Click
 
-    End Sub
-
-    Private Sub AgregarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AgregarToolStripMenuItem.Click
-        tbpCambiosGenerales.Show()
+    Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
+        frmCambiosGenerales.Show()
     End Sub
 End Class

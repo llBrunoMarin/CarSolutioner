@@ -26,11 +26,13 @@ Partial Class MainMenu
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProgramaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.tsItemHerramientas = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsitemCambiosGenerales = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pnlSidebar = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.btnReservas = New System.Windows.Forms.Button()
         Me.btnMantenimiento = New System.Windows.Forms.Button()
+        Me.pbxVehiculo = New System.Windows.Forms.PictureBox()
         Me.btnEmpleados = New System.Windows.Forms.Button()
         Me.btnVehiculos = New System.Windows.Forms.Button()
         Me.btnClientes = New System.Windows.Forms.Button()
@@ -108,6 +110,7 @@ Partial Class MainMenu
         Me.cbxSucSalidaARes = New System.Windows.Forms.ComboBox()
         Me.cbxSucLlegadaARes = New System.Windows.Forms.ComboBox()
         Me.tbpMenuPrincipal = New System.Windows.Forms.TabPage()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tbpClientes = New System.Windows.Forms.TabPage()
         Me.pnlBcli = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -338,12 +341,10 @@ Partial Class MainMenu
         Me.Label135 = New System.Windows.Forms.Label()
         Me.ComboBox51 = New System.Windows.Forms.ComboBox()
         Me.TextBox39 = New System.Windows.Forms.TextBox()
-        Me.Button18 = New System.Windows.Forms.Button()
-        Me.pbxVehiculo = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.AgregarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnCerrar = New System.Windows.Forms.Button()
         Me.mstMenuStrip.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.pnlSidebar.SuspendLayout()
+        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbcTabControl.SuspendLayout()
         Me.tbpReservas.SuspendLayout()
         Me.pnlBRes.SuspendLayout()
@@ -352,6 +353,7 @@ Partial Class MainMenu
         CType(Me.dtvRes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlARes.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpClientes.SuspendLayout()
         Me.pnlBcli.SuspendLayout()
         Me.pnlMcli.SuspendLayout()
@@ -376,8 +378,6 @@ Partial Class MainMenu
         Me.pnlFmant.SuspendLayout()
         CType(Me.dtvmant, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAmant.SuspendLayout()
-        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -385,11 +385,11 @@ Partial Class MainMenu
         Me.mstMenuStrip.AutoSize = False
         Me.mstMenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.mstMenuStrip.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.999999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mstMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.ProgramaToolStripMenuItem})
+        Me.mstMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.tsItemHerramientas})
         Me.mstMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mstMenuStrip.Name = "mstMenuStrip"
         Me.mstMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mstMenuStrip.Size = New System.Drawing.Size(1604, 24)
+        Me.mstMenuStrip.Size = New System.Drawing.Size(1604, 30)
         Me.mstMenuStrip.TabIndex = 1
         Me.mstMenuStrip.Text = "MenuStrip1"
         '
@@ -398,7 +398,7 @@ Partial Class MainMenu
         Me.ArchivoToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ArchivoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(75, 26)
         Me.ArchivoToolStripMenuItem.Text = "ARCHIVO"
         '
         'EditarToolStripMenuItem
@@ -406,34 +406,40 @@ Partial Class MainMenu
         Me.EditarToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EditarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(59, 26)
         Me.EditarToolStripMenuItem.Text = "EDITAR"
         '
-        'ProgramaToolStripMenuItem
+        'tsItemHerramientas
         '
-        Me.ProgramaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarToolStripMenuItem})
-        Me.ProgramaToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ProgramaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.ProgramaToolStripMenuItem.Name = "ProgramaToolStripMenuItem"
-        Me.ProgramaToolStripMenuItem.Size = New System.Drawing.Size(107, 20)
-        Me.ProgramaToolStripMenuItem.Text = "HERRAMIENTAS"
+        Me.tsItemHerramientas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsitemCambiosGenerales})
+        Me.tsItemHerramientas.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tsItemHerramientas.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.tsItemHerramientas.Name = "tsItemHerramientas"
+        Me.tsItemHerramientas.Size = New System.Drawing.Size(107, 26)
+        Me.tsItemHerramientas.Text = "HERRAMIENTAS"
         '
-        'Panel1
+        'tsitemCambiosGenerales
         '
-        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.tsitemCambiosGenerales.Name = "tsitemCambiosGenerales"
+        Me.tsitemCambiosGenerales.Size = New System.Drawing.Size(192, 22)
+        Me.tsitemCambiosGenerales.Text = "Cambios Generales"
+        '
+        'pnlSidebar
+        '
+        Me.pnlSidebar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Panel6)
-        Me.Panel1.Controls.Add(Me.btnReservas)
-        Me.Panel1.Controls.Add(Me.btnMantenimiento)
-        Me.Panel1.Controls.Add(Me.pbxVehiculo)
-        Me.Panel1.Controls.Add(Me.btnEmpleados)
-        Me.Panel1.Controls.Add(Me.btnVehiculos)
-        Me.Panel1.Controls.Add(Me.btnClientes)
-        Me.Panel1.Location = New System.Drawing.Point(0, 12)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(255, 872)
-        Me.Panel1.TabIndex = 2
+        Me.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.pnlSidebar.Controls.Add(Me.Panel6)
+        Me.pnlSidebar.Controls.Add(Me.btnReservas)
+        Me.pnlSidebar.Controls.Add(Me.btnMantenimiento)
+        Me.pnlSidebar.Controls.Add(Me.pbxVehiculo)
+        Me.pnlSidebar.Controls.Add(Me.btnEmpleados)
+        Me.pnlSidebar.Controls.Add(Me.btnVehiculos)
+        Me.pnlSidebar.Controls.Add(Me.btnClientes)
+        Me.pnlSidebar.Location = New System.Drawing.Point(0, 12)
+        Me.pnlSidebar.Name = "pnlSidebar"
+        Me.pnlSidebar.Size = New System.Drawing.Size(255, 872)
+        Me.pnlSidebar.TabIndex = 2
         '
         'Panel6
         '
@@ -445,7 +451,7 @@ Partial Class MainMenu
         'btnReservas
         '
         Me.btnReservas.BackColor = System.Drawing.Color.Transparent
-        Me.btnReservas.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnReservas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnReservas.FlatAppearance.BorderSize = 0
         Me.btnReservas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnReservas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
@@ -462,7 +468,7 @@ Partial Class MainMenu
         'btnMantenimiento
         '
         Me.btnMantenimiento.BackColor = System.Drawing.Color.Transparent
-        Me.btnMantenimiento.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnMantenimiento.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnMantenimiento.FlatAppearance.BorderSize = 0
         Me.btnMantenimiento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnMantenimiento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
@@ -476,10 +482,20 @@ Partial Class MainMenu
         Me.btnMantenimiento.Text = "MANTENIMIENTO"
         Me.btnMantenimiento.UseVisualStyleBackColor = False
         '
+        'pbxVehiculo
+        '
+        Me.pbxVehiculo.Image = Global.CarSolutioner.My.Resources.Resources.blanco
+        Me.pbxVehiculo.Location = New System.Drawing.Point(61, 30)
+        Me.pbxVehiculo.Name = "pbxVehiculo"
+        Me.pbxVehiculo.Size = New System.Drawing.Size(128, 96)
+        Me.pbxVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxVehiculo.TabIndex = 1
+        Me.pbxVehiculo.TabStop = False
+        '
         'btnEmpleados
         '
         Me.btnEmpleados.BackColor = System.Drawing.Color.Transparent
-        Me.btnEmpleados.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnEmpleados.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnEmpleados.FlatAppearance.BorderSize = 0
         Me.btnEmpleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
@@ -496,7 +512,7 @@ Partial Class MainMenu
         'btnVehiculos
         '
         Me.btnVehiculos.BackColor = System.Drawing.Color.Transparent
-        Me.btnVehiculos.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnVehiculos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnVehiculos.FlatAppearance.BorderSize = 0
         Me.btnVehiculos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnVehiculos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
@@ -513,7 +529,7 @@ Partial Class MainMenu
         'btnClientes
         '
         Me.btnClientes.BackColor = System.Drawing.Color.Transparent
-        Me.btnClientes.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnClientes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnClientes.FlatAppearance.BorderSize = 0
         Me.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
@@ -539,7 +555,7 @@ Partial Class MainMenu
         Me.tbcTabControl.Controls.Add(Me.tbpVehiculos)
         Me.tbcTabControl.Controls.Add(Me.tbpEmpleados)
         Me.tbcTabControl.Controls.Add(Me.tbpMantenimiento)
-        Me.tbcTabControl.Location = New System.Drawing.Point(230, 18)
+        Me.tbcTabControl.Location = New System.Drawing.Point(228, 24)
         Me.tbcTabControl.Margin = New System.Windows.Forms.Padding(0)
         Me.tbcTabControl.Name = "tbcTabControl"
         Me.tbcTabControl.Padding = New System.Drawing.Point(0, 0)
@@ -1392,6 +1408,16 @@ Partial Class MainMenu
         Me.tbpMenuPrincipal.Size = New System.Drawing.Size(1379, 862)
         Me.tbpMenuPrincipal.TabIndex = 4
         Me.tbpMenuPrincipal.Text = "MenuPrincipal"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.CoypyRight
+        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'tbpClientes
         '
@@ -4040,47 +4066,21 @@ Partial Class MainMenu
         Me.TextBox39.Size = New System.Drawing.Size(100, 20)
         Me.TextBox39.TabIndex = 22
         '
-        'Button18
+        'btnCerrar
         '
-        Me.Button18.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button18.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button18.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button18.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button18.ForeColor = System.Drawing.Color.Transparent
-        Me.Button18.Location = New System.Drawing.Point(1571, 0)
-        Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(32, 24)
-        Me.Button18.TabIndex = 35
-        Me.Button18.Text = "✕"
-        Me.Button18.UseVisualStyleBackColor = False
-        '
-        'pbxVehiculo
-        '
-        Me.pbxVehiculo.Image = Global.CarSolutioner.My.Resources.Resources.blanco
-        Me.pbxVehiculo.Location = New System.Drawing.Point(61, 30)
-        Me.pbxVehiculo.Name = "pbxVehiculo"
-        Me.pbxVehiculo.Size = New System.Drawing.Size(128, 96)
-        Me.pbxVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxVehiculo.TabIndex = 1
-        Me.pbxVehiculo.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.Copyright_xd
-        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
-        'AgregarToolStripMenuItem
-        '
-        Me.AgregarToolStripMenuItem.Name = "AgregarToolStripMenuItem"
-        Me.AgregarToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.AgregarToolStripMenuItem.Text = "Cambios Generales"
+        Me.btnCerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCerrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
+        Me.btnCerrar.Location = New System.Drawing.Point(1571, 0)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(32, 24)
+        Me.btnCerrar.TabIndex = 35
+        Me.btnCerrar.Text = "✕"
+        Me.btnCerrar.UseVisualStyleBackColor = False
         '
         'MainMenu
         '
@@ -4088,9 +4088,9 @@ Partial Class MainMenu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1604, 882)
-        Me.Controls.Add(Me.Button18)
+        Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.mstMenuStrip)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pnlSidebar)
         Me.Controls.Add(Me.tbcTabControl)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -4101,7 +4101,8 @@ Partial Class MainMenu
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.mstMenuStrip.ResumeLayout(False)
         Me.mstMenuStrip.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
+        Me.pnlSidebar.ResumeLayout(False)
+        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbcTabControl.ResumeLayout(False)
         Me.tbpReservas.ResumeLayout(False)
         Me.pnlBRes.ResumeLayout(False)
@@ -4114,6 +4115,7 @@ Partial Class MainMenu
         Me.pnlARes.ResumeLayout(False)
         Me.pnlARes.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpClientes.ResumeLayout(False)
         Me.pnlBcli.ResumeLayout(False)
         Me.pnlBcli.PerformLayout()
@@ -4154,17 +4156,15 @@ Partial Class MainMenu
         CType(Me.dtvmant, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAmant.ResumeLayout(False)
         Me.pnlAmant.PerformLayout()
-        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents mstMenuStrip As MenuStrip
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents pnlSidebar As Panel
     Friend WithEvents btnReservas As Button
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ProgramaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsItemHerramientas As ToolStripMenuItem
     Friend WithEvents pbxVehiculo As PictureBox
     Friend WithEvents btnVehiculos As Button
     Friend WithEvents btnClientes As Button
@@ -4357,7 +4357,7 @@ Partial Class MainMenu
     Friend WithEvents Label75 As Label
     Friend WithEvents Label76 As Label
     Friend WithEvents TextBox15 As TextBox
-    Friend WithEvents Button18 As Button
+    Friend WithEvents btnCerrar As Button
     Friend WithEvents pnlBcli As Panel
     Friend WithEvents Button2 As Button
     Friend WithEvents Label79 As Label
@@ -4477,5 +4477,5 @@ Partial Class MainMenu
     Friend WithEvents ComboBox40 As ComboBox
     Friend WithEvents Label108 As Label
     Friend WithEvents ComboBox41 As ComboBox
-    Friend WithEvents AgregarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsitemCambiosGenerales As ToolStripMenuItem
 End Class

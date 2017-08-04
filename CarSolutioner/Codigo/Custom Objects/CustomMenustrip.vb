@@ -1,7 +1,7 @@
 ﻿Module CustomMenustrip
 
     'Le decimos a cual MenuStrip le queremos asignar nuestro propio Renderer.
-    Public Sub Asignarmenustrip(menustrip As MenuStrip)
+    Public Sub CambiarRenderMenuStrip(menustrip As MenuStrip)
         menustrip.Renderer = New MyRenderer()
 
     End Sub

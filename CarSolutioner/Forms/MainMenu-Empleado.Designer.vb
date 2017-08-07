@@ -484,7 +484,7 @@ Partial Class MainMenu
         '
         'pbxVehiculo
         '
-        Me.pbxVehiculo.Image = Global.CarSolutioner.My.Resources.Resources.AutoBlanco
+        Me.pbxVehiculo.Image = Global.CarSolutioner.My.Resources.Resources.blanco
         Me.pbxVehiculo.Location = New System.Drawing.Point(61, 30)
         Me.pbxVehiculo.Name = "pbxVehiculo"
         Me.pbxVehiculo.Size = New System.Drawing.Size(128, 96)

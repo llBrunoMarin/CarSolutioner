@@ -113,6 +113,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Codigo\Class1.vb" />
     <Compile Include="Codigo\Custom Objects\CustomMenustrip.vb" />
     <Compile Include="Forms\CambiosGenerales.Designer.vb">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>

@@ -13,14 +13,12 @@
 
     End Sub
 
-    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnMantenimiento.Click, btnReservas.Click, btnClientes.Click, btnVehiculos.Click, btnEmpleados.Click, pbxVehiculo.Click
+    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnReservas.Click, btnClientes.Click, btnVehiculos.Click, pbxVehiculo.Click
 
         ResetColors()
 
         Select Case sender.Name
 
-            Case "btnMantenimiento"
-                SetTabAndColors(btnMantenimiento, tbpMantenimiento, Color.Silver)
 
             Case "btnReservas"
                 SetTabAndColors(btnReservas, tbpReservas, Color.Silver)
@@ -31,8 +29,6 @@
             Case "btnVehiculos"
                 SetTabAndColors(btnVehiculos, tbpVehiculos, Color.Silver)
 
-            Case "btnEmpleados"
-                SetTabAndColors(btnEmpleados, tbpEmpleados, Color.Silver)
 
             Case "pbxVehiculo"
                 tbcTabControl.SelectedTab = tbpMenuPrincipal
@@ -85,7 +81,11 @@
     End Sub
 
 
-    Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
+    Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs)
         frmCambiosGenerales.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
     End Sub
 End Class

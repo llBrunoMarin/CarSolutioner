@@ -148,7 +148,6 @@ Partial Class MainMenu
         Me.dtvcli = New System.Windows.Forms.DataGridView()
         Me.pnlAcli = New System.Windows.Forms.Panel()
         Me.txtCorreoACliente = New System.Windows.Forms.TextBox()
-        Me.cbxTipoDocumACliente = New System.Windows.Forms.ComboBox()
         Me.txtApellidoACliente = New System.Windows.Forms.TextBox()
         Me.txtNombreACliente = New System.Windows.Forms.TextBox()
         Me.txtDocumACliente = New System.Windows.Forms.TextBox()
@@ -342,6 +341,9 @@ Partial Class MainMenu
         Me.ComboBox51 = New System.Windows.Forms.ComboBox()
         Me.TextBox39 = New System.Windows.Forms.TextBox()
         Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.cbxTipoDocumACliente = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label115 = New System.Windows.Forms.Label()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1836,8 +1838,10 @@ Partial Class MainMenu
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlAcli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlAcli.Controls.Add(Me.txtCorreoACliente)
+        Me.pnlAcli.Controls.Add(Me.Label115)
+        Me.pnlAcli.Controls.Add(Me.TextBox1)
         Me.pnlAcli.Controls.Add(Me.cbxTipoDocumACliente)
+        Me.pnlAcli.Controls.Add(Me.txtCorreoACliente)
         Me.pnlAcli.Controls.Add(Me.txtApellidoACliente)
         Me.pnlAcli.Controls.Add(Me.txtNombreACliente)
         Me.pnlAcli.Controls.Add(Me.txtDocumACliente)
@@ -1863,14 +1867,6 @@ Partial Class MainMenu
         Me.txtCorreoACliente.Name = "txtCorreoACliente"
         Me.txtCorreoACliente.Size = New System.Drawing.Size(100, 20)
         Me.txtCorreoACliente.TabIndex = 35
-        '
-        'cbxTipoDocumACliente
-        '
-        Me.cbxTipoDocumACliente.FormattingEnabled = True
-        Me.cbxTipoDocumACliente.Location = New System.Drawing.Point(13, 66)
-        Me.cbxTipoDocumACliente.Name = "cbxTipoDocumACliente"
-        Me.cbxTipoDocumACliente.Size = New System.Drawing.Size(107, 21)
-        Me.cbxTipoDocumACliente.TabIndex = 34
         '
         'txtApellidoACliente
         '
@@ -2012,7 +2008,7 @@ Partial Class MainMenu
         Me.dtpFecNacACliente.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFecNacACliente.Location = New System.Drawing.Point(126, 123)
         Me.dtpFecNacACliente.Name = "dtpFecNacACliente"
-        Me.dtpFecNacACliente.Size = New System.Drawing.Size(136, 20)
+        Me.dtpFecNacACliente.Size = New System.Drawing.Size(130, 20)
         Me.dtpFecNacACliente.TabIndex = 21
         '
         'tbpVehiculos
@@ -4082,6 +4078,33 @@ Partial Class MainMenu
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False
         '
+        'cbxTipoDocumACliente
+        '
+        Me.cbxTipoDocumACliente.FormattingEnabled = True
+        Me.cbxTipoDocumACliente.Location = New System.Drawing.Point(10, 67)
+        Me.cbxTipoDocumACliente.Name = "cbxTipoDocumACliente"
+        Me.cbxTipoDocumACliente.Size = New System.Drawing.Size(107, 21)
+        Me.cbxTipoDocumACliente.TabIndex = 36
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(366, 123)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 37
+        '
+        'Label115
+        '
+        Me.Label115.AutoSize = True
+        Me.Label115.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label115.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label115.Location = New System.Drawing.Point(363, 103)
+        Me.Label115.Name = "Label115"
+        Me.Label115.Size = New System.Drawing.Size(58, 17)
+        Me.Label115.TabIndex = 38
+        Me.Label115.Tag = ""
+        Me.Label115.Text = "Empresa"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4405,7 +4428,6 @@ Partial Class MainMenu
     Friend WithEvents txtTelefonoACliente As TextBox
     Friend WithEvents dtpFecNacACliente As DateTimePicker
     Friend WithEvents txtCorreoACliente As TextBox
-    Friend WithEvents cbxTipoDocumACliente As ComboBox
     Friend WithEvents txtApellidoACliente As TextBox
     Friend WithEvents txtNombreACliente As TextBox
     Friend WithEvents txtDocumACliente As TextBox
@@ -4478,4 +4500,7 @@ Partial Class MainMenu
     Friend WithEvents Label108 As Label
     Friend WithEvents ComboBox41 As ComboBox
     Friend WithEvents tsitemCambiosGenerales As ToolStripMenuItem
+    Friend WithEvents Label115 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents cbxTipoDocumACliente As ComboBox
 End Class

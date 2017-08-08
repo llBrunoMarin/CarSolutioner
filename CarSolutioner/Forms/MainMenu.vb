@@ -1,5 +1,5 @@
 ﻿Public Class MainMenu
-
+    Dim conexion As ConnectionBD = Login.conexion
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'Le cambiamos el renderer al MenuStrip (cuestiones de diseño)
@@ -87,5 +87,13 @@
 
     Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
         frmCambiosGenerales.Show()
+    End Sub
+
+    Private Sub pnlAcli_Paint(sender As Object, e As PaintEventArgs) Handles pnlAcli.Paint
+
+    End Sub
+
+    Private Sub btnVaciarFClientes_Click(sender As Object, e As EventArgs) Handles btnVaciarFClientes.Click
+
     End Sub
 End Class

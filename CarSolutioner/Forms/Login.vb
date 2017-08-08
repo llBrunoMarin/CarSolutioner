@@ -1,6 +1,6 @@
 ﻿Public Class Login
 
-
+    Public conexion As New ConnectionBD
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
@@ -19,30 +19,30 @@
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
-        SetUsuario(txtUsuario.Text)
-        SetContraseña(txtContraseña.Text)
+        conexion.SetUsuario(txtUsuario.Text)
+        conexion.SetContraseña(txtContraseña.Text)
 
         If Not (txtContraseña.Text = "" Or txtUsuario.Text = "") Then
 
             'Si conecta:
-            If (conectar(GetUsuario(), GetContraseña())) Then
+            If (conexion.conectar(conexion.GetUsuario(), conexion.GetContraseña())) Then
                 'Cerrar esa conexión
-                cerrar()
+                conexion.cerrar()
 
                 'Abrir, ejecutar un select, y cerrar conexión.
-                Dim tipousuario As DataTable
-                tipousuario = ejecutarSelect("SELECT tipo FROM empleado where usuario='" + GetUsuario() + "'  ;")
+                Dim tipousuario As New DataTable
+                tipousuario = conexion.ejecutarSelect("SELECT tipo FROM empleado where usuario='" & txtUsuario.Text & "'  ;")
 
                 Select Case tipousuario.Rows(0).Item(0)
-                    Case 0
-                        Me.Hide()
-                        MainMenu.Show()
-                        cerrar()
-
                     Case 1
                         Me.Hide()
+                        MainMenu.Show()
+
+
+                    Case 4
+                        Me.Hide()
                         MainMenuEmpleado.Show()
-                        cerrar()
+
 
                 End Select
 

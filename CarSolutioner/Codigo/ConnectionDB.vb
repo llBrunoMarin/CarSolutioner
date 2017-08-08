@@ -1,4 +1,4 @@
-﻿Module ConnectionBD
+﻿Public Class ConnectionBD
 
     Dim cx As New Odbc.OdbcConnection
     Dim cm As New Odbc.OdbcCommand
@@ -9,7 +9,7 @@
     Dim Usuario As String = Nothing
     Dim Contraseña As String = Nothing
 
-    Function GetUsuario() As String
+    Public Function GetUsuario() As String
 
         If Not IsNothing(Usuario) Then
             Return Usuario
@@ -19,11 +19,11 @@
 
     End Function
 
-    Sub SetUsuario(user As String)
+    Public Sub SetUsuario(user As String)
         Usuario = user
     End Sub
 
-    Function GetContraseña() As String
+    Public Function GetContraseña() As String
         If Not IsNothing(Contraseña) Then
             Return Contraseña
         End If
@@ -31,13 +31,13 @@
         Return False
     End Function
 
-    Sub SetContraseña(password As String)
+    Public Sub SetContraseña(password As String)
         Contraseña = password
     End Sub
 
 
-    Function ejecutarSelect(sentencia As String) As Object
-        Dim dt As New Data.DataTable
+    Public Function ejecutarSelect(sentencia As String, dt As DataTable) As Object
+
 
         conectar(GetUsuario(), GetContraseña())
         Try
@@ -55,7 +55,7 @@
 
             MsgBox(ex.Message)
 
-            Return False
+
 
         Finally
 
@@ -71,13 +71,13 @@
     'segun cual sea el error (error de conexión, error de primary key, etc)
 
     'Abrir y cerrar la conexión con la BD. La idea es abrirla antes de ejecutar una sentencia, y cerrarla al finalizar.
-    Function conectar(Usuario, Contraseña) As Boolean
+    Public Function conectar(Usuario, Contraseña) As Boolean
         Try
             'SERVIDOR UTU
-            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranth_solutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranth_solutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
             'SERVIDOR VICTOR
-            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
             cx.Open()
             Return True
 
@@ -105,7 +105,7 @@
 
     End Function
 
-    Function cerrar() As Boolean
+    Public Function cerrar() As Boolean
         Try
             cx.Close()
             Return True
@@ -121,7 +121,7 @@
 
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
-    Function ejecutarNonQuery(sentencia As String) As Boolean
+    Public Function ejecutarNonQuery(sentencia As String) As Boolean
         Dim nrofilas As Integer
         conectar(Usuario, Contraseña)
 
@@ -187,4 +187,4 @@
 
 
 
-End Module
+End Class

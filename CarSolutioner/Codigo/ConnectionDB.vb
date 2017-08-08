@@ -6,11 +6,17 @@
     Dim ds As New Data.DataSet
     Dim dr As Odbc.OdbcDataReader
 
-    Dim Usuario As String
-    Dim Contraseña As String
+    Dim Usuario As String = Nothing
+    Dim Contraseña As String = Nothing
 
     Function GetUsuario() As String
-        Return Usuario
+
+        If Not IsNothing(Usuario) Then
+            Return Usuario
+        End If
+
+        Return False
+
     End Function
 
     Sub SetUsuario(user As String)
@@ -18,12 +24,47 @@
     End Sub
 
     Function GetContraseña() As String
-        Return Contraseña
+        If Not IsNothing(Contraseña) Then
+            Return Contraseña
+        End If
+
+        Return False
     End Function
 
     Sub SetContraseña(password As String)
         Contraseña = password
     End Sub
+
+
+    Function ejecutarSelect(sentencia As String) As Object
+        Dim dt As New Data.DataTable
+
+        conectar(GetUsuario(), GetContraseña())
+        Try
+
+            cm.Connection = cx
+            cm.CommandText = sentencia
+
+            'Le carga a la tabla el resultado de ejecutar el comando.
+            dt.Load(cm.ExecuteReader())
+
+            'Devuelve la tabla
+            Return dt
+
+        Catch ex As Exception
+
+            MsgBox(ex.Message)
+
+            Return False
+
+        Finally
+
+            cerrar()
+
+        End Try
+
+
+    End Function
 
     'TODO: TryCatchs correspondientes, y crear + métodos.
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
@@ -142,35 +183,7 @@
 
     End Function
 
-    Function ejecutarSelect(sentencia As String)
-        Dim dt As New Data.DataTable
 
-        conectar(Usuario, Contraseña)
-        Try
-
-            cm.Connection = cx
-            cm.CommandText = sentencia
-
-            'Le carga a la tabla el resultado de ejecutar el comando.
-            dt.Load(cm.ExecuteReader())
-
-            'Devuelve la tabla
-            Return dt
-
-        Catch ex As Exception
-
-            MsgBox(ex.Message)
-            Throw ex
-            Return False
-
-        Finally
-
-            cerrar()
-
-        End Try
-
-
-    End Function
 
 
 

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MainMenu
+Partial Class MainMenuEmpleado
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class MainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMenu))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMenuEmpleado))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -38,6 +38,7 @@ Partial Class MainMenu
         Me.btnClientes = New System.Windows.Forms.Button()
         Me.tbcTabControl = New System.Windows.Forms.TabControl()
         Me.tbpReservas = New System.Windows.Forms.TabPage()
+        Me.Label115 = New System.Windows.Forms.Label()
         Me.pnlBRes = New System.Windows.Forms.Panel()
         Me.btnBajaBRes = New System.Windows.Forms.Button()
         Me.Label27 = New System.Windows.Forms.Label()
@@ -567,6 +568,7 @@ Partial Class MainMenu
         'tbpReservas
         '
         Me.tbpReservas.BackColor = System.Drawing.Color.Silver
+        Me.tbpReservas.Controls.Add(Me.Label115)
         Me.tbpReservas.Controls.Add(Me.pnlBRes)
         Me.tbpReservas.Controls.Add(Me.pnlMRes)
         Me.tbpReservas.Controls.Add(Me.pnlFRes)
@@ -578,6 +580,15 @@ Partial Class MainMenu
         Me.tbpReservas.Size = New System.Drawing.Size(1379, 862)
         Me.tbpReservas.TabIndex = 0
         Me.tbpReservas.Text = "Reservas"
+        '
+        'Label115
+        '
+        Me.Label115.AutoSize = True
+        Me.Label115.Location = New System.Drawing.Point(268, 252)
+        Me.Label115.Name = "Label115"
+        Me.Label115.Size = New System.Drawing.Size(110, 13)
+        Me.Label115.TabIndex = 33
+        Me.Label115.Text = "SOS UN EMPLEADO"
         '
         'pnlBRes
         '
@@ -4082,7 +4093,7 @@ Partial Class MainMenu
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False
         '
-        'MainMenu
+        'MainMenuEmpleado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -4096,7 +4107,7 @@ Partial Class MainMenu
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.mstMenuStrip
         Me.MinimumSize = New System.Drawing.Size(1024, 768)
-        Me.Name = "MainMenu"
+        Me.Name = "MainMenuEmpleado"
         Me.Text = "Car Solutioner"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.mstMenuStrip.ResumeLayout(False)
@@ -4105,6 +4116,7 @@ Partial Class MainMenu
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbcTabControl.ResumeLayout(False)
         Me.tbpReservas.ResumeLayout(False)
+        Me.tbpReservas.PerformLayout()
         Me.pnlBRes.ResumeLayout(False)
         Me.pnlBRes.PerformLayout()
         Me.pnlMRes.ResumeLayout(False)
@@ -4478,4 +4490,5 @@ Partial Class MainMenu
     Friend WithEvents Label108 As Label
     Friend WithEvents ComboBox41 As ComboBox
     Friend WithEvents tsitemCambiosGenerales As ToolStripMenuItem
+    Friend WithEvents Label115 As Label
 End Class

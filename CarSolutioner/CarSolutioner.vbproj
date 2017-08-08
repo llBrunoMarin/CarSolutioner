@@ -126,6 +126,12 @@
     <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\MainMenuEmpleado.Designer.vb">
+      <DependentUpon>MainMenuEmpleado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainMenuEmpleado.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\MainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainMenuEmpleado.resx">
+      <DependentUpon>MainMenuEmpleado.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>

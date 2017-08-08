@@ -30,8 +30,8 @@ Partial Class Login
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.lblmayus = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -44,22 +44,20 @@ Partial Class Login
         '
         'txtContraseña
         '
-        Me.txtContraseña.ForeColor = System.Drawing.Color.Gray
+        Me.txtContraseña.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtContraseña.Location = New System.Drawing.Point(218, 242)
         Me.txtContraseña.Name = "txtContraseña"
         Me.txtContraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.txtContraseña.Size = New System.Drawing.Size(99, 20)
         Me.txtContraseña.TabIndex = 0
-        Me.txtContraseña.Text = "Contraseña"
         '
         'txtUsuario
         '
-        Me.txtUsuario.ForeColor = System.Drawing.SystemColors.WindowFrame
+        Me.txtUsuario.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtUsuario.Location = New System.Drawing.Point(218, 196)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(99, 20)
         Me.txtUsuario.TabIndex = 0
-        Me.txtUsuario.Text = "Usuario"
         '
         'btnLogin
         '
@@ -111,35 +109,35 @@ Partial Class Login
         Me.Label2.TabIndex = 27
         Me.Label2.Text = "Contraseña"
         '
-        'Button1
+        'btnCerrar
         '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Cornsilk
-        Me.Button1.Location = New System.Drawing.Point(504, -1)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(32, 30)
-        Me.Button1.TabIndex = 29
-        Me.Button1.Text = "✕"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnCerrar.BackColor = System.Drawing.Color.Transparent
+        Me.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCerrar.ForeColor = System.Drawing.Color.Cornsilk
+        Me.btnCerrar.Location = New System.Drawing.Point(504, -1)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
+        Me.btnCerrar.TabIndex = 29
+        Me.btnCerrar.Text = "✕"
+        Me.btnCerrar.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnMinimizar
         '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Transparent
-        Me.Button2.Location = New System.Drawing.Point(470, -1)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(32, 30)
-        Me.Button2.TabIndex = 30
-        Me.Button2.Text = "—"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnMinimizar.BackColor = System.Drawing.Color.Transparent
+        Me.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMinimizar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMinimizar.ForeColor = System.Drawing.Color.Transparent
+        Me.btnMinimizar.Location = New System.Drawing.Point(470, -1)
+        Me.btnMinimizar.Name = "btnMinimizar"
+        Me.btnMinimizar.Size = New System.Drawing.Size(32, 30)
+        Me.btnMinimizar.TabIndex = 30
+        Me.btnMinimizar.Text = "—"
+        Me.btnMinimizar.UseVisualStyleBackColor = False
         '
         'lblmayus
         '
@@ -161,8 +159,8 @@ Partial Class Login
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.btnMinimizar)
+        Me.Panel1.Controls.Add(Me.btnCerrar)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
@@ -228,8 +226,8 @@ Partial Class Login
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnCerrar As Button
+    Friend WithEvents btnMinimizar As Button
     Friend WithEvents lblmayus As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Panel1 As Panel

@@ -37,11 +37,20 @@
                     Case 1
                         Me.Hide()
                         MainMenu.Show()
+                    Case 2
+                        Me.Hide()
+                        MainMenuGerente.Show()
+
+
+                    Case 3
+
 
 
                     Case 4
                         Me.Hide()
                         MainMenuEmpleado.Show()
+                    Case 5
+
 
 
                 End Select

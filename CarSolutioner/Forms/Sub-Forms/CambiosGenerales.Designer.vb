@@ -326,7 +326,7 @@ Partial Class frmCambiosGenerales
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmCambiosGenerales"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "CambiosGenerales"
+        Me.Text = "i"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.pnlSidebar.ResumeLayout(False)

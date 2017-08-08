@@ -6,40 +6,46 @@
     Dim ds As New Data.DataSet
     Dim dr As Odbc.OdbcDataReader
 
-    Dim Usuario As String = Nothing
-    Dim Contraseña As String = Nothing
+    Dim _Usuario As String = Nothing
+    Dim _Contraseña As String = Nothing
 
-    Public Function GetUsuario() As String
+    Public Property Usuario() As String
+        Get
+            Return _Usuario
+        End Get
+        Set(ByVal value As String)
+            _Usuario = value
+        End Set
+    End Property
 
-        If Not IsNothing(Usuario) Then
-            Return Usuario
-        End If
+    Public Property Contraseña() As String
+        Get
+            Return _Contraseña
+        End Get
+        Set(ByVal value As String)
+            _Contraseña = value
+        End Set
+    End Property
 
-        Return False
-
-    End Function
-
-    Public Sub SetUsuario(user As String)
-        Usuario = user
-    End Sub
-
-    Public Function GetContraseña() As String
-        If Not IsNothing(Contraseña) Then
-            Return Contraseña
-        End If
-
-        Return False
-    End Function
-
-    Public Sub SetContraseña(password As String)
-        Contraseña = password
-    End Sub
+    'Public Function ejecutarSelect(sentencia As String) As SelectReturn
 
 
-    Public Function ejecutarSelect(sentencia As String, dt As DataTable) As Object
 
 
-        conectar(GetUsuario(), GetContraseña())
+    'End Function
+
+    'TODO: TryCatchs correspondientes, y crear + métodos.
+    'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
+    'segun cual sea el error (error de conexión, error de primary key, etc)
+
+    'Abrir y cerrar la conexión con la BD. La idea es abrirla antes de ejecutar una sentencia, y cerrarla al finalizar.
+
+    'TODO Cambiar pendorcho
+    Public Function EjecutarSelect(sentencia As String) As DataTable
+        Dim dt As New DataTable
+
+
+        conectar(Me.Usuario, Me.Contraseña)
         Try
 
             cm.Connection = cx
@@ -54,6 +60,7 @@
         Catch ex As Exception
 
             MsgBox(ex.Message)
+            Return dt
 
 
 
@@ -62,19 +69,11 @@
             cerrar()
 
         End Try
-
-
     End Function
-
-    'TODO: TryCatchs correspondientes, y crear + métodos.
-    'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
-    'segun cual sea el error (error de conexión, error de primary key, etc)
-
-    'Abrir y cerrar la conexión con la BD. La idea es abrirla antes de ejecutar una sentencia, y cerrarla al finalizar.
     Public Function conectar(Usuario, Contraseña) As Boolean
         Try
             'SERVIDOR UTU
-            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranth_solutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
             'SERVIDOR VICTOR
             'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"

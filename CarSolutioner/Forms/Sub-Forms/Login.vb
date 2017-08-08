@@ -19,52 +19,46 @@
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
-        conexion.SetUsuario(txtUsuario.Text)
-        conexion.SetContraseña(txtContraseña.Text)
 
         If Not (txtContraseña.Text = "" Or txtUsuario.Text = "") Then
 
+            conexion.Usuario = txtUsuario.Text
+            conexion.Contraseña = txtContraseña.Text
+
             'Si conecta:
-            If (conexion.conectar(conexion.GetUsuario(), conexion.GetContraseña())) Then
+            If (conexion.conectar(conexion.Usuario, conexion.Contraseña)) Then
                 'Cerrar esa conexión
                 conexion.cerrar()
 
                 'Abrir, ejecutar un select, y cerrar conexión.
                 Dim tipousuario As New DataTable
-                tipousuario = conexion.ejecutarSelect("SELECT tipo FROM empleado where usuario='" & txtUsuario.Text & "'  ;")
+                tipousuario = conexion.EjecutarSelect("SELECT tipo from empleado where usuario = '" & conexion.Usuario & "' ;")
 
                 Select Case tipousuario.Rows(0).Item(0)
                     Case 1
                         Me.Hide()
                         MainMenu.Show()
-                    Case 2
-                        Me.Hide()
-                        MainMenuGerente.Show()
 
+                        'Case 2
+                        '    Me.Hide()
+                        '    MainMenuGerente.Show()
 
-                    Case 3
+                        'Case 3
+                        '    Me.Hide()
+                        '    MainMenuModerador.Show()
 
-
-
-                    Case 4
-                        Me.Hide()
-                        MainMenuEmpleado.Show()
-                    Case 5
-
-
+                        'Case 4
+                        '    Me.Hide()
+                        '    MainMenuEmpleado.Show()
 
                 End Select
 
             End If
 
-
-
-
-
-
         Else
 
             MsgBox("Usuario y/o Contraseña incorrectos.", MsgBoxStyle.Information, "Datos Incorrectos")
+
         End If
     End Sub
 
@@ -82,9 +76,4 @@
         End If
     End Sub
 
-    Private Sub txtUsuario_TextChanged(sender As Object, e As EventArgs) Handles txtUsuario.Click, txtContraseña.Click
-
-        sender.Text = ""
-
-    End Sub
 End Class

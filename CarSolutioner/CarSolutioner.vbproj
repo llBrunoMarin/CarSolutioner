@@ -113,48 +113,23 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Codigo\Class1.vb" />
     <Compile Include="Codigo\Custom Objects\CustomMenustrip.vb" />
-    <Compile Include="Forms\CambiosGenerales.Designer.vb">
+    <Compile Include="Forms\Sub-Forms\CambiosGenerales.Designer.vb">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CambiosGenerales.vb">
+    <Compile Include="Forms\Sub-Forms\CambiosGenerales.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Login.Designer.vb">
+    <Compile Include="Forms\Sub-Forms\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Login.vb">
+    <Compile Include="Forms\Sub-Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainMenuInvitado.Designer.vb">
-      <DependentUpon>MainMenuInvitado.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainMenuInvitado.vb">
+    <Compile Include="Forms\MainMenus\MainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainMenuModerador.Designer.vb">
-      <DependentUpon>MainMenuModerador.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainMenuModerador.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainMenuGerente.Designer.vb">
-      <DependentUpon>MainMenuGerente.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainMenuGerente.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainMenuEmpleado.Designer.vb">
-      <DependentUpon>MainMenuEmpleado.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainMenuEmpleado.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainMenu.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainMenu.Designer.vb">
+    <Compile Include="Forms\MainMenus\MainMenu.Designer.vb">
       <DependentUpon>MainMenu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -176,25 +151,13 @@
     <Compile Include="Codigo\ConnectionDB.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\CambiosGenerales.resx">
+    <EmbeddedResource Include="Forms\Sub-Forms\CambiosGenerales.resx">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Login.resx">
+    <EmbeddedResource Include="Forms\Sub-Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenuInvitado.resx">
-      <DependentUpon>MainMenuInvitado.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenuModerador.resx">
-      <DependentUpon>MainMenuModerador.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenuGerente.resx">
-      <DependentUpon>MainMenuGerente.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenuEmpleado.resx">
-      <DependentUpon>MainMenuEmpleado.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenu.resx">
+    <EmbeddedResource Include="Forms\MainMenus\MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

@@ -2,6 +2,7 @@
 
     Private Sub frmCambiosGenerales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tbcTabControl.ItemSize = New Size(0, 1)
+        btnSucursales.PerformClick()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
@@ -12,32 +13,28 @@
         Me.Dispose()
     End Sub
 
-    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnSucursales.Click, btnCategorias.Click, btnDocumento.Click, btnMantenimiento.Click, btnMarcas.Click, btnModelos.Click, btnReservas.Click
+    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnSucursales.Click, btnCategorias.Click, btnMarcas.Click, btnModelos.Click
 
         ResetColors()
 
         Select Case sender.Name
 
             Case "btnSucursales"
-                SetTabAndColors(btnSucursales, tbpSucursales, Color.Silver)
+                SetTabAndColors(btnSucursales, tbpSucursales, Color.White)
 
             Case "btnCategorias"
-                SetTabAndColors(btnCategorias, tbpCategorias, Color.Silver)
+                SetTabAndColors(btnCategorias, tbpCategorias, Color.White)
 
-            Case "btnDocumento"
-                SetTabAndColors(btnDocumento, tbpDocumento, Color.Silver)
 
-            Case "btnMantenimiento"
-                SetTabAndColors(btnMantenimiento, tbpMantenimiento, Color.Silver)
+
+
 
             Case "btnMarcas"
-                SetTabAndColors(btnMarcas, tbpMarcas, Color.Silver)
+                SetTabAndColors(btnMarcas, tbpMarcas, Color.White)
 
             Case "btnModelos"
-                SetTabAndColors(btnModelos, tbpModelos, Color.Silver)
+                SetTabAndColors(btnModelos, tbpModelos, Color.White)
 
-            Case "btnReservas"
-                SetTabAndColors(btnReservas, tbpReservas, Color.Silver)
 
         End Select
 
@@ -69,6 +66,10 @@
 
         pagina.BackColor = Color
         tbcTabControl.SelectedTab = pagina
+
+    End Sub
+
+    Private Sub tbpDocumento_Click(sender As Object, e As EventArgs) Handles tbpDocumento.Click
 
     End Sub
 End Class

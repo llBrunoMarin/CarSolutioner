@@ -39,17 +39,17 @@
                         Me.Hide()
                         MainMenu.Show()
 
-                        'Case 2
-                        '    Me.Hide()
-                        '    MainMenuGerente.Show()
+                    Case 2
+                        Me.Hide()
+                        MainMenuAdmin.Show()
 
-                        'Case 3
-                        '    Me.Hide()
-                        '    MainMenuModerador.Show()
+                    Case 3
+                        Me.Hide()
+                        MainMenuMod.Show()
 
-                        'Case 4
-                        '    Me.Hide()
-                        '    MainMenuEmpleado.Show()
+                    Case 4
+                        Me.Hide()
+                        MainMenuEmp.Show()
 
                 End Select
 
@@ -76,4 +76,7 @@
         End If
     End Sub
 
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        MainMenuInvitado.Show()
+    End Sub
 End Class

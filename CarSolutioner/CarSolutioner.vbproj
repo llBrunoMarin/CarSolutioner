@@ -114,30 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Codigo\Custom Objects\CustomMenustrip.vb" />
-    <Compile Include="Forms\MainMenus\MainMenuInvitado.Designer.vb">
-      <DependentUpon>MainMenuInvitado.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainMenus\MainMenuInvitado.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainMenus\MainMenuEmp.Designer.vb">
-      <DependentUpon>MainMenuEmp.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainMenus\MainMenuEmp.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainMenus\MainMenuMod.Designer.vb">
-      <DependentUpon>MainMenuMod.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainMenus\MainMenuMod.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainMenus\MainMenuAdmin.Designer.vb">
-      <DependentUpon>MainMenuAdmin.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainMenus\MainMenuAdmin.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Sub-Forms\CambiosGenerales.Designer.vb">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </Compile>
@@ -175,18 +151,6 @@
     <Compile Include="Codigo\ConnectionDB.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\MainMenus\MainMenuInvitado.resx">
-      <DependentUpon>MainMenuInvitado.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenus\MainMenuEmp.resx">
-      <DependentUpon>MainMenuEmp.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenus\MainMenuMod.resx">
-      <DependentUpon>MainMenuMod.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenus\MainMenuAdmin.resx">
-      <DependentUpon>MainMenuAdmin.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sub-Forms\CambiosGenerales.resx">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </EmbeddedResource>

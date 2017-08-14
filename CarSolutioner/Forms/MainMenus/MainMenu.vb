@@ -1,5 +1,6 @@
 ﻿Public Class MainMenu
     Dim conexion As ConnectionBD = Login.conexion
+
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'Le cambiamos el renderer al MenuStrip (cuestiones de diseño)
@@ -10,6 +11,9 @@
 
         '"Clickeamos" el botón Reservas (para que sea el botón presionado por defecto)
         btnReservas.PerformClick()
+
+        conexion.RellenarDataGridView(dgvCliente, "SELECT tipodocumento, nrodocumento, nombre, apellido, email, fecnac, empresa FROM CLIENTE")
+
 
     End Sub
 

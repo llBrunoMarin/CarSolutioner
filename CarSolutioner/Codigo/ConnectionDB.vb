@@ -70,6 +70,7 @@
 
         End Try
     End Function
+
     Public Function conectar(Usuario, Contraseña) As Boolean
         Try
             'SERVIDOR UTU
@@ -120,7 +121,7 @@
 
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
-    Public Function ejecutarNonQuery(sentencia As String) As Boolean
+    Public Function EjecutarNonQuery(sentencia As String) As Boolean
         Dim nrofilas As Integer
         conectar(Usuario, Contraseña)
 
@@ -153,29 +154,45 @@
 
     'Rellena un datagridview que se le coloca como parámetro, con el nombre de la tabla que también
     'entra como tal.
-    Function rellenarDataGridView(dgv As DataGridView, nombretabla As String)
+
+    Function RellenarDataGridView(dgv As DataGridView, sentencia As String)
 
         'Tenemos que crear el "DataTable" acá, para que cree una nueva instancia cada vez.
         'De lo contrario, el datagridview tendría el contenido de muchas tablas a la vez.
-        Dim dt As New Data.DataTable
 
-        conectar(Usuario, Contraseña)
+
+
         Try
 
-            cm.Connection = cx
-            cm.CommandText = "SELECT * FROM " + nombretabla
-            dt.Load(cm.ExecuteReader())
-            dgv.DataSource = dt
+            dgv.DataSource = EjecutarSelect(sentencia)
             Return True
 
         Catch ex As Exception
 
             MsgBox(ex.Message)
-            Throw ex
+
             Return False
 
         Finally
 
+            'Propiedades que queremos por defecto en todos los DataGridView.
+            dgv.Rows(0).Selected = False
+            dgv.ReadOnly = True
+            dgv.RowHeadersVisible = False
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            dgv.AllowUserToAddRows = False
+            dgv.AllowUserToDeleteRows = False
+            dgv.AllowUserToResizeColumns = False
+            dgv.AllowUserToResizeRows = False
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+
+
+            For Each column As DataGridViewColumn In dgv.Columns
+                Dim palabra() As Char = column.HeaderText.ToCharArray
+                palabra(0) = Char.ToUpper(palabra(0))
+                column.HeaderText = palabra
+
+            Next
             cerrar()
 
         End Try

@@ -33,7 +33,7 @@ Partial Class Login
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.lblmayus = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.tmrTimer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -153,9 +153,9 @@ Partial Class Login
         Me.lblmayus.Text = "¡Tienes las mayúsculas activadas!"
         Me.lblmayus.Visible = False
         '
-        'Timer1
+        'tmrTimer
         '
-        Me.Timer1.Enabled = True
+        Me.tmrTimer.Enabled = True
         '
         'Panel1
         '
@@ -243,7 +243,7 @@ Partial Class Login
     Friend WithEvents btnCerrar As Button
     Friend WithEvents btnMinimizar As Button
     Friend WithEvents lblmayus As Label
-    Friend WithEvents Timer1 As Timer
+    Friend WithEvents tmrTimer As Timer
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label3 As Label
 End Class

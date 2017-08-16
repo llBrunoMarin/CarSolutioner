@@ -114,6 +114,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Codigo\Custom Objects\CustomMenustrip.vb" />
+    <Compile Include="Forms\Menus\Admin\Partes\Mantenimiento.vb" />
+    <Compile Include="Forms\Menus\Admin\Partes\Clientes.vb" />
+    <Compile Include="Forms\Menus\Admin\Partes\Empleados.vb" />
+    <Compile Include="Forms\Menus\Admin\Partes\Reservas.vb" />
+    <Compile Include="Forms\Menus\Admin\Partes\Vehiculos.vb" />
     <Compile Include="Forms\Sub-Forms\CambiosGenerales.Designer.vb">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </Compile>
@@ -126,10 +131,10 @@
     <Compile Include="Forms\Sub-Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainMenus\MainMenu.vb">
+    <Compile Include="Forms\Menus\Admin\MainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainMenus\MainMenu.Designer.vb">
+    <Compile Include="Forms\Menus\Admin\MainMenu.Designer.vb">
       <DependentUpon>MainMenu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -157,7 +162,7 @@
     <EmbeddedResource Include="Forms\Sub-Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenus\MainMenu.resx">
+    <EmbeddedResource Include="Forms\Menus\Admin\MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

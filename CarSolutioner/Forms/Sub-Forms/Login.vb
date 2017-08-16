@@ -7,8 +7,9 @@
     End Sub
 
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    Private Sub tmrTimer_Tick(sender As Object, e As EventArgs) Handles tmrTimer.Tick
 
+        'Controla el mensaje de Mayúsculas activadas
         If My.Computer.Keyboard.CapsLock = True Then
             lblmayus.Visible = True
         Else
@@ -26,32 +27,41 @@
             conexion.Contraseña = txtContraseña.Text
 
             'Si conecta:
-            If (conexion.conectar(conexion.Usuario, conexion.Contraseña)) Then
+            If (conexion.Conectar(conexion.Usuario, conexion.Contraseña)) Then
                 'Cerrar esa conexión
-                conexion.cerrar()
+                conexion.Cerrar()
 
                 'Abrir, ejecutar un select, y cerrar conexión.
                 Dim tipousuario As New DataTable
                 tipousuario = conexion.EjecutarSelect("SELECT tipo from empleado where usuario = '" & conexion.Usuario & "' ;")
 
-                Select Case tipousuario.Rows(0).Item(0)
-                    Case 1
-                        Me.Hide()
-                        MainMenu.Show()
+                Try
+                    Select Case tipousuario.Rows(0).Item(0)
 
-                    Case 2
-                        Me.Hide()
-                        'MainMenuAdmin.Show()
 
-                    Case 3
-                        Me.Hide()
-                        'MainMenuMod.Show()
+                        Case 1
+                            Me.Hide()
+                            MainMenu.Show()
 
-                    Case 4
-                        Me.Hide()
-                        'MainMenuEmp.Show()
+                        Case 2
+                            Me.Hide()
+                            'MainMenuAdmin.Show()
 
-                End Select
+                        Case 3
+                            Me.Hide()
+                            'MainMenuMod.Show()
+
+                        Case 4
+                            Me.Hide()
+                            'MainMenuEmp.Show()
+
+                    End Select
+
+                Catch ex As IndexOutOfRangeException
+
+                    MsgBox("Tu usuario parece no tener un tipo asignado. Contáctate con el técnico de la empresa.", MsgBoxStyle.Information, "Datos Incorrectos")
+
+                End Try
 
             End If
 
@@ -69,6 +79,7 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
+
     Private Sub login_Enter(sender As Object, e As KeyEventArgs) Handles txtContraseña.KeyDown, txtUsuario.KeyDown
         If (e.KeyValue = Keys.Enter) Then
             Call Sub() btnLogin_Click(btnLogin, e)
@@ -76,7 +87,7 @@
         End If
     End Sub
 
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+    Private Sub lblInvitado_Click(sender As Object, e As EventArgs) Handles Label3.Click
         'MainMenuInvitado.Show()
     End Sub
 End Class

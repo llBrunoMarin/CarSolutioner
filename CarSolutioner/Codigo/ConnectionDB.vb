@@ -27,57 +27,18 @@
         End Set
     End Property
 
-    'Public Function ejecutarSelect(sentencia As String) As SelectReturn
 
-
-
-
-    'End Function
-
-    'TODO: TryCatchs correspondientes, y crear + métodos.
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
     'segun cual sea el error (error de conexión, error de primary key, etc)
 
     'Abrir y cerrar la conexión con la BD. La idea es abrirla antes de ejecutar una sentencia, y cerrarla al finalizar.
-
-    'TODO Cambiar pendorcho
-    Public Function EjecutarSelect(sentencia As String) As DataTable
-        Dim dt As New DataTable
-
-
-        conectar(Me.Usuario, Me.Contraseña)
-        Try
-
-            cm.Connection = cx
-            cm.CommandText = sentencia
-
-            'Le carga a la tabla el resultado de ejecutar el comando.
-            dt.Load(cm.ExecuteReader())
-
-            'Devuelve la tabla
-            Return dt
-
-        Catch ex As Exception
-
-            MsgBox(ex.Message)
-            Return dt
-
-
-
-        Finally
-
-            cerrar()
-
-        End Try
-    End Function
-
-    Public Function conectar(Usuario, Contraseña) As Boolean
+    Public Function Conectar(Usuario, Contraseña) As Boolean
         Try
             'SERVIDOR UTU
-            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
             'SERVIDOR VICTOR
-            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
             cx.Open()
             Return True
 
@@ -86,6 +47,7 @@
             If (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]") Or ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
 
                 MsgBox("Usuario y/o Contraseña incorrectos.", MsgBoxStyle.Information, "Datos Incorrectos")
+
             Else
 
                 MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
@@ -105,7 +67,7 @@
 
     End Function
 
-    Public Function cerrar() As Boolean
+    Public Function Cerrar() As Boolean
         Try
             cx.Close()
             Return True
@@ -117,13 +79,86 @@
 
     End Function
 
+    Public Function EjecutarSelect(sentencia As String) As DataTable
+        Dim dt As New DataTable
 
+
+        Conectar(Me.Usuario, Me.Contraseña)
+        Try
+
+            cm.Connection = cx
+            cm.CommandText = sentencia
+
+            'Le carga a la tabla el resultado de ejecutar el comando.
+            dt.Load(cm.ExecuteReader())
+
+            'Devuelve la tabla
+            Return dt
+
+        Catch ex As Exception
+
+            MsgBox(ex.Message)
+            Return dt
+
+        Finally
+
+            Cerrar()
+
+        End Try
+    End Function
+
+
+    Public Sub RellenarDataGridView(dgv As DataGridView, sentencia As String)
+
+        'Tenemos que crear el "DataTable" acá, para que cree una nueva instancia cada vez.
+        'De lo contrario, el datagridview tendría el contenido de muchas tablas a la vez.
+
+        Dim fuente As New BindingSource()
+
+        Try
+            fuente.DataSource = EjecutarSelect(sentencia)
+            dgv.DataSource = fuente
+
+
+        Catch ex As Exception
+
+            MsgBox(ex.Message)
+
+
+
+        Finally
+
+
+
+
+            'TODO: Una forma mejor de presentar los títulos, que no sea esta:
+            For Each column As DataGridViewColumn In dgv.Columns
+                Dim palabra() As Char = column.HeaderText.ToCharArray
+                palabra(0) = Char.ToUpper(palabra(0))
+                column.HeaderText = palabra
+
+            Next
+
+            'Propiedades que queremos por defecto en todos los DataGridView.
+            dgv.ReadOnly = True
+            dgv.RowHeadersVisible = False
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            dgv.AllowUserToAddRows = False
+            dgv.AllowUserToDeleteRows = False
+            dgv.AllowUserToResizeColumns = False
+            dgv.AllowUserToResizeRows = False
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
+            dgv.MultiSelect = False
+
+        End Try
+
+    End Sub
 
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
     Public Function EjecutarNonQuery(sentencia As String) As Boolean
         Dim nrofilas As Integer
-        conectar(Usuario, Contraseña)
+        Conectar(Usuario, Contraseña)
 
         Try
 
@@ -146,7 +181,7 @@
 
         Finally
 
-            cerrar()
+            Cerrar()
 
         End Try
 
@@ -154,53 +189,6 @@
 
     'Rellena un datagridview que se le coloca como parámetro, con el nombre de la tabla que también
     'entra como tal.
-
-    Function RellenarDataGridView(dgv As DataGridView, sentencia As String)
-
-        'Tenemos que crear el "DataTable" acá, para que cree una nueva instancia cada vez.
-        'De lo contrario, el datagridview tendría el contenido de muchas tablas a la vez.
-
-
-
-        Try
-
-            dgv.DataSource = EjecutarSelect(sentencia)
-            Return True
-
-        Catch ex As Exception
-
-            MsgBox(ex.Message)
-
-            Return False
-
-        Finally
-
-            'Propiedades que queremos por defecto en todos los DataGridView.
-            dgv.Rows(0).Selected = False
-            dgv.ReadOnly = True
-            dgv.RowHeadersVisible = False
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-            dgv.AllowUserToAddRows = False
-            dgv.AllowUserToDeleteRows = False
-            dgv.AllowUserToResizeColumns = False
-            dgv.AllowUserToResizeRows = False
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.ColumnHeader
-
-
-            For Each column As DataGridViewColumn In dgv.Columns
-                Dim palabra() As Char = column.HeaderText.ToCharArray
-                palabra(0) = Char.ToUpper(palabra(0))
-                column.HeaderText = palabra
-
-            Next
-            cerrar()
-
-        End Try
-
-    End Function
-
-
-
 
 
 End Class

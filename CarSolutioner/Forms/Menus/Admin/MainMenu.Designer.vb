@@ -22,6 +22,9 @@ Partial Class MainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -119,7 +122,7 @@ Partial Class MainMenu
         Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.btnVaciarFClientes = New System.Windows.Forms.Button()
-        Me.cbxTipoDocumACliente = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoDocumFCliente = New System.Windows.Forms.ComboBox()
         Me.Label86 = New System.Windows.Forms.Label()
         Me.Label87 = New System.Windows.Forms.Label()
         Me.Label88 = New System.Windows.Forms.Label()
@@ -131,7 +134,7 @@ Partial Class MainMenu
         Me.txtDocumFClientes = New System.Windows.Forms.TextBox()
         Me.txtApellidoFClientes = New System.Windows.Forms.TextBox()
         Me.txtNombreFClientes = New System.Windows.Forms.TextBox()
-        Me.dgvCliente = New System.Windows.Forms.DataGridView()
+        Me.dgvClientes = New System.Windows.Forms.DataGridView()
         Me.pnlAcli = New System.Windows.Forms.Panel()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label115 = New System.Windows.Forms.Label()
@@ -152,7 +155,7 @@ Partial Class MainMenu
         Me.txtTelefonoACliente = New System.Windows.Forms.TextBox()
         Me.dtpFecNacACliente = New System.Windows.Forms.DateTimePicker()
         Me.tbpVehiculos = New System.Windows.Forms.TabPage()
-        Me.dtvVehi = New System.Windows.Forms.DataGridView()
+        Me.dgvVehiculos = New System.Windows.Forms.DataGridView()
         Me.pnlBVehi = New System.Windows.Forms.Panel()
         Me.btnBajaBVeh = New System.Windows.Forms.Button()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -277,7 +280,7 @@ Partial Class MainMenu
         Me.ComboBox32 = New System.Windows.Forms.ComboBox()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.ComboBox34 = New System.Windows.Forms.ComboBox()
-        Me.dtvEmp = New System.Windows.Forms.DataGridView()
+        Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
         Me.pnlmmant = New System.Windows.Forms.Panel()
         Me.ComboBox43 = New System.Windows.Forms.ComboBox()
@@ -337,10 +340,10 @@ Partial Class MainMenu
         Me.pnlBcli.SuspendLayout()
         Me.pnlMcli.SuspendLayout()
         Me.pnlFcli.SuspendLayout()
-        CType(Me.dgvCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAcli.SuspendLayout()
         Me.tbpVehiculos.SuspendLayout()
-        CType(Me.dtvVehi, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvVehiculos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlBVehi.SuspendLayout()
         Me.pnlMVehi.SuspendLayout()
         Me.pnlFVehi.SuspendLayout()
@@ -350,7 +353,7 @@ Partial Class MainMenu
         Me.pnlBEmp.SuspendLayout()
         Me.pnlAEmp.SuspendLayout()
         Me.pnlFemp.SuspendLayout()
-        CType(Me.dtvEmp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvEmpleados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpMantenimiento.SuspendLayout()
         Me.pnlmmant.SuspendLayout()
         Me.pnlFmant.SuspendLayout()
@@ -1103,7 +1106,7 @@ Partial Class MainMenu
         Me.tbpClientes.Controls.Add(Me.pnlBcli)
         Me.tbpClientes.Controls.Add(Me.pnlMcli)
         Me.tbpClientes.Controls.Add(Me.pnlFcli)
-        Me.tbpClientes.Controls.Add(Me.dgvCliente)
+        Me.tbpClientes.Controls.Add(Me.dgvClientes)
         Me.tbpClientes.Controls.Add(Me.pnlAcli)
         Me.tbpClientes.Location = New System.Drawing.Point(4, 25)
         Me.tbpClientes.Margin = New System.Windows.Forms.Padding(0)
@@ -1427,7 +1430,7 @@ Partial Class MainMenu
         Me.pnlFcli.Controls.Add(Me.DateTimePicker3)
         Me.pnlFcli.Controls.Add(Me.Label19)
         Me.pnlFcli.Controls.Add(Me.btnVaciarFClientes)
-        Me.pnlFcli.Controls.Add(Me.cbxTipoDocumACliente)
+        Me.pnlFcli.Controls.Add(Me.cbxTipoDocumFCliente)
         Me.pnlFcli.Controls.Add(Me.Label86)
         Me.pnlFcli.Controls.Add(Me.Label87)
         Me.pnlFcli.Controls.Add(Me.Label88)
@@ -1470,9 +1473,9 @@ Partial Class MainMenu
         Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label19.Location = New System.Drawing.Point(11, 109)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(103, 17)
+        Me.Label19.Size = New System.Drawing.Size(106, 17)
         Me.Label19.TabIndex = 34
-        Me.Label19.Text = "Nro Documento"
+        Me.Label19.Text = "Tipo Documento"
         '
         'btnVaciarFClientes
         '
@@ -1492,13 +1495,14 @@ Partial Class MainMenu
         Me.btnVaciarFClientes.Text = "Vaciar"
         Me.btnVaciarFClientes.UseVisualStyleBackColor = False
         '
-        'cbxTipoDocumACliente
+        'cbxTipoDocumFCliente
         '
-        Me.cbxTipoDocumACliente.FormattingEnabled = True
-        Me.cbxTipoDocumACliente.Location = New System.Drawing.Point(14, 129)
-        Me.cbxTipoDocumACliente.Name = "cbxTipoDocumACliente"
-        Me.cbxTipoDocumACliente.Size = New System.Drawing.Size(107, 21)
-        Me.cbxTipoDocumACliente.TabIndex = 36
+        Me.cbxTipoDocumFCliente.FormattingEnabled = True
+        Me.cbxTipoDocumFCliente.Items.AddRange(New Object() {"CI UY", "SYSTEM"})
+        Me.cbxTipoDocumFCliente.Location = New System.Drawing.Point(13, 128)
+        Me.cbxTipoDocumFCliente.Name = "cbxTipoDocumFCliente"
+        Me.cbxTipoDocumFCliente.Size = New System.Drawing.Size(101, 21)
+        Me.cbxTipoDocumFCliente.TabIndex = 36
         '
         'Label86
         '
@@ -1601,16 +1605,18 @@ Partial Class MainMenu
         Me.txtNombreFClientes.Size = New System.Drawing.Size(100, 20)
         Me.txtNombreFClientes.TabIndex = 22
         '
-        'dgvCliente
+        'dgvClientes
         '
-        Me.dgvCliente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvClientes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCliente.Location = New System.Drawing.Point(29, 7)
-        Me.dgvCliente.Name = "dgvCliente"
-        Me.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCliente.Size = New System.Drawing.Size(704, 817)
-        Me.dgvCliente.TabIndex = 39
+        Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvClientes.Location = New System.Drawing.Point(29, 7)
+        Me.dgvClientes.Name = "dgvClientes"
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvClientes.RowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvClientes.Size = New System.Drawing.Size(704, 817)
+        Me.dgvClientes.TabIndex = 39
         '
         'pnlAcli
         '
@@ -1821,7 +1827,7 @@ Partial Class MainMenu
         'tbpVehiculos
         '
         Me.tbpVehiculos.BackColor = System.Drawing.Color.Silver
-        Me.tbpVehiculos.Controls.Add(Me.dtvVehi)
+        Me.tbpVehiculos.Controls.Add(Me.dgvVehiculos)
         Me.tbpVehiculos.Controls.Add(Me.pnlBVehi)
         Me.tbpVehiculos.Controls.Add(Me.pnlMVehi)
         Me.tbpVehiculos.Controls.Add(Me.pnlFVehi)
@@ -1834,15 +1840,15 @@ Partial Class MainMenu
         Me.tbpVehiculos.TabIndex = 2
         Me.tbpVehiculos.Text = "Vehiculos"
         '
-        'dtvVehi
+        'dgvVehiculos
         '
-        Me.dtvVehi.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvVehiculos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.dtvVehi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtvVehi.Location = New System.Drawing.Point(29, 7)
-        Me.dtvVehi.Name = "dtvVehi"
-        Me.dtvVehi.Size = New System.Drawing.Size(704, 817)
-        Me.dtvVehi.TabIndex = 37
+        Me.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvVehiculos.Location = New System.Drawing.Point(29, 7)
+        Me.dgvVehiculos.Name = "dgvVehiculos"
+        Me.dgvVehiculos.Size = New System.Drawing.Size(704, 817)
+        Me.dgvVehiculos.TabIndex = 37
         '
         'pnlBVehi
         '
@@ -2776,7 +2782,7 @@ Partial Class MainMenu
         Me.tbpEmpleados.Controls.Add(Me.pnlBEmp)
         Me.tbpEmpleados.Controls.Add(Me.pnlAEmp)
         Me.tbpEmpleados.Controls.Add(Me.pnlFemp)
-        Me.tbpEmpleados.Controls.Add(Me.dtvEmp)
+        Me.tbpEmpleados.Controls.Add(Me.dgvEmpleados)
         Me.tbpEmpleados.Location = New System.Drawing.Point(4, 25)
         Me.tbpEmpleados.Margin = New System.Windows.Forms.Padding(0)
         Me.tbpEmpleados.Name = "tbpEmpleados"
@@ -3267,15 +3273,31 @@ Partial Class MainMenu
         Me.ComboBox34.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox34.TabIndex = 17
         '
-        'dtvEmp
+        'dgvEmpleados
         '
-        Me.dtvEmp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvEmpleados.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.dtvEmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtvEmp.Location = New System.Drawing.Point(29, 7)
-        Me.dtvEmp.Name = "dtvEmp"
-        Me.dtvEmp.Size = New System.Drawing.Size(704, 816)
-        Me.dtvEmp.TabIndex = 10
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvEmpleados.Location = New System.Drawing.Point(29, 7)
+        Me.dgvEmpleados.Name = "dgvEmpleados"
+        Me.dgvEmpleados.Size = New System.Drawing.Size(704, 816)
+        Me.dgvEmpleados.TabIndex = 10
         '
         'tbpMantenimiento
         '
@@ -3828,11 +3850,11 @@ Partial Class MainMenu
         Me.pnlMcli.PerformLayout()
         Me.pnlFcli.ResumeLayout(False)
         Me.pnlFcli.PerformLayout()
-        CType(Me.dgvCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAcli.ResumeLayout(False)
         Me.pnlAcli.PerformLayout()
         Me.tbpVehiculos.ResumeLayout(False)
-        CType(Me.dtvVehi, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvVehiculos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlBVehi.ResumeLayout(False)
         Me.pnlBVehi.PerformLayout()
         Me.pnlMVehi.ResumeLayout(False)
@@ -3850,7 +3872,7 @@ Partial Class MainMenu
         Me.pnlAEmp.PerformLayout()
         Me.pnlFemp.ResumeLayout(False)
         Me.pnlFemp.PerformLayout()
-        CType(Me.dtvEmp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvEmpleados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpMantenimiento.ResumeLayout(False)
         Me.pnlmmant.ResumeLayout(False)
         Me.pnlmmant.PerformLayout()
@@ -3991,7 +4013,7 @@ Partial Class MainMenu
     Friend WithEvents ComboBox28 As ComboBox
     Friend WithEvents ComboBox29 As ComboBox
     Friend WithEvents ComboBox30 As ComboBox
-    Friend WithEvents dtvVehi As DataGridView
+    Friend WithEvents dgvVehiculos As DataGridView
     Friend WithEvents pnlFemp As Panel
     Friend WithEvents Button4 As Button
     Friend WithEvents Label42 As Label
@@ -4002,7 +4024,7 @@ Partial Class MainMenu
     Friend WithEvents ComboBox32 As ComboBox
     Friend WithEvents TextBox13 As TextBox
     Friend WithEvents ComboBox34 As ComboBox
-    Friend WithEvents dtvEmp As DataGridView
+    Friend WithEvents dgvEmpleados As DataGridView
     Friend WithEvents pnlAEmp As Panel
     Friend WithEvents Button14 As Button
     Friend WithEvents Label66 As Label
@@ -4052,7 +4074,7 @@ Partial Class MainMenu
     Friend WithEvents txtDocumFClientes As TextBox
     Friend WithEvents txtApellidoFClientes As TextBox
     Friend WithEvents txtNombreFClientes As TextBox
-    Friend WithEvents dgvCliente As DataGridView
+    Friend WithEvents dgvClientes As DataGridView
     Friend WithEvents pnlAcli As Panel
     Friend WithEvents btnIngresarACliente As Button
     Friend WithEvents Label92 As Label
@@ -4123,7 +4145,7 @@ Partial Class MainMenu
     Friend WithEvents tsitemCambiosGenerales As ToolStripMenuItem
     Friend WithEvents Label115 As Label
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents cbxTipoDocumACliente As ComboBox
+    Friend WithEvents cbxTipoDocumFCliente As ComboBox
     Friend WithEvents pnlBRes As Panel
     Friend WithEvents Label18 As Label
     Friend WithEvents btnBajaBRes As Button

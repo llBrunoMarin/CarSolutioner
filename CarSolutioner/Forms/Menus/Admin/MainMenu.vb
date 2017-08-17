@@ -16,11 +16,7 @@ Public Class MainMenu
 
         cbxTipoDocumFCliente.SelectedItem = cbxTipoDocumFCliente.Items(0)
 
-        'TODO: Hacer bien las cargas, cargar también combobox y reportar estado de carga (otro formulario con barrita)
-        conexion.RellenarDataGridView(dgvClientes, "SELECT tipodocumento, nrodocumento, nombre, apellido, email, fecnac, empresa FROM CLIENTE")
-        conexion.RellenarDataGridView(dgvEmpleados, "SELECT usuario, tipo FROM EMPLEADO")
-
-
+        CargarDatos()
 
     End Sub
 
@@ -80,18 +76,6 @@ Public Class MainMenu
         pagina.BackColor = Color
         tbcTabControl.SelectedTab = pagina
 
-        'TODO: SACAR EL IF, ESTA SOLO PQ EN RESERVAS NO HAY NADA CARGADO Y TIRA ERROR
-        If (Not (dgv Is dtvRes)) Then
-            If (Not (dgv Is dtvmant)) Then
-                If (Not (dgv Is dgvVehiculos)) Then
-                    dgv.Rows(0).Selected = False
-                End If
-
-            End If
-
-        End If
-
-
     End Sub
 
     Sub ResetColors()
@@ -111,5 +95,15 @@ Public Class MainMenu
 
     Private Sub btnVaciarFClientes_Click(sender As Object, e As EventArgs) Handles btnVaciarFClientes.Click
         dgvClientes.CurrentRow.Selected = False
+    End Sub
+
+
+    Private Sub CargarDatos()
+
+        'TODO: Hacer bien las cargas, cargar también combobox y reportar estado de carga (otro formulario con barrita)
+        conexion.RellenarDataGridView(dgvClientes, "SELECT tipodocumento, nrodocumento, nombre, apellido, email, fecnac, empresa FROM CLIENTE WHERE estado = 't'")
+        conexion.RellenarDataGridView(dgvEmpleados, "SELECT usuario, tipo FROM EMPLEADO WHERE estado = 't'")
+        'conexion.RellenarDataGridView(dgvVehiculos, "SELECT matricula, etc FROM VEHICULO WHERE estado = 't'")
+        'conexion.RellenarDataGridView(dgvReservas, "SELECT nomcli, etc FROM RESERVA where estado = '?'")
     End Sub
 End Class

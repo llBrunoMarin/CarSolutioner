@@ -150,6 +150,7 @@
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
             dgv.MultiSelect = False
 
+
         End Try
 
     End Sub

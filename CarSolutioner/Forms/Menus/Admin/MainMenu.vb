@@ -93,9 +93,7 @@ Public Class MainMenu
 
     End Sub
 
-    Private Sub btnVaciarFClientes_Click(sender As Object, e As EventArgs) Handles btnVaciarFClientes.Click
-        dgvClientes.CurrentRow.Selected = False
-    End Sub
+
 
 
     Private Sub CargarDatos()

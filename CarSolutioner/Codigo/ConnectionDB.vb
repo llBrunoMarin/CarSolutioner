@@ -35,10 +35,10 @@
     Public Function Conectar(Usuario, Contraseña) As Boolean
         Try
             'SERVIDOR UTU
-            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
             'SERVIDOR VICTOR
-            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
             cx.Open()
             Return True
 
@@ -129,16 +129,6 @@
         Finally
 
 
-
-
-            'TODO: Una forma mejor de presentar los títulos, que no sea esta:
-            For Each column As DataGridViewColumn In dgv.Columns
-                Dim palabra() As Char = column.HeaderText.ToCharArray
-                palabra(0) = Char.ToUpper(palabra(0))
-                column.HeaderText = palabra
-
-            Next
-
             'Propiedades que queremos por defecto en todos los DataGridView.
             dgv.ReadOnly = True
             dgv.RowHeadersVisible = False
@@ -149,6 +139,31 @@
             dgv.AllowUserToResizeRows = False
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
             dgv.MultiSelect = False
+
+            'TODO: Una forma mejor de presentar los títulos, que no sea esta (Y CAMBIAR IF):
+            For Each column As DataGridViewColumn In dgv.Columns
+
+                Dim palabra() As Char = column.HeaderText.ToCharArray
+                palabra(0) = Char.ToUpper(palabra(0))
+                column.HeaderText = palabra
+
+                If column.HeaderText = "Fecnac" Then
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                End If
+
+                If column.HeaderText = "Nrodocumento" Then
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                End If
+
+                If column.HeaderText = "Apellido" Then
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                End If
+
+
+            Next
+
+
+
 
 
         End Try

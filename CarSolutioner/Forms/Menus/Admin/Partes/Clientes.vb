@@ -14,6 +14,16 @@ Partial Public Class MainMenu
 
         dgvClientes.DataSource.Filter = filtro
 
+        filtro.Format("hola {0}, chau{1}", "pepe", "pepito")
+
+    End Sub
+
+    Private Sub btnVaciarFClientes_Click(sender As Object, e As EventArgs) Handles btnVaciarFClientes.Click
+        For Each Control As Control In pnlFClientes.Controls
+            'If Control.GetType Is TextBox Then
+
+            'End If
+        Next
     End Sub
 
 End Class

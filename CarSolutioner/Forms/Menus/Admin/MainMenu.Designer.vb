@@ -121,7 +121,7 @@ Partial Class MainMenu
         Me.Button19 = New System.Windows.Forms.Button()
         Me.Button20 = New System.Windows.Forms.Button()
         Me.Label85 = New System.Windows.Forms.Label()
-        Me.pnlFcli = New System.Windows.Forms.Panel()
+        Me.pnlFClientes = New System.Windows.Forms.Panel()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -343,7 +343,7 @@ Partial Class MainMenu
         Me.tbpClientes.SuspendLayout()
         Me.pnlBcli.SuspendLayout()
         Me.pnlMcli.SuspendLayout()
-        Me.pnlFcli.SuspendLayout()
+        Me.pnlFClientes.SuspendLayout()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAcli.SuspendLayout()
         Me.tbpVehiculos.SuspendLayout()
@@ -1111,7 +1111,7 @@ Partial Class MainMenu
         Me.tbpClientes.BackColor = System.Drawing.Color.Silver
         Me.tbpClientes.Controls.Add(Me.pnlBcli)
         Me.tbpClientes.Controls.Add(Me.pnlMcli)
-        Me.tbpClientes.Controls.Add(Me.pnlFcli)
+        Me.tbpClientes.Controls.Add(Me.pnlFClientes)
         Me.tbpClientes.Controls.Add(Me.dgvClientes)
         Me.tbpClientes.Controls.Add(Me.pnlAcli)
         Me.tbpClientes.Location = New System.Drawing.Point(4, 25)
@@ -1131,9 +1131,9 @@ Partial Class MainMenu
         Me.pnlBcli.Controls.Add(Me.Label79)
         Me.pnlBcli.Controls.Add(Me.Label80)
         Me.pnlBcli.Controls.Add(Me.txtDocumentoBCliente)
-        Me.pnlBcli.Location = New System.Drawing.Point(737, 431)
+        Me.pnlBcli.Location = New System.Drawing.Point(790, 431)
         Me.pnlBcli.Name = "pnlBcli"
-        Me.pnlBcli.Size = New System.Drawing.Size(631, 190)
+        Me.pnlBcli.Size = New System.Drawing.Size(578, 190)
         Me.pnlBcli.TabIndex = 40
         '
         'Button2
@@ -1147,7 +1147,7 @@ Partial Class MainMenu
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(522, 148)
+        Me.Button2.Location = New System.Drawing.Point(469, 148)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(99, 31)
         Me.Button2.TabIndex = 18
@@ -1209,9 +1209,9 @@ Partial Class MainMenu
         Me.pnlMcli.Controls.Add(Me.Button19)
         Me.pnlMcli.Controls.Add(Me.Button20)
         Me.pnlMcli.Controls.Add(Me.Label85)
-        Me.pnlMcli.Location = New System.Drawing.Point(737, 626)
+        Me.pnlMcli.Location = New System.Drawing.Point(789, 626)
         Me.pnlMcli.Name = "pnlMcli"
-        Me.pnlMcli.Size = New System.Drawing.Size(631, 198)
+        Me.pnlMcli.Size = New System.Drawing.Size(579, 198)
         Me.pnlMcli.TabIndex = 41
         '
         'ComboBox2
@@ -1391,7 +1391,7 @@ Partial Class MainMenu
         Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button19.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button19.ForeColor = System.Drawing.Color.White
-        Me.Button19.Location = New System.Drawing.Point(417, 159)
+        Me.Button19.Location = New System.Drawing.Point(365, 159)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(99, 31)
         Me.Button19.TabIndex = 34
@@ -1409,7 +1409,7 @@ Partial Class MainMenu
         Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button20.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button20.ForeColor = System.Drawing.Color.White
-        Me.Button20.Location = New System.Drawing.Point(522, 159)
+        Me.Button20.Location = New System.Drawing.Point(470, 159)
         Me.Button20.Name = "Button20"
         Me.Button20.Size = New System.Drawing.Size(99, 31)
         Me.Button20.TabIndex = 18
@@ -1427,31 +1427,31 @@ Partial Class MainMenu
         Me.Label85.TabIndex = 24
         Me.Label85.Text = "Modificar Seleccion"
         '
-        'pnlFcli
+        'pnlFClientes
         '
-        Me.pnlFcli.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.pnlFClientes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlFcli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlFcli.Controls.Add(Me.Label20)
-        Me.pnlFcli.Controls.Add(Me.DateTimePicker3)
-        Me.pnlFcli.Controls.Add(Me.Label19)
-        Me.pnlFcli.Controls.Add(Me.btnVaciarFClientes)
-        Me.pnlFcli.Controls.Add(Me.cbxTipoDocumFCliente)
-        Me.pnlFcli.Controls.Add(Me.Label86)
-        Me.pnlFcli.Controls.Add(Me.Label87)
-        Me.pnlFcli.Controls.Add(Me.Label88)
-        Me.pnlFcli.Controls.Add(Me.Label89)
-        Me.pnlFcli.Controls.Add(Me.Label90)
-        Me.pnlFcli.Controls.Add(Me.Label91)
-        Me.pnlFcli.Controls.Add(Me.txtEmpresaFClientes)
-        Me.pnlFcli.Controls.Add(Me.txtCorreoFClientes)
-        Me.pnlFcli.Controls.Add(Me.txtDocumFClientes)
-        Me.pnlFcli.Controls.Add(Me.txtApellidoFClientes)
-        Me.pnlFcli.Controls.Add(Me.txtNombreFClientes)
-        Me.pnlFcli.Location = New System.Drawing.Point(736, 7)
-        Me.pnlFcli.Name = "pnlFcli"
-        Me.pnlFcli.Size = New System.Drawing.Size(631, 203)
-        Me.pnlFcli.TabIndex = 42
+        Me.pnlFClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlFClientes.Controls.Add(Me.Label20)
+        Me.pnlFClientes.Controls.Add(Me.DateTimePicker3)
+        Me.pnlFClientes.Controls.Add(Me.Label19)
+        Me.pnlFClientes.Controls.Add(Me.btnVaciarFClientes)
+        Me.pnlFClientes.Controls.Add(Me.cbxTipoDocumFCliente)
+        Me.pnlFClientes.Controls.Add(Me.Label86)
+        Me.pnlFClientes.Controls.Add(Me.Label87)
+        Me.pnlFClientes.Controls.Add(Me.Label88)
+        Me.pnlFClientes.Controls.Add(Me.Label89)
+        Me.pnlFClientes.Controls.Add(Me.Label90)
+        Me.pnlFClientes.Controls.Add(Me.Label91)
+        Me.pnlFClientes.Controls.Add(Me.txtEmpresaFClientes)
+        Me.pnlFClientes.Controls.Add(Me.txtCorreoFClientes)
+        Me.pnlFClientes.Controls.Add(Me.txtDocumFClientes)
+        Me.pnlFClientes.Controls.Add(Me.txtApellidoFClientes)
+        Me.pnlFClientes.Controls.Add(Me.txtNombreFClientes)
+        Me.pnlFClientes.Location = New System.Drawing.Point(789, 7)
+        Me.pnlFClientes.Name = "pnlFClientes"
+        Me.pnlFClientes.Size = New System.Drawing.Size(578, 203)
+        Me.pnlFClientes.TabIndex = 42
         '
         'Label20
         '
@@ -1494,7 +1494,7 @@ Partial Class MainMenu
         Me.btnVaciarFClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVaciarFClientes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVaciarFClientes.ForeColor = System.Drawing.Color.White
-        Me.btnVaciarFClientes.Location = New System.Drawing.Point(522, 162)
+        Me.btnVaciarFClientes.Location = New System.Drawing.Point(469, 162)
         Me.btnVaciarFClientes.Name = "btnVaciarFClientes"
         Me.btnVaciarFClientes.Size = New System.Drawing.Size(99, 31)
         Me.btnVaciarFClientes.TabIndex = 32
@@ -1615,13 +1615,14 @@ Partial Class MainMenu
         '
         Me.dgvClientes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvClientes.Location = New System.Drawing.Point(29, 7)
         Me.dgvClientes.Name = "dgvClientes"
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvClientes.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvClientes.Size = New System.Drawing.Size(704, 817)
+        Me.dgvClientes.Size = New System.Drawing.Size(754, 817)
         Me.dgvClientes.TabIndex = 39
         '
         'pnlAcli
@@ -1648,9 +1649,9 @@ Partial Class MainMenu
         Me.pnlAcli.Controls.Add(Me.Label99)
         Me.pnlAcli.Controls.Add(Me.txtTelefonoACliente)
         Me.pnlAcli.Controls.Add(Me.dtpFecNacACliente)
-        Me.pnlAcli.Location = New System.Drawing.Point(736, 215)
+        Me.pnlAcli.Location = New System.Drawing.Point(789, 215)
         Me.pnlAcli.Name = "pnlAcli"
-        Me.pnlAcli.Size = New System.Drawing.Size(631, 210)
+        Me.pnlAcli.Size = New System.Drawing.Size(578, 210)
         Me.pnlAcli.TabIndex = 38
         '
         'ComboBox1
@@ -1719,7 +1720,7 @@ Partial Class MainMenu
         Me.btnIngresarACliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnIngresarACliente.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIngresarACliente.ForeColor = System.Drawing.Color.White
-        Me.btnIngresarACliente.Location = New System.Drawing.Point(522, 168)
+        Me.btnIngresarACliente.Location = New System.Drawing.Point(469, 168)
         Me.btnIngresarACliente.Name = "btnIngresarACliente"
         Me.btnIngresarACliente.Size = New System.Drawing.Size(99, 31)
         Me.btnIngresarACliente.TabIndex = 18
@@ -3860,8 +3861,8 @@ Partial Class MainMenu
         Me.pnlBcli.PerformLayout()
         Me.pnlMcli.ResumeLayout(False)
         Me.pnlMcli.PerformLayout()
-        Me.pnlFcli.ResumeLayout(False)
-        Me.pnlFcli.PerformLayout()
+        Me.pnlFClientes.ResumeLayout(False)
+        Me.pnlFClientes.PerformLayout()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAcli.ResumeLayout(False)
         Me.pnlAcli.PerformLayout()
@@ -4073,7 +4074,7 @@ Partial Class MainMenu
     Friend WithEvents Button19 As Button
     Friend WithEvents Button20 As Button
     Friend WithEvents Label85 As Label
-    Friend WithEvents pnlFcli As Panel
+    Friend WithEvents pnlFClientes As Panel
     Friend WithEvents btnVaciarFClientes As Button
     Friend WithEvents Label86 As Label
     Friend WithEvents Label87 As Label

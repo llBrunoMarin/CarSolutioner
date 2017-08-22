@@ -30,7 +30,7 @@ Public Class MainMenu
                 SetTabAndColors(btnMantenimiento, tbpMantenimiento, Color.Silver, dtvmant)
 
             Case "btnReservas"
-                SetTabAndColors(btnReservas, tbpReservas, Color.Silver, dtvRes)
+                SetTabAndColors(btnReservas, tbpReservas, Color.Silver, dgvReservas)
 
             Case "btnClientes"
                 SetTabAndColors(btnClientes, tbpClientes, Color.Silver, dgvClientes)
@@ -99,9 +99,10 @@ Public Class MainMenu
     Private Sub CargarDatos()
 
         'TODO: Hacer bien las cargas, cargar también combobox y reportar estado de carga (otro formulario con barrita)
-        conexion.RellenarDataGridView(dgvClientes, "SELECT tipodocumento, nrodocumento, nombre, apellido, email, fecnac, empresa FROM CLIENTE WHERE estado = 't'")
-        conexion.RellenarDataGridView(dgvEmpleados, "SELECT usuario, tipo FROM EMPLEADO WHERE estado = 't'")
+        conexion.RellenarDataGridView(dgvClientes, "SELECT tipodocumento Tipo, nrodocumento Documento, nombre Nombre, apellido Apellido, email Correo, fecnac Nacimiento, empresa Empresa FROM CLIENTE WHERE estado = 't'")
+        'conexion.RellenarDataGridView(dgvEmpleados, "SELECT usuario, tipo FROM EMPLEADO WHERE estado = 't'")
         'conexion.RellenarDataGridView(dgvVehiculos, "SELECT matricula, etc FROM VEHICULO WHERE estado = 't'")
-        'conexion.RellenarDataGridView(dgvReservas, "SELECT nomcli, etc FROM RESERVA where estado = '?'")
+        'conexion.RellenarDataGridView(dgvReservas, "SELECT FROM RESERVA where estado = '?'")
     End Sub
+
 End Class

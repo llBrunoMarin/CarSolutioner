@@ -53,11 +53,11 @@ Partial Class MainMenu
         Me.Label34 = New System.Windows.Forms.Label()
         Me.pnlFRes = New System.Windows.Forms.Panel()
         Me.Label102 = New System.Windows.Forms.Label()
-        Me.cbxEstadoRes = New System.Windows.Forms.ComboBox()
+        Me.cbxEstadoFRes = New System.Windows.Forms.ComboBox()
         Me.chboxFechaFRes = New System.Windows.Forms.CheckBox()
         Me.btnVaciarFRes = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.cbxMostrarRes = New System.Windows.Forms.ComboBox()
+        Me.cbxMostrarFRes = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -73,7 +73,7 @@ Partial Class MainMenu
         Me.dtpFAResI = New System.Windows.Forms.DateTimePicker()
         Me.cbxSucSalFres = New System.Windows.Forms.ComboBox()
         Me.cbxSucLlegFRes = New System.Windows.Forms.ComboBox()
-        Me.dtvRes = New System.Windows.Forms.DataGridView()
+        Me.dgvReservas = New System.Windows.Forms.DataGridView()
         Me.pnlARes = New System.Windows.Forms.Panel()
         Me.btnReservarARes = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -122,8 +122,9 @@ Partial Class MainMenu
         Me.Button20 = New System.Windows.Forms.Button()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.pnlFClientes = New System.Windows.Forms.Panel()
+        Me.chbxFechaFClientes = New System.Windows.Forms.CheckBox()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFecNacFCliente = New System.Windows.Forms.DateTimePicker()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.btnVaciarFClientes = New System.Windows.Forms.Button()
         Me.cbxTipoDocumFCliente = New System.Windows.Forms.ComboBox()
@@ -140,9 +141,9 @@ Partial Class MainMenu
         Me.txtNombreFClientes = New System.Windows.Forms.TextBox()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
         Me.pnlAcli = New System.Windows.Forms.Panel()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoDocumentoACliente = New System.Windows.Forms.ComboBox()
         Me.Label115 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtEmpresaACliente = New System.Windows.Forms.TextBox()
         Me.txtCorreoACliente = New System.Windows.Forms.TextBox()
         Me.txtApellidoACliente = New System.Windows.Forms.TextBox()
         Me.txtNombreACliente = New System.Windows.Forms.TextBox()
@@ -336,7 +337,7 @@ Partial Class MainMenu
         Me.tbpReservas.SuspendLayout()
         Me.pnlBRes.SuspendLayout()
         Me.pnlFRes.SuspendLayout()
-        CType(Me.dtvRes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlARes.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -568,7 +569,7 @@ Partial Class MainMenu
         Me.tbpReservas.BackColor = System.Drawing.Color.Silver
         Me.tbpReservas.Controls.Add(Me.pnlBRes)
         Me.tbpReservas.Controls.Add(Me.pnlFRes)
-        Me.tbpReservas.Controls.Add(Me.dtvRes)
+        Me.tbpReservas.Controls.Add(Me.dgvReservas)
         Me.tbpReservas.Controls.Add(Me.pnlARes)
         Me.tbpReservas.Location = New System.Drawing.Point(4, 25)
         Me.tbpReservas.Name = "tbpReservas"
@@ -636,11 +637,11 @@ Partial Class MainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFRes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlFRes.Controls.Add(Me.Label102)
-        Me.pnlFRes.Controls.Add(Me.cbxEstadoRes)
+        Me.pnlFRes.Controls.Add(Me.cbxEstadoFRes)
         Me.pnlFRes.Controls.Add(Me.chboxFechaFRes)
         Me.pnlFRes.Controls.Add(Me.btnVaciarFRes)
         Me.pnlFRes.Controls.Add(Me.Label17)
-        Me.pnlFRes.Controls.Add(Me.cbxMostrarRes)
+        Me.pnlFRes.Controls.Add(Me.cbxMostrarFRes)
         Me.pnlFRes.Controls.Add(Me.Label9)
         Me.pnlFRes.Controls.Add(Me.Label10)
         Me.pnlFRes.Controls.Add(Me.Label11)
@@ -672,14 +673,14 @@ Partial Class MainMenu
         Me.Label102.TabIndex = 35
         Me.Label102.Text = "Estado"
         '
-        'cbxEstadoRes
+        'cbxEstadoFRes
         '
-        Me.cbxEstadoRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cbxEstadoRes.FormattingEnabled = True
-        Me.cbxEstadoRes.Location = New System.Drawing.Point(119, 70)
-        Me.cbxEstadoRes.Name = "cbxEstadoRes"
-        Me.cbxEstadoRes.Size = New System.Drawing.Size(121, 21)
-        Me.cbxEstadoRes.TabIndex = 34
+        Me.cbxEstadoFRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cbxEstadoFRes.FormattingEnabled = True
+        Me.cbxEstadoFRes.Location = New System.Drawing.Point(119, 70)
+        Me.cbxEstadoFRes.Name = "cbxEstadoFRes"
+        Me.cbxEstadoFRes.Size = New System.Drawing.Size(121, 21)
+        Me.cbxEstadoFRes.TabIndex = 34
         '
         'chboxFechaFRes
         '
@@ -723,16 +724,16 @@ Partial Class MainMenu
         Me.Label17.TabIndex = 33
         Me.Label17.Text = "Mostrar"
         '
-        'cbxMostrarRes
+        'cbxMostrarFRes
         '
-        Me.cbxMostrarRes.DisplayMember = "3"
-        Me.cbxMostrarRes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxMostrarRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cbxMostrarRes.Items.AddRange(New Object() {"Alquileres", "Reservas", "Todo"})
-        Me.cbxMostrarRes.Location = New System.Drawing.Point(13, 70)
-        Me.cbxMostrarRes.Name = "cbxMostrarRes"
-        Me.cbxMostrarRes.Size = New System.Drawing.Size(92, 21)
-        Me.cbxMostrarRes.TabIndex = 32
+        Me.cbxMostrarFRes.DisplayMember = "3"
+        Me.cbxMostrarFRes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxMostrarFRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cbxMostrarFRes.Items.AddRange(New Object() {"Alquileres", "Reservas", "Todo"})
+        Me.cbxMostrarFRes.Location = New System.Drawing.Point(13, 70)
+        Me.cbxMostrarFRes.Name = "cbxMostrarFRes"
+        Me.cbxMostrarFRes.Size = New System.Drawing.Size(92, 21)
+        Me.cbxMostrarFRes.TabIndex = 32
         '
         'Label9
         '
@@ -883,17 +884,17 @@ Partial Class MainMenu
         Me.cbxSucLlegFRes.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucLlegFRes.TabIndex = 19
         '
-        'dtvRes
+        'dgvReservas
         '
-        Me.dtvRes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvReservas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.dtvRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtvRes.Location = New System.Drawing.Point(29, 7)
-        Me.dtvRes.Name = "dtvRes"
+        Me.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvReservas.Location = New System.Drawing.Point(29, 7)
+        Me.dgvReservas.Name = "dgvReservas"
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dtvRes.RowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dtvRes.Size = New System.Drawing.Size(704, 810)
-        Me.dtvRes.TabIndex = 9
+        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvReservas.Size = New System.Drawing.Size(704, 810)
+        Me.dgvReservas.TabIndex = 9
         '
         'pnlARes
         '
@@ -1432,8 +1433,9 @@ Partial Class MainMenu
         Me.pnlFClientes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlFClientes.Controls.Add(Me.chbxFechaFClientes)
         Me.pnlFClientes.Controls.Add(Me.Label20)
-        Me.pnlFClientes.Controls.Add(Me.DateTimePicker3)
+        Me.pnlFClientes.Controls.Add(Me.dtpFecNacFCliente)
         Me.pnlFClientes.Controls.Add(Me.Label19)
         Me.pnlFClientes.Controls.Add(Me.btnVaciarFClientes)
         Me.pnlFClientes.Controls.Add(Me.cbxTipoDocumFCliente)
@@ -1453,24 +1455,39 @@ Partial Class MainMenu
         Me.pnlFClientes.Size = New System.Drawing.Size(578, 203)
         Me.pnlFClientes.TabIndex = 42
         '
+        'chbxFechaFClientes
+        '
+        Me.chbxFechaFClientes.AutoSize = True
+        Me.chbxFechaFClientes.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chbxFechaFClientes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.chbxFechaFClientes.Location = New System.Drawing.Point(122, 153)
+        Me.chbxFechaFClientes.Name = "chbxFechaFClientes"
+        Me.chbxFechaFClientes.Size = New System.Drawing.Size(91, 20)
+        Me.chbxFechaFClientes.TabIndex = 41
+        Me.chbxFechaFClientes.Text = "Filtrar Fecha"
+        Me.chbxFechaFClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chbxFechaFClientes.UseVisualStyleBackColor = True
+        '
         'Label20
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label20.Location = New System.Drawing.Point(127, 109)
+        Me.Label20.Location = New System.Drawing.Point(122, 109)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(137, 17)
         Me.Label20.TabIndex = 40
         Me.Label20.Text = "Fecha de Nacimiento"
         '
-        'DateTimePicker3
+        'dtpFecNacFCliente
         '
-        Me.DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker3.Location = New System.Drawing.Point(134, 129)
-        Me.DateTimePicker3.Name = "DateTimePicker3"
-        Me.DateTimePicker3.Size = New System.Drawing.Size(130, 20)
-        Me.DateTimePicker3.TabIndex = 39
+        Me.dtpFecNacFCliente.Enabled = False
+        Me.dtpFecNacFCliente.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFecNacFCliente.Location = New System.Drawing.Point(122, 129)
+        Me.dtpFecNacFCliente.Name = "dtpFecNacFCliente"
+        Me.dtpFecNacFCliente.Size = New System.Drawing.Size(130, 20)
+        Me.dtpFecNacFCliente.TabIndex = 39
+        Me.dtpFecNacFCliente.Value = New Date(2017, 8, 22, 0, 0, 0, 0)
         '
         'Label19
         '
@@ -1631,9 +1648,9 @@ Partial Class MainMenu
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlAcli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlAcli.Controls.Add(Me.ComboBox1)
+        Me.pnlAcli.Controls.Add(Me.cbxTipoDocumentoACliente)
         Me.pnlAcli.Controls.Add(Me.Label115)
-        Me.pnlAcli.Controls.Add(Me.TextBox1)
+        Me.pnlAcli.Controls.Add(Me.txtEmpresaACliente)
         Me.pnlAcli.Controls.Add(Me.txtCorreoACliente)
         Me.pnlAcli.Controls.Add(Me.txtApellidoACliente)
         Me.pnlAcli.Controls.Add(Me.txtNombreACliente)
@@ -1654,50 +1671,50 @@ Partial Class MainMenu
         Me.pnlAcli.Size = New System.Drawing.Size(578, 210)
         Me.pnlAcli.TabIndex = 38
         '
-        'ComboBox1
+        'cbxTipoDocumentoACliente
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(10, 66)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(107, 21)
-        Me.ComboBox1.TabIndex = 37
+        Me.cbxTipoDocumentoACliente.FormattingEnabled = True
+        Me.cbxTipoDocumentoACliente.Location = New System.Drawing.Point(10, 66)
+        Me.cbxTipoDocumentoACliente.Name = "cbxTipoDocumentoACliente"
+        Me.cbxTipoDocumentoACliente.Size = New System.Drawing.Size(107, 21)
+        Me.cbxTipoDocumentoACliente.TabIndex = 37
         '
         'Label115
         '
         Me.Label115.AutoSize = True
         Me.Label115.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label115.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label115.Location = New System.Drawing.Point(363, 103)
+        Me.Label115.Location = New System.Drawing.Point(126, 103)
         Me.Label115.Name = "Label115"
         Me.Label115.Size = New System.Drawing.Size(58, 17)
         Me.Label115.TabIndex = 38
         Me.Label115.Tag = ""
         Me.Label115.Text = "Empresa"
         '
-        'TextBox1
+        'txtEmpresaACliente
         '
-        Me.TextBox1.Location = New System.Drawing.Point(366, 123)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 37
+        Me.txtEmpresaACliente.Location = New System.Drawing.Point(125, 123)
+        Me.txtEmpresaACliente.Name = "txtEmpresaACliente"
+        Me.txtEmpresaACliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtEmpresaACliente.TabIndex = 37
         '
         'txtCorreoACliente
         '
-        Me.txtCorreoACliente.Location = New System.Drawing.Point(488, 65)
+        Me.txtCorreoACliente.Location = New System.Drawing.Point(14, 123)
         Me.txtCorreoACliente.Name = "txtCorreoACliente"
         Me.txtCorreoACliente.Size = New System.Drawing.Size(100, 20)
         Me.txtCorreoACliente.TabIndex = 35
         '
         'txtApellidoACliente
         '
-        Me.txtApellidoACliente.Location = New System.Drawing.Point(366, 67)
+        Me.txtApellidoACliente.Location = New System.Drawing.Point(344, 67)
         Me.txtApellidoACliente.Name = "txtApellidoACliente"
         Me.txtApellidoACliente.Size = New System.Drawing.Size(100, 20)
         Me.txtApellidoACliente.TabIndex = 33
         '
         'txtNombreACliente
         '
-        Me.txtNombreACliente.Location = New System.Drawing.Point(246, 67)
+        Me.txtNombreACliente.Location = New System.Drawing.Point(233, 67)
         Me.txtNombreACliente.Name = "txtNombreACliente"
         Me.txtNombreACliente.Size = New System.Drawing.Size(100, 20)
         Me.txtNombreACliente.TabIndex = 32
@@ -1732,7 +1749,7 @@ Partial Class MainMenu
         Me.Label92.AutoSize = True
         Me.Label92.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label92.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label92.Location = New System.Drawing.Point(119, 103)
+        Me.Label92.Location = New System.Drawing.Point(239, 103)
         Me.Label92.Name = "Label92"
         Me.Label92.Size = New System.Drawing.Size(137, 17)
         Me.Label92.TabIndex = 30
@@ -1743,7 +1760,7 @@ Partial Class MainMenu
         Me.Label93.AutoSize = True
         Me.Label93.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label93.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label93.Location = New System.Drawing.Point(502, 45)
+        Me.Label93.Location = New System.Drawing.Point(11, 103)
         Me.Label93.Name = "Label93"
         Me.Label93.Size = New System.Drawing.Size(49, 17)
         Me.Label93.TabIndex = 29
@@ -1754,7 +1771,7 @@ Partial Class MainMenu
         Me.Label94.AutoSize = True
         Me.Label94.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label94.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label94.Location = New System.Drawing.Point(373, 45)
+        Me.Label94.Location = New System.Drawing.Point(341, 43)
         Me.Label94.Name = "Label94"
         Me.Label94.Size = New System.Drawing.Size(58, 17)
         Me.Label94.TabIndex = 28
@@ -1765,7 +1782,7 @@ Partial Class MainMenu
         Me.Label95.AutoSize = True
         Me.Label95.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label95.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label95.Location = New System.Drawing.Point(246, 45)
+        Me.Label95.Location = New System.Drawing.Point(230, 45)
         Me.Label95.Name = "Label95"
         Me.Label95.Size = New System.Drawing.Size(56, 17)
         Me.Label95.TabIndex = 27
@@ -1788,7 +1805,7 @@ Partial Class MainMenu
         Me.Label97.AutoSize = True
         Me.Label97.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label97.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label97.Location = New System.Drawing.Point(10, 103)
+        Me.Label97.Location = New System.Drawing.Point(450, 45)
         Me.Label97.Name = "Label97"
         Me.Label97.Size = New System.Drawing.Size(59, 17)
         Me.Label97.TabIndex = 25
@@ -1818,7 +1835,7 @@ Partial Class MainMenu
         '
         'txtTelefonoACliente
         '
-        Me.txtTelefonoACliente.Location = New System.Drawing.Point(13, 123)
+        Me.txtTelefonoACliente.Location = New System.Drawing.Point(453, 65)
         Me.txtTelefonoACliente.Name = "txtTelefonoACliente"
         Me.txtTelefonoACliente.Size = New System.Drawing.Size(107, 20)
         Me.txtTelefonoACliente.TabIndex = 22
@@ -1826,7 +1843,7 @@ Partial Class MainMenu
         'dtpFecNacACliente
         '
         Me.dtpFecNacACliente.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecNacACliente.Location = New System.Drawing.Point(126, 123)
+        Me.dtpFecNacACliente.Location = New System.Drawing.Point(242, 123)
         Me.dtpFecNacACliente.Name = "dtpFecNacACliente"
         Me.dtpFecNacACliente.Size = New System.Drawing.Size(130, 20)
         Me.dtpFecNacACliente.TabIndex = 21
@@ -3851,7 +3868,7 @@ Partial Class MainMenu
         Me.pnlBRes.PerformLayout()
         Me.pnlFRes.ResumeLayout(False)
         Me.pnlFRes.PerformLayout()
-        CType(Me.dtvRes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlARes.ResumeLayout(False)
         Me.pnlARes.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
@@ -3916,7 +3933,7 @@ Partial Class MainMenu
     Friend WithEvents tbpMantenimiento As TabPage
     Friend WithEvents pnlFRes As Panel
     Friend WithEvents Label17 As Label
-    Friend WithEvents cbxMostrarRes As ComboBox
+    Friend WithEvents cbxMostrarFRes As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
@@ -4107,7 +4124,7 @@ Partial Class MainMenu
     Friend WithEvents Label101 As Label
     Friend WithEvents TextBox34 As TextBox
     Friend WithEvents Label102 As Label
-    Friend WithEvents cbxEstadoRes As ComboBox
+    Friend WithEvents cbxEstadoFRes As ComboBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel6 As Panel
     Friend WithEvents pnlmmant As Panel
@@ -4147,7 +4164,7 @@ Partial Class MainMenu
     Friend WithEvents Label123 As Label
     Friend WithEvents DateTimePicker14 As DateTimePicker
     Friend WithEvents DateTimePicker15 As DateTimePicker
-    Friend WithEvents dtvRes As DataGridView
+    Friend WithEvents dgvReservas As DataGridView
     Friend WithEvents Label114 As Label
     Friend WithEvents cbxEstadoFVeh As ComboBox
     Friend WithEvents ComboBox43 As ComboBox
@@ -4157,7 +4174,7 @@ Partial Class MainMenu
     Friend WithEvents ComboBox41 As ComboBox
     Friend WithEvents tsitemCambiosGenerales As ToolStripMenuItem
     Friend WithEvents Label115 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtEmpresaACliente As TextBox
     Friend WithEvents cbxTipoDocumFCliente As ComboBox
     Friend WithEvents pnlBRes As Panel
     Friend WithEvents Label18 As Label
@@ -4182,9 +4199,9 @@ Partial Class MainMenu
     Friend WithEvents TextBox9 As TextBox
     Friend WithEvents DateTimePicker4 As DateTimePicker
     Friend WithEvents Label20 As Label
-    Friend WithEvents DateTimePicker3 As DateTimePicker
+    Friend WithEvents dtpFecNacFCliente As DateTimePicker
     Friend WithEvents Label19 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbxTipoDocumentoACliente As ComboBox
     Friend WithEvents Label83 As Label
     Friend WithEvents TextBox11 As TextBox
     Friend WithEvents Label82 As Label
@@ -4196,4 +4213,5 @@ Partial Class MainMenu
     Friend WithEvents DateTimePicker6 As DateTimePicker
     Friend WithEvents ImprmirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AparienciaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents chbxFechaFClientes As CheckBox
 End Class

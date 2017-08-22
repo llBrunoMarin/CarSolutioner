@@ -107,51 +107,49 @@
         End Try
     End Function
 
-
+    'Rellena un datagridview que se le coloca como parámetro, con el nombre de la tabla que también
+    'entra como tal.
     Public Sub RellenarDataGridView(dgv As DataGridView, sentencia As String)
 
-        'Tenemos que crear el "DataTable" acá, para que cree una nueva instancia cada vez.
-        'De lo contrario, el datagridview tendría el contenido de muchas tablas a la vez.
-
+        'Creamos una nueva fuente de datos, para poder asignarla al DataGridView luego.
         Dim fuente As New BindingSource()
 
         Try
             fuente.DataSource = EjecutarSelect(sentencia)
             dgv.DataSource = fuente
 
-
         Catch ex As Exception
 
             MsgBox(ex.Message)
 
-
-
         Finally
-
 
             'Propiedades que queremos por defecto en todos los DataGridView.
             dgv.ReadOnly = True
             dgv.RowHeadersVisible = False
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
             dgv.AllowUserToAddRows = False
             dgv.AllowUserToDeleteRows = False
             dgv.AllowUserToResizeColumns = False
             dgv.AllowUserToResizeRows = False
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
             dgv.MultiSelect = False
 
-            'TODO: Una forma mejor de presentar los títulos, que no sea esta (Y CAMBIAR IF):
             For Each column As DataGridViewColumn In dgv.Columns
 
                 Dim palabra() As Char = column.HeaderText.ToCharArray
                 palabra(0) = Char.ToUpper(palabra(0))
                 column.HeaderText = palabra
 
-                If column.HeaderText = "Fecnac" Then
+                If column.HeaderText = "Fecha" Then
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
                 End If
 
-                If column.HeaderText = "Nrodocumento" Then
+                If column.HeaderText = "Tipo" Then
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                End If
+
+                If column.HeaderText = "Documento" Then
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
                 End If
 
@@ -159,21 +157,18 @@
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
                 End If
 
-
             Next
-
-
-
-
 
         End Try
 
     End Sub
 
+
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
     Public Function EjecutarNonQuery(sentencia As String) As Boolean
-        Dim nrofilas As Integer
+
+        Dim nrofilas As New Integer()
         Conectar(Usuario, Contraseña)
 
         Try
@@ -182,11 +177,12 @@
             cm.CommandText = sentencia
             nrofilas = cm.ExecuteNonQuery()
 
-            If Not nrofilas = 0 Then
-                Return True
+            If nrofilas = 0 Then
+                MsgBox("No se realizaron cambios.", MsgBoxStyle.Information, "Advertencia")
+                Return False
 
             Else
-                Return False
+                Return True
             End If
 
 
@@ -203,8 +199,7 @@
 
     End Function
 
-    'Rellena un datagridview que se le coloca como parámetro, con el nombre de la tabla que también
-    'entra como tal.
+
 
 
 End Class

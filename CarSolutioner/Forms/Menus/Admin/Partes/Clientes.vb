@@ -68,9 +68,10 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub RellenarDatos(sender As Object, e As EventArgs) Handles dgvClientes.SelectionChanged
+    Private Sub RellenarDatosCliente(sender As Object, e As EventArgs) Handles dgvClientes.SelectionChanged
 
         If Not IsNothing(dgvClientes.CurrentRow) Then
+
             cbxTipoDocumMCliente.SelectedItem = dgvClientes.CurrentRow.Cells(0).Value.ToString()
             txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells(1).Value.ToString()
             txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(2).Value.ToString
@@ -81,6 +82,7 @@ Partial Public Class frmMainMenu
 
             'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()
             'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()
+
         End If
 
 

@@ -6,8 +6,12 @@
     Dim ds As New Data.DataSet
     Dim dr As Odbc.OdbcDataReader
 
+
     Dim _Usuario As String = Nothing
     Dim _Contraseña As String = Nothing
+
+    Dim _Marcas As DataTable
+    Dim _Modelos As DataTable
 
     Public Property Usuario() As String
         Get
@@ -24,6 +28,24 @@
         End Get
         Set(ByVal value As String)
             _Contraseña = value
+        End Set
+    End Property
+
+    Public Property Marcas() As DataTable
+        Get
+            Return _Marcas
+        End Get
+        Set(ByVal value As DataTable)
+            _Marcas = value
+        End Set
+    End Property
+
+    Public Property Modelos() As DataTable
+        Get
+            Return _Modelos
+        End Get
+        Set(ByVal value As DataTable)
+            _Modelos = value
         End Set
     End Property
 

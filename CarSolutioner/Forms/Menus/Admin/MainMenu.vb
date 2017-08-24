@@ -5,10 +5,7 @@ Public Class frmMainMenu
 
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'Establecemos items seleccionados por defecto en los ComboBox
-        cbxTipoDocumFCliente.SelectedItem = cbxTipoDocumFCliente.Items(0)
-        cbxTipoDocumACliente.SelectedItem = cbxTipoDocumACliente.Items(0)
-        cbxTipoDocumMCliente.SelectedItem = cbxTipoDocumMCliente.Items(0)
+
 
         'Le cambiamos el renderer al MenuStrip (cuestiones de diseño)
         CambiarRenderMenuStrip(mstMenuStrip)
@@ -25,6 +22,9 @@ Public Class frmMainMenu
         Next
 
         CargarDatos()
+
+        cbxMarcaFVeh.SelectedItem = Nothing
+        cbxMarcaAVeh.SelectedItem = Nothing
 
     End Sub
 
@@ -103,13 +103,30 @@ Public Class frmMainMenu
     Private Sub CargarDatos()
 
         'TODO: Hacer bien las cargas, cargar también combobox y reportar estado de carga (otro formulario con barrita)
+
+        'Cargas DataGridView
         conexion.RellenarDataGridView(dgvClientes, "SELECT tipodocumento Tipo, nrodocumento Documento, nombre Nombre, apellido Apellido, email Correo, fecnac Nacimiento, empresa Empresa FROM CLIENTE WHERE estado = 't'")
         'conexion.RellenarDataGridView(dgvEmpleados, "SELECT usuario, tipo FROM EMPLEADO WHERE estado = 't'")
         'conexion.RellenarDataGridView(dgvVehiculos, "SELECT matricula, etc FROM VEHICULO WHERE estado = 't'")
         'conexion.RellenarDataGridView(dgvReservas, "SELECT FROM RESERVA where estado = '?'")
 
-        cbxMarcaFVeh.DataSource = conexion.EjecutarSelect("SELECT marca from marca").DefaultView
+        'Cargas de ComboBox
+        Dim Marcas As DataTable = conexion.EjecutarSelect("SELECT marca from marca")
+        Marcas.Rows.Add("Otro")
+
+        cbxMarcaFVeh.DataSource = Marcas.DefaultView
+        cbxMarcaAVeh.DataSource = Marcas.DefaultView
         cbxMarcaFVeh.DisplayMember = "marca"
+        cbxMarcaFVeh.DisplayMember = "marca"
+
+        Dim Modelos As DataTable = conexion.EjecutarSelect("SELECT nombre from modelo")
+        Modelos.Rows.Add("Otro")
+
+        cbxModeloFVeh.DataSource = Modelos.DefaultView
+        cbxModeloAVeh.DataSource = Modelos.DefaultView
+        cbxModeloFVeh.DisplayMember = "nombre"
+        cbxModeloAVeh.DisplayMember = "nombre"
+
     End Sub
 
     Private Sub CargarDatos(dgv As DataGridView)
@@ -130,6 +147,7 @@ Public Class frmMainMenu
         End Select
 
     End Sub
+
 
     Private Sub DibujarCombobox(sender As Object, e As DrawItemEventArgs)
 

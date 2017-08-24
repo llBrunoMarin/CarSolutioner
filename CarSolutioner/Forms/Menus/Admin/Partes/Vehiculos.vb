@@ -4,7 +4,7 @@ Public Class NoDesignerVehiculos
 End Class
 
 'VEHICULOS
-Partial Public Class MainMenu
+Partial Public Class frmMainMenu
 
 
 

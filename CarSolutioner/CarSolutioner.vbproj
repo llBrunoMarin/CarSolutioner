@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Codigo\Custom Objects\CustomMenustrip.vb" />
+    <Compile Include="Codigo\Metodos.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Mantenimiento.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Clientes.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Empleados.vb" />

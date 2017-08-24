@@ -4,6 +4,6 @@ Public Class NoDesignerEmpleados
 End Class
 
 'EMPLEADOS
-Partial Public Class MainMenu
+Partial Public Class frmMainMenu
 
 End Class

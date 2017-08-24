@@ -4,6 +4,6 @@ Public Class NoDesignerMantenimiento
 End Class
 
 'MANTENIMIENTO
-Partial Public Class MainMenu
+Partial Public Class frmMainMenu
 
 End Class

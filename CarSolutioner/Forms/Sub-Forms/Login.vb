@@ -41,7 +41,7 @@
 
                         Case 1
                             Me.Hide()
-                            MainMenu.Show()
+                            frmMainMenu.Show()
 
                         Case 2
                             Me.Hide()

@@ -16,11 +16,6 @@ Public Class frmMainMenu
         '"Clickeamos" el botón Reservas (para que sea el botón presionado por defecto)
         btnReservas.PerformClick()
 
-        'Recorre todos los combobox del programa, para dibujarlos nuevamente.
-        For Each cbx In TodosLosControles(Me)
-            AddHandler cbx.DrawItem, AddressOf DibujarCombobox
-        Next
-
         CargarDatos()
 
         cbxMarcaFVeh.SelectedItem = Nothing
@@ -111,13 +106,18 @@ Public Class frmMainMenu
         'conexion.RellenarDataGridView(dgvReservas, "SELECT FROM RESERVA where estado = '?'")
 
         'Cargas de ComboBox
+
         Dim Marcas As DataTable = conexion.EjecutarSelect("SELECT marca from marca")
         Marcas.Rows.Add("Otro")
 
-        cbxMarcaFVeh.DataSource = Marcas.DefaultView
-        cbxMarcaAVeh.DataSource = Marcas.DefaultView
+        cbxMarcaFVeh.DataSource = Marcas
         cbxMarcaFVeh.DisplayMember = "marca"
-        cbxMarcaFVeh.DisplayMember = "marca"
+
+        '(El "new BindingContext" es para que los comboboxes que hacen referencia a una misma tabla no se seleccionen a la vez)
+        cbxMarcaAVeh.BindingContext = New BindingContext
+        cbxMarcaAVeh.DataSource = Marcas
+        cbxMarcaAVeh.DisplayMember = "marca"
+
 
         Dim Modelos As DataTable = conexion.EjecutarSelect("SELECT nombre from modelo")
         Modelos.Rows.Add("Otro")
@@ -148,14 +148,5 @@ Public Class frmMainMenu
 
     End Sub
 
-
-    Private Sub DibujarCombobox(sender As Object, e As DrawItemEventArgs)
-
-        Dim index As Integer = If(e.Index >= 0, e.Index, 0)
-        e.DrawBackground()
-        e.Graphics.DrawString(sender.Items(index).ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault)
-        e.DrawFocusRectangle()
-
-    End Sub
 
 End Class

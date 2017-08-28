@@ -46,6 +46,7 @@ Partial Public Class frmMainMenu
                 control.Text = ""
             End If
         Next
+
     End Sub
 
     Private Sub chboxFechaFClientes_CheckedChanged(sender As Object, e As EventArgs) Handles chbxFechaFClientes.CheckedChanged

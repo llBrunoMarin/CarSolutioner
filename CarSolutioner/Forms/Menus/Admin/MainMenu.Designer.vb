@@ -587,9 +587,9 @@ Partial Class frmMainMenu
         Me.pnlBRes.Controls.Add(Me.Label18)
         Me.pnlBRes.Controls.Add(Me.btnBajaBRes)
         Me.pnlBRes.Controls.Add(Me.Label34)
-        Me.pnlBRes.Location = New System.Drawing.Point(736, 424)
+        Me.pnlBRes.Location = New System.Drawing.Point(789, 424)
         Me.pnlBRes.Name = "pnlBRes"
-        Me.pnlBRes.Size = New System.Drawing.Size(631, 190)
+        Me.pnlBRes.Size = New System.Drawing.Size(578, 190)
         Me.pnlBRes.TabIndex = 36
         '
         'Label18
@@ -614,7 +614,7 @@ Partial Class frmMainMenu
         Me.btnBajaBRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBajaBRes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBajaBRes.ForeColor = System.Drawing.Color.White
-        Me.btnBajaBRes.Location = New System.Drawing.Point(521, 145)
+        Me.btnBajaBRes.Location = New System.Drawing.Point(468, 145)
         Me.btnBajaBRes.Name = "btnBajaBRes"
         Me.btnBajaBRes.Size = New System.Drawing.Size(99, 31)
         Me.btnBajaBRes.TabIndex = 18
@@ -658,9 +658,9 @@ Partial Class frmMainMenu
         Me.pnlFRes.Controls.Add(Me.dtpFAResI)
         Me.pnlFRes.Controls.Add(Me.cbxSucSalFres)
         Me.pnlFRes.Controls.Add(Me.cbxSucLlegFRes)
-        Me.pnlFRes.Location = New System.Drawing.Point(736, 7)
+        Me.pnlFRes.Location = New System.Drawing.Point(789, 7)
         Me.pnlFRes.Name = "pnlFRes"
-        Me.pnlFRes.Size = New System.Drawing.Size(631, 203)
+        Me.pnlFRes.Size = New System.Drawing.Size(578, 203)
         Me.pnlFRes.TabIndex = 32
         '
         'Label102
@@ -707,7 +707,7 @@ Partial Class frmMainMenu
         Me.btnVaciarFRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVaciarFRes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVaciarFRes.ForeColor = System.Drawing.Color.White
-        Me.btnVaciarFRes.Location = New System.Drawing.Point(522, 162)
+        Me.btnVaciarFRes.Location = New System.Drawing.Point(469, 162)
         Me.btnVaciarFRes.Name = "btnVaciarFRes"
         Me.btnVaciarFRes.Size = New System.Drawing.Size(99, 31)
         Me.btnVaciarFRes.TabIndex = 32
@@ -740,7 +740,7 @@ Partial Class frmMainMenu
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(225, 149)
+        Me.Label9.Location = New System.Drawing.Point(329, 102)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(64, 17)
         Me.Label9.TabIndex = 31
@@ -751,7 +751,7 @@ Partial Class frmMainMenu
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(119, 149)
+        Me.Label10.Location = New System.Drawing.Point(243, 102)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(80, 17)
         Me.Label10.TabIndex = 30
@@ -762,7 +762,7 @@ Partial Class frmMainMenu
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(502, 102)
+        Me.Label11.Location = New System.Drawing.Point(412, 101)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(76, 17)
         Me.Label11.TabIndex = 29
@@ -773,7 +773,7 @@ Partial Class frmMainMenu
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(373, 102)
+        Me.Label12.Location = New System.Drawing.Point(246, 50)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(109, 17)
         Me.Label12.TabIndex = 28
@@ -784,7 +784,7 @@ Partial Class frmMainMenu
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label13.Location = New System.Drawing.Point(246, 102)
+        Me.Label13.Location = New System.Drawing.Point(373, 50)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(97, 17)
         Me.Label13.TabIndex = 27
@@ -827,7 +827,7 @@ Partial Class frmMainMenu
         '
         Me.dtpFAResF.Enabled = False
         Me.dtpFAResF.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFAResF.Location = New System.Drawing.Point(226, 167)
+        Me.dtpFAResF.Location = New System.Drawing.Point(330, 123)
         Me.dtpFAResF.Name = "dtpFAResF"
         Me.dtpFAResF.Size = New System.Drawing.Size(78, 20)
         Me.dtpFAResF.TabIndex = 20
@@ -852,7 +852,7 @@ Partial Class frmMainMenu
         '
         Me.cbxKilomFRes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxKilomFRes.FormattingEnabled = True
-        Me.cbxKilomFRes.Location = New System.Drawing.Point(500, 123)
+        Me.cbxKilomFRes.Location = New System.Drawing.Point(414, 121)
         Me.cbxKilomFRes.Name = "cbxKilomFRes"
         Me.cbxKilomFRes.Size = New System.Drawing.Size(121, 21)
         Me.cbxKilomFRes.TabIndex = 16
@@ -861,7 +861,7 @@ Partial Class frmMainMenu
         '
         Me.dtpFAResI.Enabled = False
         Me.dtpFAResI.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFAResI.Location = New System.Drawing.Point(122, 167)
+        Me.dtpFAResI.Location = New System.Drawing.Point(246, 123)
         Me.dtpFAResI.Name = "dtpFAResI"
         Me.dtpFAResI.Size = New System.Drawing.Size(78, 20)
         Me.dtpFAResI.TabIndex = 21
@@ -870,7 +870,7 @@ Partial Class frmMainMenu
         '
         Me.cbxSucSalFres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxSucSalFres.FormattingEnabled = True
-        Me.cbxSucSalFres.Location = New System.Drawing.Point(246, 121)
+        Me.cbxSucSalFres.Location = New System.Drawing.Point(376, 70)
         Me.cbxSucSalFres.Name = "cbxSucSalFres"
         Me.cbxSucSalFres.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucSalFres.TabIndex = 17
@@ -879,7 +879,7 @@ Partial Class frmMainMenu
         '
         Me.cbxSucLlegFRes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxSucLlegFRes.FormattingEnabled = True
-        Me.cbxSucLlegFRes.Location = New System.Drawing.Point(373, 122)
+        Me.cbxSucLlegFRes.Location = New System.Drawing.Point(249, 70)
         Me.cbxSucLlegFRes.Name = "cbxSucLlegFRes"
         Me.cbxSucLlegFRes.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucLlegFRes.TabIndex = 19
@@ -918,9 +918,9 @@ Partial Class frmMainMenu
         Me.pnlARes.Controls.Add(Me.dtpInicioARes)
         Me.pnlARes.Controls.Add(Me.cbxSucSalidaARes)
         Me.pnlARes.Controls.Add(Me.cbxSucLlegadaARes)
-        Me.pnlARes.Location = New System.Drawing.Point(736, 215)
+        Me.pnlARes.Location = New System.Drawing.Point(789, 215)
         Me.pnlARes.Name = "pnlARes"
-        Me.pnlARes.Size = New System.Drawing.Size(631, 203)
+        Me.pnlARes.Size = New System.Drawing.Size(578, 203)
         Me.pnlARes.TabIndex = 8
         '
         'btnReservarARes
@@ -934,7 +934,7 @@ Partial Class frmMainMenu
         Me.btnReservarARes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReservarARes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReservarARes.ForeColor = System.Drawing.Color.White
-        Me.btnReservarARes.Location = New System.Drawing.Point(522, 161)
+        Me.btnReservarARes.Location = New System.Drawing.Point(469, 161)
         Me.btnReservarARes.Name = "btnReservarARes"
         Me.btnReservarARes.Size = New System.Drawing.Size(99, 31)
         Me.btnReservarARes.TabIndex = 18
@@ -946,7 +946,7 @@ Partial Class frmMainMenu
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(501, 91)
+        Me.Label8.Location = New System.Drawing.Point(202, 93)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(64, 17)
         Me.Label8.TabIndex = 31
@@ -957,7 +957,7 @@ Partial Class frmMainMenu
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(374, 89)
+        Me.Label7.Location = New System.Drawing.Point(116, 93)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 17)
         Me.Label7.TabIndex = 30
@@ -968,7 +968,7 @@ Partial Class frmMainMenu
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(502, 45)
+        Me.Label6.Location = New System.Drawing.Point(10, 91)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(76, 17)
         Me.Label6.TabIndex = 29
@@ -1032,7 +1032,7 @@ Partial Class frmMainMenu
         'dtpFinARes
         '
         Me.dtpFinARes.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFinARes.Location = New System.Drawing.Point(502, 109)
+        Me.dtpFinARes.Location = New System.Drawing.Point(203, 113)
         Me.dtpFinARes.Name = "dtpFinARes"
         Me.dtpFinARes.Size = New System.Drawing.Size(78, 20)
         Me.dtpFinARes.TabIndex = 20
@@ -1056,15 +1056,15 @@ Partial Class frmMainMenu
         '
         Me.cbxKmARes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxKmARes.FormattingEnabled = True
-        Me.cbxKmARes.Location = New System.Drawing.Point(500, 66)
+        Me.cbxKmARes.Location = New System.Drawing.Point(12, 112)
         Me.cbxKmARes.Name = "cbxKmARes"
-        Me.cbxKmARes.Size = New System.Drawing.Size(121, 21)
+        Me.cbxKmARes.Size = New System.Drawing.Size(99, 21)
         Me.cbxKmARes.TabIndex = 16
         '
         'dtpInicioARes
         '
         Me.dtpInicioARes.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpInicioARes.Location = New System.Drawing.Point(375, 109)
+        Me.dtpInicioARes.Location = New System.Drawing.Point(119, 113)
         Me.dtpInicioARes.Name = "dtpInicioARes"
         Me.dtpInicioARes.Size = New System.Drawing.Size(78, 20)
         Me.dtpInicioARes.TabIndex = 21
@@ -3547,7 +3547,7 @@ Partial Class frmMainMenu
         Me.CheckBox8.AutoSize = True
         Me.CheckBox8.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CheckBox8.Location = New System.Drawing.Point(149, 81)
+        Me.CheckBox8.Location = New System.Drawing.Point(122, 84)
         Me.CheckBox8.Name = "CheckBox8"
         Me.CheckBox8.Size = New System.Drawing.Size(91, 20)
         Me.CheckBox8.TabIndex = 33
@@ -3578,7 +3578,7 @@ Partial Class frmMainMenu
         Me.Label120.AutoSize = True
         Me.Label120.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label120.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label120.Location = New System.Drawing.Point(349, 63)
+        Me.Label120.Location = New System.Drawing.Point(321, 64)
         Me.Label120.Name = "Label120"
         Me.Label120.Size = New System.Drawing.Size(64, 17)
         Me.Label120.TabIndex = 31
@@ -3589,7 +3589,7 @@ Partial Class frmMainMenu
         Me.Label121.AutoSize = True
         Me.Label121.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label121.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label121.Location = New System.Drawing.Point(243, 63)
+        Me.Label121.Location = New System.Drawing.Point(215, 64)
         Me.Label121.Name = "Label121"
         Me.Label121.Size = New System.Drawing.Size(80, 17)
         Me.Label121.TabIndex = 30
@@ -3654,7 +3654,7 @@ Partial Class frmMainMenu
         '
         Me.DateTimePicker9.Enabled = False
         Me.DateTimePicker9.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker9.Location = New System.Drawing.Point(350, 81)
+        Me.DateTimePicker9.Location = New System.Drawing.Point(322, 82)
         Me.DateTimePicker9.Name = "DateTimePicker9"
         Me.DateTimePicker9.Size = New System.Drawing.Size(78, 20)
         Me.DateTimePicker9.TabIndex = 20
@@ -3679,7 +3679,7 @@ Partial Class frmMainMenu
         '
         Me.DateTimePicker10.Enabled = False
         Me.DateTimePicker10.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker10.Location = New System.Drawing.Point(246, 81)
+        Me.DateTimePicker10.Location = New System.Drawing.Point(218, 82)
         Me.DateTimePicker10.Name = "DateTimePicker10"
         Me.DateTimePicker10.Size = New System.Drawing.Size(78, 20)
         Me.DateTimePicker10.TabIndex = 21

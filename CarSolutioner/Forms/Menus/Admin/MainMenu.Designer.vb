@@ -81,12 +81,14 @@ Partial Class frmMainMenu
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtpFinARes = New System.Windows.Forms.DateTimePicker()
         Me.cbxCatARes = New System.Windows.Forms.ComboBox()
         Me.txtDocumARes = New System.Windows.Forms.TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.cbxKmARes = New System.Windows.Forms.ComboBox()
         Me.dtpInicioARes = New System.Windows.Forms.DateTimePicker()
         Me.cbxSucSalidaARes = New System.Windows.Forms.ComboBox()
@@ -119,9 +121,11 @@ Partial Class frmMainMenu
         Me.btnModificarCliente = New System.Windows.Forms.Button()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.pnlFClientes = New System.Windows.Forms.Panel()
+        Me.gbxFecNacFCliente = New System.Windows.Forms.GroupBox()
+        Me.cbxMesFCliente = New System.Windows.Forms.ComboBox()
+        Me.cbxDiaFCliente = New System.Windows.Forms.ComboBox()
+        Me.txtAnioFCliente = New System.Windows.Forms.TextBox()
         Me.chbxFechaFClientes = New System.Windows.Forms.CheckBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.dtpFecNacFCliente = New System.Windows.Forms.DateTimePicker()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.btnVaciarFClientes = New System.Windows.Forms.Button()
         Me.cbxTipoDocumFCliente = New System.Windows.Forms.ComboBox()
@@ -173,7 +177,7 @@ Partial Class frmMainMenu
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.ComboBox11 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox12 = New System.Windows.Forms.ComboBox()
+        Me.cbxMarcaMVeh = New System.Windows.Forms.ComboBox()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.CheckBox7 = New System.Windows.Forms.CheckBox()
         Me.Label36 = New System.Windows.Forms.Label()
@@ -182,7 +186,7 @@ Partial Class frmMainMenu
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.Label41 = New System.Windows.Forms.Label()
-        Me.ComboBox13 = New System.Windows.Forms.ComboBox()
+        Me.cbxModeloMVeh = New System.Windows.Forms.ComboBox()
         Me.ComboBox28 = New System.Windows.Forms.ComboBox()
         Me.ComboBox29 = New System.Windows.Forms.ComboBox()
         Me.ComboBox30 = New System.Windows.Forms.ComboBox()
@@ -192,7 +196,7 @@ Partial Class frmMainMenu
         Me.pnlFVehi = New System.Windows.Forms.Panel()
         Me.numPasajerosFVeh = New System.Windows.Forms.NumericUpDown()
         Me.Label114 = New System.Windows.Forms.Label()
-        Me.cbxTipoFVehiculos = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoFVeh = New System.Windows.Forms.ComboBox()
         Me.cbxEstadoFVeh = New System.Windows.Forms.ComboBox()
         Me.cbxPuertasFVeh = New System.Windows.Forms.ComboBox()
         Me.chboxAutomaticoFVeh = New System.Windows.Forms.CheckBox()
@@ -329,6 +333,10 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.cbxTipoMVeh = New System.Windows.Forms.ComboBox()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.cbxTipoAVeh = New System.Windows.Forms.ComboBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -344,6 +352,7 @@ Partial Class frmMainMenu
         Me.pnlBajaCliente.SuspendLayout()
         Me.pnlMcli.SuspendLayout()
         Me.pnlFClientes.SuspendLayout()
+        Me.gbxFecNacFCliente.SuspendLayout()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAcli.SuspendLayout()
         Me.tbpVehiculos.SuspendLayout()
@@ -908,12 +917,14 @@ Partial Class frmMainMenu
         Me.pnlARes.Controls.Add(Me.Label6)
         Me.pnlARes.Controls.Add(Me.Label5)
         Me.pnlARes.Controls.Add(Me.Label4)
+        Me.pnlARes.Controls.Add(Me.Label20)
         Me.pnlARes.Controls.Add(Me.Label3)
         Me.pnlARes.Controls.Add(Me.Label2)
         Me.pnlARes.Controls.Add(Me.Label1)
         Me.pnlARes.Controls.Add(Me.dtpFinARes)
         Me.pnlARes.Controls.Add(Me.cbxCatARes)
         Me.pnlARes.Controls.Add(Me.txtDocumARes)
+        Me.pnlARes.Controls.Add(Me.ComboBox1)
         Me.pnlARes.Controls.Add(Me.cbxKmARes)
         Me.pnlARes.Controls.Add(Me.dtpInicioARes)
         Me.pnlARes.Controls.Add(Me.cbxSucSalidaARes)
@@ -979,7 +990,7 @@ Partial Class frmMainMenu
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(373, 45)
+        Me.Label5.Location = New System.Drawing.Point(412, 93)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(109, 17)
         Me.Label5.TabIndex = 28
@@ -990,11 +1001,22 @@ Partial Class frmMainMenu
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(246, 45)
+        Me.Label4.Location = New System.Drawing.Point(285, 93)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(97, 17)
         Me.Label4.TabIndex = 27
         Me.Label4.Text = "Sucursal Salida"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label20.Location = New System.Drawing.Point(246, 43)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(32, 17)
+        Me.Label20.TabIndex = 26
+        Me.Label20.Text = "Tipo"
         '
         'Label3
         '
@@ -1052,6 +1074,15 @@ Partial Class frmMainMenu
         Me.txtDocumARes.Size = New System.Drawing.Size(100, 20)
         Me.txtDocumARes.TabIndex = 22
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(246, 64)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 16
+        '
         'cbxKmARes
         '
         Me.cbxKmARes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -1073,7 +1104,7 @@ Partial Class frmMainMenu
         '
         Me.cbxSucSalidaARes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxSucSalidaARes.FormattingEnabled = True
-        Me.cbxSucSalidaARes.Location = New System.Drawing.Point(246, 64)
+        Me.cbxSucSalidaARes.Location = New System.Drawing.Point(285, 113)
         Me.cbxSucSalidaARes.Name = "cbxSucSalidaARes"
         Me.cbxSucSalidaARes.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucSalidaARes.TabIndex = 17
@@ -1082,7 +1113,7 @@ Partial Class frmMainMenu
         '
         Me.cbxSucLlegadaARes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxSucLlegadaARes.FormattingEnabled = True
-        Me.cbxSucLlegadaARes.Location = New System.Drawing.Point(373, 65)
+        Me.cbxSucLlegadaARes.Location = New System.Drawing.Point(412, 113)
         Me.cbxSucLlegadaARes.Name = "cbxSucLlegadaARes"
         Me.cbxSucLlegadaARes.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucLlegadaARes.TabIndex = 19
@@ -1396,9 +1427,8 @@ Partial Class frmMainMenu
         Me.pnlFClientes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlFClientes.Controls.Add(Me.gbxFecNacFCliente)
         Me.pnlFClientes.Controls.Add(Me.chbxFechaFClientes)
-        Me.pnlFClientes.Controls.Add(Me.Label20)
-        Me.pnlFClientes.Controls.Add(Me.dtpFecNacFCliente)
         Me.pnlFClientes.Controls.Add(Me.Label19)
         Me.pnlFClientes.Controls.Add(Me.btnVaciarFClientes)
         Me.pnlFClientes.Controls.Add(Me.cbxTipoDocumFCliente)
@@ -1418,40 +1448,66 @@ Partial Class frmMainMenu
         Me.pnlFClientes.Size = New System.Drawing.Size(578, 203)
         Me.pnlFClientes.TabIndex = 42
         '
+        'gbxFecNacFCliente
+        '
+        Me.gbxFecNacFCliente.Controls.Add(Me.cbxMesFCliente)
+        Me.gbxFecNacFCliente.Controls.Add(Me.cbxDiaFCliente)
+        Me.gbxFecNacFCliente.Controls.Add(Me.txtAnioFCliente)
+        Me.gbxFecNacFCliente.Enabled = False
+        Me.gbxFecNacFCliente.Font = New System.Drawing.Font("Century Gothic", 9.0!)
+        Me.gbxFecNacFCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(122, 109)
+        Me.gbxFecNacFCliente.Name = "gbxFecNacFCliente"
+        Me.gbxFecNacFCliente.Size = New System.Drawing.Size(169, 52)
+        Me.gbxFecNacFCliente.TabIndex = 42
+        Me.gbxFecNacFCliente.TabStop = False
+        Me.gbxFecNacFCliente.Text = "Fecha de Nacimiento"
+        '
+        'cbxMesFCliente
+        '
+        Me.cbxMesFCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.cbxMesFCliente.BackColor = System.Drawing.SystemColors.Window
+        Me.cbxMesFCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxMesFCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.cbxMesFCliente.FormattingEnabled = True
+        Me.cbxMesFCliente.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
+        Me.cbxMesFCliente.Location = New System.Drawing.Point(55, 23)
+        Me.cbxMesFCliente.Name = "cbxMesFCliente"
+        Me.cbxMesFCliente.Size = New System.Drawing.Size(43, 21)
+        Me.cbxMesFCliente.TabIndex = 38
+        '
+        'cbxDiaFCliente
+        '
+        Me.cbxDiaFCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.cbxDiaFCliente.BackColor = System.Drawing.SystemColors.Window
+        Me.cbxDiaFCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxDiaFCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.cbxDiaFCliente.FormattingEnabled = True
+        Me.cbxDiaFCliente.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
+        Me.cbxDiaFCliente.Location = New System.Drawing.Point(6, 23)
+        Me.cbxDiaFCliente.Name = "cbxDiaFCliente"
+        Me.cbxDiaFCliente.Size = New System.Drawing.Size(43, 21)
+        Me.cbxDiaFCliente.TabIndex = 39
+        '
+        'txtAnioFCliente
+        '
+        Me.txtAnioFCliente.Location = New System.Drawing.Point(104, 23)
+        Me.txtAnioFCliente.Name = "txtAnioFCliente"
+        Me.txtAnioFCliente.Size = New System.Drawing.Size(59, 22)
+        Me.txtAnioFCliente.TabIndex = 22
+        '
         'chbxFechaFClientes
         '
         Me.chbxFechaFClientes.AutoSize = True
         Me.chbxFechaFClientes.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chbxFechaFClientes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.chbxFechaFClientes.Location = New System.Drawing.Point(122, 153)
+        Me.chbxFechaFClientes.Location = New System.Drawing.Point(122, 167)
         Me.chbxFechaFClientes.Name = "chbxFechaFClientes"
         Me.chbxFechaFClientes.Size = New System.Drawing.Size(91, 20)
         Me.chbxFechaFClientes.TabIndex = 41
         Me.chbxFechaFClientes.Text = "Filtrar Fecha"
         Me.chbxFechaFClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxFechaFClientes.UseVisualStyleBackColor = True
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label20.Location = New System.Drawing.Point(122, 109)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(137, 17)
-        Me.Label20.TabIndex = 40
-        Me.Label20.Text = "Fecha de Nacimiento"
-        '
-        'dtpFecNacFCliente
-        '
-        Me.dtpFecNacFCliente.CustomFormat = "dd/mm/yyyy"
-        Me.dtpFecNacFCliente.Enabled = False
-        Me.dtpFecNacFCliente.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFecNacFCliente.Location = New System.Drawing.Point(122, 129)
-        Me.dtpFecNacFCliente.Name = "dtpFecNacFCliente"
-        Me.dtpFecNacFCliente.Size = New System.Drawing.Size(130, 20)
-        Me.dtpFecNacFCliente.TabIndex = 39
-        Me.dtpFecNacFCliente.Value = New Date(2017, 8, 22, 0, 0, 0, 0)
         '
         'Label19
         '
@@ -1486,10 +1542,9 @@ Partial Class frmMainMenu
         '
         Me.cbxTipoDocumFCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.cbxTipoDocumFCliente.BackColor = System.Drawing.SystemColors.Window
-        Me.cbxTipoDocumFCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipoDocumFCliente.FormattingEnabled = True
         Me.cbxTipoDocumFCliente.Items.AddRange(New Object() {"CI UY", "SYSTEM"})
-        Me.cbxTipoDocumFCliente.Location = New System.Drawing.Point(13, 128)
+        Me.cbxTipoDocumFCliente.Location = New System.Drawing.Point(12, 132)
         Me.cbxTipoDocumFCliente.Name = "cbxTipoDocumFCliente"
         Me.cbxTipoDocumFCliente.Size = New System.Drawing.Size(101, 21)
         Me.cbxTipoDocumFCliente.TabIndex = 36
@@ -1916,14 +1971,16 @@ Partial Class frmMainMenu
         Me.pnlMVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlMVehi.Controls.Add(Me.Label101)
         Me.pnlMVehi.Controls.Add(Me.TextBox34)
+        Me.pnlMVehi.Controls.Add(Me.cbxTipoMVeh)
         Me.pnlMVehi.Controls.Add(Me.CheckBox6)
         Me.pnlMVehi.Controls.Add(Me.Label29)
         Me.pnlMVehi.Controls.Add(Me.ComboBox10)
         Me.pnlMVehi.Controls.Add(Me.Label30)
         Me.pnlMVehi.Controls.Add(Me.TextBox6)
+        Me.pnlMVehi.Controls.Add(Me.Label44)
         Me.pnlMVehi.Controls.Add(Me.Label35)
         Me.pnlMVehi.Controls.Add(Me.ComboBox11)
-        Me.pnlMVehi.Controls.Add(Me.ComboBox12)
+        Me.pnlMVehi.Controls.Add(Me.cbxMarcaMVeh)
         Me.pnlMVehi.Controls.Add(Me.TextBox7)
         Me.pnlMVehi.Controls.Add(Me.CheckBox7)
         Me.pnlMVehi.Controls.Add(Me.Label36)
@@ -1932,7 +1989,7 @@ Partial Class frmMainMenu
         Me.pnlMVehi.Controls.Add(Me.Label39)
         Me.pnlMVehi.Controls.Add(Me.Label40)
         Me.pnlMVehi.Controls.Add(Me.Label41)
-        Me.pnlMVehi.Controls.Add(Me.ComboBox13)
+        Me.pnlMVehi.Controls.Add(Me.cbxModeloMVeh)
         Me.pnlMVehi.Controls.Add(Me.ComboBox28)
         Me.pnlMVehi.Controls.Add(Me.ComboBox29)
         Me.pnlMVehi.Controls.Add(Me.ComboBox30)
@@ -2037,15 +2094,15 @@ Partial Class frmMainMenu
         Me.ComboBox11.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox11.TabIndex = 56
         '
-        'ComboBox12
+        'cbxMarcaMVeh
         '
-        Me.ComboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox12.Enabled = False
-        Me.ComboBox12.FormattingEnabled = True
-        Me.ComboBox12.Location = New System.Drawing.Point(13, 117)
-        Me.ComboBox12.Name = "ComboBox12"
-        Me.ComboBox12.Size = New System.Drawing.Size(103, 21)
-        Me.ComboBox12.TabIndex = 55
+        Me.cbxMarcaMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxMarcaMVeh.Enabled = False
+        Me.cbxMarcaMVeh.FormattingEnabled = True
+        Me.cbxMarcaMVeh.Location = New System.Drawing.Point(13, 117)
+        Me.cbxMarcaMVeh.Name = "cbxMarcaMVeh"
+        Me.cbxMarcaMVeh.Size = New System.Drawing.Size(103, 21)
+        Me.cbxMarcaMVeh.TabIndex = 55
         '
         'TextBox7
         '
@@ -2134,15 +2191,15 @@ Partial Class frmMainMenu
         Me.Label41.TabIndex = 47
         Me.Label41.Text = "Marca"
         '
-        'ComboBox13
+        'cbxModeloMVeh
         '
-        Me.ComboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox13.Enabled = False
-        Me.ComboBox13.FormattingEnabled = True
-        Me.ComboBox13.Location = New System.Drawing.Point(119, 117)
-        Me.ComboBox13.Name = "ComboBox13"
-        Me.ComboBox13.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox13.TabIndex = 46
+        Me.cbxModeloMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxModeloMVeh.Enabled = False
+        Me.cbxModeloMVeh.FormattingEnabled = True
+        Me.cbxModeloMVeh.Location = New System.Drawing.Point(119, 117)
+        Me.cbxModeloMVeh.Name = "cbxModeloMVeh"
+        Me.cbxModeloMVeh.Size = New System.Drawing.Size(121, 21)
+        Me.cbxModeloMVeh.TabIndex = 46
         '
         'ComboBox28
         '
@@ -2229,7 +2286,7 @@ Partial Class frmMainMenu
         Me.pnlFVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlFVehi.Controls.Add(Me.numPasajerosFVeh)
         Me.pnlFVehi.Controls.Add(Me.Label114)
-        Me.pnlFVehi.Controls.Add(Me.cbxTipoFVehiculos)
+        Me.pnlFVehi.Controls.Add(Me.cbxTipoFVeh)
         Me.pnlFVehi.Controls.Add(Me.cbxEstadoFVeh)
         Me.pnlFVehi.Controls.Add(Me.cbxPuertasFVeh)
         Me.pnlFVehi.Controls.Add(Me.chboxAutomaticoFVeh)
@@ -2276,14 +2333,14 @@ Partial Class frmMainMenu
         Me.Label114.TabIndex = 44
         Me.Label114.Text = "Estado"
         '
-        'cbxTipoFVehiculos
+        'cbxTipoFVeh
         '
-        Me.cbxTipoFVehiculos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxTipoFVehiculos.FormattingEnabled = True
-        Me.cbxTipoFVehiculos.Location = New System.Drawing.Point(360, 71)
-        Me.cbxTipoFVehiculos.Name = "cbxTipoFVehiculos"
-        Me.cbxTipoFVehiculos.Size = New System.Drawing.Size(104, 21)
-        Me.cbxTipoFVehiculos.TabIndex = 43
+        Me.cbxTipoFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoFVeh.FormattingEnabled = True
+        Me.cbxTipoFVeh.Location = New System.Drawing.Point(360, 71)
+        Me.cbxTipoFVeh.Name = "cbxTipoFVeh"
+        Me.cbxTipoFVeh.Size = New System.Drawing.Size(104, 21)
+        Me.cbxTipoFVeh.TabIndex = 43
         '
         'cbxEstadoFVeh
         '
@@ -2299,7 +2356,7 @@ Partial Class frmMainMenu
         Me.cbxPuertasFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxPuertasFVeh.FormattingEnabled = True
         Me.cbxPuertasFVeh.Items.AddRange(New Object() {"2", "3", "4", "5"})
-        Me.cbxPuertasFVeh.Location = New System.Drawing.Point(16, 129)
+        Me.cbxPuertasFVeh.Location = New System.Drawing.Point(13, 126)
         Me.cbxPuertasFVeh.Name = "cbxPuertasFVeh"
         Me.cbxPuertasFVeh.Size = New System.Drawing.Size(97, 21)
         Me.cbxPuertasFVeh.TabIndex = 19
@@ -2322,7 +2379,7 @@ Partial Class frmMainMenu
         Me.Label48.AutoSize = True
         Me.Label48.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label48.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label48.Location = New System.Drawing.Point(13, 109)
+        Me.Label48.Location = New System.Drawing.Point(15, 106)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(52, 17)
         Me.Label48.TabIndex = 28
@@ -2422,7 +2479,6 @@ Partial Class frmMainMenu
         'cbxModeloFVeh
         '
         Me.cbxModeloFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxModeloFVeh.Enabled = False
         Me.cbxModeloFVeh.FormattingEnabled = True
         Me.cbxModeloFVeh.Location = New System.Drawing.Point(233, 71)
         Me.cbxModeloFVeh.Name = "cbxModeloFVeh"
@@ -2520,11 +2576,13 @@ Partial Class frmMainMenu
         Me.pnlAVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlAVehi.Controls.Add(Me.numPasajerosAVeh)
         Me.pnlAVehi.Controls.Add(Me.Label64)
+        Me.pnlAVehi.Controls.Add(Me.cbxTipoAVeh)
         Me.pnlAVehi.Controls.Add(Me.txtMatriculaAVeh)
         Me.pnlAVehi.Controls.Add(Me.btnAltaAVeh)
         Me.pnlAVehi.Controls.Add(Me.cbxAutomaticoAVeh)
         Me.pnlAVehi.Controls.Add(Me.Label46)
         Me.pnlAVehi.Controls.Add(Me.cbxMaletasAVeh)
+        Me.pnlAVehi.Controls.Add(Me.Label84)
         Me.pnlAVehi.Controls.Add(Me.Label53)
         Me.pnlAVehi.Controls.Add(Me.txtAnioAVeh)
         Me.pnlAVehi.Controls.Add(Me.Label54)
@@ -3881,6 +3939,46 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label44.Location = New System.Drawing.Point(391, 17)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(32, 17)
+        Me.Label44.TabIndex = 41
+        Me.Label44.Text = "Tipo"
+        '
+        'cbxTipoMVeh
+        '
+        Me.cbxTipoMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoMVeh.FormattingEnabled = True
+        Me.cbxTipoMVeh.Location = New System.Drawing.Point(394, 38)
+        Me.cbxTipoMVeh.Name = "cbxTipoMVeh"
+        Me.cbxTipoMVeh.Size = New System.Drawing.Size(104, 21)
+        Me.cbxTipoMVeh.TabIndex = 43
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label84.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label84.Location = New System.Drawing.Point(449, 94)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(32, 17)
+        Me.Label84.TabIndex = 41
+        Me.Label84.Text = "Tipo"
+        '
+        'cbxTipoAVeh
+        '
+        Me.cbxTipoAVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoAVeh.FormattingEnabled = True
+        Me.cbxTipoAVeh.Location = New System.Drawing.Point(452, 115)
+        Me.cbxTipoAVeh.Name = "cbxTipoAVeh"
+        Me.cbxTipoAVeh.Size = New System.Drawing.Size(104, 21)
+        Me.cbxTipoAVeh.TabIndex = 43
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3922,6 +4020,8 @@ Partial Class frmMainMenu
         Me.pnlMcli.PerformLayout()
         Me.pnlFClientes.ResumeLayout(False)
         Me.pnlFClientes.PerformLayout()
+        Me.gbxFecNacFCliente.ResumeLayout(False)
+        Me.gbxFecNacFCliente.PerformLayout()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAcli.ResumeLayout(False)
         Me.pnlAcli.PerformLayout()
@@ -4070,7 +4170,7 @@ Partial Class frmMainMenu
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents Label35 As Label
     Friend WithEvents ComboBox11 As ComboBox
-    Friend WithEvents ComboBox12 As ComboBox
+    Friend WithEvents cbxMarcaMVeh As ComboBox
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents CheckBox7 As CheckBox
     Friend WithEvents Label36 As Label
@@ -4079,7 +4179,7 @@ Partial Class frmMainMenu
     Friend WithEvents Label39 As Label
     Friend WithEvents Label40 As Label
     Friend WithEvents Label41 As Label
-    Friend WithEvents ComboBox13 As ComboBox
+    Friend WithEvents cbxModeloMVeh As ComboBox
     Friend WithEvents ComboBox28 As ComboBox
     Friend WithEvents ComboBox29 As ComboBox
     Friend WithEvents ComboBox30 As ComboBox
@@ -4234,8 +4334,6 @@ Partial Class frmMainMenu
     Friend WithEvents Label28 As Label
     Friend WithEvents txtTelefonoMCliente As TextBox
     Friend WithEvents dtpFecNacMCliente As DateTimePicker
-    Friend WithEvents Label20 As Label
-    Friend WithEvents dtpFecNacFCliente As DateTimePicker
     Friend WithEvents Label19 As Label
     Friend WithEvents Label83 As Label
     Friend WithEvents TextBox11 As TextBox
@@ -4254,7 +4352,17 @@ Partial Class frmMainMenu
     Friend WithEvents btnMinimizar As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents numPasajerosFVeh As NumericUpDown
-    Friend WithEvents cbxTipoFVehiculos As ComboBox
+    Friend WithEvents cbxTipoFVeh As ComboBox
     Friend WithEvents Label26 As Label
     Friend WithEvents numPasajerosAVeh As NumericUpDown
+    Friend WithEvents gbxFecNacFCliente As GroupBox
+    Friend WithEvents cbxMesFCliente As ComboBox
+    Friend WithEvents cbxDiaFCliente As ComboBox
+    Friend WithEvents txtAnioFCliente As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbxTipoMVeh As ComboBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents cbxTipoAVeh As ComboBox
+    Friend WithEvents Label84 As Label
 End Class

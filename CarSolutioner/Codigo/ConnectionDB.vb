@@ -10,9 +10,6 @@
     Dim _Usuario As String = Nothing
     Dim _Contraseña As String = Nothing
 
-    Dim _Marcas As DataTable
-    Dim _Modelos As DataTable
-
     Public Property Usuario() As String
         Get
             Return _Usuario
@@ -31,23 +28,6 @@
         End Set
     End Property
 
-    Public Property Marcas() As DataTable
-        Get
-            Return _Marcas
-        End Get
-        Set(ByVal value As DataTable)
-            _Marcas = value
-        End Set
-    End Property
-
-    Public Property Modelos() As DataTable
-        Get
-            Return _Modelos
-        End Get
-        Set(ByVal value As DataTable)
-            _Modelos = value
-        End Set
-    End Property
 
 
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
@@ -57,10 +37,10 @@
     Public Function Conectar(Usuario, Contraseña) As Boolean
         Try
             'SERVIDOR UTU
-            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
             'SERVIDOR VICTOR
-            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
             'SERVIDOR VICTOR 32 BITS
             'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
@@ -141,6 +121,12 @@
         Dim fuente As New BindingSource()
 
         Try
+            If dgv.Name = "dgvClientes" Then
+                Dim ColumnaTelefonos As New DataGridViewComboBoxColumn()
+                dgv.Columns.Add(ColumnaTelefonos)
+                ColumnaTelefonos.HeaderText = "Telefono"
+                ColumnaTelefonos.ValueMember = "telefono"
+            End If
             fuente.DataSource = EjecutarSelect(sentencia)
             dgv.DataSource = fuente
 
@@ -151,7 +137,6 @@
         Finally
 
             'Propiedades que queremos por defecto en todos los DataGridView.
-            dgv.ReadOnly = True
             dgv.RowHeadersVisible = False
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
@@ -162,6 +147,9 @@
             dgv.MultiSelect = False
 
             For Each column As DataGridViewColumn In dgv.Columns
+                If Not column.HeaderText = "Telefono" Then
+                    column.ReadOnly = True
+                End If
 
                 Dim palabra() As Char = column.HeaderText.ToCharArray
                 palabra(0) = Char.ToUpper(palabra(0))
@@ -184,6 +172,7 @@
                 End If
 
             Next
+
 
         End Try
 

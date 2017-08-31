@@ -6,25 +6,39 @@ End Class
 'CLIENTES
 Partial Public Class frmMainMenu
 
-    Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, dtpFecNacFCliente.TextChanged
+    Private Sub chboxFechaFClientes_CheckedChanged(sender As Object, e As EventArgs) Handles chbxFechaFClientes.CheckedChanged
+
+        If chbxFechaFClientes.Checked Then
+
+            cbxDiaFCliente.SelectedItem = Nothing
+            cbxMesFCliente.SelectedItem = Nothing
+            txtAnioFCliente.Text = ""
+            gbxFecNacFCliente.Enabled = True
+
+        Else
+
+            gbxFecNacFCliente.Enabled = False
+
+        End If
+
+    End Sub
+
+    Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, cbxDiaFCliente.SelectionChangeCommitted, cbxMesFCliente.SelectionChangeCommitted, txtAnioFCliente.TextChanged
 
         Dim filtro As String
 
         If chbxFechaFClientes.Checked = True Then
 
-            filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%' AND {12} = '{13}'",
-                                   "Documento", txtDocumFClientes.Text, "Tipo", cbxTipoDocumFCliente.SelectedItem.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "Correo", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text, "Nacimiento", dtpFecNacFCliente.Value.ToShortDateString)
 
-            dgvClientes.DataSource.Filter = filtro
 
         Else
 
             filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%'",
-                                   "Documento", txtDocumFClientes.Text, "Tipo", cbxTipoDocumFCliente.SelectedItem.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "Correo", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
+                                       "Documento", txtDocumFClientes.Text, "Tipo", cbxTipoDocumFCliente.SelectedItem.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "Correo", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
 
             dgvClientes.DataSource.Filter = filtro
-        End If
 
+        End If
 
     End Sub
 
@@ -37,6 +51,7 @@ Partial Public Class frmMainMenu
         conexion.EjecutarNonQuery(sentencia)
 
         CargarDatos(dgvClientes)
+
     End Sub
 
     Private Sub btnVaciarFClientes_Click(sender As Object, e As EventArgs) Handles btnVaciarFClientes.Click
@@ -49,13 +64,6 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub chboxFechaFClientes_CheckedChanged(sender As Object, e As EventArgs) Handles chbxFechaFClientes.CheckedChanged
-        If chbxFechaFClientes.Checked Then
-            dtpFecNacFCliente.Enabled = True
-        Else
-            dtpFecNacFCliente.Enabled = False
-        End If
-    End Sub
 
     Private Sub btnModificarCliente_Click(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
 
@@ -73,13 +81,13 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvClientes.CurrentRow) Then
 
-            cbxTipoDocumMCliente.SelectedItem = dgvClientes.CurrentRow.Cells(0).Value.ToString()
-            txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells(1).Value.ToString()
-            txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(2).Value.ToString
-            txtApellidoMCliente.Text = dgvClientes.CurrentRow.Cells(3).Value.ToString()
-            txtCorreoMCliente.Text = dgvClientes.CurrentRow.Cells(4).Value.ToString()
-            dtpFecNacMCliente.Value = dgvClientes.CurrentRow.Cells(5).Value.ToString()
-            txtEmpresaMCliente.Text = dgvClientes.CurrentRow.Cells(6).Value.ToString()
+            'cbxTipoDocumMCliente.SelectedItem = dgvClientes.CurrentRow.Cells(0).Value.ToString()
+            'txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells(1).Value.ToString()
+            'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(2).Value.ToString
+            'txtApellidoMCliente.Text = dgvClientes.CurrentRow.Cells(3).Value.ToString()
+            'txtCorreoMCliente.Text = dgvClientes.CurrentRow.Cells(4).Value.ToString()
+            'dtpFecNacMCliente.Value = dgvClientes.CurrentRow.Cells(5).Value.ToString()
+            'txtEmpresaMCliente.Text = dgvClientes.CurrentRow.Cells(6).Value.ToString()
 
             'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()
             'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()

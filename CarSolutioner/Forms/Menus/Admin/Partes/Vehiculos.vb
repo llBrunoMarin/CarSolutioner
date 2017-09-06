@@ -82,6 +82,22 @@ Partial Public Class frmMainMenu
         Next
     End Sub
 
+    'Private Sub VaciarFiltrosVehiculoDobleClick(sender As Object, e As EventArgs) Handles 
+    '    For Each item In pnlFVehi.Controls
+    '        If TypeOf item Is TextBox Then
+    '            item.text = ""
+    '        End If
+
+    '        If TypeOf item Is ComboBox Then
+    '            item.SelectedItem = Nothing
+    '        End If
+
+    '        If TypeOf item Is NumericUpDown Then
+    '            DirectCast(item, NumericUpDown).Value = Nothing
+    '        End If
+    '    Next
+    'End Sub
+
 
     Private Sub numPasajerosFVeh_ValueChanged(sender As Object, e As EventArgs) Handles numPasajerosFVeh.ValueChanged
 
@@ -110,6 +126,12 @@ Partial Public Class frmMainMenu
 
         End If
 
+
+    End Sub
+
+    Private Sub lblBorrarMarcaFVeh_Click(sender As Object, e As EventArgs) Handles lblBorrarMarcaFVeh.Click
+        cbxMarcaFVeh.SelectedItem = Nothing
+        cbxMarcaFVeh.Text = "Todos"
 
     End Sub
 End Class

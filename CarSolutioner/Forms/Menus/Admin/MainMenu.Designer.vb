@@ -234,6 +234,7 @@ Partial Class frmMainMenu
         Me.Label50 = New System.Windows.Forms.Label()
         Me.cbxMarcaFVeh = New System.Windows.Forms.ComboBox()
         Me.btnVaciarFVeh = New System.Windows.Forms.Button()
+        Me.lblBorrarMarcaFVeh = New System.Windows.Forms.Label()
         Me.Label51 = New System.Windows.Forms.Label()
         Me.Label52 = New System.Windows.Forms.Label()
         Me.pnlAVehi = New System.Windows.Forms.Panel()
@@ -2510,6 +2511,7 @@ Partial Class frmMainMenu
         Me.pnlFVehi.Controls.Add(Me.Label50)
         Me.pnlFVehi.Controls.Add(Me.cbxMarcaFVeh)
         Me.pnlFVehi.Controls.Add(Me.btnVaciarFVeh)
+        Me.pnlFVehi.Controls.Add(Me.lblBorrarMarcaFVeh)
         Me.pnlFVehi.Controls.Add(Me.Label51)
         Me.pnlFVehi.Controls.Add(Me.Label52)
         Me.pnlFVehi.Location = New System.Drawing.Point(789, 7)
@@ -2774,6 +2776,17 @@ Partial Class frmMainMenu
         Me.btnVaciarFVeh.TabIndex = 32
         Me.btnVaciarFVeh.Text = "Vaciar"
         Me.btnVaciarFVeh.UseVisualStyleBackColor = False
+        '
+        'lblBorrarMarcaFVeh
+        '
+        Me.lblBorrarMarcaFVeh.AutoSize = True
+        Me.lblBorrarMarcaFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarMarcaFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarMarcaFVeh.Location = New System.Drawing.Point(206, 57)
+        Me.lblBorrarMarcaFVeh.Name = "lblBorrarMarcaFVeh"
+        Me.lblBorrarMarcaFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarMarcaFVeh.TabIndex = 25
+        Me.lblBorrarMarcaFVeh.Text = "←"
         '
         'Label51
         '
@@ -4335,7 +4348,6 @@ Partial Class frmMainMenu
     Friend WithEvents txtAñoFVeh As TextBox
     Friend WithEvents Label61 As Label
     Friend WithEvents cbxCategoriaFVeh As ComboBox
-    Friend WithEvents cbxMarcaFVeh As ComboBox
     Friend WithEvents btnVaciarFVeh As Button
     Friend WithEvents Label47 As Label
     Friend WithEvents Label48 As Label
@@ -4595,4 +4607,6 @@ Partial Class frmMainMenu
     Friend WithEvents Label105 As Label
     Friend WithEvents Label104 As Label
     Friend WithEvents lblParamIgnore As Label
+    Friend WithEvents cbxMarcaFVeh As ComboBox
+    Friend WithEvents lblBorrarMarcaFVeh As Label
 End Class

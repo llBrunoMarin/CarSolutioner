@@ -136,6 +136,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre")
         CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre")
 
+
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre")
         CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre")
         CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre")
@@ -171,7 +172,9 @@ Public Class frmMainMenu
 
         '(El "new BindingContext" es para que los comboboxes que hacen referencia a una misma tabla no se seleccionen a la vez)
         cbx.BindingContext = New BindingContext
+
         cbx.DataSource = dt.DefaultView
+        
         cbx.DisplayMember = columna
         cbx.ValueMember = columna
 

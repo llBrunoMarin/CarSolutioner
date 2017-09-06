@@ -49,15 +49,14 @@ Partial Public Class frmMainMenu
                          cbxTipoDocumACliente.SelectedItem, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, dtpFecNacACliente.Value.Date.ToShortDateString, txtEmpresaACliente.Text)
 
         conexion.EjecutarNonQuery(sentencia)
-
-        CargarDatos(dgvClientes)
+        RecargarDatos(dgvClientes)
 
     End Sub
 
     Private Sub btnVaciarFClientes_Click(sender As Object, e As EventArgs) Handles btnVaciarFClientes.Click
 
         For Each control As Control In pnlFClientes.Controls
-            If TypeOf control Is TextBox Then
+            If TypeOf control Is TextBox Or TypeOf control Is NumericUpDown Then
                 control.Text = ""
             End If
         Next
@@ -67,13 +66,8 @@ Partial Public Class frmMainMenu
 
     Private Sub btnModificarCliente_Click(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
 
-        Dim sentencia As String
-
-        sentencia = "UPDATE Cliente SET tipodocumento = '" + cbxTipoDocumMCliente.SelectedItem + "', nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + dtpFecNacMCliente.Value.ToShortDateString + "', empresa = '" + txtEmpresaMCliente.Text + "' WHERE idpersona = (SELECT idpersona FROM cliente WHERE nrodocumento = '" + dgvClientes.CurrentRow.Cells(1).Value.ToString() + "') "
-
-        conexion.EjecutarNonQuery(sentencia)
-
-        CargarDatos(dgvClientes)
+        conexion.EjecutarNonQuery("UPDATE Cliente SET tipodocumento = '" + cbxTipoDocumMCliente.SelectedItem + "', nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + dtpFecNacMCliente.Value.ToShortDateString + "', empresa = '" + txtEmpresaMCliente.Text + "' WHERE idpersona = (SELECT idpersona FROM cliente WHERE nrodocumento = '" + dgvClientes.CurrentRow.Cells(1).Value.ToString() + "') ")
+        RecargarDatos(dgvClientes)
 
     End Sub
 
@@ -81,13 +75,13 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvClientes.CurrentRow) Then
 
-            'cbxTipoDocumMCliente.SelectedItem = dgvClientes.CurrentRow.Cells(0).Value.ToString()
-            'txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells(1).Value.ToString()
-            'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(2).Value.ToString
-            'txtApellidoMCliente.Text = dgvClientes.CurrentRow.Cells(3).Value.ToString()
-            'txtCorreoMCliente.Text = dgvClientes.CurrentRow.Cells(4).Value.ToString()
-            'dtpFecNacMCliente.Value = dgvClientes.CurrentRow.Cells(5).Value.ToString()
-            'txtEmpresaMCliente.Text = dgvClientes.CurrentRow.Cells(6).Value.ToString()
+            cbxTipoDocumMCliente.SelectedItem = dgvClientes.CurrentRow.Cells(0).Value.ToString()
+            txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells(1).Value.ToString()
+            txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(2).Value.ToString
+            txtApellidoMCliente.Text = dgvClientes.CurrentRow.Cells(3).Value.ToString()
+            txtCorreoMCliente.Text = dgvClientes.CurrentRow.Cells(4).Value.ToString()
+            dtpFecNacMCliente.Value = dgvClientes.CurrentRow.Cells(5).Value.ToString()
+            txtEmpresaMCliente.Text = dgvClientes.CurrentRow.Cells(6).Value.ToString()
 
             'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()
             'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()

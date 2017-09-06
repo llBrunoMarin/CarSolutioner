@@ -10,6 +10,13 @@
     Dim _Usuario As String = Nothing
     Dim _Contraseña As String = Nothing
 
+    Dim _Marcas As DataTable
+    Dim _Modelos As DataTable
+    Dim _Categorias As DataTable
+    Dim _Tipos As DataTable
+    Dim _Sucursales As DataTable
+
+
     Public Property Usuario() As String
         Get
             Return _Usuario
@@ -18,7 +25,6 @@
             _Usuario = value
         End Set
     End Property
-
     Public Property Contraseña() As String
         Get
             Return _Contraseña
@@ -28,6 +34,46 @@
         End Set
     End Property
 
+    Public Property Modelos() As DataTable
+        Get
+            Return _Modelos
+        End Get
+        Set(value As DataTable)
+            _Modelos = value
+        End Set
+    End Property
+    Public Property Marcas() As DataTable
+        Get
+            Return _Marcas
+        End Get
+        Set(value As DataTable)
+            _Marcas = value
+        End Set
+    End Property
+    Public Property Categorias() As DataTable
+        Get
+            Return _Categorias
+        End Get
+        Set(ByVal value As DataTable)
+            _Categorias = value
+        End Set
+    End Property
+    Public Property Tipos() As DataTable
+        Get
+            Return _Tipos
+        End Get
+        Set(ByVal value As DataTable)
+            _Tipos = value
+        End Set
+    End Property
+    Public Property Sucursales() As DataTable
+        Get
+            Return _Sucursales
+        End Get
+        Set(value As DataTable)
+            _Sucursales = value
+        End Set
+    End Property
 
 
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
@@ -121,12 +167,7 @@
         Dim fuente As New BindingSource()
 
         Try
-            If dgv.Name = "dgvClientes" Then
-                Dim ColumnaTelefonos As New DataGridViewComboBoxColumn()
-                dgv.Columns.Add(ColumnaTelefonos)
-                ColumnaTelefonos.HeaderText = "Telefono"
-                ColumnaTelefonos.ValueMember = "telefono"
-            End If
+
             fuente.DataSource = EjecutarSelect(sentencia)
             dgv.DataSource = fuente
 
@@ -137,6 +178,7 @@
         Finally
 
             'Propiedades que queremos por defecto en todos los DataGridView.
+            dgv.ReadOnly = True
             dgv.RowHeadersVisible = False
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
@@ -146,30 +188,46 @@
             dgv.AllowUserToResizeRows = False
             dgv.MultiSelect = False
 
+            Select Case dgv.Name
+
+                Case "dgvClientes"
+                    dgv.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+                    dgv.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+                    dgv.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+                    dgv.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+
+                Case "dgvVehiculos"
+                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
+                    dgv.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+                    dgv.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+                    dgv.Columns(13).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+                    dgv.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+                    'dgv.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+                    'dgv.Columns(4).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    'dgv.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    'dgv.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    'dgv.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    'dgv.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+                    'dgv.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    '
+                    'dgv.Columns(4).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(8).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(9).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(10).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(11).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(12).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                    'dgv.Columns(13).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+            End Select
+
             For Each column As DataGridViewColumn In dgv.Columns
-                If Not column.HeaderText = "Telefono" Then
-                    column.ReadOnly = True
-                End If
 
                 Dim palabra() As Char = column.HeaderText.ToCharArray
                 palabra(0) = Char.ToUpper(palabra(0))
                 column.HeaderText = palabra
-
-                If column.HeaderText = "Fecha" Then
-                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                End If
-
-                If column.HeaderText = "Tipo" Then
-                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                End If
-
-                If column.HeaderText = "Documento" Then
-                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                End If
-
-                If column.HeaderText = "Apellido" Then
-                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                End If
 
             Next
 

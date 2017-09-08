@@ -56,18 +56,32 @@ Partial Public Class frmMainMenu
                 Select Case sender.Name
                     Case "cbxModeloAVeh"
                         cbxTipoAVeh.SelectedValue = nombretipo
+                        cbxTipoAVeh.Enabled = False
                     Case "cbxModeloFVeh"
                         cbxTipoFVeh.SelectedValue = nombretipo
+                        cbxTipoFVeh.Enabled = False
                     Case Else
 
                 End Select
             End If
+        Else
+            Select Case sender.Name
+                Case "cbxModeloAVeh"
+                    cbxTipoAVeh.Enabled = True
+                Case "cbxModeloFVeh"
+                    cbxTipoFVeh.Enabled = True
+                Case Else
+
+            End Select
         End If
 
     End Sub
 
-    Private Sub VaciarFiltrosVehiculo(sender As Object, e As EventArgs) Handles btnVaciarFVeh.Click
+    Private Sub VaciarFiltrosVehiculoBoton(sender As Object, e As EventArgs) Handles btnVaciarFVeh.Click
+
+
         For Each item In pnlFVehi.Controls
+
             If TypeOf item Is TextBox Then
                 item.text = ""
             End If
@@ -82,21 +96,64 @@ Partial Public Class frmMainMenu
         Next
     End Sub
 
-    'Private Sub VaciarFiltrosVehiculoDobleClick(sender As Object, e As EventArgs) Handles 
-    '    For Each item In pnlFVehi.Controls
-    '        If TypeOf item Is TextBox Then
-    '            item.text = ""
-    '        End If
+    Private Sub VaciarFiltrosVehiculo(sender As Object, e As EventArgs) Handles lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click
 
-    '        If TypeOf item Is ComboBox Then
-    '            item.SelectedItem = Nothing
-    '        End If
+        Select Case sender.Name
 
-    '        If TypeOf item Is NumericUpDown Then
-    '            DirectCast(item, NumericUpDown).Value = Nothing
-    '        End If
-    '    Next
-    'End Sub
+            Case "lblBorrarMarcaFVeh"
+                If Not cbxMarcaFVeh.SelectedItem Is Nothing Then
+                    cbxMarcaFVeh.SelectedItem = Nothing
+                End If
+
+                If Not cbxModeloFVeh.SelectedItem Is Nothing Then
+                    cbxModeloFVeh.SelectedItem = Nothing
+                End If
+
+                If Not cbxTipoFVeh.SelectedItem Is Nothing Then
+                    cbxTipoFVeh.SelectedItem = Nothing
+                End If
+
+            Case "lblBorrarModeloFVeh"
+                If Not cbxModeloFVeh.SelectedItem Is Nothing Then
+                    cbxModeloFVeh.SelectedItem = Nothing
+                End If
+
+                If Not cbxTipoFVeh.SelectedItem Is Nothing Then
+                    cbxTipoFVeh.SelectedItem = Nothing
+                End If
+
+            Case "lblBorrarTipoFVeh"
+                If Not cbxTipoFVeh.SelectedItem Is Nothing Then
+                    cbxTipoFVeh.SelectedItem = Nothing
+                End If
+
+            Case "lblBorrarCategoriaFVeh"
+                If Not cbxCategoriaFVeh.SelectedItem Is Nothing Then
+                    cbxCategoriaFVeh.SelectedItem = Nothing
+                End If
+
+
+            Case "lblBorrarEstadoFVeh"
+                If Not cbxEstadoFVeh.SelectedItem Is Nothing Then
+                    cbxEstadoFVeh.SelectedItem = Nothing
+                End If
+
+            Case "lblBorrarMaletasFVeh"
+                If Not cbxMaletasFVeh.SelectedItem Is Nothing Then
+                    cbxMaletasFVeh.SelectedItem = Nothing
+                End If
+
+            Case "lblBorrarPuertasFVeh"
+                If Not cbxPuertasFVeh.SelectedItem Is Nothing Then
+                    cbxPuertasFVeh.SelectedItem = Nothing
+                End If
+            Case "lblBorrarSucursalFVeh"
+                If Not cbxSucursalFVeh.SelectedItem Is Nothing Then
+                    cbxSucursalFVeh.SelectedItem = Nothing
+                End If
+        End Select
+
+    End Sub
 
 
     Private Sub numPasajerosFVeh_ValueChanged(sender As Object, e As EventArgs) Handles numPasajerosFVeh.ValueChanged

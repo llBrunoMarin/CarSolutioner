@@ -128,10 +128,9 @@ Public Class frmMainMenu
                                                     AND Mo.Idmarca = Ma.Idmarca
                                                     AND Mo.Idtipo = T.idtipo
                                                     AND V.idsucursal = S.idsucursal AND V.estado = 't'")
-        conexion.RellenarDataGridView(dgvReservas, "SELECT * FROM RESERVA where estado = 1")
+        conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.fechareservafin, R.fechaalquilerinicio, R.fechaalquilerfin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, V.matricula, Cl.nombre, Ca.nombre, T.nombre, SS.nombre, SL.nombre, R.usuarioempleado  FROM Reserva R, Vehiculo V, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.nrochasis = V.nrochasis AND R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal  UNION SELECT R.fechareservainicio, R.fechareservafin, R.fechaalquilerinicio, R.fechaalquilerfin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, '-' , Cl.nombre, Ca.nombre, T.nombre, SS.nombre, SL.nombre,R.usuarioempleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal")
 
         'Cargas de ComboBox
-
         CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre")
         CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre")
         CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre")

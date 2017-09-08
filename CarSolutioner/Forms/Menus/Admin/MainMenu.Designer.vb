@@ -234,12 +234,14 @@ Partial Class frmMainMenu
         Me.Label50 = New System.Windows.Forms.Label()
         Me.cbxMarcaFVeh = New System.Windows.Forms.ComboBox()
         Me.btnVaciarFVeh = New System.Windows.Forms.Button()
+        Me.lblBorrarTipoFVeh = New System.Windows.Forms.Label()
+        Me.lblBorrarModeloFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarMarcaFVeh = New System.Windows.Forms.Label()
         Me.Label51 = New System.Windows.Forms.Label()
         Me.Label52 = New System.Windows.Forms.Label()
         Me.pnlAVehi = New System.Windows.Forms.Panel()
         Me.numPasajerosAVeh = New System.Windows.Forms.NumericUpDown()
-        Me.Label64 = New System.Windows.Forms.Label()
+        Me.lblBorrarEstadoFVeh = New System.Windows.Forms.Label()
         Me.cbxTipoAVeh = New System.Windows.Forms.ComboBox()
         Me.txtMatriculaAVeh = New System.Windows.Forms.TextBox()
         Me.btnAltaAVeh = New System.Windows.Forms.Button()
@@ -354,6 +356,11 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.lblBorrarCategoriaFVeh = New System.Windows.Forms.Label()
+        Me.lblBorrarPuertasFVeh = New System.Windows.Forms.Label()
+        Me.Label128 = New System.Windows.Forms.Label()
+        Me.lblBorrarSucursalFVeh = New System.Windows.Forms.Label()
+        Me.lblBorrarMaletasFVeh = New System.Windows.Forms.Label()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -596,10 +603,10 @@ Partial Class frmMainMenu
         'tbpReservas
         '
         Me.tbpReservas.BackColor = System.Drawing.Color.Silver
-        Me.tbpReservas.Controls.Add(Me.pnlBRes)
-        Me.tbpReservas.Controls.Add(Me.pnlFRes)
         Me.tbpReservas.Controls.Add(Me.dgvReservas)
+        Me.tbpReservas.Controls.Add(Me.pnlFRes)
         Me.tbpReservas.Controls.Add(Me.pnlARes)
+        Me.tbpReservas.Controls.Add(Me.pnlBRes)
         Me.tbpReservas.Location = New System.Drawing.Point(4, 25)
         Me.tbpReservas.Name = "tbpReservas"
         Me.tbpReservas.Padding = New System.Windows.Forms.Padding(3)
@@ -2511,6 +2518,13 @@ Partial Class frmMainMenu
         Me.pnlFVehi.Controls.Add(Me.Label50)
         Me.pnlFVehi.Controls.Add(Me.cbxMarcaFVeh)
         Me.pnlFVehi.Controls.Add(Me.btnVaciarFVeh)
+        Me.pnlFVehi.Controls.Add(Me.lblBorrarMaletasFVeh)
+        Me.pnlFVehi.Controls.Add(Me.lblBorrarTipoFVeh)
+        Me.pnlFVehi.Controls.Add(Me.lblBorrarSucursalFVeh)
+        Me.pnlFVehi.Controls.Add(Me.lblBorrarModeloFVeh)
+        Me.pnlFVehi.Controls.Add(Me.lblBorrarPuertasFVeh)
+        Me.pnlFVehi.Controls.Add(Me.lblBorrarCategoriaFVeh)
+        Me.pnlFVehi.Controls.Add(Me.Label128)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarMarcaFVeh)
         Me.pnlFVehi.Controls.Add(Me.Label51)
         Me.pnlFVehi.Controls.Add(Me.Label52)
@@ -2557,6 +2571,7 @@ Partial Class frmMainMenu
         '
         'cbxAireFVeh
         '
+        Me.cbxAireFVeh.AutoCompleteCustomSource.AddRange(New String() {"Todos", "Si", "No"})
         Me.cbxAireFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxAireFVeh.FormattingEnabled = True
         Me.cbxAireFVeh.Items.AddRange(New Object() {"Si", "No"})
@@ -2567,6 +2582,7 @@ Partial Class frmMainMenu
         '
         'cbxAutomaticoFVeh
         '
+        Me.cbxAutomaticoFVeh.AutoCompleteCustomSource.AddRange(New String() {"Todos", "Si", "No"})
         Me.cbxAutomaticoFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxAutomaticoFVeh.FormattingEnabled = True
         Me.cbxAutomaticoFVeh.Items.AddRange(New Object() {"Si", "No"})
@@ -2777,6 +2793,28 @@ Partial Class frmMainMenu
         Me.btnVaciarFVeh.Text = "Vaciar"
         Me.btnVaciarFVeh.UseVisualStyleBackColor = False
         '
+        'lblBorrarTipoFVeh
+        '
+        Me.lblBorrarTipoFVeh.AutoSize = True
+        Me.lblBorrarTipoFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarTipoFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarTipoFVeh.Location = New System.Drawing.Point(440, 57)
+        Me.lblBorrarTipoFVeh.Name = "lblBorrarTipoFVeh"
+        Me.lblBorrarTipoFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarTipoFVeh.TabIndex = 25
+        Me.lblBorrarTipoFVeh.Text = "←"
+        '
+        'lblBorrarModeloFVeh
+        '
+        Me.lblBorrarModeloFVeh.AutoSize = True
+        Me.lblBorrarModeloFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarModeloFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarModeloFVeh.Location = New System.Drawing.Point(334, 57)
+        Me.lblBorrarModeloFVeh.Name = "lblBorrarModeloFVeh"
+        Me.lblBorrarModeloFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarModeloFVeh.TabIndex = 25
+        Me.lblBorrarModeloFVeh.Text = "←"
+        '
         'lblBorrarMarcaFVeh
         '
         Me.lblBorrarMarcaFVeh.AutoSize = True
@@ -2818,7 +2856,7 @@ Partial Class frmMainMenu
         Me.pnlAVehi.BackColor = System.Drawing.Color.Silver
         Me.pnlAVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlAVehi.Controls.Add(Me.numPasajerosAVeh)
-        Me.pnlAVehi.Controls.Add(Me.Label64)
+        Me.pnlAVehi.Controls.Add(Me.lblBorrarEstadoFVeh)
         Me.pnlAVehi.Controls.Add(Me.cbxTipoAVeh)
         Me.pnlAVehi.Controls.Add(Me.txtMatriculaAVeh)
         Me.pnlAVehi.Controls.Add(Me.btnAltaAVeh)
@@ -2857,16 +2895,16 @@ Partial Class frmMainMenu
         Me.numPasajerosAVeh.TabIndex = 45
         Me.numPasajerosAVeh.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
-        'Label64
+        'lblBorrarEstadoFVeh
         '
-        Me.Label64.AutoSize = True
-        Me.Label64.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label64.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label64.Location = New System.Drawing.Point(361, 122)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(69, 17)
-        Me.Label64.TabIndex = 64
-        Me.Label64.Text = "Categoria"
+        Me.lblBorrarEstadoFVeh.AutoSize = True
+        Me.lblBorrarEstadoFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarEstadoFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarEstadoFVeh.Location = New System.Drawing.Point(361, 122)
+        Me.lblBorrarEstadoFVeh.Name = "lblBorrarEstadoFVeh"
+        Me.lblBorrarEstadoFVeh.Size = New System.Drawing.Size(69, 17)
+        Me.lblBorrarEstadoFVeh.TabIndex = 64
+        Me.lblBorrarEstadoFVeh.Text = "Categoria"
         '
         'cbxTipoAVeh
         '
@@ -4202,6 +4240,61 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'lblBorrarCategoriaFVeh
+        '
+        Me.lblBorrarCategoriaFVeh.AutoSize = True
+        Me.lblBorrarCategoriaFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarCategoriaFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarCategoriaFVeh.Location = New System.Drawing.Point(96, 57)
+        Me.lblBorrarCategoriaFVeh.Name = "lblBorrarCategoriaFVeh"
+        Me.lblBorrarCategoriaFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarCategoriaFVeh.TabIndex = 25
+        Me.lblBorrarCategoriaFVeh.Text = "←"
+        '
+        'lblBorrarPuertasFVeh
+        '
+        Me.lblBorrarPuertasFVeh.AutoSize = True
+        Me.lblBorrarPuertasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarPuertasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarPuertasFVeh.Location = New System.Drawing.Point(97, 102)
+        Me.lblBorrarPuertasFVeh.Name = "lblBorrarPuertasFVeh"
+        Me.lblBorrarPuertasFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarPuertasFVeh.TabIndex = 25
+        Me.lblBorrarPuertasFVeh.Text = "←"
+        '
+        'Label128
+        '
+        Me.Label128.AutoSize = True
+        Me.Label128.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label128.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label128.Location = New System.Drawing.Point(206, 102)
+        Me.Label128.Name = "Label128"
+        Me.Label128.Size = New System.Drawing.Size(20, 17)
+        Me.Label128.TabIndex = 25
+        Me.Label128.Text = "←"
+        '
+        'lblBorrarSucursalFVeh
+        '
+        Me.lblBorrarSucursalFVeh.AutoSize = True
+        Me.lblBorrarSucursalFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarSucursalFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarSucursalFVeh.Location = New System.Drawing.Point(332, 101)
+        Me.lblBorrarSucursalFVeh.Name = "lblBorrarSucursalFVeh"
+        Me.lblBorrarSucursalFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarSucursalFVeh.TabIndex = 25
+        Me.lblBorrarSucursalFVeh.Text = "←"
+        '
+        'lblBorrarMaletasFVeh
+        '
+        Me.lblBorrarMaletasFVeh.AutoSize = True
+        Me.lblBorrarMaletasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarMaletasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarMaletasFVeh.Location = New System.Drawing.Point(536, 102)
+        Me.lblBorrarMaletasFVeh.Name = "lblBorrarMaletasFVeh"
+        Me.lblBorrarMaletasFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarMaletasFVeh.TabIndex = 25
+        Me.lblBorrarMaletasFVeh.Text = "←"
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4360,7 +4453,7 @@ Partial Class frmMainMenu
     Friend WithEvents cbxPuertasFVeh As ComboBox
     Friend WithEvents pnlAVehi As Panel
     Friend WithEvents Label60 As Label
-    Friend WithEvents Label64 As Label
+    Friend WithEvents lblBorrarEstadoFVeh As Label
     Friend WithEvents txtMatriculaAVeh As TextBox
     Friend WithEvents btnAltaAVeh As Button
     Friend WithEvents cbxAutomaticoAVeh As CheckBox
@@ -4609,4 +4702,11 @@ Partial Class frmMainMenu
     Friend WithEvents lblParamIgnore As Label
     Friend WithEvents cbxMarcaFVeh As ComboBox
     Friend WithEvents lblBorrarMarcaFVeh As Label
+    Friend WithEvents lblBorrarTipoFVeh As Label
+    Friend WithEvents lblBorrarModeloFVeh As Label
+    Friend WithEvents lblBorrarSucursalFVeh As Label
+    Friend WithEvents lblBorrarPuertasFVeh As Label
+    Friend WithEvents lblBorrarCategoriaFVeh As Label
+    Friend WithEvents Label128 As Label
+    Friend WithEvents lblBorrarMaletasFVeh As Label
 End Class

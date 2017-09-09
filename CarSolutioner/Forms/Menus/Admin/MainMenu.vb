@@ -13,7 +13,7 @@ Public Class frmMainMenu
 
         '"Clickeamos" el botón Reservas (para que sea el botón presionado por defecto)
         btnReservas.PerformClick()
-        Alquilar.cargardatos()
+
         CargarDatos()
 
         'cbxTipoDocumFCliente.SelectedItem = Nothing
@@ -66,7 +66,7 @@ Public Class frmMainMenu
 
     Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
 
-        frmCambiosGenerales.Show()
+        frmCambiosGenerales.ShowDialog()
 
     End Sub
 
@@ -98,8 +98,7 @@ Public Class frmMainMenu
     'TODO: Hacer otro tipo de cargas si es necesario, cargar también combobox y reportar estado de carga (otro formulario con barrita)
     Private Sub CargarDatos()
 
-        'Cargas DataGridView
-
+        'Cargas Tablas
         conexion.Modelos = conexion.EjecutarSelect("SELECT * from modelo")
         conexion.Marcas = conexion.EjecutarSelect("SELECT * from marca")
         conexion.Categorias = conexion.EjecutarSelect("SELECT * from categoria")
@@ -107,43 +106,39 @@ Public Class frmMainMenu
         conexion.Sucursales = conexion.EjecutarSelect("SELECT * from sucursal")
 
 
+        'Cargas DataGridView
+        conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.fechareservafin, R.fechaalquilerinicio, R.fechaalquilerfin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, V.matricula, Cl.nombre, Ca.nombre, T.nombre, SS.nombre, SL.nombre, R.usuarioempleado  FROM Reserva R, Vehiculo V, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.nrochasis = V.nrochasis AND R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal  UNION SELECT R.fechareservainicio, R.fechareservafin, R.fechaalquilerinicio, R.fechaalquilerfin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, '-' , Cl.nombre, Ca.nombre, T.nombre, SS.nombre, SL.nombre,R.usuarioempleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal")
         conexion.RellenarDataGridView(dgvClientes, "SELECT tipodocumento Tipo, nrodocumento Documento, nombre Nombre, apellido Apellido, email Correo, fecnac Nacimiento, empresa Empresa FROM CLIENTE WHERE estado = 't'")
         conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.nrodocumento Documento, Cliente.nombre Nombre, Cliente.apellido Apellido, Cliente.email correo, empleado.usuario, empleado.tipo FROM EMPLEADO, CLIENTE WHERE Cliente.idpersona = Empleado.idpersona AND Empleado.estado = 't'")
-        conexion.RellenarDataGridView(dgvVehiculos, "SELECT V.matricula Matricula,
-                                                    Ma.nombre Marca,
-                                                    Mo.nombre Modelo,
-                                                    T.nombre Tipo,
-                                                    V.anio Anio,
-                                                    C.nombre Categoria,
-                                                    V.deducible Deducible,
-                                                    V.aireacondicionado Aire,
-                                                    V.cantidaddepuertas Puertas,
-                                                    V.cantidaddepasajeros Pasajeros,
-                                                    V.cantidaddemaletas Maletas,
-                                                    V.esmanual Manual,
-                                                    V.kilometraje KM,
-                                                    S.Nombre Sucursal FROM Vehiculo V, Categoria C,
-                                                    Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria
-                                                    AND V.idmodelo = Mo.idmodelo
-                                                    AND Mo.Idmarca = Ma.Idmarca
-                                                    AND Mo.Idtipo = T.idtipo
-                                                    AND V.idsucursal = S.idsucursal AND V.estado = 't'")
-        conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.fechareservafin, R.fechaalquilerinicio, R.fechaalquilerfin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, V.matricula, Cl.nombre, Ca.nombre, T.nombre, SS.nombre, SL.nombre, R.usuarioempleado  FROM Reserva R, Vehiculo V, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.nrochasis = V.nrochasis AND R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal  UNION SELECT R.fechareservainicio, R.fechareservafin, R.fechaalquilerinicio, R.fechaalquilerfin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, '-' , Cl.nombre, Ca.nombre, T.nombre, SS.nombre, SL.nombre,R.usuarioempleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal")
+        conexion.RellenarDataGridView(dgvVehiculos, "SELECT V.matricula Matricula, Ma.nombre Marca, Mo.nombre Modelo, T.nombre Tipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
+        conexion.RellenarDataGridView(frmAlquilar.dgvAlquilar, "SELECT V.matricula Matricula, Ma.nombre Marca, Mo.nombre Modelo, T.nombre Tipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
 
         'Cargas de ComboBox
+        'MARCAS
         CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre")
         CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre")
         CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre")
 
-
+        'TIPOS
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre")
         CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre")
         CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre")
 
+        'CATEGORIAS
         CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias, "nombre")
         CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre")
         CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias, "nombre")
         CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre")
+
+        'SUCURSALES
+        CargarDatosComboBox(cbxSucursalAVeh, conexion.Sucursales, "nombre")
+        CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales, "nombre")
+        CargarDatosComboBox(cbxSucursalMVeh, conexion.Sucursales, "nombre")
+        CargarDatosComboBox(cbxSucSalFres, conexion.Sucursales, "nombre")
+        CargarDatosComboBox(cbxSucLlegFRes, conexion.Sucursales, "nombre")
+        CargarDatosComboBox(cbxSucSalidaARes, conexion.Sucursales, "nombre")
+        CargarDatosComboBox(cbxSucLlegadaARes, conexion.Sucursales, "nombre")
+
         'Los modelos se cargan en el apartado "Vehiculos".
 
     End Sub
@@ -184,5 +179,7 @@ Public Class frmMainMenu
     End Sub
 
 
+    Private Sub pnlFRes_Paint(sender As Object, e As PaintEventArgs) Handles pnlFRes.Paint
 
+    End Sub
 End Class

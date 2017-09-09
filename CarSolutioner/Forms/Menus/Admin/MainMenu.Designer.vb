@@ -4618,7 +4618,6 @@ Partial Class frmMainMenu
     Friend WithEvents Label123 As Label
     Friend WithEvents DateTimePicker14 As DateTimePicker
     Friend WithEvents DateTimePicker15 As DateTimePicker
-    Friend WithEvents dgvReservas As DataGridView
     Friend WithEvents Label114 As Label
     Friend WithEvents cbxEstadoFVeh As ComboBox
     Friend WithEvents ComboBox43 As ComboBox
@@ -4709,4 +4708,5 @@ Partial Class frmMainMenu
     Friend WithEvents lblBorrarCategoriaFVeh As Label
     Friend WithEvents Label128 As Label
     Friend WithEvents lblBorrarMaletasFVeh As Label
+    Public WithEvents dgvReservas As DataGridView
 End Class

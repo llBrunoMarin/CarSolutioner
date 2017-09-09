@@ -3,8 +3,12 @@
 Public Class NoDesignerReservas
 End Class
 
-Partial Public Class frmMainMenu
 
+Partial Public Class frmMainMenu
+    Friend sucursal As String
+    Friend tipo As String
+    Friend categoria As String
+    Friend cliente As String
     Private Sub FiltrosReserva(sender As Object, e As EventArgs) Handles cbxMostrarFRes.SelectionChangeCommitted, cbxEstadoFRes.SelectionChangeCommitted, txtDocumFRes.TextChanged, cbxCategoriaFRes.SelectionChangeCommitted, cbxSucSalFres.SelectionChangeCommitted, cbxSucLlegFRes.SelectionChangeCommitted, cbxKilomFRes.SelectionChangeCommitted
 
         'cbxMostrarFRes.SelectionChangeCommitted, cbxEstadoFRes.SelectionChangeCommitted, txtDocumFRes.TextChanged, cbxCatFRes.SelectionChangeCommitted, cbxSucSalFres.SelectionChangeCommitted, cbxSucLlegFRes.SelectionChangeCommitted, cbxKilomFRes.SelectionChangeCommitted
@@ -33,6 +37,20 @@ Partial Public Class frmMainMenu
 
         End If
 
+    End Sub
+
+    Public Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick
+
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim selectedRow = dgvReservas.Rows(e.RowIndex)
+
+
+            tipo = selectedRow.Cells(11).Value.ToString
+            sucursal = selectedRow.Cells(12).Value.ToString
+            cliente = selectedRow.Cells(9).Value.ToString
+            categoria = selectedRow.Cells(10).Value.ToString
+            Alquilar.Show()
+        End If
     End Sub
 
 

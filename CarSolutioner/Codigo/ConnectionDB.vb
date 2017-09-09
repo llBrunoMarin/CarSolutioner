@@ -168,7 +168,7 @@
 
         Try
 
-            fuente.DataSource = EjecutarSelect(sentencia)
+            fuente.DataSource = EjecutarSelect(sentencia).DefaultView
             dgv.DataSource = fuente
 
         Catch ex As Exception

@@ -132,6 +132,12 @@
     <Compile Include="Forms\Alquilar.Designer.vb">
       <DependentUpon>Alquilar.vb</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="Forms\Alquilar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+=======
+>>>>>>> ad9d3dd52c864d5a11c7c46866ef7e6d0c39a371
     <Compile Include="Forms\Menus\Admin\Partes\Mantenimiento.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Clientes.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Empleados.vb" />

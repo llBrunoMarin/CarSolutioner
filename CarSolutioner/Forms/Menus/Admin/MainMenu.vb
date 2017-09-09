@@ -13,7 +13,7 @@ Public Class frmMainMenu
 
         '"Clickeamos" el botón Reservas (para que sea el botón presionado por defecto)
         btnReservas.PerformClick()
-
+        Alquilar.cargardatos()
         CargarDatos()
 
         'cbxTipoDocumFCliente.SelectedItem = Nothing
@@ -182,7 +182,13 @@ Public Class frmMainMenu
     Private Sub dgvReservas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservas.CellContentClick
 
     End Sub
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> ad9d3dd52c864d5a11c7c46866ef7e6d0c39a371
 
+    Private Sub pnlFRes_Paint(sender As Object, e As PaintEventArgs) Handles pnlFRes.Paint
+
+    End Sub
 End Class

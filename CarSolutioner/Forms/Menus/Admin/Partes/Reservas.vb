@@ -36,4 +36,17 @@ Partial Public Class frmMainMenu
     End Sub
 
 
+    Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Dim selectedRow = dgvReservas.Rows(e.RowIndex)
+
+            Dim tipo As String
+            Dim categoria As String
+            MsgBox("hola")
+            tipo = selectedRow.Cells(11).Value.ToString
+            MsgBox(tipo)
+            categoria = selectedRow.Cells(10).Value.ToString
+        End If
+    End Sub
+
 End Class

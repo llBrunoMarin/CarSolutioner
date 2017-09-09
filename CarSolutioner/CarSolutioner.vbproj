@@ -129,6 +129,9 @@
   <ItemGroup>
     <Compile Include="Codigo\Custom Objects\CustomMenustrip.vb" />
     <Compile Include="Codigo\Metodos.vb" />
+    <Compile Include="Forms\Alquilar.Designer.vb">
+      <DependentUpon>Alquilar.vb</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Menus\Admin\Partes\Mantenimiento.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Clientes.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Empleados.vb" />
@@ -171,6 +174,9 @@
     <Compile Include="Codigo\ConnectionDB.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Alquilar.resx">
+      <DependentUpon>Alquilar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sub-Forms\CambiosGenerales.resx">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </EmbeddedResource>

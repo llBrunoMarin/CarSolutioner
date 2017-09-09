@@ -179,5 +179,10 @@ Public Class frmMainMenu
 
     End Sub
 
+    Private Sub dgvReservas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservas.CellContentClick
+
+    End Sub
+
+
 
 End Class

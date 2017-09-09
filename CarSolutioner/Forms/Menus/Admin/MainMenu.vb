@@ -183,7 +183,6 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub pnlFRes_Paint(sender As Object, e As PaintEventArgs) Handles pnlFRes.Paint
 
-    End Sub
+
 End Class

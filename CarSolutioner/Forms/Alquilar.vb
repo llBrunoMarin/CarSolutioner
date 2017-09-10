@@ -18,16 +18,16 @@
     Dim res2 As String
     Dim idpersonaI As Integer
     Dim diasalquilados As Integer
-
+    Dim filtro As String
+    Dim fuente As New BindingSource
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
-
         Me.Hide()
 
     End Sub
     'Agregar resalquiler fin para cambiar con la q este en el form, por si la quiere cambiar 
     Private Sub Alquilar_Activated(sender As Object, e As EventArgs) Handles Me.Activated, Me.Load
 
-        Dim fuente As New BindingSource
+
         cantidadkm = frmMainMenu.cantidadkm
         fuente = dgvAlquilar.DataSource
         TipoReserva = frmMainMenu.tipo
@@ -43,7 +43,7 @@
         dtpFAfin.Value = ResFin
         ' dtpFAinicio.Value = ResInicio
         dtpFRfin.Value = ResFin
-        dtpFRinicio.Value = ResInicio
+        dtpFRInicio.Value = ResInicio
         dtpFAinicio.Value = ResInicio
 
         'estos llenan los datetime picker
@@ -68,11 +68,11 @@
         resultado = ResFin - ResInicio
         diasalquilados = resultado.Days
 
-        Dim filtro As String
+
         filtro = "categoria = '" + CategoriaReserva + "' AND tipo = '" + TipoReserva + "' AND sucursal = '" + SucursalIReserva + "'"
 
         fuente.Filter = filtro
-        dgvAlquilar.Columns(7).Visible = False
+
         dgvAlquilar.DataSource = fuente
 
     End Sub
@@ -190,8 +190,9 @@ and fechareservafin='" + resfin2 + "'
 
             conexion.RellenarDataGridView(dgvAlquilar, "insert into reserva values (0,'" + res2 + "','" + resfin2 + "','" + res2 + "',
             '" + resfin2 + "','" + cantidadkm + "','" + preciofinal + "','" + fechatramite2 + "',1,'" + nrchasis + "','" + idpersona + "','" + idcategoria + "','" + idtipo + "','" + sucursalS + "','" + sucursalL + "','" + conexion.Usuario + "')")
-
+            dgvAlquilar.DataSource = fuente
             Me.Hide()
+
         End If
 
     End Sub

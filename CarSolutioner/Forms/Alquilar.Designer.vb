@@ -41,6 +41,8 @@ Partial Class frmAlquilar
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.DataGridView5 = New System.Windows.Forms.DataGridView()
         Me.DataGridView6 = New System.Windows.Forms.DataGridView()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.dgvAlquilar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,9 +55,9 @@ Partial Class frmAlquilar
         'dgvAlquilar
         '
         Me.dgvAlquilar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAlquilar.Location = New System.Drawing.Point(5, 85)
+        Me.dgvAlquilar.Location = New System.Drawing.Point(5, 100)
         Me.dgvAlquilar.Name = "dgvAlquilar"
-        Me.dgvAlquilar.Size = New System.Drawing.Size(760, 487)
+        Me.dgvAlquilar.Size = New System.Drawing.Size(891, 487)
         Me.dgvAlquilar.TabIndex = 0
         '
         'txtTipo
@@ -121,7 +123,7 @@ Partial Class frmAlquilar
         Me.mstMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mstMenuStrip.Name = "mstMenuStrip"
         Me.mstMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mstMenuStrip.Size = New System.Drawing.Size(770, 30)
+        Me.mstMenuStrip.Size = New System.Drawing.Size(908, 30)
         Me.mstMenuStrip.TabIndex = 32
         Me.mstMenuStrip.Text = "MenuStrip1"
         '
@@ -134,7 +136,7 @@ Partial Class frmAlquilar
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCerrar.Location = New System.Drawing.Point(738, 0)
+        Me.btnCerrar.Location = New System.Drawing.Point(876, 0)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
         Me.btnCerrar.TabIndex = 36
@@ -185,7 +187,7 @@ Partial Class frmAlquilar
         Me.btnVaciarFRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVaciarFRes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVaciarFRes.ForeColor = System.Drawing.Color.White
-        Me.btnVaciarFRes.Location = New System.Drawing.Point(659, 48)
+        Me.btnVaciarFRes.Location = New System.Drawing.Point(797, 63)
         Me.btnVaciarFRes.Name = "btnVaciarFRes"
         Me.btnVaciarFRes.Size = New System.Drawing.Size(99, 31)
         Me.btnVaciarFRes.TabIndex = 40
@@ -240,11 +242,32 @@ Partial Class frmAlquilar
         Me.DataGridView6.Size = New System.Drawing.Size(240, 150)
         Me.DataGridView6.TabIndex = 5
         '
+        'TextBox1
+        '
+        Me.TextBox1.Enabled = False
+        Me.TextBox1.Location = New System.Drawing.Point(523, 59)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(187, 20)
+        Me.TextBox1.TabIndex = 41
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(520, 41)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(102, 17)
+        Me.Label4.TabIndex = 42
+        Me.Label4.Text = "Nombre Cliente"
+        '
         'frmAlquilar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(770, 579)
+        Me.ClientSize = New System.Drawing.Size(908, 594)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.btnVaciarFRes)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -293,4 +316,6 @@ Partial Class frmAlquilar
     Friend WithEvents DataGridView4 As DataGridView
     Friend WithEvents DataGridView5 As DataGridView
     Friend WithEvents DataGridView6 As DataGridView
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label4 As Label
 End Class

@@ -125,6 +125,26 @@ Public Class frmMainMenu
                                                          AND Cl.idpersona = R.idpersona
                                                          AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal ORDER BY Cl.nombre")
 
+        conexion.RellenarDataGridView(dgvAlquiler, "SELECT R.fechaalquilerinicio FechaInicio,
+                                                         R.fechaalquilerfin FechaFin,
+                                                         R.cantidadkm, 
+                                                         R.costototal,
+                                                         R.fechatramite, 
+                                                         R.estado, 
+                                                         V.matricula,
+                                                         Cl.nombre, Ca.nombre Categoria, 
+                                                         T.nombre Tipo, 
+                                                         SS.nombre Sucursal, SL.nombre SucursalDestino,
+                                                         R.usuarioempleado Empleado
+                                                         FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS,
+                                                         Sucursal SL, Vehiculo V
+                                                         WHERE R.idtipo = T.idtipo
+                                                         AND R.idcategoria = Ca.idcategoria 
+                                                         AND Cl.idpersona = R.idpersona 
+                                                         AND R.idsucursalsalida = SS.idsucursal
+                                                         AND R.idsucursalllegada = SL.idsucursal 
+                                                         AND V.nrochasis = R.nrochasis ORDER BY Cl.nombre")
+
 
         conexion.RellenarDataGridView(dgvClientes, "SELECT tipodocumento Tipo, nrodocumento Documento, nombre Nombre, apellido Apellido, email Correo, fecnac Nacimiento, empresa Empresa FROM CLIENTE WHERE estado = 't'")
         conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.nrodocumento Documento, Cliente.nombre Nombre, Cliente.apellido Apellido, Cliente.email correo, empleado.usuario, empleado.tipo FROM EMPLEADO, CLIENTE WHERE Cliente.idpersona = Empleado.idpersona AND Empleado.estado = 't'")
@@ -192,12 +212,4 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub dgvReservas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservas.CellContentClick
-
-    End Sub
-
-
-    Private Sub pnlFRes_Paint(sender As Object, e As PaintEventArgs) Handles pnlFRes.Paint
-
-    End Sub
 End Class

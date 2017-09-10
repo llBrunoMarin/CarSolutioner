@@ -18,8 +18,6 @@ Partial Public Class frmMainMenu
 
         'dgvClientes.DataSource.Filter = filtro
 
-
-
     End Sub
 
 

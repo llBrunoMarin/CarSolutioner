@@ -8,8 +8,7 @@ Partial Public Class frmMainMenu
 
     Friend nombre As String
     Friend apellido As String
-    Friend alqFfin As String
-    Friend alqFinicio As String
+
     Friend resFfin As String
     Friend resFinicio As String
     Friend sucursal As String
@@ -19,7 +18,7 @@ Partial Public Class frmMainMenu
     Friend cantKm As String
     Friend costoTotal As String
     Friend fechaTramite As String
-
+    Friend cantidadkm As Integer
 
     Private Sub FiltrosReserva(sender As Object, e As EventArgs) Handles cbxMostrarFRes.SelectionChangeCommitted, cbxEstadoFRes.SelectionChangeCommitted, txtDocumFRes.TextChanged, cbxCategoriaFRes.SelectionChangeCommitted, cbxSucSalFres.SelectionChangeCommitted, cbxSucLlegFRes.SelectionChangeCommitted, cbxKilomFRes.SelectionChangeCommitted
 
@@ -54,10 +53,10 @@ Partial Public Class frmMainMenu
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
             Dim selectedRow = dgvReservas.Rows(e.RowIndex)
 
-            alqFinicio = selectedRow.Cells(0).Value.ToString
-            alqFfin = selectedRow.Cells(1).Value.ToString
+
             resFinicio = selectedRow.Cells(0).Value.ToString
             resFfin = selectedRow.Cells(1).Value.ToString
+            cantidadkm = selectedRow.Cells(2).Value.ToString
             nombre = selectedRow.Cells(5).Value.ToString
             apellido = selectedRow.Cells(6).Value.ToString()
             categoria = selectedRow.Cells(7).Value.ToString

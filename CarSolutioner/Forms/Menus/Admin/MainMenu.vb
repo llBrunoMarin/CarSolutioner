@@ -205,7 +205,9 @@ Public Class frmMainMenu
                                                     R.fechatramite, 
                                                     R.estado, 
                                                     V.matricula,
-                                                    Cl.nombre, Ca.nombre Categoria, 
+                                                    Cl.nombre,
+                                                    Cl.apellido,
+                                                    Ca.nombre Categoria, 
                                                     T.nombre Tipo, 
                                                     SS.nombre Sucursal, SL.nombre SucursalDestino,
                                                     R.usuarioempleado Empleado
@@ -219,4 +221,7 @@ Public Class frmMainMenu
                                                     AND V.nrochasis = R.nrochasis ORDER BY Cl.nombre")
     End Sub
 
+    Private Sub dgvReservas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReservas.CellContentClick
+
+    End Sub
 End Class

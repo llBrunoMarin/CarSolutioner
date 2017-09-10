@@ -47,10 +47,10 @@ Partial Class frmAlquilar
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cbxSucLlegada = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.dtpFRinicio = New System.Windows.Forms.DateTimePicker()
         Me.dtpFRfin = New System.Windows.Forms.DateTimePicker()
         Me.dtpFAinicio = New System.Windows.Forms.DateTimePicker()
         Me.dtpFAfin = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFRInicio = New System.Windows.Forms.DateTimePicker()
         CType(Me.dgvAlquilar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -314,26 +314,13 @@ Partial Class frmAlquilar
         Me.Label8.TabIndex = 57
         Me.Label8.Text = "Sucursal Llegada"
         '
-        'dtpFRinicio
-        '
-        Me.dtpFRinicio.CustomFormat = ""
-        Me.dtpFRinicio.Enabled = False
-        Me.dtpFRinicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFRinicio.Location = New System.Drawing.Point(12, 102)
-        Me.dtpFRinicio.MaxDate = New Date(2000, 5, 4, 0, 0, 0, 0)
-        Me.dtpFRinicio.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
-        Me.dtpFRinicio.Name = "dtpFRinicio"
-        Me.dtpFRinicio.Size = New System.Drawing.Size(200, 20)
-        Me.dtpFRinicio.TabIndex = 54
-        Me.dtpFRinicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
-        '
         'dtpFRfin
         '
         Me.dtpFRfin.CustomFormat = ""
         Me.dtpFRfin.Enabled = False
         Me.dtpFRfin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFRfin.Location = New System.Drawing.Point(224, 102)
-        Me.dtpFRfin.MaxDate = New Date(2000, 5, 4, 0, 0, 0, 0)
+        Me.dtpFRfin.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFRfin.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFRfin.Name = "dtpFRfin"
         Me.dtpFRfin.Size = New System.Drawing.Size(200, 20)
@@ -346,7 +333,7 @@ Partial Class frmAlquilar
         Me.dtpFAinicio.Enabled = False
         Me.dtpFAinicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFAinicio.Location = New System.Drawing.Point(441, 102)
-        Me.dtpFAinicio.MaxDate = New Date(2000, 5, 4, 0, 0, 0, 0)
+        Me.dtpFAinicio.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFAinicio.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFAinicio.Name = "dtpFAinicio"
         Me.dtpFAinicio.Size = New System.Drawing.Size(200, 20)
@@ -358,21 +345,34 @@ Partial Class frmAlquilar
         Me.dtpFAfin.CustomFormat = "dd/MM/yyyy"
         Me.dtpFAfin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFAfin.Location = New System.Drawing.Point(670, 102)
-        Me.dtpFAfin.MaxDate = New Date(2000, 5, 4, 0, 0, 0, 0)
+        Me.dtpFAfin.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFAfin.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFAfin.Name = "dtpFAfin"
         Me.dtpFAfin.Size = New System.Drawing.Size(200, 20)
         Me.dtpFAfin.TabIndex = 51
         Me.dtpFAfin.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
         '
+        'dtpFRInicio
+        '
+        Me.dtpFRInicio.CustomFormat = ""
+        Me.dtpFRInicio.Enabled = False
+        Me.dtpFRInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFRInicio.Location = New System.Drawing.Point(18, 102)
+        Me.dtpFRInicio.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
+        Me.dtpFRInicio.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
+        Me.dtpFRInicio.Name = "dtpFRInicio"
+        Me.dtpFRInicio.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFRInicio.TabIndex = 58
+        Me.dtpFRInicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
+        '
         'frmAlquilar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1059, 629)
+        Me.Controls.Add(Me.dtpFRInicio)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.cbxSucLlegada)
-        Me.Controls.Add(Me.dtpFRinicio)
         Me.Controls.Add(Me.dtpFRfin)
         Me.Controls.Add(Me.dtpFAinicio)
         Me.Controls.Add(Me.dtpFAfin)
@@ -434,8 +434,8 @@ Partial Class frmAlquilar
     Friend WithEvents Label7 As Label
     Friend WithEvents cbxSucLlegada As ComboBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents dtpFRinicio As DateTimePicker
     Friend WithEvents dtpFRfin As DateTimePicker
     Friend WithEvents dtpFAinicio As DateTimePicker
     Friend WithEvents dtpFAfin As DateTimePicker
+    Friend WithEvents dtpFRInicio As DateTimePicker
 End Class

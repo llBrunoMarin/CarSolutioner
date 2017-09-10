@@ -41,8 +41,16 @@ Partial Class frmAlquilar
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.DataGridView5 = New System.Windows.Forms.DataGridView()
         Me.DataGridView6 = New System.Windows.Forms.DataGridView()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cbxSucLlegada = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.dtpFRinicio = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFRfin = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFAinicio = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFAfin = New System.Windows.Forms.DateTimePicker()
         CType(Me.dgvAlquilar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,9 +63,9 @@ Partial Class frmAlquilar
         'dgvAlquilar
         '
         Me.dgvAlquilar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAlquilar.Location = New System.Drawing.Point(5, 100)
+        Me.dgvAlquilar.Location = New System.Drawing.Point(4, 135)
         Me.dgvAlquilar.Name = "dgvAlquilar"
-        Me.dgvAlquilar.Size = New System.Drawing.Size(891, 487)
+        Me.dgvAlquilar.Size = New System.Drawing.Size(1038, 487)
         Me.dgvAlquilar.TabIndex = 0
         '
         'txtTipo
@@ -123,7 +131,7 @@ Partial Class frmAlquilar
         Me.mstMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mstMenuStrip.Name = "mstMenuStrip"
         Me.mstMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mstMenuStrip.Size = New System.Drawing.Size(908, 30)
+        Me.mstMenuStrip.Size = New System.Drawing.Size(1059, 30)
         Me.mstMenuStrip.TabIndex = 32
         Me.mstMenuStrip.Text = "MenuStrip1"
         '
@@ -136,7 +144,7 @@ Partial Class frmAlquilar
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCerrar.Location = New System.Drawing.Point(876, 0)
+        Me.btnCerrar.Location = New System.Drawing.Point(1027, 0)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
         Me.btnCerrar.TabIndex = 36
@@ -187,7 +195,7 @@ Partial Class frmAlquilar
         Me.btnVaciarFRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVaciarFRes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVaciarFRes.ForeColor = System.Drawing.Color.White
-        Me.btnVaciarFRes.Location = New System.Drawing.Point(797, 63)
+        Me.btnVaciarFRes.Location = New System.Drawing.Point(948, 98)
         Me.btnVaciarFRes.Name = "btnVaciarFRes"
         Me.btnVaciarFRes.Size = New System.Drawing.Size(99, 31)
         Me.btnVaciarFRes.TabIndex = 40
@@ -242,32 +250,136 @@ Partial Class frmAlquilar
         Me.DataGridView6.Size = New System.Drawing.Size(240, 150)
         Me.DataGridView6.TabIndex = 5
         '
-        'TextBox1
-        '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(523, 59)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(187, 20)
-        Me.TextBox1.TabIndex = 41
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(520, 41)
+        Me.Label4.Location = New System.Drawing.Point(53, 82)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(102, 17)
-        Me.Label4.TabIndex = 42
-        Me.Label4.Text = "Nombre Cliente"
+        Me.Label4.Size = New System.Drawing.Size(131, 17)
+        Me.Label4.TabIndex = 44
+        Me.Label4.Text = "Fecha Reserva Inicio"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(285, 82)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(115, 17)
+        Me.Label5.TabIndex = 46
+        Me.Label5.Text = "Fecha Reserva Fin"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(710, 82)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(112, 17)
+        Me.Label6.TabIndex = 50
+        Me.Label6.Text = "Fecha Alquiler Fin"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(484, 82)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(128, 17)
+        Me.Label7.TabIndex = 48
+        Me.Label7.Text = "Fecha Alquiler Inicio"
+        '
+        'cbxSucLlegada
+        '
+        Me.cbxSucLlegada.FormattingEnabled = True
+        Me.cbxSucLlegada.Items.AddRange(New Object() {"Flying Cars", "Uruguay Motors", "Rentafrank", "Punta Motors"})
+        Me.cbxSucLlegada.Location = New System.Drawing.Point(670, 58)
+        Me.cbxSucLlegada.Name = "cbxSucLlegada"
+        Me.cbxSucLlegada.Size = New System.Drawing.Size(121, 21)
+        Me.cbxSucLlegada.TabIndex = 56
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(667, 38)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(109, 17)
+        Me.Label8.TabIndex = 57
+        Me.Label8.Text = "Sucursal Llegada"
+        '
+        'dtpFRinicio
+        '
+        Me.dtpFRinicio.CustomFormat = ""
+        Me.dtpFRinicio.Enabled = False
+        Me.dtpFRinicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFRinicio.Location = New System.Drawing.Point(12, 102)
+        Me.dtpFRinicio.MaxDate = New Date(2000, 5, 4, 0, 0, 0, 0)
+        Me.dtpFRinicio.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
+        Me.dtpFRinicio.Name = "dtpFRinicio"
+        Me.dtpFRinicio.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFRinicio.TabIndex = 54
+        Me.dtpFRinicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
+        '
+        'dtpFRfin
+        '
+        Me.dtpFRfin.CustomFormat = ""
+        Me.dtpFRfin.Enabled = False
+        Me.dtpFRfin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFRfin.Location = New System.Drawing.Point(224, 102)
+        Me.dtpFRfin.MaxDate = New Date(2000, 5, 4, 0, 0, 0, 0)
+        Me.dtpFRfin.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
+        Me.dtpFRfin.Name = "dtpFRfin"
+        Me.dtpFRfin.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFRfin.TabIndex = 53
+        Me.dtpFRfin.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
+        '
+        'dtpFAinicio
+        '
+        Me.dtpFAinicio.CustomFormat = ""
+        Me.dtpFAinicio.Enabled = False
+        Me.dtpFAinicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFAinicio.Location = New System.Drawing.Point(441, 102)
+        Me.dtpFAinicio.MaxDate = New Date(2000, 5, 4, 0, 0, 0, 0)
+        Me.dtpFAinicio.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
+        Me.dtpFAinicio.Name = "dtpFAinicio"
+        Me.dtpFAinicio.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFAinicio.TabIndex = 52
+        Me.dtpFAinicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
+        '
+        'dtpFAfin
+        '
+        Me.dtpFAfin.CustomFormat = "dd/MM/yyyy"
+        Me.dtpFAfin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFAfin.Location = New System.Drawing.Point(670, 102)
+        Me.dtpFAfin.MaxDate = New Date(2000, 5, 4, 0, 0, 0, 0)
+        Me.dtpFAfin.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
+        Me.dtpFAfin.Name = "dtpFAfin"
+        Me.dtpFAfin.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFAfin.TabIndex = 51
+        Me.dtpFAfin.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
         '
         'frmAlquilar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(908, 594)
+        Me.ClientSize = New System.Drawing.Size(1059, 629)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.cbxSucLlegada)
+        Me.Controls.Add(Me.dtpFRinicio)
+        Me.Controls.Add(Me.dtpFRfin)
+        Me.Controls.Add(Me.dtpFAinicio)
+        Me.Controls.Add(Me.dtpFAfin)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.btnVaciarFRes)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -316,6 +428,14 @@ Partial Class frmAlquilar
     Friend WithEvents DataGridView4 As DataGridView
     Friend WithEvents DataGridView5 As DataGridView
     Friend WithEvents DataGridView6 As DataGridView
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents cbxSucLlegada As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents dtpFRinicio As DateTimePicker
+    Friend WithEvents dtpFRfin As DateTimePicker
+    Friend WithEvents dtpFAinicio As DateTimePicker
+    Friend WithEvents dtpFAfin As DateTimePicker
 End Class

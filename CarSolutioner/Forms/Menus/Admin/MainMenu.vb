@@ -20,6 +20,8 @@ Public Class frmMainMenu
         'cbxMarcaFVeh.SelectedItem = Nothing
         'cbxMarcaAVeh.SelectedItem = Nothing
 
+
+
     End Sub
 
     Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnMantenimiento.Click, btnReservas.Click, btnClientes.Click, btnVehiculos.Click, btnEmpleados.Click, pbxVehiculo.Click
@@ -107,8 +109,8 @@ Public Class frmMainMenu
 
 
         'Cargas DataGridView
-        conexion.RellenarDataGridView(dgvReservas, " SELECT R.fechareservainicio,
-                                                         R.fechareservafin,
+        conexion.RellenarDataGridView(dgvReservas, " SELECT R.fechareservainicio RI,
+                                                         R.fechareservafin RF,
                                                          R.cantidadkm,
                                                          R.costototal,
                                                          R.fechatramite,
@@ -125,25 +127,7 @@ Public Class frmMainMenu
                                                          AND Cl.idpersona = R.idpersona
                                                          AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal ORDER BY Cl.nombre")
 
-        conexion.RellenarDataGridView(dgvAlquiler, "SELECT R.fechaalquilerinicio FechaInicio,
-                                                         R.fechaalquilerfin FechaFin,
-                                                         R.cantidadkm, 
-                                                         R.costototal,
-                                                         R.fechatramite, 
-                                                         R.estado, 
-                                                         V.matricula,
-                                                         Cl.nombre, Ca.nombre Categoria, 
-                                                         T.nombre Tipo, 
-                                                         SS.nombre Sucursal, SL.nombre SucursalDestino,
-                                                         R.usuarioempleado Empleado
-                                                         FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS,
-                                                         Sucursal SL, Vehiculo V
-                                                         WHERE R.idtipo = T.idtipo
-                                                         AND R.idcategoria = Ca.idcategoria 
-                                                         AND Cl.idpersona = R.idpersona 
-                                                         AND R.idsucursalsalida = SS.idsucursal
-                                                         AND R.idsucursalllegada = SL.idsucursal 
-                                                         AND V.nrochasis = R.nrochasis ORDER BY Cl.nombre")
+
 
 
         conexion.RellenarDataGridView(dgvClientes, "SELECT tipodocumento Tipo, nrodocumento Documento, nombre Nombre, apellido Apellido, email Correo, fecnac Nacimiento, empresa Empresa FROM CLIENTE WHERE estado = 't'")
@@ -210,6 +194,29 @@ Public Class frmMainMenu
         cbx.DisplayMember = columna
         cbx.ValueMember = columna
 
+    End Sub
+
+
+    Private Sub tabRes_Alq_Selected(sender As Object, e As TabControlEventArgs) Handles tabRes_Alq.Selected
+        conexion.RellenarDataGridView(dgvAlquiler, "SELECT R.fechaalquilerinicio FechaInicio,
+                                                    R.fechaalquilerfin FechaFin,
+                                                    R.cantidadkm, 
+                                                    R.costototal,
+                                                    R.fechatramite, 
+                                                    R.estado, 
+                                                    V.matricula,
+                                                    Cl.nombre, Ca.nombre Categoria, 
+                                                    T.nombre Tipo, 
+                                                    SS.nombre Sucursal, SL.nombre SucursalDestino,
+                                                    R.usuarioempleado Empleado
+                                                    FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS,
+                                                    Sucursal SL, Vehiculo V
+                                                    WHERE R.idtipo = T.idtipo
+                                                    AND R.idcategoria = Ca.idcategoria 
+                                                    AND Cl.idpersona = R.idpersona 
+                                                    AND R.idsucursalsalida = SS.idsucursal
+                                                    AND R.idsucursalllegada = SL.idsucursal 
+                                                    AND V.nrochasis = R.nrochasis ORDER BY Cl.nombre")
     End Sub
 
 End Class

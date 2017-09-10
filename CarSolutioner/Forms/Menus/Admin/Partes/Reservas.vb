@@ -5,10 +5,22 @@ End Class
 
 
 Partial Public Class frmMainMenu
+
+    Friend nombre As String
+    Friend apellido As String
+    Friend alqFfin As String
+    Friend alqFinicio As String
+    Friend resFfin As String
+    Friend resFinicio As String
     Friend sucursal As String
     Friend tipo As String
     Friend categoria As String
     Friend cliente As String
+    Friend cantKm As String
+    Friend costoTotal As String
+    Friend fechaTramite As String
+
+
     Private Sub FiltrosReserva(sender As Object, e As EventArgs) Handles cbxMostrarFRes.SelectionChangeCommitted, cbxEstadoFRes.SelectionChangeCommitted, txtDocumFRes.TextChanged, cbxCategoriaFRes.SelectionChangeCommitted, cbxSucSalFres.SelectionChangeCommitted, cbxSucLlegFRes.SelectionChangeCommitted, cbxKilomFRes.SelectionChangeCommitted
 
         'cbxMostrarFRes.SelectionChangeCommitted, cbxEstadoFRes.SelectionChangeCommitted, txtDocumFRes.TextChanged, cbxCatFRes.SelectionChangeCommitted, cbxSucSalFres.SelectionChangeCommitted, cbxSucLlegFRes.SelectionChangeCommitted, cbxKilomFRes.SelectionChangeCommitted
@@ -37,16 +49,24 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Public Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick
+    Public Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick, dgvAlquiler.CellMouseDoubleClick
 
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
             Dim selectedRow = dgvReservas.Rows(e.RowIndex)
 
-
+            alqFinicio = selectedRow.Cells(0).Value.ToString
+            alqFfin = selectedRow.Cells(1).Value.ToString
+            resFinicio = selectedRow.Cells(0).Value.ToString
+            resFfin = selectedRow.Cells(1).Value.ToString
+            nombre = selectedRow.Cells(5).Value.ToString
+            apellido = selectedRow.Cells(6).Value.ToString()
+            categoria = selectedRow.Cells(7).Value.ToString
             tipo = selectedRow.Cells(8).Value.ToString
             sucursal = selectedRow.Cells(9).Value.ToString
-            cliente = selectedRow.Cells(5).Value.ToString + " " + selectedRow.Cells(6).Value.ToString
-            categoria = selectedRow.Cells(7).Value.ToString
+            cantKm = selectedRow.Cells(2).Value.ToString
+            costoTotal = selectedRow.Cells(3).Value.ToString
+            fechaTramite = selectedRow.Cells(4).Value.ToString
+
             frmAlquilar.ShowDialog()
         End If
     End Sub

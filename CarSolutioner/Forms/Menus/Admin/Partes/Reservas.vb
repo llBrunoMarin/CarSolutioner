@@ -45,10 +45,10 @@ Partial Public Class frmMainMenu
             Dim selectedRow = dgvReservas.Rows(e.RowIndex)
 
 
-            tipo = selectedRow.Cells(11).Value.ToString
-            sucursal = selectedRow.Cells(12).Value.ToString
-            cliente = selectedRow.Cells(9).Value.ToString
-            categoria = selectedRow.Cells(10).Value.ToString
+            tipo = selectedRow.Cells(8).Value.ToString
+            sucursal = selectedRow.Cells(9).Value.ToString
+            cliente = selectedRow.Cells(5).Value.ToString + " " + selectedRow.Cells(6).Value.ToString
+            categoria = selectedRow.Cells(7).Value.ToString
             frmAlquilar.ShowDialog()
         End If
     End Sub

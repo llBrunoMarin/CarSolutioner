@@ -107,7 +107,25 @@ Public Class frmMainMenu
 
 
         'Cargas DataGridView
-        conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.fechareservafin, R.fechaalquilerinicio, R.fechaalquilerfin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, V.matricula, Cl.nombre, Ca.nombre, T.nombre, SS.nombre, SL.nombre, R.usuarioempleado  FROM Reserva R, Vehiculo V, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.nrochasis = V.nrochasis AND R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal  UNION SELECT R.fechareservainicio, R.fechareservafin, R.fechaalquilerinicio, R.fechaalquilerfin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, '-' , Cl.nombre, Ca.nombre, T.nombre, SS.nombre, SL.nombre,R.usuarioempleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal")
+        conexion.RellenarDataGridView(dgvReservas, " SELECT R.fechareservainicio,
+                                                         R.fechareservafin,
+                                                         R.cantidadkm,
+                                                         R.costototal,
+                                                         R.fechatramite,
+                                                         Cl.nombre,
+                                                         Cl.apellido,
+                                                         Ca.nombre Categoria,
+                                                         T.nombre Tipo,          
+                                                         SS.nombre Sucursal,
+                                                         SL.nombre SucursalDestino,
+                                                         R.usuarioempleado Empleado
+                                                         FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL
+                                                         WHERE R.idtipo = T.idtipo
+                                                         AND R.idcategoria = Ca.idcategoria 
+                                                         AND Cl.idpersona = R.idpersona
+                                                         AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal ORDER BY Cl.nombre")
+
+
         conexion.RellenarDataGridView(dgvClientes, "SELECT tipodocumento Tipo, nrodocumento Documento, nombre Nombre, apellido Apellido, email Correo, fecnac Nacimiento, empresa Empresa FROM CLIENTE WHERE estado = 't'")
         conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.nrodocumento Documento, Cliente.nombre Nombre, Cliente.apellido Apellido, Cliente.email correo, empleado.usuario, empleado.tipo FROM EMPLEADO, CLIENTE WHERE Cliente.idpersona = Empleado.idpersona AND Empleado.estado = 't'")
         conexion.RellenarDataGridView(dgvVehiculos, "SELECT V.matricula Matricula, Ma.nombre Marca, Mo.nombre Modelo, T.nombre Tipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")

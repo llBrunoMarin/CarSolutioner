@@ -30,7 +30,7 @@
         filtro = "categoria = '" + CategoriaReserva + "' AND tipo = '" + TipoReserva + "' AND sucursal = '" + SucursalIReserva + "'"
 
         fuente.Filter = filtro
-        fuente.DataSource.ToTable(False, "matricula", "marca", "modelo", "anio", "deducible", "aire", "pasajeros", "maletas", "manual", "km")
+        dgvAlquilar.Columns(7).Visible = False
         dgvAlquilar.DataSource = fuente
 
     End Sub
@@ -38,11 +38,14 @@
     Private Sub btnVaciarFRes_Click(sender As Object, e As EventArgs) Handles btnVaciarFRes.Click, dgvAlquilar.CellDoubleClick
 
         Dim resultado As MsgBoxResult
-        resultado = MsgBox("Estas seguro que deseas alquilnar el vehiculo?", MsgBoxStyle.YesNo, "Desea continuar?")
+        resultado = MsgBox("Estas seguro que deseas alquilar el vehiculo?", MsgBoxStyle.YesNo, "Desea continuar?")
         If resultado = vbYes Then
 
         End If
 
     End Sub
 
+    Private Sub dgvAlquilar_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAlquilar.CellContentClick
+
+    End Sub
 End Class

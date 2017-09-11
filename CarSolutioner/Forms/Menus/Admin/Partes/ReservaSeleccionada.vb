@@ -1,6 +1,4 @@
-﻿Imports CarSolutioner
-
-Public Class ReservaSeleccionada
+﻿Public Class ReservaSeleccionada
 
     Public Sub New(cx As ConnectionBD)
         Conexion = cx

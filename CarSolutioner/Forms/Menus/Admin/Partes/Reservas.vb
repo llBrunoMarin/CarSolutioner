@@ -6,19 +6,7 @@ End Class
 
 Partial Public Class frmMainMenu
 
-    Friend nombre As String
-    Friend apellido As String
 
-    Friend resFfin As String
-    Friend resFinicio As String
-    Friend sucursal As String
-    Friend tipo As String
-    Friend categoria As String
-    Friend cliente As String
-    Friend cantKm As String
-    Friend costoTotal As String
-    Friend fechaTramite As String
-    Friend cantidadkm As Integer
 
     Private Sub FiltrosReserva(sender As Object, e As EventArgs) Handles cbxMostrarFRes.SelectionChangeCommitted, cbxEstadoFRes.SelectionChangeCommitted, txtDocumFRes.TextChanged, cbxCategoriaFRes.SelectionChangeCommitted, cbxSucSalFres.SelectionChangeCommitted, cbxSucLlegFRes.SelectionChangeCommitted, cbxKilomFRes.SelectionChangeCommitted
 
@@ -48,25 +36,29 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Public Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick, dgvAlquiler.CellMouseDoubleClick
+    Public Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick, dgvAlquileres.CellMouseDoubleClick
 
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+
             Dim selectedRow = dgvReservas.Rows(e.RowIndex)
 
-
-            resFinicio = selectedRow.Cells(0).Value.ToString
-            resFfin = selectedRow.Cells(1).Value.ToString
-            cantidadkm = selectedRow.Cells(2).Value.ToString
-            nombre = selectedRow.Cells(5).Value.ToString
-            apellido = selectedRow.Cells(6).Value.ToString()
-            categoria = selectedRow.Cells(7).Value.ToString
-            tipo = selectedRow.Cells(8).Value.ToString
-            sucursal = selectedRow.Cells(9).Value.ToString
-            cantKm = selectedRow.Cells(2).Value.ToString
-            costoTotal = selectedRow.Cells(3).Value.ToString
-            fechaTramite = selectedRow.Cells(4).Value.ToString
+            ReservaSeleccionada.IdReserva = selectedRow.Cells("idreserva").Value.ToString
+            ReservaSeleccionada.IdCliente = selectedRow.Cells("idpersona").Value.ToString
+            ReservaSeleccionada.FechaInicio = selectedRow.Cells("inicio").Value.ToString
+            ReservaSeleccionada.FechaFin = selectedRow.Cells("fin").Value.ToString
+            ReservaSeleccionada.CantKM = selectedRow.Cells("cantidad_km").Value.ToString
+            ReservaSeleccionada.CostoTotal = selectedRow.Cells("costo").Value.ToString
+            ReservaSeleccionada.FechaTramite = selectedRow.Cells("fecha_tramite").Value.ToString
+            ReservaSeleccionada.NomCliente = selectedRow.Cells("nombre").Value.ToString
+            ReservaSeleccionada.ApeCliente = selectedRow.Cells("apellido").Value.ToString()
+            ReservaSeleccionada.Categoria = selectedRow.Cells("categoria").Value.ToString
+            ReservaSeleccionada.Tipo = selectedRow.Cells("tipo").Value.ToString
+            ReservaSeleccionada.SucursalInicio = selectedRow.Cells("sucursal_partida").Value.ToString
+            ReservaSeleccionada.SucursalDestino = selectedRow.Cells("sucursal_destino").Value.ToString
+            ReservaSeleccionada.Empleado = selectedRow.Cells("empleado").Value.ToString
 
             frmAlquilar.ShowDialog()
+
         End If
     End Sub
 

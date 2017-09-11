@@ -75,13 +75,13 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvClientes.CurrentRow) Then
 
-            cbxTipoDocumMCliente.SelectedItem = dgvClientes.CurrentRow.Cells(0).Value.ToString()
-            txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells(1).Value.ToString()
-            txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(2).Value.ToString
-            txtApellidoMCliente.Text = dgvClientes.CurrentRow.Cells(3).Value.ToString()
-            txtCorreoMCliente.Text = dgvClientes.CurrentRow.Cells(4).Value.ToString()
-            dtpFecNacMCliente.Value = dgvClientes.CurrentRow.Cells(5).Value.ToString()
-            txtEmpresaMCliente.Text = dgvClientes.CurrentRow.Cells(6).Value.ToString()
+            cbxTipoDocumMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("tipo").Value.ToString()
+            txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells("documento").Value.ToString()
+            txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells("nombre").Value.ToString
+            txtApellidoMCliente.Text = dgvClientes.CurrentRow.Cells("apellido").Value.ToString()
+            txtCorreoMCliente.Text = dgvClientes.CurrentRow.Cells("correo").Value.ToString()
+            dtpFecNacMCliente.Value = dgvClientes.CurrentRow.Cells("nacimiento").Value.ToString()
+            txtEmpresaMCliente.Text = dgvClientes.CurrentRow.Cells("empresa").Value.ToString()
 
             'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()
             'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()

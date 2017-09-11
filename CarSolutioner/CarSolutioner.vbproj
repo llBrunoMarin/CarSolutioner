@@ -101,17 +101,21 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -129,15 +133,16 @@
   <ItemGroup>
     <Compile Include="Codigo\Custom Objects\CustomMenustrip.vb" />
     <Compile Include="Codigo\Metodos.vb" />
-    <Compile Include="Forms\Alquilar.Designer.vb">
+    <Compile Include="Forms\Sub-Forms\Alquilar.Designer.vb">
       <DependentUpon>Alquilar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Alquilar.vb">
+    <Compile Include="Forms\Sub-Forms\Alquilar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Menus\Admin\Partes\Mantenimiento.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Clientes.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Empleados.vb" />
+    <Compile Include="Forms\Menus\Admin\Partes\ReservaSeleccionada.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Reservas.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Vehiculos.vb" />
     <Compile Include="Forms\Sub-Forms\CambiosGenerales.Designer.vb">
@@ -177,7 +182,7 @@
     <Compile Include="Codigo\ConnectionDB.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\Alquilar.resx">
+    <EmbeddedResource Include="Forms\Sub-Forms\Alquilar.resx">
       <DependentUpon>Alquilar.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

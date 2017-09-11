@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAlquilar
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -34,7 +34,7 @@ Partial Class frmAlquilar
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnVaciarFRes = New System.Windows.Forms.Button()
+        Me.btnAlquilar = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
@@ -184,23 +184,23 @@ Partial Class frmAlquilar
         Me.Label3.TabIndex = 39
         Me.Label3.Text = "Nombre Cliente"
         '
-        'btnVaciarFRes
+        'btnAlquilar
         '
-        Me.btnVaciarFRes.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnVaciarFRes.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnVaciarFRes.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnVaciarFRes.FlatAppearance.BorderSize = 0
-        Me.btnVaciarFRes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnVaciarFRes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnVaciarFRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVaciarFRes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVaciarFRes.ForeColor = System.Drawing.Color.White
-        Me.btnVaciarFRes.Location = New System.Drawing.Point(948, 98)
-        Me.btnVaciarFRes.Name = "btnVaciarFRes"
-        Me.btnVaciarFRes.Size = New System.Drawing.Size(99, 31)
-        Me.btnVaciarFRes.TabIndex = 40
-        Me.btnVaciarFRes.Text = "Alquilar"
-        Me.btnVaciarFRes.UseVisualStyleBackColor = False
+        Me.btnAlquilar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAlquilar.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAlquilar.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnAlquilar.FlatAppearance.BorderSize = 0
+        Me.btnAlquilar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAlquilar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAlquilar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAlquilar.ForeColor = System.Drawing.Color.White
+        Me.btnAlquilar.Location = New System.Drawing.Point(948, 98)
+        Me.btnAlquilar.Name = "btnAlquilar"
+        Me.btnAlquilar.Size = New System.Drawing.Size(99, 31)
+        Me.btnAlquilar.TabIndex = 40
+        Me.btnAlquilar.Text = "Alquilar"
+        Me.btnAlquilar.UseVisualStyleBackColor = False
         '
         'DataGridView1
         '
@@ -380,7 +380,7 @@ Partial Class frmAlquilar
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.btnVaciarFRes)
+        Me.Controls.Add(Me.btnAlquilar)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -421,7 +421,7 @@ Partial Class frmAlquilar
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents btnVaciarFRes As Button
+    Friend WithEvents btnAlquilar As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents DataGridView3 As DataGridView

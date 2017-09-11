@@ -12,8 +12,8 @@
         'TODO: LAS FECHAS DE ALQUILER NO SE DEBEN SETEAR ASÍ
         dtpFRInicio.Value = ReservaSeleccionada.FechaInicio
         dtpFRfin.Value = ReservaSeleccionada.FechaFin
-        dtpFAinicio.Value = ReservaSeleccionada.FechaInicio
-        dtpFAfin.Value = ReservaSeleccionada.FechaFin
+        dtpFAinicio.Value = DateTime.Today.ToShortDateString
+
 
         txtTipo.Text = ReservaSeleccionada.Tipo
         txtCategoria.Text = ReservaSeleccionada.Categoria

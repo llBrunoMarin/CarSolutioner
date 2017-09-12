@@ -179,7 +179,7 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub CargarDatosComboBox(cbx As ComboBox, dt As DataTable, columna As String)
+    Public Sub CargarDatosComboBox(cbx As ComboBox, dt As DataTable, columna As String)
 
         '(El "new BindingContext" es para que los comboboxes que hacen referencia a una misma tabla no se seleccionen a la vez)
         cbx.BindingContext = New BindingContext

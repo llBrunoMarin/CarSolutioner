@@ -43,14 +43,12 @@ Partial Class frmAlquilar
         Me.DataGridView6 = New System.Windows.Forms.DataGridView()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.cbxSucLlegada = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.dtpFRfin = New System.Windows.Forms.DateTimePicker()
         Me.dtpFAinicio = New System.Windows.Forms.DateTimePicker()
-        Me.dtpFAfin = New System.Windows.Forms.DateTimePicker()
         Me.dtpFRInicio = New System.Windows.Forms.DateTimePicker()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cbxSucLlegada = New System.Windows.Forms.ComboBox()
         CType(Me.dgvAlquilar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -272,17 +270,6 @@ Partial Class frmAlquilar
         Me.Label5.TabIndex = 46
         Me.Label5.Text = "Fecha Reserva Fin"
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(710, 82)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(112, 17)
-        Me.Label6.TabIndex = 50
-        Me.Label6.Text = "Fecha Alquiler Fin"
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -293,26 +280,6 @@ Partial Class frmAlquilar
         Me.Label7.Size = New System.Drawing.Size(128, 17)
         Me.Label7.TabIndex = 48
         Me.Label7.Text = "Fecha Alquiler Inicio"
-        '
-        'cbxSucLlegada
-        '
-        Me.cbxSucLlegada.FormattingEnabled = True
-        Me.cbxSucLlegada.Items.AddRange(New Object() {"Flying Cars", "Uruguay Motors", "Rentafrank", "Punta Motors"})
-        Me.cbxSucLlegada.Location = New System.Drawing.Point(670, 58)
-        Me.cbxSucLlegada.Name = "cbxSucLlegada"
-        Me.cbxSucLlegada.Size = New System.Drawing.Size(121, 21)
-        Me.cbxSucLlegada.TabIndex = 56
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(667, 38)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(109, 17)
-        Me.Label8.TabIndex = 57
-        Me.Label8.Text = "Sucursal Llegada"
         '
         'dtpFRfin
         '
@@ -340,18 +307,6 @@ Partial Class frmAlquilar
         Me.dtpFAinicio.TabIndex = 52
         Me.dtpFAinicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
         '
-        'dtpFAfin
-        '
-        Me.dtpFAfin.CustomFormat = "dd/MM/yyyy"
-        Me.dtpFAfin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFAfin.Location = New System.Drawing.Point(670, 102)
-        Me.dtpFAfin.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
-        Me.dtpFAfin.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
-        Me.dtpFAfin.Name = "dtpFAfin"
-        Me.dtpFAfin.Size = New System.Drawing.Size(200, 20)
-        Me.dtpFAfin.TabIndex = 51
-        Me.dtpFAfin.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
-        '
         'dtpFRInicio
         '
         Me.dtpFRInicio.CustomFormat = ""
@@ -365,6 +320,27 @@ Partial Class frmAlquilar
         Me.dtpFRInicio.TabIndex = 58
         Me.dtpFRInicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(667, 78)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(109, 17)
+        Me.Label8.TabIndex = 57
+        Me.Label8.Text = "Sucursal Llegada"
+        '
+        'cbxSucLlegada
+        '
+        Me.cbxSucLlegada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxSucLlegada.FormattingEnabled = True
+        Me.cbxSucLlegada.Items.AddRange(New Object() {"Flying Cars", "Uruguay Motors", "Rentafrank", "Punta Motors"})
+        Me.cbxSucLlegada.Location = New System.Drawing.Point(670, 98)
+        Me.cbxSucLlegada.Name = "cbxSucLlegada"
+        Me.cbxSucLlegada.Size = New System.Drawing.Size(121, 21)
+        Me.cbxSucLlegada.TabIndex = 56
+        '
         'frmAlquilar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -375,8 +351,6 @@ Partial Class frmAlquilar
         Me.Controls.Add(Me.cbxSucLlegada)
         Me.Controls.Add(Me.dtpFRfin)
         Me.Controls.Add(Me.dtpFAinicio)
-        Me.Controls.Add(Me.dtpFAfin)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -430,12 +404,10 @@ Partial Class frmAlquilar
     Friend WithEvents DataGridView6 As DataGridView
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents cbxSucLlegada As ComboBox
-    Friend WithEvents Label8 As Label
     Friend WithEvents dtpFRfin As DateTimePicker
     Friend WithEvents dtpFAinicio As DateTimePicker
-    Friend WithEvents dtpFAfin As DateTimePicker
     Friend WithEvents dtpFRInicio As DateTimePicker
+    Friend WithEvents Label8 As Label
+    Friend WithEvents cbxSucLlegada As ComboBox
 End Class

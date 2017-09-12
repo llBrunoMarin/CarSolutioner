@@ -36,7 +36,7 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Public Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick, dgvAlquileres.CellMouseDoubleClick
+    Public Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick
 
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 

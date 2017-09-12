@@ -101,7 +101,7 @@ Public Class frmMainMenu
 
     'TODO: Hacer otro tipo de cargas si es necesario, cargar también combobox y reportar estado de carga (otro formulario con barrita)
     Public Sub CargarDatos()
-
+        conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO=2 WHERE fechareservainicio <= '" + DateTime.Today.ToShortDateString + "'")
         'Cargas Tablas
         conexion.Modelos = conexion.EjecutarSelect("SELECT * from modelo")
         conexion.Marcas = conexion.EjecutarSelect("SELECT * from marca")
@@ -164,16 +164,23 @@ Public Class frmMainMenu
                 dgvVehiculos.Columns("nrochasis").Visible = False
 
             Case "dgvReservas"
-                conexion.RellenarDataGridView(dgvReservas, "SELECT R.idreserva, R.idpersona, R.fechareservainicio Inicio, R.fechareservafin Fin, R.cantidadkm Cantidad_KM, R.costototal Costo, R.fechatramite Fecha_Tramite, Cl.nombre Nombre, Cl.apellido Apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal_Partida, SL.nombre Sucursal_Destino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.nrochasis IS NULL AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal ORDER BY Cl.nombre")
+
+                conexion.RellenarDataGridView(dgvReservas, "SELECT R.idreserva, R.idpersona, R.fechareservainicio Inicio, R.fechareservafin Fin, R.cantidadkm Cantidad_KM, R.costototal Costo, R.fechatramite Fecha_Tramite, Cl.nombre Nombre, Cl.apellido Apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal_Partida, SL.nombre Sucursal_Destino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.nrochasis IS NULL AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal ORDER BY Cl.nombre AND R.estado=1")
                 dgvReservas.Columns("idpersona").Visible = False
+                dgvReservas.Columns("idreserva").Visible = False
 
             Case "dgvAlquileres"
-                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idpersona, R.fechaalquilerinicio FechaInicio, R.fechaalquilerfin FechaFin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, V.matricula, Cl.nombre, Cl.apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal, SL.nombre SucursalDestino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL, Vehiculo V WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY Cl.nombre")
+                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva,R.idpersona, R.fechaalquilerinicio FechaInicio, R.fechaalquilerfin FechaFin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, V.matricula, Cl.nombre, Cl.apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal, SL.nombre SucursalDestino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL, Vehiculo V WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY Cl.nombre")
                 dgvAlquileres.Columns("idpersona").Visible = False
+                dgvAlquileres.Columns("idreserva").Visible = False
+
 
             Case "dgvAlquilar"
                 conexion.RellenarDataGridView(frmAlquilar.dgvAlquilar, "SELECT V.nrochasis, V.matricula Matricula, Ma.nombre Marca, Mo.nombre Modelo, T.nombre Tipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
                 frmAlquilar.dgvAlquilar.Columns("nrochasis").Visible = False
+                frmAlquilar.dgvAlquilar.Columns("categoria").Visible = False
+                frmAlquilar.dgvAlquilar.Columns("tipo").Visible = False
+                frmAlquilar.dgvAlquilar.Columns("sucursal").Visible = False
 
         End Select
 
@@ -190,5 +197,7 @@ Public Class frmMainMenu
 
     End Sub
 
+    Private Sub mstMenuStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles mstMenuStrip.ItemClicked
 
+    End Sub
 End Class

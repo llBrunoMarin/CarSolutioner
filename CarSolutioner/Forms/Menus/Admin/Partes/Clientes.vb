@@ -29,12 +29,19 @@ Partial Public Class frmMainMenu
 
         If chbxFechaFClientes.Checked = True Then
 
+            If TipoDeFecha(cbxDiaFCliente, cbxMesFCliente, txtAnioFCliente) = "Dia" Then
+
+                filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%' AND {12} LIKE '%%/08/1985'",
+                                      "Documento", txtDocumFClientes.Text, "Tipo", cbxTipoDocumFCliente.SelectedValue.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "Correo", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text, "nacimiento")
+
+                dgvClientes.DataSource.Filter = filtro
+            End If
 
 
         Else
 
             filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%'",
-                                       "Documento", txtDocumFClientes.Text, "Tipo", cbxTipoDocumFCliente.SelectedItem.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "Correo", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
+                                       "Documento", txtDocumFClientes.Text, "Tipo", cbxTipoDocumFCliente.SelectedValue.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "Correo", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
 
             dgvClientes.DataSource.Filter = filtro
 
@@ -43,13 +50,25 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub btnIngresarACliente_Click(sender As Object, e As EventArgs) Handles btnIngresarACliente.Click
+
         Dim sentencia As String
-
         sentencia = String.Format("INSERT INTO Cliente (tipodocumento, nrodocumento, nombre, apellido, email, fecnac, empresa, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 't' )",
-                         cbxTipoDocumACliente.SelectedItem, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, dtpFecNacACliente.Value.Date.ToShortDateString, txtEmpresaACliente.Text)
+                         cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, dtpFecNacACliente.Value.Date.ToShortDateString, txtEmpresaACliente.Text)
 
-        conexion.EjecutarNonQuery(sentencia)
-        RecargarDatos(dgvClientes)
+        If cbxTipoDocumACliente.SelectedValue = "CI UY" Then
+            If VerificarCI(txtDocumACliente.Text) Then
+                If conexion.EjecutarNonQuery(sentencia) Then
+                    MsgBox("Cliente ingresado satisfactoriamente")
+                End If
+                RecargarDatos(dgvClientes)
+            End If
+        Else
+            If conexion.EjecutarNonQuery(sentencia) Then
+                MsgBox("Cliente ingresado satisfactoriamente")
+            End If
+        End If
+
+
 
     End Sub
 

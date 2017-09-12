@@ -22,6 +22,7 @@ Partial Class frmMainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -394,6 +395,7 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.MyApplicationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -439,6 +441,7 @@ Partial Class frmMainMenu
         Me.pnlFmant.SuspendLayout()
         CType(Me.dtvmant, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAmant.SuspendLayout()
+        CType(Me.MyApplicationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -1789,7 +1792,6 @@ Partial Class frmMainMenu
         '
         Me.cbxTipoDocumMCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipoDocumMCliente.FormattingEnabled = True
-        Me.cbxTipoDocumMCliente.Items.AddRange(New Object() {"CI UY", "SYSTEM"})
         Me.cbxTipoDocumMCliente.Location = New System.Drawing.Point(14, 71)
         Me.cbxTipoDocumMCliente.Name = "cbxTipoDocumMCliente"
         Me.cbxTipoDocumMCliente.Size = New System.Drawing.Size(101, 21)
@@ -2086,7 +2088,6 @@ Partial Class frmMainMenu
         Me.cbxTipoDocumFCliente.BackColor = System.Drawing.SystemColors.Window
         Me.cbxTipoDocumFCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipoDocumFCliente.FormattingEnabled = True
-        Me.cbxTipoDocumFCliente.Items.AddRange(New Object() {"Todos", "CI UY", "SYSTEM"})
         Me.cbxTipoDocumFCliente.Location = New System.Drawing.Point(12, 132)
         Me.cbxTipoDocumFCliente.Name = "cbxTipoDocumFCliente"
         Me.cbxTipoDocumFCliente.Size = New System.Drawing.Size(101, 21)
@@ -2303,7 +2304,6 @@ Partial Class frmMainMenu
         '
         Me.cbxTipoDocumACliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipoDocumACliente.FormattingEnabled = True
-        Me.cbxTipoDocumACliente.Items.AddRange(New Object() {"CI UY", "SYSTEM"})
         Me.cbxTipoDocumACliente.Location = New System.Drawing.Point(14, 67)
         Me.cbxTipoDocumACliente.Name = "cbxTipoDocumACliente"
         Me.cbxTipoDocumACliente.Size = New System.Drawing.Size(101, 21)
@@ -4712,6 +4712,10 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'MyApplicationBindingSource
+        '
+        Me.MyApplicationBindingSource.DataSource = GetType(CarSolutioner.My.MyApplication)
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4800,6 +4804,7 @@ Partial Class frmMainMenu
         CType(Me.dtvmant, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAmant.ResumeLayout(False)
         Me.pnlAmant.PerformLayout()
+        CType(Me.MyApplicationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -5166,4 +5171,5 @@ Partial Class frmMainMenu
     Friend WithEvents DateTimePicker4 As DateTimePicker
     Friend WithEvents ComboBox15 As ComboBox
     Friend WithEvents ComboBox16 As ComboBox
+    Friend WithEvents MyApplicationBindingSource As BindingSource
 End Class

@@ -8,35 +8,30 @@ Partial Public Class frmMainMenu
 
     Private Sub CargasModelo(sender As ComboBox, e As EventArgs) Handles cbxMarcaAVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxMarcaMVeh.SelectionChangeCommitted
 
-        If Not sender.SelectedValue Is Nothing Then
+        If (Not (sender.SelectedValue Is Nothing)) Or (Not (sender.SelectedValue.ToString = "")) Then
 
-            If Not sender.SelectedValue.ToString = "" Then
+            'Si el item seleccionado NO es "Otro":
+            If Not sender.SelectedValue.ToString = "Otro" Then
 
-                'Si el item seleccionado NO es "Otro":
-                If Not DirectCast(sender, ComboBox).SelectedValue.ToString = "Otro" Then
-
-                    If conexion.Modelos.Select("nombre = 'Otro'").Count = 0 Then
-                        conexion.Modelos.Rows.Add(0, 0, "Otro", 0)
-                    End If
-
-                    If sender Is cbxMarcaAVeh Then
-
-                        Dim MarcaSeleccionada As Integer = conexion.Marcas.Select("nombre = '" + cbxMarcaAVeh.SelectedValue.ToString + "'").CopyToDataTable.Rows(0)(0)
-                        CargarDatosComboBox(cbxModeloAVeh, conexion.Modelos.Select("idmarca = '" + MarcaSeleccionada + "'").CopyToDataTable, "nombre")
-
-                    ElseIf sender Is cbxMarcaFVeh Then
-
-                        Dim MarcaSeleccionada As Integer = conexion.Marcas.Select("nombre = '" + cbxMarcaFVeh.SelectedValue.ToString + "'").CopyToDataTable.Rows(0)(0)
-                        CargarDatosComboBox(cbxModeloFVeh, conexion.Modelos.Select("idmarca = '" + MarcaSeleccionada.ToString + "'").CopyToDataTable, "nombre")
-
-                    End If
-
-                    'Si el item seleccionado es "Otro"
-                Else
-                    frmCambiosGenerales.Show()
-                    frmCambiosGenerales.btnMarcas.PerformClick()
+                'Si no existe el item "Otro", crearlo.
+                If conexion.Modelos.Select("nombre = 'Otro'").Count = 0 Then
+                    conexion.Modelos.Rows.Add(0, 0, "Otro", 0)
                 End If
 
+                Select Case sender.Name
+                    Case "cbxMarcaAVeh"
+                        CargarDatosComboBox(cbxModeloAVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
+                    Case "cbxMarcaFVeh"
+                        CargarDatosComboBox(cbxModeloFVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaFVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
+                    Case Else
+
+                End Select
+
+
+                'Si el item seleccionado es "Otro"
+            Else
+                frmCambiosGenerales.Show()
+                frmCambiosGenerales.btnMarcas.PerformClick()
             End If
 
         End If
@@ -44,41 +39,49 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub CargasTipo(sender As ComboBox, e As EventArgs) Handles cbxModeloAVeh.SelectedValueChanged, cbxModeloFVeh.SelectedValueChanged
+        'Si el valor seleccionado del modelo NO es Nada
+        If (Not (sender.SelectedValue Is Nothing)) Then
+            If (Not (sender.SelectedValue.ToString = "System.Data.DataRowView")) Then
 
-        If Not (sender.SelectedValue Is Nothing) Then
-            'TODO: Ver por qué esto se ejecuta 2 veces la primera vez que cambiamos la marca
-            If Not (sender.SelectedValue.ToString = "System.Data.DataRowView") Then
+                'Si el valor seleccionado del modelo NO es "Otro"
+                If Not sender.Text = "Otro" Then
 
-                Dim idmodeloselect As String = conexion.Modelos.Select("nombre = '" + sender.SelectedValue.ToString + "'").CopyToDataTable.Rows(0).Field(Of Integer)("idmodelo")
-                Dim idtipo As String = conexion.Modelos.Select("idmodelo = " + idmodeloselect.ToString + "").CopyToDataTable.Rows(0).Field(Of Integer)("idtipo")
-                Dim nombretipo As String = conexion.Tipos.Select("idtipo = " + idtipo + "").CopyToDataTable.Rows(0).Field(Of String)("nombre")
+                    Dim idmodeloselect As String = sender.SelectedValue
+                    Dim idtipo As String = conexion.Modelos.Select("idmodelo = " + idmodeloselect + "").CopyToDataTable.Rows(0).Field(Of Integer)("idtipo")
 
-                Select Case sender.Name
-                    Case "cbxModeloAVeh"
-                        cbxTipoAVeh.SelectedValue = nombretipo
-                        cbxTipoAVeh.Enabled = False
-                    Case "cbxModeloFVeh"
-                        cbxTipoFVeh.SelectedValue = nombretipo
-                        cbxTipoFVeh.Enabled = False
-                    Case Else
+                    Select Case sender.Name
+                        Case "cbxModeloAVeh"
+                            cbxTipoAVeh.SelectedValue = idtipo
+                            cbxTipoAVeh.Enabled = False
+                        Case "cbxModeloFVeh"
+                            cbxTipoFVeh.SelectedValue = idtipo
+                            cbxTipoFVeh.Enabled = False
+                            lblBorrarTipoFVeh.Enabled = False
+                        Case Else
 
-                End Select
+                    End Select
+
+                Else
+                    frmCambiosGenerales.Show()
+                    frmCambiosGenerales.btnModelos.PerformClick()
+                End If
             End If
         Else
+
             Select Case sender.Name
                 Case "cbxModeloAVeh"
                     cbxTipoAVeh.Enabled = True
                 Case "cbxModeloFVeh"
                     cbxTipoFVeh.Enabled = True
+                    lblBorrarTipoFVeh.Enabled = True
                 Case Else
-
             End Select
+
         End If
 
     End Sub
 
     Private Sub VaciarFiltrosVehiculoBoton(sender As Object, e As EventArgs) Handles btnVaciarFVeh.Click
-
 
         For Each item In pnlFVehi.Controls
 
@@ -94,6 +97,7 @@ Partial Public Class frmMainMenu
                 DirectCast(item, NumericUpDown).Value = Nothing
             End If
         Next
+
     End Sub
 
     Private Sub VaciarFiltrosVehiculo(sender As Object, e As EventArgs) Handles lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click

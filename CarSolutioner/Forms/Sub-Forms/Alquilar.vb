@@ -7,7 +7,8 @@
     Private Sub Alquilar_Activated(sender As Object, e As EventArgs) Handles Me.Activated, Me.Load
         'Juntamos nombre con apellido 
         Dim ClienteReserva As String = ReservaSeleccionada.NomCliente + " " + ReservaSeleccionada.ApeCliente
-        frmMainMenu.CargarDatosComboBox(cbxSucLlegada, conexion.Sucursales, "nombre")
+        frmMainMenu.CargarDatosComboBox(cbxSucLlegada, conexion.Sucursales, "nombre", "idsucursal")
+
         'estos llenan los datetime picker
         'TODO: LAS FECHAS DE ALQUILER NO SE DEBEN SETEAR ASÍ
         dtpFRInicio.Value = ReservaSeleccionada.FechaInicio
@@ -38,9 +39,17 @@
     End Sub
 
     'Doble click en el dgv alquilar
-    Public Sub dgvAlquilar_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvAlquilar.CellMouseDoubleClick
+    Public Sub AlquilarAutoSeleccionado(sender As Object, e As EventArgs) Handles dgvAlquilar.CellMouseDoubleClick, btnAlquilar.Click
 
-        Dim selectedRow = dgvAlquilar.Rows(e.RowIndex)
+        Dim selectedRow As DataGridViewRow
+
+
+        If sender Is dgvAlquilar Then
+            selectedRow = dgvAlquilar.Rows(DirectCast(e, DataGridViewCellMouseEventArgs).RowIndex)
+        Else
+            selectedRow = dgvAlquilar.CurrentRow
+        End If
+
         Dim nrochasis As String = selectedRow.Cells("nrochasis").Value.ToString
 
         Dim resultado As MsgBoxResult = MsgBox("Estas seguro que deseas alquilar el vehiculo?", MsgBoxStyle.YesNo, "Desea continuar?")

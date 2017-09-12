@@ -253,7 +253,7 @@ Partial Class frmAlquilar
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(53, 82)
+        Me.Label4.Location = New System.Drawing.Point(15, 82)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(131, 17)
         Me.Label4.TabIndex = 44
@@ -264,7 +264,7 @@ Partial Class frmAlquilar
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(285, 82)
+        Me.Label5.Location = New System.Drawing.Point(657, 82)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(115, 17)
         Me.Label5.TabIndex = 46
@@ -275,7 +275,7 @@ Partial Class frmAlquilar
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(484, 82)
+        Me.Label7.Location = New System.Drawing.Point(224, 83)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(128, 17)
         Me.Label7.TabIndex = 48
@@ -284,9 +284,8 @@ Partial Class frmAlquilar
         'dtpFRfin
         '
         Me.dtpFRfin.CustomFormat = ""
-        Me.dtpFRfin.Enabled = False
         Me.dtpFRfin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFRfin.Location = New System.Drawing.Point(224, 102)
+        Me.dtpFRfin.Location = New System.Drawing.Point(660, 102)
         Me.dtpFRfin.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFRfin.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFRfin.Name = "dtpFRfin"
@@ -299,7 +298,7 @@ Partial Class frmAlquilar
         Me.dtpFAinicio.CustomFormat = ""
         Me.dtpFAinicio.Enabled = False
         Me.dtpFAinicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFAinicio.Location = New System.Drawing.Point(441, 102)
+        Me.dtpFAinicio.Location = New System.Drawing.Point(227, 103)
         Me.dtpFAinicio.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFAinicio.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFAinicio.Name = "dtpFAinicio"
@@ -325,7 +324,7 @@ Partial Class frmAlquilar
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(667, 78)
+        Me.Label8.Location = New System.Drawing.Point(520, 82)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(109, 17)
         Me.Label8.TabIndex = 57
@@ -336,7 +335,7 @@ Partial Class frmAlquilar
         Me.cbxSucLlegada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxSucLlegada.FormattingEnabled = True
         Me.cbxSucLlegada.Items.AddRange(New Object() {"Flying Cars", "Uruguay Motors", "Rentafrank", "Punta Motors"})
-        Me.cbxSucLlegada.Location = New System.Drawing.Point(670, 98)
+        Me.cbxSucLlegada.Location = New System.Drawing.Point(523, 102)
         Me.cbxSucLlegada.Name = "cbxSucLlegada"
         Me.cbxSucLlegada.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucLlegada.TabIndex = 56

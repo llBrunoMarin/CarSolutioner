@@ -3,10 +3,24 @@ Public Class frmMainMenu
 
     Dim conexion As ConnectionBD = Login.conexion
     Public ReservaSeleccionada As New ReservaSeleccionada(conexion)
+    Dim TiposDeDocumentoFiltro As New DataTable
+    Dim TiposDeDocumento As New DataTable
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
 
+        TiposDeDocumentoFiltro.Columns.Add("valor", GetType(String))
+        TiposDeDocumentoFiltro.Columns.Add("mostrar", GetType(String))
+        TiposDeDocumentoFiltro.Rows.Add("", "Todos")
+        TiposDeDocumentoFiltro.Rows.Add("CI UY", "CI UY")
+        TiposDeDocumentoFiltro.Rows.Add("SYSTEM", "SYSTEM")
+
+
+
+        TiposDeDocumento.Columns.Add("valor", GetType(String))
+        TiposDeDocumento.Columns.Add("mostrar", GetType(String))
+        TiposDeDocumento.Rows.Add("CI UY", "CI UY")
+        TiposDeDocumento.Rows.Add("SYSTEM", "SYSTEM")
 
         'Le cambiamos el renderer al MenuStrip (cuestiones de diseño)
         CambiarRenderMenuStrip(mstMenuStrip)
@@ -18,9 +32,33 @@ Public Class frmMainMenu
         btnReservas.PerformClick()
         CargarDatos()
 
-        'cbxTipoDocumFCliente.SelectedItem = Nothing
-        'cbxMarcaFVeh.SelectedItem = Nothing
-        'cbxMarcaAVeh.SelectedItem = Nothing
+        cbxTipoDocumFCliente.SelectedItem = "Todos"
+
+        cbxCategoriaFRes.SelectedItem = Nothing
+        cbxCategoriaARes.SelectedItem = Nothing
+        cbxCategoriaFVeh.SelectedItem = Nothing
+        cbxCategoriaAVeh.SelectedItem = Nothing
+
+        cbxTipoFVeh.SelectedItem = Nothing
+        cbxTipoAVeh.SelectedItem = Nothing
+
+        cbxMarcaFVeh.SelectedItem = Nothing
+        cbxMarcaAVeh.SelectedItem = Nothing
+
+        cbxModeloAVeh.SelectedItem = Nothing
+        cbxModeloFVeh.SelectedItem = Nothing
+
+        cbxSucLlegadaARes.SelectedItem = Nothing
+        cbxSucSalidaARes.SelectedItem = Nothing
+        cbxSucLlegFRes.SelectedItem = Nothing
+        cbxSucSalFres.SelectedItem = Nothing
+        cbxSucursalAVeh.SelectedItem = Nothing
+        cbxSucursalFVeh.SelectedItem = Nothing
+
+
+        'dtpInicioARes.Value = Nothing
+        'dtpFinARes.Value = Nothing
+
 
 
 
@@ -101,7 +139,7 @@ Public Class frmMainMenu
 
     'TODO: Hacer otro tipo de cargas si es necesario, cargar también combobox y reportar estado de carga (otro formulario con barrita)
     Public Sub CargarDatos()
-        conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO=2 WHERE fechareservainicio <= '" + DateTime.Today.ToShortDateString + "'")
+        conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO = 2 WHERE fechareservainicio <= '" + DateTime.Today.ToShortDateString + "'")
         'Cargas Tablas
         conexion.Modelos = conexion.EjecutarSelect("SELECT * from modelo")
         conexion.Marcas = conexion.EjecutarSelect("SELECT * from marca")
@@ -119,30 +157,34 @@ Public Class frmMainMenu
 
         'Cargas de ComboBox
         'MARCAS
-        CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre")
-        CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre")
-        CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre")
+        CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre", "idmarca")
 
         'TIPOS
-        CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre")
-        CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre")
-        CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre")
+        CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre", "idtipo")
 
         'CATEGORIAS
-        CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias, "nombre")
-        CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre")
-        CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias, "nombre")
-        CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre")
+        CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre", "idcategoria")
 
         'SUCURSALES
-        CargarDatosComboBox(cbxSucursalAVeh, conexion.Sucursales, "nombre")
-        CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales, "nombre")
-        CargarDatosComboBox(cbxSucursalMVeh, conexion.Sucursales, "nombre")
-        CargarDatosComboBox(cbxSucSalFres, conexion.Sucursales, "nombre")
-        CargarDatosComboBox(cbxSucLlegFRes, conexion.Sucursales, "nombre")
-        CargarDatosComboBox(cbxSucSalidaARes, conexion.Sucursales, "nombre")
-        CargarDatosComboBox(cbxSucLlegadaARes, conexion.Sucursales, "nombre")
+        CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalAVeh, conexion.Sucursales, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalMVeh, conexion.Sucursales, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucSalFres, conexion.Sucursales, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucLlegFRes, conexion.Sucursales, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucSalidaARes, conexion.Sucursales, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucLlegadaARes, conexion.Sucursales, "nombre", "idsucursal")
 
+        'DOCUMENTOS
+        CargarDatosComboBox(cbxTipoDocumFCliente, TiposDeDocumentoFiltro, "mostrar", "valor")
+        CargarDatosComboBox(cbxTipoDocumACliente, TiposDeDocumento, "mostrar", "valor")
+        CargarDatosComboBox(cbxTipoDocumMCliente, TiposDeDocumento, "mostrar", "valor")
         'Los modelos se cargan en el apartado "Vehiculos".
 
     End Sub
@@ -165,7 +207,7 @@ Public Class frmMainMenu
 
             Case "dgvReservas"
 
-                conexion.RellenarDataGridView(dgvReservas, "SELECT R.idreserva, R.idpersona, R.fechareservainicio Inicio, R.fechareservafin Fin, R.cantidadkm Cantidad_KM, R.costototal Costo, R.fechatramite Fecha_Tramite, Cl.nombre Nombre, Cl.apellido Apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal_Partida, SL.nombre Sucursal_Destino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.nrochasis IS NULL AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal ORDER BY Cl.nombre AND R.estado=1")
+                conexion.RellenarDataGridView(dgvReservas, "SELECT R.idreserva, R.idpersona, R.fechareservainicio Inicio, R.fechareservafin Fin, R.cantidadkm Cantidad_KM, R.costototal Costo, R.fechatramite Fecha_Tramite, Cl.nombre Nombre, Cl.apellido Apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal_Partida, SL.nombre Sucursal_Destino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.nrochasis IS NULL AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND R.estado = 1 ORDER BY Cl.nombre")
                 dgvReservas.Columns("idpersona").Visible = False
                 dgvReservas.Columns("idreserva").Visible = False
 
@@ -186,14 +228,14 @@ Public Class frmMainMenu
 
     End Sub
 
-    Public Sub CargarDatosComboBox(cbx As ComboBox, dt As DataTable, columna As String)
+    Public Sub CargarDatosComboBox(cbx As ComboBox, dt As DataTable, columna As String, value As String)
 
         '(El "new BindingContext" es para que los comboboxes que hacen referencia a una misma tabla no se seleccionen a la vez)
         cbx.BindingContext = New BindingContext
         cbx.DataSource = dt.DefaultView
 
         cbx.DisplayMember = columna
-        cbx.ValueMember = columna
+        cbx.ValueMember = value
 
     End Sub
 

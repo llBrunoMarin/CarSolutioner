@@ -7,6 +7,12 @@ Public Class frmMainMenu
     Dim TiposDeDocumento As New DataTable
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        Dim años As Integer = 1900
+        While años <= CInt(DateTime.Today.Year)
+            cbxAnioNFCliente.Items.Add(años)
+            años = años + 1
+        End While
+
 
 
         TiposDeDocumentoFiltro.Columns.Add("valor", GetType(String))
@@ -194,17 +200,24 @@ Public Class frmMainMenu
         Select Case dgv.Name
 
             Case "dgvClientes"
-                conexion.RellenarDataGridView(dgvClientes, "SELECT idpersona, tipodocumento Tipo, nrodocumento Documento, nombre Nombre, apellido Apellido, email Correo, fecnac Nacimiento, empresa Empresa FROM CLIENTE WHERE estado = 't'")
+                conexion.RellenarDataGridView(dgvClientes, "SELECT idpersona, tipodocumento Tipo, nrodocumento Documento, nombre Nombre, apellido Apellido, email Correo, fecnac Nacimiento, empresa Empresa, DAY(fecnac) dia, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE WHERE estado = 't'")
                 dgvClientes.Columns("idpersona").Visible = False
+                dgvClientes.Columns("dia").Visible = False
+                dgvClientes.Columns("mes").Visible = False
+                dgvClientes.Columns("anio").Visible = False
 
             Case "dgvEmpleados"
                 conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.idpersona, Cliente.nrodocumento Documento, Cliente.nombre Nombre, Cliente.apellido Apellido, Cliente.email correo, empleado.usuario, empleado.tipo FROM EMPLEADO, CLIENTE WHERE Cliente.idpersona = Empleado.idpersona AND Empleado.estado = 't'")
                 dgvEmpleados.Columns("idpersona").Visible = False
 
             Case "dgvVehiculos"
-                conexion.RellenarDataGridView(dgvVehiculos, "SELECT V.nrochasis, V.matricula Matricula, Ma.nombre Marca, Mo.nombre Modelo, T.nombre Tipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
+                conexion.RellenarDataGridView(dgvVehiculos, "SELECT V.nrochasis, V.idcategoria, V.idmodelo, v.idsucursal, V.matricula Matricula, Ma.nombre Marca, Ma.idmarca, Mo.nombre Modelo, T.nombre Tipo, T.idtipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal, V.estado estado FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
                 dgvVehiculos.Columns("nrochasis").Visible = False
-
+                dgvVehiculos.Columns("idmodelo").Visible = False
+                dgvVehiculos.Columns("idmarca").Visible = False
+                dgvVehiculos.Columns("idtipo").Visible = False
+                dgvVehiculos.Columns("idsucursal").Visible = False
+                dgvVehiculos.Columns("idcategoria").Visible = False
             Case "dgvReservas"
 
                 conexion.RellenarDataGridView(dgvReservas, "SELECT R.idreserva, R.idpersona, R.fechareservainicio Inicio, R.fechareservafin Fin, R.cantidadkm Cantidad_KM, R.costototal Costo, R.fechatramite Fecha_Tramite, Cl.nombre Nombre, Cl.apellido Apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal_Partida, SL.nombre Sucursal_Destino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.nrochasis IS NULL AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND R.estado = 1 ORDER BY Cl.nombre")
@@ -239,7 +252,5 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub mstMenuStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles mstMenuStrip.ItemClicked
 
-    End Sub
 End Class

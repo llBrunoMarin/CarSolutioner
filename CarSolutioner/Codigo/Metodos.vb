@@ -1,31 +1,32 @@
 ﻿Module Metodos
 
-    Public Function TipoDeFecha(dia As ComboBox, mes As ComboBox, año As TextBox)
+    'Devuelve el tipo de fecha que esta seleccionada (es decir, si es dia/mes/año, o si es dia/año, o solo mes, etc
+    Public Function TipoDeFecha(dia As ComboBox, mes As ComboBox, año As ComboBox) As String
 
         Dim tipofecha As String = ""
 
-        If (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And (año.Text = "") Then
+        If (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And (año.SelectedItem = Nothing) Then
             tipofecha = "000"
         Else
-            If (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And Not (año.Text = "") Then
+            If (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And Not (año.SelectedItem = Nothing) Then
                 tipofecha = "001"
             Else
-                If (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And (año.Text = "") Then
+                If (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And (año.SelectedItem = Nothing) Then
                     tipofecha = "010"
                 Else
-                    If (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And Not (año.Text = "") Then
+                    If (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And Not (año.SelectedItem = Nothing) Then
                         tipofecha = "011"
                     Else
-                        If Not (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And (año.Text = "") Then
+                        If Not (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And (año.SelectedItem = Nothing) Then
                             tipofecha = "100"
                         Else
-                            If Not (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And Not (año.Text = "") Then
+                            If Not (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And Not (año.SelectedItem = Nothing) Then
                                 tipofecha = "101"
                             Else
-                                If Not (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And (año.Text = "") Then
+                                If Not (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And (año.SelectedItem = Nothing) Then
                                     tipofecha = "110"
                                 Else
-                                    If Not (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And Not (año.Text = "") Then
+                                    If Not (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And Not (año.SelectedItem = Nothing) Then
                                         tipofecha = "111"
                                     End If
                                 End If
@@ -39,50 +40,48 @@
         Select Case tipofecha
 
             Case "000"
-                Return "Nada"
+                Return ""
 
             Case "001"
-                Return "Año"
+                Return " AND anio = " + dia.SelectedItem.ToString + ""
 
             Case "010"
-                Return "Mes"
+                Return " AND mes = " + mes.SelectedItem.ToString + ""
 
             Case "011"
-                Return "Mes/Año"
+                Return " AND mes = " + mes.SelectedItem.ToString + " AND anio = " + año.SelectedItem.ToString + ""
 
             Case "100"
-                Return "Dia"
+                Return " AND dia = " + dia.SelectedItem.ToString + ""
 
             Case "101"
-                Return "Dia/Año"
+                Return " AND dia = " + dia.SelectedItem.ToString + " AND anio = " + año.SelectedItem.ToString + ""
 
             Case "110"
-                Return "Dia/Mes"
+                Return " AND dia = " + dia.SelectedItem.ToString + " AND mes = " + mes.SelectedItem.ToString + ""
 
             Case "111"
-                Return "Dia/Mes/Año"
-
-            Case Else
-                Return "Error"
+                Return " AND dia = '" + dia.SelectedItem.ToString + "' AND mes = '" + mes.SelectedItem.ToString + "' AND anio = '" + año.SelectedItem.ToString + "'"
 
         End Select
 
     End Function
 
+    'Verifica una cédula que entra como parámetro
     Function VerificarCI(ci As String) As Boolean
-
-        Dim verificador As String = ci.Substring(7, 1)
-        Dim cedula As String = ci.Substring(0, 7)
-        Dim Algoritmo() As Integer = {2, 9, 8, 7, 6, 3, 4}
-        Dim Operacion As String
-        Dim sumaVerificarCI As Integer
-        Dim valor As Integer
 
         'Si el valor ingresado es numérico
         If IsNumeric(ci) Then
 
             'Si el largo del numero es exactamente 8
             If (ci.Length = 8) Then
+
+                Dim verificador As String = ci.Substring(7, 1)
+                Dim cedula As String = ci.Substring(0, 7)
+                Dim Algoritmo() As Integer = {2, 9, 8, 7, 6, 3, 4}
+                Dim Operacion As String
+                Dim sumaVerificarCI As Integer
+                Dim valor As Integer
 
                 Try
 
@@ -149,31 +148,5 @@
 
 
     End Function
-    ''Recorre un contenedor en busca de todos los contenedores de un tipo (en este caso, ComboBox, todavia no le encontramos uso)
-    'Public Function TodosLosControles(ByRef parent As Control) As List(Of ComboBox)
-
-    '    Dim list As New List(Of ComboBox)
-    '    Dim ControlesContenedor As New Stack(Of Control)
-
-    '    ControlesContenedor.Push(parent)
-    '    While ControlesContenedor.Count > 0
-
-    '        For Each child As Control In ControlesContenedor.Pop().Controls
-
-    '            If child.HasChildren Then
-    '                ControlesContenedor.Push(child)
-    '            End If
-
-    '            If child.GetType Is GetType(ComboBox) Then
-    '                list.Add(child)
-    '            End If
-
-    '        Next
-
-    '    End While
-
-    '    Return list
-
-    'End Function
 
 End Module

@@ -136,12 +136,6 @@ Partial Public Class frmMainMenu
                     cbxCategoriaFVeh.SelectedItem = Nothing
                 End If
 
-
-            Case "lblBorrarEstadoFVeh"
-                If Not cbxEstadoFVeh.SelectedItem Is Nothing Then
-                    cbxEstadoFVeh.SelectedItem = Nothing
-                End If
-
             Case "lblBorrarMaletasFVeh"
                 If Not cbxMaletasFVeh.SelectedItem Is Nothing Then
                     cbxMaletasFVeh.SelectedItem = Nothing
@@ -169,6 +163,20 @@ Partial Public Class frmMainMenu
         End If
 
     End Sub
+
+    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxEstadoFRes.SelectionChangeCommitted, cbxCategoriaFRes.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxTipoFRes.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectionChangeCommitted
+
+        Dim filtro As String
+
+        filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} = {5} AND {6} = {7} AND {8} = {9} AND {10} = {11} AND {12} = {13} AND {14} LIKE '%{15}%' AND {16} = {17} AND {18} = {19} AND {20} = {21} AND {22} = {23} = {24} = {25}",
+                               "nrochasis", txtNroChasisFVeh.Text, "matricula", txtMatriculaFVeh.Text, "idcategoria", cbxCategoriaFVeh.SelectedValue, "idmarca", cbxMarcaFVeh.SelectedValue, "idmodelo", cbxModeloFVeh.SelectedValue, "idtipo", cbxTipoFVeh.SelectedValue, "idsucursal", cbxSucursalFVeh.SelectedValue, "anio", txtAnioFVeh.Text, "maletas", cbxMaletasFVeh.SelectedItem, "pasajeros", numPasajerosFVeh.Value, "puertas", cbxPuertasFVeh.SelectedValue, "aire", cbxAireFVeh.SelectedValue, "automatico", cbxAutomaticoFVeh.SelectedValue)
+        dgvVehiculos.DataSource.Filter = filtro
+
+
+
+    End Sub
+
+
 
 
     Private Sub RellenarDatosVehiculo(sender As Object, e As EventArgs) Handles dgvVehiculos.SelectionChanged

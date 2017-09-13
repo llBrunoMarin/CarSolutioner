@@ -9,34 +9,30 @@ Partial Public Class frmMainMenu
     Private Sub chboxFechaFClientes_CheckedChanged(sender As Object, e As EventArgs) Handles chbxFechaFClientes.CheckedChanged
 
         If chbxFechaFClientes.Checked Then
-
-            cbxDiaFCliente.SelectedItem = Nothing
-            cbxMesFCliente.SelectedItem = Nothing
-            txtAnioFCliente.Text = ""
             gbxFecNacFCliente.Enabled = True
-
         Else
-
+            cbxDiaNFCliente.SelectedItem = Nothing
+            cbxMesNFCliente.SelectedItem = Nothing
+            cbxAnioNFCliente.SelectedItem = Nothing
             gbxFecNacFCliente.Enabled = False
-
         End If
 
     End Sub
 
-    Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, cbxDiaFCliente.SelectionChangeCommitted, cbxMesFCliente.SelectionChangeCommitted, txtAnioFCliente.TextChanged
+    Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, cbxDiaNFCliente.SelectionChangeCommitted, cbxMesNFCliente.SelectionChangeCommitted, cbxAnioNFCliente.SelectionChangeCommitted
 
         Dim filtro As String
 
         If chbxFechaFClientes.Checked = True Then
 
-            If TipoDeFecha(cbxDiaFCliente, cbxMesFCliente, txtAnioFCliente) = "Dia" Then
+            If Not ((cbxDiaNFCliente.SelectedItem Is Nothing) And (cbxMesNFCliente.SelectedItem Is Nothing) And (cbxAnioNFCliente.SelectedItem Is Nothing)) Then
 
-                filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%' AND {12} LIKE '%%/08/1985'",
-                                      "Documento", txtDocumFClientes.Text, "Tipo", cbxTipoDocumFCliente.SelectedValue.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "Correo", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text, "nacimiento")
+
+                filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%'" + TipoDeFecha(cbxDiaNFCliente, cbxMesNFCliente, cbxAnioNFCliente),
+                                                    "Documento", txtDocumFClientes.Text, "Tipo", cbxTipoDocumFCliente.SelectedValue.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "Correo", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
 
                 dgvClientes.DataSource.Filter = filtro
             End If
-
 
         Else
 

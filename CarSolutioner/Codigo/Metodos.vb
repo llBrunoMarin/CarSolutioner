@@ -1,72 +1,5 @@
 ﻿Module Metodos
 
-    'Devuelve el tipo de fecha que esta seleccionada (es decir, si es dia/mes/año, o si es dia/año, o solo mes, etc
-    Public Function TipoDeFecha(dia As ComboBox, mes As ComboBox, año As ComboBox) As String
-
-        Dim tipofecha As String = ""
-
-        If (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And (año.SelectedItem = Nothing) Then
-            tipofecha = "000"
-        Else
-            If (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And Not (año.SelectedItem = Nothing) Then
-                tipofecha = "001"
-            Else
-                If (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And (año.SelectedItem = Nothing) Then
-                    tipofecha = "010"
-                Else
-                    If (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And Not (año.SelectedItem = Nothing) Then
-                        tipofecha = "011"
-                    Else
-                        If Not (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And (año.SelectedItem = Nothing) Then
-                            tipofecha = "100"
-                        Else
-                            If Not (dia.SelectedItem = Nothing) And (mes.SelectedItem = Nothing) And Not (año.SelectedItem = Nothing) Then
-                                tipofecha = "101"
-                            Else
-                                If Not (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And (año.SelectedItem = Nothing) Then
-                                    tipofecha = "110"
-                                Else
-                                    If Not (dia.SelectedItem = Nothing) And Not (mes.SelectedItem = Nothing) And Not (año.SelectedItem = Nothing) Then
-                                        tipofecha = "111"
-                                    End If
-                                End If
-                            End If
-                        End If
-                    End If
-                End If
-            End If
-        End If
-
-        Select Case tipofecha
-
-            Case "000"
-                Return ""
-
-            Case "001"
-                Return " AND anio = " + dia.SelectedItem.ToString + ""
-
-            Case "010"
-                Return " AND mes = " + mes.SelectedItem.ToString + ""
-
-            Case "011"
-                Return " AND mes = " + mes.SelectedItem.ToString + " AND anio = " + año.SelectedItem.ToString + ""
-
-            Case "100"
-                Return " AND dia = " + dia.SelectedItem.ToString + ""
-
-            Case "101"
-                Return " AND dia = " + dia.SelectedItem.ToString + " AND anio = " + año.SelectedItem.ToString + ""
-
-            Case "110"
-                Return " AND dia = " + dia.SelectedItem.ToString + " AND mes = " + mes.SelectedItem.ToString + ""
-
-            Case "111"
-                Return " AND dia = '" + dia.SelectedItem.ToString + "' AND mes = '" + mes.SelectedItem.ToString + "' AND anio = '" + año.SelectedItem.ToString + "'"
-
-        End Select
-
-    End Function
-
     'Verifica una cédula que entra como parámetro
     Public Function VerificarCI(ci As String) As Boolean
 
@@ -153,7 +86,7 @@
 
         If TypeOf (ctrl) Is ComboBox Then
             If Not (DirectCast(ctrl, ComboBox).SelectedItem = Nothing) Then
-                Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue + ""
+                Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedItem + ""
             Else
                 Return ""
             End If

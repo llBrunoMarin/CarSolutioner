@@ -211,7 +211,7 @@ Public Class frmMainMenu
                 dgvEmpleados.Columns("idpersona").Visible = False
 
             Case "dgvVehiculos"
-                conexion.RellenarDataGridView(dgvVehiculos, "SELECT V.nrochasis, V.idcategoria, V.idmodelo, v.idsucursal, V.matricula Matricula, Ma.nombre Marca, Ma.idmarca, Mo.nombre Modelo, T.nombre Tipo, T.idtipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal, V.estado estado FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
+                conexion.RellenarDataGridView(dgvVehiculos, "SELECT V.matricula Matricula, Ma.nombre Marca, Ma.idmarca, Mo.nombre Modelo, T.nombre Tipo, T.idtipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal, V.estado, V.nrochasis, V.idcategoria, V.idmodelo, v.idsucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
                 dgvVehiculos.Columns("nrochasis").Visible = False
                 dgvVehiculos.Columns("idmodelo").Visible = False
                 dgvVehiculos.Columns("idmarca").Visible = False

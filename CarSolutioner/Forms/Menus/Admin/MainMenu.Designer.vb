@@ -3109,6 +3109,7 @@ Partial Class frmMainMenu
         '
         Me.cbxMaletasFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMaletasFVeh.FormattingEnabled = True
+        Me.cbxMaletasFVeh.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
         Me.cbxMaletasFVeh.Location = New System.Drawing.Point(115, 162)
         Me.cbxMaletasFVeh.Name = "cbxMaletasFVeh"
         Me.cbxMaletasFVeh.Size = New System.Drawing.Size(105, 21)

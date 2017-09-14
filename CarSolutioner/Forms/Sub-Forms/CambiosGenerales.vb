@@ -1,5 +1,5 @@
 ﻿Public Class frmCambiosGenerales
-
+    Dim conexion As ConnectionBD = Login.conexion
     Private Sub frmCambiosGenerales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tbcTabControl.ItemSize = New Size(0, 1)
         btnSucursales.PerformClick()
@@ -71,5 +71,9 @@
 
     Private Sub tbpDocumento_Click(sender As Object, e As EventArgs) Handles tbpDocumento.Click
 
+    End Sub
+
+    Private Sub btnAddSuc_Click(sender As Object, e As EventArgs)
+        conexion.EjecutarNonQuery("INSERT INTO sucursal values (0, '" + txtNomSuc.Text + "', '" + txtCidSuc.Text + "', '" + txtDicSuc.Text + "')")
     End Sub
 End Class

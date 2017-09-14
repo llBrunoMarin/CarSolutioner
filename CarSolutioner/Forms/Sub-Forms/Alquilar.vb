@@ -56,7 +56,7 @@
         If resultado = vbYes Then
 
             'Actualiza la Reserva para que sea un ALQUILER, con NroChasis = al seleccionado, fechaalquilerinicio = hoy, fechareservafin = seleccionada (en caso que el cliente cambie su fecha reserva fin)
-            conexion.EjecutarNonQuery("UPDATE Reserva SET nrochasis = '" + nrochasis + "', fechaalquilerinicio = '" + DateTime.Today.Date.ToShortDateString + "', fechareservafin = '" + dtpFRfin.Value.ToShortDateString + "' WHERE idreserva = " + ReservaSeleccionada.IdReserva.ToString + " ")
+            conexion.EjecutarNonQuery("UPDATE Reserva SET nrochasis = '" + nrochasis + "', idsucursalllegada = '" + cbxSucLlegada.SelectedValue.ToString + "', fechaalquilerinicio = '" + DateTime.Today.Date.ToShortDateString + "', fechareservafin = '" + dtpFRfin.Value.ToShortDateString + "' WHERE idreserva = " + ReservaSeleccionada.IdReserva.ToString + " ")
             conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = NULL WHERE nrochasis='" + nrochasis + "'")
             MsgBox("Alquiler Ingresado")
             frmMainMenu.RecargarDatos(dgvAlquilar)

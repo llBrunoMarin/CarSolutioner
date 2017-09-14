@@ -231,11 +231,13 @@ Public Class frmMainMenu
 
 
             Case "dgvAlquilar"
-                conexion.RellenarDataGridView(frmAlquilar.dgvAlquilar, "SELECT V.nrochasis, V.matricula Matricula, Ma.nombre Marca, Mo.nombre Modelo, T.nombre Tipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
+                conexion.RellenarDataGridView(frmAlquilar.dgvAlquilar, "SELECT V.matricula Matricula, Ma.nombre Marca, Mo.nombre Modelo, T.nombre Tipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal, V.nrochasis FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
                 frmAlquilar.dgvAlquilar.Columns("nrochasis").Visible = False
                 frmAlquilar.dgvAlquilar.Columns("categoria").Visible = False
                 frmAlquilar.dgvAlquilar.Columns("tipo").Visible = False
                 frmAlquilar.dgvAlquilar.Columns("sucursal").Visible = False
+
+
 
         End Select
 
@@ -251,6 +253,4 @@ Public Class frmMainMenu
         cbx.ValueMember = value
 
     End Sub
-
-
 End Class

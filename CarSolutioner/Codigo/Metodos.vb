@@ -68,7 +68,7 @@
     End Function
 
     'Verifica una cédula que entra como parámetro
-    Function VerificarCI(ci As String) As Boolean
+    Public Function VerificarCI(ci As String) As Boolean
 
         'Si el valor ingresado es numérico
         If IsNumeric(ci) Then
@@ -149,4 +149,26 @@
 
     End Function
 
+    Public Function TipoFiltro(ctrl As Control, columna As String) As String
+
+        If TypeOf (ctrl) Is ComboBox Then
+            If Not (DirectCast(ctrl, ComboBox).SelectedItem = Nothing) Then
+                Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue + ""
+            Else
+                Return ""
+            End If
+
+        ElseIf TypeOf (ctrl) Is NumericUpDown Then
+            If Not (DirectCast(ctrl, NumericUpDown).Value = 0) Then
+                Return " AND " + columna + " = " + DirectCast(ctrl, NumericUpDown).Value + ""
+            Else
+                Return ""
+            End If
+        Else
+            Return ""
+        End If
+
+    End Function
+
 End Module
+

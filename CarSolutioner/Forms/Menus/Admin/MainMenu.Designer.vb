@@ -244,17 +244,21 @@ Partial Class frmMainMenu
         Me.pnlFVehi = New System.Windows.Forms.Panel()
         Me.numPasajerosFVeh = New System.Windows.Forms.NumericUpDown()
         Me.cbxTipoFVeh = New System.Windows.Forms.ComboBox()
+        Me.txtMatriculaFVeh = New System.Windows.Forms.TextBox()
         Me.cbxAireFVeh = New System.Windows.Forms.ComboBox()
         Me.cbxAutomaticoFVeh = New System.Windows.Forms.ComboBox()
         Me.cbxPuertasFVeh = New System.Windows.Forms.ComboBox()
         Me.Label105 = New System.Windows.Forms.Label()
         Me.Label104 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label106 = New System.Windows.Forms.Label()
+        Me.Label48 = New System.Windows.Forms.Label()
         Me.lblParamIgnore = New System.Windows.Forms.Label()
         Me.Label47 = New System.Windows.Forms.Label()
+        Me.txtNroChasisFVeh = New System.Windows.Forms.TextBox()
         Me.Label45 = New System.Windows.Forms.Label()
         Me.cbxMaletasFVeh = New System.Windows.Forms.ComboBox()
+        Me.Label64 = New System.Windows.Forms.Label()
         Me.Label62 = New System.Windows.Forms.Label()
         Me.txtAnioFVeh = New System.Windows.Forms.TextBox()
         Me.Label49 = New System.Windows.Forms.Label()
@@ -265,11 +269,11 @@ Partial Class frmMainMenu
         Me.Label50 = New System.Windows.Forms.Label()
         Me.cbxMarcaFVeh = New System.Windows.Forms.ComboBox()
         Me.btnVaciarFVeh = New System.Windows.Forms.Button()
+        Me.lblBorrarPuertasFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarMaletasFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarTipoFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarSucursalFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarModeloFVeh = New System.Windows.Forms.Label()
-        Me.lblBorrarPuertasFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarCategoriaFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarMarcaFVeh = New System.Windows.Forms.Label()
         Me.Label51 = New System.Windows.Forms.Label()
@@ -391,10 +395,6 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label64 = New System.Windows.Forms.Label()
-        Me.txtNroChasisFVeh = New System.Windows.Forms.TextBox()
-        Me.Label106 = New System.Windows.Forms.Label()
-        Me.txtMatriculaFVeh = New System.Windows.Forms.TextBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2013,7 +2013,6 @@ Partial Class frmMainMenu
         Me.cbxAnioNFCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxAnioNFCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.cbxAnioNFCliente.FormattingEnabled = True
-        Me.cbxAnioNFCliente.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
         Me.cbxAnioNFCliente.Location = New System.Drawing.Point(104, 22)
         Me.cbxAnioNFCliente.Name = "cbxAnioNFCliente"
         Me.cbxAnioNFCliente.Size = New System.Drawing.Size(53, 21)
@@ -2972,6 +2971,13 @@ Partial Class frmMainMenu
         Me.cbxTipoFVeh.Size = New System.Drawing.Size(104, 21)
         Me.cbxTipoFVeh.TabIndex = 43
         '
+        'txtMatriculaFVeh
+        '
+        Me.txtMatriculaFVeh.Location = New System.Drawing.Point(228, 74)
+        Me.txtMatriculaFVeh.Name = "txtMatriculaFVeh"
+        Me.txtMatriculaFVeh.Size = New System.Drawing.Size(121, 20)
+        Me.txtMatriculaFVeh.TabIndex = 63
+        '
         'cbxAireFVeh
         '
         Me.cbxAireFVeh.AutoCompleteCustomSource.AddRange(New String() {"Todos", "Si", "No"})
@@ -3026,17 +3032,6 @@ Partial Class frmMainMenu
         Me.Label104.TabIndex = 28
         Me.Label104.Text = "Automatico"
         '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label48.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label48.Location = New System.Drawing.Point(355, 142)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(52, 17)
-        Me.Label48.TabIndex = 28
-        Me.Label48.Text = "Puertas"
-        '
         'Label26
         '
         Me.Label26.AutoSize = True
@@ -3047,6 +3042,28 @@ Partial Class frmMainMenu
         Me.Label26.Size = New System.Drawing.Size(32, 17)
         Me.Label26.TabIndex = 41
         Me.Label26.Text = "Tipo"
+        '
+        'Label106
+        '
+        Me.Label106.AutoSize = True
+        Me.Label106.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label106.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label106.Location = New System.Drawing.Point(225, 54)
+        Me.Label106.Name = "Label106"
+        Me.Label106.Size = New System.Drawing.Size(65, 17)
+        Me.Label106.TabIndex = 57
+        Me.Label106.Text = "Matricula"
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label48.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label48.Location = New System.Drawing.Point(355, 142)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(52, 17)
+        Me.Label48.TabIndex = 28
+        Me.Label48.Text = "Puertas"
         '
         'lblParamIgnore
         '
@@ -3070,6 +3087,13 @@ Partial Class frmMainMenu
         Me.Label47.TabIndex = 29
         Me.Label47.Text = "Pasajeros"
         '
+        'txtNroChasisFVeh
+        '
+        Me.txtNroChasisFVeh.Location = New System.Drawing.Point(5, 75)
+        Me.txtNroChasisFVeh.Name = "txtNroChasisFVeh"
+        Me.txtNroChasisFVeh.Size = New System.Drawing.Size(215, 20)
+        Me.txtNroChasisFVeh.TabIndex = 54
+        '
         'Label45
         '
         Me.Label45.AutoSize = True
@@ -3089,6 +3113,17 @@ Partial Class frmMainMenu
         Me.cbxMaletasFVeh.Name = "cbxMaletasFVeh"
         Me.cbxMaletasFVeh.Size = New System.Drawing.Size(105, 21)
         Me.cbxMaletasFVeh.TabIndex = 40
+        '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label64.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label64.Location = New System.Drawing.Point(5, 55)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(69, 17)
+        Me.Label64.TabIndex = 52
+        Me.Label64.Text = "Nro Chasis"
         '
         'Label62
         '
@@ -3196,6 +3231,17 @@ Partial Class frmMainMenu
         Me.btnVaciarFVeh.Text = "Vaciar"
         Me.btnVaciarFVeh.UseVisualStyleBackColor = False
         '
+        'lblBorrarPuertasFVeh
+        '
+        Me.lblBorrarPuertasFVeh.AutoSize = True
+        Me.lblBorrarPuertasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarPuertasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarPuertasFVeh.Location = New System.Drawing.Point(437, 148)
+        Me.lblBorrarPuertasFVeh.Name = "lblBorrarPuertasFVeh"
+        Me.lblBorrarPuertasFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarPuertasFVeh.TabIndex = 25
+        Me.lblBorrarPuertasFVeh.Text = "←"
+        '
         'lblBorrarMaletasFVeh
         '
         Me.lblBorrarMaletasFVeh.AutoSize = True
@@ -3239,17 +3285,6 @@ Partial Class frmMainMenu
         Me.lblBorrarModeloFVeh.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarModeloFVeh.TabIndex = 25
         Me.lblBorrarModeloFVeh.Text = "←"
-        '
-        'lblBorrarPuertasFVeh
-        '
-        Me.lblBorrarPuertasFVeh.AutoSize = True
-        Me.lblBorrarPuertasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorrarPuertasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarPuertasFVeh.Location = New System.Drawing.Point(437, 148)
-        Me.lblBorrarPuertasFVeh.Name = "lblBorrarPuertasFVeh"
-        Me.lblBorrarPuertasFVeh.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorrarPuertasFVeh.TabIndex = 25
-        Me.lblBorrarPuertasFVeh.Text = "←"
         '
         'lblBorrarCategoriaFVeh
         '
@@ -4686,42 +4721,6 @@ Partial Class frmMainMenu
         Me.Button1.TabIndex = 35
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Label64
-        '
-        Me.Label64.AutoSize = True
-        Me.Label64.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label64.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label64.Location = New System.Drawing.Point(5, 55)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(69, 17)
-        Me.Label64.TabIndex = 52
-        Me.Label64.Text = "Nro Chasis"
-        '
-        'txtNroChasisFVeh
-        '
-        Me.txtNroChasisFVeh.Location = New System.Drawing.Point(5, 75)
-        Me.txtNroChasisFVeh.Name = "txtNroChasisFVeh"
-        Me.txtNroChasisFVeh.Size = New System.Drawing.Size(215, 20)
-        Me.txtNroChasisFVeh.TabIndex = 54
-        '
-        'Label106
-        '
-        Me.Label106.AutoSize = True
-        Me.Label106.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label106.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label106.Location = New System.Drawing.Point(225, 54)
-        Me.Label106.Name = "Label106"
-        Me.Label106.Size = New System.Drawing.Size(65, 17)
-        Me.Label106.TabIndex = 57
-        Me.Label106.Text = "Matricula"
-        '
-        'txtMatriculaFVeh
-        '
-        Me.txtMatriculaFVeh.Location = New System.Drawing.Point(228, 74)
-        Me.txtMatriculaFVeh.Name = "txtMatriculaFVeh"
-        Me.txtMatriculaFVeh.Size = New System.Drawing.Size(121, 20)
-        Me.txtMatriculaFVeh.TabIndex = 63
         '
         'frmMainMenu
         '

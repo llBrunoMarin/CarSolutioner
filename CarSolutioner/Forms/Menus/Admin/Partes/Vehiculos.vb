@@ -6,33 +6,51 @@ End Class
 'VEHICULOS
 Partial Public Class frmMainMenu
 
-    Private Sub CargasModelo(sender As ComboBox, e As EventArgs) Handles cbxMarcaAVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxMarcaMVeh.SelectionChangeCommitted
+    Private Sub CargasModelo(sender As ComboBox, e As EventArgs) Handles cbxMarcaAVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectedValueChanged
 
-        If (Not (sender.SelectedValue Is Nothing)) Or (Not (sender.SelectedValue.ToString = "")) Then
 
-            'Si el item seleccionado NO es "Otro":
-            If Not sender.SelectedValue.ToString = "Otro" Then
+        If (Not (sender.SelectedValue Is Nothing)) Then
 
-                'Si no existe el item "Otro", crearlo.
-                If conexion.Modelos.Select("nombre = 'Otro'").Count = 0 Then
-                    conexion.Modelos.Rows.Add(0, 0, "Otro", 0)
+            If (Not (sender.SelectedValue.ToString = "")) Then
+
+                If (Not (sender.SelectedValue.ToString = "System.Data.DataRowView")) Then
+
+                    'Si el item seleccionado NO es "Otro":
+                    If Not sender.SelectedValue.ToString = "Otro" Then
+
+                        'Si no existe el item "Otro", crearlo.
+                        If conexion.Modelos.Select("nombre = 'Otro'").Count = 0 Then
+                            conexion.Modelos.Rows.Add(0, 0, "Otro", 0)
+                        End If
+
+                        Select Case sender.Name
+                            Case "cbxMarcaAVeh"
+                                CargarDatosComboBox(cbxModeloAVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
+                                cbxModeloAVeh.Enabled = True
+                            Case "cbxMarcaFVeh"
+                                CargarDatosComboBox(cbxModeloFVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaFVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
+                                cbxModeloFVeh.Enabled = True
+                            Case Else
+
+                        End Select
+
+                        'Si el item seleccionado es "Otro"
+                    Else
+                        frmCambiosGenerales.Show()
+                        frmCambiosGenerales.btnMarcas.PerformClick()
+                    End If
                 End If
-
-                Select Case sender.Name
-                    Case "cbxMarcaAVeh"
-                        CargarDatosComboBox(cbxModeloAVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
-                    Case "cbxMarcaFVeh"
-                        CargarDatosComboBox(cbxModeloFVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaFVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
-                    Case Else
-
-                End Select
-
-
-                'Si el item seleccionado es "Otro"
-            Else
-                frmCambiosGenerales.Show()
-                frmCambiosGenerales.btnMarcas.PerformClick()
             End If
+        Else
+
+            Select Case sender.Name
+                Case "cbxMarcaAVeh"
+                    cbxModeloAVeh.Enabled = False
+                Case "cbxMarcaFVeh"
+                    cbxModeloFVeh.Enabled = False
+                Case Else
+
+            End Select
 
         End If
 
@@ -164,12 +182,13 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxEstadoFRes.SelectionChangeCommitted, cbxCategoriaFRes.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxTipoFRes.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectionChangeCommitted
+    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxCategoriaFVeh.SelectedValueChanged, cbxMarcaFVeh.SelectedValueChanged, cbxModeloFVeh.SelectedValueChanged, cbxTipoFVeh.SelectedValueChanged, cbxSucursalFVeh.SelectedValueChanged, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectedValueChanged, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectedValueChanged
 
         Dim filtro As String
 
-        filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} = {5} AND {6} = {7} AND {8} = {9} AND {10} = {11} AND {12} = {13} AND {14} LIKE '%{15}%' AND {16} = {17} AND {18} = {19} AND {20} = {21} AND {22} = {23} = {24} = {25}",
-                               "nrochasis", txtNroChasisFVeh.Text, "matricula", txtMatriculaFVeh.Text, "idcategoria", cbxCategoriaFVeh.SelectedValue, "idmarca", cbxMarcaFVeh.SelectedValue, "idmodelo", cbxModeloFVeh.SelectedValue, "idtipo", cbxTipoFVeh.SelectedValue, "idsucursal", cbxSucursalFVeh.SelectedValue, "anio", txtAnioFVeh.Text, "maletas", cbxMaletasFVeh.SelectedItem, "pasajeros", numPasajerosFVeh.Value, "puertas", cbxPuertasFVeh.SelectedValue, "aire", cbxAireFVeh.SelectedValue, "automatico", cbxAutomaticoFVeh.SelectedValue)
+        filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%' AND {12} LIKE '%{13}%' {14}" + TipoFiltro(cbxAireFVeh, "aire") + TipoFiltro(cbxAutomaticoFVeh, "automatico") + TipoFiltro(cbxMaletasFVeh, "maletas") + TipoFiltro(cbxPuertasFVeh, "puertas") + TipoFiltro(numPasajerosFVeh, "pasajeros"),
+                               "nrochasis", txtNroChasisFVeh.Text, "matricula", txtMatriculaFVeh.Text, "categoria", cbxCategoriaFVeh.Text, "marca", cbxMarcaFVeh.Text, "modelo", cbxModeloFVeh.Text, "tipo", cbxTipoFVeh.Text, "sucursal", cbxSucursalFVeh.Text, If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", ""))
+
         dgvVehiculos.DataSource.Filter = filtro
 
 

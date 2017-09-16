@@ -1,4 +1,7 @@
-﻿Public Class Login
+﻿Imports System
+Imports System.Windows.Forms
+Imports System.Windows.Forms.Integration
+Public Class Login
 
     Public conexion As New ConnectionBD
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -41,7 +44,9 @@
 
                         Case 1
                             Me.Hide()
+                            Loading.Show()
                             frmMainMenu.Show()
+                           ' frmMainMenu.Show()
 
                         Case 2
                             Me.Hide()

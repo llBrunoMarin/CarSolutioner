@@ -6,7 +6,7 @@ Public Class frmMainMenu
     Dim TiposDeDocumentoFiltro As New DataTable
     Dim TiposDeDocumento As New DataTable
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.Hide()
         Dim años As Integer = 1900
         While años <= CInt(DateTime.Today.Year)
             cbxAnioNFCliente.Items.Add(años)
@@ -145,7 +145,9 @@ Public Class frmMainMenu
 
     'TODO: Hacer otro tipo de cargas si es necesario, cargar también combobox y reportar estado de carga (otro formulario con barrita)
     Public Sub CargarDatos()
+        'Se marcan como inactivas las reservas que pasen la fecha de hoy
         conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO = 2 WHERE fechareservainicio <= '" + DateTime.Today.ToShortDateString + "'")
+
         'Cargas Tablas
         conexion.Modelos = conexion.EjecutarSelect("SELECT * from modelo")
         conexion.Marcas = conexion.EjecutarSelect("SELECT * from marca")
@@ -192,7 +194,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxTipoDocumACliente, TiposDeDocumento, "mostrar", "valor")
         CargarDatosComboBox(cbxTipoDocumMCliente, TiposDeDocumento, "mostrar", "valor")
         'Los modelos se cargan en el apartado "Vehiculos".
-
+        Me.Show()
     End Sub
 
     Public Sub RecargarDatos(dgv As DataGridView)

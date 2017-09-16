@@ -26,6 +26,10 @@ Partial Class Loading
         Me.tmrTimer = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
+        'tmrTimer
+        '
+        Me.tmrTimer.Interval = 5000
+        '
         'Loading
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

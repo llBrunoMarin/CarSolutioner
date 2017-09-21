@@ -7,7 +7,7 @@
     Private Sub Alquilar_Activated(sender As Object, e As EventArgs) Handles Me.Activated, Me.Load
         'Juntamos nombre con apellido 
         Dim ClienteReserva As String = ReservaSeleccionada.NomCliente + " " + ReservaSeleccionada.ApeCliente
-        frmMainMenu.CargarDatosComboBox(cbxSucLlegada, conexion.Sucursales, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucLlegada, conexion.Sucursales, "nombre", "idsucursal")
 
         'estos llenan los datetime picker
         'TODO: LAS FECHAS DE ALQUILER NO SE DEBEN SETEAR ASÍ

@@ -16,6 +16,16 @@
     Dim _Tipos As DataTable
     Dim _Sucursales As DataTable
 
+    Dim _Años As New List(Of String)
+
+    'El constructor de la clase. El código de aquí se ejecutará cada vez que se cree una instancia de esta clase. Es como el "load" pero de la clase, no es de ningun formulario.
+    Public Sub New()
+        Dim añosaux As Integer = 1900
+        While añosaux <= CInt(DateTime.Today.Year)
+            Años.Add(añosaux.ToString)
+            añosaux = añosaux + 1
+        End While
+    End Sub
 
     Public Property Usuario() As String
         Get
@@ -72,6 +82,15 @@
         End Get
         Set(value As DataTable)
             _Sucursales = value
+        End Set
+    End Property
+
+    Public Property Años As List(Of String)
+        Get
+            Return _Años
+        End Get
+        Set(value As List(Of String))
+            _Años = value
         End Set
     End Property
 
@@ -177,7 +196,7 @@
 
         Finally
 
-            'Propiedades que queremos por defecto en todos los DataGridView.
+            'Propiedades que queremos por defecto en casi todos los DataGridView.
             dgv.ReadOnly = True
             dgv.RowHeadersVisible = False
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -187,41 +206,6 @@
             dgv.AllowUserToResizeColumns = False
             dgv.AllowUserToResizeRows = False
             dgv.MultiSelect = False
-
-            Select Case dgv.Name
-
-                Case "dgvClientes"
-                    dgv.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-
-                Case "dgvVehiculos"
-                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
-                    dgv.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(13).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    'dgv.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
-                    'dgv.Columns(4).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    'dgv.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    'dgv.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    'dgv.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    'dgv.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
-                    'dgv.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    '
-                    'dgv.Columns(4).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(8).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(9).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(10).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(11).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(12).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(13).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-            End Select
 
             For Each column As DataGridViewColumn In dgv.Columns
 
@@ -272,79 +256,5 @@
 
     End Function
 
-    Public Sub Rellenaconmemoriaw(dgv As DataGridView, sentencia As String)
-
-        'Creamos una nueva fuente de datos, para poder asignarla al DataGridView luego.
-        Dim fuente As New BindingSource()
-
-        Try
-
-            fuente.DataSource = EjecutarSelect(sentencia).DefaultView
-            dgv.DataSource = fuente
-
-        Catch ex As Exception
-
-            MsgBox(ex.Message)
-
-        Finally
-
-            'Propiedades que queremos por defecto en todos los DataGridView.
-            dgv.ReadOnly = True
-            dgv.RowHeadersVisible = False
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
-            dgv.AllowUserToAddRows = False
-            dgv.AllowUserToDeleteRows = False
-            dgv.AllowUserToResizeColumns = False
-            dgv.AllowUserToResizeRows = False
-            dgv.MultiSelect = False
-
-            Select Case dgv.Name
-
-                Case "dgvClientes"
-                    dgv.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-
-                Case "dgvVehiculos"
-                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
-                    dgv.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(13).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    dgv.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-                    'dgv.Columns(3).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
-                    'dgv.Columns(4).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    'dgv.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    'dgv.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    'dgv.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    'dgv.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
-                    'dgv.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    '
-                    'dgv.Columns(4).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(5).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(7).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(8).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(9).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(10).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(11).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(12).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                    'dgv.Columns(13).AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-            End Select
-
-            For Each column As DataGridViewColumn In dgv.Columns
-
-                Dim palabra() As Char = column.HeaderText.ToCharArray
-                palabra(0) = Char.ToUpper(palabra(0))
-                column.HeaderText = palabra
-
-            Next
-
-
-        End Try
-
-    End Sub
 
 End Class

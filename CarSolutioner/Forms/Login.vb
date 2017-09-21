@@ -81,7 +81,7 @@ Public Class Login
         Me.Dispose()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
+    Private Sub Minimizar_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
 

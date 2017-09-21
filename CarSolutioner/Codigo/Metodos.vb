@@ -82,6 +82,7 @@
 
     End Function
 
+    'Establece el tipo de filtro que se está usando. Si no hay valor seleccionado de ese control, no se toma en cuenta en el filtro.
     Public Function TipoFiltro(ctrl As Control, columna As String) As String
 
         If TypeOf (ctrl) Is ComboBox Then
@@ -103,5 +104,25 @@
 
     End Function
 
+    'Cargar datos combobox con una Tabla
+    Public Sub CargarDatosComboBox(cbx As ComboBox, dt As DataTable, columna As String, value As String)
+
+        '(El "new BindingContext" es para que los comboboxes que hacen referencia a una misma tabla no se seleccionen a la vez)
+        cbx.BindingContext = New BindingContext
+        cbx.DataSource = dt.DefaultView
+
+        cbx.DisplayMember = columna
+        cbx.ValueMember = value
+
+    End Sub
+
+    'Cargar datos combobox con una Lista de Strings
+    Public Sub CargarDatosComboBox(cbx As ComboBox, lt As List(Of String))
+
+        '(El "new BindingContext" es para que los comboboxes que hacen referencia a una misma tabla no se seleccionen a la vez)
+        cbx.BindingContext = New BindingContext
+        cbx.DataSource = lt
+
+    End Sub
 End Module
 

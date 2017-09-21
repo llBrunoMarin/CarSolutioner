@@ -1,15 +1,19 @@
 ﻿Public Class frmCambiosGenerales
     Dim conexion As ConnectionBD = Login.conexion
     Private Sub frmCambiosGenerales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         tbcTabControl.ItemSize = New Size(0, 1)
         btnSucursales.PerformClick()
+
+        conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
+
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
+    Private Sub btnMinimizar_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
         Me.Hide()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
+    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
         Me.Dispose()
     End Sub
 
@@ -55,8 +59,6 @@
 
     End Sub
 
-
-
     Private Sub SetTabAndColors(boton As Button, pagina As TabPage, Color As Color)
 
         boton.BackColor = Color
@@ -69,9 +71,6 @@
 
     End Sub
 
-    Private Sub tbpDocumento_Click(sender As Object, e As EventArgs) Handles tbpDocumento.Click
-
-    End Sub
 
     Private Sub btnAddSuc_Click(sender As Object, e As EventArgs)
         conexion.EjecutarNonQuery("INSERT INTO sucursal values (0, '" + txtNomSuc.Text + "', '" + txtCidSuc.Text + "', '" + txtDicSuc.Text + "')")

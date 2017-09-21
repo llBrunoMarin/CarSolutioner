@@ -206,13 +206,7 @@ Public Class frmMainMenu
                 dgvEmpleados.Columns("idpersona").Visible = False
 
             Case "dgvVehiculos"
-                conexion.RellenarDataGridView(dgvVehiculos, "SELECT V.matricula Matricula, Ma.nombre Marca, Ma.idmarca, Mo.nombre Modelo, T.nombre Tipo, T.idtipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal, V.estado, V.nrochasis, V.idcategoria, V.idmodelo, v.idsucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
-                dgvVehiculos.Columns("nrochasis").Visible = False
-                dgvVehiculos.Columns("idmodelo").Visible = False
-                dgvVehiculos.Columns("idmarca").Visible = False
-                dgvVehiculos.Columns("idtipo").Visible = False
-                dgvVehiculos.Columns("idsucursal").Visible = False
-                dgvVehiculos.Columns("idcategoria").Visible = False
+                conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Mo.nombre modelo, T.nombre tipo, C.nombre categoria, S.nombre sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
 
             Case "dgvReservas"
                 conexion.RellenarDataGridView(dgvReservas, "SELECT R.idreserva, R.idpersona, R.fechareservainicio Inicio, R.fechareservafin Fin, R.cantidadkm Cantidad_KM, R.costototal Costo, R.fechatramite Fecha_Tramite, Cl.nombre Nombre, Cl.apellido Apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal_Partida, SL.nombre Sucursal_Destino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.nrochasis IS NULL AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND R.estado = 1 ORDER BY Cl.nombre")
@@ -241,5 +235,9 @@ Public Class frmMainMenu
 
     Private Sub lblAgregarTelefonosACliente_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        MsgBox("pepe")
     End Sub
 End Class

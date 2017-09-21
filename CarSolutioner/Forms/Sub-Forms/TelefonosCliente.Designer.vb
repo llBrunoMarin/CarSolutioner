@@ -25,6 +25,7 @@ Partial Class frmTelefonosCliente
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTelefonosCliente))
         Me.dgvTelefonos = New System.Windows.Forms.DataGridView()
+        Me.telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblAyuda = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnCerrar = New System.Windows.Forms.Button()
@@ -32,7 +33,7 @@ Partial Class frmTelefonosCliente
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblNombrePersona = New System.Windows.Forms.Label()
         CType(Me.dgvTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -57,6 +58,13 @@ Partial Class frmTelefonosCliente
         Me.dgvTelefonos.Size = New System.Drawing.Size(163, 131)
         Me.dgvTelefonos.TabIndex = 0
         '
+        'telefono
+        '
+        Me.telefono.DataPropertyName = "telefono"
+        Me.telefono.HeaderText = "Teléfonos"
+        Me.telefono.MaxInputLength = 30
+        Me.telefono.Name = "telefono"
+        '
         'lblAyuda
         '
         Me.lblAyuda.Font = New System.Drawing.Font("Century Gothic", 8.0!)
@@ -69,6 +77,7 @@ Partial Class frmTelefonosCliente
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.lblNombrePersona)
         Me.Panel1.Controls.Add(Me.btnCerrar)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
@@ -133,12 +142,15 @@ Partial Class frmTelefonosCliente
         Me.Panel3.Size = New System.Drawing.Size(283, 10)
         Me.Panel3.TabIndex = 51
         '
-        'telefono
+        'lblNombrePersona
         '
-        Me.telefono.DataPropertyName = "telefono"
-        Me.telefono.HeaderText = "Teléfonos"
-        Me.telefono.MaxInputLength = 30
-        Me.telefono.Name = "telefono"
+        Me.lblNombrePersona.AutoSize = True
+        Me.lblNombrePersona.ForeColor = System.Drawing.Color.White
+        Me.lblNombrePersona.Location = New System.Drawing.Point(9, 8)
+        Me.lblNombrePersona.Name = "lblNombrePersona"
+        Me.lblNombrePersona.Size = New System.Drawing.Size(75, 13)
+        Me.lblNombrePersona.TabIndex = 30
+        Me.lblNombrePersona.Text = "Teléfonos de: "
         '
         'frmTelefonosCliente
         '
@@ -160,6 +172,7 @@ Partial Class frmTelefonosCliente
         Me.TopMost = True
         CType(Me.dgvTelefonos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -173,4 +186,5 @@ Partial Class frmTelefonosCliente
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents telefono As DataGridViewTextBoxColumn
+    Friend WithEvents lblNombrePersona As Label
 End Class

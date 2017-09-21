@@ -7,7 +7,7 @@
 
     End Sub
 
-    Public Sub New(ModoVista As String)
+    Public Sub New(ModoVista As String, Nombre As String)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -21,6 +21,8 @@
             btnAgregarTelefonos.Visible = False
             lblAyuda.Visible = False
         End If
+
+        lblNombrePersona.Text = "Telefono de: " + Nombre
 
 
     End Sub

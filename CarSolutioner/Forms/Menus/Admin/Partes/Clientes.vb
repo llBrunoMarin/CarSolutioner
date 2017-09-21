@@ -49,12 +49,9 @@ Partial Public Class frmMainMenu
 
     Private Sub AltaCliente(sender As Object, e As EventArgs) Handles btnIngresarACliente.Click
 
-        Dim FechaSeleccionada As String
+        Dim FechaSeleccionada As String = cbxDiaNACliente.Text + "/" + cbxMesNACliente.Text + "/" + cbxAnioNACliente.Text
 
-
-
-        If (IsDate(cbxDiaNACliente.Text + "/" + cbxMesNACliente.Text + "/" + cbxAnioNACliente.Text)) Then
-            FechaSeleccionada = cbxDiaNACliente.Text + "/" + cbxMesNACliente.Text + "/" + cbxAnioNACliente.Text
+        If (IsDate(FechaSeleccionada)) Then
 
             Dim sentencia As String
             sentencia = String.Format("INSERT INTO Cliente (tipodocumento, nrodocumento, nombre, apellido, email, fecnac, empresa, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 't' )",
@@ -152,18 +149,19 @@ Partial Public Class frmMainMenu
 
             'Obtiene el ID de la persona seleccionada.
             Dim idpersona As String = DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("idpersona").Value.ToString
+            Dim NombrePersona As String = DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("nombre").Value.ToString + " " + DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("apellido").Value.ToString
 
             'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView
-            Dim VerTelefonos As New frmTelefonosCliente("Ver")
+            Dim VerTelefonos As New frmTelefonosCliente("Ver", NombrePersona)
             conexion.RellenarDataGridView(VerTelefonos.dgvTelefonos, "SELECT telefono FROM TelefonoPersona WHERE idpersona = " + idpersona + " ")
             VerTelefonos.ShowDialog()
-
 
         End If
 
     End Sub
 
     Private Sub AgregarTelefonos(sender As Object, e As EventArgs) Handles btnAgregarTelefonosACliente.Click
+
         Dim ListaTelefonos As New List(Of String)
         For Each item In cbxTelefonosACliente.Items
             ListaTelefonos.Add(item.ToString)

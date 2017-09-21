@@ -197,15 +197,15 @@
         Finally
 
             'Propiedades que queremos por defecto en casi todos los DataGridView.
-            dgv.ReadOnly = True
-            dgv.RowHeadersVisible = False
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
-            dgv.AllowUserToAddRows = False
-            dgv.AllowUserToDeleteRows = False
-            dgv.AllowUserToResizeColumns = False
-            dgv.AllowUserToResizeRows = False
-            dgv.MultiSelect = False
+            'dgv.ReadOnly = True
+            'dgv.RowHeadersVisible = False
+            'dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            'dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.Fill
+            'dgv.AllowUserToAddRows = False
+            'dgv.AllowUserToDeleteRows = False
+            'dgv.AllowUserToResizeColumns = False
+            'dgv.AllowUserToResizeRows = False
+            'dgv.MultiSelect = False
 
             For Each column As DataGridViewColumn In dgv.Columns
 

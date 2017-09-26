@@ -23,14 +23,10 @@ Partial Class Loading
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.tmrTimer = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.tmrTimer = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'tmrTimer
-        '
-        Me.tmrTimer.Interval = 5000
         '
         'PictureBox1
         '
@@ -38,8 +34,12 @@ Partial Class Loading
         Me.PictureBox1.Location = New System.Drawing.Point(-4, -5)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(760, 500)
-        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
+        '
+        'tmrTimer
+        '
+        Me.tmrTimer.Interval = 5000
         '
         'Loading
         '
@@ -51,12 +51,10 @@ Partial Class Loading
         Me.Name = "Loading"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Loading"
-        Me.TopMost = True
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents tmrTimer As Timer
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents tmrTimer As Timer
 End Class

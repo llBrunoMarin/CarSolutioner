@@ -44,9 +44,9 @@ Public Class Login
 
                         Case 1
                             Me.Hide()
-                            Loading.Show()
                             frmMainMenu.Show()
-                           ' frmMainMenu.Show()
+
+
 
                         Case 2
                             Me.Hide()

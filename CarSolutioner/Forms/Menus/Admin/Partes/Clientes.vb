@@ -54,10 +54,10 @@ Partial Public Class frmMainMenu
         If (IsDate(FechaSeleccionada)) Then
 
             Dim sentencia As String
-            sentencia = String.Format("INSERT INTO Cliente (tipodocumento, nrodocumento, nombre, apellido, email, fecnac, empresa, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 't' )",
+            sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 't' )",
                              cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, FechaSeleccionada, txtEmpresaACliente.Text)
 
-            If cbxTipoDocumACliente.SelectedValue = "CI UY" Then
+            If cbxTipoDocumACliente.SelectedText = "CI UY" Then
 
                 'Si la cédula es válida
                 If VerificarCI(txtDocumACliente.Text) Then
@@ -66,7 +66,6 @@ Partial Public Class frmMainMenu
                     If conexion.EjecutarNonQuery(sentencia) Then
                         MsgBox("Cliente ingresado satisfactoriamente")
                         RecargarDatos(dgvClientes)
-
                         Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
                         Dim ListaTelefonos As New List(Of String)
 
@@ -79,7 +78,6 @@ Partial Public Class frmMainMenu
                         For Each Telefono In ListaTelefonos.Distinct()
                             conexion.EjecutarNonQuery("INSERT INTO telefonopersona VALUES ('" + IDPersonaInsertada + "', '" + Telefono + "')")
                         Next
-
                     End If
 
                 End If
@@ -90,6 +88,18 @@ Partial Public Class frmMainMenu
                 If conexion.EjecutarNonQuery(sentencia) Then
                     MsgBox("Cliente ingresado satisfactoriamente")
                     RecargarDatos(dgvClientes)
+                    Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
+                    Dim ListaTelefonos As New List(Of String)
+
+                    'Agrega cada item del combobox a la Lista
+                    For Each item In cbxTelefonosACliente.Items
+                        ListaTelefonos.Add(item.ToString)
+                    Next
+
+                    'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
+                    For Each Telefono In ListaTelefonos.Distinct()
+                        conexion.EjecutarNonQuery("INSERT INTO telefonopersona VALUES ('" + IDPersonaInsertada + "', '" + Telefono + "')")
+                    Next
                 End If
 
             End If
@@ -148,12 +158,12 @@ Partial Public Class frmMainMenu
         If TypeOf DirectCast(sender, DataGridView).Columns(e.ColumnIndex) Is DataGridViewButtonColumn AndAlso e.RowIndex >= 0 Then
 
             'Obtiene el ID de la persona seleccionada.
-            Dim idpersona As String = DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("idpersona").Value.ToString
+            Dim IdPersona As String = DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("idpersona").Value.ToString
             Dim NombrePersona As String = DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("nombre").Value.ToString + " " + DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("apellido").Value.ToString
 
             'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView
             Dim VerTelefonos As New frmTelefonosCliente("Ver", NombrePersona)
-            conexion.RellenarDataGridView(VerTelefonos.dgvTelefonos, "SELECT telefono FROM TelefonoPersona WHERE idpersona = " + idpersona + " ")
+            conexion.RellenarDataGridView(VerTelefonos.dgvTelefonos, "SELECT telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + " ")
             VerTelefonos.ShowDialog()
 
         End If

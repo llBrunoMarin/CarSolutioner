@@ -34,19 +34,16 @@ Public Class Login
                 'Cerrar esa conexión
                 conexion.Cerrar()
 
-                'Abrir, ejecutar un select, y cerrar conexión.
+                'Conseguimos el Tipo de Usuario de la persona conectada:
                 Dim tipousuario As New DataTable
                 tipousuario = conexion.EjecutarSelect("SELECT tipo from empleado where usuario = '" & conexion.Usuario & "' ;")
 
                 Try
                     Select Case tipousuario.Rows(0).Item(0)
 
-
                         Case 1
                             Me.Hide()
                             frmMainMenu.Show()
-
-
 
                         Case 2
                             Me.Hide()
@@ -64,7 +61,7 @@ Public Class Login
 
                 Catch ex As IndexOutOfRangeException
 
-                    MsgBox("Tu usuario parece no tener un tipo asignado. Contáctate con el técnico de la empresa.", MsgBoxStyle.Information, "Datos Incorrectos")
+                    MsgBox("Tu usuario parece no tener un tipo asignado. Contáctate con el técnico de la empresa para que así sea.", MsgBoxStyle.Information, "Datos Incorrectos")
 
                 End Try
 

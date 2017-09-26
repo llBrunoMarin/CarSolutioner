@@ -8,7 +8,7 @@ Public Class frmMainMenu
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.Hide()
-        BackgroundWorker1.RunWorkerAsync()
+        bgwProcesoSegundoPlano.RunWorkerAsync()
         'Le cambiamos el renderer al MenuStrip (cuestiones de diseño)
         CambiarRenderMenuStrip(mstMenuStrip)
 
@@ -181,8 +181,10 @@ Public Class frmMainMenu
 
         'Los modelos se cargan en el apartado "Vehiculos".
 
-        Loading.Dispose()
         Me.Show()
+        bgwProcesoSegundoPlano.CancelAsync()
+
+        Loading.DialogResult = DialogResult.Cancel
     End Sub
 
     'Segun el DataGridView que se pase como argumento, es las cargas que realiza.
@@ -228,10 +230,10 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        MsgBox("pepe")
+
     End Sub
 
-    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwProcesoSegundoPlano.DoWork
         Loading.ShowDialog()
     End Sub
 End Class

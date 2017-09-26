@@ -22,15 +22,15 @@ Partial Class frmMainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,9 +70,7 @@ Partial Class frmMainMenu
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.txtTelefonoMCliente = New System.Windows.Forms.TextBox()
         Me.Label100 = New System.Windows.Forms.Label()
         Me.txtDocumMCliente = New System.Windows.Forms.TextBox()
         Me.btnModificarCliente = New System.Windows.Forms.Button()
@@ -427,7 +425,10 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.bgwProcesoSegundoPlano = New System.ComponentModel.BackgroundWorker()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -776,6 +777,7 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlMCliente.Controls.Add(Me.gbxFecNacMCliente)
+        Me.pnlMCliente.Controls.Add(Me.ComboBox1)
         Me.pnlMCliente.Controls.Add(Me.cbxTipoDocumMCliente)
         Me.pnlMCliente.Controls.Add(Me.Label21)
         Me.pnlMCliente.Controls.Add(Me.txtEmpresaMCliente)
@@ -783,14 +785,14 @@ Partial Class frmMainMenu
         Me.pnlMCliente.Controls.Add(Me.txtApellidoMCliente)
         Me.pnlMCliente.Controls.Add(Me.txtNombreMCliente)
         Me.pnlMCliente.Controls.Add(Me.Label23)
+        Me.pnlMCliente.Controls.Add(Me.Button7)
         Me.pnlMCliente.Controls.Add(Me.Label24)
         Me.pnlMCliente.Controls.Add(Me.Label25)
-        Me.pnlMCliente.Controls.Add(Me.Label27)
         Me.pnlMCliente.Controls.Add(Me.Label28)
-        Me.pnlMCliente.Controls.Add(Me.txtTelefonoMCliente)
         Me.pnlMCliente.Controls.Add(Me.Label100)
         Me.pnlMCliente.Controls.Add(Me.txtDocumMCliente)
         Me.pnlMCliente.Controls.Add(Me.btnModificarCliente)
+        Me.pnlMCliente.Controls.Add(Me.Label19)
         Me.pnlMCliente.Controls.Add(Me.Label85)
         Me.pnlMCliente.Location = New System.Drawing.Point(789, 431)
         Me.pnlMCliente.Name = "pnlMCliente"
@@ -933,17 +935,6 @@ Partial Class frmMainMenu
         Me.Label25.Tag = ""
         Me.Label25.Text = "Nombre"
         '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(450, 50)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(59, 17)
-        Me.Label27.TabIndex = 48
-        Me.Label27.Text = "Teléfono"
-        '
         'Label28
         '
         Me.Label28.AutoSize = True
@@ -954,13 +945,6 @@ Partial Class frmMainMenu
         Me.Label28.Size = New System.Drawing.Size(106, 17)
         Me.Label28.TabIndex = 49
         Me.Label28.Text = "Tipo Documento"
-        '
-        'txtTelefonoMCliente
-        '
-        Me.txtTelefonoMCliente.Location = New System.Drawing.Point(453, 70)
-        Me.txtTelefonoMCliente.Name = "txtTelefonoMCliente"
-        Me.txtTelefonoMCliente.Size = New System.Drawing.Size(107, 20)
-        Me.txtTelefonoMCliente.TabIndex = 47
         '
         'Label100
         '
@@ -1067,7 +1051,7 @@ Partial Class frmMainMenu
         Me.gbxFecNacFCliente.Enabled = False
         Me.gbxFecNacFCliente.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.gbxFecNacFCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(275, 96)
+        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(104, 147)
         Me.gbxFecNacFCliente.Name = "gbxFecNacFCliente"
         Me.gbxFecNacFCliente.Size = New System.Drawing.Size(163, 51)
         Me.gbxFecNacFCliente.TabIndex = 42
@@ -1159,7 +1143,7 @@ Partial Class frmMainMenu
         Me.Label86.AutoSize = True
         Me.Label86.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label86.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label86.Location = New System.Drawing.Point(11, 97)
+        Me.Label86.Location = New System.Drawing.Point(9, 97)
         Me.Label86.Name = "Label86"
         Me.Label86.Size = New System.Drawing.Size(58, 17)
         Me.Label86.TabIndex = 28
@@ -1271,8 +1255,8 @@ Partial Class frmMainMenu
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.ReadOnly = True
         Me.dgvClientes.RowHeadersVisible = False
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvClientes.RowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvClientes.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvClientes.Size = New System.Drawing.Size(754, 817)
         Me.dgvClientes.TabIndex = 39
@@ -1427,7 +1411,7 @@ Partial Class frmMainMenu
         Me.gbxFecNacACliente.Controls.Add(Me.cbxDiaNACliente)
         Me.gbxFecNacACliente.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.gbxFecNacACliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.gbxFecNacACliente.Location = New System.Drawing.Point(236, 103)
+        Me.gbxFecNacACliente.Location = New System.Drawing.Point(405, 99)
         Me.gbxFecNacACliente.Name = "gbxFecNacACliente"
         Me.gbxFecNacACliente.Size = New System.Drawing.Size(163, 51)
         Me.gbxFecNacACliente.TabIndex = 43
@@ -1476,7 +1460,7 @@ Partial Class frmMainMenu
         '
         Me.cbxTelefonosACliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTelefonosACliente.FormattingEnabled = True
-        Me.cbxTelefonosACliente.Location = New System.Drawing.Point(439, 66)
+        Me.cbxTelefonosACliente.Location = New System.Drawing.Point(144, 119)
         Me.cbxTelefonosACliente.Name = "cbxTelefonosACliente"
         Me.cbxTelefonosACliente.Size = New System.Drawing.Size(101, 21)
         Me.cbxTelefonosACliente.TabIndex = 42
@@ -1487,7 +1471,7 @@ Partial Class frmMainMenu
         Me.cbxTipoDocumACliente.FormattingEnabled = True
         Me.cbxTipoDocumACliente.Location = New System.Drawing.Point(14, 67)
         Me.cbxTipoDocumACliente.Name = "cbxTipoDocumACliente"
-        Me.cbxTipoDocumACliente.Size = New System.Drawing.Size(101, 21)
+        Me.cbxTipoDocumACliente.Size = New System.Drawing.Size(124, 21)
         Me.cbxTipoDocumACliente.TabIndex = 42
         '
         'Label115
@@ -1495,7 +1479,7 @@ Partial Class frmMainMenu
         Me.Label115.AutoSize = True
         Me.Label115.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label115.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label115.Location = New System.Drawing.Point(126, 103)
+        Me.Label115.Location = New System.Drawing.Point(276, 99)
         Me.Label115.Name = "Label115"
         Me.Label115.Size = New System.Drawing.Size(58, 17)
         Me.Label115.TabIndex = 38
@@ -1504,37 +1488,37 @@ Partial Class frmMainMenu
         '
         'txtEmpresaACliente
         '
-        Me.txtEmpresaACliente.Location = New System.Drawing.Point(125, 123)
+        Me.txtEmpresaACliente.Location = New System.Drawing.Point(275, 119)
         Me.txtEmpresaACliente.Name = "txtEmpresaACliente"
-        Me.txtEmpresaACliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtEmpresaACliente.Size = New System.Drawing.Size(124, 20)
         Me.txtEmpresaACliente.TabIndex = 37
         '
         'txtCorreoACliente
         '
-        Me.txtCorreoACliente.Location = New System.Drawing.Point(14, 123)
+        Me.txtCorreoACliente.Location = New System.Drawing.Point(15, 119)
         Me.txtCorreoACliente.Name = "txtCorreoACliente"
-        Me.txtCorreoACliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtCorreoACliente.Size = New System.Drawing.Size(124, 20)
         Me.txtCorreoACliente.TabIndex = 35
         '
         'txtApellidoACliente
         '
-        Me.txtApellidoACliente.Location = New System.Drawing.Point(333, 67)
+        Me.txtApellidoACliente.Location = New System.Drawing.Point(405, 68)
         Me.txtApellidoACliente.Name = "txtApellidoACliente"
-        Me.txtApellidoACliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtApellidoACliente.Size = New System.Drawing.Size(124, 20)
         Me.txtApellidoACliente.TabIndex = 33
         '
         'txtNombreACliente
         '
-        Me.txtNombreACliente.Location = New System.Drawing.Point(227, 67)
+        Me.txtNombreACliente.Location = New System.Drawing.Point(275, 68)
         Me.txtNombreACliente.Name = "txtNombreACliente"
-        Me.txtNombreACliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtNombreACliente.Size = New System.Drawing.Size(124, 20)
         Me.txtNombreACliente.TabIndex = 32
         '
         'txtDocumACliente
         '
-        Me.txtDocumACliente.Location = New System.Drawing.Point(121, 67)
+        Me.txtDocumACliente.Location = New System.Drawing.Point(144, 68)
         Me.txtDocumACliente.Name = "txtDocumACliente"
-        Me.txtDocumACliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtDocumACliente.Size = New System.Drawing.Size(125, 20)
         Me.txtDocumACliente.TabIndex = 31
         '
         'btnAgregarTelefonosACliente
@@ -1547,7 +1531,7 @@ Partial Class frmMainMenu
         Me.btnAgregarTelefonosACliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarTelefonosACliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
         Me.btnAgregarTelefonosACliente.ForeColor = System.Drawing.Color.White
-        Me.btnAgregarTelefonosACliente.Location = New System.Drawing.Point(546, 67)
+        Me.btnAgregarTelefonosACliente.Location = New System.Drawing.Point(249, 119)
         Me.btnAgregarTelefonosACliente.Name = "btnAgregarTelefonosACliente"
         Me.btnAgregarTelefonosACliente.Size = New System.Drawing.Size(18, 18)
         Me.btnAgregarTelefonosACliente.TabIndex = 18
@@ -1578,7 +1562,7 @@ Partial Class frmMainMenu
         Me.Label93.AutoSize = True
         Me.Label93.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label93.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label93.Location = New System.Drawing.Point(11, 103)
+        Me.Label93.Location = New System.Drawing.Point(12, 99)
         Me.Label93.Name = "Label93"
         Me.Label93.Size = New System.Drawing.Size(49, 17)
         Me.Label93.TabIndex = 29
@@ -1589,7 +1573,7 @@ Partial Class frmMainMenu
         Me.Label94.AutoSize = True
         Me.Label94.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label94.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label94.Location = New System.Drawing.Point(332, 47)
+        Me.Label94.Location = New System.Drawing.Point(402, 48)
         Me.Label94.Name = "Label94"
         Me.Label94.Size = New System.Drawing.Size(67, 17)
         Me.Label94.TabIndex = 28
@@ -1600,7 +1584,7 @@ Partial Class frmMainMenu
         Me.Label95.AutoSize = True
         Me.Label95.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label95.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label95.Location = New System.Drawing.Point(228, 47)
+        Me.Label95.Location = New System.Drawing.Point(272, 48)
         Me.Label95.Name = "Label95"
         Me.Label95.Size = New System.Drawing.Size(65, 17)
         Me.Label95.TabIndex = 27
@@ -1612,7 +1596,7 @@ Partial Class frmMainMenu
         Me.Label96.AutoSize = True
         Me.Label96.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label96.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label96.Location = New System.Drawing.Point(118, 46)
+        Me.Label96.Location = New System.Drawing.Point(141, 47)
         Me.Label96.Name = "Label96"
         Me.Label96.Size = New System.Drawing.Size(112, 17)
         Me.Label96.TabIndex = 26
@@ -1635,7 +1619,7 @@ Partial Class frmMainMenu
         Me.Label97.AutoSize = True
         Me.Label97.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label97.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label97.Location = New System.Drawing.Point(436, 46)
+        Me.Label97.Location = New System.Drawing.Point(141, 97)
         Me.Label97.Name = "Label97"
         Me.Label97.Size = New System.Drawing.Size(78, 17)
         Me.Label97.TabIndex = 25
@@ -1646,7 +1630,7 @@ Partial Class frmMainMenu
         Me.Label98.AutoSize = True
         Me.Label98.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label98.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label98.Location = New System.Drawing.Point(6, 47)
+        Me.Label98.Location = New System.Drawing.Point(11, 47)
         Me.Label98.Name = "Label98"
         Me.Label98.Size = New System.Drawing.Size(115, 17)
         Me.Label98.TabIndex = 25
@@ -1693,8 +1677,8 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.Name = "dgvVehiculos"
         Me.dgvVehiculos.ReadOnly = True
         Me.dgvVehiculos.RowHeadersVisible = False
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvVehiculos.Size = New System.Drawing.Size(1324, 373)
         Me.dgvVehiculos.TabIndex = 37
@@ -1811,8 +1795,8 @@ Partial Class frmMainMenu
         '
         Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.esmanual.DataPropertyName = "esmanual"
-        DataGridViewCellStyle11.NullValue = False
-        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle2.NullValue = False
+        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle2
         Me.esmanual.HeaderText = "Manual"
         Me.esmanual.Name = "esmanual"
         Me.esmanual.ReadOnly = True
@@ -3502,27 +3486,27 @@ Partial Class frmMainMenu
         '
         Me.dgvEmpleados.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvEmpleados.Location = New System.Drawing.Point(29, 7)
         Me.dgvEmpleados.Name = "dgvEmpleados"
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvEmpleados.Size = New System.Drawing.Size(754, 817)
         Me.dgvEmpleados.TabIndex = 10
         '
@@ -3905,8 +3889,8 @@ Partial Class frmMainMenu
         Me.dtvmant.Name = "dtvmant"
         Me.dtvmant.ReadOnly = True
         Me.dtvmant.RowHeadersVisible = False
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dtvmant.RowsDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtvmant.RowsDefaultCellStyle = DataGridViewCellStyle7
         Me.dtvmant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtvmant.Size = New System.Drawing.Size(754, 817)
         Me.dtvmant.TabIndex = 34
@@ -4639,8 +4623,8 @@ Partial Class frmMainMenu
         Me.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReservas.Location = New System.Drawing.Point(1, 3)
         Me.dgvReservas.Name = "dgvReservas"
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvReservas.Size = New System.Drawing.Size(739, 783)
         Me.dgvReservas.TabIndex = 9
         '
@@ -4993,8 +4977,8 @@ Partial Class frmMainMenu
         Me.dgvAlquileres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvAlquileres.Location = New System.Drawing.Point(4, 5)
         Me.dgvAlquileres.Name = "dgvAlquileres"
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvAlquileres.Size = New System.Drawing.Size(739, 783)
         Me.dgvAlquileres.TabIndex = 10
         '
@@ -5046,8 +5030,47 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'BackgroundWorker1
+        'bgwProcesoSegundoPlano
         '
+        Me.bgwProcesoSegundoPlano.WorkerSupportsCancellation = True
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label19.Location = New System.Drawing.Point(447, 47)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(78, 17)
+        Me.Label19.TabIndex = 25
+        Me.Label19.Text = "Teléfono/s *"
+        '
+        'Button7
+        '
+        Me.Button7.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button7.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Century Gothic", 8.5!)
+        Me.Button7.ForeColor = System.Drawing.Color.White
+        Me.Button7.Location = New System.Drawing.Point(556, 68)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(18, 18)
+        Me.Button7.TabIndex = 18
+        Me.Button7.Text = "+"
+        Me.Button7.UseCompatibleTextRendering = True
+        Me.Button7.UseVisualStyleBackColor = False
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(450, 67)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(101, 21)
+        Me.ComboBox1.TabIndex = 42
         '
         'frmMainMenu
         '
@@ -5355,9 +5378,7 @@ Partial Class frmMainMenu
     Friend WithEvents Label23 As Label
     Friend WithEvents Label24 As Label
     Friend WithEvents Label25 As Label
-    Friend WithEvents Label27 As Label
     Friend WithEvents Label28 As Label
-    Friend WithEvents txtTelefonoMCliente As TextBox
     Friend WithEvents Label83 As Label
     Friend WithEvents TextBox11 As TextBox
     Friend WithEvents Label82 As Label
@@ -5532,5 +5553,8 @@ Partial Class frmMainMenu
     Friend WithEvents telefonos As DataGridViewButtonColumn
     Friend WithEvents Label107 As Label
     Friend WithEvents Label109 As Label
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents bgwProcesoSegundoPlano As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Label19 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Button7 As Button
 End Class

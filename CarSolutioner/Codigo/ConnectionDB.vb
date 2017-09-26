@@ -15,6 +15,7 @@
     Dim _Categorias As DataTable
     Dim _Tipos As DataTable
     Dim _Sucursales As DataTable
+    Dim _Documentos As DataTable
 
     Dim _Años As New List(Of String)
 
@@ -84,7 +85,14 @@
             _Sucursales = value
         End Set
     End Property
-
+    Public Property Documentos As DataTable
+        Get
+            Return _Documentos
+        End Get
+        Set(value As DataTable)
+            _Documentos = value
+        End Set
+    End Property
     Public Property Años As List(Of String)
         Get
             Return _Años
@@ -93,6 +101,8 @@
             _Años = value
         End Set
     End Property
+
+
 
 
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente

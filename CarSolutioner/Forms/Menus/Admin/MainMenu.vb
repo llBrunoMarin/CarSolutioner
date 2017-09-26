@@ -3,22 +3,10 @@ Public Class frmMainMenu
 
     Dim conexion As ConnectionBD = Login.conexion
     Public ReservaSeleccionada As New ReservaSeleccionada(conexion)
-    Dim TiposDeDocumentoFiltro As New DataTable
-    Dim TiposDeDocumento As New DataTable
+
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.Hide()
-
-        TiposDeDocumentoFiltro.Columns.Add("valor", GetType(String))
-        TiposDeDocumentoFiltro.Columns.Add("mostrar", GetType(String))
-        TiposDeDocumentoFiltro.Rows.Add("", "Todos")
-        TiposDeDocumentoFiltro.Rows.Add("CI UY", "CI UY")
-        TiposDeDocumentoFiltro.Rows.Add("SYSTEM", "SYSTEM")
-
-        TiposDeDocumento.Columns.Add("valor", GetType(String))
-        TiposDeDocumento.Columns.Add("mostrar", GetType(String))
-        TiposDeDocumento.Rows.Add("CI UY", "CI UY")
-        TiposDeDocumento.Rows.Add("SYSTEM", "SYSTEM")
 
         'Le cambiamos el renderer al MenuStrip (cuestiones de diseño)
         CambiarRenderMenuStrip(mstMenuStrip)
@@ -144,6 +132,7 @@ Public Class frmMainMenu
         conexion.Categorias = conexion.EjecutarSelect("SELECT * from categoria")
         conexion.Tipos = conexion.EjecutarSelect("SELECT * from tipo")
         conexion.Sucursales = conexion.EjecutarSelect("SELECT * from sucursal")
+        conexion.Documentos = conexion.EjecutarSelect("SELECT * from tipodocumento")
 
         'Cargas DataGridView
         RecargarDatos(dgvReservas)
@@ -180,16 +169,18 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxSucLlegadaARes, conexion.Sucursales, "nombre", "idsucursal")
 
         'DOCUMENTOS
-        CargarDatosComboBox(cbxTipoDocumFCliente, TiposDeDocumentoFiltro, "mostrar", "valor")
-        CargarDatosComboBox(cbxTipoDocumACliente, TiposDeDocumento, "mostrar", "valor")
-        CargarDatosComboBox(cbxTipoDocumMCliente, TiposDeDocumento, "mostrar", "valor")
+        CargarDatosComboBox(cbxTipoDocumFCliente, conexion.Documentos, "nombre", "idtipodoc")
+        CargarDatosComboBox(cbxTipoDocumACliente, conexion.Documentos, "nombre", "idtipodoc")
+        CargarDatosComboBox(cbxTipoDocumMCliente, conexion.Documentos, "nombre", "idtipodoc")
 
         'AÑOS
         CargarDatosComboBox(cbxAnioNFCliente, conexion.Años)
         CargarDatosComboBox(cbxAnioNACliente, conexion.Años)
         CargarDatosComboBox(cbxAnioNMCliente, conexion.Años)
+
         'Los modelos se cargan en el apartado "Vehiculos".
-        Me.Show()
+
+
     End Sub
 
     'Segun el DataGridView que se pase como argumento, es las cargas que realiza.
@@ -198,7 +189,8 @@ Public Class frmMainMenu
         Select Case dgv.Name
 
             Case "dgvClientes"
-                conexion.RellenarDataGridView(dgvClientes, "SELECT *, DAY(fecnac) dia, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE WHERE estado = 't'")
+                dgvClientes.AutoGenerateColumns = False
+                conexion.RellenarDataGridView(dgvClientes, "SELECT Cliente.*, DAY(fecnac) dia, Doc.nombre tipodocumento, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE, Tipodocumento Doc WHERE estado = 't' AND Cliente.idtipodoc = Doc.idtipodoc")
 
 
             Case "dgvEmpleados"
@@ -233,11 +225,8 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub lblAgregarTelefonosACliente_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         MsgBox("pepe")
     End Sub
+
 End Class

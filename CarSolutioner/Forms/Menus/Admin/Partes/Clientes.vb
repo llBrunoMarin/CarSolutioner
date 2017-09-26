@@ -30,16 +30,16 @@ Partial Public Class frmMainMenu
             If Not ((cbxDiaNFCliente.SelectedItem Is Nothing) And (cbxMesNFCliente.SelectedItem Is Nothing) And (cbxAnioNFCliente.SelectedItem Is Nothing)) Then
 
 
-                filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%'" + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"),
-                                                    "nrodocumento", txtDocumFClientes.Text, "Tipo", cbxTipoDocumFCliente.SelectedValue.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
+                filtro = String.Format("{0} LIKE '%{1}%' AND {2} = {3} AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%'" + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"),
+                                                    "nrodocumento", txtDocumFClientes.Text, "idtipodoc", cbxTipoDocumFCliente.SelectedValue.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
 
                 dgvClientes.DataSource.Filter = filtro
             End If
 
         Else
 
-            filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%'",
-                                       "nrodocumento", txtDocumFClientes.Text, "tipodocumento", cbxTipoDocumFCliente.SelectedValue.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
+            filtro = String.Format("{0} LIKE '%{1}%' AND {2} = {3} AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%'",
+                                       "nrodocumento", txtDocumFClientes.Text, "idtipodoc", cbxTipoDocumFCliente.SelectedValue.ToString, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
 
             dgvClientes.DataSource.Filter = filtro
 
@@ -116,7 +116,7 @@ Partial Public Class frmMainMenu
 
         If (IsDate(cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text)) Then
             Dim FechaSeleccionada As String = cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text
-            conexion.EjecutarNonQuery("UPDATE Cliente SET tipodocumento = '" + cbxTipoDocumMCliente.SelectedValue + "', nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "' WHERE idpersona = " + dgvClientes.CurrentRow.Cells("idpersona").Value.ToString() + "")
+            conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "' WHERE idpersona = " + dgvClientes.CurrentRow.Cells("idpersona").Value.ToString() + "")
             RecargarDatos(dgvClientes)
         Else
             MsgBox("Por favor, ingrese una fecha válida.")
@@ -128,15 +128,15 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvClientes.CurrentRow) Then
 
-            cbxTipoDocumMCliente.SelectedValue = dgvClientes.CurrentRow.Cells("tipodocumento").Value
+            cbxTipoDocumMCliente.SelectedIndex = cbxTipoDocumMCliente.FindString(dgvClientes.CurrentRow.Cells("tipodocumento").Value.ToString())
             txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells("nrodocumento").Value.ToString()
             txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells("nombre").Value.ToString
             txtApellidoMCliente.Text = dgvClientes.CurrentRow.Cells("apellido").Value.ToString()
             txtCorreoMCliente.Text = dgvClientes.CurrentRow.Cells("email").Value.ToString()
             txtEmpresaMCliente.Text = dgvClientes.CurrentRow.Cells("empresa").Value.ToString()
-            cbxDiaNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("dia")
-            cbxMesNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("mes")
-            cbxAnioNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("anio")
+            cbxDiaNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("dia").Value.ToString()
+            cbxMesNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("mes").Value.ToString()
+            cbxAnioNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("anio").Value.ToString()
 
         End If
 

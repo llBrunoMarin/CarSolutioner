@@ -83,7 +83,6 @@ Partial Class frmMainMenu
         Me.cbxMesNFCliente = New System.Windows.Forms.ComboBox()
         Me.cbxDiaNFCliente = New System.Windows.Forms.ComboBox()
         Me.chbxFechaFClientes = New System.Windows.Forms.CheckBox()
-        Me.Label19 = New System.Windows.Forms.Label()
         Me.btnVaciarFClientes = New System.Windows.Forms.Button()
         Me.cbxTipoDocumFCliente = New System.Windows.Forms.ComboBox()
         Me.Label86 = New System.Windows.Forms.Label()
@@ -108,6 +107,7 @@ Partial Class frmMainMenu
         Me.empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.dia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.telefonos = New System.Windows.Forms.DataGridViewButtonColumn()
@@ -425,6 +425,8 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label107 = New System.Windows.Forms.Label()
+        Me.Label109 = New System.Windows.Forms.Label()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1011,9 +1013,10 @@ Partial Class frmMainMenu
         Me.pnlFClientes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlFClientes.Controls.Add(Me.Label107)
+        Me.pnlFClientes.Controls.Add(Me.Label109)
         Me.pnlFClientes.Controls.Add(Me.gbxFecNacFCliente)
         Me.pnlFClientes.Controls.Add(Me.chbxFechaFClientes)
-        Me.pnlFClientes.Controls.Add(Me.Label19)
         Me.pnlFClientes.Controls.Add(Me.btnVaciarFClientes)
         Me.pnlFClientes.Controls.Add(Me.cbxTipoDocumFCliente)
         Me.pnlFClientes.Controls.Add(Me.Label86)
@@ -1041,7 +1044,7 @@ Partial Class frmMainMenu
         Me.gbxFecNacFCliente.Enabled = False
         Me.gbxFecNacFCliente.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.gbxFecNacFCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(123, 109)
+        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(275, 96)
         Me.gbxFecNacFCliente.Name = "gbxFecNacFCliente"
         Me.gbxFecNacFCliente.Size = New System.Drawing.Size(163, 51)
         Me.gbxFecNacFCliente.TabIndex = 42
@@ -1091,24 +1094,13 @@ Partial Class frmMainMenu
         Me.chbxFechaFClientes.AutoSize = True
         Me.chbxFechaFClientes.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chbxFechaFClientes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.chbxFechaFClientes.Location = New System.Drawing.Point(122, 166)
+        Me.chbxFechaFClientes.Location = New System.Drawing.Point(282, 153)
         Me.chbxFechaFClientes.Name = "chbxFechaFClientes"
         Me.chbxFechaFClientes.Size = New System.Drawing.Size(91, 20)
         Me.chbxFechaFClientes.TabIndex = 41
         Me.chbxFechaFClientes.Text = "Filtrar Fecha"
         Me.chbxFechaFClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxFechaFClientes.UseVisualStyleBackColor = True
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label19.Location = New System.Drawing.Point(11, 109)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(106, 17)
-        Me.Label19.TabIndex = 34
-        Me.Label19.Text = "Tipo Documento"
         '
         'btnVaciarFClientes
         '
@@ -1134,9 +1126,9 @@ Partial Class frmMainMenu
         Me.cbxTipoDocumFCliente.BackColor = System.Drawing.SystemColors.Window
         Me.cbxTipoDocumFCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipoDocumFCliente.FormattingEnabled = True
-        Me.cbxTipoDocumFCliente.Location = New System.Drawing.Point(12, 132)
+        Me.cbxTipoDocumFCliente.Location = New System.Drawing.Point(12, 68)
         Me.cbxTipoDocumFCliente.Name = "cbxTipoDocumFCliente"
-        Me.cbxTipoDocumFCliente.Size = New System.Drawing.Size(101, 21)
+        Me.cbxTipoDocumFCliente.Size = New System.Drawing.Size(126, 21)
         Me.cbxTipoDocumFCliente.TabIndex = 36
         '
         'Label86
@@ -1144,7 +1136,7 @@ Partial Class frmMainMenu
         Me.Label86.AutoSize = True
         Me.Label86.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label86.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label86.Location = New System.Drawing.Point(453, 56)
+        Me.Label86.Location = New System.Drawing.Point(11, 97)
         Me.Label86.Name = "Label86"
         Me.Label86.Size = New System.Drawing.Size(58, 17)
         Me.Label86.TabIndex = 28
@@ -1155,7 +1147,7 @@ Partial Class frmMainMenu
         Me.Label87.AutoSize = True
         Me.Label87.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label87.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label87.Location = New System.Drawing.Point(341, 56)
+        Me.Label87.Location = New System.Drawing.Point(142, 97)
         Me.Label87.Name = "Label87"
         Me.Label87.Size = New System.Drawing.Size(49, 17)
         Me.Label87.TabIndex = 27
@@ -1166,7 +1158,7 @@ Partial Class frmMainMenu
         Me.Label88.AutoSize = True
         Me.Label88.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label88.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label88.Location = New System.Drawing.Point(228, 56)
+        Me.Label88.Location = New System.Drawing.Point(402, 48)
         Me.Label88.Name = "Label88"
         Me.Label88.Size = New System.Drawing.Size(58, 17)
         Me.Label88.TabIndex = 26
@@ -1177,7 +1169,7 @@ Partial Class frmMainMenu
         Me.Label89.AutoSize = True
         Me.Label89.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label89.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label89.Location = New System.Drawing.Point(10, 56)
+        Me.Label89.Location = New System.Drawing.Point(142, 48)
         Me.Label89.Name = "Label89"
         Me.Label89.Size = New System.Drawing.Size(103, 17)
         Me.Label89.TabIndex = 25
@@ -1188,7 +1180,7 @@ Partial Class frmMainMenu
         Me.Label90.AutoSize = True
         Me.Label90.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label90.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label90.Location = New System.Drawing.Point(119, 56)
+        Me.Label90.Location = New System.Drawing.Point(272, 48)
         Me.Label90.Name = "Label90"
         Me.Label90.Size = New System.Drawing.Size(56, 17)
         Me.Label90.TabIndex = 25
@@ -1207,37 +1199,37 @@ Partial Class frmMainMenu
         '
         'txtEmpresaFClientes
         '
-        Me.txtEmpresaFClientes.Location = New System.Drawing.Point(456, 76)
+        Me.txtEmpresaFClientes.Location = New System.Drawing.Point(14, 117)
         Me.txtEmpresaFClientes.Name = "txtEmpresaFClientes"
-        Me.txtEmpresaFClientes.Size = New System.Drawing.Size(100, 20)
+        Me.txtEmpresaFClientes.Size = New System.Drawing.Size(125, 20)
         Me.txtEmpresaFClientes.TabIndex = 22
         '
         'txtCorreoFClientes
         '
-        Me.txtCorreoFClientes.Location = New System.Drawing.Point(344, 76)
+        Me.txtCorreoFClientes.Location = New System.Drawing.Point(145, 117)
         Me.txtCorreoFClientes.Name = "txtCorreoFClientes"
-        Me.txtCorreoFClientes.Size = New System.Drawing.Size(100, 20)
+        Me.txtCorreoFClientes.Size = New System.Drawing.Size(124, 20)
         Me.txtCorreoFClientes.TabIndex = 22
         '
         'txtDocumFClientes
         '
-        Me.txtDocumFClientes.Location = New System.Drawing.Point(13, 76)
+        Me.txtDocumFClientes.Location = New System.Drawing.Point(144, 68)
         Me.txtDocumFClientes.Name = "txtDocumFClientes"
-        Me.txtDocumFClientes.Size = New System.Drawing.Size(100, 20)
+        Me.txtDocumFClientes.Size = New System.Drawing.Size(125, 20)
         Me.txtDocumFClientes.TabIndex = 22
         '
         'txtApellidoFClientes
         '
-        Me.txtApellidoFClientes.Location = New System.Drawing.Point(231, 76)
+        Me.txtApellidoFClientes.Location = New System.Drawing.Point(405, 68)
         Me.txtApellidoFClientes.Name = "txtApellidoFClientes"
-        Me.txtApellidoFClientes.Size = New System.Drawing.Size(100, 20)
+        Me.txtApellidoFClientes.Size = New System.Drawing.Size(124, 20)
         Me.txtApellidoFClientes.TabIndex = 22
         '
         'txtNombreFClientes
         '
-        Me.txtNombreFClientes.Location = New System.Drawing.Point(122, 76)
+        Me.txtNombreFClientes.Location = New System.Drawing.Point(275, 68)
         Me.txtNombreFClientes.Name = "txtNombreFClientes"
-        Me.txtNombreFClientes.Size = New System.Drawing.Size(100, 20)
+        Me.txtNombreFClientes.Size = New System.Drawing.Size(124, 20)
         Me.txtNombreFClientes.TabIndex = 22
         '
         'dgvClientes
@@ -1250,7 +1242,7 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpersona, Me.tipodocumento, Me.nrodocumento, Me.nombre, Me.apellido, Me.email, Me.fecnac, Me.empresa, Me.estado, Me.dia, Me.mes, Me.anio, Me.telefonos})
+        Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idpersona, Me.tipodocumento, Me.nrodocumento, Me.nombre, Me.apellido, Me.email, Me.fecnac, Me.empresa, Me.estado, Me.dia, Me.idtipodoc, Me.mes, Me.anio, Me.telefonos})
         Me.dgvClientes.Location = New System.Drawing.Point(29, 7)
         Me.dgvClientes.MultiSelect = False
         Me.dgvClientes.Name = "dgvClientes"
@@ -1265,7 +1257,7 @@ Partial Class frmMainMenu
         'idpersona
         '
         Me.idpersona.DataPropertyName = "idpersona"
-        Me.idpersona.HeaderText = "idpesona"
+        Me.idpersona.HeaderText = "idpersona"
         Me.idpersona.Name = "idpersona"
         Me.idpersona.ReadOnly = True
         Me.idpersona.Visible = False
@@ -1300,24 +1292,30 @@ Partial Class frmMainMenu
         '
         'email
         '
+        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.email.DataPropertyName = "email"
         Me.email.HeaderText = "Correo"
         Me.email.Name = "email"
         Me.email.ReadOnly = True
+        Me.email.Width = 63
         '
         'fecnac
         '
+        Me.fecnac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
         Me.fecnac.DataPropertyName = "fecnac"
         Me.fecnac.HeaderText = "Nacimiento"
         Me.fecnac.Name = "fecnac"
         Me.fecnac.ReadOnly = True
+        Me.fecnac.Width = 5
         '
         'empresa
         '
+        Me.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.empresa.DataPropertyName = "empresa"
         Me.empresa.HeaderText = "Empresa"
         Me.empresa.Name = "empresa"
         Me.empresa.ReadOnly = True
+        Me.empresa.Width = 73
         '
         'estado
         '
@@ -1334,6 +1332,14 @@ Partial Class frmMainMenu
         Me.dia.Name = "dia"
         Me.dia.ReadOnly = True
         Me.dia.Visible = False
+        '
+        'idtipodoc
+        '
+        Me.idtipodoc.DataPropertyName = "idtipodoc"
+        Me.idtipodoc.HeaderText = "idtipodoc"
+        Me.idtipodoc.Name = "idtipodoc"
+        Me.idtipodoc.ReadOnly = True
+        Me.idtipodoc.Visible = False
         '
         'mes
         '
@@ -5017,6 +5023,28 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Label107
+        '
+        Me.Label107.AutoSize = True
+        Me.Label107.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label107.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label107.Location = New System.Drawing.Point(11, 48)
+        Me.Label107.Name = "Label107"
+        Me.Label107.Size = New System.Drawing.Size(106, 17)
+        Me.Label107.TabIndex = 45
+        Me.Label107.Text = "Tipo Documento"
+        '
+        'Label109
+        '
+        Me.Label109.AutoSize = True
+        Me.Label109.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label109.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label109.Location = New System.Drawing.Point(118, 52)
+        Me.Label109.Name = "Label109"
+        Me.Label109.Size = New System.Drawing.Size(20, 17)
+        Me.Label109.TabIndex = 44
+        Me.Label109.Text = "←"
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5326,7 +5354,6 @@ Partial Class frmMainMenu
     Friend WithEvents Label27 As Label
     Friend WithEvents Label28 As Label
     Friend WithEvents txtTelefonoMCliente As TextBox
-    Friend WithEvents Label19 As Label
     Friend WithEvents Label83 As Label
     Friend WithEvents TextBox11 As TextBox
     Friend WithEvents Label82 As Label
@@ -5464,19 +5491,6 @@ Partial Class frmMainMenu
     Friend WithEvents cbxDiaNMCliente As ComboBox
     Friend WithEvents btnAgregarTelefonosACliente As Button
     Friend WithEvents Label22 As Label
-    Friend WithEvents idpersona As DataGridViewTextBoxColumn
-    Friend WithEvents tipodocumento As DataGridViewTextBoxColumn
-    Friend WithEvents nrodocumento As DataGridViewTextBoxColumn
-    Friend WithEvents nombre As DataGridViewTextBoxColumn
-    Friend WithEvents apellido As DataGridViewTextBoxColumn
-    Friend WithEvents email As DataGridViewTextBoxColumn
-    Friend WithEvents fecnac As DataGridViewTextBoxColumn
-    Friend WithEvents empresa As DataGridViewTextBoxColumn
-    Friend WithEvents estado As DataGridViewCheckBoxColumn
-    Friend WithEvents dia As DataGridViewTextBoxColumn
-    Friend WithEvents mes As DataGridViewTextBoxColumn
-    Friend WithEvents anio As DataGridViewTextBoxColumn
-    Friend WithEvents telefonos As DataGridViewButtonColumn
     Friend WithEvents Button3 As Button
     Friend WithEvents nrochasis As DataGridViewTextBoxColumn
     Friend WithEvents matricula As DataGridViewTextBoxColumn
@@ -5498,4 +5512,20 @@ Partial Class frmMainMenu
     Friend WithEvents idsucursal As DataGridViewTextBoxColumn
     Friend WithEvents estadov As DataGridViewTextBoxColumn
     Friend WithEvents pnlBVehi As Panel
+    Friend WithEvents idpersona As DataGridViewTextBoxColumn
+    Friend WithEvents tipodocumento As DataGridViewTextBoxColumn
+    Friend WithEvents nrodocumento As DataGridViewTextBoxColumn
+    Friend WithEvents nombre As DataGridViewTextBoxColumn
+    Friend WithEvents apellido As DataGridViewTextBoxColumn
+    Friend WithEvents email As DataGridViewTextBoxColumn
+    Friend WithEvents fecnac As DataGridViewTextBoxColumn
+    Friend WithEvents empresa As DataGridViewTextBoxColumn
+    Friend WithEvents estado As DataGridViewCheckBoxColumn
+    Friend WithEvents dia As DataGridViewTextBoxColumn
+    Friend WithEvents idtipodoc As DataGridViewTextBoxColumn
+    Friend WithEvents mes As DataGridViewTextBoxColumn
+    Friend WithEvents anio As DataGridViewTextBoxColumn
+    Friend WithEvents telefonos As DataGridViewButtonColumn
+    Friend WithEvents Label107 As Label
+    Friend WithEvents Label109 As Label
 End Class

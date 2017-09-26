@@ -35,10 +35,10 @@ Partial Class Loading
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.loadform
-        Me.PictureBox1.Location = New System.Drawing.Point(-2, -2)
+        Me.PictureBox1.Location = New System.Drawing.Point(-4, -5)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(760, 500)
-        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
         'Loading
@@ -50,7 +50,8 @@ Partial Class Loading
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Loading"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "Loading"
+        Me.TopMost = True
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

@@ -96,7 +96,8 @@ Public Class Login
                     conexion.TipoUsuario = "Error"
 
                 End Try
-
+            Else
+                conexion.TipoUsuario = "Incorrecto"
             End If
 
         Else
@@ -120,9 +121,10 @@ Public Class Login
 
             Case "Error"
 
-                MsgBox("Tu usuario parece no tener un tipo asignado. Contáctate con el técnico de la empresa para que así sea.", MsgBoxStyle.Information, "Datos Incorrectos")
+
                 'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
                 pboxLoading.Visible = False
+                lbldataincorrect.Text = "Usuario carece de rango. Contacta al soporte."
                 lbldataincorrect.Visible = True
                 txtContraseña.Visible = True
                 txtUsuario.Visible = True
@@ -135,6 +137,7 @@ Public Class Login
             Case "Vacio"
 
                 pboxLoading.Visible = False
+                lbldataincorrect.Text = "Faltan datos en  los campos."
                 lbldataincorrect.Visible = True
                 txtContraseña.Visible = True
                 txtUsuario.Visible = True
@@ -144,10 +147,20 @@ Public Class Login
 
                 'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
 
+            Case "Incorrecto"
+                pboxLoading.Visible = False
+                lbldataincorrect.Text = "Datos incorrectos."
+                lbldataincorrect.Visible = True
+                txtContraseña.Visible = True
+                txtUsuario.Visible = True
+                btnLogin.Visible = True
+                lblpass.Visible = True
+                lbluser.Visible = True
 
             Case Else
                 'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
                 pboxLoading.Visible = False
+                lbldataincorrect.Text = "Ups!, ha ocurrido un error, contacta al soporte."
                 lbldataincorrect.Visible = True
                 txtContraseña.Visible = True
                 txtUsuario.Visible = True

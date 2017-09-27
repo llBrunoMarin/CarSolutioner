@@ -21,16 +21,12 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectedValueChanged, chbxFechaFClientes.CheckStateChanged, cbxDiaNFCliente.SelectionChangeCommitted, cbxMesNFCliente.SelectionChangeCommitted, cbxAnioNFCliente.SelectionChangeCommitted
-
-
+    Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, cbxDiaNFCliente.SelectionChangeCommitted, cbxMesNFCliente.SelectionChangeCommitted, cbxAnioNFCliente.SelectionChangeCommitted
 
         Try
             Dim filtro As String
 
-            If Not (sender.SelectedValue.ToString = "System.Data.DataRowView") Then
-
-                If chbxFechaFClientes.Checked = True Then
+            If chbxFechaFClientes.Checked = True Then
 
                     If Not ((cbxDiaNFCliente.SelectedItem Is Nothing) And (cbxMesNFCliente.SelectedItem Is Nothing) And (cbxAnioNFCliente.SelectedItem Is Nothing)) Then
 
@@ -50,15 +46,11 @@ Partial Public Class frmMainMenu
                     dgvClientes.DataSource.Filter = filtro
 
                 End If
-            End If
+
 
         Catch ex As NullReferenceException
 
         End Try
-
-
-
-
 
     End Sub
 

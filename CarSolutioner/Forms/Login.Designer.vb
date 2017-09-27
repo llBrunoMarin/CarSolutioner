@@ -215,15 +215,15 @@ Partial Class Login
         '
         'lbldataincorrect
         '
-        Me.lbldataincorrect.AutoSize = True
         Me.lbldataincorrect.BackColor = System.Drawing.Color.Transparent
         Me.lbldataincorrect.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbldataincorrect.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lbldataincorrect.Location = New System.Drawing.Point(217, 265)
+        Me.lbldataincorrect.Location = New System.Drawing.Point(156, 265)
         Me.lbldataincorrect.Name = "lbldataincorrect"
-        Me.lbldataincorrect.Size = New System.Drawing.Size(100, 15)
+        Me.lbldataincorrect.Size = New System.Drawing.Size(223, 15)
         Me.lbldataincorrect.TabIndex = 35
         Me.lbldataincorrect.Text = "Datos Incorrectos"
+        Me.lbldataincorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lbldataincorrect.Visible = False
         '
         'Login

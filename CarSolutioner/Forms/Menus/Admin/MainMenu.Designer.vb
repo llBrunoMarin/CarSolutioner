@@ -24,13 +24,13 @@ Partial Class frmMainMenu
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -101,6 +101,20 @@ Partial Class frmMainMenu
         Me.txtApellidoFClientes = New System.Windows.Forms.TextBox()
         Me.txtNombreFClientes = New System.Windows.Forms.TextBox()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
+        Me.tipodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersona = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecnac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.dia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.mes = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.telefonos = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.pnlAClientes = New System.Windows.Forms.Panel()
         Me.gbxFecNacACliente = New System.Windows.Forms.GroupBox()
         Me.cbxAnioNACliente = New System.Windows.Forms.ComboBox()
@@ -126,6 +140,25 @@ Partial Class frmMainMenu
         Me.Label99 = New System.Windows.Forms.Label()
         Me.tbpVehiculos = New System.Windows.Forms.TabPage()
         Me.dgvVehiculos = New System.Windows.Forms.DataGridView()
+        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadov = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlBVehi = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.btnBajaBVeh = New System.Windows.Forms.Button()
@@ -396,40 +429,6 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcategoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmodelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadov = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersona = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecnac = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.dia = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.mes = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.telefonos = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1005,7 +1004,7 @@ Partial Class frmMainMenu
         Me.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificarCliente.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificarCliente.ForeColor = System.Drawing.Color.White
-        Me.btnModificarCliente.Location = New System.Drawing.Point(456, 159)
+        Me.btnModificarCliente.Location = New System.Drawing.Point(469, 170)
         Me.btnModificarCliente.Name = "btnModificarCliente"
         Me.btnModificarCliente.Size = New System.Drawing.Size(99, 31)
         Me.btnModificarCliente.TabIndex = 18
@@ -1312,6 +1311,118 @@ Partial Class frmMainMenu
         Me.dgvClientes.Size = New System.Drawing.Size(754, 817)
         Me.dgvClientes.TabIndex = 39
         '
+        'tipodocumento
+        '
+        Me.tipodocumento.DataPropertyName = "tipodocumento"
+        Me.tipodocumento.HeaderText = "Tipo"
+        Me.tipodocumento.Name = "tipodocumento"
+        Me.tipodocumento.ReadOnly = True
+        '
+        'nrodocumento
+        '
+        Me.nrodocumento.DataPropertyName = "nrodocumento"
+        Me.nrodocumento.HeaderText = "Documento"
+        Me.nrodocumento.Name = "nrodocumento"
+        Me.nrodocumento.ReadOnly = True
+        '
+        'nombre
+        '
+        Me.nombre.DataPropertyName = "nombre"
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        '
+        'idpersona
+        '
+        Me.idpersona.DataPropertyName = "idpersona"
+        Me.idpersona.HeaderText = "idpersona"
+        Me.idpersona.Name = "idpersona"
+        Me.idpersona.ReadOnly = True
+        Me.idpersona.Visible = False
+        '
+        'apellido
+        '
+        Me.apellido.DataPropertyName = "apellido"
+        Me.apellido.HeaderText = "Apellido"
+        Me.apellido.Name = "apellido"
+        Me.apellido.ReadOnly = True
+        '
+        'email
+        '
+        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.email.DataPropertyName = "email"
+        Me.email.HeaderText = "Correo"
+        Me.email.Name = "email"
+        Me.email.ReadOnly = True
+        Me.email.Width = 63
+        '
+        'fecnac
+        '
+        Me.fecnac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+        Me.fecnac.DataPropertyName = "fecnac"
+        Me.fecnac.HeaderText = "Nacimiento"
+        Me.fecnac.Name = "fecnac"
+        Me.fecnac.ReadOnly = True
+        Me.fecnac.Width = 5
+        '
+        'empresa
+        '
+        Me.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.empresa.DataPropertyName = "empresa"
+        Me.empresa.HeaderText = "Empresa"
+        Me.empresa.Name = "empresa"
+        Me.empresa.ReadOnly = True
+        Me.empresa.Width = 73
+        '
+        'estado
+        '
+        Me.estado.DataPropertyName = "estado"
+        Me.estado.HeaderText = "estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        Me.estado.Visible = False
+        '
+        'dia
+        '
+        Me.dia.DataPropertyName = "dia"
+        Me.dia.HeaderText = "dia"
+        Me.dia.Name = "dia"
+        Me.dia.ReadOnly = True
+        Me.dia.Visible = False
+        '
+        'idtipodoc
+        '
+        Me.idtipodoc.DataPropertyName = "idtipodoc"
+        Me.idtipodoc.HeaderText = "idtipodoc"
+        Me.idtipodoc.Name = "idtipodoc"
+        Me.idtipodoc.ReadOnly = True
+        Me.idtipodoc.Visible = False
+        '
+        'mes
+        '
+        Me.mes.DataPropertyName = "mes"
+        Me.mes.HeaderText = "mes"
+        Me.mes.Name = "mes"
+        Me.mes.ReadOnly = True
+        Me.mes.Visible = False
+        '
+        'anio
+        '
+        Me.anio.DataPropertyName = "anio"
+        Me.anio.HeaderText = "anio"
+        Me.anio.Name = "anio"
+        Me.anio.ReadOnly = True
+        Me.anio.Visible = False
+        '
+        'telefonos
+        '
+        Me.telefonos.HeaderText = "Telefonos"
+        Me.telefonos.Name = "telefonos"
+        Me.telefonos.ReadOnly = True
+        Me.telefonos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.telefonos.Text = "Ver"
+        Me.telefonos.UseColumnTextForButtonValue = True
+        '
         'pnlAClientes
         '
         Me.pnlAClientes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -1610,7 +1721,7 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.AllowUserToResizeRows = False
         Me.dgvVehiculos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.dgvVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoria, Me.idmodelo, Me.idsucursal, Me.idmarca, Me.estadov})
+        Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoria, Me.idsucursal, Me.idmarca, Me.estadov})
         Me.dgvVehiculos.Location = New System.Drawing.Point(32, 7)
         Me.dgvVehiculos.MultiSelect = False
         Me.dgvVehiculos.Name = "dgvVehiculos"
@@ -1621,6 +1732,168 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvVehiculos.Size = New System.Drawing.Size(1324, 373)
         Me.dgvVehiculos.TabIndex = 37
+        '
+        'nrochasis
+        '
+        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.nrochasis.DataPropertyName = "nrochasis"
+        Me.nrochasis.HeaderText = "Nro Chasis"
+        Me.nrochasis.Name = "nrochasis"
+        Me.nrochasis.ReadOnly = True
+        Me.nrochasis.Width = 83
+        '
+        'matricula
+        '
+        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.matricula.DataPropertyName = "matricula"
+        Me.matricula.HeaderText = "Matrícula"
+        Me.matricula.Name = "matricula"
+        Me.matricula.ReadOnly = True
+        Me.matricula.Width = 77
+        '
+        'marca
+        '
+        Me.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.marca.DataPropertyName = "marca"
+        Me.marca.HeaderText = "Marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        Me.marca.Width = 62
+        '
+        'Modelo
+        '
+        Me.Modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Modelo.DataPropertyName = "modelo"
+        Me.Modelo.HeaderText = "Modelo"
+        Me.Modelo.Name = "Modelo"
+        Me.Modelo.ReadOnly = True
+        Me.Modelo.Width = 67
+        '
+        'tipo
+        '
+        Me.tipo.DataPropertyName = "tipo"
+        Me.tipo.HeaderText = "Tipo"
+        Me.tipo.Name = "tipo"
+        Me.tipo.ReadOnly = True
+        '
+        'categoria
+        '
+        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.categoria.DataPropertyName = "categoria"
+        Me.categoria.HeaderText = "Categoria"
+        Me.categoria.Name = "categoria"
+        Me.categoria.ReadOnly = True
+        Me.categoria.Width = 77
+        '
+        'aniov
+        '
+        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.aniov.DataPropertyName = "anio"
+        Me.aniov.HeaderText = "Año"
+        Me.aniov.Name = "aniov"
+        Me.aniov.ReadOnly = True
+        Me.aniov.Width = 51
+        '
+        'kilometraje
+        '
+        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.kilometraje.DataPropertyName = "kilometraje"
+        Me.kilometraje.HeaderText = "KM"
+        Me.kilometraje.Name = "kilometraje"
+        Me.kilometraje.ReadOnly = True
+        Me.kilometraje.Width = 48
+        '
+        'cantidaddepuertas
+        '
+        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
+        Me.cantidaddepuertas.HeaderText = "Puertas"
+        Me.cantidaddepuertas.Name = "cantidaddepuertas"
+        Me.cantidaddepuertas.ReadOnly = True
+        '
+        'cantidaddepasajeros
+        '
+        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
+        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.ReadOnly = True
+        '
+        'cantidaddemaletas
+        '
+        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
+        Me.cantidaddemaletas.HeaderText = "Maletas"
+        Me.cantidaddemaletas.Name = "cantidaddemaletas"
+        Me.cantidaddemaletas.ReadOnly = True
+        '
+        'deducible
+        '
+        Me.deducible.DataPropertyName = "deducible"
+        Me.deducible.HeaderText = "Deducible"
+        Me.deducible.Name = "deducible"
+        Me.deducible.ReadOnly = True
+        '
+        'aireacondicionado
+        '
+        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
+        Me.aireacondicionado.HeaderText = "Aire"
+        Me.aireacondicionado.Name = "aireacondicionado"
+        Me.aireacondicionado.ReadOnly = True
+        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.aireacondicionado.Width = 50
+        '
+        'esmanual
+        '
+        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.esmanual.DataPropertyName = "esmanual"
+        DataGridViewCellStyle2.NullValue = False
+        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle2
+        Me.esmanual.HeaderText = "Manual"
+        Me.esmanual.Name = "esmanual"
+        Me.esmanual.ReadOnly = True
+        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.esmanual.Width = 67
+        '
+        'sucursal
+        '
+        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.sucursal.DataPropertyName = "sucursal"
+        Me.sucursal.HeaderText = "Sucursal"
+        Me.sucursal.Name = "sucursal"
+        Me.sucursal.ReadOnly = True
+        Me.sucursal.Width = 73
+        '
+        'idcategoria
+        '
+        Me.idcategoria.DataPropertyName = "idcategoria"
+        Me.idcategoria.HeaderText = "idcategoria"
+        Me.idcategoria.Name = "idcategoria"
+        Me.idcategoria.ReadOnly = True
+        Me.idcategoria.Visible = False
+        '
+        'idsucursal
+        '
+        Me.idsucursal.DataPropertyName = "idsucursal"
+        Me.idsucursal.HeaderText = "idsucursal"
+        Me.idsucursal.Name = "idsucursal"
+        Me.idsucursal.ReadOnly = True
+        Me.idsucursal.Visible = False
+        '
+        'idmarca
+        '
+        Me.idmarca.DataPropertyName = "idmarca"
+        Me.idmarca.HeaderText = "idmarca"
+        Me.idmarca.Name = "idmarca"
+        Me.idmarca.ReadOnly = True
+        Me.idmarca.Visible = False
+        '
+        'estadov
+        '
+        Me.estadov.DataPropertyName = "estado"
+        Me.estadov.HeaderText = "Estado"
+        Me.estadov.Name = "estadov"
+        Me.estadov.ReadOnly = True
+        Me.estadov.Visible = False
         '
         'pnlBVehi
         '
@@ -4807,288 +5080,6 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'nrochasis
-        '
-        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.nrochasis.DataPropertyName = "nrochasis"
-        Me.nrochasis.HeaderText = "Nro Chasis"
-        Me.nrochasis.Name = "nrochasis"
-        Me.nrochasis.ReadOnly = True
-        Me.nrochasis.Width = 83
-        '
-        'matricula
-        '
-        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.matricula.DataPropertyName = "matricula"
-        Me.matricula.HeaderText = "Matrícula"
-        Me.matricula.Name = "matricula"
-        Me.matricula.ReadOnly = True
-        Me.matricula.Width = 77
-        '
-        'marca
-        '
-        Me.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.marca.DataPropertyName = "marca"
-        Me.marca.HeaderText = "Marca"
-        Me.marca.Name = "marca"
-        Me.marca.ReadOnly = True
-        Me.marca.Width = 62
-        '
-        'Modelo
-        '
-        Me.Modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Modelo.DataPropertyName = "modelo"
-        Me.Modelo.HeaderText = "Modelo"
-        Me.Modelo.Name = "Modelo"
-        Me.Modelo.ReadOnly = True
-        Me.Modelo.Width = 67
-        '
-        'tipo
-        '
-        Me.tipo.DataPropertyName = "tipo"
-        Me.tipo.HeaderText = "Tipo"
-        Me.tipo.Name = "tipo"
-        Me.tipo.ReadOnly = True
-        '
-        'categoria
-        '
-        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.categoria.DataPropertyName = "categoria"
-        Me.categoria.HeaderText = "Categoria"
-        Me.categoria.Name = "categoria"
-        Me.categoria.ReadOnly = True
-        Me.categoria.Width = 77
-        '
-        'aniov
-        '
-        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.aniov.DataPropertyName = "anio"
-        Me.aniov.HeaderText = "Año"
-        Me.aniov.Name = "aniov"
-        Me.aniov.ReadOnly = True
-        Me.aniov.Width = 51
-        '
-        'kilometraje
-        '
-        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.kilometraje.DataPropertyName = "kilometraje"
-        Me.kilometraje.HeaderText = "KM"
-        Me.kilometraje.Name = "kilometraje"
-        Me.kilometraje.ReadOnly = True
-        Me.kilometraje.Width = 48
-        '
-        'cantidaddepuertas
-        '
-        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
-        Me.cantidaddepuertas.HeaderText = "Puertas"
-        Me.cantidaddepuertas.Name = "cantidaddepuertas"
-        Me.cantidaddepuertas.ReadOnly = True
-        '
-        'cantidaddepasajeros
-        '
-        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
-        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.ReadOnly = True
-        '
-        'cantidaddemaletas
-        '
-        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
-        Me.cantidaddemaletas.HeaderText = "Maletas"
-        Me.cantidaddemaletas.Name = "cantidaddemaletas"
-        Me.cantidaddemaletas.ReadOnly = True
-        '
-        'deducible
-        '
-        Me.deducible.DataPropertyName = "deducible"
-        Me.deducible.HeaderText = "Deducible"
-        Me.deducible.Name = "deducible"
-        Me.deducible.ReadOnly = True
-        '
-        'aireacondicionado
-        '
-        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
-        Me.aireacondicionado.HeaderText = "Aire"
-        Me.aireacondicionado.Name = "aireacondicionado"
-        Me.aireacondicionado.ReadOnly = True
-        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.aireacondicionado.Width = 50
-        '
-        'esmanual
-        '
-        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.esmanual.DataPropertyName = "esmanual"
-        DataGridViewCellStyle2.NullValue = False
-        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle2
-        Me.esmanual.HeaderText = "Manual"
-        Me.esmanual.Name = "esmanual"
-        Me.esmanual.ReadOnly = True
-        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.esmanual.Width = 67
-        '
-        'sucursal
-        '
-        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.sucursal.DataPropertyName = "sucursal"
-        Me.sucursal.HeaderText = "Sucursal"
-        Me.sucursal.Name = "sucursal"
-        Me.sucursal.ReadOnly = True
-        Me.sucursal.Width = 73
-        '
-        'idcategoria
-        '
-        Me.idcategoria.DataPropertyName = "idcategoria"
-        Me.idcategoria.HeaderText = "idcategoria"
-        Me.idcategoria.Name = "idcategoria"
-        Me.idcategoria.ReadOnly = True
-        Me.idcategoria.Visible = False
-        '
-        'idmodelo
-        '
-        Me.idmodelo.DataPropertyName = "idmodelo"
-        Me.idmodelo.HeaderText = "idmodelo"
-        Me.idmodelo.Name = "idmodelo"
-        Me.idmodelo.ReadOnly = True
-        Me.idmodelo.Visible = False
-        '
-        'idsucursal
-        '
-        Me.idsucursal.DataPropertyName = "idsucursal"
-        Me.idsucursal.HeaderText = "idsucursal"
-        Me.idsucursal.Name = "idsucursal"
-        Me.idsucursal.ReadOnly = True
-        Me.idsucursal.Visible = False
-        '
-        'idmarca
-        '
-        Me.idmarca.DataPropertyName = "idmarca"
-        Me.idmarca.HeaderText = "idmarca"
-        Me.idmarca.Name = "idmarca"
-        Me.idmarca.ReadOnly = True
-        Me.idmarca.Visible = False
-        '
-        'estadov
-        '
-        Me.estadov.DataPropertyName = "estado"
-        Me.estadov.HeaderText = "Estado"
-        Me.estadov.Name = "estadov"
-        Me.estadov.ReadOnly = True
-        Me.estadov.Visible = False
-        '
-        'tipodocumento
-        '
-        Me.tipodocumento.DataPropertyName = "tipodocumento"
-        Me.tipodocumento.HeaderText = "Tipo"
-        Me.tipodocumento.Name = "tipodocumento"
-        Me.tipodocumento.ReadOnly = True
-        '
-        'nrodocumento
-        '
-        Me.nrodocumento.DataPropertyName = "nrodocumento"
-        Me.nrodocumento.HeaderText = "Documento"
-        Me.nrodocumento.Name = "nrodocumento"
-        Me.nrodocumento.ReadOnly = True
-        '
-        'nombre
-        '
-        Me.nombre.DataPropertyName = "nombre"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        '
-        'idpersona
-        '
-        Me.idpersona.DataPropertyName = "idpersona"
-        Me.idpersona.HeaderText = "idpersona"
-        Me.idpersona.Name = "idpersona"
-        Me.idpersona.ReadOnly = True
-        Me.idpersona.Visible = False
-        '
-        'apellido
-        '
-        Me.apellido.DataPropertyName = "apellido"
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        '
-        'email
-        '
-        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.email.DataPropertyName = "email"
-        Me.email.HeaderText = "Correo"
-        Me.email.Name = "email"
-        Me.email.ReadOnly = True
-        Me.email.Width = 63
-        '
-        'fecnac
-        '
-        Me.fecnac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-        Me.fecnac.DataPropertyName = "fecnac"
-        Me.fecnac.HeaderText = "Nacimiento"
-        Me.fecnac.Name = "fecnac"
-        Me.fecnac.ReadOnly = True
-        Me.fecnac.Width = 5
-        '
-        'empresa
-        '
-        Me.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.empresa.DataPropertyName = "empresa"
-        Me.empresa.HeaderText = "Empresa"
-        Me.empresa.Name = "empresa"
-        Me.empresa.ReadOnly = True
-        Me.empresa.Width = 73
-        '
-        'estado
-        '
-        Me.estado.DataPropertyName = "estado"
-        Me.estado.HeaderText = "estado"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        Me.estado.Visible = False
-        '
-        'dia
-        '
-        Me.dia.DataPropertyName = "dia"
-        Me.dia.HeaderText = "dia"
-        Me.dia.Name = "dia"
-        Me.dia.ReadOnly = True
-        Me.dia.Visible = False
-        '
-        'idtipodoc
-        '
-        Me.idtipodoc.DataPropertyName = "idtipodoc"
-        Me.idtipodoc.HeaderText = "idtipodoc"
-        Me.idtipodoc.Name = "idtipodoc"
-        Me.idtipodoc.ReadOnly = True
-        Me.idtipodoc.Visible = False
-        '
-        'mes
-        '
-        Me.mes.DataPropertyName = "mes"
-        Me.mes.HeaderText = "mes"
-        Me.mes.Name = "mes"
-        Me.mes.ReadOnly = True
-        Me.mes.Visible = False
-        '
-        'anio
-        '
-        Me.anio.DataPropertyName = "anio"
-        Me.anio.HeaderText = "anio"
-        Me.anio.Name = "anio"
-        Me.anio.ReadOnly = True
-        Me.anio.Visible = False
-        '
-        'telefonos
-        '
-        Me.telefonos.HeaderText = "Telefonos"
-        Me.telefonos.Name = "telefonos"
-        Me.telefonos.ReadOnly = True
-        Me.telefonos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.telefonos.Text = "Ver"
-        Me.telefonos.UseColumnTextForButtonValue = True
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5543,6 +5534,20 @@ Partial Class frmMainMenu
     Friend WithEvents btnTelefonosMCliente As Button
     Friend WithEvents lblAyudaTelefono As Label
     Friend WithEvents btnModificarCliente As Button
+    Friend WithEvents tipodocumento As DataGridViewTextBoxColumn
+    Friend WithEvents nrodocumento As DataGridViewTextBoxColumn
+    Friend WithEvents nombre As DataGridViewTextBoxColumn
+    Friend WithEvents idpersona As DataGridViewTextBoxColumn
+    Friend WithEvents apellido As DataGridViewTextBoxColumn
+    Friend WithEvents email As DataGridViewTextBoxColumn
+    Friend WithEvents fecnac As DataGridViewTextBoxColumn
+    Friend WithEvents empresa As DataGridViewTextBoxColumn
+    Friend WithEvents estado As DataGridViewCheckBoxColumn
+    Friend WithEvents dia As DataGridViewTextBoxColumn
+    Friend WithEvents idtipodoc As DataGridViewTextBoxColumn
+    Friend WithEvents mes As DataGridViewTextBoxColumn
+    Friend WithEvents anio As DataGridViewTextBoxColumn
+    Friend WithEvents telefonos As DataGridViewButtonColumn
     Friend WithEvents nrochasis As DataGridViewTextBoxColumn
     Friend WithEvents matricula As DataGridViewTextBoxColumn
     Friend WithEvents marca As DataGridViewTextBoxColumn
@@ -5559,22 +5564,7 @@ Partial Class frmMainMenu
     Friend WithEvents esmanual As DataGridViewCheckBoxColumn
     Friend WithEvents sucursal As DataGridViewTextBoxColumn
     Friend WithEvents idcategoria As DataGridViewTextBoxColumn
-    Friend WithEvents idmodelo As DataGridViewTextBoxColumn
     Friend WithEvents idsucursal As DataGridViewTextBoxColumn
     Friend WithEvents idmarca As DataGridViewTextBoxColumn
     Friend WithEvents estadov As DataGridViewTextBoxColumn
-    Friend WithEvents tipodocumento As DataGridViewTextBoxColumn
-    Friend WithEvents nrodocumento As DataGridViewTextBoxColumn
-    Friend WithEvents nombre As DataGridViewTextBoxColumn
-    Friend WithEvents idpersona As DataGridViewTextBoxColumn
-    Friend WithEvents apellido As DataGridViewTextBoxColumn
-    Friend WithEvents email As DataGridViewTextBoxColumn
-    Friend WithEvents fecnac As DataGridViewTextBoxColumn
-    Friend WithEvents empresa As DataGridViewTextBoxColumn
-    Friend WithEvents estado As DataGridViewCheckBoxColumn
-    Friend WithEvents dia As DataGridViewTextBoxColumn
-    Friend WithEvents idtipodoc As DataGridViewTextBoxColumn
-    Friend WithEvents mes As DataGridViewTextBoxColumn
-    Friend WithEvents anio As DataGridViewTextBoxColumn
-    Friend WithEvents telefonos As DataGridViewButtonColumn
 End Class

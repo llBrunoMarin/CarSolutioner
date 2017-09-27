@@ -28,23 +28,22 @@ Partial Class Login
         Me.txtUsuario = New System.Windows.Forms.TextBox()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbluser = New System.Windows.Forms.Label()
+        Me.lblpass = New System.Windows.Forms.Label()
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.lblmayus = New System.Windows.Forms.Label()
         Me.tmrTimer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.pboxLoading = New System.Windows.Forms.PictureBox()
         Me.tmrLoading = New System.Windows.Forms.Timer(Me.components)
         Me.bgwLogin = New System.ComponentModel.BackgroundWorker()
+        Me.pboxLoading = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lbldataincorrect = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtContraseña
@@ -90,29 +89,29 @@ Partial Class Login
         Me.Label16.TabIndex = 25
         Me.Label16.Text = "Car Solutioner"
         '
-        'Label1
+        'lbluser
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(214, 174)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 19)
-        Me.Label1.TabIndex = 26
-        Me.Label1.Text = "Usuario"
+        Me.lbluser.AutoSize = True
+        Me.lbluser.BackColor = System.Drawing.Color.Transparent
+        Me.lbluser.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbluser.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lbluser.Location = New System.Drawing.Point(214, 174)
+        Me.lbluser.Name = "lbluser"
+        Me.lbluser.Size = New System.Drawing.Size(66, 21)
+        Me.lbluser.TabIndex = 26
+        Me.lbluser.Text = "Usuario"
         '
-        'Label2
+        'lblpass
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(214, 220)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(103, 19)
-        Me.Label2.TabIndex = 27
-        Me.Label2.Text = "Contraseña"
+        Me.lblpass.AutoSize = True
+        Me.lblpass.BackColor = System.Drawing.Color.Transparent
+        Me.lblpass.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpass.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblpass.Location = New System.Drawing.Point(214, 220)
+        Me.lblpass.Name = "lblpass"
+        Me.lblpass.Size = New System.Drawing.Size(103, 21)
+        Me.lblpass.TabIndex = 27
+        Me.lblpass.Text = "Contraseña"
         '
         'btnCerrar
         '
@@ -150,7 +149,7 @@ Partial Class Login
         Me.lblmayus.BackColor = System.Drawing.Color.Transparent
         Me.lblmayus.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblmayus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblmayus.Location = New System.Drawing.Point(173, 265)
+        Me.lblmayus.Location = New System.Drawing.Point(163, 318)
         Me.lblmayus.Name = "lblmayus"
         Me.lblmayus.Size = New System.Drawing.Size(194, 15)
         Me.lblmayus.TabIndex = 31
@@ -172,6 +171,37 @@ Partial Class Login
         Me.Panel1.Size = New System.Drawing.Size(536, 30)
         Me.Panel1.TabIndex = 32
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(12, 357)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(128, 15)
+        Me.Label3.TabIndex = 33
+        Me.Label3.Text = "Ingresar como Invitado"
+        '
+        'tmrLoading
+        '
+        Me.tmrLoading.Enabled = True
+        Me.tmrLoading.Interval = 5000
+        '
+        'bgwLogin
+        '
+        '
+        'pboxLoading
+        '
+        Me.pboxLoading.Image = Global.CarSolutioner.My.Resources.Resources.loadingsquare
+        Me.pboxLoading.Location = New System.Drawing.Point(218, 187)
+        Me.pboxLoading.Name = "pboxLoading"
+        Me.pboxLoading.Size = New System.Drawing.Size(99, 75)
+        Me.pboxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pboxLoading.TabIndex = 34
+        Me.pboxLoading.TabStop = False
+        Me.pboxLoading.Visible = False
+        '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
@@ -183,64 +213,38 @@ Partial Class Login
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
-        'PictureBox2
+        'lbldataincorrect
         '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.Circles
-        Me.PictureBox2.Location = New System.Drawing.Point(432, 56)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(295, 407)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 28
-        Me.PictureBox2.TabStop = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(12, 357)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(136, 15)
-        Me.Label3.TabIndex = 33
-        Me.Label3.Text = "Ingresar como Invitado"
-        '
-        'pboxLoading
-        '
-        Me.pboxLoading.Image = Global.CarSolutioner.My.Resources.Resources.CoypyRight
-        Me.pboxLoading.Location = New System.Drawing.Point(35, 56)
-        Me.pboxLoading.Name = "pboxLoading"
-        Me.pboxLoading.Size = New System.Drawing.Size(435, 259)
-        Me.pboxLoading.TabIndex = 34
-        Me.pboxLoading.TabStop = False
-        '
-        'tmrLoading
-        '
-        Me.tmrLoading.Interval = 5000
-        '
-        'bgwLogin
-        '
+        Me.lbldataincorrect.AutoSize = True
+        Me.lbldataincorrect.BackColor = System.Drawing.Color.Transparent
+        Me.lbldataincorrect.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbldataincorrect.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lbldataincorrect.Location = New System.Drawing.Point(217, 265)
+        Me.lbldataincorrect.Name = "lbldataincorrect"
+        Me.lbldataincorrect.Size = New System.Drawing.Size(100, 15)
+        Me.lbldataincorrect.TabIndex = 35
+        Me.lbldataincorrect.Text = "Datos Incorrectos"
+        Me.lbldataincorrect.Visible = False
         '
         'Login
         '
         Me.AcceptButton = Me.btnLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Silver
+        Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(536, 381)
+        Me.Controls.Add(Me.lbldataincorrect)
         Me.Controls.Add(Me.pboxLoading)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblmayus)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblpass)
+        Me.Controls.Add(Me.lbluser)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.txtContraseña)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.PictureBox2)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -248,9 +252,8 @@ Partial Class Login
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -260,9 +263,8 @@ Partial Class Login
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnLogin As Button
     Friend WithEvents Label16 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents lbluser As Label
+    Friend WithEvents lblpass As Label
     Friend WithEvents btnCerrar As Button
     Friend WithEvents btnMinimizar As Button
     Friend WithEvents lblmayus As Label
@@ -272,4 +274,5 @@ Partial Class Login
     Friend WithEvents pboxLoading As PictureBox
     Friend WithEvents tmrLoading As Timer
     Friend WithEvents bgwLogin As System.ComponentModel.BackgroundWorker
+    Friend WithEvents lbldataincorrect As Label
 End Class

@@ -22,7 +22,7 @@ Partial Class frmTelefonosCliente
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTelefonosCliente))
         Me.dgvTelefonos = New System.Windows.Forms.DataGridView()
         Me.telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,8 +53,8 @@ Partial Class frmTelefonosCliente
         Me.dgvTelefonos.Name = "dgvTelefonos"
         Me.dgvTelefonos.RowHeadersVisible = False
         Me.dgvTelefonos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvTelefonos.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvTelefonos.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvTelefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvTelefonos.Size = New System.Drawing.Size(163, 131)
         Me.dgvTelefonos.TabIndex = 0
@@ -186,6 +186,7 @@ Partial Class frmTelefonosCliente
         Me.Controls.Add(Me.lblAyuda)
         Me.Controls.Add(Me.dgvTelefonos)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmTelefonosCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Telefonos"

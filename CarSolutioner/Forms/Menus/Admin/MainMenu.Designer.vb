@@ -546,7 +546,7 @@ Partial Class frmMainMenu
         Me.pnlSidebar.Controls.Add(Me.btnEmpleados)
         Me.pnlSidebar.Controls.Add(Me.btnVehiculos)
         Me.pnlSidebar.Controls.Add(Me.btnClientes)
-        Me.pnlSidebar.Location = New System.Drawing.Point(0, 12)
+        Me.pnlSidebar.Location = New System.Drawing.Point(3, 12)
         Me.pnlSidebar.Name = "pnlSidebar"
         Me.pnlSidebar.Size = New System.Drawing.Size(255, 872)
         Me.pnlSidebar.TabIndex = 2

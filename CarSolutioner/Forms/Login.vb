@@ -24,10 +24,32 @@ Public Class Login
     Private Sub Loading()
 
         'ACÁ PONER EL CÓDIGO DE LAS COSAS QUE VAN A CAMBIAR CUANDO SE EMPIEZE A CARGAR ALGO
-        pboxLoading.Show()
-        Me.BackColor = Color.Red
+
+        pboxLoading.Visible = True
+        txtContraseña.Visible = False
+        txtUsuario.Visible = False
+        btnLogin.Visible = False
+        lblpass.Visible = False
+        lbluser.Visible = False
+        lbldataincorrect.Visible = False
+
+
+        Dim retraso As Integer
+
+        retraso = 2000 + GetTickCount
+
+
+
+        While retraso >= GetTickCount
+            Application.DoEvents()
+        End While
+
+
+
 
     End Sub
+    Private Declare Function GetTickCount Lib "kernel32" () As Integer
+
 
 
     'Hacer operaciones de LOGIN, establece el Tipo de Usuario una vez que termina. Si termina con un error, establece el tipo de usuario según el error.
@@ -100,19 +122,38 @@ Public Class Login
 
                 MsgBox("Tu usuario parece no tener un tipo asignado. Contáctate con el técnico de la empresa para que así sea.", MsgBoxStyle.Information, "Datos Incorrectos")
                 'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
-                pboxLoading.Hide()
-                Me.BackColor = Color.Silver
+                pboxLoading.Visible = False
+                lbldataincorrect.Visible = True
+                txtContraseña.Visible = True
+                txtUsuario.Visible = True
+                btnLogin.Visible = True
+                lblpass.Visible = True
+                lbluser.Visible = True
+
+
 
             Case "Vacio"
-                MsgBox("No dejes ningún campo vacío, por favor.", MsgBoxStyle.Information, "Datos Incorrectos")
+
+                pboxLoading.Visible = False
+                lbldataincorrect.Visible = True
+                txtContraseña.Visible = True
+                txtUsuario.Visible = True
+                btnLogin.Visible = True
+                lblpass.Visible = True
+                lbluser.Visible = True
+
                 'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
-                pboxLoading.Hide()
-                Me.BackColor = Color.Silver
+
 
             Case Else
                 'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
-                pboxLoading.Hide()
-                Me.BackColor = Color.Silver
+                pboxLoading.Visible = False
+                lbldataincorrect.Visible = True
+                txtContraseña.Visible = True
+                txtUsuario.Visible = True
+                btnLogin.Visible = True
+                lblpass.Visible = True
+                lbluser.Visible = True
 
         End Select
     End Sub
@@ -138,6 +179,10 @@ Public Class Login
         Else
             lblmayus.Visible = False
         End If
+
+    End Sub
+
+    Private Sub pboxLoading_Click(sender As Object, e As EventArgs) Handles pboxLoading.Click
 
     End Sub
 End Class

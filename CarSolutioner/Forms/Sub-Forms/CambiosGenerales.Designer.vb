@@ -23,6 +23,7 @@ Partial Class frmCambiosGenerales
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCambiosGenerales))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
@@ -1040,6 +1041,7 @@ Partial Class frmCambiosGenerales
         Me.Controls.Add(Me.pnlSidebar)
         Me.Controls.Add(Me.tbcTabControl)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCambiosGenerales"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "i"

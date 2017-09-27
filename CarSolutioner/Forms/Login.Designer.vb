@@ -38,9 +38,13 @@ Partial Class Login
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.pboxLoading = New System.Windows.Forms.PictureBox()
+        Me.tmrLoading = New System.Windows.Forms.Timer(Me.components)
+        Me.bgwLogin = New System.ComponentModel.BackgroundWorker()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtContraseña
@@ -202,12 +206,30 @@ Partial Class Login
         Me.Label3.TabIndex = 33
         Me.Label3.Text = "Ingresar como Invitado"
         '
+        'pboxLoading
+        '
+        Me.pboxLoading.Image = Global.CarSolutioner.My.Resources.Resources.CoypyRight
+        Me.pboxLoading.Location = New System.Drawing.Point(35, 56)
+        Me.pboxLoading.Name = "pboxLoading"
+        Me.pboxLoading.Size = New System.Drawing.Size(435, 259)
+        Me.pboxLoading.TabIndex = 34
+        Me.pboxLoading.TabStop = False
+        '
+        'tmrLoading
+        '
+        Me.tmrLoading.Interval = 5000
+        '
+        'bgwLogin
+        '
+        '
         'Login
         '
+        Me.AcceptButton = Me.btnLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(536, 381)
+        Me.Controls.Add(Me.pboxLoading)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblmayus)
@@ -228,6 +250,7 @@ Partial Class Login
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -246,4 +269,7 @@ Partial Class Login
     Friend WithEvents tmrTimer As Timer
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label3 As Label
+    Friend WithEvents pboxLoading As PictureBox
+    Friend WithEvents tmrLoading As Timer
+    Friend WithEvents bgwLogin As System.ComponentModel.BackgroundWorker
 End Class

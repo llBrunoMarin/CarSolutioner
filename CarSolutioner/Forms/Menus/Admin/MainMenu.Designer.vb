@@ -51,16 +51,17 @@ Partial Class frmMainMenu
         Me.tbpMenuPrincipal = New System.Windows.Forms.TabPage()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tbpClientes = New System.Windows.Forms.TabPage()
-        Me.pnlBajaCliente = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.pnlBClientes = New System.Windows.Forms.Panel()
+        Me.btnBajaCliente = New System.Windows.Forms.Button()
         Me.Label79 = New System.Windows.Forms.Label()
         Me.Label80 = New System.Windows.Forms.Label()
         Me.txtDocumentoBCliente = New System.Windows.Forms.TextBox()
-        Me.pnlMCliente = New System.Windows.Forms.Panel()
+        Me.pnlMClientes = New System.Windows.Forms.Panel()
         Me.gbxFecNacMCliente = New System.Windows.Forms.GroupBox()
         Me.cbxAnioNMCliente = New System.Windows.Forms.ComboBox()
         Me.cbxMesNMCliente = New System.Windows.Forms.ComboBox()
         Me.cbxDiaNMCliente = New System.Windows.Forms.ComboBox()
+        Me.cbxTelefonosMCliente = New System.Windows.Forms.ComboBox()
         Me.cbxTipoDocumMCliente = New System.Windows.Forms.ComboBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.txtEmpresaMCliente = New System.Windows.Forms.TextBox()
@@ -68,12 +69,15 @@ Partial Class frmMainMenu
         Me.txtApellidoMCliente = New System.Windows.Forms.TextBox()
         Me.txtNombreMCliente = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
+        Me.btnTelefonosMCliente = New System.Windows.Forms.Button()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label100 = New System.Windows.Forms.Label()
         Me.txtDocumMCliente = New System.Windows.Forms.TextBox()
         Me.btnModificarCliente = New System.Windows.Forms.Button()
+        Me.lblAyudaTelefono = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.pnlFClientes = New System.Windows.Forms.Panel()
         Me.Label107 = New System.Windows.Forms.Label()
@@ -111,7 +115,7 @@ Partial Class frmMainMenu
         Me.mes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.telefonos = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.pnlACliente = New System.Windows.Forms.Panel()
+        Me.pnlAClientes = New System.Windows.Forms.Panel()
         Me.gbxFecNacACliente = New System.Windows.Forms.GroupBox()
         Me.cbxAnioNACliente = New System.Windows.Forms.ComboBox()
         Me.cbxMesNACliente = New System.Windows.Forms.ComboBox()
@@ -425,10 +429,6 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.bgwProcesoSegundoPlano = New System.ComponentModel.BackgroundWorker()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -436,13 +436,13 @@ Partial Class frmMainMenu
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpClientes.SuspendLayout()
-        Me.pnlBajaCliente.SuspendLayout()
-        Me.pnlMCliente.SuspendLayout()
+        Me.pnlBClientes.SuspendLayout()
+        Me.pnlMClientes.SuspendLayout()
         Me.gbxFecNacMCliente.SuspendLayout()
         Me.pnlFClientes.SuspendLayout()
         Me.gbxFecNacFCliente.SuspendLayout()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlACliente.SuspendLayout()
+        Me.pnlAClientes.SuspendLayout()
         Me.gbxFecNacACliente.SuspendLayout()
         Me.tbpVehiculos.SuspendLayout()
         CType(Me.dgvVehiculos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -697,11 +697,11 @@ Partial Class frmMainMenu
         'tbpClientes
         '
         Me.tbpClientes.BackColor = System.Drawing.Color.Silver
-        Me.tbpClientes.Controls.Add(Me.pnlBajaCliente)
-        Me.tbpClientes.Controls.Add(Me.pnlMCliente)
+        Me.tbpClientes.Controls.Add(Me.pnlBClientes)
+        Me.tbpClientes.Controls.Add(Me.pnlMClientes)
         Me.tbpClientes.Controls.Add(Me.pnlFClientes)
         Me.tbpClientes.Controls.Add(Me.dgvClientes)
-        Me.tbpClientes.Controls.Add(Me.pnlACliente)
+        Me.tbpClientes.Controls.Add(Me.pnlAClientes)
         Me.tbpClientes.Location = New System.Drawing.Point(4, 25)
         Me.tbpClientes.Margin = New System.Windows.Forms.Padding(0)
         Me.tbpClientes.Name = "tbpClientes"
@@ -710,37 +710,37 @@ Partial Class frmMainMenu
         Me.tbpClientes.TabIndex = 1
         Me.tbpClientes.Text = "Clientes"
         '
-        'pnlBajaCliente
+        'pnlBClientes
         '
-        Me.pnlBajaCliente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.pnlBClientes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlBajaCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlBajaCliente.Controls.Add(Me.Button2)
-        Me.pnlBajaCliente.Controls.Add(Me.Label79)
-        Me.pnlBajaCliente.Controls.Add(Me.Label80)
-        Me.pnlBajaCliente.Controls.Add(Me.txtDocumentoBCliente)
-        Me.pnlBajaCliente.Location = New System.Drawing.Point(789, 634)
-        Me.pnlBajaCliente.Name = "pnlBajaCliente"
-        Me.pnlBajaCliente.Size = New System.Drawing.Size(578, 190)
-        Me.pnlBajaCliente.TabIndex = 40
+        Me.pnlBClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlBClientes.Controls.Add(Me.btnBajaCliente)
+        Me.pnlBClientes.Controls.Add(Me.Label79)
+        Me.pnlBClientes.Controls.Add(Me.Label80)
+        Me.pnlBClientes.Controls.Add(Me.txtDocumentoBCliente)
+        Me.pnlBClientes.Location = New System.Drawing.Point(789, 647)
+        Me.pnlBClientes.Name = "pnlBClientes"
+        Me.pnlBClientes.Size = New System.Drawing.Size(578, 177)
+        Me.pnlBClientes.TabIndex = 40
         '
-        'Button2
+        'btnBajaCliente
         '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(469, 148)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(99, 31)
-        Me.Button2.TabIndex = 18
-        Me.Button2.Text = "Actualizar"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnBajaCliente.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBajaCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnBajaCliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnBajaCliente.FlatAppearance.BorderSize = 0
+        Me.btnBajaCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnBajaCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnBajaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBajaCliente.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBajaCliente.ForeColor = System.Drawing.Color.White
+        Me.btnBajaCliente.Location = New System.Drawing.Point(469, 135)
+        Me.btnBajaCliente.Name = "btnBajaCliente"
+        Me.btnBajaCliente.Size = New System.Drawing.Size(99, 31)
+        Me.btnBajaCliente.TabIndex = 18
+        Me.btnBajaCliente.Text = "Actualizar"
+        Me.btnBajaCliente.UseVisualStyleBackColor = False
         '
         'Label79
         '
@@ -771,33 +771,34 @@ Partial Class frmMainMenu
         Me.txtDocumentoBCliente.Size = New System.Drawing.Size(100, 20)
         Me.txtDocumentoBCliente.TabIndex = 22
         '
-        'pnlMCliente
+        'pnlMClientes
         '
-        Me.pnlMCliente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.pnlMClientes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlMCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlMCliente.Controls.Add(Me.gbxFecNacMCliente)
-        Me.pnlMCliente.Controls.Add(Me.ComboBox1)
-        Me.pnlMCliente.Controls.Add(Me.cbxTipoDocumMCliente)
-        Me.pnlMCliente.Controls.Add(Me.Label21)
-        Me.pnlMCliente.Controls.Add(Me.txtEmpresaMCliente)
-        Me.pnlMCliente.Controls.Add(Me.txtCorreoMCliente)
-        Me.pnlMCliente.Controls.Add(Me.txtApellidoMCliente)
-        Me.pnlMCliente.Controls.Add(Me.txtNombreMCliente)
-        Me.pnlMCliente.Controls.Add(Me.Label23)
-        Me.pnlMCliente.Controls.Add(Me.Button7)
-        Me.pnlMCliente.Controls.Add(Me.Label24)
-        Me.pnlMCliente.Controls.Add(Me.Label25)
-        Me.pnlMCliente.Controls.Add(Me.Label28)
-        Me.pnlMCliente.Controls.Add(Me.Label100)
-        Me.pnlMCliente.Controls.Add(Me.txtDocumMCliente)
-        Me.pnlMCliente.Controls.Add(Me.btnModificarCliente)
-        Me.pnlMCliente.Controls.Add(Me.Label19)
-        Me.pnlMCliente.Controls.Add(Me.Label85)
-        Me.pnlMCliente.Location = New System.Drawing.Point(789, 431)
-        Me.pnlMCliente.Name = "pnlMCliente"
-        Me.pnlMCliente.Size = New System.Drawing.Size(579, 198)
-        Me.pnlMCliente.TabIndex = 41
+        Me.pnlMClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlMClientes.Controls.Add(Me.gbxFecNacMCliente)
+        Me.pnlMClientes.Controls.Add(Me.cbxTelefonosMCliente)
+        Me.pnlMClientes.Controls.Add(Me.cbxTipoDocumMCliente)
+        Me.pnlMClientes.Controls.Add(Me.Label21)
+        Me.pnlMClientes.Controls.Add(Me.txtEmpresaMCliente)
+        Me.pnlMClientes.Controls.Add(Me.txtCorreoMCliente)
+        Me.pnlMClientes.Controls.Add(Me.txtApellidoMCliente)
+        Me.pnlMClientes.Controls.Add(Me.txtNombreMCliente)
+        Me.pnlMClientes.Controls.Add(Me.Label23)
+        Me.pnlMClientes.Controls.Add(Me.btnTelefonosMCliente)
+        Me.pnlMClientes.Controls.Add(Me.Label24)
+        Me.pnlMClientes.Controls.Add(Me.Label25)
+        Me.pnlMClientes.Controls.Add(Me.Label28)
+        Me.pnlMClientes.Controls.Add(Me.Label100)
+        Me.pnlMClientes.Controls.Add(Me.txtDocumMCliente)
+        Me.pnlMClientes.Controls.Add(Me.btnModificarCliente)
+        Me.pnlMClientes.Controls.Add(Me.lblAyudaTelefono)
+        Me.pnlMClientes.Controls.Add(Me.Label19)
+        Me.pnlMClientes.Controls.Add(Me.Label85)
+        Me.pnlMClientes.Location = New System.Drawing.Point(789, 431)
+        Me.pnlMClientes.Name = "pnlMClientes"
+        Me.pnlMClientes.Size = New System.Drawing.Size(579, 210)
+        Me.pnlMClientes.TabIndex = 41
         '
         'gbxFecNacMCliente
         '
@@ -807,7 +808,7 @@ Partial Class frmMainMenu
         Me.gbxFecNacMCliente.Controls.Add(Me.cbxDiaNMCliente)
         Me.gbxFecNacMCliente.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.gbxFecNacMCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.gbxFecNacMCliente.Location = New System.Drawing.Point(236, 112)
+        Me.gbxFecNacMCliente.Location = New System.Drawing.Point(405, 102)
         Me.gbxFecNacMCliente.Name = "gbxFecNacMCliente"
         Me.gbxFecNacMCliente.Size = New System.Drawing.Size(163, 51)
         Me.gbxFecNacMCliente.TabIndex = 44
@@ -852,13 +853,22 @@ Partial Class frmMainMenu
         Me.cbxDiaNMCliente.Size = New System.Drawing.Size(43, 21)
         Me.cbxDiaNMCliente.TabIndex = 39
         '
+        'cbxTelefonosMCliente
+        '
+        Me.cbxTelefonosMCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTelefonosMCliente.FormattingEnabled = True
+        Me.cbxTelefonosMCliente.Location = New System.Drawing.Point(145, 121)
+        Me.cbxTelefonosMCliente.Name = "cbxTelefonosMCliente"
+        Me.cbxTelefonosMCliente.Size = New System.Drawing.Size(101, 21)
+        Me.cbxTelefonosMCliente.TabIndex = 42
+        '
         'cbxTipoDocumMCliente
         '
         Me.cbxTipoDocumMCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipoDocumMCliente.FormattingEnabled = True
         Me.cbxTipoDocumMCliente.Location = New System.Drawing.Point(14, 71)
         Me.cbxTipoDocumMCliente.Name = "cbxTipoDocumMCliente"
-        Me.cbxTipoDocumMCliente.Size = New System.Drawing.Size(101, 21)
+        Me.cbxTipoDocumMCliente.Size = New System.Drawing.Size(124, 21)
         Me.cbxTipoDocumMCliente.TabIndex = 62
         '
         'Label21
@@ -866,7 +876,7 @@ Partial Class frmMainMenu
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label21.Location = New System.Drawing.Point(123, 112)
+        Me.Label21.Location = New System.Drawing.Point(273, 102)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(58, 17)
         Me.Label21.TabIndex = 61
@@ -875,30 +885,30 @@ Partial Class frmMainMenu
         '
         'txtEmpresaMCliente
         '
-        Me.txtEmpresaMCliente.Location = New System.Drawing.Point(125, 132)
+        Me.txtEmpresaMCliente.Location = New System.Drawing.Point(275, 121)
         Me.txtEmpresaMCliente.Name = "txtEmpresaMCliente"
-        Me.txtEmpresaMCliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtEmpresaMCliente.Size = New System.Drawing.Size(124, 20)
         Me.txtEmpresaMCliente.TabIndex = 60
         '
         'txtCorreoMCliente
         '
-        Me.txtCorreoMCliente.Location = New System.Drawing.Point(13, 132)
+        Me.txtCorreoMCliente.Location = New System.Drawing.Point(14, 122)
         Me.txtCorreoMCliente.Name = "txtCorreoMCliente"
-        Me.txtCorreoMCliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtCorreoMCliente.Size = New System.Drawing.Size(126, 20)
         Me.txtCorreoMCliente.TabIndex = 58
         '
         'txtApellidoMCliente
         '
-        Me.txtApellidoMCliente.Location = New System.Drawing.Point(344, 70)
+        Me.txtApellidoMCliente.Location = New System.Drawing.Point(405, 72)
         Me.txtApellidoMCliente.Name = "txtApellidoMCliente"
-        Me.txtApellidoMCliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtApellidoMCliente.Size = New System.Drawing.Size(125, 20)
         Me.txtApellidoMCliente.TabIndex = 57
         '
         'txtNombreMCliente
         '
-        Me.txtNombreMCliente.Location = New System.Drawing.Point(233, 71)
+        Me.txtNombreMCliente.Location = New System.Drawing.Point(275, 72)
         Me.txtNombreMCliente.Name = "txtNombreMCliente"
-        Me.txtNombreMCliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtNombreMCliente.Size = New System.Drawing.Size(125, 20)
         Me.txtNombreMCliente.TabIndex = 56
         '
         'Label23
@@ -906,18 +916,36 @@ Partial Class frmMainMenu
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label23.Location = New System.Drawing.Point(11, 112)
+        Me.Label23.Location = New System.Drawing.Point(12, 102)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(49, 17)
         Me.Label23.TabIndex = 53
         Me.Label23.Text = "Correo"
+        '
+        'btnTelefonosMCliente
+        '
+        Me.btnTelefonosMCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnTelefonosMCliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnTelefonosMCliente.FlatAppearance.BorderSize = 0
+        Me.btnTelefonosMCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnTelefonosMCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnTelefonosMCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTelefonosMCliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
+        Me.btnTelefonosMCliente.ForeColor = System.Drawing.Color.White
+        Me.btnTelefonosMCliente.Location = New System.Drawing.Point(249, 123)
+        Me.btnTelefonosMCliente.Name = "btnTelefonosMCliente"
+        Me.btnTelefonosMCliente.Size = New System.Drawing.Size(18, 18)
+        Me.btnTelefonosMCliente.TabIndex = 18
+        Me.btnTelefonosMCliente.Text = "+"
+        Me.btnTelefonosMCliente.UseCompatibleTextRendering = True
+        Me.btnTelefonosMCliente.UseVisualStyleBackColor = False
         '
         'Label24
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label24.Location = New System.Drawing.Point(341, 50)
+        Me.Label24.Location = New System.Drawing.Point(402, 52)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(58, 17)
         Me.Label24.TabIndex = 52
@@ -928,7 +956,7 @@ Partial Class frmMainMenu
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label25.Location = New System.Drawing.Point(230, 50)
+        Me.Label25.Location = New System.Drawing.Point(272, 52)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(56, 17)
         Me.Label25.TabIndex = 51
@@ -951,7 +979,7 @@ Partial Class frmMainMenu
         Me.Label100.AutoSize = True
         Me.Label100.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label100.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label100.Location = New System.Drawing.Point(120, 50)
+        Me.Label100.Location = New System.Drawing.Point(141, 50)
         Me.Label100.Name = "Label100"
         Me.Label100.Size = New System.Drawing.Size(103, 17)
         Me.Label100.TabIndex = 44
@@ -959,15 +987,16 @@ Partial Class frmMainMenu
         '
         'txtDocumMCliente
         '
-        Me.txtDocumMCliente.Location = New System.Drawing.Point(126, 71)
+        Me.txtDocumMCliente.Location = New System.Drawing.Point(144, 72)
         Me.txtDocumMCliente.Name = "txtDocumMCliente"
-        Me.txtDocumMCliente.Size = New System.Drawing.Size(100, 20)
+        Me.txtDocumMCliente.Size = New System.Drawing.Size(125, 20)
         Me.txtDocumMCliente.TabIndex = 43
         '
         'btnModificarCliente
         '
         Me.btnModificarCliente.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnModificarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModificarCliente.Enabled = False
         Me.btnModificarCliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
         Me.btnModificarCliente.FlatAppearance.BorderSize = 0
         Me.btnModificarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
@@ -975,12 +1004,33 @@ Partial Class frmMainMenu
         Me.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificarCliente.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificarCliente.ForeColor = System.Drawing.Color.White
-        Me.btnModificarCliente.Location = New System.Drawing.Point(470, 159)
+        Me.btnModificarCliente.Location = New System.Drawing.Point(456, 159)
         Me.btnModificarCliente.Name = "btnModificarCliente"
         Me.btnModificarCliente.Size = New System.Drawing.Size(99, 31)
         Me.btnModificarCliente.TabIndex = 18
         Me.btnModificarCliente.Text = "Modificar"
         Me.btnModificarCliente.UseVisualStyleBackColor = False
+        '
+        'lblAyudaTelefono
+        '
+        Me.lblAyudaTelefono.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAyudaTelefono.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblAyudaTelefono.Location = New System.Drawing.Point(124, 145)
+        Me.lblAyudaTelefono.Name = "lblAyudaTelefono"
+        Me.lblAyudaTelefono.Size = New System.Drawing.Size(170, 33)
+        Me.lblAyudaTelefono.TabIndex = 25
+        Me.lblAyudaTelefono.Text = "Presione el botón para cargar los telefonos de este cliente." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label19.Location = New System.Drawing.Point(143, 101)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(78, 17)
+        Me.Label19.TabIndex = 25
+        Me.Label19.Text = "Teléfono/s *"
         '
         'Label85
         '
@@ -1051,7 +1101,7 @@ Partial Class frmMainMenu
         Me.gbxFecNacFCliente.Enabled = False
         Me.gbxFecNacFCliente.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.gbxFecNacFCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(104, 147)
+        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(279, 99)
         Me.gbxFecNacFCliente.Name = "gbxFecNacFCliente"
         Me.gbxFecNacFCliente.Size = New System.Drawing.Size(163, 51)
         Me.gbxFecNacFCliente.TabIndex = 42
@@ -1373,35 +1423,35 @@ Partial Class frmMainMenu
         Me.telefonos.Text = "Ver"
         Me.telefonos.UseColumnTextForButtonValue = True
         '
-        'pnlACliente
+        'pnlAClientes
         '
-        Me.pnlACliente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.pnlAClientes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlACliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlACliente.Controls.Add(Me.gbxFecNacACliente)
-        Me.pnlACliente.Controls.Add(Me.cbxTelefonosACliente)
-        Me.pnlACliente.Controls.Add(Me.cbxTipoDocumACliente)
-        Me.pnlACliente.Controls.Add(Me.Label115)
-        Me.pnlACliente.Controls.Add(Me.txtEmpresaACliente)
-        Me.pnlACliente.Controls.Add(Me.txtCorreoACliente)
-        Me.pnlACliente.Controls.Add(Me.txtApellidoACliente)
-        Me.pnlACliente.Controls.Add(Me.txtNombreACliente)
-        Me.pnlACliente.Controls.Add(Me.txtDocumACliente)
-        Me.pnlACliente.Controls.Add(Me.btnAgregarTelefonosACliente)
-        Me.pnlACliente.Controls.Add(Me.btnIngresarACliente)
-        Me.pnlACliente.Controls.Add(Me.Label93)
-        Me.pnlACliente.Controls.Add(Me.Label94)
-        Me.pnlACliente.Controls.Add(Me.Label95)
-        Me.pnlACliente.Controls.Add(Me.Label96)
-        Me.pnlACliente.Controls.Add(Me.Label22)
-        Me.pnlACliente.Controls.Add(Me.Label97)
-        Me.pnlACliente.Controls.Add(Me.Label98)
-        Me.pnlACliente.Controls.Add(Me.Label99)
-        Me.pnlACliente.Location = New System.Drawing.Point(789, 215)
-        Me.pnlACliente.Name = "pnlACliente"
-        Me.pnlACliente.Size = New System.Drawing.Size(578, 210)
-        Me.pnlACliente.TabIndex = 38
+        Me.pnlAClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlAClientes.Controls.Add(Me.gbxFecNacACliente)
+        Me.pnlAClientes.Controls.Add(Me.cbxTelefonosACliente)
+        Me.pnlAClientes.Controls.Add(Me.cbxTipoDocumACliente)
+        Me.pnlAClientes.Controls.Add(Me.Label115)
+        Me.pnlAClientes.Controls.Add(Me.txtEmpresaACliente)
+        Me.pnlAClientes.Controls.Add(Me.txtCorreoACliente)
+        Me.pnlAClientes.Controls.Add(Me.txtApellidoACliente)
+        Me.pnlAClientes.Controls.Add(Me.txtNombreACliente)
+        Me.pnlAClientes.Controls.Add(Me.txtDocumACliente)
+        Me.pnlAClientes.Controls.Add(Me.btnAgregarTelefonosACliente)
+        Me.pnlAClientes.Controls.Add(Me.btnIngresarACliente)
+        Me.pnlAClientes.Controls.Add(Me.Label93)
+        Me.pnlAClientes.Controls.Add(Me.Label94)
+        Me.pnlAClientes.Controls.Add(Me.Label95)
+        Me.pnlAClientes.Controls.Add(Me.Label96)
+        Me.pnlAClientes.Controls.Add(Me.Label22)
+        Me.pnlAClientes.Controls.Add(Me.Label97)
+        Me.pnlAClientes.Controls.Add(Me.Label98)
+        Me.pnlAClientes.Controls.Add(Me.Label99)
+        Me.pnlAClientes.Location = New System.Drawing.Point(789, 215)
+        Me.pnlAClientes.Name = "pnlAClientes"
+        Me.pnlAClientes.Size = New System.Drawing.Size(578, 210)
+        Me.pnlAClientes.TabIndex = 38
         '
         'gbxFecNacACliente
         '
@@ -1411,7 +1461,7 @@ Partial Class frmMainMenu
         Me.gbxFecNacACliente.Controls.Add(Me.cbxDiaNACliente)
         Me.gbxFecNacACliente.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.gbxFecNacACliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.gbxFecNacACliente.Location = New System.Drawing.Point(405, 99)
+        Me.gbxFecNacACliente.Location = New System.Drawing.Point(405, 102)
         Me.gbxFecNacACliente.Name = "gbxFecNacACliente"
         Me.gbxFecNacACliente.Size = New System.Drawing.Size(163, 51)
         Me.gbxFecNacACliente.TabIndex = 43
@@ -1531,7 +1581,7 @@ Partial Class frmMainMenu
         Me.btnAgregarTelefonosACliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarTelefonosACliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
         Me.btnAgregarTelefonosACliente.ForeColor = System.Drawing.Color.White
-        Me.btnAgregarTelefonosACliente.Location = New System.Drawing.Point(249, 119)
+        Me.btnAgregarTelefonosACliente.Location = New System.Drawing.Point(249, 120)
         Me.btnAgregarTelefonosACliente.Name = "btnAgregarTelefonosACliente"
         Me.btnAgregarTelefonosACliente.Size = New System.Drawing.Size(18, 18)
         Me.btnAgregarTelefonosACliente.TabIndex = 18
@@ -5030,48 +5080,6 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'bgwProcesoSegundoPlano
-        '
-        Me.bgwProcesoSegundoPlano.WorkerSupportsCancellation = True
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label19.Location = New System.Drawing.Point(447, 47)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(78, 17)
-        Me.Label19.TabIndex = 25
-        Me.Label19.Text = "Teléfono/s *"
-        '
-        'Button7
-        '
-        Me.Button7.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button7.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button7.FlatAppearance.BorderSize = 0
-        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Font = New System.Drawing.Font("Century Gothic", 8.5!)
-        Me.Button7.ForeColor = System.Drawing.Color.White
-        Me.Button7.Location = New System.Drawing.Point(556, 68)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(18, 18)
-        Me.Button7.TabIndex = 18
-        Me.Button7.Text = "+"
-        Me.Button7.UseCompatibleTextRendering = True
-        Me.Button7.UseVisualStyleBackColor = False
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(450, 67)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(101, 21)
-        Me.ComboBox1.TabIndex = 42
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5089,7 +5097,9 @@ Partial Class frmMainMenu
         Me.MainMenuStrip = Me.mstMenuStrip
         Me.MinimumSize = New System.Drawing.Size(1024, 768)
         Me.Name = "frmMainMenu"
+        Me.Opacity = 0R
         Me.Text = "Car Solutioner"
+        Me.TransparencyKey = System.Drawing.Color.Magenta
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.mstMenuStrip.ResumeLayout(False)
         Me.mstMenuStrip.PerformLayout()
@@ -5099,17 +5109,17 @@ Partial Class frmMainMenu
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpClientes.ResumeLayout(False)
-        Me.pnlBajaCliente.ResumeLayout(False)
-        Me.pnlBajaCliente.PerformLayout()
-        Me.pnlMCliente.ResumeLayout(False)
-        Me.pnlMCliente.PerformLayout()
+        Me.pnlBClientes.ResumeLayout(False)
+        Me.pnlBClientes.PerformLayout()
+        Me.pnlMClientes.ResumeLayout(False)
+        Me.pnlMClientes.PerformLayout()
         Me.gbxFecNacMCliente.ResumeLayout(False)
         Me.pnlFClientes.ResumeLayout(False)
         Me.pnlFClientes.PerformLayout()
         Me.gbxFecNacFCliente.ResumeLayout(False)
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlACliente.ResumeLayout(False)
-        Me.pnlACliente.PerformLayout()
+        Me.pnlAClientes.ResumeLayout(False)
+        Me.pnlAClientes.PerformLayout()
         Me.gbxFecNacACliente.ResumeLayout(False)
         Me.tbpVehiculos.ResumeLayout(False)
         CType(Me.dgvVehiculos, System.ComponentModel.ISupportInitialize).EndInit()
@@ -5283,15 +5293,14 @@ Partial Class frmMainMenu
     Friend WithEvents Label76 As Label
     Friend WithEvents TextBox15 As TextBox
     Friend WithEvents btnCerrar As Button
-    Friend WithEvents pnlBajaCliente As Panel
-    Friend WithEvents Button2 As Button
+    Friend WithEvents pnlBClientes As Panel
+    Friend WithEvents btnBajaCliente As Button
     Friend WithEvents Label79 As Label
     Friend WithEvents Label80 As Label
     Friend WithEvents txtDocumentoBCliente As TextBox
-    Friend WithEvents pnlMCliente As Panel
+    Friend WithEvents pnlMClientes As Panel
     Friend WithEvents Label100 As Label
     Friend WithEvents txtDocumMCliente As TextBox
-    Friend WithEvents btnModificarCliente As Button
     Friend WithEvents Label85 As Label
     Friend WithEvents pnlFClientes As Panel
     Friend WithEvents btnVaciarFClientes As Button
@@ -5307,7 +5316,7 @@ Partial Class frmMainMenu
     Friend WithEvents txtApellidoFClientes As TextBox
     Friend WithEvents txtNombreFClientes As TextBox
     Friend WithEvents dgvClientes As DataGridView
-    Friend WithEvents pnlACliente As Panel
+    Friend WithEvents pnlAClientes As Panel
     Friend WithEvents btnIngresarACliente As Button
     Friend WithEvents Label93 As Label
     Friend WithEvents Label94 As Label
@@ -5553,8 +5562,9 @@ Partial Class frmMainMenu
     Friend WithEvents telefonos As DataGridViewButtonColumn
     Friend WithEvents Label107 As Label
     Friend WithEvents Label109 As Label
-    Friend WithEvents bgwProcesoSegundoPlano As System.ComponentModel.BackgroundWorker
     Friend WithEvents Label19 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Button7 As Button
+    Friend WithEvents cbxTelefonosMCliente As ComboBox
+    Friend WithEvents btnTelefonosMCliente As Button
+    Friend WithEvents lblAyudaTelefono As Label
+    Friend WithEvents btnModificarCliente As Button
 End Class

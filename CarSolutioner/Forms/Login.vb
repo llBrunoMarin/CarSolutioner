@@ -4,25 +4,36 @@ Imports System.Windows.Forms.Integration
 Public Class Login
 
     Public conexion As New ConnectionBD
+
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        pboxLoading.Hide()
 
     End Sub
 
-
-    Private Sub tmrTimer_Tick(sender As Object, e As EventArgs) Handles tmrTimer.Tick
-
-        'Controla el mensaje de Mayúsculas activadas
-        If My.Computer.Keyboard.CapsLock = True Then
-            lblmayus.Visible = True
-        Else
-            lblmayus.Visible = False
-        End If
-    End Sub
 
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
+        Loading()
+        'Las operaciones que tienen que ver con el login, las hacemos en SEGUNDO PLANO (para que no laguee interfaz)
+        bgwLogin.RunWorkerAsync()
+
+    End Sub
+
+    Private Sub Loading()
+
+        'ACÁ PONER EL CÓDIGO DE LAS COSAS QUE VAN A CAMBIAR CUANDO SE EMPIEZE A CARGAR ALGO
+        pboxLoading.Show()
+        Me.BackColor = Color.Red
+
+    End Sub
+
+
+    'Hacer operaciones de LOGIN, establece el Tipo de Usuario una vez que termina. Si termina con un error, establece el tipo de usuario según el error.
+    Private Sub bgwLogin_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwLogin.DoWork
+
+        conexion.TipoUsuario = Nothing
 
         If Not (txtContraseña.Text = "" Or txtUsuario.Text = "") Then
 
@@ -42,8 +53,7 @@ Public Class Login
                     Select Case tipousuario.Rows(0).Item(0)
 
                         Case 1
-                            Me.Hide()
-                            frmMainMenu.Show()
+                            conexion.TipoUsuario = 1
 
                         Case 2
                             Me.Hide()
@@ -61,20 +71,58 @@ Public Class Login
 
                 Catch ex As IndexOutOfRangeException
 
-                    MsgBox("Tu usuario parece no tener un tipo asignado. Contáctate con el técnico de la empresa para que así sea.", MsgBoxStyle.Information, "Datos Incorrectos")
+                    conexion.TipoUsuario = "Error"
 
                 End Try
 
             End If
 
         Else
-
-            MsgBox("Usuario y/o Contraseña incorrectos.", MsgBoxStyle.Information, "Datos Incorrectos")
-
+            conexion.TipoUsuario = "Vacio"
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
+    'Este código se ejecuta solamente cuando el método "DoWork" termina de ejecutarse.
+    Private Sub bgwLogin_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bgwLogin.RunWorkerCompleted
+
+        'Según como haya quedado el tipo de Usuario:
+        Select Case conexion.TipoUsuario
+
+            Case 1
+                frmMainMenu.Show()
+            Case 2
+
+            Case 3
+
+            Case 4
+
+            Case "Error"
+
+                MsgBox("Tu usuario parece no tener un tipo asignado. Contáctate con el técnico de la empresa para que así sea.", MsgBoxStyle.Information, "Datos Incorrectos")
+                'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
+                pboxLoading.Hide()
+                Me.BackColor = Color.Silver
+
+            Case "Vacio"
+                MsgBox("No dejes ningún campo vacío, por favor.", MsgBoxStyle.Information, "Datos Incorrectos")
+                'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
+                pboxLoading.Hide()
+                Me.BackColor = Color.Silver
+
+            Case Else
+                'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
+                pboxLoading.Hide()
+                Me.BackColor = Color.Silver
+
+        End Select
+    End Sub
+
+
+    Private Sub lblInvitado_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        'MainMenuInvitado.Show()
+    End Sub
+
+    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
         Me.Dispose()
     End Sub
 
@@ -82,14 +130,14 @@ Public Class Login
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub login_Enter(sender As Object, e As KeyEventArgs) Handles txtContraseña.KeyDown, txtUsuario.KeyDown
-        If (e.KeyValue = Keys.Enter) Then
-            Call Sub() btnLogin_Click(btnLogin, e)
-            e.SuppressKeyPress = True
-        End If
-    End Sub
+    Private Sub tmrTimer_Tick(sender As Object, e As EventArgs) Handles tmrTimer.Tick
 
-    Private Sub lblInvitado_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        'MainMenuInvitado.Show()
+        'Controla el mensaje de Mayúsculas activadas
+        If My.Computer.Keyboard.CapsLock = True Then
+            lblmayus.Visible = True
+        Else
+            lblmayus.Visible = False
+        End If
+
     End Sub
 End Class

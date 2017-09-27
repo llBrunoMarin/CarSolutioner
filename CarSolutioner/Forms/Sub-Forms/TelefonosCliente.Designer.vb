@@ -22,18 +22,19 @@ Partial Class frmTelefonosCliente
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTelefonosCliente))
         Me.dgvTelefonos = New System.Windows.Forms.DataGridView()
         Me.telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblAyuda = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblNombrePersona = New System.Windows.Forms.Label()
         Me.btnCerrar = New System.Windows.Forms.Button()
-        Me.btnAgregarTelefonos = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.lblNombrePersona = New System.Windows.Forms.Label()
+        Me.btnModificar = New System.Windows.Forms.Button()
         CType(Me.dgvTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -52,8 +53,8 @@ Partial Class frmTelefonosCliente
         Me.dgvTelefonos.Name = "dgvTelefonos"
         Me.dgvTelefonos.RowHeadersVisible = False
         Me.dgvTelefonos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvTelefonos.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvTelefonos.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvTelefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvTelefonos.Size = New System.Drawing.Size(163, 131)
         Me.dgvTelefonos.TabIndex = 0
@@ -85,6 +86,16 @@ Partial Class frmTelefonosCliente
         Me.Panel1.Size = New System.Drawing.Size(284, 30)
         Me.Panel1.TabIndex = 33
         '
+        'lblNombrePersona
+        '
+        Me.lblNombrePersona.AutoSize = True
+        Me.lblNombrePersona.ForeColor = System.Drawing.Color.White
+        Me.lblNombrePersona.Location = New System.Drawing.Point(9, 8)
+        Me.lblNombrePersona.Name = "lblNombrePersona"
+        Me.lblNombrePersona.Size = New System.Drawing.Size(75, 13)
+        Me.lblNombrePersona.TabIndex = 30
+        Me.lblNombrePersona.Text = "Teléfonos de: "
+        '
         'btnCerrar
         '
         Me.btnCerrar.BackColor = System.Drawing.Color.Transparent
@@ -100,23 +111,23 @@ Partial Class frmTelefonosCliente
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False
         '
-        'btnAgregarTelefonos
+        'btnAgregar
         '
-        Me.btnAgregarTelefonos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAgregarTelefonos.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnAgregarTelefonos.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnAgregarTelefonos.FlatAppearance.BorderSize = 0
-        Me.btnAgregarTelefonos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnAgregarTelefonos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnAgregarTelefonos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarTelefonos.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregarTelefonos.ForeColor = System.Drawing.Color.White
-        Me.btnAgregarTelefonos.Location = New System.Drawing.Point(181, 85)
-        Me.btnAgregarTelefonos.Name = "btnAgregarTelefonos"
-        Me.btnAgregarTelefonos.Size = New System.Drawing.Size(91, 30)
-        Me.btnAgregarTelefonos.TabIndex = 50
-        Me.btnAgregarTelefonos.Text = "Confirmar"
-        Me.btnAgregarTelefonos.UseVisualStyleBackColor = False
+        Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnAgregar.FlatAppearance.BorderSize = 0
+        Me.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregar.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.ForeColor = System.Drawing.Color.White
+        Me.btnAgregar.Location = New System.Drawing.Point(181, 85)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(91, 30)
+        Me.btnAgregar.TabIndex = 50
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'Panel7
         '
@@ -142,15 +153,23 @@ Partial Class frmTelefonosCliente
         Me.Panel3.Size = New System.Drawing.Size(283, 10)
         Me.Panel3.TabIndex = 51
         '
-        'lblNombrePersona
+        'btnModificar
         '
-        Me.lblNombrePersona.AutoSize = True
-        Me.lblNombrePersona.ForeColor = System.Drawing.Color.White
-        Me.lblNombrePersona.Location = New System.Drawing.Point(9, 8)
-        Me.lblNombrePersona.Name = "lblNombrePersona"
-        Me.lblNombrePersona.Size = New System.Drawing.Size(75, 13)
-        Me.lblNombrePersona.TabIndex = 30
-        Me.lblNombrePersona.Text = "Teléfonos de: "
+        Me.btnModificar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnModificar.FlatAppearance.BorderSize = 0
+        Me.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificar.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificar.ForeColor = System.Drawing.Color.White
+        Me.btnModificar.Location = New System.Drawing.Point(181, 121)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(91, 30)
+        Me.btnModificar.TabIndex = 50
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = False
         '
         'frmTelefonosCliente
         '
@@ -160,7 +179,8 @@ Partial Class frmTelefonosCliente
         Me.ClientSize = New System.Drawing.Size(284, 316)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.btnAgregarTelefonos)
+        Me.Controls.Add(Me.btnModificar)
+        Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.lblAyuda)
@@ -181,10 +201,11 @@ Partial Class frmTelefonosCliente
     Friend WithEvents lblAyuda As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnCerrar As Button
-    Friend WithEvents btnAgregarTelefonos As Button
+    Friend WithEvents btnAgregar As Button
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents telefono As DataGridViewTextBoxColumn
     Friend WithEvents lblNombrePersona As Label
+    Friend WithEvents btnModificar As Button
 End Class

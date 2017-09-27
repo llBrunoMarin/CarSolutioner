@@ -9,6 +9,7 @@
 
     Dim _Usuario As String = Nothing
     Dim _Contraseña As String = Nothing
+    Dim _TipoUsuario As String = Nothing
 
     Dim _Marcas As DataTable
     Dim _Modelos As DataTable
@@ -44,7 +45,14 @@
             _Contraseña = value
         End Set
     End Property
-
+    Public Property TipoUsuario As String
+        Get
+            Return _TipoUsuario
+        End Get
+        Set(value As String)
+            _TipoUsuario = value
+        End Set
+    End Property
     Public Property Modelos() As DataTable
         Get
             Return _Modelos
@@ -101,6 +109,8 @@
             _Años = value
         End Set
     End Property
+
+
 
 
 

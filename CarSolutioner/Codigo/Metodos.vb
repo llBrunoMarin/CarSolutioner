@@ -124,5 +124,27 @@
         cbx.DataSource = lt
 
     End Sub
+
+
+    Public Sub VaciarControl(con As Control)
+
+        Select Case con.GetType
+
+            Case GetType(TextBox)
+                DirectCast(con, TextBox).Text = Nothing
+
+            Case GetType(ComboBox)
+                DirectCast(con, ComboBox).SelectedItem = Nothing
+
+            Case GetType(NumericUpDown)
+                DirectCast(con, NumericUpDown).Value = 0
+
+            Case Else
+
+                Return
+
+        End Select
+
+    End Sub
 End Module
 

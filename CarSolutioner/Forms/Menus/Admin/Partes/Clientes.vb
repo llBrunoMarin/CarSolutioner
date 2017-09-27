@@ -57,7 +57,7 @@ Partial Public Class frmMainMenu
             sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 't' )",
                              cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, FechaSeleccionada, txtEmpresaACliente.Text)
 
-            If cbxTipoDocumACliente.SelectedText = "CI UY" Then
+            If cbxTipoDocumACliente.SelectedValue = 1 Then
 
                 'Si la cédula es válida
                 If VerificarCI(txtDocumACliente.Text) Then
@@ -112,24 +112,63 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub btnVaciarFClientes_Click(sender As Object, e As EventArgs) Handles btnVaciarFClientes.Click
+    Private Sub ModificarCliente(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
 
-        For Each control As Control In pnlFClientes.Controls
-            If TypeOf control Is TextBox Or TypeOf control Is NumericUpDown Then
-                control.Text = ""
+        Dim IdPersona As String = dgvClientes.CurrentRow.Cells("idpersona").Value.ToString()
+
+        If Not cbxTelefonosMCliente.Items.Count = 0 Then
+
+            If (IsDate(cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text)) Then
+
+                Dim FechaSeleccionada As String = cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text
+                conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "' WHERE idpersona = " + IdPersona + "")
+                RecargarDatos(dgvClientes)
+
+                Dim TelefonosPersona As New DataTable
+                TelefonosPersona = conexion.EjecutarSelect("SELECT idpersona, telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + "")
+
+                For Each telefono In cbxTelefonosMCliente.Items
+
+                    If TelefonosPersona.Select("telefono = " + telefono + "").Count = 0 Then
+                        conexion.EjecutarNonQuery("INSERT INTO TelefonoPersona VALUES (" + idpersona + ", '" + telefono + "')")
+                    Else
+                        conexion.EjecutarNonQuery("UPDATE ")
+                    End If
+
+                Next
+
+            Else
+                MsgBox("Por favor, ingrese una fecha válida.")
             End If
-        Next
+
+            MsgBox("Debe cargar los teléfonos de la persona antes de modificar sus datos.")
+        End If
+
 
     End Sub
 
-    Private Sub btnModificarCliente_Click(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
+    Private Sub BajaCliente(sender As Object, e As EventArgs) Handles btnBajaCliente.Click
 
-        If (IsDate(cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text)) Then
-            Dim FechaSeleccionada As String = cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text
-            conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "' WHERE idpersona = " + dgvClientes.CurrentRow.Cells("idpersona").Value.ToString() + "")
-            RecargarDatos(dgvClientes)
+        Dim Valores As New Dictionary(Of Boolean, String)
+        Valores.Add(True, "Activo")
+        Valores.Add(False, "Inactivo")
+
+        Dim Persona As New DataTable
+        Persona = conexion.EjecutarSelect("SELECT idpersona, estado FROM cliente where nrodocumento = '" + txtDocumentoBCliente.Text + "'")
+
+        'Si el cliente existe
+        If (Persona.Rows.Count <> 0) Then
+            Dim IdPersona As String = Persona.Rows(0)("idpersona").ToString()
+            Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
+            Dim NuevoEstado As Boolean = Not EstadoActual
+            If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
+
+                RecargarDatos(dgvClientes)
+                MsgBox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+            End If
         Else
-            MsgBox("Por favor, ingrese una fecha válida.")
+            MsgBox("Ese cliente no existe. Por favor, verifique.")
+
         End If
 
     End Sub
@@ -149,9 +188,10 @@ Partial Public Class frmMainMenu
             cbxAnioNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("anio").Value.ToString()
 
         End If
-
+        lblAyudaTelefono.Visible = True
 
     End Sub
+
 
     Private Sub VerTelefonos(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellContentClick
 
@@ -163,6 +203,7 @@ Partial Public Class frmMainMenu
 
             'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView
             Dim VerTelefonos As New frmTelefonosCliente("Ver", NombrePersona)
+
             conexion.RellenarDataGridView(VerTelefonos.dgvTelefonos, "SELECT telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + " ")
             VerTelefonos.ShowDialog()
 
@@ -170,15 +211,54 @@ Partial Public Class frmMainMenu
 
     End Sub
 
+    Private Sub VerTelefonosMCliente(sender As Object, e As EventArgs) Handles btnTelefonosMCliente.Click
+
+        Dim IdPersona As String = dgvClientes.CurrentRow.Cells("idpersona").Value.ToString
+        Dim NombrePersona As String = dgvClientes.CurrentRow.Cells("nombre").Value.ToString + " " + dgvClientes.CurrentRow.Cells("apellido").Value.ToString
+
+        'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView, pero los borra de la BD (ya que serán ingresados nuevamente con (o sin) modificaciones)
+        Dim TelefonosPersona As New DataTable
+        Dim ListaTelefonos As New List(Of String)
+
+        TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + " ")
+
+        'Cargamos en una lista los teléfonos para no perderlos una vez que los borremos.
+        For Each rw As DataRow In TelefonosPersona.Rows
+            ListaTelefonos.Add(rw("telefono"))
+        Next
+
+        conexion.EjecutarNonQuery("DELETE FROM TelefonoPersona WHERE idpersona = " + IdPersona + "")
+
+        Dim ModificarTelefonos As New frmTelefonosCliente("Modificar", NombrePersona, ListaTelefonos)
+
+        If lblAyudaTelefono.Visible = True Then
+            lblAyudaTelefono.Visible = False
+        End If
+
+        ModificarTelefonos.ShowDialog()
+
+
+    End Sub
+
     Private Sub AgregarTelefonos(sender As Object, e As EventArgs) Handles btnAgregarTelefonosACliente.Click
 
         Dim ListaTelefonos As New List(Of String)
+
         For Each item In cbxTelefonosACliente.Items
             ListaTelefonos.Add(item.ToString)
         Next
 
-        Dim AgregarTelefonos As New frmTelefonosCliente(ListaTelefonos)
+        Dim AgregarTelefonos As New frmTelefonosCliente("Agregar", "", ListaTelefonos)
+
         AgregarTelefonos.ShowDialog()
+
+    End Sub
+
+    Private Sub btnVaciarFClientes_Click(sender As Object, e As EventArgs) Handles btnVaciarFClientes.Click
+
+        For Each control As Control In pnlFClientes.Controls
+            VaciarControl(control)
+        Next
 
     End Sub
 End Class

@@ -7,39 +7,55 @@
 
     End Sub
 
-    Public Sub New(ModoVista As String, Nombre As String)
+    Public Sub New(ModoVista As String, Nombre As String, Optional ListaTelefonos As List(Of String) = Nothing)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         'Si inicializamos el formulario como "Ver", nos mostrará solo el DataGridView, sin permitir edición.
-        'Sino, nos mostrará el DataGridView + el botón de Agregar, y nos permitirá editar.
-
-        If ModoVista = "Ver" Then
-            dgvTelefonos.Size = New Size(260, 237)
-            dgvTelefonos.ReadOnly = True
-            btnAgregarTelefonos.Visible = False
-            lblAyuda.Visible = False
-        End If
+        'Sino, nos mostrará el DataGridView + el botón de Agregar o Modificar, y nos permitirá editar.
 
         lblNombrePersona.Text = "Telefono de: " + Nombre
 
+        Select Case ModoVista
+            Case "Ver"
+                dgvTelefonos.Size = New Size(260, 237)
+                dgvTelefonos.ReadOnly = True
+                btnAgregar.Visible = False
+                btnModificar.Visible = False
+                lblAyuda.Visible = False
+                lblNombrePersona.Visible = True
+            Case "Agregar"
+                btnAgregar.Visible = True
+                btnModificar.Visible = False
+                lblNombrePersona.Visible = False
+                dgvTelefonos.AutoGenerateColumns = False
+                dgvTelefonos.ReadOnly = False
+                dgvTelefonos.Size = New Size(167, 131)
+                btnAgregar.Visible = True
 
-    End Sub
+                For Each item In ListaTelefonos
+                    dgvTelefonos.Rows.Add(item)
+                Next
+            Case "Modificar"
+                btnAgregar.Visible = False
+                btnModificar.Visible = True
+                lblNombrePersona.Visible = False
+                dgvTelefonos.AutoGenerateColumns = False
+                dgvTelefonos.ReadOnly = False
+                dgvTelefonos.Size = New Size(167, 131)
+                btnAgregar.Visible = True
 
-    Public Sub New(ListaTelefonos As List(Of String))
+                For Each item In ListaTelefonos
+                    dgvTelefonos.Rows.Add(item)
+                Next
 
-        ' This call is required by the designer.
-        InitializeComponent()
 
-        dgvTelefonos.AutoGenerateColumns = False
-        dgvTelefonos.ReadOnly = False
-        dgvTelefonos.Size = New Size(167, 131)
-        btnAgregarTelefonos.Visible = True
+            Case Else
 
-        For Each item In ListaTelefonos
-            dgvTelefonos.Rows.Add(item)
-        Next
+        End Select
+
+
     End Sub
 
     Private Sub dgvTelefonos_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgvTelefonos.EditingControlShowing
@@ -53,8 +69,7 @@
         End If
     End Sub
 
-    Private Sub AgregarTelefonos(sender As Object, e As EventArgs) Handles btnAgregarTelefonos.Click
-
+    Private Sub AgregarTelefonos(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim ListaTelefonos As New List(Of String)
 
         For Each rw As DataGridViewRow In dgvTelefonos.Rows
@@ -79,5 +94,25 @@
 
     Private Sub frmTelefonosCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+
+        Dim ListaTelefonos As New List(Of String)
+
+        For Each rw As DataGridViewRow In dgvTelefonos.Rows
+
+            If Not rw.Cells(0).Value Is Nothing Then
+
+
+                ListaTelefonos.Add(rw.Cells(0).Value.ToString())
+
+            End If
+
+        Next
+
+        frmMainMenu.cbxTelefonosMCliente.DataSource = ListaTelefonos
+
+        Me.Dispose()
     End Sub
 End Class

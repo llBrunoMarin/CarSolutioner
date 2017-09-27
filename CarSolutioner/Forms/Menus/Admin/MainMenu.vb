@@ -20,7 +20,7 @@ Public Class frmMainMenu
         'Hacemos toda la carga de datos
         CargarDatos()
 
-        cbxTipoDocumFCliente.SelectedItem = "Todos"
+        cbxTipoDocumFCliente.SelectedItem = Nothing
 
         cbxCategoriaFRes.SelectedItem = Nothing
         cbxCategoriaARes.SelectedItem = Nothing
@@ -159,6 +159,8 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre", "idcategoria")
 
+        'Los modelos se cargan en el apartado "Vehiculos".
+
         'SUCURSALES
         CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalAVeh, conexion.Sucursales, "nombre", "idsucursal")
@@ -178,7 +180,8 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxAnioNACliente, conexion.Años)
         CargarDatosComboBox(cbxAnioNMCliente, conexion.Años)
 
-        'Los modelos se cargan en el apartado "Vehiculos".
+
+
 
         Me.Opacity = 100
         Login.Hide()
@@ -191,15 +194,15 @@ Public Class frmMainMenu
 
             Case "dgvClientes"
                 dgvClientes.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvClientes, "SELECT Cliente.*, DAY(fecnac) dia, Doc.nombre tipodocumento, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE, Tipodocumento Doc WHERE estado = 't' AND Cliente.idtipodoc = Doc.idtipodoc")
-
+                conexion.RellenarDataGridView(dgvClientes, "SELECT DAY(fecnac) dia, Cliente.*, Doc.nombre tipodocumento, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE, Tipodocumento Doc WHERE estado = 't' AND Cliente.idtipodoc = Doc.idtipodoc")
+                dgvClientes.Columns("idpersona").Visible = False
 
             Case "dgvEmpleados"
                 conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.idpersona, Cliente.nrodocumento Documento, Cliente.nombre Nombre, Cliente.apellido Apellido, Cliente.email correo, empleado.usuario, empleado.tipo FROM EMPLEADO, CLIENTE WHERE Cliente.idpersona = Empleado.idpersona AND Empleado.estado = 't'")
                 dgvEmpleados.Columns("idpersona").Visible = False
 
             Case "dgvVehiculos"
-                conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Mo.nombre modelo, T.nombre tipo, C.nombre categoria, S.nombre sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
+                conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, Mo.idmarca, T.nombre tipo, T.idtipo, C.nombre categoria, C.idcategoria, S.nombre sucursal, S.idsucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
 
             Case "dgvReservas"
                 conexion.RellenarDataGridView(dgvReservas, "SELECT R.idreserva, R.idpersona, R.fechareservainicio Inicio, R.fechareservafin Fin, R.cantidadkm Cantidad_KM, R.costototal Costo, R.fechatramite Fecha_Tramite, Cl.nombre Nombre, Cl.apellido Apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal_Partida, SL.nombre Sucursal_Destino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.nrochasis IS NULL AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND R.estado = 1 ORDER BY Cl.nombre")
@@ -225,5 +228,6 @@ Public Class frmMainMenu
         End Select
 
     End Sub
+
 
 End Class

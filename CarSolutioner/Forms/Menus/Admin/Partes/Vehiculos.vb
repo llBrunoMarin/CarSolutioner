@@ -183,14 +183,16 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxCategoriaFVeh.SelectedValueChanged, cbxMarcaFVeh.SelectedValueChanged, cbxModeloFVeh.SelectedValueChanged, cbxTipoFVeh.SelectedValueChanged, cbxSucursalFVeh.SelectedValueChanged, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectedValueChanged, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectedValueChanged
+        If Not (sender.selectedValue Is Nothing) Then
 
-        Dim filtro As String
+            If Not (sender.SelectedValue.ToString = "System.Data.DataRowView") Then
+                Dim Filtro As String
+                Filtro = "nrochasis LIKE '%" + txtNroChasisFVeh.Text + "%' AND matricula LIKE '%" + txtMatriculaFVeh.Text + "%'" + TipoFiltro(cbxAireFVeh, "aire") + TipoFiltro(cbxAutomaticoFVeh, "automatico") + TipoFiltro(cbxMaletasFVeh, "maletas") + TipoFiltro(cbxPuertasFVeh, "puertas") + TipoFiltro(numPasajerosFVeh, "pasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxTipoFVeh, "idtipo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
 
-        filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} LIKE '%{11}%' AND {12} LIKE '%{13}%' {14}" + TipoFiltro(cbxAireFVeh, "aire") + TipoFiltro(cbxAutomaticoFVeh, "automatico") + TipoFiltro(cbxMaletasFVeh, "maletas") + TipoFiltro(cbxPuertasFVeh, "puertas") + TipoFiltro(numPasajerosFVeh, "pasajeros"),
-                               "nrochasis", txtNroChasisFVeh.Text, "matricula", txtMatriculaFVeh.Text, "categoria", cbxCategoriaFVeh.Text, "marca", cbxMarcaFVeh.Text, "modelo", cbxModeloFVeh.Text, "tipo", cbxTipoFVeh.Text, "sucursal", cbxSucursalFVeh.Text, If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", ""))
+                dgvVehiculos.DataSource.Filter = Filtro
+            End If
 
-        dgvVehiculos.DataSource.Filter = filtro
-
+        End If
 
 
     End Sub

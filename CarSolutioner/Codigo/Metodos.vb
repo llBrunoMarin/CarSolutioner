@@ -86,8 +86,8 @@
     Public Function TipoFiltro(ctrl As Control, columna As String) As String
 
         If TypeOf (ctrl) Is ComboBox Then
-            If Not (DirectCast(ctrl, ComboBox).SelectedItem = Nothing) Then
-                Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedItem + ""
+            If Not (DirectCast(ctrl, ComboBox).SelectedItem Is Nothing) Then
+                Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue.ToString + ""
             Else
                 Return ""
             End If

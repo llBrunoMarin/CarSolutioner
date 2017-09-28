@@ -43,13 +43,11 @@ Partial Class frmMainMenu
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.btnReservas = New System.Windows.Forms.Button()
         Me.btnMantenimiento = New System.Windows.Forms.Button()
-        Me.pbxVehiculo = New System.Windows.Forms.PictureBox()
         Me.btnEmpleados = New System.Windows.Forms.Button()
         Me.btnVehiculos = New System.Windows.Forms.Button()
         Me.btnClientes = New System.Windows.Forms.Button()
         Me.tbcTabControl = New System.Windows.Forms.TabControl()
         Me.tbpMenuPrincipal = New System.Windows.Forms.TabPage()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tbpClientes = New System.Windows.Forms.TabPage()
         Me.pnlBClientes = New System.Windows.Forms.Panel()
         Me.btnBajaCliente = New System.Windows.Forms.Button()
@@ -429,12 +427,13 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.pbxVehiculo = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
-        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbcTabControl.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpClientes.SuspendLayout()
         Me.pnlBClientes.SuspendLayout()
         Me.pnlMClientes.SuspendLayout()
@@ -474,6 +473,9 @@ Partial Class frmMainMenu
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -539,13 +541,14 @@ Partial Class frmMainMenu
         Me.pnlSidebar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.pnlSidebar.Controls.Add(Me.PictureBox2)
         Me.pnlSidebar.Controls.Add(Me.Panel6)
         Me.pnlSidebar.Controls.Add(Me.btnReservas)
         Me.pnlSidebar.Controls.Add(Me.btnMantenimiento)
-        Me.pnlSidebar.Controls.Add(Me.pbxVehiculo)
         Me.pnlSidebar.Controls.Add(Me.btnEmpleados)
         Me.pnlSidebar.Controls.Add(Me.btnVehiculos)
         Me.pnlSidebar.Controls.Add(Me.btnClientes)
+        Me.pnlSidebar.Controls.Add(Me.pbxVehiculo)
         Me.pnlSidebar.Location = New System.Drawing.Point(3, 12)
         Me.pnlSidebar.Name = "pnlSidebar"
         Me.pnlSidebar.Size = New System.Drawing.Size(255, 872)
@@ -591,16 +594,6 @@ Partial Class frmMainMenu
         Me.btnMantenimiento.TabIndex = 2
         Me.btnMantenimiento.Text = "MANTENIMIENTO"
         Me.btnMantenimiento.UseVisualStyleBackColor = False
-        '
-        'pbxVehiculo
-        '
-        Me.pbxVehiculo.Image = Global.CarSolutioner.My.Resources.Resources.AutoBlanco
-        Me.pbxVehiculo.Location = New System.Drawing.Point(61, 30)
-        Me.pbxVehiculo.Name = "pbxVehiculo"
-        Me.pbxVehiculo.Size = New System.Drawing.Size(128, 96)
-        Me.pbxVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxVehiculo.TabIndex = 1
-        Me.pbxVehiculo.TabStop = False
         '
         'btnEmpleados
         '
@@ -683,16 +676,6 @@ Partial Class frmMainMenu
         Me.tbpMenuPrincipal.Size = New System.Drawing.Size(1379, 862)
         Me.tbpMenuPrincipal.TabIndex = 4
         Me.tbpMenuPrincipal.Text = "MenuPrincipal"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.CoypyRight
-        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
         '
         'tbpClientes
         '
@@ -5073,12 +5056,42 @@ Partial Class frmMainMenu
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(1478, 0)
+        Me.Button1.Location = New System.Drawing.Point(1495, 0)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(32, 30)
         Me.Button1.TabIndex = 35
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'pbxVehiculo
+        '
+        Me.pbxVehiculo.Image = Global.CarSolutioner.My.Resources.Resources.carga1
+        Me.pbxVehiculo.Location = New System.Drawing.Point(36, 27)
+        Me.pbxVehiculo.Name = "pbxVehiculo"
+        Me.pbxVehiculo.Size = New System.Drawing.Size(188, 101)
+        Me.pbxVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxVehiculo.TabIndex = 1
+        Me.pbxVehiculo.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.CoypyRight
+        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.fgfdg
+        Me.PictureBox2.Location = New System.Drawing.Point(36, 25)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(186, 101)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 34
+        Me.PictureBox2.TabStop = False
         '
         'frmMainMenu
         '
@@ -5104,10 +5117,8 @@ Partial Class frmMainMenu
         Me.mstMenuStrip.ResumeLayout(False)
         Me.mstMenuStrip.PerformLayout()
         Me.pnlSidebar.ResumeLayout(False)
-        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbcTabControl.ResumeLayout(False)
         Me.tbpMenuPrincipal.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpClientes.ResumeLayout(False)
         Me.pnlBClientes.ResumeLayout(False)
         Me.pnlBClientes.PerformLayout()
@@ -5167,6 +5178,9 @@ Partial Class frmMainMenu
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -5176,7 +5190,6 @@ Partial Class frmMainMenu
     Friend WithEvents btnReservas As Button
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents tsItemHerramientas As ToolStripMenuItem
-    Friend WithEvents pbxVehiculo As PictureBox
     Friend WithEvents btnVehiculos As Button
     Friend WithEvents btnClientes As Button
     Friend WithEvents tbcTabControl As TabControl
@@ -5567,4 +5580,6 @@ Partial Class frmMainMenu
     Friend WithEvents idsucursal As DataGridViewTextBoxColumn
     Friend WithEvents idmarca As DataGridViewTextBoxColumn
     Friend WithEvents estadov As DataGridViewTextBoxColumn
+    Friend WithEvents pbxVehiculo As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

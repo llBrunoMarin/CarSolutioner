@@ -7,6 +7,8 @@
 
         conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
         dgvSucursales.Columns("idsucursal").Visible = False
+        conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
+        dgvCategorias.Columns("idcategoria").Visible = False
 
     End Sub
 
@@ -77,6 +79,9 @@
         conexion.EjecutarNonQuery("INSERT INTO sucursal values (0, '" + txtNomSuc.Text + "', '" + txtCidSuc.Text + "', '" + txtDicSuc.Text + "','T')")
         conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
         dgvSucursales.Columns("idsucursal").Visible = False
+        For Each con As Control In pnlsuccambios.Controls
+            VaciarControl(con)
+        Next
     End Sub
 
     Private Sub dataGridView1_CellClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) _
@@ -94,7 +99,7 @@
         ciudadsucmod = selectedRow.Cells("ciudad").Value.ToString()
         direccionsucmod = selectedRow.Cells("direccion").Value.ToString()
         estadosucmod = selectedRow.Cells("estado").Value.ToString()
-        MsgBox(estadosucmod)
+
 
         If estadosucmod = "True" Then
             cboxestadosucmod.SelectedItem = "Activa"
@@ -115,9 +120,9 @@
         Dim estado As String
         If cboxestadosucmod.SelectedItem = "Activa" Then
             estado = "t"
-        ElseIf cboxestadosucmod.SelectedItem = "Inactiva" Then
-            estado = "f"
         Else
+            estado = "f"
+
 
         End If
         conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
@@ -125,7 +130,12 @@
         dgvSucursales.Columns("idsucursal").Visible = False
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-
+    Private Sub btncatadd_Click(sender As Object, e As EventArgs) Handles btncatadd.Click
+        conexion.EjecutarNonQuery("Insert into categoria values (0, " + txttarifabasecatadd.Text + "," + txttarifa150catadd.Text + "," + txttarifa300catadd.Text + "," + txttarifalibrecatadd.Text + ",'" + txtnomcatadd.Text + "','T')")
+        conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
+        dgvCategorias.Columns("idcategoria").Visible = False
+        For Each con As Control In pnlcatcambios.Controls
+            VaciarControl(con)
+        Next
     End Sub
 End Class

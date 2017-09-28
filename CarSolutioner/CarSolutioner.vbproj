@@ -252,5 +252,32 @@
   <ItemGroup>
     <None Include="Resources\loadform.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carga.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dfdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dfdf1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dfdf2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carga1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fgfdg.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

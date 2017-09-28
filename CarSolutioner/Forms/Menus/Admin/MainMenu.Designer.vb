@@ -571,7 +571,7 @@ Partial Class frmMainMenu
         Me.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReservas.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReservas.ForeColor = System.Drawing.Color.White
-        Me.btnReservas.Location = New System.Drawing.Point(-19, 141)
+        Me.btnReservas.Location = New System.Drawing.Point(-3, 141)
         Me.btnReservas.Name = "btnReservas"
         Me.btnReservas.Size = New System.Drawing.Size(260, 65)
         Me.btnReservas.TabIndex = 0
@@ -588,7 +588,7 @@ Partial Class frmMainMenu
         Me.btnMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMantenimiento.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMantenimiento.ForeColor = System.Drawing.Color.White
-        Me.btnMantenimiento.Location = New System.Drawing.Point(-19, 416)
+        Me.btnMantenimiento.Location = New System.Drawing.Point(2, 416)
         Me.btnMantenimiento.Name = "btnMantenimiento"
         Me.btnMantenimiento.Size = New System.Drawing.Size(255, 65)
         Me.btnMantenimiento.TabIndex = 2
@@ -605,7 +605,7 @@ Partial Class frmMainMenu
         Me.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEmpleados.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEmpleados.ForeColor = System.Drawing.Color.White
-        Me.btnEmpleados.Location = New System.Drawing.Point(-19, 345)
+        Me.btnEmpleados.Location = New System.Drawing.Point(-3, 345)
         Me.btnEmpleados.Name = "btnEmpleados"
         Me.btnEmpleados.Size = New System.Drawing.Size(260, 65)
         Me.btnEmpleados.TabIndex = 0
@@ -622,7 +622,7 @@ Partial Class frmMainMenu
         Me.btnVehiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVehiculos.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVehiculos.ForeColor = System.Drawing.Color.White
-        Me.btnVehiculos.Location = New System.Drawing.Point(-19, 283)
+        Me.btnVehiculos.Location = New System.Drawing.Point(-3, 283)
         Me.btnVehiculos.Name = "btnVehiculos"
         Me.btnVehiculos.Size = New System.Drawing.Size(260, 65)
         Me.btnVehiculos.TabIndex = 0
@@ -639,7 +639,7 @@ Partial Class frmMainMenu
         Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClientes.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClientes.ForeColor = System.Drawing.Color.White
-        Me.btnClientes.Location = New System.Drawing.Point(-19, 212)
+        Me.btnClientes.Location = New System.Drawing.Point(-3, 212)
         Me.btnClientes.Name = "btnClientes"
         Me.btnClientes.Size = New System.Drawing.Size(260, 65)
         Me.btnClientes.TabIndex = 0
@@ -652,12 +652,12 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbcTabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
-        Me.tbcTabControl.Controls.Add(Me.tbpMenuPrincipal)
         Me.tbcTabControl.Controls.Add(Me.tbpClientes)
         Me.tbcTabControl.Controls.Add(Me.tbpVehiculos)
         Me.tbcTabControl.Controls.Add(Me.tbpEmpleados)
         Me.tbcTabControl.Controls.Add(Me.tbpMantenimiento)
         Me.tbcTabControl.Controls.Add(Me.tbpReservas)
+        Me.tbcTabControl.Controls.Add(Me.tbpMenuPrincipal)
         Me.tbcTabControl.Location = New System.Drawing.Point(228, 24)
         Me.tbcTabControl.Margin = New System.Windows.Forms.Padding(0)
         Me.tbcTabControl.Name = "tbcTabControl"
@@ -5034,7 +5034,7 @@ Partial Class frmMainMenu
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCerrar.Location = New System.Drawing.Point(1571, 0)
+        Me.btnCerrar.Location = New System.Drawing.Point(1572, 0)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
         Me.btnCerrar.TabIndex = 35
@@ -5050,7 +5050,7 @@ Partial Class frmMainMenu
         Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMinimizar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMinimizar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnMinimizar.Location = New System.Drawing.Point(1533, 0)
+        Me.btnMinimizar.Location = New System.Drawing.Point(1534, 0)
         Me.btnMinimizar.Name = "btnMinimizar"
         Me.btnMinimizar.Size = New System.Drawing.Size(32, 30)
         Me.btnMinimizar.TabIndex = 35
@@ -5066,7 +5066,7 @@ Partial Class frmMainMenu
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(1495, 0)
+        Me.Button1.Location = New System.Drawing.Point(1496, 0)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(32, 30)
         Me.Button1.TabIndex = 35
@@ -5086,7 +5086,7 @@ Partial Class frmMainMenu
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
-        Me.PictureBox2.Location = New System.Drawing.Point(18, 24)
+        Me.PictureBox2.Location = New System.Drawing.Point(36, 24)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -5096,7 +5096,7 @@ Partial Class frmMainMenu
         'pcboxloading
         '
         Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
-        Me.pcboxloading.Location = New System.Drawing.Point(18, 24)
+        Me.pcboxloading.Location = New System.Drawing.Point(36, 24)
         Me.pcboxloading.Name = "pcboxloading"
         Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
         Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -5111,11 +5111,11 @@ Partial Class frmMainMenu
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1604, 882)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.btnMinimizar)
         Me.Controls.Add(Me.btnCerrar)
+        Me.Controls.Add(Me.btnMinimizar)
         Me.Controls.Add(Me.mstMenuStrip)
-        Me.Controls.Add(Me.tbcTabControl)
         Me.Controls.Add(Me.pnlSidebar)
+        Me.Controls.Add(Me.tbcTabControl)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.mstMenuStrip

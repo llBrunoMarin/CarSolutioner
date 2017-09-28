@@ -25,6 +25,7 @@
                 btnModificar.Visible = False
                 lblAyuda.Visible = False
                 lblNombrePersona.Visible = True
+
             Case "Agregar"
                 btnAgregar.Visible = True
                 btnModificar.Visible = False
@@ -32,11 +33,11 @@
                 dgvTelefonos.AutoGenerateColumns = False
                 dgvTelefonos.ReadOnly = False
                 dgvTelefonos.Size = New Size(167, 131)
-                btnAgregar.Visible = True
 
                 For Each item In ListaTelefonos
                     dgvTelefonos.Rows.Add(item)
                 Next
+
             Case "Modificar"
                 btnAgregar.Visible = False
                 btnModificar.Visible = True
@@ -44,12 +45,10 @@
                 dgvTelefonos.AutoGenerateColumns = False
                 dgvTelefonos.ReadOnly = False
                 dgvTelefonos.Size = New Size(167, 131)
-                btnAgregar.Visible = True
 
                 For Each item In ListaTelefonos
                     dgvTelefonos.Rows.Add(item)
                 Next
-
 
             Case Else
 
@@ -96,7 +95,7 @@
 
     End Sub
 
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
 
         Dim ListaTelefonos As New List(Of String)
 

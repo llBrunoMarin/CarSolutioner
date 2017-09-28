@@ -87,7 +87,13 @@
 
         If TypeOf (ctrl) Is ComboBox Then
             If Not (DirectCast(ctrl, ComboBox).SelectedItem Is Nothing) Then
-                Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue.ToString + ""
+
+                If Not (DirectCast(ctrl, ComboBox).DataSource Is Nothing) Then
+                    Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue.ToString + ""
+                Else
+                    Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedItem.ToString + ""
+                End If
+
             Else
                 Return ""
             End If
@@ -146,5 +152,6 @@
         End Select
 
     End Sub
+
 End Module
 

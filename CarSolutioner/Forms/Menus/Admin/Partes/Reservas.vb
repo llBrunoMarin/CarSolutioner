@@ -44,18 +44,18 @@ Partial Public Class frmMainMenu
 
             ReservaSeleccionada.IdReserva = selectedRow.Cells("idreserva").Value.ToString
             ReservaSeleccionada.IdCliente = selectedRow.Cells("idpersona").Value.ToString
-            ReservaSeleccionada.FechaInicio = selectedRow.Cells("inicio").Value.ToString
-            ReservaSeleccionada.FechaFin = selectedRow.Cells("fin").Value.ToString
-            ReservaSeleccionada.CantKM = selectedRow.Cells("cantidad_km").Value.ToString
-            ReservaSeleccionada.CostoTotal = selectedRow.Cells("costo").Value.ToString
-            ReservaSeleccionada.FechaTramite = selectedRow.Cells("fecha_tramite").Value.ToString
-            ReservaSeleccionada.NomCliente = selectedRow.Cells("nombre").Value.ToString
-            ReservaSeleccionada.ApeCliente = selectedRow.Cells("apellido").Value.ToString()
+            ReservaSeleccionada.FechaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
+            ReservaSeleccionada.FechaFin = selectedRow.Cells("fechareservafin").Value.ToString
+            ReservaSeleccionada.CantKM = selectedRow.Cells("cantidadkm").Value.ToString
+            ReservaSeleccionada.CostoTotal = selectedRow.Cells("costototal").Value.ToString
+            ReservaSeleccionada.FechaTramite = selectedRow.Cells("fechatramite").Value.ToString
+            ReservaSeleccionada.NomCliente = selectedRow.Cells("nombreapellido").Value.ToString
+            ReservaSeleccionada.ApeCliente = selectedRow.Cells("nombreapellido").Value.ToString()
             ReservaSeleccionada.Categoria = selectedRow.Cells("categoria").Value.ToString
             ReservaSeleccionada.Tipo = selectedRow.Cells("tipo").Value.ToString
-            ReservaSeleccionada.SucursalInicio = selectedRow.Cells("sucursal_partida").Value.ToString
-            ReservaSeleccionada.SucursalDestino = selectedRow.Cells("sucursal_destino").Value.ToString
-            ReservaSeleccionada.Empleado = selectedRow.Cells("empleado").Value.ToString
+            ReservaSeleccionada.SucursalInicio = selectedRow.Cells("salida").Value.ToString
+            ReservaSeleccionada.SucursalDestino = selectedRow.Cells("llegada").Value.ToString
+            ReservaSeleccionada.Empleado = selectedRow.Cells("usuarioempleado").Value.ToString
 
             frmAlquilar.ShowDialog()
 

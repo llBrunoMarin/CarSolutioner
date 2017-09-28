@@ -124,7 +124,7 @@ Public Class Login
 
                 'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
                 pboxLoading.Visible = False
-                lbldataincorrect.Text = "Usuario carece de rango. Contacta al soporte."
+                lbldataincorrect.Text = "Usuario carece de rango."
                 lbldataincorrect.Visible = True
                 txtContraseña.Visible = True
                 txtUsuario.Visible = True

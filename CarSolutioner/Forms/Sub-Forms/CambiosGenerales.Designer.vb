@@ -25,7 +25,6 @@ Partial Class frmCambiosGenerales
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCambiosGenerales))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.pnlSidebar = New System.Windows.Forms.Panel()
@@ -72,6 +71,7 @@ Partial Class frmCambiosGenerales
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tbpSucursales = New System.Windows.Forms.TabPage()
+        Me.dgvSucursales = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label121 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -83,22 +83,22 @@ Partial Class frmCambiosGenerales
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnAddSuc = New System.Windows.Forms.Button()
-        Me.dgvSucursales = New System.Windows.Forms.DataGridView()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnmodsuc = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtnombresucmod = New System.Windows.Forms.TextBox()
+        Me.txtdireccionsucmod = New System.Windows.Forms.TextBox()
+        Me.txtciudadsucmod = New System.Windows.Forms.TextBox()
+        Me.txttelefonosucmod = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.tbcTabControl = New System.Windows.Forms.TabControl()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.cboxestadosucmod = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         Me.tbpMarcas.SuspendLayout()
@@ -114,8 +114,8 @@ Partial Class frmCambiosGenerales
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpSucursales.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.tbcTabControl.SuspendLayout()
         Me.SuspendLayout()
@@ -123,28 +123,12 @@ Partial Class frmCambiosGenerales
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.btnMinimizar)
         Me.Panel1.Controls.Add(Me.btnCerrar)
         Me.Panel1.Controls.Add(Me.Label17)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1096, 30)
         Me.Panel1.TabIndex = 0
-        '
-        'btnMinimizar
-        '
-        Me.btnMinimizar.BackColor = System.Drawing.Color.Transparent
-        Me.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMinimizar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMinimizar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnMinimizar.Location = New System.Drawing.Point(1000, -1)
-        Me.btnMinimizar.Name = "btnMinimizar"
-        Me.btnMinimizar.Size = New System.Drawing.Size(32, 38)
-        Me.btnMinimizar.TabIndex = 31
-        Me.btnMinimizar.Text = "—"
-        Me.btnMinimizar.UseVisualStyleBackColor = False
         '
         'btnCerrar
         '
@@ -168,20 +152,21 @@ Partial Class frmCambiosGenerales
         Me.Label17.ForeColor = System.Drawing.Color.White
         Me.Label17.Location = New System.Drawing.Point(3, 9)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(122, 17)
+        Me.Label17.Size = New System.Drawing.Size(56, 17)
         Me.Label17.TabIndex = 35
-        Me.Label17.Text = "Cambios generales"
+        Me.Label17.Text = "General"
         '
         'pnlSidebar
         '
         Me.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.pnlSidebar.Controls.Add(Me.Button1)
         Me.pnlSidebar.Controls.Add(Me.btnMarcas)
         Me.pnlSidebar.Controls.Add(Me.btnModelos)
         Me.pnlSidebar.Controls.Add(Me.btnCategorias)
         Me.pnlSidebar.Controls.Add(Me.btnSucursales)
-        Me.pnlSidebar.Location = New System.Drawing.Point(0, 29)
+        Me.pnlSidebar.Location = New System.Drawing.Point(-1, 29)
         Me.pnlSidebar.Name = "pnlSidebar"
-        Me.pnlSidebar.Size = New System.Drawing.Size(123, 432)
+        Me.pnlSidebar.Size = New System.Drawing.Size(123, 627)
         Me.pnlSidebar.TabIndex = 33
         '
         'btnMarcas
@@ -256,7 +241,7 @@ Partial Class frmCambiosGenerales
         '
         Me.tbpDocumento.Location = New System.Drawing.Point(4, 25)
         Me.tbpDocumento.Name = "tbpDocumento"
-        Me.tbpDocumento.Size = New System.Drawing.Size(942, 291)
+        Me.tbpDocumento.Size = New System.Drawing.Size(942, 602)
         Me.tbpDocumento.TabIndex = 6
         Me.tbpDocumento.Text = "Documento"
         Me.tbpDocumento.UseVisualStyleBackColor = True
@@ -265,7 +250,7 @@ Partial Class frmCambiosGenerales
         '
         Me.tbpReservas.Location = New System.Drawing.Point(4, 25)
         Me.tbpReservas.Name = "tbpReservas"
-        Me.tbpReservas.Size = New System.Drawing.Size(942, 291)
+        Me.tbpReservas.Size = New System.Drawing.Size(942, 602)
         Me.tbpReservas.TabIndex = 5
         Me.tbpReservas.Text = "Reservas"
         Me.tbpReservas.UseVisualStyleBackColor = True
@@ -275,7 +260,7 @@ Partial Class frmCambiosGenerales
         Me.tbpMarcas.Controls.Add(Me.Panel4)
         Me.tbpMarcas.Location = New System.Drawing.Point(4, 25)
         Me.tbpMarcas.Name = "tbpMarcas"
-        Me.tbpMarcas.Size = New System.Drawing.Size(942, 291)
+        Me.tbpMarcas.Size = New System.Drawing.Size(942, 602)
         Me.tbpMarcas.TabIndex = 4
         Me.tbpMarcas.Text = "Marcas"
         Me.tbpMarcas.UseVisualStyleBackColor = True
@@ -402,7 +387,7 @@ Partial Class frmCambiosGenerales
         Me.tbpModelos.Controls.Add(Me.Panel5)
         Me.tbpModelos.Location = New System.Drawing.Point(4, 25)
         Me.tbpModelos.Name = "tbpModelos"
-        Me.tbpModelos.Size = New System.Drawing.Size(942, 291)
+        Me.tbpModelos.Size = New System.Drawing.Size(942, 602)
         Me.tbpModelos.TabIndex = 3
         Me.tbpModelos.Text = "Modelos"
         Me.tbpModelos.UseVisualStyleBackColor = True
@@ -550,7 +535,7 @@ Partial Class frmCambiosGenerales
         Me.tbpCategorias.Controls.Add(Me.pnlmant)
         Me.tbpCategorias.Location = New System.Drawing.Point(4, 25)
         Me.tbpCategorias.Name = "tbpCategorias"
-        Me.tbpCategorias.Size = New System.Drawing.Size(942, 291)
+        Me.tbpCategorias.Size = New System.Drawing.Size(942, 602)
         Me.tbpCategorias.TabIndex = 2
         Me.tbpCategorias.Text = "Categorias"
         Me.tbpCategorias.UseVisualStyleBackColor = True
@@ -715,16 +700,37 @@ Partial Class frmCambiosGenerales
         '
         'tbpSucursales
         '
-        Me.tbpSucursales.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.tbpSucursales.Controls.Add(Me.Panel2)
+        Me.tbpSucursales.BackColor = System.Drawing.Color.Silver
         Me.tbpSucursales.Controls.Add(Me.dgvSucursales)
+        Me.tbpSucursales.Controls.Add(Me.Panel2)
         Me.tbpSucursales.Controls.Add(Me.Panel3)
         Me.tbpSucursales.Location = New System.Drawing.Point(4, 25)
         Me.tbpSucursales.Name = "tbpSucursales"
         Me.tbpSucursales.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpSucursales.Size = New System.Drawing.Size(942, 291)
+        Me.tbpSucursales.Size = New System.Drawing.Size(942, 602)
         Me.tbpSucursales.TabIndex = 0
         Me.tbpSucursales.Text = "Sucursales"
+        '
+        'dgvSucursales
+        '
+        Me.dgvSucursales.AllowUserToAddRows = False
+        Me.dgvSucursales.AllowUserToDeleteRows = False
+        Me.dgvSucursales.AllowUserToResizeColumns = False
+        Me.dgvSucursales.AllowUserToResizeRows = False
+        Me.dgvSucursales.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvSucursales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvSucursales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSucursales.Location = New System.Drawing.Point(7, 6)
+        Me.dgvSucursales.MultiSelect = False
+        Me.dgvSucursales.Name = "dgvSucursales"
+        Me.dgvSucursales.ReadOnly = True
+        Me.dgvSucursales.RowHeadersVisible = False
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvSucursales.RowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvSucursales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvSucursales.Size = New System.Drawing.Size(439, 589)
+        Me.dgvSucursales.TabIndex = 71
         '
         'Panel2
         '
@@ -743,7 +749,7 @@ Partial Class frmCambiosGenerales
         Me.Panel2.Controls.Add(Me.btnAddSuc)
         Me.Panel2.Location = New System.Drawing.Point(452, 6)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(478, 131)
+        Me.Panel2.Size = New System.Drawing.Size(478, 117)
         Me.Panel2.TabIndex = 69
         '
         'Label121
@@ -840,80 +846,50 @@ Partial Class frmCambiosGenerales
         Me.btnAddSuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddSuc.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddSuc.ForeColor = System.Drawing.Color.White
-        Me.btnAddSuc.Location = New System.Drawing.Point(380, 98)
+        Me.btnAddSuc.Location = New System.Drawing.Point(380, 84)
         Me.btnAddSuc.Name = "btnAddSuc"
         Me.btnAddSuc.Size = New System.Drawing.Size(91, 30)
         Me.btnAddSuc.TabIndex = 49
         Me.btnAddSuc.Text = "Agregar"
         Me.btnAddSuc.UseVisualStyleBackColor = False
         '
-        'dgvSucursales
-        '
-        Me.dgvSucursales.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.dgvSucursales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSucursales.Location = New System.Drawing.Point(12, 6)
-        Me.dgvSucursales.Name = "dgvSucursales"
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvSucursales.RowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvSucursales.Size = New System.Drawing.Size(434, 275)
-        Me.dgvSucursales.TabIndex = 57
-        '
         'Panel3
         '
         Me.Panel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel3.BackColor = System.Drawing.Color.Silver
-        Me.Panel3.Controls.Add(Me.Button2)
-        Me.Panel3.Controls.Add(Me.Button1)
+        Me.Panel3.Controls.Add(Me.cboxestadosucmod)
+        Me.Panel3.Controls.Add(Me.btnmodsuc)
         Me.Panel3.Controls.Add(Me.Label11)
         Me.Panel3.Controls.Add(Me.Label12)
-        Me.Panel3.Controls.Add(Me.TextBox1)
-        Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Controls.Add(Me.TextBox3)
-        Me.Panel3.Controls.Add(Me.TextBox4)
+        Me.Panel3.Controls.Add(Me.txtnombresucmod)
+        Me.Panel3.Controls.Add(Me.txtdireccionsucmod)
+        Me.Panel3.Controls.Add(Me.txtciudadsucmod)
+        Me.Panel3.Controls.Add(Me.txttelefonosucmod)
         Me.Panel3.Controls.Add(Me.Label16)
         Me.Panel3.Controls.Add(Me.Label18)
         Me.Panel3.Controls.Add(Me.Label19)
-        Me.Panel3.Location = New System.Drawing.Point(452, 140)
+        Me.Panel3.Location = New System.Drawing.Point(452, 129)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(478, 141)
         Me.Panel3.TabIndex = 70
         '
-        'Button2
+        'btnmodsuc
         '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(283, 108)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(91, 30)
-        Me.Button2.TabIndex = 70
-        Me.Button2.Text = "Eliminar"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(380, 108)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(91, 30)
-        Me.Button1.TabIndex = 69
-        Me.Button1.Text = "Modificar"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnmodsuc.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnmodsuc.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnmodsuc.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnmodsuc.FlatAppearance.BorderSize = 0
+        Me.btnmodsuc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnmodsuc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnmodsuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnmodsuc.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnmodsuc.ForeColor = System.Drawing.Color.White
+        Me.btnmodsuc.Location = New System.Drawing.Point(380, 108)
+        Me.btnmodsuc.Name = "btnmodsuc"
+        Me.btnmodsuc.Size = New System.Drawing.Size(91, 30)
+        Me.btnmodsuc.TabIndex = 69
+        Me.btnmodsuc.Text = "Modificar"
+        Me.btnmodsuc.UseVisualStyleBackColor = False
         '
         'Label11
         '
@@ -937,33 +913,33 @@ Partial Class frmCambiosGenerales
         Me.Label12.TabIndex = 68
         Me.Label12.Text = "Modificar"
         '
-        'TextBox1
+        'txtnombresucmod
         '
-        Me.TextBox1.Location = New System.Drawing.Point(8, 58)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 45
+        Me.txtnombresucmod.Location = New System.Drawing.Point(8, 58)
+        Me.txtnombresucmod.Name = "txtnombresucmod"
+        Me.txtnombresucmod.Size = New System.Drawing.Size(100, 20)
+        Me.txtnombresucmod.TabIndex = 45
         '
-        'TextBox2
+        'txtdireccionsucmod
         '
-        Me.TextBox2.Location = New System.Drawing.Point(229, 58)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 46
+        Me.txtdireccionsucmod.Location = New System.Drawing.Point(229, 58)
+        Me.txtdireccionsucmod.Name = "txtdireccionsucmod"
+        Me.txtdireccionsucmod.Size = New System.Drawing.Size(100, 20)
+        Me.txtdireccionsucmod.TabIndex = 46
         '
-        'TextBox3
+        'txtciudadsucmod
         '
-        Me.TextBox3.Location = New System.Drawing.Point(335, 58)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 47
+        Me.txtciudadsucmod.Location = New System.Drawing.Point(335, 58)
+        Me.txtciudadsucmod.Name = "txtciudadsucmod"
+        Me.txtciudadsucmod.Size = New System.Drawing.Size(100, 20)
+        Me.txtciudadsucmod.TabIndex = 47
         '
-        'TextBox4
+        'txttelefonosucmod
         '
-        Me.TextBox4.Location = New System.Drawing.Point(118, 58)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox4.TabIndex = 48
+        Me.txttelefonosucmod.Location = New System.Drawing.Point(118, 58)
+        Me.txttelefonosucmod.Name = "txttelefonosucmod"
+        Me.txttelefonosucmod.Size = New System.Drawing.Size(100, 20)
+        Me.txttelefonosucmod.TabIndex = 48
         '
         'Label16
         '
@@ -981,7 +957,7 @@ Partial Class frmCambiosGenerales
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(323, 40)
+        Me.Label18.Location = New System.Drawing.Point(332, 38)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(51, 17)
         Me.Label18.TabIndex = 54
@@ -1010,15 +986,15 @@ Partial Class frmCambiosGenerales
         Me.tbcTabControl.Location = New System.Drawing.Point(119, 22)
         Me.tbcTabControl.Name = "tbcTabControl"
         Me.tbcTabControl.SelectedIndex = 0
-        Me.tbcTabControl.Size = New System.Drawing.Size(950, 320)
+        Me.tbcTabControl.Size = New System.Drawing.Size(950, 631)
         Me.tbcTabControl.TabIndex = 34
         '
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Panel6.Location = New System.Drawing.Point(0, 337)
+        Me.Panel6.Location = New System.Drawing.Point(0, 649)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(1065, 32)
+        Me.Panel6.Size = New System.Drawing.Size(1065, 10)
         Me.Panel6.TabIndex = 36
         '
         'Panel7
@@ -1026,15 +1002,42 @@ Partial Class frmCambiosGenerales
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Panel7.Location = New System.Drawing.Point(1060, 27)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(10, 315)
+        Me.Panel7.Size = New System.Drawing.Size(10, 629)
         Me.Panel7.TabIndex = 39
+        '
+        'cboxestadosucmod
+        '
+        Me.cboxestadosucmod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboxestadosucmod.FormattingEnabled = True
+        Me.cboxestadosucmod.Items.AddRange(New Object() {"Activa", "Inactiva"})
+        Me.cboxestadosucmod.Location = New System.Drawing.Point(8, 94)
+        Me.cboxestadosucmod.Name = "cboxestadosucmod"
+        Me.cboxestadosucmod.Size = New System.Drawing.Size(100, 21)
+        Me.cboxestadosucmod.TabIndex = 72
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.5!)
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(0, 141)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(125, 34)
+        Me.Button1.TabIndex = 39
+        Me.Button1.Text = "Documentos"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'frmCambiosGenerales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(1066, 343)
+        Me.ClientSize = New System.Drawing.Size(1066, 654)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel1)
@@ -1064,9 +1067,9 @@ Partial Class frmCambiosGenerales
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpSucursales.ResumeLayout(False)
+        CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.tbcTabControl.ResumeLayout(False)
@@ -1075,7 +1078,6 @@ Partial Class frmCambiosGenerales
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnMinimizar As Button
     Friend WithEvents btnCerrar As Button
     Friend WithEvents pnlSidebar As Panel
     Friend WithEvents btnMarcas As Button
@@ -1123,7 +1125,6 @@ Partial Class frmCambiosGenerales
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents dgvSucursales As DataGridView
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
@@ -1138,15 +1139,17 @@ Partial Class frmCambiosGenerales
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txtnombresucmod As TextBox
+    Friend WithEvents txtdireccionsucmod As TextBox
+    Friend WithEvents txtciudadsucmod As TextBox
+    Friend WithEvents txttelefonosucmod As TextBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnmodsuc As Button
     Friend WithEvents Panel7 As Panel
+    Friend WithEvents dgvSucursales As DataGridView
+    Friend WithEvents cboxestadosucmod As ComboBox
+    Friend WithEvents Button1 As Button
 End Class

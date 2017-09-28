@@ -7,7 +7,6 @@ End Class
 
 'CLIENTES
 Partial Public Class frmMainMenu
-
     Dim modo As String
     Private Sub chboxFechaFClientes_CheckedChanged(sender As Object, e As EventArgs) Handles chbxFechaFClientes.CheckedChanged
 
@@ -29,21 +28,24 @@ Partial Public Class frmMainMenu
 
             If chbxFechaFClientes.Checked = True Then
 
+                    If Not ((cbxDiaNFCliente.SelectedItem Is Nothing) And (cbxMesNFCliente.SelectedItem Is Nothing) And (cbxAnioNFCliente.SelectedItem Is Nothing)) Then
 
 
-                filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc") + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"),
-                                                            "nrodocumento", txtDocumFClientes.Text, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
-                dgvClientes.DataSource.Filter = filtro
-
-
-            Else
-
-                filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc"),
+                        filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc") + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"),
                                                             "nrodocumento", txtDocumFClientes.Text, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
 
-                dgvClientes.DataSource.Filter = filtro
+                        dgvClientes.DataSource.Filter = filtro
 
-            End If
+                    End If
+
+                Else
+
+                    filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc"),
+                                                            "nrodocumento", txtDocumFClientes.Text, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
+
+                    dgvClientes.DataSource.Filter = filtro
+
+                End If
 
 
         Catch ex As NullReferenceException
@@ -120,37 +122,33 @@ Partial Public Class frmMainMenu
     Private Sub ModificarCliente(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
 
         Dim IdPersona As String = dgvClientes.CurrentRow.Cells("idpersona").Value.ToString()
-        Dim FechaSeleccionada As String = cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text
+
         If Not cbxTelefonosMCliente.Items.Count = 0 Then
 
-            If (IsDate(FechaSeleccionada)) Then
+            If (IsDate(cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text)) Then
 
+                Dim FechaSeleccionada As String = cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text
                 conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "' WHERE idpersona = " + IdPersona + "")
+                RecargarDatos(dgvClientes)
 
                 Dim TelefonosPersona As New DataTable
                 TelefonosPersona = conexion.EjecutarSelect("SELECT idpersona, telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + "")
 
-                conexion.EjecutarNonQuery("DELETE FROM TelefonoPersona WHERE idpersona = " + IdPersona + "")
-
                 For Each telefono In cbxTelefonosMCliente.Items
 
-                    conexion.EjecutarNonQuery("INSERT INTO TelefonoPersona VALUES (" + IdPersona + ", '" + telefono + "')")
+                    If TelefonosPersona.Select("telefono = " + telefono + "").Count = 0 Then
+                        conexion.EjecutarNonQuery("INSERT INTO TelefonoPersona VALUES (" + idpersona + ", '" + telefono + "')")
+                    Else
+                        conexion.EjecutarNonQuery("UPDATE ")
+                    End If
 
                 Next
 
-                MsgBox("Persona ingresada satisfactoriamente.")
-                RecargarDatos(dgvClientes)
-
-
             Else
-
                 MsgBox("Por favor, ingrese una fecha válida.")
-
             End If
-        Else
 
             MsgBox("Debe cargar los teléfonos de la persona antes de modificar sus datos.")
-
         End If
 
 
@@ -195,7 +193,6 @@ Partial Public Class frmMainMenu
             cbxDiaNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("dia").Value.ToString()
             cbxMesNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("mes").Value.ToString()
             cbxAnioNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("anio").Value.ToString()
-            cbxTelefonosMCliente.DataSource = Nothing
 
         End If
         lblAyudaTelefono.Visible = True
@@ -223,31 +220,21 @@ Partial Public Class frmMainMenu
 
     Private Sub VerTelefonosMCliente(sender As Object, e As EventArgs) Handles btnTelefonosMCliente.Click
 
-        Dim TelefonosPersona As New DataTable
-        Dim ListaTelefonos As New List(Of String)
-
         Dim IdPersona As String = dgvClientes.CurrentRow.Cells("idpersona").Value.ToString
         Dim NombrePersona As String = dgvClientes.CurrentRow.Cells("nombre").Value.ToString + " " + dgvClientes.CurrentRow.Cells("apellido").Value.ToString
 
-        'Si aún no hay nada cargado en el ComboBox
-        If cbxTelefonosMCliente.DataSource Is Nothing Then
+        'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView, pero los borra de la BD (ya que serán ingresados nuevamente con (o sin) modificaciones)
+        Dim TelefonosPersona As New DataTable
+        Dim ListaTelefonos As New List(Of String)
 
-            'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView, pero los borra de la BD (ya que serán ingresados nuevamente con (o sin) modificaciones)
-            TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + " ")
+        TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + " ")
 
-            'Cargamos en una lista los teléfonos para no perderlos una vez que los borremos.
-            For Each rw As DataRow In TelefonosPersona.Rows
-                ListaTelefonos.Add(rw("telefono"))
-            Next
+        'Cargamos en una lista los teléfonos para no perderlos una vez que los borremos.
+        For Each rw As DataRow In TelefonosPersona.Rows
+            ListaTelefonos.Add(rw("telefono"))
+        Next
 
-
-        Else
-
-            For Each item As String In cbxTelefonosMCliente.Items
-                ListaTelefonos.Add(item)
-            Next
-
-        End If
+        conexion.EjecutarNonQuery("DELETE FROM TelefonoPersona WHERE idpersona = " + IdPersona + "")
 
         Dim ModificarTelefonos As New frmTelefonosCliente("Modificar", NombrePersona, ListaTelefonos)
 
@@ -256,6 +243,7 @@ Partial Public Class frmMainMenu
         End If
 
         ModificarTelefonos.ShowDialog()
+
 
     End Sub
 
@@ -278,8 +266,6 @@ Partial Public Class frmMainMenu
         For Each control As Control In pnlFClientes.Controls
             VaciarControl(control)
         Next
-
-        chbxFechaFClientes.Checked = Not chbxFechaFClientes.Checked
 
     End Sub
 

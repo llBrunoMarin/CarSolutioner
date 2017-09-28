@@ -229,7 +229,7 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub btnModificarCliente_Click(sender As Object, e As EventArgs)
+    Private Sub btnModificarCliente_Click(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
 
     End Sub
 End Class

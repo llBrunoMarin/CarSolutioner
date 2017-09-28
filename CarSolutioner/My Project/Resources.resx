@@ -121,8 +121,17 @@
   <data name="CoypyRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copyright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ghh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ghh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="carga3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carga2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carga6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carga2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carga4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carga1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carga" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carga.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dfdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dfdf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -132,6 +141,9 @@
   </data>
   <data name="carga1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fgfdg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fgfdg.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AutoBlanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AutoBlanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,28 +157,40 @@
   <data name="dfdf1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dfdf1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="carga2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carga1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carga7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carga4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jiyu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jiyu.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carga8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loadingsquare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loadingsquare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Dots" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dots.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Lines" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lines.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loadingsquare" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loadingsquare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ghh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Circles" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="carga" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\carga.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="carga5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carga3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loadform" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loadform.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="carga2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\carga1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Circles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fgfdg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fgfdg.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="r" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

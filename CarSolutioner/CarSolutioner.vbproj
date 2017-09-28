@@ -279,5 +279,29 @@
   <ItemGroup>
     <None Include="Resources\fgfdg.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carga2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carga1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carga3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carga2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carga4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jiyu.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carga.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

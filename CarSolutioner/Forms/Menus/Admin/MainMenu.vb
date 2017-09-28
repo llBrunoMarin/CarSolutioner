@@ -48,7 +48,7 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnMantenimiento.Click, btnReservas.Click, btnClientes.Click, btnVehiculos.Click, btnEmpleados.Click, pbxVehiculo.Click
+    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnMantenimiento.Click, btnReservas.Click, btnClientes.Click, btnVehiculos.Click, btnEmpleados.Click
 
         ResetColors()
 
@@ -91,6 +91,12 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
+
+
+
+
+        cargando(pcboxloading)
+
 
         frmCambiosGenerales.ShowDialog()
 
@@ -228,6 +234,10 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub btnModificarCliente_Click(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
+
+    End Sub
+
+    Private Sub pcboxloading_Click(sender As Object, e As EventArgs) Handles pcboxloading.Click
 
     End Sub
 End Class

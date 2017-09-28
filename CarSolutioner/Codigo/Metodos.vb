@@ -1,5 +1,19 @@
 ﻿Module Metodos
+    Private Declare Function GetTickCount Lib "kernel32" () As Integer
+    Public Function cargando(imagen As PictureBox)
 
+        Dim retraso As Integer
+
+        retraso = 2000 + GetTickCount
+
+
+        While retraso >= GetTickCount
+            Application.DoEvents()
+            imagen.Visible = True
+        End While
+
+        imagen.Visible = False
+    End Function
     'Verifica una cédula que entra como parámetro
     Public Function VerificarCI(ci As String) As Boolean
 

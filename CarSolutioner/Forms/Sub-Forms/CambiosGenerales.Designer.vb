@@ -1317,16 +1317,16 @@ Partial Class frmCambiosGenerales
         Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label32.Location = New System.Drawing.Point(4, 40)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(382, 17)
+        Me.Label32.Size = New System.Drawing.Size(224, 34)
         Me.Label32.TabIndex = 73
-        Me.Label32.Text = "Selecciona una sucursal a  la cual se moveran los vehiculos de:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label32.Text = "Selecciona una sucursal a  la cual se" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " moveran los vehiculos de:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'lblsucmov
         '
         Me.lblsucmov.AutoSize = True
         Me.lblsucmov.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblsucmov.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblsucmov.Location = New System.Drawing.Point(383, 40)
+        Me.lblsucmov.Location = New System.Drawing.Point(166, 57)
         Me.lblsucmov.Name = "lblsucmov"
         Me.lblsucmov.Size = New System.Drawing.Size(63, 16)
         Me.lblsucmov.TabIndex = 74
@@ -1337,7 +1337,7 @@ Partial Class frmCambiosGenerales
         Me.cboxsucursalmov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboxsucursalmov.FormattingEnabled = True
         Me.cboxsucursalmov.Items.AddRange(New Object() {"Activa", "Inactiva"})
-        Me.cboxsucursalmov.Location = New System.Drawing.Point(7, 65)
+        Me.cboxsucursalmov.Location = New System.Drawing.Point(8, 80)
         Me.cboxsucursalmov.Name = "cboxsucursalmov"
         Me.cboxsucursalmov.Size = New System.Drawing.Size(100, 21)
         Me.cboxsucursalmov.TabIndex = 75
@@ -1365,8 +1365,8 @@ Partial Class frmCambiosGenerales
         Me.pnlmovimiento.Controls.Add(Me.cboxsucursalmov)
         Me.pnlmovimiento.Controls.Add(Me.btnacceptarmov)
         Me.pnlmovimiento.Controls.Add(Me.Label31)
-        Me.pnlmovimiento.Controls.Add(Me.Label32)
         Me.pnlmovimiento.Controls.Add(Me.lblsucmov)
+        Me.pnlmovimiento.Controls.Add(Me.Label32)
         Me.pnlmovimiento.Enabled = False
         Me.pnlmovimiento.Location = New System.Drawing.Point(12, 145)
         Me.pnlmovimiento.Name = "pnlmovimiento"

@@ -262,46 +262,46 @@ Partial Class frmMainMenu
         Me.tbpEmpleados = New System.Windows.Forms.TabPage()
         Me.pnlMEmp = New System.Windows.Forms.Panel()
         Me.Label83 = New System.Windows.Forms.Label()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.txtUserNameMempleados = New System.Windows.Forms.TextBox()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label74 = New System.Windows.Forms.Label()
-        Me.ComboBox35 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox36 = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoMempleados = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoSempleados = New System.Windows.Forms.ComboBox()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.TextBox17 = New System.Windows.Forms.TextBox()
+        Me.txtNroDocMempleado = New System.Windows.Forms.TextBox()
         Me.pnlBEmp = New System.Windows.Forms.Panel()
         Me.Button15 = New System.Windows.Forms.Button()
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label76 = New System.Windows.Forms.Label()
-        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.txtNroDocEempleado = New System.Windows.Forms.TextBox()
         Me.pnlAEmp = New System.Windows.Forms.Panel()
         Me.Label82 = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.txtUserNameAempleados = New System.Windows.Forms.TextBox()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Label66 = New System.Windows.Forms.Label()
         Me.Label67 = New System.Windows.Forms.Label()
         Me.Label68 = New System.Windows.Forms.Label()
         Me.Label73 = New System.Windows.Forms.Label()
-        Me.ComboBox31 = New System.Windows.Forms.ComboBox()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
-        Me.ComboBox33 = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoAempleados = New System.Windows.Forms.ComboBox()
+        Me.txtNroDocAempleado = New System.Windows.Forms.TextBox()
+        Me.cbxSucursalAempleados = New System.Windows.Forms.ComboBox()
         Me.pnlFemp = New System.Windows.Forms.Panel()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.chboxFiltrarFechaEmp = New System.Windows.Forms.CheckBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label81 = New System.Windows.Forms.Label()
-        Me.DateTimePicker5 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker6 = New System.Windows.Forms.DateTimePicker()
+        Me.dtmFechFinEmp = New System.Windows.Forms.DateTimePicker()
+        Me.dtmFechInicioEmp = New System.Windows.Forms.DateTimePicker()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Label70 = New System.Windows.Forms.Label()
         Me.Label71 = New System.Windows.Forms.Label()
         Me.Label72 = New System.Windows.Forms.Label()
-        Me.ComboBox32 = New System.Windows.Forms.ComboBox()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.ComboBox34 = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoFempleados = New System.Windows.Forms.ComboBox()
+        Me.txtNroDocFempleado = New System.Windows.Forms.TextBox()
+        Me.cbxSucursalFempleados = New System.Windows.Forms.ComboBox()
         Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
         Me.pnlmmant = New System.Windows.Forms.Panel()
@@ -3087,15 +3087,15 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMEmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlMEmp.Controls.Add(Me.Label83)
-        Me.pnlMEmp.Controls.Add(Me.TextBox11)
+        Me.pnlMEmp.Controls.Add(Me.txtUserNameMempleados)
         Me.pnlMEmp.Controls.Add(Me.Label65)
         Me.pnlMEmp.Controls.Add(Me.Label74)
-        Me.pnlMEmp.Controls.Add(Me.ComboBox35)
-        Me.pnlMEmp.Controls.Add(Me.ComboBox36)
+        Me.pnlMEmp.Controls.Add(Me.cbxTipoMempleados)
+        Me.pnlMEmp.Controls.Add(Me.cbxTipoSempleados)
         Me.pnlMEmp.Controls.Add(Me.Button16)
         Me.pnlMEmp.Controls.Add(Me.Label77)
         Me.pnlMEmp.Controls.Add(Me.Label78)
-        Me.pnlMEmp.Controls.Add(Me.TextBox17)
+        Me.pnlMEmp.Controls.Add(Me.txtNroDocMempleado)
         Me.pnlMEmp.Location = New System.Drawing.Point(789, 626)
         Me.pnlMEmp.Name = "pnlMEmp"
         Me.pnlMEmp.Size = New System.Drawing.Size(579, 197)
@@ -3112,12 +3112,12 @@ Partial Class frmMainMenu
         Me.Label83.TabIndex = 36
         Me.Label83.Text = "Nombre usuario"
         '
-        'TextBox11
+        'txtUserNameMempleados
         '
-        Me.TextBox11.Location = New System.Drawing.Point(272, 111)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox11.TabIndex = 35
+        Me.txtUserNameMempleados.Location = New System.Drawing.Point(272, 111)
+        Me.txtUserNameMempleados.Name = "txtUserNameMempleados"
+        Me.txtUserNameMempleados.Size = New System.Drawing.Size(100, 20)
+        Me.txtUserNameMempleados.TabIndex = 35
         '
         'Label65
         '
@@ -3141,25 +3141,25 @@ Partial Class frmMainMenu
         Me.Label74.TabIndex = 32
         Me.Label74.Text = "Tipo"
         '
-        'ComboBox35
+        'cbxTipoMempleados
         '
-        Me.ComboBox35.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox35.Enabled = False
-        Me.ComboBox35.FormattingEnabled = True
-        Me.ComboBox35.Location = New System.Drawing.Point(15, 110)
-        Me.ComboBox35.Name = "ComboBox35"
-        Me.ComboBox35.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox35.TabIndex = 30
+        Me.cbxTipoMempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoMempleados.Enabled = False
+        Me.cbxTipoMempleados.FormattingEnabled = True
+        Me.cbxTipoMempleados.Location = New System.Drawing.Point(15, 110)
+        Me.cbxTipoMempleados.Name = "cbxTipoMempleados"
+        Me.cbxTipoMempleados.Size = New System.Drawing.Size(121, 21)
+        Me.cbxTipoMempleados.TabIndex = 30
         '
-        'ComboBox36
+        'cbxTipoSempleados
         '
-        Me.ComboBox36.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox36.Enabled = False
-        Me.ComboBox36.FormattingEnabled = True
-        Me.ComboBox36.Location = New System.Drawing.Point(142, 110)
-        Me.ComboBox36.Name = "ComboBox36"
-        Me.ComboBox36.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox36.TabIndex = 28
+        Me.cbxTipoSempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoSempleados.Enabled = False
+        Me.cbxTipoSempleados.FormattingEnabled = True
+        Me.cbxTipoSempleados.Location = New System.Drawing.Point(142, 110)
+        Me.cbxTipoSempleados.Name = "cbxTipoSempleados"
+        Me.cbxTipoSempleados.Size = New System.Drawing.Size(121, 21)
+        Me.cbxTipoSempleados.TabIndex = 28
         '
         'Button16
         '
@@ -3201,12 +3201,12 @@ Partial Class frmMainMenu
         Me.Label78.TabIndex = 24
         Me.Label78.Text = "Modificar Usuario"
         '
-        'TextBox17
+        'txtNroDocMempleado
         '
-        Me.TextBox17.Location = New System.Drawing.Point(17, 65)
-        Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox17.TabIndex = 22
+        Me.txtNroDocMempleado.Location = New System.Drawing.Point(17, 65)
+        Me.txtNroDocMempleado.Name = "txtNroDocMempleado"
+        Me.txtNroDocMempleado.Size = New System.Drawing.Size(100, 20)
+        Me.txtNroDocMempleado.TabIndex = 22
         '
         'pnlBEmp
         '
@@ -3216,7 +3216,7 @@ Partial Class frmMainMenu
         Me.pnlBEmp.Controls.Add(Me.Button15)
         Me.pnlBEmp.Controls.Add(Me.Label75)
         Me.pnlBEmp.Controls.Add(Me.Label76)
-        Me.pnlBEmp.Controls.Add(Me.TextBox15)
+        Me.pnlBEmp.Controls.Add(Me.txtNroDocEempleado)
         Me.pnlBEmp.Location = New System.Drawing.Point(789, 431)
         Me.pnlBEmp.Name = "pnlBEmp"
         Me.pnlBEmp.Size = New System.Drawing.Size(579, 190)
@@ -3262,12 +3262,12 @@ Partial Class frmMainMenu
         Me.Label76.TabIndex = 24
         Me.Label76.Text = "Cambiar estado de empleado"
         '
-        'TextBox15
+        'txtNroDocEempleado
         '
-        Me.TextBox15.Location = New System.Drawing.Point(13, 65)
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox15.TabIndex = 22
+        Me.txtNroDocEempleado.Location = New System.Drawing.Point(13, 65)
+        Me.txtNroDocEempleado.Name = "txtNroDocEempleado"
+        Me.txtNroDocEempleado.Size = New System.Drawing.Size(100, 20)
+        Me.txtNroDocEempleado.TabIndex = 22
         '
         'pnlAEmp
         '
@@ -3276,15 +3276,15 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlAEmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlAEmp.Controls.Add(Me.Label82)
-        Me.pnlAEmp.Controls.Add(Me.TextBox10)
+        Me.pnlAEmp.Controls.Add(Me.txtUserNameAempleados)
         Me.pnlAEmp.Controls.Add(Me.Button14)
         Me.pnlAEmp.Controls.Add(Me.Label66)
         Me.pnlAEmp.Controls.Add(Me.Label67)
         Me.pnlAEmp.Controls.Add(Me.Label68)
         Me.pnlAEmp.Controls.Add(Me.Label73)
-        Me.pnlAEmp.Controls.Add(Me.ComboBox31)
-        Me.pnlAEmp.Controls.Add(Me.TextBox16)
-        Me.pnlAEmp.Controls.Add(Me.ComboBox33)
+        Me.pnlAEmp.Controls.Add(Me.cbxTipoAempleados)
+        Me.pnlAEmp.Controls.Add(Me.txtNroDocAempleado)
+        Me.pnlAEmp.Controls.Add(Me.cbxSucursalAempleados)
         Me.pnlAEmp.Location = New System.Drawing.Point(789, 215)
         Me.pnlAEmp.Name = "pnlAEmp"
         Me.pnlAEmp.Size = New System.Drawing.Size(578, 210)
@@ -3301,12 +3301,12 @@ Partial Class frmMainMenu
         Me.Label82.TabIndex = 34
         Me.Label82.Text = "Nombre usuario"
         '
-        'TextBox10
+        'txtUserNameAempleados
         '
-        Me.TextBox10.Location = New System.Drawing.Point(373, 82)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox10.TabIndex = 33
+        Me.txtUserNameAempleados.Location = New System.Drawing.Point(373, 82)
+        Me.txtUserNameAempleados.Name = "txtUserNameAempleados"
+        Me.txtUserNameAempleados.Size = New System.Drawing.Size(100, 20)
+        Me.txtUserNameAempleados.TabIndex = 33
         '
         'Button14
         '
@@ -3370,67 +3370,67 @@ Partial Class frmMainMenu
         Me.Label73.TabIndex = 24
         Me.Label73.Text = "Crear Usuario"
         '
-        'ComboBox31
+        'cbxTipoAempleados
         '
-        Me.ComboBox31.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox31.FormattingEnabled = True
-        Me.ComboBox31.Location = New System.Drawing.Point(119, 81)
-        Me.ComboBox31.Name = "ComboBox31"
-        Me.ComboBox31.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox31.TabIndex = 23
+        Me.cbxTipoAempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoAempleados.FormattingEnabled = True
+        Me.cbxTipoAempleados.Location = New System.Drawing.Point(119, 81)
+        Me.cbxTipoAempleados.Name = "cbxTipoAempleados"
+        Me.cbxTipoAempleados.Size = New System.Drawing.Size(121, 21)
+        Me.cbxTipoAempleados.TabIndex = 23
         '
-        'TextBox16
+        'txtNroDocAempleado
         '
-        Me.TextBox16.Location = New System.Drawing.Point(13, 82)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox16.TabIndex = 22
+        Me.txtNroDocAempleado.Location = New System.Drawing.Point(13, 82)
+        Me.txtNroDocAempleado.Name = "txtNroDocAempleado"
+        Me.txtNroDocAempleado.Size = New System.Drawing.Size(100, 20)
+        Me.txtNroDocAempleado.TabIndex = 22
         '
-        'ComboBox33
+        'cbxSucursalAempleados
         '
-        Me.ComboBox33.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox33.FormattingEnabled = True
-        Me.ComboBox33.Location = New System.Drawing.Point(246, 81)
-        Me.ComboBox33.Name = "ComboBox33"
-        Me.ComboBox33.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox33.TabIndex = 17
+        Me.cbxSucursalAempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxSucursalAempleados.FormattingEnabled = True
+        Me.cbxSucursalAempleados.Location = New System.Drawing.Point(246, 81)
+        Me.cbxSucursalAempleados.Name = "cbxSucursalAempleados"
+        Me.cbxSucursalAempleados.Size = New System.Drawing.Size(121, 21)
+        Me.cbxSucursalAempleados.TabIndex = 17
         '
         'pnlFemp
         '
         Me.pnlFemp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFemp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlFemp.Controls.Add(Me.CheckBox1)
+        Me.pnlFemp.Controls.Add(Me.chboxFiltrarFechaEmp)
         Me.pnlFemp.Controls.Add(Me.Label33)
         Me.pnlFemp.Controls.Add(Me.Label81)
-        Me.pnlFemp.Controls.Add(Me.DateTimePicker5)
-        Me.pnlFemp.Controls.Add(Me.DateTimePicker6)
+        Me.pnlFemp.Controls.Add(Me.dtmFechFinEmp)
+        Me.pnlFemp.Controls.Add(Me.dtmFechInicioEmp)
         Me.pnlFemp.Controls.Add(Me.Button4)
         Me.pnlFemp.Controls.Add(Me.Label42)
         Me.pnlFemp.Controls.Add(Me.Label69)
         Me.pnlFemp.Controls.Add(Me.Label70)
         Me.pnlFemp.Controls.Add(Me.Label71)
         Me.pnlFemp.Controls.Add(Me.Label72)
-        Me.pnlFemp.Controls.Add(Me.ComboBox32)
-        Me.pnlFemp.Controls.Add(Me.TextBox13)
-        Me.pnlFemp.Controls.Add(Me.ComboBox34)
+        Me.pnlFemp.Controls.Add(Me.cbxTipoFempleados)
+        Me.pnlFemp.Controls.Add(Me.txtNroDocFempleado)
+        Me.pnlFemp.Controls.Add(Me.cbxSucursalFempleados)
         Me.pnlFemp.Location = New System.Drawing.Point(789, 7)
         Me.pnlFemp.Name = "pnlFemp"
         Me.pnlFemp.Size = New System.Drawing.Size(578, 203)
         Me.pnlFemp.TabIndex = 33
         '
-        'CheckBox1
+        'chboxFiltrarFechaEmp
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CheckBox1.Location = New System.Drawing.Point(25, 127)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(91, 20)
-        Me.CheckBox1.TabIndex = 38
-        Me.CheckBox1.Text = "Filtrar Fecha"
-        Me.CheckBox1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chboxFiltrarFechaEmp.AutoSize = True
+        Me.chboxFiltrarFechaEmp.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chboxFiltrarFechaEmp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.chboxFiltrarFechaEmp.Location = New System.Drawing.Point(25, 127)
+        Me.chboxFiltrarFechaEmp.Name = "chboxFiltrarFechaEmp"
+        Me.chboxFiltrarFechaEmp.Size = New System.Drawing.Size(91, 20)
+        Me.chboxFiltrarFechaEmp.TabIndex = 38
+        Me.chboxFiltrarFechaEmp.Text = "Filtrar Fecha"
+        Me.chboxFiltrarFechaEmp.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chboxFiltrarFechaEmp.UseVisualStyleBackColor = True
         '
         'Label33
         '
@@ -3454,23 +3454,23 @@ Partial Class frmMainMenu
         Me.Label81.TabIndex = 36
         Me.Label81.Text = "Fecha Inicio"
         '
-        'DateTimePicker5
+        'dtmFechFinEmp
         '
-        Me.DateTimePicker5.Enabled = False
-        Me.DateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker5.Location = New System.Drawing.Point(226, 127)
-        Me.DateTimePicker5.Name = "DateTimePicker5"
-        Me.DateTimePicker5.Size = New System.Drawing.Size(78, 20)
-        Me.DateTimePicker5.TabIndex = 34
+        Me.dtmFechFinEmp.Enabled = False
+        Me.dtmFechFinEmp.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtmFechFinEmp.Location = New System.Drawing.Point(226, 127)
+        Me.dtmFechFinEmp.Name = "dtmFechFinEmp"
+        Me.dtmFechFinEmp.Size = New System.Drawing.Size(78, 20)
+        Me.dtmFechFinEmp.TabIndex = 34
         '
-        'DateTimePicker6
+        'dtmFechInicioEmp
         '
-        Me.DateTimePicker6.Enabled = False
-        Me.DateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker6.Location = New System.Drawing.Point(122, 127)
-        Me.DateTimePicker6.Name = "DateTimePicker6"
-        Me.DateTimePicker6.Size = New System.Drawing.Size(78, 20)
-        Me.DateTimePicker6.TabIndex = 35
+        Me.dtmFechInicioEmp.Enabled = False
+        Me.dtmFechInicioEmp.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtmFechInicioEmp.Location = New System.Drawing.Point(122, 127)
+        Me.dtmFechInicioEmp.Name = "dtmFechInicioEmp"
+        Me.dtmFechInicioEmp.Size = New System.Drawing.Size(78, 20)
+        Me.dtmFechInicioEmp.TabIndex = 35
         '
         'Button4
         '
@@ -3544,30 +3544,30 @@ Partial Class frmMainMenu
         Me.Label72.TabIndex = 24
         Me.Label72.Text = "Búsqueda de empleados"
         '
-        'ComboBox32
+        'cbxTipoFempleados
         '
-        Me.ComboBox32.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox32.FormattingEnabled = True
-        Me.ComboBox32.Location = New System.Drawing.Point(122, 69)
-        Me.ComboBox32.Name = "ComboBox32"
-        Me.ComboBox32.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox32.TabIndex = 23
+        Me.cbxTipoFempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoFempleados.FormattingEnabled = True
+        Me.cbxTipoFempleados.Location = New System.Drawing.Point(122, 69)
+        Me.cbxTipoFempleados.Name = "cbxTipoFempleados"
+        Me.cbxTipoFempleados.Size = New System.Drawing.Size(121, 21)
+        Me.cbxTipoFempleados.TabIndex = 23
         '
-        'TextBox13
+        'txtNroDocFempleado
         '
-        Me.TextBox13.Location = New System.Drawing.Point(16, 70)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox13.TabIndex = 22
+        Me.txtNroDocFempleado.Location = New System.Drawing.Point(16, 70)
+        Me.txtNroDocFempleado.Name = "txtNroDocFempleado"
+        Me.txtNroDocFempleado.Size = New System.Drawing.Size(100, 20)
+        Me.txtNroDocFempleado.TabIndex = 22
         '
-        'ComboBox34
+        'cbxSucursalFempleados
         '
-        Me.ComboBox34.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox34.FormattingEnabled = True
-        Me.ComboBox34.Location = New System.Drawing.Point(249, 69)
-        Me.ComboBox34.Name = "ComboBox34"
-        Me.ComboBox34.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox34.TabIndex = 17
+        Me.cbxSucursalFempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxSucursalFempleados.FormattingEnabled = True
+        Me.cbxSucursalFempleados.Location = New System.Drawing.Point(249, 69)
+        Me.cbxSucursalFempleados.Name = "cbxSucursalFempleados"
+        Me.cbxSucursalFempleados.Size = New System.Drawing.Size(121, 21)
+        Me.cbxSucursalFempleados.TabIndex = 17
         '
         'dgvEmpleados
         '
@@ -4731,7 +4731,7 @@ Partial Class frmMainMenu
         Me.Alquileres.Location = New System.Drawing.Point(4, 22)
         Me.Alquileres.Name = "Alquileres"
         Me.Alquileres.Padding = New System.Windows.Forms.Padding(3)
-        Me.Alquileres.Size = New System.Drawing.Size(1323, 792)
+        Me.Alquileres.Size = New System.Drawing.Size(1320, 789)
         Me.Alquileres.TabIndex = 1
         Me.Alquileres.Text = "Alquileres"
         '
@@ -4746,7 +4746,7 @@ Partial Class frmMainMenu
         Me.Panel2.Controls.Add(Me.Label136)
         Me.Panel2.Location = New System.Drawing.Point(743, 212)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(577, 190)
+        Me.Panel2.Size = New System.Drawing.Size(574, 190)
         Me.Panel2.TabIndex = 42
         '
         'Label133
@@ -4771,7 +4771,7 @@ Partial Class frmMainMenu
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.ForeColor = System.Drawing.Color.White
-        Me.Button5.Location = New System.Drawing.Point(467, 145)
+        Me.Button5.Location = New System.Drawing.Point(464, 145)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(99, 31)
         Me.Button5.TabIndex = 18
@@ -4820,7 +4820,7 @@ Partial Class frmMainMenu
         Me.Panel3.Controls.Add(Me.ComboBox16)
         Me.Panel3.Location = New System.Drawing.Point(743, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(577, 203)
+        Me.Panel3.Size = New System.Drawing.Size(574, 203)
         Me.Panel3.TabIndex = 41
         '
         'Label137
@@ -4867,7 +4867,7 @@ Partial Class frmMainMenu
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.ForeColor = System.Drawing.Color.White
-        Me.Button6.Location = New System.Drawing.Point(468, 162)
+        Me.Button6.Location = New System.Drawing.Point(465, 162)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(99, 31)
         Me.Button6.TabIndex = 32
@@ -5079,7 +5079,7 @@ Partial Class frmMainMenu
         DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvAlquileres.Size = New System.Drawing.Size(737, 783)
+        Me.dgvAlquileres.Size = New System.Drawing.Size(737, 780)
         Me.dgvAlquileres.TabIndex = 10
         '
         'tbpMenuPrincipal
@@ -5336,9 +5336,9 @@ Partial Class frmMainMenu
     Friend WithEvents Label70 As Label
     Friend WithEvents Label71 As Label
     Friend WithEvents Label72 As Label
-    Friend WithEvents ComboBox32 As ComboBox
-    Friend WithEvents TextBox13 As TextBox
-    Friend WithEvents ComboBox34 As ComboBox
+    Friend WithEvents cbxTipoFempleados As ComboBox
+    Friend WithEvents txtNroDocFempleado As TextBox
+    Friend WithEvents cbxSucursalFempleados As ComboBox
     Friend WithEvents dgvEmpleados As DataGridView
     Friend WithEvents pnlAEmp As Panel
     Friend WithEvents Button14 As Button
@@ -5346,24 +5346,24 @@ Partial Class frmMainMenu
     Friend WithEvents Label67 As Label
     Friend WithEvents Label68 As Label
     Friend WithEvents Label73 As Label
-    Friend WithEvents ComboBox31 As ComboBox
-    Friend WithEvents TextBox16 As TextBox
-    Friend WithEvents ComboBox33 As ComboBox
+    Friend WithEvents cbxTipoAempleados As ComboBox
+    Friend WithEvents txtNroDocAempleado As TextBox
+    Friend WithEvents cbxSucursalAempleados As ComboBox
     Friend WithEvents btnEmpleados As Button
     Friend WithEvents pnlMEmp As Panel
     Friend WithEvents Label65 As Label
     Friend WithEvents Label74 As Label
-    Friend WithEvents ComboBox35 As ComboBox
-    Friend WithEvents ComboBox36 As ComboBox
+    Friend WithEvents cbxTipoMempleados As ComboBox
+    Friend WithEvents cbxTipoSempleados As ComboBox
     Friend WithEvents Button16 As Button
     Friend WithEvents Label77 As Label
     Friend WithEvents Label78 As Label
-    Friend WithEvents TextBox17 As TextBox
+    Friend WithEvents txtNroDocMempleado As TextBox
     Friend WithEvents pnlBEmp As Panel
     Friend WithEvents Button15 As Button
     Friend WithEvents Label75 As Label
     Friend WithEvents Label76 As Label
-    Friend WithEvents TextBox15 As TextBox
+    Friend WithEvents txtNroDocEempleado As TextBox
     Friend WithEvents btnCerrar As Button
     Friend WithEvents pnlBClientes As Panel
     Friend WithEvents btnBajaCliente As Button
@@ -5461,14 +5461,14 @@ Partial Class frmMainMenu
     Friend WithEvents Label25 As Label
     Friend WithEvents Label28 As Label
     Friend WithEvents Label83 As Label
-    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents txtUserNameMempleados As TextBox
     Friend WithEvents Label82 As Label
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents txtUserNameAempleados As TextBox
+    Friend WithEvents chboxFiltrarFechaEmp As CheckBox
     Friend WithEvents Label33 As Label
     Friend WithEvents Label81 As Label
-    Friend WithEvents DateTimePicker5 As DateTimePicker
-    Friend WithEvents DateTimePicker6 As DateTimePicker
+    Friend WithEvents dtmFechFinEmp As DateTimePicker
+    Friend WithEvents dtmFechInicioEmp As DateTimePicker
     Friend WithEvents ImprmirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AparienciaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents chbxFechaFClientes As CheckBox

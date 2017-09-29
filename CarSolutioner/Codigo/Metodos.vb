@@ -2,11 +2,11 @@
 
     Private Declare Function GetTickCount Lib "kernel32" () As Integer
 
-    Public Sub cargando(imagen As PictureBox)
+    Public Sub cargando(imagen As PictureBox, milisegundos As Integer)
 
         Dim retraso As Integer
 
-        retraso = 2000 + GetTickCount
+        retraso = milisegundos + GetTickCount
 
 
         While retraso >= GetTickCount

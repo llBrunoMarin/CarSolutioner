@@ -9,7 +9,7 @@
         dgvSucursales.Columns("idsucursal").Visible = False
         conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
         dgvCategorias.Columns("idcategoria").Visible = False
-
+        chboxsucinactivas.Checked = True
     End Sub
 
     Private Sub btnMinimizar_Click(sender As Object, e As EventArgs)
@@ -82,7 +82,7 @@
             dgvSucursales.Columns("idsucursal").Visible = False
 
         Else
-            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL where estado='t'")
+            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
         End If
         For Each con As Control In pnlsuccambios.Controls
             VaciarControl(con)
@@ -90,7 +90,7 @@
     End Sub
 
     Private Sub dataGridView1_CellClick(ByVal sender As Object, ByVal e As EventArgs) Handles dgvSucursales.SelectionChanged
-
+        cboxsucursalmov.SelectedItem = Nothing
         If Not IsNothing(dgvSucursales.CurrentRow) Then
 
             Dim estadosucmod As Boolean
@@ -100,6 +100,7 @@
             txtciudadsucmod.Text = dgvSucursales.CurrentRow.Cells("ciudad").Value.ToString()
             txtdireccionsucmod.Text = dgvSucursales.CurrentRow.Cells("direccion").Value.ToString()
             estadosucmod = dgvSucursales.CurrentRow.Cells("estado").Value.ToString()
+            lblsucmov.Text = txtnombresucmod.Text
 
             If estadosucmod = "True" Then
                 cboxestadosucmod.SelectedItem = "Activa"
@@ -123,11 +124,24 @@
 
             conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
             conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
-            dgvCategorias.Columns("idsucursal").Visible = False
-        Else
-            estado = "f"
-            pnlmovimiento.Enabled = True
-            lblsucmov.Text = txtnombresucmod.Text
+            dgvSucursales.Columns("idsucursal").Visible = False
+
+        ElseIf Not cboxsucursalmov.SelectedItem Is Nothing Then
+            Dim ReservasActivas As DataTable = conexion.EjecutarSelect("Select idreserva from reserva where estado = 1 and idsucursalllegada = '" + idsucursalmod + "' or idsucursalsalida = '" + idsucursalmod + "'")
+            If ReservasActivas.Rows.Count = 0 Then
+                estado = "f"
+                conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = " + cboxsucursalmov.SelectedValue.ToString + " where idsucursal = " + idsucursalmod + "")
+                MsgBox(idsucursalmod)
+                MsgBox(cboxsucursalmov.SelectedValue.ToString)
+                MsgBox("Vehiculos trasladados satisfactoriamente a " + cboxsucursalmov.Text + ". La sucursal se declara inactiva.", MsgBoxStyle.Information, "Notificacion")
+                conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
+                conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
+                dgvSucursales.Columns("idsucursal").Visible = False
+            Else
+                MsgBox("Tienes reservas activas en esta sucursal, no puede ser dada de baja hasta que las reservas sean derivadas manualmente.", MsgBoxStyle.Exclamation, "Notificacion")
+            End If
+
+
         End If
 
 
@@ -143,7 +157,7 @@
     End Sub
 
 
-    Private Sub chboxsucinactivas_CheckedChanged_1(sender As Object, e As EventArgs) Handles chboxsucinactivas.CheckedChanged
+    Private Sub chboxsucinactivas_CheckedChanged_1(sender As Object, e As EventArgs) Handles chboxsucinactivas.CheckedChanged, btnmodsuc.Click
         Dim filtro As String
         If chboxsucinactivas.Checked Then
 
@@ -168,5 +182,25 @@
 
     Private Sub pnlmodsuc_Paint(sender As Object, e As PaintEventArgs) Handles pnlmodsuc.Paint
 
+    End Sub
+
+    Private Sub cboxestadosucmod_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboxestadosucmod.SelectedIndexChanged
+
+        If cboxestadosucmod.SelectedItem = "Inactiva" Then
+
+
+
+            pnlmovimiento.Enabled = True
+
+        Else
+            pnlmovimiento.Enabled = False
+
+        End If
+    End Sub
+
+    Private Sub cboxsucursalmov_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboxsucursalmov.Click
+
+        cargando(frmMainMenu.pcboxloading, 500)
+        CargarDatosComboBox(cboxsucursalmov, conexion.EjecutarSelect("SELECT * FROM sucursal where idsucursal != " + idsucursalmod + "  and estado = 't'"), "nombre", "idsucursal")
     End Sub
 End Class

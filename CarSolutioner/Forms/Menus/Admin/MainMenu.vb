@@ -92,7 +92,7 @@ Public Class frmMainMenu
 
     Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
 
-        cargando(pcboxloading)
+        cargando(pcboxloading, 1000)
 
         frmCambiosGenerales.ShowDialog()
 

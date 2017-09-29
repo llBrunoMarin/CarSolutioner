@@ -1076,7 +1076,7 @@ Partial Class frmCambiosGenerales
         Me.btnAddSuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddSuc.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddSuc.ForeColor = System.Drawing.Color.White
-        Me.btnAddSuc.Location = New System.Drawing.Point(380, 95)
+        Me.btnAddSuc.Location = New System.Drawing.Point(372, 20)
         Me.btnAddSuc.Name = "btnAddSuc"
         Me.btnAddSuc.Size = New System.Drawing.Size(91, 30)
         Me.btnAddSuc.TabIndex = 49

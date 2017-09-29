@@ -107,14 +107,14 @@ Partial Class frmCambiosGenerales
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnAddSuc = New System.Windows.Forms.Button()
         Me.pnlmodsuc = New System.Windows.Forms.Panel()
+        Me.btnmodsuc = New System.Windows.Forms.Button()
         Me.pnlmovimiento = New System.Windows.Forms.Panel()
+        Me.Label33 = New System.Windows.Forms.Label()
         Me.cboxsucursalmov = New System.Windows.Forms.ComboBox()
-        Me.btnacceptarmov = New System.Windows.Forms.Button()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.lblsucmov = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.cboxestadosucmod = New System.Windows.Forms.ComboBox()
-        Me.btnmodsuc = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtnombresucmod = New System.Windows.Forms.TextBox()
@@ -1140,9 +1140,9 @@ Partial Class frmCambiosGenerales
         '
         Me.pnlmodsuc.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlmodsuc.BackColor = System.Drawing.Color.Silver
+        Me.pnlmodsuc.Controls.Add(Me.btnmodsuc)
         Me.pnlmodsuc.Controls.Add(Me.pnlmovimiento)
         Me.pnlmodsuc.Controls.Add(Me.cboxestadosucmod)
-        Me.pnlmodsuc.Controls.Add(Me.btnmodsuc)
         Me.pnlmodsuc.Controls.Add(Me.Label11)
         Me.pnlmodsuc.Controls.Add(Me.Label12)
         Me.pnlmodsuc.Controls.Add(Me.txtnombresucmod)
@@ -1157,46 +1157,57 @@ Partial Class frmCambiosGenerales
         Me.pnlmodsuc.Size = New System.Drawing.Size(478, 282)
         Me.pnlmodsuc.TabIndex = 70
         '
+        'btnmodsuc
+        '
+        Me.btnmodsuc.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnmodsuc.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnmodsuc.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnmodsuc.FlatAppearance.BorderSize = 0
+        Me.btnmodsuc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnmodsuc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnmodsuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnmodsuc.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnmodsuc.ForeColor = System.Drawing.Color.White
+        Me.btnmodsuc.Location = New System.Drawing.Point(380, 247)
+        Me.btnmodsuc.Name = "btnmodsuc"
+        Me.btnmodsuc.Size = New System.Drawing.Size(91, 30)
+        Me.btnmodsuc.TabIndex = 69
+        Me.btnmodsuc.Text = "Modificar"
+        Me.btnmodsuc.UseVisualStyleBackColor = False
+        '
         'pnlmovimiento
         '
+        Me.pnlmovimiento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlmovimiento.Controls.Add(Me.Label33)
         Me.pnlmovimiento.Controls.Add(Me.cboxsucursalmov)
-        Me.pnlmovimiento.Controls.Add(Me.btnacceptarmov)
         Me.pnlmovimiento.Controls.Add(Me.Label31)
         Me.pnlmovimiento.Controls.Add(Me.lblsucmov)
         Me.pnlmovimiento.Controls.Add(Me.Label32)
         Me.pnlmovimiento.Enabled = False
-        Me.pnlmovimiento.Location = New System.Drawing.Point(12, 145)
+        Me.pnlmovimiento.Location = New System.Drawing.Point(8, 121)
         Me.pnlmovimiento.Name = "pnlmovimiento"
-        Me.pnlmovimiento.Size = New System.Drawing.Size(451, 126)
+        Me.pnlmovimiento.Size = New System.Drawing.Size(463, 122)
         Me.pnlmovimiento.TabIndex = 77
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Century Gothic", 7.0!)
+        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label33.Location = New System.Drawing.Point(170, 15)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(269, 15)
+        Me.Label33.TabIndex = 76
+        Me.Label33.Text = "(Se activa en caso de inactivacion de una sucursal)."
         '
         'cboxsucursalmov
         '
         Me.cboxsucursalmov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboxsucursalmov.FormattingEnabled = True
-        Me.cboxsucursalmov.Items.AddRange(New Object() {"Activa", "Inactiva"})
-        Me.cboxsucursalmov.Location = New System.Drawing.Point(8, 80)
+        Me.cboxsucursalmov.Location = New System.Drawing.Point(7, 90)
         Me.cboxsucursalmov.Name = "cboxsucursalmov"
         Me.cboxsucursalmov.Size = New System.Drawing.Size(100, 21)
         Me.cboxsucursalmov.TabIndex = 75
-        '
-        'btnacceptarmov
-        '
-        Me.btnacceptarmov.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnacceptarmov.BackColor = System.Drawing.Color.Gray
-        Me.btnacceptarmov.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnacceptarmov.FlatAppearance.BorderSize = 0
-        Me.btnacceptarmov.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnacceptarmov.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnacceptarmov.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnacceptarmov.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnacceptarmov.ForeColor = System.Drawing.Color.White
-        Me.btnacceptarmov.Location = New System.Drawing.Point(353, 90)
-        Me.btnacceptarmov.Name = "btnacceptarmov"
-        Me.btnacceptarmov.Size = New System.Drawing.Size(91, 30)
-        Me.btnacceptarmov.TabIndex = 69
-        Me.btnacceptarmov.Text = "Aceptar"
-        Me.btnacceptarmov.UseVisualStyleBackColor = False
         '
         'Label31
         '
@@ -1214,7 +1225,7 @@ Partial Class frmCambiosGenerales
         Me.lblsucmov.AutoSize = True
         Me.lblsucmov.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblsucmov.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblsucmov.Location = New System.Drawing.Point(166, 57)
+        Me.lblsucmov.Location = New System.Drawing.Point(110, 57)
         Me.lblsucmov.Name = "lblsucmov"
         Me.lblsucmov.Size = New System.Drawing.Size(63, 16)
         Me.lblsucmov.TabIndex = 74
@@ -1227,9 +1238,9 @@ Partial Class frmCambiosGenerales
         Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label32.Location = New System.Drawing.Point(4, 40)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(224, 34)
+        Me.Label32.Size = New System.Drawing.Size(281, 34)
         Me.Label32.TabIndex = 73
-        Me.Label32.Text = "Selecciona una sucursal a  la cual se" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " moveran los vehiculos de:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label32.Text = "Selecciona una sucursal a  la cual se moveran" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "los vehiculos de:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'cboxestadosucmod
         '
@@ -1240,24 +1251,6 @@ Partial Class frmCambiosGenerales
         Me.cboxestadosucmod.Name = "cboxestadosucmod"
         Me.cboxestadosucmod.Size = New System.Drawing.Size(100, 21)
         Me.cboxestadosucmod.TabIndex = 72
-        '
-        'btnmodsuc
-        '
-        Me.btnmodsuc.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnmodsuc.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnmodsuc.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnmodsuc.FlatAppearance.BorderSize = 0
-        Me.btnmodsuc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnmodsuc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnmodsuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnmodsuc.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnmodsuc.ForeColor = System.Drawing.Color.White
-        Me.btnmodsuc.Location = New System.Drawing.Point(380, 103)
-        Me.btnmodsuc.Name = "btnmodsuc"
-        Me.btnmodsuc.Size = New System.Drawing.Size(91, 30)
-        Me.btnmodsuc.TabIndex = 69
-        Me.btnmodsuc.Text = "Modificar"
-        Me.btnmodsuc.UseVisualStyleBackColor = False
         '
         'Label11
         '
@@ -1523,7 +1516,7 @@ Partial Class frmCambiosGenerales
     Friend WithEvents Label32 As Label
     Friend WithEvents Label31 As Label
     Friend WithEvents cboxestadosucmod As ComboBox
-    Friend WithEvents btnacceptarmov As Button
     Friend WithEvents cboxsucursalmov As ComboBox
     Friend WithEvents pnlmovimiento As Panel
+    Friend WithEvents Label33 As Label
 End Class

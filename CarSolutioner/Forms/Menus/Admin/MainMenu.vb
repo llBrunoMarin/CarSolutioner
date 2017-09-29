@@ -176,6 +176,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxTipoDocumFCliente, conexion.Documentos, "nombre", "idtipodoc")
         CargarDatosComboBox(cbxTipoDocumACliente, conexion.Documentos, "nombre", "idtipodoc")
         CargarDatosComboBox(cbxTipoDocumMCliente, conexion.Documentos, "nombre", "idtipodoc")
+        CargarDatosComboBox(cbxTipoDocumMCliente, conexion.Documentos, "nombre", "idtipodoc")
 
         'AÑOS
         CargarDatosComboBox(cbxAnioNFCliente, conexion.Años)

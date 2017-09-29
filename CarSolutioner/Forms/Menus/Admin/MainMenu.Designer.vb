@@ -432,6 +432,24 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.nombreapellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservainicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservafin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidadkm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.costototal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.salida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.llegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarioempleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechatramite = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalsalida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadoreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalllegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -3559,6 +3577,7 @@ Partial Class frmMainMenu
         '
         'dgvEmpleados
         '
+        Me.dgvEmpleados.AllowUserToAddRows = False
         Me.dgvEmpleados.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -4696,9 +4715,14 @@ Partial Class frmMainMenu
         '
         'dgvReservas
         '
+        Me.dgvReservas.AllowUserToAddRows = False
+        Me.dgvReservas.AllowUserToResizeColumns = False
+        Me.dgvReservas.AllowUserToResizeRows = False
         Me.dgvReservas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvReservas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvReservas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombreapellido, Me.fechareservainicio, Me.fechareservafin, Me.categoriareserva, Me.tiporeserva, Me.cantidadkm, Me.costototal, Me.salida, Me.llegada, Me.usuarioempleado, Me.fechatramite, Me.idreserva, Me.idsucursalsalida, Me.estadoreserva, Me.idpersonareserva, Me.idcategoriareserva, Me.idtiporeserva, Me.idsucursalllegada})
         Me.dgvReservas.Location = New System.Drawing.Point(3, 3)
         Me.dgvReservas.MultiSelect = False
         Me.dgvReservas.Name = "dgvReservas"
@@ -5137,6 +5161,141 @@ Partial Class frmMainMenu
         Me.Button1.TabIndex = 35
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'nombreapellido
+        '
+        Me.nombreapellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.nombreapellido.DataPropertyName = "nombreapellido"
+        Me.nombreapellido.HeaderText = "Nombre"
+        Me.nombreapellido.Name = "nombreapellido"
+        Me.nombreapellido.ReadOnly = True
+        Me.nombreapellido.Width = 69
+        '
+        'fechareservainicio
+        '
+        Me.fechareservainicio.DataPropertyName = "fechareservainicio"
+        Me.fechareservainicio.HeaderText = "Inicio"
+        Me.fechareservainicio.Name = "fechareservainicio"
+        Me.fechareservainicio.ReadOnly = True
+        '
+        'fechareservafin
+        '
+        Me.fechareservafin.DataPropertyName = "fechareservafin"
+        Me.fechareservafin.HeaderText = "Fin"
+        Me.fechareservafin.Name = "fechareservafin"
+        Me.fechareservafin.ReadOnly = True
+        '
+        'categoriareserva
+        '
+        Me.categoriareserva.DataPropertyName = "categoria"
+        Me.categoriareserva.HeaderText = "Categoria"
+        Me.categoriareserva.Name = "categoriareserva"
+        Me.categoriareserva.ReadOnly = True
+        '
+        'tiporeserva
+        '
+        Me.tiporeserva.DataPropertyName = "tipo"
+        Me.tiporeserva.HeaderText = "Tipo"
+        Me.tiporeserva.Name = "tiporeserva"
+        Me.tiporeserva.ReadOnly = True
+        '
+        'cantidadkm
+        '
+        Me.cantidadkm.DataPropertyName = "cantidadkm"
+        Me.cantidadkm.HeaderText = "KM"
+        Me.cantidadkm.Name = "cantidadkm"
+        Me.cantidadkm.ReadOnly = True
+        '
+        'costototal
+        '
+        Me.costototal.DataPropertyName = "costototal"
+        Me.costototal.HeaderText = "Costo"
+        Me.costototal.Name = "costototal"
+        Me.costototal.ReadOnly = True
+        '
+        'salida
+        '
+        Me.salida.DataPropertyName = "salida"
+        Me.salida.HeaderText = "Salida"
+        Me.salida.Name = "salida"
+        Me.salida.ReadOnly = True
+        '
+        'llegada
+        '
+        Me.llegada.DataPropertyName = "llegada"
+        Me.llegada.HeaderText = "Llegada"
+        Me.llegada.Name = "llegada"
+        Me.llegada.ReadOnly = True
+        '
+        'usuarioempleado
+        '
+        Me.usuarioempleado.DataPropertyName = "usuarioempleado"
+        Me.usuarioempleado.HeaderText = "Vendedor"
+        Me.usuarioempleado.Name = "usuarioempleado"
+        Me.usuarioempleado.ReadOnly = True
+        '
+        'fechatramite
+        '
+        Me.fechatramite.DataPropertyName = "fechatramite"
+        Me.fechatramite.HeaderText = "Tramite"
+        Me.fechatramite.Name = "fechatramite"
+        Me.fechatramite.ReadOnly = True
+        '
+        'idreserva
+        '
+        Me.idreserva.DataPropertyName = "idreserva"
+        Me.idreserva.HeaderText = "idreserva"
+        Me.idreserva.Name = "idreserva"
+        Me.idreserva.ReadOnly = True
+        Me.idreserva.Visible = False
+        '
+        'idsucursalsalida
+        '
+        Me.idsucursalsalida.DataPropertyName = "idsucursalsalida"
+        Me.idsucursalsalida.HeaderText = "idsucursalsalida"
+        Me.idsucursalsalida.Name = "idsucursalsalida"
+        Me.idsucursalsalida.ReadOnly = True
+        Me.idsucursalsalida.Visible = False
+        '
+        'estadoreserva
+        '
+        Me.estadoreserva.DataPropertyName = "estado"
+        Me.estadoreserva.HeaderText = "Estado"
+        Me.estadoreserva.Name = "estadoreserva"
+        Me.estadoreserva.ReadOnly = True
+        Me.estadoreserva.Visible = False
+        '
+        'idpersonareserva
+        '
+        Me.idpersonareserva.DataPropertyName = "idpersona"
+        Me.idpersonareserva.HeaderText = "idpersona"
+        Me.idpersonareserva.Name = "idpersonareserva"
+        Me.idpersonareserva.ReadOnly = True
+        Me.idpersonareserva.Visible = False
+        '
+        'idcategoriareserva
+        '
+        Me.idcategoriareserva.DataPropertyName = "idcategoria"
+        Me.idcategoriareserva.HeaderText = "idcategoria"
+        Me.idcategoriareserva.Name = "idcategoriareserva"
+        Me.idcategoriareserva.ReadOnly = True
+        Me.idcategoriareserva.Visible = False
+        '
+        'idtiporeserva
+        '
+        Me.idtiporeserva.DataPropertyName = "idtipo"
+        Me.idtiporeserva.HeaderText = "idtipo"
+        Me.idtiporeserva.Name = "idtiporeserva"
+        Me.idtiporeserva.ReadOnly = True
+        Me.idtiporeserva.Visible = False
+        '
+        'idsucursalllegada
+        '
+        Me.idsucursalllegada.DataPropertyName = "idsucursalllegada"
+        Me.idsucursalllegada.HeaderText = "idsucursalllegada"
+        Me.idsucursalllegada.Name = "idsucursalllegada"
+        Me.idsucursalllegada.ReadOnly = True
+        Me.idsucursalllegada.Visible = False
         '
         'frmMainMenu
         '
@@ -5631,4 +5790,22 @@ Partial Class frmMainMenu
     Friend WithEvents tabClientes As TabControl
     Friend WithEvents Clientes As TabPage
     Friend WithEvents ReportesClientes As TabPage
+    Friend WithEvents nombreapellido As DataGridViewTextBoxColumn
+    Friend WithEvents fechareservainicio As DataGridViewTextBoxColumn
+    Friend WithEvents fechareservafin As DataGridViewTextBoxColumn
+    Friend WithEvents categoriareserva As DataGridViewTextBoxColumn
+    Friend WithEvents tiporeserva As DataGridViewTextBoxColumn
+    Friend WithEvents cantidadkm As DataGridViewTextBoxColumn
+    Friend WithEvents costototal As DataGridViewTextBoxColumn
+    Friend WithEvents salida As DataGridViewTextBoxColumn
+    Friend WithEvents llegada As DataGridViewTextBoxColumn
+    Friend WithEvents usuarioempleado As DataGridViewTextBoxColumn
+    Friend WithEvents fechatramite As DataGridViewTextBoxColumn
+    Friend WithEvents idreserva As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalsalida As DataGridViewTextBoxColumn
+    Friend WithEvents estadoreserva As DataGridViewTextBoxColumn
+    Friend WithEvents idpersonareserva As DataGridViewTextBoxColumn
+    Friend WithEvents idcategoriareserva As DataGridViewTextBoxColumn
+    Friend WithEvents idtiporeserva As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalllegada As DataGridViewTextBoxColumn
 End Class

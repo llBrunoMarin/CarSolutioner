@@ -43,7 +43,7 @@ Partial Public Class frmMainMenu
             Dim selectedRow = dgvReservas.Rows(e.RowIndex)
 
             ReservaSeleccionada.IdReserva = selectedRow.Cells("idreserva").Value.ToString
-            ReservaSeleccionada.IdCliente = selectedRow.Cells("idpersona").Value.ToString
+            ReservaSeleccionada.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
             ReservaSeleccionada.FechaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
             ReservaSeleccionada.FechaFin = selectedRow.Cells("fechareservafin").Value.ToString
             ReservaSeleccionada.CantKM = selectedRow.Cells("cantidadkm").Value.ToString
@@ -51,8 +51,8 @@ Partial Public Class frmMainMenu
             ReservaSeleccionada.FechaTramite = selectedRow.Cells("fechatramite").Value.ToString
             ReservaSeleccionada.NomCliente = selectedRow.Cells("nombreapellido").Value.ToString
             ReservaSeleccionada.ApeCliente = selectedRow.Cells("nombreapellido").Value.ToString()
-            ReservaSeleccionada.Categoria = selectedRow.Cells("categoria").Value.ToString
-            ReservaSeleccionada.Tipo = selectedRow.Cells("tipo").Value.ToString
+            ReservaSeleccionada.Categoria = selectedRow.Cells("categoriareserva").Value.ToString
+            ReservaSeleccionada.Tipo = selectedRow.Cells("tiporeserva").Value.ToString
             ReservaSeleccionada.SucursalInicio = selectedRow.Cells("salida").Value.ToString
             ReservaSeleccionada.SucursalDestino = selectedRow.Cells("llegada").Value.ToString
             ReservaSeleccionada.Empleado = selectedRow.Cells("usuarioempleado").Value.ToString

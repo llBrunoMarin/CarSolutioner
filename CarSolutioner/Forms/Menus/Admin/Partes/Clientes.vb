@@ -55,17 +55,58 @@ Partial Public Class frmMainMenu
     Private Sub AltaCliente(sender As Object, e As EventArgs) Handles btnIngresarACliente.Click
 
         Dim FechaSeleccionada As String = cbxDiaNACliente.Text + "/" + cbxMesNACliente.Text + "/" + cbxAnioNACliente.Text
+        Dim FaltaDato As Boolean = False
 
-        If (IsDate(FechaSeleccionada)) Then
+        For Each ctrl As Control In pnlAClientes.Controls
+            If TypeOf (ctrl) Is TextBox Then
+                If Not ctrl.Name = "txtCorreoACliente" Then
+                    If ctrl.Text = "" Then
+                        FaltaDato = True
+                        Exit For
+                    End If
+                End If
+            Else
+                If TypeOf (ctrl) Is ComboBox Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                        FaltaDato = True
+                    End If
+                End If
+            End If
+        Next
 
-            Dim sentencia As String
-            sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 't' )",
-                             cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, FechaSeleccionada, txtEmpresaACliente.Text)
+        If Not (FaltaDato) Then
+            If (IsDate(FechaSeleccionada)) Then
 
-            If cbxTipoDocumACliente.SelectedValue = 1 Then
+                Dim sentencia As String
+                sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 't' )",
+                                 cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, FechaSeleccionada, txtEmpresaACliente.Text)
 
-                'Si la cédula es válida
-                If VerificarCI(txtDocumACliente.Text) Then
+                If cbxTipoDocumACliente.SelectedValue = 1 Then
+
+                    'Si la cédula es válida
+                    If VerificarCI(txtDocumACliente.Text) Then
+
+                        'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
+                        If conexion.EjecutarNonQuery(sentencia) Then
+                            MsgBox("Cliente ingresado satisfactoriamente")
+                            RecargarDatos(dgvClientes)
+                            Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
+                            Dim ListaTelefonos As New List(Of String)
+
+                            'Agrega cada item del combobox a la Lista
+                            For Each item In cbxTelefonosACliente.Items
+                                ListaTelefonos.Add(item.ToString)
+                            Next
+
+                            'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
+                            For Each Telefono In ListaTelefonos.Distinct()
+                                conexion.EjecutarNonQuery("INSERT INTO telefonopersona VALUES ('" + IDPersonaInsertada + "', '" + Telefono + "')")
+                            Next
+                        End If
+
+                    End If
+
+                Else
 
                     'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
                     If conexion.EjecutarNonQuery(sentencia) Then
@@ -88,31 +129,13 @@ Partial Public Class frmMainMenu
                 End If
 
             Else
-
-                'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
-                If conexion.EjecutarNonQuery(sentencia) Then
-                    MsgBox("Cliente ingresado satisfactoriamente")
-                    RecargarDatos(dgvClientes)
-                    Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
-                    Dim ListaTelefonos As New List(Of String)
-
-                    'Agrega cada item del combobox a la Lista
-                    For Each item In cbxTelefonosACliente.Items
-                        ListaTelefonos.Add(item.ToString)
-                    Next
-
-                    'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
-                    For Each Telefono In ListaTelefonos.Distinct()
-                        conexion.EjecutarNonQuery("INSERT INTO telefonopersona VALUES ('" + IDPersonaInsertada + "', '" + Telefono + "')")
-                    Next
-                End If
+                'Si la fecha seleccionada no es una fecha válida, mostramos un mensaje de error y salimos del Sub.
+                MsgBox("Por favor, seleccione una fecha válida.")
 
             End If
-
         Else
-            'Si la fecha seleccionada no es una fecha válida, mostramos un mensaje de error y salimos del Sub.
-            MsgBox("Por favor, seleccione una fecha válida.")
-
+            'Si falta rellenar algún dato necesario:
+            MsgBox("Por favor, rellene todos los campos obligatorios.")
         End If
 
     End Sub

@@ -92,11 +92,7 @@ Public Class frmMainMenu
 
     Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
 
-
-
-
         cargando(pcboxloading)
-
 
         frmCambiosGenerales.ShowDialog()
 
@@ -233,11 +229,4 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub btnModificarCliente_Click(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
-
-    End Sub
-
-    Private Sub pcboxloading_Click(sender As Object, e As EventArgs) Handles pcboxloading.Click
-
-    End Sub
 End Class

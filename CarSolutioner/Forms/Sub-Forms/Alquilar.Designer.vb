@@ -64,6 +64,9 @@ Partial Class frmAlquilar
         Me.dgvAlquilar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvAlquilar.Location = New System.Drawing.Point(4, 135)
         Me.dgvAlquilar.Name = "dgvAlquilar"
+        Me.dgvAlquilar.ReadOnly = True
+        Me.dgvAlquilar.RowHeadersVisible = False
+        Me.dgvAlquilar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAlquilar.Size = New System.Drawing.Size(1038, 487)
         Me.dgvAlquilar.TabIndex = 0
         '

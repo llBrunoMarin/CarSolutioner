@@ -1,6 +1,8 @@
 ﻿Module Metodos
+
     Private Declare Function GetTickCount Lib "kernel32" () As Integer
-    Public Function cargando(imagen As PictureBox)
+
+    Public Sub cargando(imagen As PictureBox)
 
         Dim retraso As Integer
 
@@ -13,7 +15,8 @@
         End While
 
         imagen.Visible = False
-    End Function
+    End Sub
+
     'Verifica una cédula que entra como parámetro
     Public Function VerificarCI(ci As String) As Boolean
 
@@ -99,22 +102,36 @@
     'Establece el tipo de filtro que se está usando. Si no hay valor seleccionado de ese control, no se toma en cuenta en el filtro.
     Public Function TipoFiltro(ctrl As Control, columna As String) As String
 
-        If TypeOf (ctrl) Is ComboBox Then
-            If Not (DirectCast(ctrl, ComboBox).SelectedItem Is Nothing) Then
-                Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue.ToString + ""
-            Else
-                Return ""
-            End If
+        Select Case ctrl.GetType()
 
-        ElseIf TypeOf (ctrl) Is NumericUpDown Then
-            If Not (DirectCast(ctrl, NumericUpDown).Value = 0) Then
-                Return " AND " + columna + " = " + DirectCast(ctrl, NumericUpDown).Value + ""
-            Else
+            Case GetType(ComboBox)
+
+                Dim cbx As ComboBox = DirectCast(ctrl, ComboBox)
+
+                If Not (cbx.SelectedItem Is Nothing) Then
+                    If Not (cbx.DataSource Is Nothing) Then
+                        Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue.ToString + ""
+                    Else
+                        Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedItem.ToString + ""
+                    End If
+                Else
+                    Return ""
+                End If
+
+            Case GetType(NumericUpDown)
+                Dim num As NumericUpDown = DirectCast(ctrl, NumericUpDown)
+
+                If Not (num.Value = 0) Then
+                    Return " AND " + columna + " = " + num.Value + ""
+                Else
+                    Return ""
+                End If
+
+            Case Else
                 Return ""
-            End If
-        Else
-            Return ""
-        End If
+
+        End Select
+
 
     End Function
 

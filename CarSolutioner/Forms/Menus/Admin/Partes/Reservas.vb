@@ -42,7 +42,7 @@ Partial Public Class frmMainMenu
 
             Dim selectedRow = dgvReservas.Rows(e.RowIndex)
 
-            ReservaSeleccionada.IdReserva = selectedRow.Cells("idreserva").Value.ToString
+
             ReservaSeleccionada.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
             ReservaSeleccionada.FechaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
             ReservaSeleccionada.FechaFin = selectedRow.Cells("fechareservafin").Value.ToString
@@ -62,5 +62,12 @@ Partial Public Class frmMainMenu
         End If
     End Sub
 
+    Private Sub btnBajaBRes_Click(sender As Object, e As EventArgs) Handles btnBajaBRes.Click
+        Dim reservaseleccionadaid As String
+        reservaseleccionadaid = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString
+        conexion.EjecutarNonQuery("Update reserva set estado = 2 where idreserva = " + reservaseleccionadaid.ToString + "")
+        MsgBox("Reserva eliminada.", MsgBoxStyle.Information, "Notificacion")
+        RecargarDatos(dgvReservas)
+    End Sub
 
 End Class

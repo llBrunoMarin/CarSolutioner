@@ -77,57 +77,59 @@
 
     Private Sub btnAddSuc_Click(sender As Object, e As EventArgs) Handles btnAddSuc.Click
         conexion.EjecutarNonQuery("INSERT INTO sucursal values (0, '" + txtNomSuc.Text + "', '" + txtCidSuc.Text + "', '" + txtDicSuc.Text + "','T')")
-        conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
-        dgvSucursales.Columns("idsucursal").Visible = False
+        If chboxsucinactivas.Checked Then
+            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
+            dgvSucursales.Columns("idsucursal").Visible = False
+
+        Else
+            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL where estado='t'")
+        End If
         For Each con As Control In pnlsuccambios.Controls
             VaciarControl(con)
         Next
     End Sub
 
-    Private Sub dataGridView1_CellClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) _
-  Handles dgvSucursales.CellClick
-        Dim nombresucmod As String
-        Dim ciudadsucmod As String
-        Dim direccionsucmod As String
-        Dim estadosucmod As String
+    Private Sub dataGridView1_CellClick(ByVal sender As Object, ByVal e As EventArgs) Handles dgvSucursales.SelectionChanged
 
-        Dim selectedRow = dgvSucursales.Rows(e.RowIndex)
+        If Not IsNothing(dgvSucursales.CurrentRow) Then
 
+            Dim estadosucmod As Boolean
 
-        idsucursalmod = selectedRow.Cells("idsucursal").Value.ToString()
-        nombresucmod = selectedRow.Cells("nombre").Value.ToString()
-        ciudadsucmod = selectedRow.Cells("ciudad").Value.ToString()
-        direccionsucmod = selectedRow.Cells("direccion").Value.ToString()
-        estadosucmod = selectedRow.Cells("estado").Value.ToString()
+            idsucursalmod = dgvSucursales.CurrentRow.Cells("idsucursal").Value.ToString()
+            txtnombresucmod.Text = dgvSucursales.CurrentRow.Cells("nombre").Value.ToString()
+            txtciudadsucmod.Text = dgvSucursales.CurrentRow.Cells("ciudad").Value.ToString()
+            txtdireccionsucmod.Text = dgvSucursales.CurrentRow.Cells("direccion").Value.ToString()
+            estadosucmod = dgvSucursales.CurrentRow.Cells("estado").Value.ToString()
 
-
-        If estadosucmod = "True" Then
-            cboxestadosucmod.SelectedItem = "Activa"
+            If estadosucmod = "True" Then
+                cboxestadosucmod.SelectedItem = "Activa"
 
 
-        Else
-            cboxestadosucmod.SelectedItem = "Inactiva"
+            Else
+                cboxestadosucmod.SelectedItem = "Inactiva"
+            End If
+
         End If
-        txtciudadsucmod.Text = ciudadsucmod
-        txtnombresucmod.Text = nombresucmod
-        txtdireccionsucmod.Text = direccionsucmod
-
-
 
     End Sub
 
     Private Sub btnmodsuc_Click(sender As Object, e As EventArgs) Handles btnmodsuc.Click
         Dim estado As String
+
         If cboxestadosucmod.SelectedItem = "Activa" Then
+
             estado = "t"
+
+            conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
+            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
+            dgvCategorias.Columns("idsucursal").Visible = False
         Else
             estado = "f"
-
-
+            pnlmovimiento.Enabled = True
+            lblsucmov.Text = txtnombresucmod.Text
         End If
-        conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
-        conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
-        dgvSucursales.Columns("idsucursal").Visible = False
+
+
     End Sub
 
     Private Sub btncatadd_Click(sender As Object, e As EventArgs) Handles btncatadd.Click
@@ -137,5 +139,33 @@
         For Each con As Control In pnlcatcambios.Controls
             VaciarControl(con)
         Next
+    End Sub
+
+
+    Private Sub chboxsucinactivas_CheckedChanged_1(sender As Object, e As EventArgs) Handles chboxsucinactivas.CheckedChanged
+        Dim filtro As String
+        If chboxsucinactivas.Checked Then
+
+            filtro = ""
+            dgvSucursales.DataSource.Filter = filtro
+        Else
+            filtro = "estado = True "
+
+            dgvSucursales.DataSource.Filter = filtro
+        End If
+
+    End Sub
+
+    Private Sub btndeletesuc_Click(sender As Object, e As EventArgs) Handles btndeletesuc.Click
+        conexion.EjecutarNonQuery("delete from sucursal where idsucursal=" + idsucursalmod + "")
+
+        For Each con As Control In pnlmodsuc.Controls
+            VaciarControl(con)
+        Next
+
+    End Sub
+
+    Private Sub pnlmodsuc_Paint(sender As Object, e As PaintEventArgs) Handles pnlmodsuc.Paint
+
     End Sub
 End Class

@@ -114,6 +114,7 @@
     End Sub
 
     Private Sub btnmodsuc_Click(sender As Object, e As EventArgs) Handles btnmodsuc.Click
+
         Dim estado As String
 
         If cboxestadosucmod.SelectedItem = "Activa" Then

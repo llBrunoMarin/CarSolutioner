@@ -127,7 +127,7 @@
             dgvSucursales.Columns("idsucursal").Visible = False
 
         ElseIf Not cboxsucursalmov.SelectedItem Is Nothing Then
-            Dim ReservasActivas As DataTable = conexion.EjecutarSelect("Select idreserva from reserva where estado = 1 and idsucursalllegada = '" + idsucursalmod + "' or idsucursalsalida = '" + idsucursalmod + "'")
+            Dim ReservasActivas As DataTable = conexion.EjecutarSelect("Select idreserva from reserva where estado = 1 and ( idsucursalllegada = '" + idsucursalmod + "' or idsucursalsalida = '" + idsucursalmod + "')")
             If ReservasActivas.Rows.Count = 0 Then
                 estado = "f"
                 conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = " + cboxsucursalmov.SelectedValue.ToString + " where idsucursal = " + idsucursalmod + "")

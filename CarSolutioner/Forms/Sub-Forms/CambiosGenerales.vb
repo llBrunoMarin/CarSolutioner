@@ -76,7 +76,7 @@
 
 
     Private Sub btnAddSuc_Click(sender As Object, e As EventArgs) Handles btnAddSuc.Click
-        conexion.EjecutarNonQuery("INSERT INTO sucursal values (0, '" + txtNomSuc.Text + "', '" + txtCidSuc.Text + "', '" + txtDicSuc.Text + "','T')")
+        conexion.EjecutarNonQuery("INSERT INTO sucursal values (0, '" + txtNomSuc.Text + "', '" + txtCidSuc.Text + "', '" + txtDicSuc.Text.ToString + "', " + txtTelSuc1.Text.ToString + "," + txttelefonosucmod2.Text.ToString + ",'T')")
         If chboxsucinactivas.Checked Then
             conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
             dgvSucursales.Columns("idsucursal").Visible = False
@@ -100,6 +100,8 @@
             txtciudadsucmod.Text = dgvSucursales.CurrentRow.Cells("ciudad").Value.ToString()
             txtdireccionsucmod.Text = dgvSucursales.CurrentRow.Cells("direccion").Value.ToString()
             estadosucmod = dgvSucursales.CurrentRow.Cells("estado").Value.ToString()
+            txttelefonosucmod2.Text = dgvSucursales.CurrentRow.Cells("telefono2").Value.ToString()
+            txttelefonosucmod1.Text = dgvSucursales.CurrentRow.Cells("telefono1").Value.ToString()
             lblsucmov.Text = txtnombresucmod.Text
 
             If estadosucmod = "True" Then
@@ -122,7 +124,7 @@
 
             estado = "t"
 
-            conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
+            conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
             conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
             dgvSucursales.Columns("idsucursal").Visible = False
 
@@ -134,7 +136,7 @@
                 MsgBox(idsucursalmod)
                 MsgBox(cboxsucursalmov.SelectedValue.ToString)
                 MsgBox("Vehiculos trasladados satisfactoriamente a " + cboxsucursalmov.Text + ". La sucursal se declara inactiva.", MsgBoxStyle.Information, "Notificacion")
-                conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
+                conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
                 conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
                 dgvSucursales.Columns("idsucursal").Visible = False
             Else
@@ -172,12 +174,16 @@
     End Sub
 
     Private Sub btndeletesuc_Click(sender As Object, e As EventArgs) Handles btndeletesuc.Click
-        conexion.EjecutarNonQuery("delete from sucursal where idsucursal=" + idsucursalmod + "")
+        Try
+            conexion.EjecutarNonQuery("delete from sucursal where idsucursal=" + idsucursalmod + "")
 
-        For Each con As Control In pnlmodsuc.Controls
-            VaciarControl(con)
-        Next
-
+            For Each con As Control In pnlmodsuc.Controls
+                VaciarControl(con)
+            Next
+            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
+        Catch ex As Exception
+            MsgBox("No puede eliminar una sucursal que esta siendo utilizada por otros registros.")
+        End Try
     End Sub
 
     Private Sub pnlmodsuc_Paint(sender As Object, e As PaintEventArgs) Handles pnlmodsuc.Paint

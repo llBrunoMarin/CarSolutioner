@@ -6,7 +6,7 @@ End Class
 'VEHICULOS
 Partial Public Class frmMainMenu
 
-    Private Sub CargasModelo(sender As ComboBox, e As EventArgs) Handles cbxMarcaAVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectedValueChanged
+    Private Sub CargasModelo(sender As ComboBox, e As EventArgs) Handles cbxMarcaAVeh.SelectedValueChanged, cbxMarcaFVeh.SelectedValueChanged, cbxMarcaFVeh.SelectedValueChanged
 
 
         If (Not (sender.SelectedValue Is Nothing)) Then
@@ -171,7 +171,6 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-
     Private Sub numPasajerosFVeh_ValueChanged(sender As Object, e As EventArgs) Handles numPasajerosFVeh.ValueChanged
 
         If sender.Value = 0 Then
@@ -182,18 +181,12 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxCategoriaFVeh.SelectedValueChanged, cbxMarcaFVeh.SelectedValueChanged, cbxModeloFVeh.SelectedValueChanged, cbxTipoFVeh.SelectedValueChanged, cbxSucursalFVeh.SelectedValueChanged, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectedValueChanged, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectedValueChanged
-        If Not (sender.selectedValue Is Nothing) Then
+    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxCategoriaFVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxTipoFVeh.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectionChangeCommitted, lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click
 
-            If Not (sender.SelectedValue.ToString = "System.Data.DataRowView") Then
-                Dim Filtro As String
-                Filtro = "nrochasis LIKE '%" + txtNroChasisFVeh.Text + "%' AND matricula LIKE '%" + txtMatriculaFVeh.Text + "%'" + TipoFiltro(cbxAireFVeh, "aire") + TipoFiltro(cbxAutomaticoFVeh, "automatico") + TipoFiltro(cbxMaletasFVeh, "maletas") + TipoFiltro(cbxPuertasFVeh, "puertas") + TipoFiltro(numPasajerosFVeh, "pasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxTipoFVeh, "idtipo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
+        Dim Filtro As String
+        Filtro = "nrochasis LIKE '%" + txtNroChasisFVeh.Text + "%' AND matricula LIKE '%" + txtMatriculaFVeh.Text + "%'" + TipoFiltro(cbxAireFVeh, "aire") + TipoFiltro(cbxAutomaticoFVeh, "automatico") + TipoFiltro(cbxMaletasFVeh, "maletas") + TipoFiltro(cbxPuertasFVeh, "puertas") + TipoFiltro(numPasajerosFVeh, "pasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxTipoFVeh, "idtipo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
 
-                dgvVehiculos.DataSource.Filter = Filtro
-            End If
-
-        End If
-
+        dgvVehiculos.DataSource.Filter = Filtro
 
     End Sub
 
@@ -203,6 +196,9 @@ Partial Public Class frmMainMenu
     Private Sub RellenarDatosVehiculo(sender As Object, e As EventArgs) Handles dgvVehiculos.SelectionChanged
 
         If Not IsNothing(dgvVehiculos.CurrentRow) Then
+
+
+
 
             'cbxTipoDocumMCliente.SelectedItem = dgvClientes.CurrentRow.Cells(0).Value.ToString()
             'txtDocumMCliente.Text = dgvVehiculos.CurrentRow.Cells(1).Value.ToString()

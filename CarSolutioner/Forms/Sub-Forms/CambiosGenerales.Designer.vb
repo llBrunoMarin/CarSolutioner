@@ -96,12 +96,14 @@ Partial Class frmCambiosGenerales
         Me.chboxsucinactivas = New System.Windows.Forms.CheckBox()
         Me.dgvSucursales = New System.Windows.Forms.DataGridView()
         Me.pnlsuccambios = New System.Windows.Forms.Panel()
+        Me.txtDicSuc = New System.Windows.Forms.TextBox()
+        Me.Label34 = New System.Windows.Forms.Label()
         Me.Label121 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.txtNomSuc = New System.Windows.Forms.TextBox()
-        Me.txtDicSuc = New System.Windows.Forms.TextBox()
+        Me.txttelefono2suc = New System.Windows.Forms.TextBox()
         Me.txtCidSuc = New System.Windows.Forms.TextBox()
-        Me.txtTelSuc = New System.Windows.Forms.TextBox()
+        Me.txtTelSuc1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -120,13 +122,16 @@ Partial Class frmCambiosGenerales
         Me.txtnombresucmod = New System.Windows.Forms.TextBox()
         Me.txtdireccionsucmod = New System.Windows.Forms.TextBox()
         Me.txtciudadsucmod = New System.Windows.Forms.TextBox()
-        Me.txttelefonosucmod = New System.Windows.Forms.TextBox()
+        Me.txttelefonosucmod1 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.tbcTabControl = New System.Windows.Forms.TabControl()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.txttelefonosucmod2 = New System.Windows.Forms.TextBox()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         Me.tbpMarcas.SuspendLayout()
@@ -1020,12 +1025,14 @@ Partial Class frmCambiosGenerales
         Me.pnlsuccambios.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlsuccambios.BackColor = System.Drawing.Color.Silver
+        Me.pnlsuccambios.Controls.Add(Me.txtDicSuc)
+        Me.pnlsuccambios.Controls.Add(Me.Label34)
         Me.pnlsuccambios.Controls.Add(Me.Label121)
         Me.pnlsuccambios.Controls.Add(Me.Label21)
         Me.pnlsuccambios.Controls.Add(Me.txtNomSuc)
-        Me.pnlsuccambios.Controls.Add(Me.txtDicSuc)
+        Me.pnlsuccambios.Controls.Add(Me.txttelefono2suc)
         Me.pnlsuccambios.Controls.Add(Me.txtCidSuc)
-        Me.pnlsuccambios.Controls.Add(Me.txtTelSuc)
+        Me.pnlsuccambios.Controls.Add(Me.txtTelSuc1)
         Me.pnlsuccambios.Controls.Add(Me.Label1)
         Me.pnlsuccambios.Controls.Add(Me.Label2)
         Me.pnlsuccambios.Controls.Add(Me.Label3)
@@ -1034,6 +1041,24 @@ Partial Class frmCambiosGenerales
         Me.pnlsuccambios.Name = "pnlsuccambios"
         Me.pnlsuccambios.Size = New System.Drawing.Size(478, 128)
         Me.pnlsuccambios.TabIndex = 69
+        '
+        'txtDicSuc
+        '
+        Me.txtDicSuc.Location = New System.Drawing.Point(7, 99)
+        Me.txtDicSuc.Name = "txtDicSuc"
+        Me.txtDicSuc.Size = New System.Drawing.Size(100, 20)
+        Me.txtDicSuc.TabIndex = 49
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label34.Location = New System.Drawing.Point(5, 81)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(66, 17)
+        Me.Label34.TabIndex = 70
+        Me.Label34.Text = "Direccion"
         '
         'Label121
         '
@@ -1064,26 +1089,26 @@ Partial Class frmCambiosGenerales
         Me.txtNomSuc.Size = New System.Drawing.Size(100, 20)
         Me.txtNomSuc.TabIndex = 45
         '
-        'txtDicSuc
+        'txttelefono2suc
         '
-        Me.txtDicSuc.Location = New System.Drawing.Point(229, 58)
-        Me.txtDicSuc.Name = "txtDicSuc"
-        Me.txtDicSuc.Size = New System.Drawing.Size(100, 20)
-        Me.txtDicSuc.TabIndex = 46
+        Me.txttelefono2suc.Location = New System.Drawing.Point(227, 58)
+        Me.txttelefono2suc.Name = "txttelefono2suc"
+        Me.txttelefono2suc.Size = New System.Drawing.Size(100, 20)
+        Me.txttelefono2suc.TabIndex = 47
         '
         'txtCidSuc
         '
-        Me.txtCidSuc.Location = New System.Drawing.Point(335, 58)
+        Me.txtCidSuc.Location = New System.Drawing.Point(333, 58)
         Me.txtCidSuc.Name = "txtCidSuc"
         Me.txtCidSuc.Size = New System.Drawing.Size(100, 20)
-        Me.txtCidSuc.TabIndex = 47
+        Me.txtCidSuc.TabIndex = 48
         '
-        'txtTelSuc
+        'txtTelSuc1
         '
-        Me.txtTelSuc.Location = New System.Drawing.Point(118, 58)
-        Me.txtTelSuc.Name = "txtTelSuc"
-        Me.txtTelSuc.Size = New System.Drawing.Size(100, 20)
-        Me.txtTelSuc.TabIndex = 48
+        Me.txtTelSuc1.Location = New System.Drawing.Point(118, 58)
+        Me.txtTelSuc1.Name = "txtTelSuc1"
+        Me.txtTelSuc1.Size = New System.Drawing.Size(100, 20)
+        Me.txtTelSuc1.TabIndex = 46
         '
         'Label1
         '
@@ -1092,16 +1117,16 @@ Partial Class frmCambiosGenerales
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(115, 38)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(59, 17)
+        Me.Label1.Size = New System.Drawing.Size(69, 17)
         Me.Label1.TabIndex = 53
-        Me.Label1.Text = "Telefono"
+        Me.Label1.Text = "Telefono 1"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(323, 40)
+        Me.Label2.Location = New System.Drawing.Point(331, 40)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 17)
         Me.Label2.TabIndex = 54
@@ -1112,11 +1137,11 @@ Partial Class frmCambiosGenerales
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(226, 40)
+        Me.Label3.Location = New System.Drawing.Point(225, 40)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(66, 17)
+        Me.Label3.Size = New System.Drawing.Size(69, 17)
         Me.Label3.TabIndex = 55
-        Me.Label3.Text = "Direccion"
+        Me.Label3.Text = "Telefono 2"
         '
         'btnAddSuc
         '
@@ -1129,7 +1154,7 @@ Partial Class frmCambiosGenerales
         Me.btnAddSuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddSuc.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddSuc.ForeColor = System.Drawing.Color.White
-        Me.btnAddSuc.Location = New System.Drawing.Point(12, 84)
+        Me.btnAddSuc.Location = New System.Drawing.Point(380, 94)
         Me.btnAddSuc.Name = "btnAddSuc"
         Me.btnAddSuc.Size = New System.Drawing.Size(91, 30)
         Me.btnAddSuc.TabIndex = 49
@@ -1140,6 +1165,9 @@ Partial Class frmCambiosGenerales
         '
         Me.pnlmodsuc.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlmodsuc.BackColor = System.Drawing.Color.Silver
+        Me.pnlmodsuc.Controls.Add(Me.txttelefonosucmod2)
+        Me.pnlmodsuc.Controls.Add(Me.Label35)
+        Me.pnlmodsuc.Controls.Add(Me.Label36)
         Me.pnlmodsuc.Controls.Add(Me.btnmodsuc)
         Me.pnlmodsuc.Controls.Add(Me.pnlmovimiento)
         Me.pnlmodsuc.Controls.Add(Me.cboxestadosucmod)
@@ -1148,7 +1176,7 @@ Partial Class frmCambiosGenerales
         Me.pnlmodsuc.Controls.Add(Me.txtnombresucmod)
         Me.pnlmodsuc.Controls.Add(Me.txtdireccionsucmod)
         Me.pnlmodsuc.Controls.Add(Me.txtciudadsucmod)
-        Me.pnlmodsuc.Controls.Add(Me.txttelefonosucmod)
+        Me.pnlmodsuc.Controls.Add(Me.txttelefonosucmod1)
         Me.pnlmodsuc.Controls.Add(Me.Label16)
         Me.pnlmodsuc.Controls.Add(Me.Label18)
         Me.pnlmodsuc.Controls.Add(Me.Label19)
@@ -1247,7 +1275,7 @@ Partial Class frmCambiosGenerales
         Me.cboxestadosucmod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboxestadosucmod.FormattingEnabled = True
         Me.cboxestadosucmod.Items.AddRange(New Object() {"Activa", "Inactiva"})
-        Me.cboxestadosucmod.Location = New System.Drawing.Point(8, 94)
+        Me.cboxestadosucmod.Location = New System.Drawing.Point(333, 94)
         Me.cboxestadosucmod.Name = "cboxestadosucmod"
         Me.cboxestadosucmod.Size = New System.Drawing.Size(100, 21)
         Me.cboxestadosucmod.TabIndex = 72
@@ -1257,7 +1285,7 @@ Partial Class frmCambiosGenerales
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(5, 38)
+        Me.Label11.Location = New System.Drawing.Point(5, 30)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(56, 17)
         Me.Label11.TabIndex = 52
@@ -1276,38 +1304,38 @@ Partial Class frmCambiosGenerales
         '
         'txtnombresucmod
         '
-        Me.txtnombresucmod.Location = New System.Drawing.Point(8, 58)
+        Me.txtnombresucmod.Location = New System.Drawing.Point(8, 50)
         Me.txtnombresucmod.Name = "txtnombresucmod"
         Me.txtnombresucmod.Size = New System.Drawing.Size(100, 20)
-        Me.txtnombresucmod.TabIndex = 45
+        Me.txtnombresucmod.TabIndex = 50
         '
         'txtdireccionsucmod
         '
-        Me.txtdireccionsucmod.Location = New System.Drawing.Point(229, 58)
+        Me.txtdireccionsucmod.Location = New System.Drawing.Point(8, 92)
         Me.txtdireccionsucmod.Name = "txtdireccionsucmod"
         Me.txtdireccionsucmod.Size = New System.Drawing.Size(100, 20)
-        Me.txtdireccionsucmod.TabIndex = 46
+        Me.txtdireccionsucmod.TabIndex = 52
         '
         'txtciudadsucmod
         '
-        Me.txtciudadsucmod.Location = New System.Drawing.Point(335, 58)
+        Me.txtciudadsucmod.Location = New System.Drawing.Point(335, 50)
         Me.txtciudadsucmod.Name = "txtciudadsucmod"
         Me.txtciudadsucmod.Size = New System.Drawing.Size(100, 20)
-        Me.txtciudadsucmod.TabIndex = 47
+        Me.txtciudadsucmod.TabIndex = 53
         '
-        'txttelefonosucmod
+        'txttelefonosucmod1
         '
-        Me.txttelefonosucmod.Location = New System.Drawing.Point(118, 58)
-        Me.txttelefonosucmod.Name = "txttelefonosucmod"
-        Me.txttelefonosucmod.Size = New System.Drawing.Size(100, 20)
-        Me.txttelefonosucmod.TabIndex = 48
+        Me.txttelefonosucmod1.Location = New System.Drawing.Point(118, 50)
+        Me.txttelefonosucmod1.Name = "txttelefonosucmod1"
+        Me.txttelefonosucmod1.Size = New System.Drawing.Size(100, 20)
+        Me.txttelefonosucmod1.TabIndex = 51
         '
         'Label16
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label16.Location = New System.Drawing.Point(115, 38)
+        Me.Label16.Location = New System.Drawing.Point(115, 30)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(59, 17)
         Me.Label16.TabIndex = 53
@@ -1318,7 +1346,7 @@ Partial Class frmCambiosGenerales
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(332, 38)
+        Me.Label18.Location = New System.Drawing.Point(332, 30)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(51, 17)
         Me.Label18.TabIndex = 54
@@ -1329,7 +1357,7 @@ Partial Class frmCambiosGenerales
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label19.Location = New System.Drawing.Point(226, 40)
+        Me.Label19.Location = New System.Drawing.Point(5, 74)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(66, 17)
         Me.Label19.TabIndex = 55
@@ -1365,6 +1393,35 @@ Partial Class frmCambiosGenerales
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(10, 629)
         Me.Panel7.TabIndex = 39
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label35.Location = New System.Drawing.Point(332, 74)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(48, 17)
+        Me.Label35.TabIndex = 78
+        Me.Label35.Text = "Estado"
+        '
+        'txttelefonosucmod2
+        '
+        Me.txttelefonosucmod2.Location = New System.Drawing.Point(226, 50)
+        Me.txttelefonosucmod2.Name = "txttelefonosucmod2"
+        Me.txttelefonosucmod2.Size = New System.Drawing.Size(100, 20)
+        Me.txttelefonosucmod2.TabIndex = 71
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label36.Location = New System.Drawing.Point(224, 32)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(69, 17)
+        Me.Label36.TabIndex = 72
+        Me.Label36.Text = "Telefono 2"
         '
         'frmCambiosGenerales
         '
@@ -1457,9 +1514,9 @@ Partial Class frmCambiosGenerales
     Friend WithEvents Label1 As Label
     Friend WithEvents Label121 As Label
     Friend WithEvents btnAddSuc As Button
-    Friend WithEvents txtTelSuc As TextBox
+    Friend WithEvents txtTelSuc1 As TextBox
     Friend WithEvents txtCidSuc As TextBox
-    Friend WithEvents txtDicSuc As TextBox
+    Friend WithEvents txttelefono2suc As TextBox
     Friend WithEvents txtNomSuc As TextBox
     Friend WithEvents pnlsuccambios As Panel
     Friend WithEvents Label21 As Label
@@ -1469,7 +1526,7 @@ Partial Class frmCambiosGenerales
     Friend WithEvents txtnombresucmod As TextBox
     Friend WithEvents txtdireccionsucmod As TextBox
     Friend WithEvents txtciudadsucmod As TextBox
-    Friend WithEvents txttelefonosucmod As TextBox
+    Friend WithEvents txttelefonosucmod1 As TextBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
@@ -1519,4 +1576,9 @@ Partial Class frmCambiosGenerales
     Friend WithEvents cboxsucursalmov As ComboBox
     Friend WithEvents pnlmovimiento As Panel
     Friend WithEvents Label33 As Label
+    Friend WithEvents txtDicSuc As TextBox
+    Friend WithEvents Label34 As Label
+    Friend WithEvents txttelefonosucmod2 As TextBox
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Label36 As Label
 End Class

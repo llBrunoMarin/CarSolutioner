@@ -1,4 +1,5 @@
 ﻿Public Class ConnectionBD
+    Private Declare Function GetTickCount Lib "kernel32" () As Integer
 
     Dim cx As New Odbc.OdbcConnection
     Dim cm As New Odbc.OdbcCommand
@@ -114,10 +115,6 @@
     End Property
 
 
-
-
-
-
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
     'segun cual sea el error (error de conexión, error de primary key, etc)
 
@@ -141,7 +138,10 @@
                 cx.Open()
 
                 Return "Verdadero"
+            Else
+                Return "Red"
             End If
+
         Catch ex As Odbc.OdbcException
 
             If (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]") Or ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
@@ -156,13 +156,11 @@
                 'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
                 '  MsgBox(ex.Message)
 
-                reintentarconexionlogin()
+                ReintentarConexionLogin()
                 Cerrar()
+
                 Return "Red"
             End If
-
-
-
 
             'MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
             ' MsgBox(ex.Message)
@@ -179,8 +177,8 @@
         Catch ex As Exception
             MsgBox(ex.Message)
 
-            Throw ex
             Return False
+
         End Try
 
     End Function
@@ -255,35 +253,32 @@
         End Try
 
     End Sub
-    Private Declare Function GetTickCount Lib "kernel32" () As Integer
-
-    Function reintentarconexionlogin()
-
-        Dim valor As MsgBoxResult = MsgBox("Conexion perdida, pulse OK para reintentar", MsgBoxStyle.OkCancel)
-        Dim retraso As Integer
-
-        retraso = 3000 + GetTickCount
 
 
-        While retraso >= GetTickCount
+    Private Sub ReintentarConexionLogin()
+
+        Dim Resultado As MsgBoxResult = MsgBox("Conexion perdida, pulse OK para reintentar", MsgBoxStyle.OkCancel)
+        Dim Retraso As Integer = 3000 + GetTickCount
+
+        While Retraso >= GetTickCount
             Application.DoEvents()
 
         End While
-        If valor = MsgBoxResult.Ok Then
 
+        'Si la persona quiere reintentar la conexión:
+        If (Resultado = MsgBoxResult.Ok) Then
+
+            'Si conecta
             If Conectar(Usuario, Contraseña) = "Verdadero" Then
 
-
                 Cerrar()
-                MsgBox("Conexion establecida")
+                MsgBox("Conexión establecida")
 
             End If
 
         End If
 
-
-
-    End Function
+    End Sub
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
     Public Function EjecutarNonQuery(sentencia As String) As Boolean

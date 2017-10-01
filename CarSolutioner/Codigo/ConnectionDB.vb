@@ -272,7 +272,7 @@
             If Conectar(Usuario, Contraseña) = "Verdadero" Then
 
                 Cerrar()
-                MsgBox("Conexión establecida")
+                MsgBox("Conexión establecida.")
 
             End If
 

@@ -22,15 +22,16 @@ Partial Class frmMainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -168,8 +169,10 @@ Partial Class frmMainMenu
         Me.Label32 = New System.Windows.Forms.Label()
         Me.txtMatriculaBVeh = New System.Windows.Forms.TextBox()
         Me.pnlMVehi = New System.Windows.Forms.Panel()
+        Me.numPasajerosMVehiculo = New System.Windows.Forms.NumericUpDown()
         Me.Label101 = New System.Windows.Forms.Label()
         Me.txtNroChasisMVeh = New System.Windows.Forms.TextBox()
+        Me.cbxTipoMVeh = New System.Windows.Forms.ComboBox()
         Me.cbxPuertasMVeh = New System.Windows.Forms.ComboBox()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
         Me.Label29 = New System.Windows.Forms.Label()
@@ -178,6 +181,7 @@ Partial Class frmMainMenu
         Me.txtDeducibleMVeh = New System.Windows.Forms.TextBox()
         Me.txtKMMVeh = New System.Windows.Forms.TextBox()
         Me.txtAnioMVeh = New System.Windows.Forms.TextBox()
+        Me.Label114 = New System.Windows.Forms.Label()
         Me.Label44 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.cbxCategoriaMVeh = New System.Windows.Forms.ComboBox()
@@ -455,9 +459,8 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.numPasajerosMVehiculo = New System.Windows.Forms.NumericUpDown()
-        Me.cbxTipoMVeh = New System.Windows.Forms.ComboBox()
-        Me.Label114 = New System.Windows.Forms.Label()
+        Me.tmrestadoconexion = New System.Windows.Forms.Timer(Me.components)
+        Me.pboxLoading = New System.Windows.Forms.PictureBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -478,6 +481,7 @@ Partial Class frmMainMenu
         CType(Me.dgvVehiculos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlBajaVeh.SuspendLayout()
         Me.pnlMVehi.SuspendLayout()
+        CType(Me.numPasajerosMVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFVehi.SuspendLayout()
         CType(Me.numPasajerosFVeh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAVehi.SuspendLayout()
@@ -506,7 +510,7 @@ Partial Class frmMainMenu
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numPasajerosMVehiculo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -602,7 +606,7 @@ Partial Class frmMainMenu
         Me.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReservas.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReservas.ForeColor = System.Drawing.Color.White
-        Me.btnReservas.Location = New System.Drawing.Point(-3, 141)
+        Me.btnReservas.Location = New System.Drawing.Point(-3, 159)
         Me.btnReservas.Name = "btnReservas"
         Me.btnReservas.Size = New System.Drawing.Size(260, 65)
         Me.btnReservas.TabIndex = 0
@@ -619,7 +623,7 @@ Partial Class frmMainMenu
         Me.btnMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMantenimiento.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMantenimiento.ForeColor = System.Drawing.Color.White
-        Me.btnMantenimiento.Location = New System.Drawing.Point(2, 416)
+        Me.btnMantenimiento.Location = New System.Drawing.Point(2, 434)
         Me.btnMantenimiento.Name = "btnMantenimiento"
         Me.btnMantenimiento.Size = New System.Drawing.Size(255, 65)
         Me.btnMantenimiento.TabIndex = 2
@@ -636,7 +640,7 @@ Partial Class frmMainMenu
         Me.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEmpleados.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEmpleados.ForeColor = System.Drawing.Color.White
-        Me.btnEmpleados.Location = New System.Drawing.Point(-3, 345)
+        Me.btnEmpleados.Location = New System.Drawing.Point(-3, 363)
         Me.btnEmpleados.Name = "btnEmpleados"
         Me.btnEmpleados.Size = New System.Drawing.Size(260, 65)
         Me.btnEmpleados.TabIndex = 0
@@ -653,7 +657,7 @@ Partial Class frmMainMenu
         Me.btnVehiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVehiculos.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVehiculos.ForeColor = System.Drawing.Color.White
-        Me.btnVehiculos.Location = New System.Drawing.Point(-3, 283)
+        Me.btnVehiculos.Location = New System.Drawing.Point(-3, 301)
         Me.btnVehiculos.Name = "btnVehiculos"
         Me.btnVehiculos.Size = New System.Drawing.Size(260, 65)
         Me.btnVehiculos.TabIndex = 0
@@ -670,7 +674,7 @@ Partial Class frmMainMenu
         Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClientes.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClientes.ForeColor = System.Drawing.Color.White
-        Me.btnClientes.Location = New System.Drawing.Point(-3, 212)
+        Me.btnClientes.Location = New System.Drawing.Point(-3, 230)
         Me.btnClientes.Name = "btnClientes"
         Me.btnClientes.Size = New System.Drawing.Size(260, 65)
         Me.btnClientes.TabIndex = 0
@@ -680,7 +684,7 @@ Partial Class frmMainMenu
         'pcboxloading
         '
         Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
-        Me.pcboxloading.Location = New System.Drawing.Point(36, 24)
+        Me.pcboxloading.Location = New System.Drawing.Point(36, 41)
         Me.pcboxloading.Name = "pcboxloading"
         Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
         Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -691,7 +695,7 @@ Partial Class frmMainMenu
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
-        Me.PictureBox2.Location = New System.Drawing.Point(36, 24)
+        Me.PictureBox2.Location = New System.Drawing.Point(36, 41)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -775,8 +779,8 @@ Partial Class frmMainMenu
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.ReadOnly = True
         Me.dgvClientes.RowHeadersVisible = False
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvClientes.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvClientes.RowsDefaultCellStyle = DataGridViewCellStyle10
         Me.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvClientes.Size = New System.Drawing.Size(739, 787)
         Me.dgvClientes.TabIndex = 39
@@ -1789,8 +1793,8 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.Name = "dgvVehiculos"
         Me.dgvVehiculos.ReadOnly = True
         Me.dgvVehiculos.RowHeadersVisible = False
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvVehiculos.Size = New System.Drawing.Size(1324, 373)
         Me.dgvVehiculos.TabIndex = 37
@@ -1915,8 +1919,8 @@ Partial Class frmMainMenu
         '
         Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.esmanual.DataPropertyName = "esmanual"
-        DataGridViewCellStyle2.NullValue = False
-        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle11.NullValue = False
+        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle11
         Me.esmanual.HeaderText = "Manual"
         Me.esmanual.Name = "esmanual"
         Me.esmanual.ReadOnly = True
@@ -2066,6 +2070,13 @@ Partial Class frmMainMenu
         Me.pnlMVehi.Size = New System.Drawing.Size(657, 216)
         Me.pnlMVehi.TabIndex = 35
         '
+        'numPasajerosMVehiculo
+        '
+        Me.numPasajerosMVehiculo.Location = New System.Drawing.Point(237, 163)
+        Me.numPasajerosMVehiculo.Name = "numPasajerosMVehiculo"
+        Me.numPasajerosMVehiculo.Size = New System.Drawing.Size(119, 20)
+        Me.numPasajerosMVehiculo.TabIndex = 45
+        '
         'Label101
         '
         Me.Label101.AutoSize = True
@@ -2083,6 +2094,15 @@ Partial Class frmMainMenu
         Me.txtNroChasisMVeh.Name = "txtNroChasisMVeh"
         Me.txtNroChasisMVeh.Size = New System.Drawing.Size(214, 20)
         Me.txtNroChasisMVeh.TabIndex = 64
+        '
+        'cbxTipoMVeh
+        '
+        Me.cbxTipoMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoMVeh.FormattingEnabled = True
+        Me.cbxTipoMVeh.Location = New System.Drawing.Point(362, 117)
+        Me.cbxTipoMVeh.Name = "cbxTipoMVeh"
+        Me.cbxTipoMVeh.Size = New System.Drawing.Size(104, 21)
+        Me.cbxTipoMVeh.TabIndex = 43
         '
         'cbxPuertasMVeh
         '
@@ -2163,6 +2183,17 @@ Partial Class frmMainMenu
         Me.txtAnioMVeh.Name = "txtAnioMVeh"
         Me.txtAnioMVeh.Size = New System.Drawing.Size(105, 20)
         Me.txtAnioMVeh.TabIndex = 58
+        '
+        'Label114
+        '
+        Me.Label114.AutoSize = True
+        Me.Label114.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label114.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label114.Location = New System.Drawing.Point(364, 141)
+        Me.Label114.Name = "Label114"
+        Me.Label114.Size = New System.Drawing.Size(52, 17)
+        Me.Label114.TabIndex = 41
+        Me.Label114.Text = "Puertas"
         '
         'Label44
         '
@@ -3632,27 +3663,27 @@ Partial Class frmMainMenu
         Me.dgvEmpleados.AllowUserToAddRows = False
         Me.dgvEmpleados.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
         Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle14
         Me.dgvEmpleados.Location = New System.Drawing.Point(29, 7)
         Me.dgvEmpleados.Name = "dgvEmpleados"
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle15
         Me.dgvEmpleados.Size = New System.Drawing.Size(754, 817)
         Me.dgvEmpleados.TabIndex = 10
         '
@@ -4035,8 +4066,8 @@ Partial Class frmMainMenu
         Me.dtvmant.Name = "dtvmant"
         Me.dtvmant.ReadOnly = True
         Me.dtvmant.RowHeadersVisible = False
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dtvmant.RowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtvmant.RowsDefaultCellStyle = DataGridViewCellStyle16
         Me.dtvmant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtvmant.Size = New System.Drawing.Size(754, 817)
         Me.dtvmant.TabIndex = 34
@@ -4780,8 +4811,8 @@ Partial Class frmMainMenu
         Me.dgvReservas.Name = "dgvReservas"
         Me.dgvReservas.ReadOnly = True
         Me.dgvReservas.RowHeadersVisible = False
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle17
         Me.dgvReservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReservas.Size = New System.Drawing.Size(737, 780)
         Me.dgvReservas.TabIndex = 9
@@ -5275,8 +5306,8 @@ Partial Class frmMainMenu
         Me.dgvAlquileres.Name = "dgvAlquileres"
         Me.dgvAlquileres.ReadOnly = True
         Me.dgvAlquileres.RowHeadersVisible = False
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle18
         Me.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAlquileres.Size = New System.Drawing.Size(737, 780)
         Me.dgvAlquileres.TabIndex = 10
@@ -5284,6 +5315,7 @@ Partial Class frmMainMenu
         'tbpMenuPrincipal
         '
         Me.tbpMenuPrincipal.BackColor = System.Drawing.Color.Silver
+        Me.tbpMenuPrincipal.Controls.Add(Me.pboxLoading)
         Me.tbpMenuPrincipal.Controls.Add(Me.PictureBox1)
         Me.tbpMenuPrincipal.Location = New System.Drawing.Point(4, 25)
         Me.tbpMenuPrincipal.Name = "tbpMenuPrincipal"
@@ -5349,32 +5381,23 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'numPasajerosMVehiculo
+        'tmrestadoconexion
         '
-        Me.numPasajerosMVehiculo.Location = New System.Drawing.Point(237, 163)
-        Me.numPasajerosMVehiculo.Name = "numPasajerosMVehiculo"
-        Me.numPasajerosMVehiculo.Size = New System.Drawing.Size(119, 20)
-        Me.numPasajerosMVehiculo.TabIndex = 45
+        Me.tmrestadoconexion.Enabled = True
         '
-        'cbxTipoMVeh
+        'pboxLoading
         '
-        Me.cbxTipoMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxTipoMVeh.FormattingEnabled = True
-        Me.cbxTipoMVeh.Location = New System.Drawing.Point(362, 117)
-        Me.cbxTipoMVeh.Name = "cbxTipoMVeh"
-        Me.cbxTipoMVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxTipoMVeh.TabIndex = 43
-        '
-        'Label114
-        '
-        Me.Label114.AutoSize = True
-        Me.Label114.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label114.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label114.Location = New System.Drawing.Point(364, 141)
-        Me.Label114.Name = "Label114"
-        Me.Label114.Size = New System.Drawing.Size(52, 17)
-        Me.Label114.TabIndex = 41
-        Me.Label114.Text = "Puertas"
+        Me.pboxLoading.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pboxLoading.Image = Global.CarSolutioner.My.Resources.Resources.loadingsquare
+        Me.pboxLoading.Location = New System.Drawing.Point(661, 357)
+        Me.pboxLoading.Name = "pboxLoading"
+        Me.pboxLoading.Size = New System.Drawing.Size(99, 75)
+        Me.pboxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pboxLoading.TabIndex = 35
+        Me.pboxLoading.TabStop = False
+        Me.pboxLoading.Visible = False
         '
         'frmMainMenu
         '
@@ -5424,6 +5447,7 @@ Partial Class frmMainMenu
         Me.pnlBajaVeh.PerformLayout()
         Me.pnlMVehi.ResumeLayout(False)
         Me.pnlMVehi.PerformLayout()
+        CType(Me.numPasajerosMVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlFVehi.ResumeLayout(False)
         Me.pnlFVehi.PerformLayout()
         CType(Me.numPasajerosFVeh, System.ComponentModel.ISupportInitialize).EndInit()
@@ -5466,7 +5490,7 @@ Partial Class frmMainMenu
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numPasajerosMVehiculo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -5896,4 +5920,6 @@ Partial Class frmMainMenu
     Friend WithEvents numPasajerosMVehiculo As NumericUpDown
     Friend WithEvents cbxTipoMVeh As ComboBox
     Friend WithEvents Label114 As Label
+    Friend WithEvents tmrestadoconexion As Timer
+    Friend WithEvents pboxLoading As PictureBox
 End Class

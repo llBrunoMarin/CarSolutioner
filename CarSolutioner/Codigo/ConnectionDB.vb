@@ -1,5 +1,4 @@
 ﻿Public Class ConnectionBD
-    Private Declare Function GetTickCount Lib "kernel32" () As Integer
 
     Dim cx As New Odbc.OdbcConnection
     Dim cm As New Odbc.OdbcCommand
@@ -115,6 +114,10 @@
     End Property
 
 
+
+
+
+
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
     'segun cual sea el error (error de conexión, error de primary key, etc)
 
@@ -130,18 +133,15 @@
                 'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
                 'SERVIDOR VICTOR
-                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                ' cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
                 'SERVIDOR VICTOR 32 BITS
-                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
                 cx.Open()
 
                 Return "Verdadero"
-            Else
-                Return "Red"
             End If
-
         Catch ex As Odbc.OdbcException
 
             If (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]") Or ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
@@ -156,11 +156,13 @@
                 'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
                 '  MsgBox(ex.Message)
 
-                ReintentarConexionLogin()
+                reintentarconexionlogin()
                 Cerrar()
-
                 Return "Red"
             End If
+
+
+
 
             'MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
             ' MsgBox(ex.Message)
@@ -177,8 +179,8 @@
         Catch ex As Exception
             MsgBox(ex.Message)
 
+            Throw ex
             Return False
-
         End Try
 
     End Function
@@ -225,7 +227,7 @@
             dgv.DataSource = fuente
 
         Catch ex As Exception
-            MsgBox("JElow")
+
             MsgBox(ex.Message)
 
         Finally
@@ -253,32 +255,38 @@
         End Try
 
     End Sub
+    Private Declare Function GetTickCount Lib "kernel32" () As Integer
 
+    Function reintentarconexionlogin()
 
-    Private Sub ReintentarConexionLogin()
+        Dim valor As MsgBoxResult = MsgBox("Conexion perdida, desea intentar reconectar?", MsgBoxStyle.OkOnly, "Error de red")
+        Dim retraso As Integer
 
-        Dim Resultado As MsgBoxResult = MsgBox("Conexion perdida, pulse OK para reintentar", MsgBoxStyle.OkCancel)
-        Dim Retraso As Integer = 3000 + GetTickCount
+        retraso = 3000 + GetTickCount
 
-        While Retraso >= GetTickCount
+        Dim resultado As MsgBoxResult = MsgBox("Intentando Reconectar", MsgBoxStyle.OkOnly, "Notificacion")
+
+        While retraso >= GetTickCount
             Application.DoEvents()
 
         End While
+        If valor = MsgBoxResult.Ok Then
 
-        'Si la persona quiere reintentar la conexión:
-        If (Resultado = MsgBoxResult.Ok) Then
 
-            'Si conecta
             If Conectar(Usuario, Contraseña) = "Verdadero" Then
 
-                Cerrar()
-                MsgBox("Conexión establecida.")
 
+                Cerrar()
+                MsgBox("Conexion establecida", MsgBoxStyle.Information, "Notificacion")
+            Else
+                MsgBox("No se pudo reanudar la conexion", MsgBoxStyle.Critical, "Notificacion")
             End If
 
         End If
 
-    End Sub
+
+
+    End Function
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
     Public Function EjecutarNonQuery(sentencia As String) As Boolean

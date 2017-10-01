@@ -5,6 +5,7 @@
     Dim da As New Odbc.OdbcDataAdapter
     Dim ds As New Data.DataSet
     Dim dr As Odbc.OdbcDataReader
+    Dim timer As New Timer
 
 
     Dim _Usuario As String = Nothing
@@ -27,6 +28,8 @@
             Años.Add(añosaux.ToString)
             añosaux = añosaux + 1
         End While
+
+        timer.Interval = 10000
     End Sub
 
     Public Property Usuario() As String
@@ -118,42 +121,52 @@
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
     'segun cual sea el error (error de conexión, error de primary key, etc)
 
+
     'Abrir y cerrar la conexión con la BD. La idea es abrirla antes de ejecutar una sentencia, y cerrarla al finalizar.
-    Public Function Conectar(Usuario, Contraseña) As Boolean
+    Public Function Conectar(Usuario, Contraseña) As String
+
         Try
-            'SERVIDOR UTU
-            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+            If cx.State = ConnectionState.Closed Then
 
-            'SERVIDOR VICTOR
-            cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
-            'SERVIDOR VICTOR 32 BITS
-            'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                'SERVIDOR UTU
+                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
-            cx.Open()
-            Return True
+                'SERVIDOR VICTOR
+                ' cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
+                'SERVIDOR VICTOR 32 BITS
+                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+
+                cx.Open()
+
+                Return "Verdadero"
+            End If
         Catch ex As Odbc.OdbcException
 
             If (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]") Or ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
 
 
-
+                Return "BadCredentials"
+                Cerrar()
 
             Else
 
-                MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
+                ' MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
                 'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
-                MsgBox(ex.Message)
+                '  MsgBox(ex.Message)
+
+                reintentarconexionlogin()
+                Cerrar()
+                Return "Red"
             End If
 
-            Return False
 
-        Catch ex As Exception
 
-            MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
 
-            Return False
+            'MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
+            ' MsgBox(ex.Message)
+
 
         End Try
 
@@ -165,6 +178,7 @@
             Return True
         Catch ex As Exception
             MsgBox(ex.Message)
+
             Throw ex
             Return False
         End Try
@@ -190,6 +204,7 @@
         Catch ex As Exception
 
             MsgBox(ex.Message)
+
             Return dt
 
         Finally
@@ -202,7 +217,7 @@
     'Rellena un datagridview que se le coloca como parámetro, con el nombre de la tabla que también
     'entra como tal.
     Public Sub RellenarDataGridView(dgv As DataGridView, sentencia As String)
-
+        Conectar(Usuario, Contraseña)
         'Creamos una nueva fuente de datos, para poder asignarla al DataGridView luego.
         Dim fuente As New BindingSource()
 
@@ -212,7 +227,7 @@
             dgv.DataSource = fuente
 
         Catch ex As Exception
-
+            MsgBox("JElow")
             MsgBox(ex.Message)
 
         Finally
@@ -240,8 +255,35 @@
         End Try
 
     End Sub
+    Private Declare Function GetTickCount Lib "kernel32" () As Integer
+
+    Function reintentarconexionlogin()
+
+        Dim valor As MsgBoxResult = MsgBox("Conexion perdida, pulse OK para reintentar", MsgBoxStyle.OkCancel)
+        Dim retraso As Integer
+
+        retraso = 3000 + GetTickCount
 
 
+        While retraso >= GetTickCount
+            Application.DoEvents()
+
+        End While
+        If valor = MsgBoxResult.Ok Then
+
+            If Conectar(Usuario, Contraseña) = "Verdadero" Then
+
+
+                Cerrar()
+                MsgBox("Conexion establecida")
+
+            End If
+
+        End If
+
+
+
+    End Function
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
     Public Function EjecutarNonQuery(sentencia As String) As Boolean
@@ -266,7 +308,7 @@
 
         Catch ex As Exception
 
-            MsgBox(ex.Message)
+
             Return False
 
         Finally

@@ -235,7 +235,4 @@ Public Class frmMainMenu
         RecargarDatos(dgvVehiculos)
     End Sub
 
-    Private Sub tmrestadoconexion_Tick(sender As Object, e As EventArgs) Handles tmrestadoconexion.Tick
-         
-    End Sub
 End Class

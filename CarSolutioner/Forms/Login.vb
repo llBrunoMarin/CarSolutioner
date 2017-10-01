@@ -63,11 +63,10 @@ Public Class Login
             conexion.Contraseña = txtContraseña.Text
 
             'Si conecta:
-
-            If (conexion.Conectar(conexion.Usuario, conexion.Contraseña)) = "Verdadero" Then
+            If (conexion.Conectar(conexion.Usuario, conexion.Contraseña)) Then
                 'Cerrar esa conexión
-
                 conexion.Cerrar()
+
                 'Conseguimos el Tipo de Usuario de la persona conectada:
                 Dim tipousuario As New DataTable
                 tipousuario = conexion.EjecutarSelect("SELECT tipo from empleado where usuario = '" & conexion.Usuario & "' ;")
@@ -97,12 +96,8 @@ Public Class Login
                     conexion.TipoUsuario = "Error"
 
                 End Try
-            ElseIf (conexion.Conectar(conexion.Usuario, conexion.Contraseña)) = "BadCredentials" Then
-                conexion.TipoUsuario = "Incorrecto"
-
             Else
-                conexion.TipoUsuario = "Red"
-                conexion.Cerrar()
+                conexion.TipoUsuario = "Incorrecto"
             End If
 
         Else
@@ -122,15 +117,7 @@ Public Class Login
 
             Case 3
 
-            Case "Red"
-                pboxLoading.Visible = False
-                lbldataincorrect.Text = "Hubo un problema de red, intente nuevamente"
-                lbldataincorrect.Visible = True
-                txtContraseña.Visible = True
-                txtUsuario.Visible = True
-                btnLogin.Visible = True
-                lblpass.Visible = True
-                lbluser.Visible = True
+            Case 4
 
             Case "Error"
 

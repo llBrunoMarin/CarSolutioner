@@ -133,7 +133,8 @@
             If ReservasActivas.Rows.Count = 0 Then
                 estado = "f"
                 conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = " + cboxsucursalmov.SelectedValue.ToString + " where idsucursal = " + idsucursalmod + "")
-
+                MsgBox(idsucursalmod)
+                MsgBox(cboxsucursalmov.SelectedValue.ToString)
                 MsgBox("Vehiculos trasladados satisfactoriamente a " + cboxsucursalmov.Text + ". La sucursal se declara inactiva.", MsgBoxStyle.Information, "Notificacion")
                 conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
                 conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
@@ -173,20 +174,16 @@
     End Sub
 
     Private Sub btndeletesuc_Click(sender As Object, e As EventArgs) Handles btndeletesuc.Click
+        Try
+            conexion.EjecutarNonQuery("delete from sucursal where idsucursal=" + idsucursalmod + "")
 
-        If conexion.EjecutarNonQuery("delete from sucursal where idsucursal=" + idsucursalmod + "") = False Then
-
-            MsgBox("No puede eliminar una sucursal que esta siendo utilizada por otros registros.", MsgBoxStyle.Exclamation, "Notificacion")
-        Else
-            MsgBox("Sucursal eliminada con exito.", MsgBoxStyle.Information, "Notificacion")
-        End If
-
-        For Each con As Control In pnlmodsuc.Controls
+            For Each con As Control In pnlmodsuc.Controls
                 VaciarControl(con)
             Next
             conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
-
-
+        Catch ex As Exception
+            MsgBox("No puede eliminar una sucursal que esta siendo utilizada por otros registros.")
+        End Try
     End Sub
 
     Private Sub pnlmodsuc_Paint(sender As Object, e As PaintEventArgs) Handles pnlmodsuc.Paint

@@ -22,6 +22,7 @@ Partial Class frmMainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -32,6 +33,17 @@ Partial Class frmMainMenu
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -459,8 +471,32 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+
         Me.tmrestadoconexion = New System.Windows.Forms.Timer(Me.components)
         Me.pboxLoading = New System.Windows.Forms.PictureBox()
+
+        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoriaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmodeloveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipoveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadov = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -510,7 +546,10 @@ Partial Class frmMainMenu
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+
         CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).BeginInit()
+
+
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -606,7 +645,7 @@ Partial Class frmMainMenu
         Me.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReservas.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReservas.ForeColor = System.Drawing.Color.White
-        Me.btnReservas.Location = New System.Drawing.Point(-3, 159)
+        Me.btnReservas.Location = New System.Drawing.Point(-3, 141)
         Me.btnReservas.Name = "btnReservas"
         Me.btnReservas.Size = New System.Drawing.Size(260, 65)
         Me.btnReservas.TabIndex = 0
@@ -623,7 +662,7 @@ Partial Class frmMainMenu
         Me.btnMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMantenimiento.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMantenimiento.ForeColor = System.Drawing.Color.White
-        Me.btnMantenimiento.Location = New System.Drawing.Point(2, 434)
+        Me.btnMantenimiento.Location = New System.Drawing.Point(2, 416)
         Me.btnMantenimiento.Name = "btnMantenimiento"
         Me.btnMantenimiento.Size = New System.Drawing.Size(255, 65)
         Me.btnMantenimiento.TabIndex = 2
@@ -640,7 +679,7 @@ Partial Class frmMainMenu
         Me.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEmpleados.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEmpleados.ForeColor = System.Drawing.Color.White
-        Me.btnEmpleados.Location = New System.Drawing.Point(-3, 363)
+        Me.btnEmpleados.Location = New System.Drawing.Point(-3, 345)
         Me.btnEmpleados.Name = "btnEmpleados"
         Me.btnEmpleados.Size = New System.Drawing.Size(260, 65)
         Me.btnEmpleados.TabIndex = 0
@@ -657,7 +696,7 @@ Partial Class frmMainMenu
         Me.btnVehiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVehiculos.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVehiculos.ForeColor = System.Drawing.Color.White
-        Me.btnVehiculos.Location = New System.Drawing.Point(-3, 301)
+        Me.btnVehiculos.Location = New System.Drawing.Point(-3, 283)
         Me.btnVehiculos.Name = "btnVehiculos"
         Me.btnVehiculos.Size = New System.Drawing.Size(260, 65)
         Me.btnVehiculos.TabIndex = 0
@@ -674,7 +713,7 @@ Partial Class frmMainMenu
         Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClientes.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClientes.ForeColor = System.Drawing.Color.White
-        Me.btnClientes.Location = New System.Drawing.Point(-3, 230)
+        Me.btnClientes.Location = New System.Drawing.Point(-3, 212)
         Me.btnClientes.Name = "btnClientes"
         Me.btnClientes.Size = New System.Drawing.Size(260, 65)
         Me.btnClientes.TabIndex = 0
@@ -684,7 +723,7 @@ Partial Class frmMainMenu
         'pcboxloading
         '
         Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
-        Me.pcboxloading.Location = New System.Drawing.Point(36, 41)
+        Me.pcboxloading.Location = New System.Drawing.Point(36, 24)
         Me.pcboxloading.Name = "pcboxloading"
         Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
         Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -695,7 +734,7 @@ Partial Class frmMainMenu
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
-        Me.PictureBox2.Location = New System.Drawing.Point(36, 41)
+        Me.PictureBox2.Location = New System.Drawing.Point(36, 24)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -779,8 +818,8 @@ Partial Class frmMainMenu
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.ReadOnly = True
         Me.dgvClientes.RowHeadersVisible = False
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvClientes.RowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvClientes.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvClientes.Size = New System.Drawing.Size(739, 787)
         Me.dgvClientes.TabIndex = 39
@@ -1793,12 +1832,13 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.Name = "dgvVehiculos"
         Me.dgvVehiculos.ReadOnly = True
         Me.dgvVehiculos.RowHeadersVisible = False
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvVehiculos.Size = New System.Drawing.Size(1324, 373)
         Me.dgvVehiculos.TabIndex = 37
         '
+
         'nrochasis
         '
         Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -1969,6 +2009,7 @@ Partial Class frmMainMenu
         Me.estadov.ReadOnly = True
         Me.estadov.Visible = False
         '
+
         'pnlBajaVeh
         '
         Me.pnlBajaVeh.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -3663,27 +3704,27 @@ Partial Class frmMainMenu
         Me.dgvEmpleados.AllowUserToAddRows = False
         Me.dgvEmpleados.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvEmpleados.Location = New System.Drawing.Point(29, 7)
         Me.dgvEmpleados.Name = "dgvEmpleados"
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvEmpleados.Size = New System.Drawing.Size(754, 817)
         Me.dgvEmpleados.TabIndex = 10
         '
@@ -4066,8 +4107,8 @@ Partial Class frmMainMenu
         Me.dtvmant.Name = "dtvmant"
         Me.dtvmant.ReadOnly = True
         Me.dtvmant.RowHeadersVisible = False
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dtvmant.RowsDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dtvmant.RowsDefaultCellStyle = DataGridViewCellStyle7
         Me.dtvmant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtvmant.Size = New System.Drawing.Size(754, 817)
         Me.dtvmant.TabIndex = 34
@@ -4811,8 +4852,8 @@ Partial Class frmMainMenu
         Me.dgvReservas.Name = "dgvReservas"
         Me.dgvReservas.ReadOnly = True
         Me.dgvReservas.RowHeadersVisible = False
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvReservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReservas.Size = New System.Drawing.Size(737, 780)
         Me.dgvReservas.TabIndex = 9
@@ -5306,8 +5347,8 @@ Partial Class frmMainMenu
         Me.dgvAlquileres.Name = "dgvAlquileres"
         Me.dgvAlquileres.ReadOnly = True
         Me.dgvAlquileres.RowHeadersVisible = False
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAlquileres.Size = New System.Drawing.Size(737, 780)
         Me.dgvAlquileres.TabIndex = 10
@@ -5315,7 +5356,6 @@ Partial Class frmMainMenu
         'tbpMenuPrincipal
         '
         Me.tbpMenuPrincipal.BackColor = System.Drawing.Color.Silver
-        Me.tbpMenuPrincipal.Controls.Add(Me.pboxLoading)
         Me.tbpMenuPrincipal.Controls.Add(Me.PictureBox1)
         Me.tbpMenuPrincipal.Location = New System.Drawing.Point(4, 25)
         Me.tbpMenuPrincipal.Name = "tbpMenuPrincipal"
@@ -5381,12 +5421,35 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
+<<<<<<< HEAD
         'tmrestadoconexion
+=======
+        'nrochasis
+        '
+        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.nrochasis.DataPropertyName = "nrochasis"
+        Me.nrochasis.HeaderText = "Nro Chasis"
+        Me.nrochasis.Name = "nrochasis"
+        Me.nrochasis.ReadOnly = True
+        Me.nrochasis.Width = 83
+        '
+        'matricula
+        '
+        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.matricula.DataPropertyName = "matricula"
+        Me.matricula.HeaderText = "Matrícula"
+        Me.matricula.Name = "matricula"
+        Me.matricula.ReadOnly = True
+        Me.matricula.Width = 77
+        '
+        'marca
+
         '
         Me.tmrestadoconexion.Enabled = True
         '
         'pboxLoading
         '
+
         Me.pboxLoading.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -5398,6 +5461,142 @@ Partial Class frmMainMenu
         Me.pboxLoading.TabIndex = 35
         Me.pboxLoading.TabStop = False
         Me.pboxLoading.Visible = False
+
+        'categoria
+        '
+        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.categoria.DataPropertyName = "categoria"
+        Me.categoria.HeaderText = "Categoria"
+        Me.categoria.Name = "categoria"
+        Me.categoria.ReadOnly = True
+        Me.categoria.Width = 77
+        '
+        'aniov
+        '
+        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.aniov.DataPropertyName = "anio"
+        Me.aniov.HeaderText = "Año"
+        Me.aniov.Name = "aniov"
+        Me.aniov.ReadOnly = True
+        Me.aniov.Width = 51
+        '
+        'kilometraje
+        '
+        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.kilometraje.DataPropertyName = "kilometraje"
+        Me.kilometraje.HeaderText = "KM"
+        Me.kilometraje.Name = "kilometraje"
+        Me.kilometraje.ReadOnly = True
+        Me.kilometraje.Width = 48
+        '
+        'cantidaddepuertas
+        '
+        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
+        Me.cantidaddepuertas.HeaderText = "Puertas"
+        Me.cantidaddepuertas.Name = "cantidaddepuertas"
+        Me.cantidaddepuertas.ReadOnly = True
+        '
+        'cantidaddepasajeros
+        '
+        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
+        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.ReadOnly = True
+        '
+        'cantidaddemaletas
+        '
+        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
+        Me.cantidaddemaletas.HeaderText = "Maletas"
+        Me.cantidaddemaletas.Name = "cantidaddemaletas"
+        Me.cantidaddemaletas.ReadOnly = True
+        '
+        'deducible
+        '
+        Me.deducible.DataPropertyName = "deducible"
+        Me.deducible.HeaderText = "Deducible"
+        Me.deducible.Name = "deducible"
+        Me.deducible.ReadOnly = True
+        '
+        'aireacondicionado
+        '
+        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
+        Me.aireacondicionado.HeaderText = "Aire"
+        Me.aireacondicionado.Name = "aireacondicionado"
+        Me.aireacondicionado.ReadOnly = True
+        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.aireacondicionado.Width = 50
+        '
+        'esmanual
+        '
+        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.esmanual.DataPropertyName = "esmanual"
+        DataGridViewCellStyle2.NullValue = False
+        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle2
+        Me.esmanual.HeaderText = "Manual"
+        Me.esmanual.Name = "esmanual"
+        Me.esmanual.ReadOnly = True
+        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.esmanual.Width = 67
+        '
+        'sucursal
+        '
+        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.sucursal.DataPropertyName = "sucursal"
+        Me.sucursal.HeaderText = "Sucursal"
+        Me.sucursal.Name = "sucursal"
+        Me.sucursal.ReadOnly = True
+        Me.sucursal.Width = 73
+        '
+        'idcategoriaveh
+        '
+        Me.idcategoriaveh.DataPropertyName = "idcategoria"
+        Me.idcategoriaveh.HeaderText = "idcategoria"
+        Me.idcategoriaveh.Name = "idcategoriaveh"
+        Me.idcategoriaveh.ReadOnly = True
+        Me.idcategoriaveh.Visible = False
+        '
+        'idmodeloveh
+        '
+        Me.idmodeloveh.DataPropertyName = "idmodelo"
+        Me.idmodeloveh.HeaderText = "idmodelo"
+        Me.idmodeloveh.Name = "idmodeloveh"
+        Me.idmodeloveh.ReadOnly = True
+        Me.idmodeloveh.Visible = False
+        '
+        'idtipoveh
+        '
+        Me.idtipoveh.DataPropertyName = "idtipo"
+        Me.idtipoveh.HeaderText = "idtipo"
+        Me.idtipoveh.Name = "idtipoveh"
+        Me.idtipoveh.ReadOnly = True
+        Me.idtipoveh.Visible = False
+        '
+        'idsucursalveh
+        '
+        Me.idsucursalveh.DataPropertyName = "idsucursal"
+        Me.idsucursalveh.HeaderText = "idsucursal"
+        Me.idsucursalveh.Name = "idsucursalveh"
+        Me.idsucursalveh.ReadOnly = True
+        Me.idsucursalveh.Visible = False
+        '
+        'idmarcaveh
+        '
+        Me.idmarcaveh.DataPropertyName = "idmarca"
+        Me.idmarcaveh.HeaderText = "idmarca"
+        Me.idmarcaveh.Name = "idmarcaveh"
+        Me.idmarcaveh.ReadOnly = True
+        Me.idmarcaveh.Visible = False
+        '
+        'estadov
+        '
+        Me.estadov.DataPropertyName = "estado"
+        Me.estadov.HeaderText = "Estado"
+        Me.estadov.Name = "estadov"
+        Me.estadov.ReadOnly = True
+        Me.estadov.Visible = False
+
         '
         'frmMainMenu
         '
@@ -5490,7 +5689,9 @@ Partial Class frmMainMenu
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+
         CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).EndInit()
+
         Me.ResumeLayout(False)
 
     End Sub
@@ -5909,6 +6110,7 @@ Partial Class frmMainMenu
     Friend WithEvents idsucursalveh As DataGridViewTextBoxColumn
     Friend WithEvents idmarcaveh As DataGridViewTextBoxColumn
     Friend WithEvents estadov As DataGridViewTextBoxColumn
+
     Friend WithEvents txtDeducibleMVeh As TextBox
     Friend WithEvents txtKMMVeh As TextBox
     Friend WithEvents Label92 As Label
@@ -5922,4 +6124,5 @@ Partial Class frmMainMenu
     Friend WithEvents Label114 As Label
     Friend WithEvents tmrestadoconexion As Timer
     Friend WithEvents pboxLoading As PictureBox
+
 End Class

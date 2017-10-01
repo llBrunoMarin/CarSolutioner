@@ -51,6 +51,7 @@ Partial Class Login
         Me.txtContraseña.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtContraseña.Location = New System.Drawing.Point(218, 242)
         Me.txtContraseña.Name = "txtContraseña"
+        Me.txtContraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.txtContraseña.Size = New System.Drawing.Size(99, 20)
         Me.txtContraseña.TabIndex = 0
         '
@@ -148,7 +149,7 @@ Partial Class Login
         Me.lblmayus.BackColor = System.Drawing.Color.Transparent
         Me.lblmayus.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblmayus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblmayus.Location = New System.Drawing.Point(176, 318)
+        Me.lblmayus.Location = New System.Drawing.Point(163, 318)
         Me.lblmayus.Name = "lblmayus"
         Me.lblmayus.Size = New System.Drawing.Size(194, 15)
         Me.lblmayus.TabIndex = 31
@@ -193,7 +194,7 @@ Partial Class Login
         'pboxLoading
         '
         Me.pboxLoading.Image = Global.CarSolutioner.My.Resources.Resources.loadingsquare
-        Me.pboxLoading.Location = New System.Drawing.Point(218, 176)
+        Me.pboxLoading.Location = New System.Drawing.Point(218, 187)
         Me.pboxLoading.Name = "pboxLoading"
         Me.pboxLoading.Size = New System.Drawing.Size(99, 75)
         Me.pboxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -217,11 +218,11 @@ Partial Class Login
         Me.lbldataincorrect.BackColor = System.Drawing.Color.Transparent
         Me.lbldataincorrect.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbldataincorrect.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lbldataincorrect.Location = New System.Drawing.Point(69, 265)
+        Me.lbldataincorrect.Location = New System.Drawing.Point(156, 265)
         Me.lbldataincorrect.Name = "lbldataincorrect"
-        Me.lbldataincorrect.Size = New System.Drawing.Size(395, 15)
+        Me.lbldataincorrect.Size = New System.Drawing.Size(223, 15)
         Me.lbldataincorrect.TabIndex = 35
-        Me.lbldataincorrect.Text = "lbldataincorrect"
+        Me.lbldataincorrect.Text = "Datos Incorrectos"
         Me.lbldataincorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lbldataincorrect.Visible = False
         '
@@ -249,7 +250,7 @@ Partial Class Login
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "sh"
+        Me.Text = "Login"
         Me.Panel1.ResumeLayout(False)
         CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

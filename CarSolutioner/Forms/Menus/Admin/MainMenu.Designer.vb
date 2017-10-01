@@ -24,13 +24,13 @@ Partial Class frmMainMenu
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -96,6 +96,7 @@ Partial Class frmMainMenu
         Me.Label80 = New System.Windows.Forms.Label()
         Me.txtDocumentoBCliente = New System.Windows.Forms.TextBox()
         Me.pnlFClientes = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label107 = New System.Windows.Forms.Label()
         Me.lblBorrarTipoDoc = New System.Windows.Forms.Label()
         Me.gbxFecNacFCliente = New System.Windows.Forms.GroupBox()
@@ -142,6 +143,27 @@ Partial Class frmMainMenu
         Me.ReportesClientes = New System.Windows.Forms.TabPage()
         Me.tbpVehiculos = New System.Windows.Forms.TabPage()
         Me.dgvVehiculos = New System.Windows.Forms.DataGridView()
+        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoriaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmodeloveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipoveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadov = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlBajaVeh = New System.Windows.Forms.Panel()
         Me.btnBajaBVeh = New System.Windows.Forms.Button()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -247,13 +269,25 @@ Partial Class frmMainMenu
         Me.cbxPuertasAVeh = New System.Windows.Forms.ComboBox()
         Me.Label60 = New System.Windows.Forms.Label()
         Me.tbpEmpleados = New System.Windows.Forms.TabPage()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.tabEmpleado = New System.Windows.Forms.TabPage()
+        Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
+        Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlMEmp = New System.Windows.Forms.Panel()
         Me.Label83 = New System.Windows.Forms.Label()
         Me.txtUserNameMempleados = New System.Windows.Forms.TextBox()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label74 = New System.Windows.Forms.Label()
         Me.cbxTipoMempleados = New System.Windows.Forms.ComboBox()
-        Me.cbxTipoSempleados = New System.Windows.Forms.ComboBox()
+        Me.cbxSucursalMempleados = New System.Windows.Forms.ComboBox()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
@@ -263,23 +297,11 @@ Partial Class frmMainMenu
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label76 = New System.Windows.Forms.Label()
         Me.txtNroDocEempleado = New System.Windows.Forms.TextBox()
-        Me.pnlAEmp = New System.Windows.Forms.Panel()
-        Me.Label82 = New System.Windows.Forms.Label()
-        Me.txtUserNameAempleados = New System.Windows.Forms.TextBox()
-        Me.Button14 = New System.Windows.Forms.Button()
-        Me.Label66 = New System.Windows.Forms.Label()
-        Me.Label67 = New System.Windows.Forms.Label()
-        Me.Label68 = New System.Windows.Forms.Label()
-        Me.Label73 = New System.Windows.Forms.Label()
-        Me.cbxTipoAempleados = New System.Windows.Forms.ComboBox()
-        Me.txtNroDocAempleado = New System.Windows.Forms.TextBox()
-        Me.cbxSucursalAempleados = New System.Windows.Forms.ComboBox()
         Me.pnlFemp = New System.Windows.Forms.Panel()
-        Me.chboxFiltrarFechaEmp = New System.Windows.Forms.CheckBox()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label81 = New System.Windows.Forms.Label()
-        Me.dtmFechFinEmp = New System.Windows.Forms.DateTimePicker()
-        Me.dtmFechInicioEmp = New System.Windows.Forms.DateTimePicker()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.lblNombreEmpleado = New System.Windows.Forms.Label()
+        Me.txtApellidoFempleado = New System.Windows.Forms.TextBox()
+        Me.txtNombreFempleado = New System.Windows.Forms.TextBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label69 = New System.Windows.Forms.Label()
@@ -289,7 +311,18 @@ Partial Class frmMainMenu
         Me.cbxTipoFempleados = New System.Windows.Forms.ComboBox()
         Me.txtNroDocFempleado = New System.Windows.Forms.TextBox()
         Me.cbxSucursalFempleados = New System.Windows.Forms.ComboBox()
-        Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
+        Me.pnlAEmp = New System.Windows.Forms.Panel()
+        Me.txtNombreUsuarioCempleado = New System.Windows.Forms.TextBox()
+        Me.cbxTipoCempleados = New System.Windows.Forms.ComboBox()
+        Me.txtNroDocumentoCempleado = New System.Windows.Forms.TextBox()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.cbxSucursalCempleados = New System.Windows.Forms.ComboBox()
+        Me.btnAltaEmpleado = New System.Windows.Forms.Button()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.Label67 = New System.Windows.Forms.Label()
+        Me.Label68 = New System.Windows.Forms.Label()
+        Me.Label73 = New System.Windows.Forms.Label()
+        Me.tabReporteEmpleado = New System.Windows.Forms.TabPage()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
         Me.pnlmmant = New System.Windows.Forms.Panel()
         Me.ComboBox43 = New System.Windows.Forms.ComboBox()
@@ -438,27 +471,6 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcategoriaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmodeloveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipoveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadov = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -485,11 +497,13 @@ Partial Class frmMainMenu
         Me.pnlAVehi.SuspendLayout()
         CType(Me.numPasajerosAVeh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpEmpleados.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.tabEmpleado.SuspendLayout()
+        CType(Me.dgvEmpleados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMEmp.SuspendLayout()
         Me.pnlBEmp.SuspendLayout()
-        Me.pnlAEmp.SuspendLayout()
         Me.pnlFemp.SuspendLayout()
-        CType(Me.dgvEmpleados, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlAEmp.SuspendLayout()
         Me.tbpMantenimiento.SuspendLayout()
         Me.pnlmmant.SuspendLayout()
         Me.pnlFmant.SuspendLayout()
@@ -1234,6 +1248,7 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFClientes.BackColor = System.Drawing.Color.Silver
         Me.pnlFClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlFClientes.Controls.Add(Me.TextBox1)
         Me.pnlFClientes.Controls.Add(Me.Label107)
         Me.pnlFClientes.Controls.Add(Me.lblBorrarTipoDoc)
         Me.pnlFClientes.Controls.Add(Me.gbxFecNacFCliente)
@@ -1255,6 +1270,13 @@ Partial Class frmMainMenu
         Me.pnlFClientes.Name = "pnlFClientes"
         Me.pnlFClientes.Size = New System.Drawing.Size(578, 199)
         Me.pnlFClientes.TabIndex = 42
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(29, 174)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 46
         '
         'Label107
         '
@@ -1795,6 +1817,184 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvVehiculos.Size = New System.Drawing.Size(1324, 373)
         Me.dgvVehiculos.TabIndex = 37
+        '
+        'nrochasis
+        '
+        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.nrochasis.DataPropertyName = "nrochasis"
+        Me.nrochasis.HeaderText = "Nro Chasis"
+        Me.nrochasis.Name = "nrochasis"
+        Me.nrochasis.ReadOnly = True
+        Me.nrochasis.Width = 83
+        '
+        'matricula
+        '
+        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.matricula.DataPropertyName = "matricula"
+        Me.matricula.HeaderText = "Matrícula"
+        Me.matricula.Name = "matricula"
+        Me.matricula.ReadOnly = True
+        Me.matricula.Width = 77
+        '
+        'marca
+        '
+        Me.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.marca.DataPropertyName = "marca"
+        Me.marca.HeaderText = "Marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        Me.marca.Width = 62
+        '
+        'Modelo
+        '
+        Me.Modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Modelo.DataPropertyName = "modelo"
+        Me.Modelo.HeaderText = "Modelo"
+        Me.Modelo.Name = "Modelo"
+        Me.Modelo.ReadOnly = True
+        Me.Modelo.Width = 67
+        '
+        'tipo
+        '
+        Me.tipo.DataPropertyName = "tipo"
+        Me.tipo.HeaderText = "Tipo"
+        Me.tipo.Name = "tipo"
+        Me.tipo.ReadOnly = True
+        '
+        'categoria
+        '
+        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.categoria.DataPropertyName = "categoria"
+        Me.categoria.HeaderText = "Categoria"
+        Me.categoria.Name = "categoria"
+        Me.categoria.ReadOnly = True
+        Me.categoria.Width = 77
+        '
+        'aniov
+        '
+        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.aniov.DataPropertyName = "anio"
+        Me.aniov.HeaderText = "Año"
+        Me.aniov.Name = "aniov"
+        Me.aniov.ReadOnly = True
+        Me.aniov.Width = 51
+        '
+        'kilometraje
+        '
+        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.kilometraje.DataPropertyName = "kilometraje"
+        Me.kilometraje.HeaderText = "KM"
+        Me.kilometraje.Name = "kilometraje"
+        Me.kilometraje.ReadOnly = True
+        Me.kilometraje.Width = 48
+        '
+        'cantidaddepuertas
+        '
+        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
+        Me.cantidaddepuertas.HeaderText = "Puertas"
+        Me.cantidaddepuertas.Name = "cantidaddepuertas"
+        Me.cantidaddepuertas.ReadOnly = True
+        '
+        'cantidaddepasajeros
+        '
+        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
+        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.ReadOnly = True
+        '
+        'cantidaddemaletas
+        '
+        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
+        Me.cantidaddemaletas.HeaderText = "Maletas"
+        Me.cantidaddemaletas.Name = "cantidaddemaletas"
+        Me.cantidaddemaletas.ReadOnly = True
+        '
+        'deducible
+        '
+        Me.deducible.DataPropertyName = "deducible"
+        Me.deducible.HeaderText = "Deducible"
+        Me.deducible.Name = "deducible"
+        Me.deducible.ReadOnly = True
+        '
+        'aireacondicionado
+        '
+        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
+        Me.aireacondicionado.HeaderText = "Aire"
+        Me.aireacondicionado.Name = "aireacondicionado"
+        Me.aireacondicionado.ReadOnly = True
+        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.aireacondicionado.Width = 50
+        '
+        'esmanual
+        '
+        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.esmanual.DataPropertyName = "esmanual"
+        DataGridViewCellStyle2.NullValue = False
+        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle2
+        Me.esmanual.HeaderText = "Manual"
+        Me.esmanual.Name = "esmanual"
+        Me.esmanual.ReadOnly = True
+        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.esmanual.Width = 67
+        '
+        'sucursal
+        '
+        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.sucursal.DataPropertyName = "sucursal"
+        Me.sucursal.HeaderText = "Sucursal"
+        Me.sucursal.Name = "sucursal"
+        Me.sucursal.ReadOnly = True
+        Me.sucursal.Width = 73
+        '
+        'idcategoriaveh
+        '
+        Me.idcategoriaveh.DataPropertyName = "idcategoria"
+        Me.idcategoriaveh.HeaderText = "idcategoria"
+        Me.idcategoriaveh.Name = "idcategoriaveh"
+        Me.idcategoriaveh.ReadOnly = True
+        Me.idcategoriaveh.Visible = False
+        '
+        'idmodeloveh
+        '
+        Me.idmodeloveh.DataPropertyName = "idmodelo"
+        Me.idmodeloveh.HeaderText = "idmodelo"
+        Me.idmodeloveh.Name = "idmodeloveh"
+        Me.idmodeloveh.ReadOnly = True
+        Me.idmodeloveh.Visible = False
+        '
+        'idtipoveh
+        '
+        Me.idtipoveh.DataPropertyName = "idtipo"
+        Me.idtipoveh.HeaderText = "idtipo"
+        Me.idtipoveh.Name = "idtipoveh"
+        Me.idtipoveh.ReadOnly = True
+        Me.idtipoveh.Visible = False
+        '
+        'idsucursalveh
+        '
+        Me.idsucursalveh.DataPropertyName = "idsucursal"
+        Me.idsucursalveh.HeaderText = "idsucursal"
+        Me.idsucursalveh.Name = "idsucursalveh"
+        Me.idsucursalveh.ReadOnly = True
+        Me.idsucursalveh.Visible = False
+        '
+        'idmarcaveh
+        '
+        Me.idmarcaveh.DataPropertyName = "idmarca"
+        Me.idmarcaveh.HeaderText = "idmarca"
+        Me.idmarcaveh.Name = "idmarcaveh"
+        Me.idmarcaveh.ReadOnly = True
+        Me.idmarcaveh.Visible = False
+        '
+        'estadov
+        '
+        Me.estadov.DataPropertyName = "estado"
+        Me.estadov.HeaderText = "Estado"
+        Me.estadov.Name = "estadov"
+        Me.estadov.ReadOnly = True
+        Me.estadov.Visible = False
         '
         'pnlBajaVeh
         '
@@ -2976,11 +3176,7 @@ Partial Class frmMainMenu
         'tbpEmpleados
         '
         Me.tbpEmpleados.BackColor = System.Drawing.Color.Silver
-        Me.tbpEmpleados.Controls.Add(Me.pnlMEmp)
-        Me.tbpEmpleados.Controls.Add(Me.pnlBEmp)
-        Me.tbpEmpleados.Controls.Add(Me.pnlAEmp)
-        Me.tbpEmpleados.Controls.Add(Me.pnlFemp)
-        Me.tbpEmpleados.Controls.Add(Me.dgvEmpleados)
+        Me.tbpEmpleados.Controls.Add(Me.TabControl1)
         Me.tbpEmpleados.Location = New System.Drawing.Point(4, 25)
         Me.tbpEmpleados.Margin = New System.Windows.Forms.Padding(0)
         Me.tbpEmpleados.Name = "tbpEmpleados"
@@ -2988,6 +3184,135 @@ Partial Class frmMainMenu
         Me.tbpEmpleados.Size = New System.Drawing.Size(1379, 862)
         Me.tbpEmpleados.TabIndex = 3
         Me.tbpEmpleados.Text = "Empleados"
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TabControl1.Controls.Add(Me.tabEmpleado)
+        Me.TabControl1.Controls.Add(Me.tabReporteEmpleado)
+        Me.TabControl1.Location = New System.Drawing.Point(27, 2)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(1345, 833)
+        Me.TabControl1.TabIndex = 38
+        '
+        'tabEmpleado
+        '
+        Me.tabEmpleado.Controls.Add(Me.dgvEmpleados)
+        Me.tabEmpleado.Controls.Add(Me.pnlMEmp)
+        Me.tabEmpleado.Controls.Add(Me.pnlBEmp)
+        Me.tabEmpleado.Controls.Add(Me.pnlFemp)
+        Me.tabEmpleado.Controls.Add(Me.pnlAEmp)
+        Me.tabEmpleado.Location = New System.Drawing.Point(4, 22)
+        Me.tabEmpleado.Name = "tabEmpleado"
+        Me.tabEmpleado.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabEmpleado.Size = New System.Drawing.Size(1337, 807)
+        Me.tabEmpleado.TabIndex = 0
+        Me.tabEmpleado.Text = "Empleados"
+        Me.tabEmpleado.UseVisualStyleBackColor = True
+        '
+        'dgvEmpleados
+        '
+        Me.dgvEmpleados.AllowUserToAddRows = False
+        Me.dgvEmpleados.AllowUserToDeleteRows = False
+        Me.dgvEmpleados.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvEmpleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrodocumentoE, Me.nombreE, Me.apellidoE, Me.emailE, Me.usuarioE, Me.sucursalesE, Me.idpersonaE, Me.idsucursalE, Me.tipoE})
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle5
+        Me.dgvEmpleados.Location = New System.Drawing.Point(7, 3)
+        Me.dgvEmpleados.Name = "dgvEmpleados"
+        Me.dgvEmpleados.ReadOnly = True
+        Me.dgvEmpleados.RowHeadersVisible = False
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle6
+        Me.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvEmpleados.Size = New System.Drawing.Size(743, 798)
+        Me.dgvEmpleados.TabIndex = 10
+        '
+        'nrodocumentoE
+        '
+        Me.nrodocumentoE.DataPropertyName = "nrodocumento"
+        Me.nrodocumentoE.HeaderText = "Nro Documento"
+        Me.nrodocumentoE.Name = "nrodocumentoE"
+        Me.nrodocumentoE.ReadOnly = True
+        '
+        'nombreE
+        '
+        Me.nombreE.DataPropertyName = "nombre"
+        Me.nombreE.HeaderText = "Nombre"
+        Me.nombreE.Name = "nombreE"
+        Me.nombreE.ReadOnly = True
+        '
+        'apellidoE
+        '
+        Me.apellidoE.DataPropertyName = "apellido"
+        Me.apellidoE.HeaderText = "Apellido"
+        Me.apellidoE.Name = "apellidoE"
+        Me.apellidoE.ReadOnly = True
+        '
+        'emailE
+        '
+        Me.emailE.DataPropertyName = "email"
+        Me.emailE.HeaderText = "Correo"
+        Me.emailE.Name = "emailE"
+        Me.emailE.ReadOnly = True
+        '
+        'usuarioE
+        '
+        Me.usuarioE.DataPropertyName = "usuario"
+        Me.usuarioE.HeaderText = "Usuario"
+        Me.usuarioE.Name = "usuarioE"
+        Me.usuarioE.ReadOnly = True
+        '
+        'sucursalesE
+        '
+        Me.sucursalesE.DataPropertyName = "sucursales"
+        Me.sucursalesE.HeaderText = "Sucursales"
+        Me.sucursalesE.Name = "sucursalesE"
+        Me.sucursalesE.ReadOnly = True
+        '
+        'idpersonaE
+        '
+        Me.idpersonaE.DataPropertyName = "idpersona"
+        Me.idpersonaE.HeaderText = "id Persona"
+        Me.idpersonaE.Name = "idpersonaE"
+        Me.idpersonaE.ReadOnly = True
+        Me.idpersonaE.Visible = False
+        '
+        'idsucursalE
+        '
+        Me.idsucursalE.DataPropertyName = "idsucursal"
+        Me.idsucursalE.HeaderText = "id Sucursal"
+        Me.idsucursalE.Name = "idsucursalE"
+        Me.idsucursalE.ReadOnly = True
+        Me.idsucursalE.Visible = False
+        '
+        'tipoE
+        '
+        Me.tipoE.DataPropertyName = "tipo"
+        Me.tipoE.HeaderText = "Tipo"
+        Me.tipoE.Name = "tipoE"
+        Me.tipoE.ReadOnly = True
+        Me.tipoE.Visible = False
         '
         'pnlMEmp
         '
@@ -2999,14 +3324,14 @@ Partial Class frmMainMenu
         Me.pnlMEmp.Controls.Add(Me.Label65)
         Me.pnlMEmp.Controls.Add(Me.Label74)
         Me.pnlMEmp.Controls.Add(Me.cbxTipoMempleados)
-        Me.pnlMEmp.Controls.Add(Me.cbxTipoSempleados)
+        Me.pnlMEmp.Controls.Add(Me.cbxSucursalMempleados)
         Me.pnlMEmp.Controls.Add(Me.Button16)
         Me.pnlMEmp.Controls.Add(Me.Label77)
         Me.pnlMEmp.Controls.Add(Me.Label78)
         Me.pnlMEmp.Controls.Add(Me.txtNroDocMempleado)
-        Me.pnlMEmp.Location = New System.Drawing.Point(789, 626)
+        Me.pnlMEmp.Location = New System.Drawing.Point(756, 611)
         Me.pnlMEmp.Name = "pnlMEmp"
-        Me.pnlMEmp.Size = New System.Drawing.Size(579, 197)
+        Me.pnlMEmp.Size = New System.Drawing.Size(575, 190)
         Me.pnlMEmp.TabIndex = 37
         '
         'Label83
@@ -3059,15 +3384,15 @@ Partial Class frmMainMenu
         Me.cbxTipoMempleados.Size = New System.Drawing.Size(121, 21)
         Me.cbxTipoMempleados.TabIndex = 30
         '
-        'cbxTipoSempleados
+        'cbxSucursalMempleados
         '
-        Me.cbxTipoSempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxTipoSempleados.Enabled = False
-        Me.cbxTipoSempleados.FormattingEnabled = True
-        Me.cbxTipoSempleados.Location = New System.Drawing.Point(142, 110)
-        Me.cbxTipoSempleados.Name = "cbxTipoSempleados"
-        Me.cbxTipoSempleados.Size = New System.Drawing.Size(121, 21)
-        Me.cbxTipoSempleados.TabIndex = 28
+        Me.cbxSucursalMempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxSucursalMempleados.Enabled = False
+        Me.cbxSucursalMempleados.FormattingEnabled = True
+        Me.cbxSucursalMempleados.Location = New System.Drawing.Point(142, 110)
+        Me.cbxSucursalMempleados.Name = "cbxSucursalMempleados"
+        Me.cbxSucursalMempleados.Size = New System.Drawing.Size(121, 21)
+        Me.cbxSucursalMempleados.TabIndex = 28
         '
         'Button16
         '
@@ -3080,7 +3405,7 @@ Partial Class frmMainMenu
         Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button16.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button16.ForeColor = System.Drawing.Color.White
-        Me.Button16.Location = New System.Drawing.Point(470, 155)
+        Me.Button16.Location = New System.Drawing.Point(466, 148)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(99, 31)
         Me.Button16.TabIndex = 18
@@ -3125,9 +3450,9 @@ Partial Class frmMainMenu
         Me.pnlBEmp.Controls.Add(Me.Label75)
         Me.pnlBEmp.Controls.Add(Me.Label76)
         Me.pnlBEmp.Controls.Add(Me.txtNroDocEempleado)
-        Me.pnlBEmp.Location = New System.Drawing.Point(789, 431)
+        Me.pnlBEmp.Location = New System.Drawing.Point(756, 415)
         Me.pnlBEmp.Name = "pnlBEmp"
-        Me.pnlBEmp.Size = New System.Drawing.Size(579, 190)
+        Me.pnlBEmp.Size = New System.Drawing.Size(575, 190)
         Me.pnlBEmp.TabIndex = 36
         '
         'Button15
@@ -3141,7 +3466,7 @@ Partial Class frmMainMenu
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button15.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button15.ForeColor = System.Drawing.Color.White
-        Me.Button15.Location = New System.Drawing.Point(470, 148)
+        Me.Button15.Location = New System.Drawing.Point(466, 148)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(99, 31)
         Me.Button15.TabIndex = 18
@@ -3177,142 +3502,15 @@ Partial Class frmMainMenu
         Me.txtNroDocEempleado.Size = New System.Drawing.Size(100, 20)
         Me.txtNroDocEempleado.TabIndex = 22
         '
-        'pnlAEmp
-        '
-        Me.pnlAEmp.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlAEmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlAEmp.Controls.Add(Me.Label82)
-        Me.pnlAEmp.Controls.Add(Me.txtUserNameAempleados)
-        Me.pnlAEmp.Controls.Add(Me.Button14)
-        Me.pnlAEmp.Controls.Add(Me.Label66)
-        Me.pnlAEmp.Controls.Add(Me.Label67)
-        Me.pnlAEmp.Controls.Add(Me.Label68)
-        Me.pnlAEmp.Controls.Add(Me.Label73)
-        Me.pnlAEmp.Controls.Add(Me.cbxTipoAempleados)
-        Me.pnlAEmp.Controls.Add(Me.txtNroDocAempleado)
-        Me.pnlAEmp.Controls.Add(Me.cbxSucursalAempleados)
-        Me.pnlAEmp.Location = New System.Drawing.Point(789, 215)
-        Me.pnlAEmp.Name = "pnlAEmp"
-        Me.pnlAEmp.Size = New System.Drawing.Size(578, 210)
-        Me.pnlAEmp.TabIndex = 35
-        '
-        'Label82
-        '
-        Me.Label82.AutoSize = True
-        Me.Label82.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label82.Location = New System.Drawing.Point(370, 62)
-        Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(101, 17)
-        Me.Label82.TabIndex = 34
-        Me.Label82.Text = "Nombre usuario"
-        '
-        'txtUserNameAempleados
-        '
-        Me.txtUserNameAempleados.Location = New System.Drawing.Point(373, 82)
-        Me.txtUserNameAempleados.Name = "txtUserNameAempleados"
-        Me.txtUserNameAempleados.Size = New System.Drawing.Size(100, 20)
-        Me.txtUserNameAempleados.TabIndex = 33
-        '
-        'Button14
-        '
-        Me.Button14.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button14.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button14.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button14.FlatAppearance.BorderSize = 0
-        Me.Button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button14.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button14.ForeColor = System.Drawing.Color.White
-        Me.Button14.Location = New System.Drawing.Point(469, 169)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(99, 31)
-        Me.Button14.TabIndex = 32
-        Me.Button14.Text = "Crear"
-        Me.Button14.UseVisualStyleBackColor = False
-        '
-        'Label66
-        '
-        Me.Label66.AutoSize = True
-        Me.Label66.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label66.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label66.Location = New System.Drawing.Point(246, 62)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(57, 17)
-        Me.Label66.TabIndex = 27
-        Me.Label66.Text = "Sucursal"
-        '
-        'Label67
-        '
-        Me.Label67.AutoSize = True
-        Me.Label67.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label67.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label67.Location = New System.Drawing.Point(119, 62)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(32, 17)
-        Me.Label67.TabIndex = 26
-        Me.Label67.Text = "Tipo"
-        '
-        'Label68
-        '
-        Me.Label68.AutoSize = True
-        Me.Label68.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label68.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label68.Location = New System.Drawing.Point(10, 62)
-        Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(103, 17)
-        Me.Label68.TabIndex = 25
-        Me.Label68.Text = "Nro Documento"
-        '
-        'Label73
-        '
-        Me.Label73.AutoSize = True
-        Me.Label73.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label73.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label73.Location = New System.Drawing.Point(9, 17)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(132, 22)
-        Me.Label73.TabIndex = 24
-        Me.Label73.Text = "Crear Usuario"
-        '
-        'cbxTipoAempleados
-        '
-        Me.cbxTipoAempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxTipoAempleados.FormattingEnabled = True
-        Me.cbxTipoAempleados.Location = New System.Drawing.Point(119, 81)
-        Me.cbxTipoAempleados.Name = "cbxTipoAempleados"
-        Me.cbxTipoAempleados.Size = New System.Drawing.Size(121, 21)
-        Me.cbxTipoAempleados.TabIndex = 23
-        '
-        'txtNroDocAempleado
-        '
-        Me.txtNroDocAempleado.Location = New System.Drawing.Point(13, 82)
-        Me.txtNroDocAempleado.Name = "txtNroDocAempleado"
-        Me.txtNroDocAempleado.Size = New System.Drawing.Size(100, 20)
-        Me.txtNroDocAempleado.TabIndex = 22
-        '
-        'cbxSucursalAempleados
-        '
-        Me.cbxSucursalAempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxSucursalAempleados.FormattingEnabled = True
-        Me.cbxSucursalAempleados.Location = New System.Drawing.Point(246, 81)
-        Me.cbxSucursalAempleados.Name = "cbxSucursalAempleados"
-        Me.cbxSucursalAempleados.Size = New System.Drawing.Size(121, 21)
-        Me.cbxSucursalAempleados.TabIndex = 17
-        '
         'pnlFemp
         '
         Me.pnlFemp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFemp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlFemp.Controls.Add(Me.chboxFiltrarFechaEmp)
-        Me.pnlFemp.Controls.Add(Me.Label33)
-        Me.pnlFemp.Controls.Add(Me.Label81)
-        Me.pnlFemp.Controls.Add(Me.dtmFechFinEmp)
-        Me.pnlFemp.Controls.Add(Me.dtmFechInicioEmp)
+        Me.pnlFemp.Controls.Add(Me.Label37)
+        Me.pnlFemp.Controls.Add(Me.lblNombreEmpleado)
+        Me.pnlFemp.Controls.Add(Me.txtApellidoFempleado)
+        Me.pnlFemp.Controls.Add(Me.txtNombreFempleado)
         Me.pnlFemp.Controls.Add(Me.Button4)
         Me.pnlFemp.Controls.Add(Me.Label42)
         Me.pnlFemp.Controls.Add(Me.Label69)
@@ -3322,63 +3520,46 @@ Partial Class frmMainMenu
         Me.pnlFemp.Controls.Add(Me.cbxTipoFempleados)
         Me.pnlFemp.Controls.Add(Me.txtNroDocFempleado)
         Me.pnlFemp.Controls.Add(Me.cbxSucursalFempleados)
-        Me.pnlFemp.Location = New System.Drawing.Point(789, 7)
+        Me.pnlFemp.Location = New System.Drawing.Point(756, 5)
         Me.pnlFemp.Name = "pnlFemp"
-        Me.pnlFemp.Size = New System.Drawing.Size(578, 203)
+        Me.pnlFemp.Size = New System.Drawing.Size(575, 190)
         Me.pnlFemp.TabIndex = 33
         '
-        'chboxFiltrarFechaEmp
+        'Label37
         '
-        Me.chboxFiltrarFechaEmp.AutoSize = True
-        Me.chboxFiltrarFechaEmp.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chboxFiltrarFechaEmp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.chboxFiltrarFechaEmp.Location = New System.Drawing.Point(25, 127)
-        Me.chboxFiltrarFechaEmp.Name = "chboxFiltrarFechaEmp"
-        Me.chboxFiltrarFechaEmp.Size = New System.Drawing.Size(91, 20)
-        Me.chboxFiltrarFechaEmp.TabIndex = 38
-        Me.chboxFiltrarFechaEmp.Text = "Filtrar Fecha"
-        Me.chboxFiltrarFechaEmp.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chboxFiltrarFechaEmp.UseVisualStyleBackColor = True
+        Me.Label37.AutoSize = True
+        Me.Label37.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label37.Location = New System.Drawing.Point(299, 50)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(58, 17)
+        Me.Label37.TabIndex = 37
+        Me.Label37.Text = "Apellido"
         '
-        'Label33
+        'lblNombreEmpleado
         '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label33.Location = New System.Drawing.Point(225, 109)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(64, 17)
-        Me.Label33.TabIndex = 37
-        Me.Label33.Text = "Fecha Fin"
+        Me.lblNombreEmpleado.AutoSize = True
+        Me.lblNombreEmpleado.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombreEmpleado.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblNombreEmpleado.Location = New System.Drawing.Point(157, 50)
+        Me.lblNombreEmpleado.Name = "lblNombreEmpleado"
+        Me.lblNombreEmpleado.Size = New System.Drawing.Size(56, 17)
+        Me.lblNombreEmpleado.TabIndex = 36
+        Me.lblNombreEmpleado.Text = "Nombre"
         '
-        'Label81
+        'txtApellidoFempleado
         '
-        Me.Label81.AutoSize = True
-        Me.Label81.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label81.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label81.Location = New System.Drawing.Point(119, 109)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(80, 17)
-        Me.Label81.TabIndex = 36
-        Me.Label81.Text = "Fecha Inicio"
+        Me.txtApellidoFempleado.Location = New System.Drawing.Point(302, 70)
+        Me.txtApellidoFempleado.Name = "txtApellidoFempleado"
+        Me.txtApellidoFempleado.Size = New System.Drawing.Size(125, 20)
+        Me.txtApellidoFempleado.TabIndex = 35
         '
-        'dtmFechFinEmp
+        'txtNombreFempleado
         '
-        Me.dtmFechFinEmp.Enabled = False
-        Me.dtmFechFinEmp.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtmFechFinEmp.Location = New System.Drawing.Point(226, 127)
-        Me.dtmFechFinEmp.Name = "dtmFechFinEmp"
-        Me.dtmFechFinEmp.Size = New System.Drawing.Size(78, 20)
-        Me.dtmFechFinEmp.TabIndex = 34
-        '
-        'dtmFechInicioEmp
-        '
-        Me.dtmFechInicioEmp.Enabled = False
-        Me.dtmFechInicioEmp.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtmFechInicioEmp.Location = New System.Drawing.Point(122, 127)
-        Me.dtmFechInicioEmp.Name = "dtmFechInicioEmp"
-        Me.dtmFechInicioEmp.Size = New System.Drawing.Size(78, 20)
-        Me.dtmFechInicioEmp.TabIndex = 35
+        Me.txtNombreFempleado.Location = New System.Drawing.Point(160, 70)
+        Me.txtNombreFempleado.Name = "txtNombreFempleado"
+        Me.txtNombreFempleado.Size = New System.Drawing.Size(125, 20)
+        Me.txtNombreFempleado.TabIndex = 34
         '
         'Button4
         '
@@ -3391,7 +3572,7 @@ Partial Class frmMainMenu
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Location = New System.Drawing.Point(469, 162)
+        Me.Button4.Location = New System.Drawing.Point(466, 149)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(99, 31)
         Me.Button4.TabIndex = 32
@@ -3413,7 +3594,7 @@ Partial Class frmMainMenu
         Me.Label69.AutoSize = True
         Me.Label69.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label69.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label69.Location = New System.Drawing.Point(249, 50)
+        Me.Label69.Location = New System.Drawing.Point(157, 99)
         Me.Label69.Name = "Label69"
         Me.Label69.Size = New System.Drawing.Size(57, 17)
         Me.Label69.TabIndex = 27
@@ -3424,7 +3605,7 @@ Partial Class frmMainMenu
         Me.Label70.AutoSize = True
         Me.Label70.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label70.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label70.Location = New System.Drawing.Point(122, 50)
+        Me.Label70.Location = New System.Drawing.Point(12, 99)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(32, 17)
         Me.Label70.TabIndex = 26
@@ -3435,7 +3616,7 @@ Partial Class frmMainMenu
         Me.Label71.AutoSize = True
         Me.Label71.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label71.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label71.Location = New System.Drawing.Point(13, 50)
+        Me.Label71.Location = New System.Drawing.Point(10, 50)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(103, 17)
         Me.Label71.TabIndex = 25
@@ -3446,7 +3627,7 @@ Partial Class frmMainMenu
         Me.Label72.AutoSize = True
         Me.Label72.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label72.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label72.Location = New System.Drawing.Point(9, 17)
+        Me.Label72.Location = New System.Drawing.Point(9, 9)
         Me.Label72.Name = "Label72"
         Me.Label72.Size = New System.Drawing.Size(240, 22)
         Me.Label72.TabIndex = 24
@@ -3456,55 +3637,162 @@ Partial Class frmMainMenu
         '
         Me.cbxTipoFempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipoFempleados.FormattingEnabled = True
-        Me.cbxTipoFempleados.Location = New System.Drawing.Point(122, 69)
+        Me.cbxTipoFempleados.Location = New System.Drawing.Point(15, 118)
         Me.cbxTipoFempleados.Name = "cbxTipoFempleados"
-        Me.cbxTipoFempleados.Size = New System.Drawing.Size(121, 21)
+        Me.cbxTipoFempleados.Size = New System.Drawing.Size(126, 21)
         Me.cbxTipoFempleados.TabIndex = 23
         '
         'txtNroDocFempleado
         '
-        Me.txtNroDocFempleado.Location = New System.Drawing.Point(16, 70)
+        Me.txtNroDocFempleado.Location = New System.Drawing.Point(13, 70)
         Me.txtNroDocFempleado.Name = "txtNroDocFempleado"
-        Me.txtNroDocFempleado.Size = New System.Drawing.Size(100, 20)
+        Me.txtNroDocFempleado.Size = New System.Drawing.Size(125, 20)
         Me.txtNroDocFempleado.TabIndex = 22
         '
         'cbxSucursalFempleados
         '
         Me.cbxSucursalFempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxSucursalFempleados.FormattingEnabled = True
-        Me.cbxSucursalFempleados.Location = New System.Drawing.Point(249, 69)
+        Me.cbxSucursalFempleados.Location = New System.Drawing.Point(160, 118)
         Me.cbxSucursalFempleados.Name = "cbxSucursalFempleados"
         Me.cbxSucursalFempleados.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucursalFempleados.TabIndex = 17
         '
-        'dgvEmpleados
+        'pnlAEmp
         '
-        Me.dgvEmpleados.AllowUserToAddRows = False
-        Me.dgvEmpleados.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle5
-        Me.dgvEmpleados.Location = New System.Drawing.Point(29, 7)
-        Me.dgvEmpleados.Name = "dgvEmpleados"
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle6
-        Me.dgvEmpleados.Size = New System.Drawing.Size(754, 817)
-        Me.dgvEmpleados.TabIndex = 10
+        Me.pnlAEmp.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlAEmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlAEmp.Controls.Add(Me.txtNombreUsuarioCempleado)
+        Me.pnlAEmp.Controls.Add(Me.cbxTipoCempleados)
+        Me.pnlAEmp.Controls.Add(Me.txtNroDocumentoCempleado)
+        Me.pnlAEmp.Controls.Add(Me.Label82)
+        Me.pnlAEmp.Controls.Add(Me.cbxSucursalCempleados)
+        Me.pnlAEmp.Controls.Add(Me.btnAltaEmpleado)
+        Me.pnlAEmp.Controls.Add(Me.Label66)
+        Me.pnlAEmp.Controls.Add(Me.Label67)
+        Me.pnlAEmp.Controls.Add(Me.Label68)
+        Me.pnlAEmp.Controls.Add(Me.Label73)
+        Me.pnlAEmp.Location = New System.Drawing.Point(756, 201)
+        Me.pnlAEmp.Name = "pnlAEmp"
+        Me.pnlAEmp.Size = New System.Drawing.Size(575, 189)
+        Me.pnlAEmp.TabIndex = 35
+        '
+        'txtNombreUsuarioCempleado
+        '
+        Me.txtNombreUsuarioCempleado.Location = New System.Drawing.Point(421, 68)
+        Me.txtNombreUsuarioCempleado.Name = "txtNombreUsuarioCempleado"
+        Me.txtNombreUsuarioCempleado.Size = New System.Drawing.Size(125, 20)
+        Me.txtNombreUsuarioCempleado.TabIndex = 37
+        '
+        'cbxTipoCempleados
+        '
+        Me.cbxTipoCempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoCempleados.FormattingEnabled = True
+        Me.cbxTipoCempleados.Location = New System.Drawing.Point(145, 66)
+        Me.cbxTipoCempleados.Name = "cbxTipoCempleados"
+        Me.cbxTipoCempleados.Size = New System.Drawing.Size(126, 21)
+        Me.cbxTipoCempleados.TabIndex = 36
+        '
+        'txtNroDocumentoCempleado
+        '
+        Me.txtNroDocumentoCempleado.Location = New System.Drawing.Point(13, 67)
+        Me.txtNroDocumentoCempleado.Name = "txtNroDocumentoCempleado"
+        Me.txtNroDocumentoCempleado.Size = New System.Drawing.Size(125, 20)
+        Me.txtNroDocumentoCempleado.TabIndex = 35
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label82.Location = New System.Drawing.Point(418, 46)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(101, 17)
+        Me.Label82.TabIndex = 34
+        Me.Label82.Text = "Nombre usuario"
+        '
+        'cbxSucursalCempleados
+        '
+        Me.cbxSucursalCempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxSucursalCempleados.FormattingEnabled = True
+        Me.cbxSucursalCempleados.Location = New System.Drawing.Point(287, 67)
+        Me.cbxSucursalCempleados.Name = "cbxSucursalCempleados"
+        Me.cbxSucursalCempleados.Size = New System.Drawing.Size(121, 21)
+        Me.cbxSucursalCempleados.TabIndex = 34
+        '
+        'btnAltaEmpleado
+        '
+        Me.btnAltaEmpleado.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAltaEmpleado.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAltaEmpleado.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnAltaEmpleado.FlatAppearance.BorderSize = 0
+        Me.btnAltaEmpleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAltaEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnAltaEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAltaEmpleado.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAltaEmpleado.ForeColor = System.Drawing.Color.White
+        Me.btnAltaEmpleado.Location = New System.Drawing.Point(466, 148)
+        Me.btnAltaEmpleado.Name = "btnAltaEmpleado"
+        Me.btnAltaEmpleado.Size = New System.Drawing.Size(99, 31)
+        Me.btnAltaEmpleado.TabIndex = 32
+        Me.btnAltaEmpleado.Text = "Crear"
+        Me.btnAltaEmpleado.UseVisualStyleBackColor = False
+        '
+        'Label66
+        '
+        Me.Label66.AutoSize = True
+        Me.Label66.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label66.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label66.Location = New System.Drawing.Point(284, 46)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(57, 17)
+        Me.Label66.TabIndex = 27
+        Me.Label66.Text = "Sucursal"
+        '
+        'Label67
+        '
+        Me.Label67.AutoSize = True
+        Me.Label67.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label67.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label67.Location = New System.Drawing.Point(142, 46)
+        Me.Label67.Name = "Label67"
+        Me.Label67.Size = New System.Drawing.Size(32, 17)
+        Me.Label67.TabIndex = 26
+        Me.Label67.Text = "Tipo"
+        '
+        'Label68
+        '
+        Me.Label68.AutoSize = True
+        Me.Label68.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label68.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label68.Location = New System.Drawing.Point(10, 46)
+        Me.Label68.Name = "Label68"
+        Me.Label68.Size = New System.Drawing.Size(103, 17)
+        Me.Label68.TabIndex = 25
+        Me.Label68.Text = "Nro Documento"
+        '
+        'Label73
+        '
+        Me.Label73.AutoSize = True
+        Me.Label73.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label73.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label73.Location = New System.Drawing.Point(9, 17)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(132, 22)
+        Me.Label73.TabIndex = 24
+        Me.Label73.Text = "Crear Usuario"
+        '
+        'tabReporteEmpleado
+        '
+        Me.tabReporteEmpleado.Location = New System.Drawing.Point(4, 22)
+        Me.tabReporteEmpleado.Name = "tabReporteEmpleado"
+        Me.tabReporteEmpleado.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabReporteEmpleado.Size = New System.Drawing.Size(1337, 807)
+        Me.tabReporteEmpleado.TabIndex = 1
+        Me.tabReporteEmpleado.Text = "Reportes Empleados"
+        Me.tabReporteEmpleado.UseVisualStyleBackColor = True
         '
         'tbpMantenimiento
         '
@@ -5199,184 +5487,6 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'nrochasis
-        '
-        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.nrochasis.DataPropertyName = "nrochasis"
-        Me.nrochasis.HeaderText = "Nro Chasis"
-        Me.nrochasis.Name = "nrochasis"
-        Me.nrochasis.ReadOnly = True
-        Me.nrochasis.Width = 83
-        '
-        'matricula
-        '
-        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.matricula.DataPropertyName = "matricula"
-        Me.matricula.HeaderText = "Matrícula"
-        Me.matricula.Name = "matricula"
-        Me.matricula.ReadOnly = True
-        Me.matricula.Width = 77
-        '
-        'marca
-        '
-        Me.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.marca.DataPropertyName = "marca"
-        Me.marca.HeaderText = "Marca"
-        Me.marca.Name = "marca"
-        Me.marca.ReadOnly = True
-        Me.marca.Width = 62
-        '
-        'Modelo
-        '
-        Me.Modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Modelo.DataPropertyName = "modelo"
-        Me.Modelo.HeaderText = "Modelo"
-        Me.Modelo.Name = "Modelo"
-        Me.Modelo.ReadOnly = True
-        Me.Modelo.Width = 67
-        '
-        'tipo
-        '
-        Me.tipo.DataPropertyName = "tipo"
-        Me.tipo.HeaderText = "Tipo"
-        Me.tipo.Name = "tipo"
-        Me.tipo.ReadOnly = True
-        '
-        'categoria
-        '
-        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.categoria.DataPropertyName = "categoria"
-        Me.categoria.HeaderText = "Categoria"
-        Me.categoria.Name = "categoria"
-        Me.categoria.ReadOnly = True
-        Me.categoria.Width = 77
-        '
-        'aniov
-        '
-        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.aniov.DataPropertyName = "anio"
-        Me.aniov.HeaderText = "Año"
-        Me.aniov.Name = "aniov"
-        Me.aniov.ReadOnly = True
-        Me.aniov.Width = 51
-        '
-        'kilometraje
-        '
-        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.kilometraje.DataPropertyName = "kilometraje"
-        Me.kilometraje.HeaderText = "KM"
-        Me.kilometraje.Name = "kilometraje"
-        Me.kilometraje.ReadOnly = True
-        Me.kilometraje.Width = 48
-        '
-        'cantidaddepuertas
-        '
-        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
-        Me.cantidaddepuertas.HeaderText = "Puertas"
-        Me.cantidaddepuertas.Name = "cantidaddepuertas"
-        Me.cantidaddepuertas.ReadOnly = True
-        '
-        'cantidaddepasajeros
-        '
-        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
-        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.ReadOnly = True
-        '
-        'cantidaddemaletas
-        '
-        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
-        Me.cantidaddemaletas.HeaderText = "Maletas"
-        Me.cantidaddemaletas.Name = "cantidaddemaletas"
-        Me.cantidaddemaletas.ReadOnly = True
-        '
-        'deducible
-        '
-        Me.deducible.DataPropertyName = "deducible"
-        Me.deducible.HeaderText = "Deducible"
-        Me.deducible.Name = "deducible"
-        Me.deducible.ReadOnly = True
-        '
-        'aireacondicionado
-        '
-        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
-        Me.aireacondicionado.HeaderText = "Aire"
-        Me.aireacondicionado.Name = "aireacondicionado"
-        Me.aireacondicionado.ReadOnly = True
-        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.aireacondicionado.Width = 50
-        '
-        'esmanual
-        '
-        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.esmanual.DataPropertyName = "esmanual"
-        DataGridViewCellStyle2.NullValue = False
-        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle2
-        Me.esmanual.HeaderText = "Manual"
-        Me.esmanual.Name = "esmanual"
-        Me.esmanual.ReadOnly = True
-        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.esmanual.Width = 67
-        '
-        'sucursal
-        '
-        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.sucursal.DataPropertyName = "sucursal"
-        Me.sucursal.HeaderText = "Sucursal"
-        Me.sucursal.Name = "sucursal"
-        Me.sucursal.ReadOnly = True
-        Me.sucursal.Width = 73
-        '
-        'idcategoriaveh
-        '
-        Me.idcategoriaveh.DataPropertyName = "idcategoria"
-        Me.idcategoriaveh.HeaderText = "idcategoria"
-        Me.idcategoriaveh.Name = "idcategoriaveh"
-        Me.idcategoriaveh.ReadOnly = True
-        Me.idcategoriaveh.Visible = False
-        '
-        'idmodeloveh
-        '
-        Me.idmodeloveh.DataPropertyName = "idmodelo"
-        Me.idmodeloveh.HeaderText = "idmodelo"
-        Me.idmodeloveh.Name = "idmodeloveh"
-        Me.idmodeloveh.ReadOnly = True
-        Me.idmodeloveh.Visible = False
-        '
-        'idtipoveh
-        '
-        Me.idtipoveh.DataPropertyName = "idtipo"
-        Me.idtipoveh.HeaderText = "idtipo"
-        Me.idtipoveh.Name = "idtipoveh"
-        Me.idtipoveh.ReadOnly = True
-        Me.idtipoveh.Visible = False
-        '
-        'idsucursalveh
-        '
-        Me.idsucursalveh.DataPropertyName = "idsucursal"
-        Me.idsucursalveh.HeaderText = "idsucursal"
-        Me.idsucursalveh.Name = "idsucursalveh"
-        Me.idsucursalveh.ReadOnly = True
-        Me.idsucursalveh.Visible = False
-        '
-        'idmarcaveh
-        '
-        Me.idmarcaveh.DataPropertyName = "idmarca"
-        Me.idmarcaveh.HeaderText = "idmarca"
-        Me.idmarcaveh.Name = "idmarcaveh"
-        Me.idmarcaveh.ReadOnly = True
-        Me.idmarcaveh.Visible = False
-        '
-        'estadov
-        '
-        Me.estadov.DataPropertyName = "estado"
-        Me.estadov.HeaderText = "Estado"
-        Me.estadov.Name = "estadov"
-        Me.estadov.ReadOnly = True
-        Me.estadov.Visible = False
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5433,15 +5543,17 @@ Partial Class frmMainMenu
         Me.pnlAVehi.PerformLayout()
         CType(Me.numPasajerosAVeh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpEmpleados.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.tabEmpleado.ResumeLayout(False)
+        CType(Me.dgvEmpleados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMEmp.ResumeLayout(False)
         Me.pnlMEmp.PerformLayout()
         Me.pnlBEmp.ResumeLayout(False)
         Me.pnlBEmp.PerformLayout()
-        Me.pnlAEmp.ResumeLayout(False)
-        Me.pnlAEmp.PerformLayout()
         Me.pnlFemp.ResumeLayout(False)
         Me.pnlFemp.PerformLayout()
-        CType(Me.dgvEmpleados, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlAEmp.ResumeLayout(False)
+        Me.pnlAEmp.PerformLayout()
         Me.tbpMantenimiento.ResumeLayout(False)
         Me.pnlmmant.ResumeLayout(False)
         Me.pnlmmant.PerformLayout()
@@ -5565,20 +5677,17 @@ Partial Class frmMainMenu
     Friend WithEvents cbxSucursalFempleados As ComboBox
     Friend WithEvents dgvEmpleados As DataGridView
     Friend WithEvents pnlAEmp As Panel
-    Friend WithEvents Button14 As Button
+    Friend WithEvents btnAltaEmpleado As Button
     Friend WithEvents Label66 As Label
     Friend WithEvents Label67 As Label
     Friend WithEvents Label68 As Label
     Friend WithEvents Label73 As Label
-    Friend WithEvents cbxTipoAempleados As ComboBox
-    Friend WithEvents txtNroDocAempleado As TextBox
-    Friend WithEvents cbxSucursalAempleados As ComboBox
     Friend WithEvents btnEmpleados As Button
     Friend WithEvents pnlMEmp As Panel
     Friend WithEvents Label65 As Label
     Friend WithEvents Label74 As Label
     Friend WithEvents cbxTipoMempleados As ComboBox
-    Friend WithEvents cbxTipoSempleados As ComboBox
+    Friend WithEvents cbxSucursalMempleados As ComboBox
     Friend WithEvents Button16 As Button
     Friend WithEvents Label77 As Label
     Friend WithEvents Label78 As Label
@@ -5687,12 +5796,6 @@ Partial Class frmMainMenu
     Friend WithEvents Label83 As Label
     Friend WithEvents txtUserNameMempleados As TextBox
     Friend WithEvents Label82 As Label
-    Friend WithEvents txtUserNameAempleados As TextBox
-    Friend WithEvents chboxFiltrarFechaEmp As CheckBox
-    Friend WithEvents Label33 As Label
-    Friend WithEvents Label81 As Label
-    Friend WithEvents dtmFechFinEmp As DateTimePicker
-    Friend WithEvents dtmFechInicioEmp As DateTimePicker
     Friend WithEvents ImprmirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AparienciaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents chbxFechaFClientes As CheckBox
@@ -5898,4 +6001,25 @@ Partial Class frmMainMenu
     Friend WithEvents idsucursalveh As DataGridViewTextBoxColumn
     Friend WithEvents idmarcaveh As DataGridViewTextBoxColumn
     Friend WithEvents estadov As DataGridViewTextBoxColumn
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents tabEmpleado As TabPage
+    Friend WithEvents tabReporteEmpleado As TabPage
+    Friend WithEvents cbxTipoCempleados As ComboBox
+    Friend WithEvents txtNroDocumentoCempleado As TextBox
+    Friend WithEvents cbxSucursalCempleados As ComboBox
+    Friend WithEvents Label37 As Label
+    Friend WithEvents lblNombreEmpleado As Label
+    Friend WithEvents txtApellidoFempleado As TextBox
+    Friend WithEvents txtNombreFempleado As TextBox
+    Friend WithEvents txtNombreUsuarioCempleado As TextBox
+    Friend WithEvents nrodocumentoE As DataGridViewTextBoxColumn
+    Friend WithEvents nombreE As DataGridViewTextBoxColumn
+    Friend WithEvents apellidoE As DataGridViewTextBoxColumn
+    Friend WithEvents emailE As DataGridViewTextBoxColumn
+    Friend WithEvents usuarioE As DataGridViewTextBoxColumn
+    Friend WithEvents sucursalesE As DataGridViewTextBoxColumn
+    Friend WithEvents idpersonaE As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalE As DataGridViewTextBoxColumn
+    Friend WithEvents tipoE As DataGridViewTextBoxColumn
 End Class

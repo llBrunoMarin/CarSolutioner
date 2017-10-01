@@ -256,7 +256,6 @@ Partial Public Class frmMainMenu
                 ListaTelefonos.Add(rw("telefono"))
             Next
 
-
         Else
 
             For Each item As String In cbxTelefonosMCliente.Items

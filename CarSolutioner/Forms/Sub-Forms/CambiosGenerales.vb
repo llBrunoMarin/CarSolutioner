@@ -107,7 +107,6 @@
             If estadosucmod = "True" Then
                 cboxestadosucmod.SelectedItem = "Activa"
 
-
             Else
                 cboxestadosucmod.SelectedItem = "Inactiva"
             End If

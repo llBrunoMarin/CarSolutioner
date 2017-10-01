@@ -50,7 +50,7 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnMantenimiento.Click, btnReservas.Click, btnClientes.Click, btnVehiculos.Click, btnEmpleados.Click
+    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnVehiculos.Click, btnReservas.Click, btnMantenimiento.Click, btnEmpleados.Click, btnClientes.Click
 
         ResetColors()
 
@@ -94,7 +94,7 @@ Public Class frmMainMenu
 
     Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
 
-        cargando(pcboxloading, 1000)
+        cargando(pcboxloading, 500)
 
         frmCambiosGenerales.ShowDialog()
 
@@ -165,6 +165,7 @@ Public Class frmMainMenu
 
         'TIPOS
         CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
+        CargarDatosComboBox(cbxPuertasMVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos, "nombre", "idtipo")
@@ -252,5 +253,9 @@ Public Class frmMainMenu
 
     End Sub
 
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        RecargarDatos(dgvVehiculos)
+    End Sub
 
 End Class

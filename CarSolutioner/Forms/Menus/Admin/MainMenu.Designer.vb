@@ -22,17 +22,16 @@ Partial Class frmMainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -144,6 +143,26 @@ Partial Class frmMainMenu
         Me.ReportesClientes = New System.Windows.Forms.TabPage()
         Me.tbpVehiculos = New System.Windows.Forms.TabPage()
         Me.dgvVehiculos = New System.Windows.Forms.DataGridView()
+        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmodelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoriaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadov = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlBajaVeh = New System.Windows.Forms.Panel()
         Me.btnBajaBVeh = New System.Windows.Forms.Button()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -157,7 +176,7 @@ Partial Class frmMainMenu
         Me.cbxPuertasMVeh = New System.Windows.Forms.ComboBox()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.cbxMaletasMVeh = New System.Windows.Forms.ComboBox()
+        Me.txtMaletasMVeh = New System.Windows.Forms.ComboBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.txtDeducibleMVeh = New System.Windows.Forms.TextBox()
         Me.txtKMMVeh = New System.Windows.Forms.TextBox()
@@ -440,29 +459,8 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-
-        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcategoriaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmodeloveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipoveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadov = New System.Windows.Forms.DataGridViewTextBoxColumn()
-
+        Me.tmrestadoconexion = New System.Windows.Forms.Timer(Me.components)
+        Me.pboxLoading = New System.Windows.Forms.PictureBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -512,7 +510,7 @@ Partial Class frmMainMenu
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-
+        CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -1789,7 +1787,7 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.AllowUserToResizeRows = False
         Me.dgvVehiculos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.dgvVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoriaveh, Me.idmodeloveh, Me.idtipoveh, Me.idsucursalveh, Me.idmarcaveh, Me.estadov})
+        Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.idmodelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoriaveh, Me.idsucursalveh, Me.idmarcaveh, Me.estadov})
         Me.dgvVehiculos.Location = New System.Drawing.Point(32, 7)
         Me.dgvVehiculos.MultiSelect = False
         Me.dgvVehiculos.Name = "dgvVehiculos"
@@ -1801,7 +1799,176 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.Size = New System.Drawing.Size(1324, 373)
         Me.dgvVehiculos.TabIndex = 37
         '
-
+        'nrochasis
+        '
+        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.nrochasis.DataPropertyName = "nrochasis"
+        Me.nrochasis.HeaderText = "Nro Chasis"
+        Me.nrochasis.Name = "nrochasis"
+        Me.nrochasis.ReadOnly = True
+        Me.nrochasis.Width = 83
+        '
+        'matricula
+        '
+        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.matricula.DataPropertyName = "matricula"
+        Me.matricula.HeaderText = "Matrícula"
+        Me.matricula.Name = "matricula"
+        Me.matricula.ReadOnly = True
+        Me.matricula.Width = 77
+        '
+        'marca
+        '
+        Me.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.marca.DataPropertyName = "marca"
+        Me.marca.HeaderText = "Marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        Me.marca.Width = 62
+        '
+        'Modelo
+        '
+        Me.Modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Modelo.DataPropertyName = "modelo"
+        Me.Modelo.HeaderText = "Modelo"
+        Me.Modelo.Name = "Modelo"
+        Me.Modelo.ReadOnly = True
+        Me.Modelo.Width = 67
+        '
+        'idmodelo
+        '
+        Me.idmodelo.DataPropertyName = "idmodelo"
+        Me.idmodelo.HeaderText = "idmodelo"
+        Me.idmodelo.Name = "idmodelo"
+        Me.idmodelo.ReadOnly = True
+        Me.idmodelo.Visible = False
+        '
+        'tipo
+        '
+        Me.tipo.DataPropertyName = "tipo"
+        Me.tipo.HeaderText = "Tipo"
+        Me.tipo.Name = "tipo"
+        Me.tipo.ReadOnly = True
+        '
+        'categoria
+        '
+        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.categoria.DataPropertyName = "categoria"
+        Me.categoria.HeaderText = "Categoria"
+        Me.categoria.Name = "categoria"
+        Me.categoria.ReadOnly = True
+        Me.categoria.Width = 77
+        '
+        'aniov
+        '
+        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.aniov.DataPropertyName = "anio"
+        Me.aniov.HeaderText = "Año"
+        Me.aniov.Name = "aniov"
+        Me.aniov.ReadOnly = True
+        Me.aniov.Width = 51
+        '
+        'kilometraje
+        '
+        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.kilometraje.DataPropertyName = "kilometraje"
+        Me.kilometraje.HeaderText = "KM"
+        Me.kilometraje.Name = "kilometraje"
+        Me.kilometraje.ReadOnly = True
+        Me.kilometraje.Width = 48
+        '
+        'cantidaddepuertas
+        '
+        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
+        Me.cantidaddepuertas.HeaderText = "Puertas"
+        Me.cantidaddepuertas.Name = "cantidaddepuertas"
+        Me.cantidaddepuertas.ReadOnly = True
+        '
+        'cantidaddepasajeros
+        '
+        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
+        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.ReadOnly = True
+        '
+        'cantidaddemaletas
+        '
+        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
+        Me.cantidaddemaletas.HeaderText = "Maletas"
+        Me.cantidaddemaletas.Name = "cantidaddemaletas"
+        Me.cantidaddemaletas.ReadOnly = True
+        '
+        'deducible
+        '
+        Me.deducible.DataPropertyName = "deducible"
+        Me.deducible.HeaderText = "Deducible"
+        Me.deducible.Name = "deducible"
+        Me.deducible.ReadOnly = True
+        '
+        'aireacondicionado
+        '
+        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
+        Me.aireacondicionado.HeaderText = "Aire"
+        Me.aireacondicionado.Name = "aireacondicionado"
+        Me.aireacondicionado.ReadOnly = True
+        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.aireacondicionado.Width = 50
+        '
+        'esmanual
+        '
+        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.esmanual.DataPropertyName = "esmanual"
+        DataGridViewCellStyle11.NullValue = False
+        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle11
+        Me.esmanual.HeaderText = "Manual"
+        Me.esmanual.Name = "esmanual"
+        Me.esmanual.ReadOnly = True
+        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.esmanual.Width = 67
+        '
+        'sucursal
+        '
+        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.sucursal.DataPropertyName = "sucursal"
+        Me.sucursal.HeaderText = "Sucursal"
+        Me.sucursal.Name = "sucursal"
+        Me.sucursal.ReadOnly = True
+        Me.sucursal.Width = 73
+        '
+        'idcategoriaveh
+        '
+        Me.idcategoriaveh.DataPropertyName = "idcategoria"
+        Me.idcategoriaveh.HeaderText = "idcategoria"
+        Me.idcategoriaveh.Name = "idcategoriaveh"
+        Me.idcategoriaveh.ReadOnly = True
+        Me.idcategoriaveh.Visible = False
+        '
+        'idsucursalveh
+        '
+        Me.idsucursalveh.DataPropertyName = "idsucursal"
+        Me.idsucursalveh.HeaderText = "idsucursal"
+        Me.idsucursalveh.Name = "idsucursalveh"
+        Me.idsucursalveh.ReadOnly = True
+        Me.idsucursalveh.Visible = False
+        '
+        'idmarcaveh
+        '
+        Me.idmarcaveh.DataPropertyName = "idmarca"
+        Me.idmarcaveh.HeaderText = "idmarca"
+        Me.idmarcaveh.Name = "idmarcaveh"
+        Me.idmarcaveh.ReadOnly = True
+        Me.idmarcaveh.Visible = False
+        '
+        'estadov
+        '
+        Me.estadov.DataPropertyName = "estado"
+        Me.estadov.HeaderText = "Estado"
+        Me.estadov.Name = "estadov"
+        Me.estadov.ReadOnly = True
+        Me.estadov.Visible = False
+        '
         'pnlBajaVeh
         '
         Me.pnlBajaVeh.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1875,7 +2042,7 @@ Partial Class frmMainMenu
         Me.pnlMVehi.Controls.Add(Me.cbxPuertasMVeh)
         Me.pnlMVehi.Controls.Add(Me.CheckBox6)
         Me.pnlMVehi.Controls.Add(Me.Label29)
-        Me.pnlMVehi.Controls.Add(Me.cbxMaletasMVeh)
+        Me.pnlMVehi.Controls.Add(Me.txtMaletasMVeh)
         Me.pnlMVehi.Controls.Add(Me.Label30)
         Me.pnlMVehi.Controls.Add(Me.txtDeducibleMVeh)
         Me.pnlMVehi.Controls.Add(Me.txtKMMVeh)
@@ -1972,14 +2139,15 @@ Partial Class frmMainMenu
         Me.Label29.TabIndex = 61
         Me.Label29.Text = "Maletas"
         '
-        'cbxMaletasMVeh
+        'txtMaletasMVeh
         '
-        Me.cbxMaletasMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxMaletasMVeh.FormattingEnabled = True
-        Me.cbxMaletasMVeh.Location = New System.Drawing.Point(128, 162)
-        Me.cbxMaletasMVeh.Name = "cbxMaletasMVeh"
-        Me.cbxMaletasMVeh.Size = New System.Drawing.Size(101, 21)
-        Me.cbxMaletasMVeh.TabIndex = 60
+        Me.txtMaletasMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtMaletasMVeh.Enabled = False
+        Me.txtMaletasMVeh.FormattingEnabled = True
+        Me.txtMaletasMVeh.Location = New System.Drawing.Point(128, 162)
+        Me.txtMaletasMVeh.Name = "txtMaletasMVeh"
+        Me.txtMaletasMVeh.Size = New System.Drawing.Size(101, 21)
+        Me.txtMaletasMVeh.TabIndex = 60
         '
         'Label30
         '
@@ -1994,6 +2162,7 @@ Partial Class frmMainMenu
         '
         'txtDeducibleMVeh
         '
+        Me.txtDeducibleMVeh.Enabled = False
         Me.txtDeducibleMVeh.Location = New System.Drawing.Point(469, 74)
         Me.txtDeducibleMVeh.Name = "txtDeducibleMVeh"
         Me.txtDeducibleMVeh.Size = New System.Drawing.Size(108, 20)
@@ -2001,6 +2170,7 @@ Partial Class frmMainMenu
         '
         'txtKMMVeh
         '
+        Me.txtKMMVeh.Enabled = False
         Me.txtKMMVeh.Location = New System.Drawing.Point(359, 74)
         Me.txtKMMVeh.Name = "txtKMMVeh"
         Me.txtKMMVeh.Size = New System.Drawing.Size(104, 20)
@@ -2008,6 +2178,7 @@ Partial Class frmMainMenu
         '
         'txtAnioMVeh
         '
+        Me.txtAnioMVeh.Enabled = False
         Me.txtAnioMVeh.Location = New System.Drawing.Point(14, 162)
         Me.txtAnioMVeh.Name = "txtAnioMVeh"
         Me.txtAnioMVeh.Size = New System.Drawing.Size(105, 20)
@@ -2049,6 +2220,7 @@ Partial Class frmMainMenu
         'cbxCategoriaMVeh
         '
         Me.cbxCategoriaMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxCategoriaMVeh.Enabled = False
         Me.cbxCategoriaMVeh.FormattingEnabled = True
         Me.cbxCategoriaMVeh.Location = New System.Drawing.Point(14, 118)
         Me.cbxCategoriaMVeh.Name = "cbxCategoriaMVeh"
@@ -2058,6 +2230,7 @@ Partial Class frmMainMenu
         'cbxMarcaMVeh
         '
         Me.cbxMarcaMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxMarcaMVeh.Enabled = False
         Me.cbxMarcaMVeh.FormattingEnabled = True
         Me.cbxMarcaMVeh.Location = New System.Drawing.Point(125, 117)
         Me.cbxMarcaMVeh.Name = "cbxMarcaMVeh"
@@ -2165,6 +2338,7 @@ Partial Class frmMainMenu
         'cbxModeloMVeh
         '
         Me.cbxModeloMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxModeloMVeh.Enabled = False
         Me.cbxModeloMVeh.FormattingEnabled = True
         Me.cbxModeloMVeh.Location = New System.Drawing.Point(235, 118)
         Me.cbxModeloMVeh.Name = "cbxModeloMVeh"
@@ -2174,6 +2348,7 @@ Partial Class frmMainMenu
         'cbxSucursalMVeh
         '
         Me.cbxSucursalMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxSucursalMVeh.Enabled = False
         Me.cbxSucursalMVeh.FormattingEnabled = True
         Me.cbxSucursalMVeh.Location = New System.Drawing.Point(472, 117)
         Me.cbxSucursalMVeh.Name = "cbxSucursalMVeh"
@@ -5206,185 +5381,23 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
-
-        'nrochasis
+        'tmrestadoconexion
         '
-        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.nrochasis.DataPropertyName = "nrochasis"
-        Me.nrochasis.HeaderText = "Nro Chasis"
-        Me.nrochasis.Name = "nrochasis"
-        Me.nrochasis.ReadOnly = True
-        Me.nrochasis.Width = 83
+        Me.tmrestadoconexion.Enabled = True
         '
-        'matricula
+        'pboxLoading
         '
-        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.matricula.DataPropertyName = "matricula"
-        Me.matricula.HeaderText = "Matrícula"
-        Me.matricula.Name = "matricula"
-        Me.matricula.ReadOnly = True
-        Me.matricula.Width = 77
-        '
-        'marca
-        '
-        Me.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.marca.DataPropertyName = "marca"
-        Me.marca.HeaderText = "Marca"
-        Me.marca.Name = "marca"
-        Me.marca.ReadOnly = True
-        Me.marca.Width = 62
-        '
-        'Modelo
-        '
-        Me.Modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Modelo.DataPropertyName = "modelo"
-        Me.Modelo.HeaderText = "Modelo"
-        Me.Modelo.Name = "Modelo"
-        Me.Modelo.ReadOnly = True
-        Me.Modelo.Width = 67
-        '
-        'tipo
-        '
-        Me.tipo.DataPropertyName = "tipo"
-        Me.tipo.HeaderText = "Tipo"
-        Me.tipo.Name = "tipo"
-        Me.tipo.ReadOnly = True
-        '
-        'categoria
-        '
-        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.categoria.DataPropertyName = "categoria"
-        Me.categoria.HeaderText = "Categoria"
-        Me.categoria.Name = "categoria"
-        Me.categoria.ReadOnly = True
-        Me.categoria.Width = 77
-        '
-        'aniov
-        '
-        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.aniov.DataPropertyName = "anio"
-        Me.aniov.HeaderText = "Año"
-        Me.aniov.Name = "aniov"
-        Me.aniov.ReadOnly = True
-        Me.aniov.Width = 51
-        '
-        'kilometraje
-        '
-        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.kilometraje.DataPropertyName = "kilometraje"
-        Me.kilometraje.HeaderText = "KM"
-        Me.kilometraje.Name = "kilometraje"
-        Me.kilometraje.ReadOnly = True
-        Me.kilometraje.Width = 48
-        '
-        'cantidaddepuertas
-        '
-        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
-        Me.cantidaddepuertas.HeaderText = "Puertas"
-        Me.cantidaddepuertas.Name = "cantidaddepuertas"
-        Me.cantidaddepuertas.ReadOnly = True
-        '
-        'cantidaddepasajeros
-        '
-        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
-        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.ReadOnly = True
-        '
-        'cantidaddemaletas
-        '
-        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
-        Me.cantidaddemaletas.HeaderText = "Maletas"
-        Me.cantidaddemaletas.Name = "cantidaddemaletas"
-        Me.cantidaddemaletas.ReadOnly = True
-        '
-        'deducible
-        '
-        Me.deducible.DataPropertyName = "deducible"
-        Me.deducible.HeaderText = "Deducible"
-        Me.deducible.Name = "deducible"
-        Me.deducible.ReadOnly = True
-        '
-        'aireacondicionado
-        '
-        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
-        Me.aireacondicionado.HeaderText = "Aire"
-        Me.aireacondicionado.Name = "aireacondicionado"
-        Me.aireacondicionado.ReadOnly = True
-        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.aireacondicionado.Width = 50
-        '
-        'esmanual
-        '
-        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.esmanual.DataPropertyName = "esmanual"
-        DataGridViewCellStyle2.NullValue = False
-        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle2
-        Me.esmanual.HeaderText = "Manual"
-        Me.esmanual.Name = "esmanual"
-        Me.esmanual.ReadOnly = True
-        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.esmanual.Width = 67
-        '
-        'sucursal
-        '
-        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.sucursal.DataPropertyName = "sucursal"
-        Me.sucursal.HeaderText = "Sucursal"
-        Me.sucursal.Name = "sucursal"
-        Me.sucursal.ReadOnly = True
-        Me.sucursal.Width = 73
-        '
-        'idcategoriaveh
-        '
-        Me.idcategoriaveh.DataPropertyName = "idcategoria"
-        Me.idcategoriaveh.HeaderText = "idcategoria"
-        Me.idcategoriaveh.Name = "idcategoriaveh"
-        Me.idcategoriaveh.ReadOnly = True
-        Me.idcategoriaveh.Visible = False
-        '
-        'idmodeloveh
-        '
-        Me.idmodeloveh.DataPropertyName = "idmodelo"
-        Me.idmodeloveh.HeaderText = "idmodelo"
-        Me.idmodeloveh.Name = "idmodeloveh"
-        Me.idmodeloveh.ReadOnly = True
-        Me.idmodeloveh.Visible = False
-        '
-        'idtipoveh
-        '
-        Me.idtipoveh.DataPropertyName = "idtipo"
-        Me.idtipoveh.HeaderText = "idtipo"
-        Me.idtipoveh.Name = "idtipoveh"
-        Me.idtipoveh.ReadOnly = True
-        Me.idtipoveh.Visible = False
-        '
-        'idsucursalveh
-        '
-        Me.idsucursalveh.DataPropertyName = "idsucursal"
-        Me.idsucursalveh.HeaderText = "idsucursal"
-        Me.idsucursalveh.Name = "idsucursalveh"
-        Me.idsucursalveh.ReadOnly = True
-        Me.idsucursalveh.Visible = False
-        '
-        'idmarcaveh
-        '
-        Me.idmarcaveh.DataPropertyName = "idmarca"
-        Me.idmarcaveh.HeaderText = "idmarca"
-        Me.idmarcaveh.Name = "idmarcaveh"
-        Me.idmarcaveh.ReadOnly = True
-        Me.idmarcaveh.Visible = False
-        '
-        'estadov
-        '
-        Me.estadov.DataPropertyName = "estado"
-        Me.estadov.HeaderText = "Estado"
-        Me.estadov.Name = "estadov"
-        Me.estadov.ReadOnly = True
-        Me.estadov.Visible = False
-
+        Me.pboxLoading.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pboxLoading.Image = Global.CarSolutioner.My.Resources.Resources.loadingsquare
+        Me.pboxLoading.Location = New System.Drawing.Point(661, 357)
+        Me.pboxLoading.Name = "pboxLoading"
+        Me.pboxLoading.Size = New System.Drawing.Size(99, 75)
+        Me.pboxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pboxLoading.TabIndex = 35
+        Me.pboxLoading.TabStop = False
+        Me.pboxLoading.Visible = False
         '
         'frmMainMenu
         '
@@ -5477,7 +5490,7 @@ Partial Class frmMainMenu
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-
+        CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -5547,7 +5560,7 @@ Partial Class frmMainMenu
     Friend WithEvents txtMatriculaBVeh As TextBox
     Friend WithEvents CheckBox6 As CheckBox
     Friend WithEvents Label29 As Label
-    Friend WithEvents cbxMaletasMVeh As ComboBox
+    Friend WithEvents txtMaletasMVeh As ComboBox
     Friend WithEvents Label30 As Label
     Friend WithEvents txtAnioMVeh As TextBox
     Friend WithEvents Label35 As Label
@@ -5876,21 +5889,11 @@ Partial Class frmMainMenu
     Friend WithEvents idcategoriareserva As DataGridViewTextBoxColumn
     Friend WithEvents idtiporeserva As DataGridViewTextBoxColumn
     Friend WithEvents idsucursalllegada As DataGridViewTextBoxColumn
-    Friend WithEvents txtDeducibleMVeh As TextBox
-    Friend WithEvents txtKMMVeh As TextBox
-    Friend WithEvents Label92 As Label
-    Friend WithEvents Label27 As Label
-    Friend WithEvents txtDeducibleFVeh As TextBox
-    Friend WithEvents txtKMFVeh As TextBox
-    Friend WithEvents Label113 As Label
-    Friend WithEvents Label109 As Label
-    Friend WithEvents numPasajerosMVehiculo As NumericUpDown
-    Friend WithEvents cbxTipoMVeh As ComboBox
-    Friend WithEvents Label114 As Label
     Friend WithEvents nrochasis As DataGridViewTextBoxColumn
     Friend WithEvents matricula As DataGridViewTextBoxColumn
     Friend WithEvents marca As DataGridViewTextBoxColumn
     Friend WithEvents Modelo As DataGridViewTextBoxColumn
+    Friend WithEvents idmodelo As DataGridViewTextBoxColumn
     Friend WithEvents tipo As DataGridViewTextBoxColumn
     Friend WithEvents categoria As DataGridViewTextBoxColumn
     Friend WithEvents aniov As DataGridViewTextBoxColumn
@@ -5903,10 +5906,20 @@ Partial Class frmMainMenu
     Friend WithEvents esmanual As DataGridViewCheckBoxColumn
     Friend WithEvents sucursal As DataGridViewTextBoxColumn
     Friend WithEvents idcategoriaveh As DataGridViewTextBoxColumn
-    Friend WithEvents idmodeloveh As DataGridViewTextBoxColumn
-    Friend WithEvents idtipoveh As DataGridViewTextBoxColumn
     Friend WithEvents idsucursalveh As DataGridViewTextBoxColumn
     Friend WithEvents idmarcaveh As DataGridViewTextBoxColumn
     Friend WithEvents estadov As DataGridViewTextBoxColumn
-
+    Friend WithEvents txtDeducibleMVeh As TextBox
+    Friend WithEvents txtKMMVeh As TextBox
+    Friend WithEvents Label92 As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents txtDeducibleFVeh As TextBox
+    Friend WithEvents txtKMFVeh As TextBox
+    Friend WithEvents Label113 As Label
+    Friend WithEvents Label109 As Label
+    Friend WithEvents numPasajerosMVehiculo As NumericUpDown
+    Friend WithEvents cbxTipoMVeh As ComboBox
+    Friend WithEvents Label114 As Label
+    Friend WithEvents tmrestadoconexion As Timer
+    Friend WithEvents pboxLoading As PictureBox
 End Class

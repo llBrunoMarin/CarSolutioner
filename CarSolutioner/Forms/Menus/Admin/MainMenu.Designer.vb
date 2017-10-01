@@ -272,18 +272,9 @@ Partial Class frmMainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabEmpleado = New System.Windows.Forms.TabPage()
         Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
-        Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlMEmp = New System.Windows.Forms.Panel()
         Me.Label83 = New System.Windows.Forms.Label()
-        Me.txtUserNameMempleados = New System.Windows.Forms.TextBox()
+        Me.txtNombreUsuarioMEmpleado = New System.Windows.Forms.TextBox()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label74 = New System.Windows.Forms.Label()
         Me.cbxTipoMempleados = New System.Windows.Forms.ComboBox()
@@ -471,6 +462,15 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -3247,79 +3247,13 @@ Partial Class frmMainMenu
         Me.dgvEmpleados.Size = New System.Drawing.Size(743, 798)
         Me.dgvEmpleados.TabIndex = 10
         '
-        'nrodocumentoE
-        '
-        Me.nrodocumentoE.DataPropertyName = "nrodocumento"
-        Me.nrodocumentoE.HeaderText = "Nro Documento"
-        Me.nrodocumentoE.Name = "nrodocumentoE"
-        Me.nrodocumentoE.ReadOnly = True
-        '
-        'nombreE
-        '
-        Me.nombreE.DataPropertyName = "nombre"
-        Me.nombreE.HeaderText = "Nombre"
-        Me.nombreE.Name = "nombreE"
-        Me.nombreE.ReadOnly = True
-        '
-        'apellidoE
-        '
-        Me.apellidoE.DataPropertyName = "apellido"
-        Me.apellidoE.HeaderText = "Apellido"
-        Me.apellidoE.Name = "apellidoE"
-        Me.apellidoE.ReadOnly = True
-        '
-        'emailE
-        '
-        Me.emailE.DataPropertyName = "email"
-        Me.emailE.HeaderText = "Correo"
-        Me.emailE.Name = "emailE"
-        Me.emailE.ReadOnly = True
-        '
-        'usuarioE
-        '
-        Me.usuarioE.DataPropertyName = "usuario"
-        Me.usuarioE.HeaderText = "Usuario"
-        Me.usuarioE.Name = "usuarioE"
-        Me.usuarioE.ReadOnly = True
-        '
-        'sucursalesE
-        '
-        Me.sucursalesE.DataPropertyName = "sucursales"
-        Me.sucursalesE.HeaderText = "Sucursales"
-        Me.sucursalesE.Name = "sucursalesE"
-        Me.sucursalesE.ReadOnly = True
-        '
-        'idpersonaE
-        '
-        Me.idpersonaE.DataPropertyName = "idpersona"
-        Me.idpersonaE.HeaderText = "id Persona"
-        Me.idpersonaE.Name = "idpersonaE"
-        Me.idpersonaE.ReadOnly = True
-        Me.idpersonaE.Visible = False
-        '
-        'idsucursalE
-        '
-        Me.idsucursalE.DataPropertyName = "idsucursal"
-        Me.idsucursalE.HeaderText = "id Sucursal"
-        Me.idsucursalE.Name = "idsucursalE"
-        Me.idsucursalE.ReadOnly = True
-        Me.idsucursalE.Visible = False
-        '
-        'tipoE
-        '
-        Me.tipoE.DataPropertyName = "tipo"
-        Me.tipoE.HeaderText = "Tipo"
-        Me.tipoE.Name = "tipoE"
-        Me.tipoE.ReadOnly = True
-        Me.tipoE.Visible = False
-        '
         'pnlMEmp
         '
         Me.pnlMEmp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMEmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlMEmp.Controls.Add(Me.Label83)
-        Me.pnlMEmp.Controls.Add(Me.txtUserNameMempleados)
+        Me.pnlMEmp.Controls.Add(Me.txtNombreUsuarioMEmpleado)
         Me.pnlMEmp.Controls.Add(Me.Label65)
         Me.pnlMEmp.Controls.Add(Me.Label74)
         Me.pnlMEmp.Controls.Add(Me.cbxTipoMempleados)
@@ -3344,12 +3278,12 @@ Partial Class frmMainMenu
         Me.Label83.TabIndex = 36
         Me.Label83.Text = "Nombre usuario"
         '
-        'txtUserNameMempleados
+        'txtNombreUsuarioMEmpleado
         '
-        Me.txtUserNameMempleados.Location = New System.Drawing.Point(272, 111)
-        Me.txtUserNameMempleados.Name = "txtUserNameMempleados"
-        Me.txtUserNameMempleados.Size = New System.Drawing.Size(100, 20)
-        Me.txtUserNameMempleados.TabIndex = 35
+        Me.txtNombreUsuarioMEmpleado.Location = New System.Drawing.Point(272, 111)
+        Me.txtNombreUsuarioMEmpleado.Name = "txtNombreUsuarioMEmpleado"
+        Me.txtNombreUsuarioMEmpleado.Size = New System.Drawing.Size(100, 20)
+        Me.txtNombreUsuarioMEmpleado.TabIndex = 35
         '
         'Label65
         '
@@ -3376,7 +3310,6 @@ Partial Class frmMainMenu
         'cbxTipoMempleados
         '
         Me.cbxTipoMempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxTipoMempleados.Enabled = False
         Me.cbxTipoMempleados.FormattingEnabled = True
         Me.cbxTipoMempleados.Location = New System.Drawing.Point(15, 110)
         Me.cbxTipoMempleados.Name = "cbxTipoMempleados"
@@ -3386,7 +3319,6 @@ Partial Class frmMainMenu
         'cbxSucursalMempleados
         '
         Me.cbxSucursalMempleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxSucursalMempleados.Enabled = False
         Me.cbxSucursalMempleados.FormattingEnabled = True
         Me.cbxSucursalMempleados.Location = New System.Drawing.Point(142, 110)
         Me.cbxSucursalMempleados.Name = "cbxSucursalMempleados"
@@ -5486,6 +5418,71 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'nrodocumentoE
+        '
+        Me.nrodocumentoE.DataPropertyName = "nrodocumento"
+        Me.nrodocumentoE.HeaderText = "Nro Documento"
+        Me.nrodocumentoE.Name = "nrodocumentoE"
+        Me.nrodocumentoE.ReadOnly = True
+        '
+        'nombreE
+        '
+        Me.nombreE.DataPropertyName = "nombre"
+        Me.nombreE.HeaderText = "Nombre"
+        Me.nombreE.Name = "nombreE"
+        Me.nombreE.ReadOnly = True
+        '
+        'apellidoE
+        '
+        Me.apellidoE.DataPropertyName = "apellido"
+        Me.apellidoE.HeaderText = "Apellido"
+        Me.apellidoE.Name = "apellidoE"
+        Me.apellidoE.ReadOnly = True
+        '
+        'emailE
+        '
+        Me.emailE.DataPropertyName = "email"
+        Me.emailE.HeaderText = "Correo"
+        Me.emailE.Name = "emailE"
+        Me.emailE.ReadOnly = True
+        '
+        'usuarioE
+        '
+        Me.usuarioE.DataPropertyName = "usuario"
+        Me.usuarioE.HeaderText = "Usuario"
+        Me.usuarioE.Name = "usuarioE"
+        Me.usuarioE.ReadOnly = True
+        '
+        'sucursalesE
+        '
+        Me.sucursalesE.DataPropertyName = "sucursales"
+        Me.sucursalesE.HeaderText = "Sucursales"
+        Me.sucursalesE.Name = "sucursalesE"
+        Me.sucursalesE.ReadOnly = True
+        '
+        'idpersonaE
+        '
+        Me.idpersonaE.DataPropertyName = "idpersona"
+        Me.idpersonaE.HeaderText = "id Persona"
+        Me.idpersonaE.Name = "idpersonaE"
+        Me.idpersonaE.ReadOnly = True
+        Me.idpersonaE.Visible = False
+        '
+        'idsucursalE
+        '
+        Me.idsucursalE.DataPropertyName = "idsucursal"
+        Me.idsucursalE.HeaderText = "id Sucursal"
+        Me.idsucursalE.Name = "idsucursalE"
+        Me.idsucursalE.ReadOnly = True
+        Me.idsucursalE.Visible = False
+        '
+        'tipoE
+        '
+        Me.tipoE.DataPropertyName = "tipo"
+        Me.tipoE.HeaderText = "Tipo"
+        Me.tipoE.Name = "tipoE"
+        Me.tipoE.ReadOnly = True
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5793,7 +5790,7 @@ Partial Class frmMainMenu
     Friend WithEvents Label25 As Label
     Friend WithEvents Label28 As Label
     Friend WithEvents Label83 As Label
-    Friend WithEvents txtUserNameMempleados As TextBox
+    Friend WithEvents txtNombreUsuarioMEmpleado As TextBox
     Friend WithEvents Label82 As Label
     Friend WithEvents ImprmirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AparienciaToolStripMenuItem As ToolStripMenuItem

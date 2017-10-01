@@ -16,12 +16,9 @@ Partial Public Class frmMainMenu
         filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'",
                                            "nrodocumento", txtNroDocFempleado.Text,
                                            "nombre", txtNombreFempleado.Text,
-                                           "apellido", txtApellidoFempleado.Text) '+
-        'TipoFiltro(cbxTipoFempleados, "id") '+
+                                           "apellido", txtApellidoFempleado.Text) ' +
+        'TipoFiltro(cbxTipoFempleados, "tipos") ' +
         'TipoFiltro(cbxSucursalFempleados, "idsucursal")
-        Dim tiposeleccionado As String
-        tiposeleccionado = cbxTipoFempleados.SelectedValue
-        MsgBox(tiposeleccionado)
 
         dgvEmpleados.DataSource.Filter = filtro
 
@@ -33,30 +30,66 @@ Partial Public Class frmMainMenu
 
         fechActual = DateTime.Now.ToString("dd/MM/yyyy")
 
-        ' Empleado: idpersona, tipo, usuario, estado  hehe cliente idpersona
-        ' Trabaja:  usuarioempleado ==  usuario,
-        ' Idsucursal == idsucursal Sucur, fechainicio, fechafin
+        Dim FaltaDato As Boolean = False
 
+        For Each ctrl As Control In pnlAEmp.Controls
+            If TypeOf (ctrl) Is TextBox Then
+                If DirectCast(ctrl, TextBox).Text = "" Then
+                    FaltaDato = True
+                End If
+            Else
+                If TypeOf (ctrl) Is ComboBox Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                        FaltaDato = True
+                    End If
+                End If
+            End If
+        Next
 
-        Dim idPersonaInsertar As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" & txtNroDocumentoCempleado.Text & "'").Rows(0)(0).ToString()
-        conexion.EjecutarNonQuery("Insert into empleado values (" + idPersonaInsertar + "," + cbxTipoCempleados.Text + ",'" +
-                                                                    txtNombreUsuarioCempleado.Text + "," + cbxTipoCempleados.SelectedValue + ")")
-        conexion.EjecutarNonQuery("insert into trabaja values (" + txtNombreUsuarioCempleado.Text + "," + cbxSucursalCempleados.SelectedValue + "," + fechActual + ",'0')")
+        If Not (FaltaDato) Then
 
+            Dim idPersonaInsertar As String
 
+            Try
+                idPersonaInsertar = conexion.EjecutarSelect("select idpersona from cliente where nrodocumento = '" & txtNroDocumentoCempleado.Text & "'").Rows(0)(0).ToString()
 
-        'vbDouble.
-        'txtNroDocumentoCempleado.Text
-        'cbxTipoCempleados.SelectedValue
-        'cbxSucursalCempleados.SelectedValue
-        'txtNombreUsuarioCempleado.Text
+                If (conexion.EjecutarNonQuery("insert into empleado values ('" + idPersonaInsertar.ToString + "',
+                                                                    '" + cbxTipoCempleados.SelectedValue.ToString + "',
+                                                                    '" + txtNombreUsuarioCempleado.Text.ToString + "','t')") = True And
+                                                                    conexion.EjecutarNonQuery("insert into trabaja values ('" + txtNombreUsuarioCempleado.Text + "',
+                                                                    '" + cbxSucursalCempleados.SelectedValue.ToString + "',
+                                                                    '" + fechActual.ToString + "',NULL)") = True) Then
 
+                    MsgBox("Empleado insertado correctamente")
 
+                    RecargarDatos(dgvEmpleados)
 
+                Else
+                    MsgBox("Existe un error, ya existe es usuario")
+                End If
 
+            Catch ex As Exception
+                If (ex.Message = "No hay ninguna fila en la posición 0.") Then
+                    MsgBox("No existe ese nro documento")
+                End If
+            End Try
 
-
+        Else
+            MsgBox("Por favor, rellene todos los campos.")
+        End If
     End Sub
 
+    Private Sub RellenarDatosEmpleado(sender As Object, e As EventArgs) Handles dgvEmpleados.SelectionChanged
+
+        If Not IsNothing(dgvEmpleados.CurrentRow) Then
+
+            txtNroDocMempleado.Text = dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString()
+            txtNombreUsuarioMEmpleado.Text = dgvEmpleados.CurrentRow.Cells("nombreE").Value.ToString
+            cbxTipoMempleados.SelectedIndex = cbxTipoMempleados.FindString(dgvEmpleados.CurrentRow.Cells("tipoE").Value.ToString())
+            cbxSucursalMempleados.SelectedIndex = cbxSucursalMempleados.FindString(dgvEmpleados.CurrentRow.Cells("sucursalesE").Value.ToString())
+
+        End If
+
+    End Sub
 
 End Class

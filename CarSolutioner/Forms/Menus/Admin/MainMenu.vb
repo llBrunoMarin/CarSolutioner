@@ -138,6 +138,7 @@ Public Class frmMainMenu
         conexion.Sucursales = conexion.EjecutarSelect("SELECT * from sucursal")
         conexion.Documentos = conexion.EjecutarSelect("SELECT * from tipodocumento")
         'Agregar a la clase conexion etc, dio un error de instancia raro ta raro esto
+
         Dim tipoT As New DataTable
 
         tipoT.Columns.Add("id", GetType(System.Int32))
@@ -169,8 +170,9 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoFempleados, tipoT, "id", "tipos")
+        CargarDatosComboBox(cbxTipoFempleados, tipoT, "tipos", "id")
         CargarDatosComboBox(cbxTipoMempleados, tipoT, "tipos", "id")
+        CargarDatosComboBox(cbxTipoCempleados, tipoT, "tipos", "id")
 
         'CATEGORIAS
         CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre", "idcategoria")
@@ -224,7 +226,6 @@ Public Class frmMainMenu
             Case "dgvEmpleados"
 
                 conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.idpersona, Cliente.nrodocumento, Cliente.nombre, Cliente.apellido, Cliente.email, empleado.usuario, empleado.tipo, sucursal.nombre sucursales FROM EMPLEADO, CLIENTE, TRABAJA, SUCURSAL WHERE Cliente.idpersona = Empleado.idpersona AND trabaja.usuarioempleado = empleado.usuario AND trabaja.idsucursal = sucursal.idsucursal AND trabaja.fechafin is null AND Empleado.estado = 't'")
-
 
             Case "dgvVehiculos"
                 conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal")

@@ -152,14 +152,16 @@ Public Class frmMainMenu
 
         'TIPOS
         CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxPuertasMVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos, "nombre", "idtipo")
 
         'CATEGORIAS
         CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaMVeh, conexion.Categorias, "nombre", "idcategoria")
 
         'Los modelos se cargan en el apartado "Vehiculos".
 
@@ -205,7 +207,7 @@ Public Class frmMainMenu
                 dgvEmpleados.Columns("idpersona").Visible = False
 
             Case "dgvVehiculos"
-                conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Mo.nombre modelo, T.nombre tipo,C.nombre categoria, S.nombre sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal")
+                conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal")
 
             Case "dgvReservas"
                 conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, ca.nombre categoria, R.fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada and r.estado=1")

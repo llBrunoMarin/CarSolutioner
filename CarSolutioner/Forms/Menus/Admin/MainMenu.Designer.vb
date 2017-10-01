@@ -36,13 +36,16 @@ Partial Class frmMainMenu
 
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+
+      
+
 
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
@@ -159,7 +162,9 @@ Partial Class frmMainMenu
         Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
         Me.idmodelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
         Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -172,6 +177,10 @@ Partial Class frmMainMenu
         Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idcategoriaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
+        Me.idmodeloveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipoveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
         Me.idsucursalveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadov = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -472,6 +481,7 @@ Partial Class frmMainMenu
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
 
+
         Me.tmrestadoconexion = New System.Windows.Forms.Timer(Me.components)
         Me.pboxLoading = New System.Windows.Forms.PictureBox()
 
@@ -496,6 +506,7 @@ Partial Class frmMainMenu
         Me.idsucursalveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadov = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
 
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
@@ -1875,6 +1886,7 @@ Partial Class frmMainMenu
         Me.Modelo.ReadOnly = True
         Me.Modelo.Width = 67
         '
+
         'idmodelo
         '
         Me.idmodelo.DataPropertyName = "idmodelo"
@@ -1883,6 +1895,7 @@ Partial Class frmMainMenu
         Me.idmodelo.ReadOnly = True
         Me.idmodelo.Visible = False
         '
+
         'tipo
         '
         Me.tipo.DataPropertyName = "tipo"
@@ -1959,9 +1972,13 @@ Partial Class frmMainMenu
         '
         Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.esmanual.DataPropertyName = "esmanual"
+
         DataGridViewCellStyle11.NullValue = False
         Me.esmanual.DefaultCellStyle = DataGridViewCellStyle11
-        Me.esmanual.HeaderText = "Manual"
+
+        DataGridViewCellStyle2.NullValue = False
+        Me.esmanual.DefaultCellStyle = DataGridViewCellStyle2
+     Me.esmanual.HeaderText = "Manual"
         Me.esmanual.Name = "esmanual"
         Me.esmanual.ReadOnly = True
         Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -1985,6 +2002,24 @@ Partial Class frmMainMenu
         Me.idcategoriaveh.ReadOnly = True
         Me.idcategoriaveh.Visible = False
         '
+
+        'idmodeloveh
+        '
+        Me.idmodeloveh.DataPropertyName = "idmodelo"
+        Me.idmodeloveh.HeaderText = "idmodelo"
+        Me.idmodeloveh.Name = "idmodeloveh"
+        Me.idmodeloveh.ReadOnly = True
+        Me.idmodeloveh.Visible = False
+        '
+        'idtipoveh
+        '
+        Me.idtipoveh.DataPropertyName = "idtipo"
+        Me.idtipoveh.HeaderText = "idtipo"
+        Me.idtipoveh.Name = "idtipoveh"
+        Me.idtipoveh.ReadOnly = True
+        Me.idtipoveh.Visible = False
+        '
+
         'idsucursalveh
         '
         Me.idsucursalveh.DataPropertyName = "idsucursal"
@@ -2182,13 +2217,15 @@ Partial Class frmMainMenu
         '
         'txtMaletasMVeh
         '
-        Me.txtMaletasMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.txtMaletasMVeh.Enabled = False
-        Me.txtMaletasMVeh.FormattingEnabled = True
-        Me.txtMaletasMVeh.Location = New System.Drawing.Point(128, 162)
-        Me.txtMaletasMVeh.Name = "txtMaletasMVeh"
-        Me.txtMaletasMVeh.Size = New System.Drawing.Size(101, 21)
-        Me.txtMaletasMVeh.TabIndex = 60
+
+        Me.cbxMaletasMVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxMaletasMVeh.FormattingEnabled = True
+        Me.cbxMaletasMVeh.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
+        Me.cbxMaletasMVeh.Location = New System.Drawing.Point(128, 162)
+        Me.cbxMaletasMVeh.Name = "cbxMaletasMVeh"
+        Me.cbxMaletasMVeh.Size = New System.Drawing.Size(101, 21)
+        Me.cbxMaletasMVeh.TabIndex = 60
+
         '
         'Label30
         '
@@ -5421,9 +5458,10 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
-<<<<<<< HEAD
+
+
         'tmrestadoconexion
-=======
+
         'nrochasis
         '
         Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -5598,6 +5636,7 @@ Partial Class frmMainMenu
         Me.estadov.Visible = False
 
         '
+
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

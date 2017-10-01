@@ -51,6 +51,7 @@ Partial Class Login
         Me.txtContraseña.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtContraseña.Location = New System.Drawing.Point(218, 242)
         Me.txtContraseña.Name = "txtContraseña"
+        Me.txtContraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.txtContraseña.Size = New System.Drawing.Size(99, 20)
         Me.txtContraseña.TabIndex = 0
         '

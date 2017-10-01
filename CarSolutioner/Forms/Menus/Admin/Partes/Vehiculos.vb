@@ -196,20 +196,21 @@ Partial Public Class frmMainMenu
     Private Sub RellenarDatosVehiculo(sender As Object, e As EventArgs) Handles dgvVehiculos.SelectionChanged
 
         If Not IsNothing(dgvVehiculos.CurrentRow) Then
+            CargarDatosComboBox(cbxModeloMVeh, conexion.Modelos.Select("idmarca = '" + dgvVehiculos.CurrentRow.Cells("idmarcaveh").Value.ToString() + "'").CopyToDataTable, "nombre", "idmodelo")
 
-
-
-
-            'cbxTipoDocumMCliente.SelectedItem = dgvClientes.CurrentRow.Cells(0).Value.ToString()
-            'txtDocumMCliente.Text = dgvVehiculos.CurrentRow.Cells(1).Value.ToString()
-            'txtNombreMCliente.Text = dgvVehiculos.CurrentRow.Cells(2).Value.ToString
-            'txtApellidoMCliente.Text = dgvVehiculos.CurrentRow.Cells(3).Value.ToString()
-            'txtCorreoMCliente.Text = dgvVehiculos.CurrentRow.Cells(4).Value.ToString()
-            'dtpFecNacMCliente.Value = dgvVehiculos.CurrentRow.Cells(5).Value.ToString()
-            'txtEmpresaMCliente.Text = dgvVehiculos.CurrentRow.Cells(6).Value.ToString()
-
-            'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()
-            'txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells(0).ToString()
+            txtNroChasisMVeh.Text = dgvVehiculos.CurrentRow.Cells("nrochasis").Value.ToString()
+            txtMatriculaMVeh.Text = dgvVehiculos.CurrentRow.Cells("matricula").Value.ToString()
+            txtKMMVeh.Text = dgvVehiculos.CurrentRow.Cells("kilometraje").Value.ToString()
+            txtDeducibleMVeh.Text = dgvVehiculos.CurrentRow.Cells("deducible").Value.ToString()
+            cbxCategoriaMVeh.SelectedValue = dgvVehiculos.CurrentRow.Cells("idcategoriaveh").Value
+            cbxMarcaMVeh.SelectedValue = dgvVehiculos.CurrentRow.Cells("idmarcaveh").Value.ToString()
+            cbxModeloMVeh.SelectedValue = dgvVehiculos.CurrentRow.Cells("idmodeloveh").Value.ToString()
+            cbxTipoMVeh.SelectedValue = dgvVehiculos.CurrentRow.Cells("idtipoveh").Value.ToString()
+            cbxSucursalMVeh.SelectedValue = dgvVehiculos.CurrentRow.Cells("idsucursalveh").Value.ToString()
+            cbxMaletasMVeh.SelectedItem = dgvVehiculos.CurrentRow.Cells("cantidaddemaletas").Value.ToString()
+            numPasajerosMVehiculo.Value = dgvVehiculos.CurrentRow.Cells("cantidaddepasajeros").Value.ToString()
+            txtAnioMVeh.Text = dgvVehiculos.CurrentRow.Cells("aniov").Value.ToString()
+            cbxPuertasMVeh.SelectedItem = dgvVehiculos.CurrentRow.Cells("cantidaddepuertas").Value.ToString()
 
         End If
 

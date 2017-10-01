@@ -65,13 +65,9 @@ Partial Public Class frmMainMenu
     Private Sub btnBajaBRes_Click(sender As Object, e As EventArgs) Handles btnBajaBRes.Click
         Dim reservaseleccionadaid As String
         reservaseleccionadaid = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString
-        If conexion.EjecutarNonQuery("Update reserva set estado = 2 where idreserva = " + reservaseleccionadaid.ToString + "") = True Then
-            MsgBox("Reserva eliminada.", MsgBoxStyle.Information, "Notificacion")
-            RecargarDatos(dgvReservas)
-        Else
-            MsgBox("No se pudo eliminar", MsgBoxStyle.Critical, "Notificacion")
-        End If
-
+        conexion.EjecutarNonQuery("Update reserva set estado = 2 where idreserva = " + reservaseleccionadaid.ToString + "")
+        MsgBox("Reserva eliminada.", MsgBoxStyle.Information, "Notificacion")
+        RecargarDatos(dgvReservas)
     End Sub
 
 End Class

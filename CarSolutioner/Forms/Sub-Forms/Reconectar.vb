@@ -2,9 +2,18 @@
     Dim conexion As ConnectionBD = Login.conexion
     Private Declare Function GetTickCount Lib "kernel32" () As Integer
     Private Sub load(sender As Object, e As EventArgs) Handles MyBase.Load
-        btnreconectar.Visible = True
+
         lblreconnect.Text = "Se ha perdido la conexion, pulse reconectar para reintentarlo."
-        pboxreconnecting.Visible = False
+
+        If Application.OpenForms().OfType(Of frmMainMenu).Any Then
+            frmMainMenu.Enabled = False
+
+
+        Else
+
+
+        End If
+
 
 
     End Sub
@@ -30,6 +39,7 @@
 
                 conexion.Cerrar()
                 lblreconnect.Text = "Conexion establecida, pulse continuar."
+
                 pboxreconnecting.Visible = False
                 btnreconectar.Visible = False
                 Login.pboxLoading.Visible = False
@@ -61,9 +71,13 @@
 
     Private Sub btncontinuar_Click(sender As Object, e As EventArgs) Handles btncontinuar.Click
         Me.Dispose()
+
+        If Application.OpenForms().OfType(Of frmMainMenu).Any Then
+            frmMainMenu.Enabled = False
+
+
+        Else
+        End If
     End Sub
 
-    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
-        Me.Dispose()
-    End Sub
 End Class

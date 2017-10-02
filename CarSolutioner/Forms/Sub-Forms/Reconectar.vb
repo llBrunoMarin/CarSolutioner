@@ -2,16 +2,16 @@
     Dim conexion As ConnectionBD = Login.conexion
     Private Declare Function GetTickCount Lib "kernel32" () As Integer
     Private Sub load(sender As Object, e As EventArgs) Handles MyBase.Load
-        btnLogin.Visible = True
+        btnreconectar.Visible = True
         lblreconnect.Text = "Se ha perdido la conexion, pulse reconectar para reintentarlo."
         pboxreconnecting.Visible = False
 
 
     End Sub
-    Function Reconectar_Load() Handles btnLogin.Click
+    Function Reconectar_Load() Handles btnreconectar.Click
 
 
-        If btnLogin.Text = "Reconectar" Then
+        If btnreconectar.Text = "Reconectar" Then
             Dim retraso As Integer
 
             retraso = 3000 + GetTickCount
@@ -26,12 +26,12 @@
 
 
 
-            If conexion.ReConexion(conexion.Usuario, conexion.Contraseña) = "Verdadero" Or conexion.RecoConectar(conexion.Usuario, conexion.Contraseña) = "BadCredentials" Then
+            If conexion.ReConexion(conexion.Usuario, conexion.Contraseña) = "Verdadero" Or conexion.ReConexion(conexion.Usuario, conexion.Contraseña) = "BadCredentials" Then
 
                 conexion.Cerrar()
                 lblreconnect.Text = "Conexion establecida, pulse continuar."
                 pboxreconnecting.Visible = False
-                btnLogin.Visible = False
+                btnreconectar.Visible = False
                 Login.pboxLoading.Visible = False
                 Login.lbldataincorrect.Text = "Ingrese nuevamente"
                 Login.lbldataincorrect.Visible = True
@@ -55,11 +55,15 @@
 
 
 
-    Private Sub Reconectar_Load(sender As Object, e As EventArgs) Handles btnLogin.Click
+    Private Sub Reconectar_Load(sender As Object, e As EventArgs) Handles btnreconectar.Click
 
     End Sub
 
     Private Sub btncontinuar_Click(sender As Object, e As EventArgs) Handles btncontinuar.Click
+        Me.Dispose()
+    End Sub
+
+    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
         Me.Dispose()
     End Sub
 End Class

@@ -27,10 +27,10 @@ Partial Class Reconectar
         Me.pboxfija = New System.Windows.Forms.PictureBox()
         Me.lblreconnect = New System.Windows.Forms.Label()
         Me.btnCerrar = New System.Windows.Forms.Button()
-        Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
-        Me.btnLogin = New System.Windows.Forms.Button()
+        Me.btnreconectar = New System.Windows.Forms.Button()
         Me.btncontinuar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.pboxreconnecting, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pboxfija, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -38,7 +38,7 @@ Partial Class Reconectar
         'pboxreconnecting
         '
         Me.pboxreconnecting.Image = Global.CarSolutioner.My.Resources.Resources.loadingsquare
-        Me.pboxreconnecting.Location = New System.Drawing.Point(121, 53)
+        Me.pboxreconnecting.Location = New System.Drawing.Point(96, 48)
         Me.pboxreconnecting.Name = "pboxreconnecting"
         Me.pboxreconnecting.Size = New System.Drawing.Size(99, 75)
         Me.pboxreconnecting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -49,7 +49,7 @@ Partial Class Reconectar
         'pboxfija
         '
         Me.pboxfija.Image = Global.CarSolutioner.My.Resources.Resources.logo
-        Me.pboxfija.Location = New System.Drawing.Point(136, 64)
+        Me.pboxfija.Location = New System.Drawing.Point(111, 59)
         Me.pboxfija.Name = "pboxfija"
         Me.pboxfija.Size = New System.Drawing.Size(70, 54)
         Me.pboxfija.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -61,7 +61,7 @@ Partial Class Reconectar
         Me.lblreconnect.BackColor = System.Drawing.Color.Transparent
         Me.lblreconnect.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblreconnect.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblreconnect.Location = New System.Drawing.Point(-26, 131)
+        Me.lblreconnect.Location = New System.Drawing.Point(-51, 126)
         Me.lblreconnect.Name = "lblreconnect"
         Me.lblreconnect.Size = New System.Drawing.Size(395, 15)
         Me.lblreconnect.TabIndex = 37
@@ -77,28 +77,12 @@ Partial Class Reconectar
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCerrar.Location = New System.Drawing.Point(308, 0)
+        Me.btnCerrar.Location = New System.Drawing.Point(264, 0)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
         Me.btnCerrar.TabIndex = 40
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False
-        '
-        'btnMinimizar
-        '
-        Me.btnMinimizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMinimizar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMinimizar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnMinimizar.Location = New System.Drawing.Point(270, 0)
-        Me.btnMinimizar.Name = "btnMinimizar"
-        Me.btnMinimizar.Size = New System.Drawing.Size(32, 30)
-        Me.btnMinimizar.TabIndex = 39
-        Me.btnMinimizar.Text = "—"
-        Me.btnMinimizar.UseVisualStyleBackColor = False
         '
         'mstMenuStrip
         '
@@ -108,24 +92,24 @@ Partial Class Reconectar
         Me.mstMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mstMenuStrip.Name = "mstMenuStrip"
         Me.mstMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mstMenuStrip.Size = New System.Drawing.Size(341, 30)
+        Me.mstMenuStrip.Size = New System.Drawing.Size(296, 30)
         Me.mstMenuStrip.TabIndex = 38
         Me.mstMenuStrip.Text = "MenuStrip1"
         '
-        'btnLogin
+        'btnreconectar
         '
-        Me.btnLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Silver
-        Me.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogin.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogin.ForeColor = System.Drawing.Color.Cornsilk
-        Me.btnLogin.Location = New System.Drawing.Point(121, 149)
-        Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(99, 27)
-        Me.btnLogin.TabIndex = 41
-        Me.btnLogin.Text = "Reconectar"
-        Me.btnLogin.UseVisualStyleBackColor = False
+        Me.btnreconectar.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnreconectar.FlatAppearance.BorderColor = System.Drawing.Color.Silver
+        Me.btnreconectar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnreconectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnreconectar.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnreconectar.ForeColor = System.Drawing.Color.Cornsilk
+        Me.btnreconectar.Location = New System.Drawing.Point(96, 144)
+        Me.btnreconectar.Name = "btnreconectar"
+        Me.btnreconectar.Size = New System.Drawing.Size(99, 27)
+        Me.btnreconectar.TabIndex = 41
+        Me.btnreconectar.Text = "Reconectar"
+        Me.btnreconectar.UseVisualStyleBackColor = False
         '
         'btncontinuar
         '
@@ -135,22 +119,34 @@ Partial Class Reconectar
         Me.btncontinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncontinuar.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncontinuar.ForeColor = System.Drawing.Color.Cornsilk
-        Me.btncontinuar.Location = New System.Drawing.Point(121, 149)
+        Me.btncontinuar.Location = New System.Drawing.Point(96, 144)
         Me.btncontinuar.Name = "btncontinuar"
         Me.btncontinuar.Size = New System.Drawing.Size(99, 27)
         Me.btncontinuar.TabIndex = 42
         Me.btncontinuar.Text = "Continuar"
         Me.btncontinuar.UseVisualStyleBackColor = False
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(-8, 7)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(307, 17)
+        Me.Label1.TabIndex = 43
+        Me.Label1.Text = "Alerta"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Reconectar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ClientSize = New System.Drawing.Size(341, 180)
-        Me.Controls.Add(Me.btnLogin)
+        Me.ClientSize = New System.Drawing.Size(296, 178)
         Me.Controls.Add(Me.btnCerrar)
-        Me.Controls.Add(Me.btnMinimizar)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnreconectar)
         Me.Controls.Add(Me.mstMenuStrip)
         Me.Controls.Add(Me.lblreconnect)
         Me.Controls.Add(Me.pboxreconnecting)
@@ -171,8 +167,8 @@ Partial Class Reconectar
     Friend WithEvents pboxfija As PictureBox
     Friend WithEvents lblreconnect As Label
     Friend WithEvents btnCerrar As Button
-    Friend WithEvents btnMinimizar As Button
     Friend WithEvents mstMenuStrip As MenuStrip
-    Friend WithEvents btnLogin As Button
+    Friend WithEvents btnreconectar As Button
     Friend WithEvents btncontinuar As Button
+    Friend WithEvents Label1 As Label
 End Class

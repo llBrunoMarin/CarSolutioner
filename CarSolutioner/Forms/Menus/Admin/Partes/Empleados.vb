@@ -6,19 +6,22 @@ End Class
 'EMPLEADOS
 Partial Public Class frmMainMenu
 
-
+    Private Sub BorrarTipoEmpleado(sender As Object, e As EventArgs) Handles lblBorrarTipoFEmpleado.Click
+        cbxTipoFempleados.SelectedItem = Nothing
+    End Sub
+    Private Sub BorrarSucEmpleado(sender As Object, e As EventArgs) Handles lblBorrarSucursalFEmpleado.Click
+        cbxSucursalFempleados.SelectedItem = Nothing
+    End Sub
     Private Sub FiltrosEmpleados(sender As Object, e As EventArgs) Handles txtNroDocFempleado.TextChanged, cbxSucursalFempleados.TextChanged,
-                                                                            cbxTipoFempleados.TextChanged, txtNombreFempleado.TextChanged,
-                                                                             txtApellidoFempleado.TextChanged
+                                                                            cbxTipoFempleados.SelectionChangeCommitted, txtNombreFempleado.TextChanged,
+                                                                             txtApellidoFempleado.TextChanged, lblBorrarTipoFEmpleado.Click, lblBorrarSucursalFEmpleado.Click
 
         Dim filtro As String
 
         filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'",
                                            "nrodocumento", txtNroDocFempleado.Text,
                                            "nombre", txtNombreFempleado.Text,
-                                           "apellido", txtApellidoFempleado.Text) ' +
-        'TipoFiltro(cbxTipoFempleados, "tipos") ' +
-        'TipoFiltro(cbxSucursalFempleados, "idsucursal")
+                                           "apellido", txtApellidoFempleado.Text) + TipoFiltro(cbxTipoFempleados, "idtipo") + TipoFiltro(cbxSucursalFempleados, "idsucursalE")
 
         dgvEmpleados.DataSource.Filter = filtro
 
@@ -62,7 +65,7 @@ Partial Public Class frmMainMenu
                 End If
             Catch ex As Exception
                 If (ex.Message = "No hay ninguna fila en la posición 0.") Then
-                    MsgBox("No existe ese nro documento")
+                    MsgBox("Este numero de documento no corresponde a ningun cliente")
                 End If
             End Try
 
@@ -75,45 +78,72 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvEmpleados.CurrentRow) Then
 
-            ' cbxSucursalMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idsucursalE").Value.ToString()
-            cbxTipoMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("tipoEmpNum").Value.ToString()
-
+            cbxSucursalMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idsucursalE").Value.ToString()
+            cbxTipoMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idtipo").Value.ToString()
+            txtNroDocEempleado.Text = dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString()
         End If
 
     End Sub
+    Private Sub ActualizarEstadoEmpleado(sender As Object, e As EventArgs) Handles btnEstadoEmpleado.Click
+
+        Dim Valores As New Dictionary(Of Boolean, String)
+        Valores.Add(True, "Activo")
+        Valores.Add(False, "Inactivo")
+
+        Dim idpersonaUsuarioEmpA As New DataTable
+
+        idpersonaUsuarioEmpA = conexion.EjecutarSelect("SELECT empleado.idpersona, empleado.estado, 
+                                                               cliente.nrodocumento, cliente.idpersona
+                                                               FROM empleado,cliente 
+                                                               WHERE cliente.idpersona = empleado.idpersona
+                                                               AND nrodocumento = '" & txtNroDocEempleado.Text & "'")
+
+        If (idpersonaUsuarioEmpA.Rows.Count <> 0) Then
+            Dim IdPersona As String = idpersonaUsuarioEmpA.Rows(0)("idpersona").ToString()
+            Dim EstadoActual As Boolean = idpersonaUsuarioEmpA.Rows(0)("estado")
+            Dim NuevoEstado As Boolean = Not EstadoActual
+            If (conexion.EjecutarNonQuery("UPDATE empleado SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
+
+                MsgBox("Empleado pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                RecargarDatos(dgvEmpleados)
+            End If
+        Else
+            MsgBox("Ese cliente no existe. Por favor, verifique.")
+
+            End If
+
+
+    End Sub
+
 
     Private Sub ModificarEmpleado(sender As Object, e As EventArgs) Handles btnModificarEmpleado.Click
 
         Dim FaltaDato As Boolean = False
 
-
         For Each ctrl As Control In pnlAEmp.Controls
-            If TypeOf (ctrl) Is TextBox Then
-                If DirectCast(ctrl, TextBox).Text = "" Then
+            If TypeOf (ctrl) Is ComboBox Then
+                If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
                     FaltaDato = True
-                End If
-            Else
-                If TypeOf (ctrl) Is ComboBox Then
-                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
-                        FaltaDato = True
-                    End If
                 End If
             End If
         Next
 
-        If (FaltaDato) Then
-            Dim idPersonaInsertar As String
+        If Not (FaltaDato) Then
+            Dim idPersonaUsuarioEM As String
             Dim NombreUsuarioEmpM As String
+            Dim SucursalUsuarioEmpM As String
+            Dim TipoUsuarioEmpM As String
             Try
-                idPersonaInsertar = conexion.EjecutarSelect("select idpersona from cliente where nrodocumento = '" & dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString() & "'").Rows(0)(0).ToString()
 
+                idPersonaUsuarioEM = conexion.EjecutarSelect("select idpersona from cliente where nrodocumento = '" & dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString() & "'").Rows(0)(0).ToString()
                 NombreUsuarioEmpM = dgvEmpleados.CurrentRow.Cells("usuarioE").Value.ToString()
+                SucursalUsuarioEmpM = cbxSucursalMempleados.SelectedValue.ToString()
+                TipoUsuarioEmpM = cbxTipoMempleados.SelectedValue.ToString()
 
-                If (conexion.EjecutarNonQuery("UPDATE trabaja SET idsucursal = " + cbxSucursalMempleados.SelectedValue.ToString() + ",   WHERE usuarioempleado = '" + NombreUsuarioEmpM + "'") = True) Then
+                If (conexion.EjecutarNonQuery("UPDATE trabaja SET idsucursal = " + SucursalUsuarioEmpM + " WHERE usuarioempleado = '" + NombreUsuarioEmpM + "'") = True) Then
+                    If (conexion.EjecutarNonQuery("UPDATE empleado SET tipo = " + TipoUsuarioEmpM + "   WHERE idpersona = '" + idPersonaUsuarioEM + "'") = True) Then
 
-                    If (conexion.EjecutarNonQuery("UPDATE empleado SET tipo = " + cbxTipoMempleados.SelectedValue.ToString() + ",   WHERE idpersona = '" + idPersonaInsertar + "'") = True) Then
-
-                        MsgBox("TO correcto")
+                        MsgBox("Empleado Modificado Correctamente")
                         RecargarDatos(dgvEmpleados)
 
                     Else
@@ -127,7 +157,7 @@ Partial Public Class frmMainMenu
 
 
         Else
-            MsgBox("holax")
+            MsgBox("Faltan campos")
         End If
 
 

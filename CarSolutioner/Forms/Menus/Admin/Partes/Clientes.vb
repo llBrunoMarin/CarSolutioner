@@ -21,9 +21,7 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub lblBorrarTipoDoc_Click(sender As Object, e As EventArgs) Handles lblBorrarTipoDoc.Click
-        cbxTipoDocumFCliente.SelectedItem = Nothing
-    End Sub
+
 
     Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, cbxDiaNFCliente.SelectionChangeCommitted, cbxMesNFCliente.SelectionChangeCommitted, cbxAnioNFCliente.SelectionChangeCommitted, lblBorrarTipoDoc.Click
 

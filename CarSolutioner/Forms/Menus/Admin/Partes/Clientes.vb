@@ -202,7 +202,7 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvClientes.CurrentRow) Then
 
-            cbxTipoDocumMCliente.SelectedIndex = cbxTipoDocumMCliente.FindString(dgvClientes.CurrentRow.Cells("tipodocumento").Value.ToString())
+            cbxTipoDocumMCliente.SelectedValue = dgvClientes.CurrentRow.Cells("idtipodoc").Value.ToString()
             txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells("nrodocumento").Value.ToString()
             txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells("nombre").Value.ToString
             txtApellidoMCliente.Text = dgvClientes.CurrentRow.Cells("apellido").Value.ToString()

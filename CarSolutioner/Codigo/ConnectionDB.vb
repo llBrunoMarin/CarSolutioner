@@ -116,6 +116,55 @@
 
 
 
+    Public Function ReConexion(Usuario, Contraseña) As String
+
+        Try
+
+            If cx.State = ConnectionState.Closed Then
+
+
+
+                'SERVIDOR UTU
+                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+
+
+                'SERVIDOR VICTOR
+                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+
+                'SERVIDOR VICTOR 32 BITS
+                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+
+                cx.Open()
+
+                Return "Verdadero"
+            End If
+        Catch ex As Odbc.OdbcException
+
+            If (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]") Or ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
+
+
+                Return "BadCredentials"
+                Cerrar()
+
+            Else
+
+                ' MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
+                'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
+                '  MsgBox(ex.Message)
+
+                Return "Red"
+            End If
+
+
+
+
+            'MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
+            ' MsgBox(ex.Message)
+
+
+        End Try
+
+    End Function
 
 
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
@@ -138,7 +187,7 @@
                 cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
                 'SERVIDOR VICTOR 32 BITS
-                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
                 cx.Open()
 
@@ -157,9 +206,7 @@
                 ' MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
                 'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
                 '  MsgBox(ex.Message)
-
-                reintentarconexionlogin()
-                Cerrar()
+                Reconectar.ShowDialog()
                 Return "Red"
             End If
 
@@ -259,36 +306,7 @@
     End Sub
     Private Declare Function GetTickCount Lib "kernel32" () As Integer
 
-    Function reintentarconexionlogin()
 
-        Dim valor As MsgBoxResult = MsgBox("Conexion perdida, desea intentar reconectar?", MsgBoxStyle.OkOnly, "Error de red")
-        Dim retraso As Integer
-
-        retraso = 3000 + GetTickCount
-
-        Dim resultado As MsgBoxResult = MsgBox("Intentando Reconectar", MsgBoxStyle.OkOnly, "Notificacion")
-
-        While retraso >= GetTickCount
-            Application.DoEvents()
-
-        End While
-        If valor = MsgBoxResult.Ok Then
-
-
-            If Conectar(Usuario, Contraseña) = "Verdadero" Then
-
-
-                Cerrar()
-                MsgBox("Conexion establecida", MsgBoxStyle.Information, "Notificacion")
-            Else
-                MsgBox("No se pudo reanudar la conexion", MsgBoxStyle.Critical, "Notificacion")
-            End If
-
-        End If
-
-
-
-    End Function
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
     Public Function EjecutarNonQuery(sentencia As String) As Boolean

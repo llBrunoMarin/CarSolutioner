@@ -137,6 +137,8 @@ Public Class frmMainMenu
         conexion.Documentos = conexion.EjecutarSelect("SELECT * from tipodocumento")
 
 
+
+
         'Cargas DataGridView
         RecargarDatos(dgvReservas)
         RecargarDatos(dgvAlquileres)
@@ -144,6 +146,7 @@ Public Class frmMainMenu
         RecargarDatos(dgvVehiculos)
         RecargarDatos(dgvEmpleados)
         RecargarDatos(frmAlquilar.dgvAlquilar)
+        RecargarDatos(dgvMant)
 
         'Cargas de ComboBox
         'MARCAS
@@ -233,11 +236,13 @@ Public Class frmMainMenu
                 frmAlquilar.dgvAlquilar.Columns("tipo").Visible = False
                 frmAlquilar.dgvAlquilar.Columns("sucursal").Visible = False
 
-            Case "dgvMantenimiento"
-                conexion.RellenarDataGridView(dgvMantenimiento, "selet * from tipoT")
-            Case Else
-                conexion.RellenarDataGridView(dgv, sentencia)
 
+            Case "dgvMant"
+                conexion.RellenarDataGridView(dgvMant, "SELECT m.*, v.matricula from mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis")
+
+            Case Else
+
+                 conexion.RellenarDataGridView(dgv, sentencia)
 
         End Select
 
@@ -246,4 +251,5 @@ Public Class frmMainMenu
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         CargarDatos()
     End Sub
+
 End Class

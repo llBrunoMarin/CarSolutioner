@@ -46,8 +46,8 @@ Partial Class frmMainMenu
         Me.btnEmpleados = New System.Windows.Forms.Button()
         Me.btnVehiculos = New System.Windows.Forms.Button()
         Me.btnClientes = New System.Windows.Forms.Button()
-        Me.pcboxloading = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.pcboxloading = New System.Windows.Forms.PictureBox()
         Me.tbcTabControl = New System.Windows.Forms.TabControl()
         Me.tbpClientes = New System.Windows.Forms.TabPage()
         Me.tabClientes = New System.Windows.Forms.TabControl()
@@ -272,6 +272,7 @@ Partial Class frmMainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabEmpleado = New System.Windows.Forms.TabPage()
         Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
+
         Me.pnlMEmp = New System.Windows.Forms.Panel()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label74 = New System.Windows.Forms.Label()
@@ -314,17 +315,21 @@ Partial Class frmMainMenu
         Me.tabReporteEmpleado = New System.Windows.Forms.TabPage()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
         Me.pnlmmant = New System.Windows.Forms.Panel()
-        Me.ComboBox43 = New System.Windows.Forms.ComboBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.txtModifDescripcionMant = New System.Windows.Forms.RichTextBox()
+        Me.lblEstadoMant = New System.Windows.Forms.Label()
+        Me.cbxModifEstadoMant = New System.Windows.Forms.ComboBox()
+        Me.cbxModifTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label112 = New System.Windows.Forms.Label()
-        Me.Button24 = New System.Windows.Forms.Button()
-        Me.Button25 = New System.Windows.Forms.Button()
+        Me.btnVaciarMant = New System.Windows.Forms.Button()
+        Me.btnModifMant = New System.Windows.Forms.Button()
         Me.Label110 = New System.Windows.Forms.Label()
         Me.Label111 = New System.Windows.Forms.Label()
         Me.Label116 = New System.Windows.Forms.Label()
         Me.Label117 = New System.Windows.Forms.Label()
-        Me.DateTimePicker7 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox37 = New System.Windows.Forms.TextBox()
-        Me.DateTimePicker8 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpModifFechaFinMant = New System.Windows.Forms.DateTimePicker()
+        Me.txtModifMatriculaMant = New System.Windows.Forms.TextBox()
+        Me.dtpModifFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.pnlFmant = New System.Windows.Forms.Panel()
         Me.ComboBox40 = New System.Windows.Forms.ComboBox()
         Me.Label118 = New System.Windows.Forms.Label()
@@ -343,18 +348,30 @@ Partial Class frmMainMenu
         Me.TextBox38 = New System.Windows.Forms.TextBox()
         Me.DateTimePicker10 = New System.Windows.Forms.DateTimePicker()
         Me.ComboBox49 = New System.Windows.Forms.ComboBox()
-        Me.dgvMantenimiento = New System.Windows.Forms.DataGridView()
+
+        Me.dgvMant = New System.Windows.Forms.DataGridView()
+        Me.matriculamant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmantenimientomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcionmant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechainiciomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechafinmant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadomant = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.nrochasismant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
         Me.pnlAmant = New System.Windows.Forms.Panel()
+        Me.lblMatriculaMant = New System.Windows.Forms.Label()
+        Me.txtDescripcionMant = New System.Windows.Forms.RichTextBox()
         Me.Label108 = New System.Windows.Forms.Label()
-        Me.ComboBox41 = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label119 = New System.Windows.Forms.Label()
-        Me.Button27 = New System.Windows.Forms.Button()
+        Me.btnIngresarMant = New System.Windows.Forms.Button()
         Me.Label123 = New System.Windows.Forms.Label()
-        Me.DateTimePicker14 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker15 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaFinMant = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.Label134 = New System.Windows.Forms.Label()
         Me.Label135 = New System.Windows.Forms.Label()
-        Me.TextBox39 = New System.Windows.Forms.TextBox()
+        Me.txtMatriculaMant = New System.Windows.Forms.TextBox()
         Me.tbpReservas = New System.Windows.Forms.TabPage()
         Me.tabRes_Alq = New System.Windows.Forms.TabControl()
         Me.Reservas = New System.Windows.Forms.TabPage()
@@ -473,8 +490,8 @@ Partial Class frmMainMenu
         Me.tipoEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
-        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbcTabControl.SuspendLayout()
         Me.tbpClientes.SuspendLayout()
         Me.tabClientes.SuspendLayout()
@@ -507,7 +524,9 @@ Partial Class frmMainMenu
         Me.tbpMantenimiento.SuspendLayout()
         Me.pnlmmant.SuspendLayout()
         Me.pnlFmant.SuspendLayout()
-        CType(Me.dgvMantenimiento, System.ComponentModel.ISupportInitialize).BeginInit()
+
+        CType(Me.dgvMant, System.ComponentModel.ISupportInitialize).BeginInit()
+
         Me.pnlAmant.SuspendLayout()
         Me.tbpReservas.SuspendLayout()
         Me.tabRes_Alq.SuspendLayout()
@@ -593,7 +612,6 @@ Partial Class frmMainMenu
         Me.pnlSidebar.Controls.Add(Me.btnEmpleados)
         Me.pnlSidebar.Controls.Add(Me.btnVehiculos)
         Me.pnlSidebar.Controls.Add(Me.btnClientes)
-        Me.pnlSidebar.Controls.Add(Me.pcboxloading)
         Me.pnlSidebar.Controls.Add(Me.PictureBox2)
         Me.pnlSidebar.Location = New System.Drawing.Point(3, 12)
         Me.pnlSidebar.Name = "pnlSidebar"
@@ -692,6 +710,7 @@ Partial Class frmMainMenu
         Me.btnClientes.Text = "CLIENTES/USUARIOS"
         Me.btnClientes.UseVisualStyleBackColor = False
         '
+
         'pcboxloading
         '
         Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
@@ -703,6 +722,7 @@ Partial Class frmMainMenu
         Me.pcboxloading.TabStop = False
         Me.pcboxloading.Visible = False
         '
+
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
@@ -712,6 +732,17 @@ Partial Class frmMainMenu
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 35
         Me.PictureBox2.TabStop = False
+        '
+        'pcboxloading
+        '
+        Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
+        Me.pcboxloading.Location = New System.Drawing.Point(-117, 0)
+        Me.pcboxloading.Name = "pcboxloading"
+        Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
+        Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pcboxloading.TabIndex = 34
+        Me.pcboxloading.TabStop = False
+        Me.pcboxloading.Visible = False
         '
         'tbcTabControl
         '
@@ -767,6 +798,7 @@ Partial Class frmMainMenu
         Me.Clientes.Controls.Add(Me.pnlBClientes)
         Me.Clientes.Controls.Add(Me.pnlFClientes)
         Me.Clientes.Controls.Add(Me.pnlAClientes)
+        Me.Clientes.Controls.Add(Me.pcboxloading)
         Me.Clientes.Location = New System.Drawing.Point(4, 22)
         Me.Clientes.Name = "Clientes"
         Me.Clientes.Padding = New System.Windows.Forms.Padding(3)
@@ -3247,6 +3279,7 @@ Partial Class frmMainMenu
         Me.dgvEmpleados.Size = New System.Drawing.Size(743, 798)
         Me.dgvEmpleados.TabIndex = 10
         '
+
         'pnlMEmp
         '
         Me.pnlMEmp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
@@ -3714,7 +3747,9 @@ Partial Class frmMainMenu
         Me.tbpMantenimiento.BackColor = System.Drawing.Color.Silver
         Me.tbpMantenimiento.Controls.Add(Me.pnlmmant)
         Me.tbpMantenimiento.Controls.Add(Me.pnlFmant)
-        Me.tbpMantenimiento.Controls.Add(Me.dgvMantenimiento)
+
+        Me.tbpMantenimiento.Controls.Add(Me.dgvMant)
+
         Me.tbpMantenimiento.Controls.Add(Me.pnlAmant)
         Me.tbpMantenimiento.Location = New System.Drawing.Point(4, 25)
         Me.tbpMantenimiento.Name = "tbpMantenimiento"
@@ -3727,30 +3762,75 @@ Partial Class frmMainMenu
         Me.pnlmmant.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlmmant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlmmant.Controls.Add(Me.ComboBox43)
+        Me.pnlmmant.Controls.Add(Me.Label33)
+        Me.pnlmmant.Controls.Add(Me.txtModifDescripcionMant)
+        Me.pnlmmant.Controls.Add(Me.lblEstadoMant)
+        Me.pnlmmant.Controls.Add(Me.cbxModifEstadoMant)
+        Me.pnlmmant.Controls.Add(Me.cbxModifTipoMant)
         Me.pnlmmant.Controls.Add(Me.Label112)
-        Me.pnlmmant.Controls.Add(Me.Button24)
-        Me.pnlmmant.Controls.Add(Me.Button25)
+        Me.pnlmmant.Controls.Add(Me.btnVaciarMant)
+        Me.pnlmmant.Controls.Add(Me.btnModifMant)
         Me.pnlmmant.Controls.Add(Me.Label110)
         Me.pnlmmant.Controls.Add(Me.Label111)
         Me.pnlmmant.Controls.Add(Me.Label116)
         Me.pnlmmant.Controls.Add(Me.Label117)
-        Me.pnlmmant.Controls.Add(Me.DateTimePicker7)
-        Me.pnlmmant.Controls.Add(Me.TextBox37)
-        Me.pnlmmant.Controls.Add(Me.DateTimePicker8)
+        Me.pnlmmant.Controls.Add(Me.dtpModifFechaFinMant)
+        Me.pnlmmant.Controls.Add(Me.txtModifMatriculaMant)
+        Me.pnlmmant.Controls.Add(Me.dtpModifFechaInicioMant)
         Me.pnlmmant.Location = New System.Drawing.Point(789, 431)
         Me.pnlmmant.Name = "pnlmmant"
         Me.pnlmmant.Size = New System.Drawing.Size(578, 198)
         Me.pnlmmant.TabIndex = 36
         '
-        'ComboBox43
+        'Label33
         '
-        Me.ComboBox43.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox43.FormattingEnabled = True
-        Me.ComboBox43.Location = New System.Drawing.Point(121, 65)
-        Me.ComboBox43.Name = "ComboBox43"
-        Me.ComboBox43.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox43.TabIndex = 42
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label33.Location = New System.Drawing.Point(12, 91)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(79, 17)
+        Me.Label33.TabIndex = 45
+        Me.Label33.Text = "Descripción"
+        '
+        'txtModifDescripcionMant
+        '
+        Me.txtModifDescripcionMant.Location = New System.Drawing.Point(13, 111)
+        Me.txtModifDescripcionMant.Name = "txtModifDescripcionMant"
+        Me.txtModifDescripcionMant.Size = New System.Drawing.Size(149, 63)
+        Me.txtModifDescripcionMant.TabIndex = 42
+        Me.txtModifDescripcionMant.Text = ""
+        '
+        'lblEstadoMant
+        '
+        Me.lblEstadoMant.AutoSize = True
+        Me.lblEstadoMant.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstadoMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblEstadoMant.Location = New System.Drawing.Point(420, 47)
+        Me.lblEstadoMant.Name = "lblEstadoMant"
+        Me.lblEstadoMant.Size = New System.Drawing.Size(48, 17)
+        Me.lblEstadoMant.TabIndex = 44
+        Me.lblEstadoMant.Text = "Estado"
+        '
+        'cbxModifEstadoMant
+        '
+        Me.cbxModifEstadoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxModifEstadoMant.FormattingEnabled = True
+        Me.cbxModifEstadoMant.Items.AddRange(New Object() {"Activo", "Inactivo"})
+        Me.cbxModifEstadoMant.Location = New System.Drawing.Point(423, 67)
+        Me.cbxModifEstadoMant.Name = "cbxModifEstadoMant"
+        Me.cbxModifEstadoMant.Size = New System.Drawing.Size(121, 21)
+        Me.cbxModifEstadoMant.TabIndex = 43
+        '
+        'cbxModifTipoMant
+        '
+        Me.cbxModifTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxModifTipoMant.FormattingEnabled = True
+        Me.cbxModifTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Blanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
+        Me.cbxModifTipoMant.Location = New System.Drawing.Point(121, 68)
+        Me.cbxModifTipoMant.Name = "cbxModifTipoMant"
+        Me.cbxModifTipoMant.Size = New System.Drawing.Size(121, 21)
+        Me.cbxModifTipoMant.TabIndex = 42
         '
         'Label112
         '
@@ -3763,41 +3843,41 @@ Partial Class frmMainMenu
         Me.Label112.TabIndex = 41
         Me.Label112.Text = "Tipo"
         '
-        'Button24
+        'btnVaciarMant
         '
-        Me.Button24.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button24.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button24.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button24.FlatAppearance.BorderSize = 0
-        Me.Button24.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button24.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button24.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button24.ForeColor = System.Drawing.Color.White
-        Me.Button24.Location = New System.Drawing.Point(364, 159)
-        Me.Button24.Name = "Button24"
-        Me.Button24.Size = New System.Drawing.Size(99, 31)
-        Me.Button24.TabIndex = 34
-        Me.Button24.Text = "Vaciar"
-        Me.Button24.UseVisualStyleBackColor = False
+        Me.btnVaciarMant.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnVaciarMant.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnVaciarMant.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnVaciarMant.FlatAppearance.BorderSize = 0
+        Me.btnVaciarMant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnVaciarMant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnVaciarMant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVaciarMant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVaciarMant.ForeColor = System.Drawing.Color.White
+        Me.btnVaciarMant.Location = New System.Drawing.Point(364, 159)
+        Me.btnVaciarMant.Name = "btnVaciarMant"
+        Me.btnVaciarMant.Size = New System.Drawing.Size(99, 31)
+        Me.btnVaciarMant.TabIndex = 34
+        Me.btnVaciarMant.Text = "Vaciar"
+        Me.btnVaciarMant.UseVisualStyleBackColor = False
         '
-        'Button25
+        'btnModifMant
         '
-        Me.Button25.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button25.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button25.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button25.FlatAppearance.BorderSize = 0
-        Me.Button25.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button25.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button25.ForeColor = System.Drawing.Color.White
-        Me.Button25.Location = New System.Drawing.Point(469, 159)
-        Me.Button25.Name = "Button25"
-        Me.Button25.Size = New System.Drawing.Size(99, 31)
-        Me.Button25.TabIndex = 18
-        Me.Button25.Text = "Modificar"
-        Me.Button25.UseVisualStyleBackColor = False
+        Me.btnModifMant.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModifMant.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModifMant.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnModifMant.FlatAppearance.BorderSize = 0
+        Me.btnModifMant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModifMant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnModifMant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModifMant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModifMant.ForeColor = System.Drawing.Color.White
+        Me.btnModifMant.Location = New System.Drawing.Point(469, 159)
+        Me.btnModifMant.Name = "btnModifMant"
+        Me.btnModifMant.Size = New System.Drawing.Size(99, 31)
+        Me.btnModifMant.TabIndex = 18
+        Me.btnModifMant.Text = "Modificar"
+        Me.btnModifMant.UseVisualStyleBackColor = False
         '
         'Label110
         '
@@ -3843,28 +3923,28 @@ Partial Class frmMainMenu
         Me.Label117.TabIndex = 24
         Me.Label117.Text = "Modificar Seleccion"
         '
-        'DateTimePicker7
+        'dtpModifFechaFinMant
         '
-        Me.DateTimePicker7.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker7.Location = New System.Drawing.Point(338, 63)
-        Me.DateTimePicker7.Name = "DateTimePicker7"
-        Me.DateTimePicker7.Size = New System.Drawing.Size(78, 20)
-        Me.DateTimePicker7.TabIndex = 20
+        Me.dtpModifFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpModifFechaFinMant.Location = New System.Drawing.Point(340, 68)
+        Me.dtpModifFechaFinMant.Name = "dtpModifFechaFinMant"
+        Me.dtpModifFechaFinMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpModifFechaFinMant.TabIndex = 20
         '
-        'TextBox37
+        'txtModifMatriculaMant
         '
-        Me.TextBox37.Location = New System.Drawing.Point(13, 65)
-        Me.TextBox37.Name = "TextBox37"
-        Me.TextBox37.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox37.TabIndex = 22
+        Me.txtModifMatriculaMant.Location = New System.Drawing.Point(15, 68)
+        Me.txtModifMatriculaMant.Name = "txtModifMatriculaMant"
+        Me.txtModifMatriculaMant.Size = New System.Drawing.Size(100, 20)
+        Me.txtModifMatriculaMant.TabIndex = 22
         '
-        'DateTimePicker8
+        'dtpModifFechaInicioMant
         '
-        Me.DateTimePicker8.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker8.Location = New System.Drawing.Point(251, 65)
-        Me.DateTimePicker8.Name = "DateTimePicker8"
-        Me.DateTimePicker8.Size = New System.Drawing.Size(78, 20)
-        Me.DateTimePicker8.TabIndex = 21
+        Me.dtpModifFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(251, 68)
+        Me.dtpModifFechaInicioMant.Name = "dtpModifFechaInicioMant"
+        Me.dtpModifFechaInicioMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpModifFechaInicioMant.TabIndex = 21
         '
         'pnlFmant
         '
@@ -4073,26 +4153,90 @@ Partial Class frmMainMenu
         Me.ComboBox49.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox49.TabIndex = 17
         '
-        'dgvMantenimiento
+
+        'dgvMant
         '
-        Me.dgvMantenimiento.AllowUserToAddRows = False
-        Me.dgvMantenimiento.AllowUserToDeleteRows = False
-        Me.dgvMantenimiento.AllowUserToResizeColumns = False
-        Me.dgvMantenimiento.AllowUserToResizeRows = False
-        Me.dgvMantenimiento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvMant.AllowUserToAddRows = False
+        Me.dgvMant.AllowUserToDeleteRows = False
+        Me.dgvMant.AllowUserToResizeColumns = False
+        Me.dgvMant.AllowUserToResizeRows = False
+        Me.dgvMant.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.dgvMantenimiento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvMantenimiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvMantenimiento.Location = New System.Drawing.Point(29, 7)
-        Me.dgvMantenimiento.MultiSelect = False
-        Me.dgvMantenimiento.Name = "dgvMantenimiento"
-        Me.dgvMantenimiento.ReadOnly = True
-        Me.dgvMantenimiento.RowHeadersVisible = False
+        Me.dgvMant.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvMant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvMant.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.matriculamant, Me.idmantenimientomant, Me.tipomant, Me.descripcionmant, Me.fechainiciomant, Me.fechafinmant, Me.estadomant, Me.nrochasismant})
+        Me.dgvMant.Location = New System.Drawing.Point(34, 4)
+        Me.dgvMant.MultiSelect = False
+        Me.dgvMant.Name = "dgvMant"
+        Me.dgvMant.ReadOnly = True
+        Me.dgvMant.RowHeadersVisible = False
         DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvMantenimiento.RowsDefaultCellStyle = DataGridViewCellStyle7
-        Me.dgvMantenimiento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvMantenimiento.Size = New System.Drawing.Size(754, 817)
-        Me.dgvMantenimiento.TabIndex = 34
+        Me.dgvMant.RowsDefaultCellStyle = DataGridViewCellStyle7
+        Me.dgvMant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvMant.Size = New System.Drawing.Size(754, 817)
+        Me.dgvMant.TabIndex = 34
+        '
+        'matriculamant
+        '
+        Me.matriculamant.DataPropertyName = "matricula"
+        Me.matriculamant.HeaderText = "Matrícula"
+        Me.matriculamant.Name = "matriculamant"
+        Me.matriculamant.ReadOnly = True
+        '
+        'idmantenimientomant
+        '
+        Me.idmantenimientomant.DataPropertyName = "idmantenimiento"
+        Me.idmantenimientomant.HeaderText = "Idmantenimiento"
+        Me.idmantenimientomant.Name = "idmantenimientomant"
+        Me.idmantenimientomant.ReadOnly = True
+        Me.idmantenimientomant.Visible = False
+        '
+        'tipomant
+        '
+        Me.tipomant.DataPropertyName = "tipo"
+        Me.tipomant.HeaderText = "Tipo"
+        Me.tipomant.Name = "tipomant"
+        Me.tipomant.ReadOnly = True
+        Me.tipomant.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'descripcionmant
+        '
+        Me.descripcionmant.DataPropertyName = "descripcion"
+        Me.descripcionmant.HeaderText = "Descripción"
+        Me.descripcionmant.Name = "descripcionmant"
+        Me.descripcionmant.ReadOnly = True
+        '
+        'fechainiciomant
+        '
+        Me.fechainiciomant.DataPropertyName = "fechainicio"
+        Me.fechainiciomant.HeaderText = "Fecha Inicio"
+        Me.fechainiciomant.Name = "fechainiciomant"
+        Me.fechainiciomant.ReadOnly = True
+        '
+        'fechafinmant
+        '
+        Me.fechafinmant.DataPropertyName = "fechafin"
+        Me.fechafinmant.HeaderText = "Fecha Fin"
+        Me.fechafinmant.Name = "fechafinmant"
+        Me.fechafinmant.ReadOnly = True
+        '
+        'estadomant
+        '
+        Me.estadomant.DataPropertyName = "estado"
+        Me.estadomant.HeaderText = "Estado"
+        Me.estadomant.Name = "estadomant"
+        Me.estadomant.ReadOnly = True
+        Me.estadomant.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.estadomant.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'nrochasismant
+        '
+        Me.nrochasismant.DataPropertyName = "nrochasis"
+        Me.nrochasismant.HeaderText = "Nro Chasis"
+        Me.nrochasismant.Name = "nrochasismant"
+        Me.nrochasismant.ReadOnly = True
+        Me.nrochasismant.Visible = False
+
         '
         'pnlAmant
         '
@@ -4100,20 +4244,41 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlAmant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlAmant.Controls.Add(Me.lblMatriculaMant)
+        Me.pnlAmant.Controls.Add(Me.txtDescripcionMant)
         Me.pnlAmant.Controls.Add(Me.Label108)
-        Me.pnlAmant.Controls.Add(Me.ComboBox41)
+        Me.pnlAmant.Controls.Add(Me.cbxTipoMant)
         Me.pnlAmant.Controls.Add(Me.Label119)
-        Me.pnlAmant.Controls.Add(Me.Button27)
+        Me.pnlAmant.Controls.Add(Me.btnIngresarMant)
         Me.pnlAmant.Controls.Add(Me.Label123)
-        Me.pnlAmant.Controls.Add(Me.DateTimePicker14)
-        Me.pnlAmant.Controls.Add(Me.DateTimePicker15)
+        Me.pnlAmant.Controls.Add(Me.dtpFechaFinMant)
+        Me.pnlAmant.Controls.Add(Me.dtpFechaInicioMant)
         Me.pnlAmant.Controls.Add(Me.Label134)
         Me.pnlAmant.Controls.Add(Me.Label135)
-        Me.pnlAmant.Controls.Add(Me.TextBox39)
+        Me.pnlAmant.Controls.Add(Me.txtMatriculaMant)
         Me.pnlAmant.Location = New System.Drawing.Point(789, 215)
         Me.pnlAmant.Name = "pnlAmant"
         Me.pnlAmant.Size = New System.Drawing.Size(578, 210)
         Me.pnlAmant.TabIndex = 33
+        '
+        'lblMatriculaMant
+        '
+        Me.lblMatriculaMant.AutoSize = True
+        Me.lblMatriculaMant.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMatriculaMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblMatriculaMant.Location = New System.Drawing.Point(250, 45)
+        Me.lblMatriculaMant.Name = "lblMatriculaMant"
+        Me.lblMatriculaMant.Size = New System.Drawing.Size(79, 17)
+        Me.lblMatriculaMant.TabIndex = 41
+        Me.lblMatriculaMant.Text = "Descripción"
+        '
+        'txtDescripcionMant
+        '
+        Me.txtDescripcionMant.Location = New System.Drawing.Point(253, 64)
+        Me.txtDescripcionMant.Name = "txtDescripcionMant"
+        Me.txtDescripcionMant.Size = New System.Drawing.Size(149, 63)
+        Me.txtDescripcionMant.TabIndex = 40
+        Me.txtDescripcionMant.Text = ""
         '
         'Label108
         '
@@ -4126,14 +4291,15 @@ Partial Class frmMainMenu
         Me.Label108.TabIndex = 37
         Me.Label108.Text = "Tipo"
         '
-        'ComboBox41
+        'cbxTipoMant
         '
-        Me.ComboBox41.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox41.FormattingEnabled = True
-        Me.ComboBox41.Location = New System.Drawing.Point(122, 64)
-        Me.ComboBox41.Name = "ComboBox41"
-        Me.ComboBox41.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox41.TabIndex = 37
+        Me.cbxTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipoMant.FormattingEnabled = True
+        Me.cbxTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Blanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
+        Me.cbxTipoMant.Location = New System.Drawing.Point(122, 64)
+        Me.cbxTipoMant.Name = "cbxTipoMant"
+        Me.cbxTipoMant.Size = New System.Drawing.Size(121, 21)
+        Me.cbxTipoMant.TabIndex = 37
         '
         'Label119
         '
@@ -4146,23 +4312,23 @@ Partial Class frmMainMenu
         Me.Label119.TabIndex = 39
         Me.Label119.Text = "Fecha Fin"
         '
-        'Button27
+        'btnIngresarMant
         '
-        Me.Button27.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button27.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button27.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button27.FlatAppearance.BorderSize = 0
-        Me.Button27.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button27.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button27.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button27.ForeColor = System.Drawing.Color.White
-        Me.Button27.Location = New System.Drawing.Point(469, 168)
-        Me.Button27.Name = "Button27"
-        Me.Button27.Size = New System.Drawing.Size(99, 31)
-        Me.Button27.TabIndex = 18
-        Me.Button27.Text = "Ingresar"
-        Me.Button27.UseVisualStyleBackColor = False
+        Me.btnIngresarMant.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnIngresarMant.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnIngresarMant.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnIngresarMant.FlatAppearance.BorderSize = 0
+        Me.btnIngresarMant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnIngresarMant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnIngresarMant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIngresarMant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIngresarMant.ForeColor = System.Drawing.Color.White
+        Me.btnIngresarMant.Location = New System.Drawing.Point(469, 168)
+        Me.btnIngresarMant.Name = "btnIngresarMant"
+        Me.btnIngresarMant.Size = New System.Drawing.Size(99, 31)
+        Me.btnIngresarMant.TabIndex = 18
+        Me.btnIngresarMant.Text = "Ingresar"
+        Me.btnIngresarMant.UseVisualStyleBackColor = False
         '
         'Label123
         '
@@ -4175,23 +4341,21 @@ Partial Class frmMainMenu
         Me.Label123.TabIndex = 38
         Me.Label123.Text = "Fecha Inicio"
         '
-        'DateTimePicker14
+        'dtpFechaFinMant
         '
-        Me.DateTimePicker14.Enabled = False
-        Me.DateTimePicker14.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker14.Location = New System.Drawing.Point(119, 108)
-        Me.DateTimePicker14.Name = "DateTimePicker14"
-        Me.DateTimePicker14.Size = New System.Drawing.Size(78, 20)
-        Me.DateTimePicker14.TabIndex = 36
+        Me.dtpFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaFinMant.Location = New System.Drawing.Point(119, 108)
+        Me.dtpFechaFinMant.Name = "dtpFechaFinMant"
+        Me.dtpFechaFinMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpFechaFinMant.TabIndex = 36
         '
-        'DateTimePicker15
+        'dtpFechaInicioMant
         '
-        Me.DateTimePicker15.Enabled = False
-        Me.DateTimePicker15.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker15.Location = New System.Drawing.Point(15, 108)
-        Me.DateTimePicker15.Name = "DateTimePicker15"
-        Me.DateTimePicker15.Size = New System.Drawing.Size(78, 20)
-        Me.DateTimePicker15.TabIndex = 37
+        Me.dtpFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaInicioMant.Location = New System.Drawing.Point(15, 108)
+        Me.dtpFechaInicioMant.Name = "dtpFechaInicioMant"
+        Me.dtpFechaInicioMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpFechaInicioMant.TabIndex = 37
         '
         'Label134
         '
@@ -4215,12 +4379,12 @@ Partial Class frmMainMenu
         Me.Label135.TabIndex = 24
         Me.Label135.Text = "Ingreso Mantenimiento"
         '
-        'TextBox39
+        'txtMatriculaMant
         '
-        Me.TextBox39.Location = New System.Drawing.Point(13, 65)
-        Me.TextBox39.Name = "TextBox39"
-        Me.TextBox39.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox39.TabIndex = 22
+        Me.txtMatriculaMant.Location = New System.Drawing.Point(13, 65)
+        Me.txtMatriculaMant.Name = "txtMatriculaMant"
+        Me.txtMatriculaMant.Size = New System.Drawing.Size(100, 20)
+        Me.txtMatriculaMant.TabIndex = 22
         '
         'tbpReservas
         '
@@ -5430,6 +5594,7 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
+
         'apellidoE
         '
         Me.apellidoE.DataPropertyName = "apellido"
@@ -5483,6 +5648,7 @@ Partial Class frmMainMenu
         Me.tipoEmpleado.Name = "tipoEmpleado"
         Me.tipoEmpleado.ReadOnly = True
         '
+
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5507,8 +5673,8 @@ Partial Class frmMainMenu
         Me.mstMenuStrip.ResumeLayout(False)
         Me.mstMenuStrip.PerformLayout()
         Me.pnlSidebar.ResumeLayout(False)
-        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbcTabControl.ResumeLayout(False)
         Me.tbpClientes.ResumeLayout(False)
         Me.tabClientes.ResumeLayout(False)
@@ -5555,7 +5721,9 @@ Partial Class frmMainMenu
         Me.pnlmmant.PerformLayout()
         Me.pnlFmant.ResumeLayout(False)
         Me.pnlFmant.PerformLayout()
-        CType(Me.dgvMantenimiento, System.ComponentModel.ISupportInitialize).EndInit()
+
+        CType(Me.dgvMant, System.ComponentModel.ISupportInitialize).EndInit()
+
         Me.pnlAmant.ResumeLayout(False)
         Me.pnlAmant.PerformLayout()
         Me.tbpReservas.ResumeLayout(False)
@@ -5733,15 +5901,15 @@ Partial Class frmMainMenu
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel6 As Panel
     Friend WithEvents pnlmmant As Panel
-    Friend WithEvents Button24 As Button
-    Friend WithEvents Button25 As Button
+    Friend WithEvents btnVaciarMant As Button
+    Friend WithEvents btnModifMant As Button
     Friend WithEvents Label110 As Label
     Friend WithEvents Label111 As Label
     Friend WithEvents Label116 As Label
     Friend WithEvents Label117 As Label
-    Friend WithEvents DateTimePicker7 As DateTimePicker
-    Friend WithEvents TextBox37 As TextBox
-    Friend WithEvents DateTimePicker8 As DateTimePicker
+    Friend WithEvents dtpModifFechaFinMant As DateTimePicker
+    Friend WithEvents txtModifMatriculaMant As TextBox
+    Friend WithEvents dtpModifFechaInicioMant As DateTimePicker
     Friend WithEvents pnlFmant As Panel
     Friend WithEvents Label118 As Label
     Friend WithEvents ComboBox45 As ComboBox
@@ -5759,21 +5927,23 @@ Partial Class frmMainMenu
     Friend WithEvents TextBox38 As TextBox
     Friend WithEvents DateTimePicker10 As DateTimePicker
     Friend WithEvents ComboBox49 As ComboBox
-    Friend WithEvents dgvMantenimiento As DataGridView
+
+    Friend WithEvents dgvMant As DataGridView
+
     Friend WithEvents pnlAmant As Panel
-    Friend WithEvents Button27 As Button
+    Friend WithEvents btnIngresarMant As Button
     Friend WithEvents Label134 As Label
     Friend WithEvents Label135 As Label
-    Friend WithEvents TextBox39 As TextBox
+    Friend WithEvents txtMatriculaMant As TextBox
     Friend WithEvents Label119 As Label
     Friend WithEvents Label123 As Label
-    Friend WithEvents DateTimePicker14 As DateTimePicker
-    Friend WithEvents DateTimePicker15 As DateTimePicker
-    Friend WithEvents ComboBox43 As ComboBox
+    Friend WithEvents dtpFechaFinMant As DateTimePicker
+    Friend WithEvents dtpFechaInicioMant As DateTimePicker
+    Friend WithEvents cbxModifTipoMant As ComboBox
     Friend WithEvents Label112 As Label
     Friend WithEvents ComboBox40 As ComboBox
     Friend WithEvents Label108 As Label
-    Friend WithEvents ComboBox41 As ComboBox
+    Friend WithEvents cbxTipoMant As ComboBox
     Friend WithEvents tsitemCambiosGenerales As ToolStripMenuItem
     Friend WithEvents Label115 As Label
     Friend WithEvents txtEmpresaACliente As TextBox
@@ -6016,6 +6186,21 @@ Partial Class frmMainMenu
     Friend WithEvents idpersonaE As DataGridViewTextBoxColumn
     Friend WithEvents estadoE As DataGridViewTextBoxColumn
     Friend WithEvents idsucursalE As DataGridViewTextBoxColumn
-    Friend WithEvents idtipo As DataGridViewTextBoxColumn
-    Friend WithEvents tipoEmpleado As DataGridViewTextBoxColumn
+
+    Friend WithEvents tipoE As DataGridViewTextBoxColumn
+    Friend WithEvents lblMatriculaMant As Label
+    Friend WithEvents txtDescripcionMant As RichTextBox
+    Friend WithEvents lblEstadoMant As Label
+    Friend WithEvents cbxModifEstadoMant As ComboBox
+    Friend WithEvents Label33 As Label
+    Friend WithEvents txtModifDescripcionMant As RichTextBox
+    Friend WithEvents matriculamant As DataGridViewTextBoxColumn
+    Friend WithEvents idmantenimientomant As DataGridViewTextBoxColumn
+    Friend WithEvents tipomant As DataGridViewTextBoxColumn
+    Friend WithEvents descripcionmant As DataGridViewTextBoxColumn
+    Friend WithEvents fechainiciomant As DataGridViewTextBoxColumn
+    Friend WithEvents fechafinmant As DataGridViewTextBoxColumn
+    Friend WithEvents estadomant As DataGridViewCheckBoxColumn
+    Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
+
 End Class

@@ -59,6 +59,7 @@ Partial Class frmCambiosGenerales
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.tbpCategorias = New System.Windows.Forms.TabPage()
+        Me.inactivascategorias = New System.Windows.Forms.CheckBox()
         Me.dgvCategorias = New System.Windows.Forms.DataGridView()
         Me.pnlcatcambios = New System.Windows.Forms.Panel()
         Me.txttarifalibrecatadd = New System.Windows.Forms.TextBox()
@@ -74,11 +75,17 @@ Partial Class frmCambiosGenerales
         Me.Label9 = New System.Windows.Forms.Label()
         Me.btncatadd = New System.Windows.Forms.Button()
         Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.pnlcatmov = New System.Windows.Forms.Panel()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.cbxcatmov = New System.Windows.Forms.ComboBox()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.lblcatmod = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.txtKmLibreModCat = New System.Windows.Forms.TextBox()
         Me.cbxModCat = New System.Windows.Forms.ComboBox()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnModificarCat = New System.Windows.Forms.Button()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.txtNomCatMod = New System.Windows.Forms.TextBox()
@@ -146,6 +153,7 @@ Partial Class frmCambiosGenerales
         CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlcatcambios.SuspendLayout()
         Me.Panel9.SuspendLayout()
+        Me.pnlcatmov.SuspendLayout()
         Me.tbpSucursales.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -585,6 +593,7 @@ Partial Class frmCambiosGenerales
         'tbpCategorias
         '
         Me.tbpCategorias.BackColor = System.Drawing.Color.Silver
+        Me.tbpCategorias.Controls.Add(Me.inactivascategorias)
         Me.tbpCategorias.Controls.Add(Me.dgvCategorias)
         Me.tbpCategorias.Controls.Add(Me.pnlcatcambios)
         Me.tbpCategorias.Controls.Add(Me.Panel9)
@@ -593,6 +602,18 @@ Partial Class frmCambiosGenerales
         Me.tbpCategorias.Size = New System.Drawing.Size(942, 602)
         Me.tbpCategorias.TabIndex = 2
         Me.tbpCategorias.Text = "Categorias"
+        '
+        'inactivascategorias
+        '
+        Me.inactivascategorias.AutoSize = True
+        Me.inactivascategorias.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.inactivascategorias.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.inactivascategorias.Location = New System.Drawing.Point(7, 5)
+        Me.inactivascategorias.Name = "inactivascategorias"
+        Me.inactivascategorias.Size = New System.Drawing.Size(121, 20)
+        Me.inactivascategorias.TabIndex = 77
+        Me.inactivascategorias.Text = "Mostrar Inactivas"
+        Me.inactivascategorias.UseVisualStyleBackColor = True
         '
         'dgvCategorias
         '
@@ -642,7 +663,7 @@ Partial Class frmCambiosGenerales
         Me.txttarifalibrecatadd.Location = New System.Drawing.Point(12, 111)
         Me.txttarifalibrecatadd.Name = "txttarifalibrecatadd"
         Me.txttarifalibrecatadd.Size = New System.Drawing.Size(100, 20)
-        Me.txttarifalibrecatadd.TabIndex = 69
+        Me.txttarifalibrecatadd.TabIndex = 49
         '
         'Label26
         '
@@ -689,21 +710,21 @@ Partial Class frmCambiosGenerales
         Me.txttarifa150catadd.Location = New System.Drawing.Point(229, 58)
         Me.txttarifa150catadd.Name = "txttarifa150catadd"
         Me.txttarifa150catadd.Size = New System.Drawing.Size(100, 20)
-        Me.txttarifa150catadd.TabIndex = 46
+        Me.txttarifa150catadd.TabIndex = 47
         '
         'txttarifa300catadd
         '
         Me.txttarifa300catadd.Location = New System.Drawing.Point(335, 58)
         Me.txttarifa300catadd.Name = "txttarifa300catadd"
         Me.txttarifa300catadd.Size = New System.Drawing.Size(100, 20)
-        Me.txttarifa300catadd.TabIndex = 47
+        Me.txttarifa300catadd.TabIndex = 48
         '
         'txttarifabasecatadd
         '
         Me.txttarifabasecatadd.Location = New System.Drawing.Point(118, 58)
         Me.txttarifabasecatadd.Name = "txttarifabasecatadd"
         Me.txttarifabasecatadd.Size = New System.Drawing.Size(100, 20)
-        Me.txttarifabasecatadd.TabIndex = 48
+        Me.txttarifabasecatadd.TabIndex = 46
         '
         'Label7
         '
@@ -760,11 +781,12 @@ Partial Class frmCambiosGenerales
         '
         Me.Panel9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel9.BackColor = System.Drawing.Color.Silver
+        Me.Panel9.Controls.Add(Me.pnlcatmov)
         Me.Panel9.Controls.Add(Me.Label28)
         Me.Panel9.Controls.Add(Me.txtKmLibreModCat)
         Me.Panel9.Controls.Add(Me.cbxModCat)
         Me.Panel9.Controls.Add(Me.Label20)
-        Me.Panel9.Controls.Add(Me.Button3)
+        Me.Panel9.Controls.Add(Me.btnModificarCat)
         Me.Panel9.Controls.Add(Me.Label23)
         Me.Panel9.Controls.Add(Me.Label22)
         Me.Panel9.Controls.Add(Me.txtNomCatMod)
@@ -776,8 +798,75 @@ Partial Class frmCambiosGenerales
         Me.Panel9.Controls.Add(Me.Label24)
         Me.Panel9.Location = New System.Drawing.Point(455, 219)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(478, 141)
+        Me.Panel9.Size = New System.Drawing.Size(478, 376)
         Me.Panel9.TabIndex = 73
+        '
+        'pnlcatmov
+        '
+        Me.pnlcatmov.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlcatmov.Controls.Add(Me.Label37)
+        Me.pnlcatmov.Controls.Add(Me.cbxcatmov)
+        Me.pnlcatmov.Controls.Add(Me.Label38)
+        Me.pnlcatmov.Controls.Add(Me.lblcatmod)
+        Me.pnlcatmov.Controls.Add(Me.Label40)
+        Me.pnlcatmov.Enabled = False
+        Me.pnlcatmov.Location = New System.Drawing.Point(8, 140)
+        Me.pnlcatmov.Name = "pnlcatmov"
+        Me.pnlcatmov.Size = New System.Drawing.Size(463, 148)
+        Me.pnlcatmov.TabIndex = 82
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Font = New System.Drawing.Font("Century Gothic", 7.0!)
+        Me.Label37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label37.Location = New System.Drawing.Point(177, 15)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(281, 15)
+        Me.Label37.TabIndex = 76
+        Me.Label37.Text = "(Se activa en caso de inactivacion de una categoria)."
+        '
+        'cbxcatmov
+        '
+        Me.cbxcatmov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxcatmov.FormattingEnabled = True
+        Me.cbxcatmov.Location = New System.Drawing.Point(7, 90)
+        Me.cbxcatmov.Name = "cbxcatmov"
+        Me.cbxcatmov.Size = New System.Drawing.Size(151, 21)
+        Me.cbxcatmov.TabIndex = 75
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label38.Location = New System.Drawing.Point(4, 14)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(193, 17)
+        Me.Label38.TabIndex = 70
+        Me.Label38.Text = "Desactivacion de Categoria"
+        '
+        'lblcatmod
+        '
+        Me.lblcatmod.AutoSize = True
+        Me.lblcatmod.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblcatmod.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblcatmod.Location = New System.Drawing.Point(110, 57)
+        Me.lblcatmod.Name = "lblcatmod"
+        Me.lblcatmod.Size = New System.Drawing.Size(74, 16)
+        Me.lblcatmod.TabIndex = 74
+        Me.lblcatmod.Text = "Categoria"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label40.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label40.Location = New System.Drawing.Point(4, 40)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(305, 34)
+        Me.Label40.TabIndex = 73
+        Me.Label40.Text = "Selecciona una categoria a  la cual se cambiaran" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "los vehiculos de:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'Label28
         '
@@ -795,7 +884,7 @@ Partial Class frmCambiosGenerales
         Me.txtKmLibreModCat.Location = New System.Drawing.Point(12, 103)
         Me.txtKmLibreModCat.Name = "txtKmLibreModCat"
         Me.txtKmLibreModCat.Size = New System.Drawing.Size(100, 20)
-        Me.txtKmLibreModCat.TabIndex = 79
+        Me.txtKmLibreModCat.TabIndex = 75
         '
         'cbxModCat
         '
@@ -818,23 +907,23 @@ Partial Class frmCambiosGenerales
         Me.Label20.TabIndex = 80
         Me.Label20.Text = "km/Libre"
         '
-        'Button3
+        'btnModificarCat
         '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(380, 108)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(91, 30)
-        Me.Button3.TabIndex = 69
-        Me.Button3.Text = "Modificar"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnModificarCat.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModificarCat.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModificarCat.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnModificarCat.FlatAppearance.BorderSize = 0
+        Me.btnModificarCat.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModificarCat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnModificarCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarCat.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarCat.ForeColor = System.Drawing.Color.White
+        Me.btnModificarCat.Location = New System.Drawing.Point(380, 343)
+        Me.btnModificarCat.Name = "btnModificarCat"
+        Me.btnModificarCat.Size = New System.Drawing.Size(91, 30)
+        Me.btnModificarCat.TabIndex = 69
+        Me.btnModificarCat.Text = "Modificar"
+        Me.btnModificarCat.UseVisualStyleBackColor = False
         '
         'Label23
         '
@@ -870,7 +959,7 @@ Partial Class frmCambiosGenerales
         Me.txtTarifa150ModCat.Location = New System.Drawing.Point(233, 50)
         Me.txtTarifa150ModCat.Name = "txtTarifa150ModCat"
         Me.txtTarifa150ModCat.Size = New System.Drawing.Size(100, 20)
-        Me.txtTarifa150ModCat.TabIndex = 72
+        Me.txtTarifa150ModCat.TabIndex = 73
         '
         'Label27
         '
@@ -888,7 +977,7 @@ Partial Class frmCambiosGenerales
         Me.txtTarifa300ModCat.Location = New System.Drawing.Point(339, 50)
         Me.txtTarifa300ModCat.Name = "txtTarifa300ModCat"
         Me.txtTarifa300ModCat.Size = New System.Drawing.Size(100, 20)
-        Me.txtTarifa300ModCat.TabIndex = 73
+        Me.txtTarifa300ModCat.TabIndex = 74
         '
         'Label25
         '
@@ -906,7 +995,7 @@ Partial Class frmCambiosGenerales
         Me.txtTarifaBaseModCat.Location = New System.Drawing.Point(122, 50)
         Me.txtTarifaBaseModCat.Name = "txtTarifaBaseModCat"
         Me.txtTarifaBaseModCat.Size = New System.Drawing.Size(100, 20)
-        Me.txtTarifaBaseModCat.TabIndex = 74
+        Me.txtTarifaBaseModCat.TabIndex = 72
         '
         'Label24
         '
@@ -1453,11 +1542,14 @@ Partial Class frmCambiosGenerales
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpCategorias.ResumeLayout(False)
+        Me.tbpCategorias.PerformLayout()
         CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlcatcambios.ResumeLayout(False)
         Me.pnlcatcambios.PerformLayout()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
+        Me.pnlcatmov.ResumeLayout(False)
+        Me.pnlcatmov.PerformLayout()
         Me.tbpSucursales.ResumeLayout(False)
         Me.tbpSucursales.PerformLayout()
         Me.Panel2.ResumeLayout(False)
@@ -1554,7 +1646,7 @@ Partial Class frmCambiosGenerales
     Friend WithEvents txtKmLibreModCat As TextBox
     Friend WithEvents cbxModCat As ComboBox
     Friend WithEvents Label20 As Label
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnModificarCat As Button
     Friend WithEvents Label23 As Label
     Friend WithEvents Label22 As Label
     Friend WithEvents txtNomCatMod As TextBox
@@ -1581,4 +1673,11 @@ Partial Class frmCambiosGenerales
     Friend WithEvents txttelefonosucmod2 As TextBox
     Friend WithEvents Label35 As Label
     Friend WithEvents Label36 As Label
+    Friend WithEvents inactivascategorias As CheckBox
+    Friend WithEvents pnlcatmov As Panel
+    Friend WithEvents Label37 As Label
+    Friend WithEvents cbxcatmov As ComboBox
+    Friend WithEvents Label38 As Label
+    Friend WithEvents lblcatmod As Label
+    Friend WithEvents Label40 As Label
 End Class

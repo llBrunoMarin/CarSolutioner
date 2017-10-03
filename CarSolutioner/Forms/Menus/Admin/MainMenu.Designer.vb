@@ -272,10 +272,12 @@ Partial Class frmMainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabEmpleado = New System.Windows.Forms.TabPage()
         Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
+
         Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
         Me.pnlMEmp = New System.Windows.Forms.Panel()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label74 = New System.Windows.Forms.Label()
@@ -464,6 +466,7 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+
         Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -471,6 +474,7 @@ Partial Class frmMainMenu
         Me.idtipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipoEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -3254,11 +3258,8 @@ Partial Class frmMainMenu
         Me.nrodocumentoE.Name = "nrodocumentoE"
         Me.nrodocumentoE.ReadOnly = True
         '
-        '
-        '
-        '
-        '
-        '
+
+
         '
         'idsucursalE
         '
@@ -3270,7 +3271,6 @@ Partial Class frmMainMenu
         '
         'tipoE
         '
-
 
         '
         'pnlMEmp
@@ -5428,6 +5428,7 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
+
         '
         'nombreE
         '
@@ -5496,6 +5497,7 @@ Partial Class frmMainMenu
         Me.tipoEmpleado.Name = "tipoEmpleado"
         Me.tipoEmpleado.ReadOnly = True
         '
+
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

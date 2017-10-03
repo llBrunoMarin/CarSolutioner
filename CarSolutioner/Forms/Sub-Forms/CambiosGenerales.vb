@@ -1,5 +1,5 @@
 ﻿Public Class frmCambiosGenerales
-    Dim conexion As ConnectionBD = Login.conexion
+
     Private Sub frmCambiosGenerales_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         tbcTabControl.ItemSize = New Size(0, 1)
@@ -182,9 +182,9 @@
         End If
 
         For Each con As Control In pnlmodsuc.Controls
-                VaciarControl(con)
-            Next
-            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
+            VaciarControl(con)
+        Next
+        conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
 
 
     End Sub

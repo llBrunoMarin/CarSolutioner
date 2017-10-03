@@ -11,6 +11,7 @@
     Dim _Usuario As String = Nothing
     Dim _Contraseña As String = Nothing
     Dim _TipoUsuario As String = Nothing
+    Dim _ConnectionStatus As String = Nothing
 
     Dim _Marcas As DataTable
     Dim _Modelos As DataTable
@@ -54,6 +55,14 @@
         End Get
         Set(value As String)
             _TipoUsuario = value
+        End Set
+    End Property
+    Public Property ConnectionStatus As String
+        Get
+            Return _ConnectionStatus
+        End Get
+        Set(value As String)
+            _ConnectionStatus = value
         End Set
     End Property
     Public Property Modelos() As DataTable
@@ -115,46 +124,54 @@
 
 
 
+    'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
+    'segun cual sea el error (error de conexión, error de primary key, etc)
 
-    Public Function ReConexion(Usuario, Contraseña) As String
+
+    'Abrir y cerrar la conexión con la BD. La idea es abrirla antes de ejecutar una sentencia, y cerrarla al finalizar.
+    Public Sub Conectar(Usuario, Contraseña)
 
         Try
 
             If cx.State = ConnectionState.Closed Then
-
-
+                cx.ConnectionTimeout = 2
 
                 'SERVIDOR UTU
-                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
 
                 'SERVIDOR VICTOR
                 'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
                 'SERVIDOR VICTOR 32 BITS
-                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
                 cx.Open()
 
-                Return "Verdadero"
+                Me.ConnectionStatus = "Opened"
+
             End If
+
         Catch ex As Odbc.OdbcException
 
             If (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]") Or ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
 
+                Me.ConnectionStatus = "BadCredentials"
 
-                Return "BadCredentials"
+
                 Cerrar()
 
             Else
 
                 ' MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
                 'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
-                '  MsgBox(ex.Message)
 
-                Return "Red"
+
+                Me.ConnectionStatus = "NetworkFailure"
+                If Not Application.OpenForms().OfType(Of Reconectar).Any Then
+                    Reconectar.ShowDialog()
+                End If
             End If
-
 
 
 
@@ -164,62 +181,7 @@
 
         End Try
 
-    End Function
-
-
-    'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
-    'segun cual sea el error (error de conexión, error de primary key, etc)
-
-
-    'Abrir y cerrar la conexión con la BD. La idea es abrirla antes de ejecutar una sentencia, y cerrarla al finalizar.
-    Public Function Conectar(Usuario, Contraseña) As String
-
-        Try
-            If cx.State = ConnectionState.Closed Then
-
-
-
-                'SERVIDOR UTU
-                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
-
-
-                'SERVIDOR VICTOR
-                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
-
-                'SERVIDOR VICTOR 32 BITS
-                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
-
-                cx.Open()
-
-                Return "Verdadero"
-            End If
-        Catch ex As Odbc.OdbcException
-
-            If (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]") Or ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
-
-
-                Return "BadCredentials"
-                Cerrar()
-
-            Else
-
-                ' MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
-                'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
-                '  MsgBox(ex.Message)
-                Reconectar.ShowDialog()
-                Return "Red"
-            End If
-
-
-
-
-            'MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
-            ' MsgBox(ex.Message)
-
-
-        End Try
-
-    End Function
+    End Sub
 
     Public Function Cerrar() As Boolean
         Try

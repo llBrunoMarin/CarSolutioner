@@ -272,15 +272,8 @@ Partial Class frmMainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabEmpleado = New System.Windows.Forms.TabPage()
         Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
-        Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlMEmp = New System.Windows.Forms.Panel()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label74 = New System.Windows.Forms.Label()
@@ -469,16 +462,12 @@ Partial Class frmMainMenu
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idtipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipoEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
@@ -3238,7 +3227,6 @@ Partial Class frmMainMenu
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvEmpleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrodocumentoE, Me.nombreE, Me.apellidoE, Me.emailE, Me.usuarioE, Me.sucursalesE, Me.idpersonaE, Me.estadoE, Me.idsucursalE, Me.idtipo, Me.tipoEmpleado})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -3264,48 +3252,11 @@ Partial Class frmMainMenu
         Me.nrodocumentoE.Name = "nrodocumentoE"
         Me.nrodocumentoE.ReadOnly = True
         '
-        'nombreE
         '
-        Me.nombreE.DataPropertyName = "nombre"
-        Me.nombreE.HeaderText = "Nombre"
-        Me.nombreE.Name = "nombreE"
-        Me.nombreE.ReadOnly = True
         '
-        'apellidoE
         '
-        Me.apellidoE.DataPropertyName = "apellido"
-        Me.apellidoE.HeaderText = "Apellido"
-        Me.apellidoE.Name = "apellidoE"
-        Me.apellidoE.ReadOnly = True
         '
-        'emailE
         '
-        Me.emailE.DataPropertyName = "email"
-        Me.emailE.HeaderText = "Correo"
-        Me.emailE.Name = "emailE"
-        Me.emailE.ReadOnly = True
-        '
-        'usuarioE
-        '
-        Me.usuarioE.DataPropertyName = "usuario"
-        Me.usuarioE.HeaderText = "Usuario"
-        Me.usuarioE.Name = "usuarioE"
-        Me.usuarioE.ReadOnly = True
-        '
-        'sucursalesE
-        '
-        Me.sucursalesE.DataPropertyName = "sucursales"
-        Me.sucursalesE.HeaderText = "Sucursales"
-        Me.sucursalesE.Name = "sucursalesE"
-        Me.sucursalesE.ReadOnly = True
-        '
-        'idpersonaE
-        '
-        Me.idpersonaE.DataPropertyName = "idpersona"
-        Me.idpersonaE.HeaderText = "id Persona"
-        Me.idpersonaE.Name = "idpersonaE"
-        Me.idpersonaE.ReadOnly = True
-        Me.idpersonaE.Visible = False
         '
         'idsucursalE
         '
@@ -3317,10 +3268,8 @@ Partial Class frmMainMenu
         '
         'tipoE
         '
-        Me.tipoE.DataPropertyName = "tipo"
-        Me.tipoE.HeaderText = "Tipo"
-        Me.tipoE.Name = "tipoE"
-        Me.tipoE.ReadOnly = True
+
+
         '
         'pnlMEmp
         '
@@ -5477,12 +5426,6 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'nrodocumentoE
-        '
-        Me.nrodocumentoE.DataPropertyName = "nrodocumento"
-        Me.nrodocumentoE.HeaderText = "Nro Documento"
-        Me.nrodocumentoE.Name = "nrodocumentoE"
-        Me.nrodocumentoE.ReadOnly = True
         '
         'nombreE
         '
@@ -5535,13 +5478,6 @@ Partial Class frmMainMenu
         Me.estadoE.ReadOnly = True
         Me.estadoE.Visible = False
         '
-        'idsucursalE
-        '
-        Me.idsucursalE.DataPropertyName = "idsucursal"
-        Me.idsucursalE.HeaderText = "idSucursales"
-        Me.idsucursalE.Name = "idsucursalE"
-        Me.idsucursalE.ReadOnly = True
-        Me.idsucursalE.Visible = False
         '
         'idtipo
         '

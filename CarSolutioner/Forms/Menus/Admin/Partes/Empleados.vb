@@ -21,7 +21,7 @@ Partial Public Class frmMainMenu
         filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'",
                                            "nrodocumento", txtNroDocFempleado.Text,
                                            "nombre", txtNombreFempleado.Text,
-                                           "apellido", txtApellidoFempleado.Text) + TipoFiltro(cbxTipoFempleados, "idtipo") + TipoFiltro(cbxSucursalFempleados, "idsucursalE")
+                                           "apellido", txtApellidoFempleado.Text) + TipoFiltro(cbxTipoFempleados, "idtipo") '+ TipoFiltro(cbxSucursalFempleados, "idsucursalE")
 
         dgvEmpleados.DataSource.Filter = filtro
 
@@ -44,30 +44,29 @@ Partial Public Class frmMainMenu
         Next
 
         If Not (FaltaDato) Then
+            Dim idPersonaInsertar As New DataTable
 
-            Dim idPersonaInsertar As String
+            idPersonaInsertar = conexion.EjecutarSelect("select idpersona from cliente where nrodocumento = '" & txtNroDocumentoCempleado.Text & "'")
 
-            Try
-                idPersonaInsertar = conexion.EjecutarSelect("select idpersona from cliente where nrodocumento = '" & txtNroDocumentoCempleado.Text & "'").Rows(0)(0).ToString()
+            If (idPersonaInsertar.Rows.Count <> 0) Then
+                Dim IdPersona As String = idPersonaInsertar.Rows(0)("idpersona").ToString()
 
-                If (conexion.EjecutarNonQuery("insert into empleado values ('" + idPersonaInsertar.ToString + "','" + cbxTipoCempleados.SelectedValue.ToString + "','" + txtNombreUsuarioCempleado.Text.ToString + "','t')") = True) Then
+                If (conexion.EjecutarNonQuery("insert into empleado values ('" + IdPersona + "','" + cbxTipoCempleados.SelectedValue.ToString + "','" + txtNombreUsuarioCempleado.Text.ToString + "','t')") = True) Then
 
                     If (conexion.EjecutarNonQuery("insert into trabaja values ('" + txtNombreUsuarioCempleado.Text + "','" + cbxSucursalCempleados.SelectedValue.ToString + "','" + fechActual.ToString + "',NULL)") = True) Then
 
                         MsgBox("Empleado insertado correctamente")
-
                         RecargarDatos(dgvEmpleados)
 
                     End If
                 Else
+                    MsgBox(" noseqpaso")
+                End If
 
-                    MsgBox(" ")
-                End If
-            Catch ex As Exception
-                If (ex.Message = "No hay ninguna fila en la posición 0.") Then
-                    MsgBox("Este numero de documento no corresponde a ningun cliente")
-                End If
-            End Try
+            Else
+                MsgBox("Ese cliente no existe. Por favor, verifique.")
+
+            End If
 
         Else
             MsgBox("Por favor, rellene todos los campos.")
@@ -84,6 +83,7 @@ Partial Public Class frmMainMenu
         End If
 
     End Sub
+
     Private Sub ActualizarEstadoEmpleado(sender As Object, e As EventArgs) Handles btnEstadoEmpleado.Click
 
         Dim Valores As New Dictionary(Of Boolean, String)
@@ -110,7 +110,7 @@ Partial Public Class frmMainMenu
         Else
             MsgBox("Ese cliente no existe. Por favor, verifique.")
 
-            End If
+        End If
 
 
     End Sub

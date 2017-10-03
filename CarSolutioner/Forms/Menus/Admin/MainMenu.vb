@@ -43,6 +43,9 @@ Public Class frmMainMenu
         cbxAnioNACliente.SelectedItem = Nothing
         cbxAnioNFCliente.SelectedItem = Nothing
 
+        cbxSucursalFempleados.SelectedItem = Nothing
+        cbxTipoFempleados.SelectedItem = Nothing
+
     End Sub
 
     Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnVehiculos.Click, btnReservas.Click, btnMantenimiento.Click, btnEmpleados.Click, btnClientes.Click
@@ -132,17 +135,6 @@ Public Class frmMainMenu
         conexion.Tipos = conexion.EjecutarSelect("SELECT * from tipo")
         conexion.Sucursales = conexion.EjecutarSelect("SELECT * from sucursal")
         conexion.Documentos = conexion.EjecutarSelect("SELECT * from tipodocumento")
-        'Agregar a la clase conexion etc, dio un error de instancia raro ta raro esto
-
-        Dim tipoT As New DataTable
-
-        tipoT.Columns.Add("id", GetType(System.Int32))
-        tipoT.Columns.Add("tipos", GetType(String))
-
-        tipoT.Rows.Add(1, "Director general")
-        tipoT.Rows.Add(2, "Gerente")
-        tipoT.Rows.Add(3, "Jefe de personal")
-        tipoT.Rows.Add(4, "Empleado")
 
 
         'Cargas DataGridView
@@ -165,9 +157,9 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoFempleados, tipoT, "tipos", "id")
-        CargarDatosComboBox(cbxTipoMempleados, tipoT, "tipos", "id")
-        CargarDatosComboBox(cbxTipoCempleados, tipoT, "tipos", "id")
+        CargarDatosComboBox(cbxTipoFempleados, conexion.TipoEmpleados, "tipos", "id")
+        CargarDatosComboBox(cbxTipoMempleados, conexion.TipoEmpleados, "tipos", "id")
+        CargarDatosComboBox(cbxTipoCempleados, conexion.TipoEmpleados, "tipos", "id")
 
         'CATEGORIAS
         CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre", "idcategoria")
@@ -220,7 +212,7 @@ Public Class frmMainMenu
 
             Case "dgvEmpleados"
 
-                conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.idpersona, Cliente.nrodocumento, Cliente.nombre, Cliente.apellido, Cliente.email, empleado.usuario, empleado.tipo, sucursal.nombre sucursales FROM EMPLEADO, CLIENTE, TRABAJA, SUCURSAL WHERE Cliente.idpersona = Empleado.idpersona AND trabaja.usuarioempleado = empleado.usuario AND trabaja.idsucursal = sucursal.idsucursal AND trabaja.fechafin is null AND Empleado.estado = 't'")
+                conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.idpersona, Cliente.nrodocumento, Cliente.nombre, Cliente.apellido, Cliente.email, empleado.estado, empleado.usuario, empleado.tipo idtipo, sucursal.idsucursal, sucursal.nombre sucursales, CASE WHEN empleado.tipo = 1 THEN ""Director General"" WHEN empleado.tipo = 2 THEN ""Gerente"" WHEN empleado.tipo = 3 THEN ""Jefe de Personal"" WHEN empleado.tipo = 4 THEN ""Empleado"" ELSE NULL END tipo FROM EMPLEADO, CLIENTE, TRABAJA, SUCURSAL WHERE Cliente.idpersona = Empleado.idpersona AND trabaja.usuarioempleado = empleado.usuario AND trabaja.idsucursal = sucursal.idsucursal AND trabaja.fechafin is null AND Empleado.estado = 't'")
 
             Case "dgvVehiculos"
                 conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal")
@@ -241,17 +233,14 @@ Public Class frmMainMenu
                 frmAlquilar.dgvAlquilar.Columns("tipo").Visible = False
                 frmAlquilar.dgvAlquilar.Columns("sucursal").Visible = False
 
+            Case "dgvMantenimiento"
+                conexion.RellenarDataGridView(dgvMantenimiento, "selet * from tipoT")
             Case Else
                 conexion.RellenarDataGridView(dgv, sentencia)
 
 
         End Select
 
-    End Sub
-
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        RecargarDatos(dgvVehiculos)
     End Sub
 
 End Class

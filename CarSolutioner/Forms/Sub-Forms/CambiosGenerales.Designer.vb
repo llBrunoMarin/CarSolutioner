@@ -75,18 +75,18 @@ Partial Class frmCambiosGenerales
         Me.btncatadd = New System.Windows.Forms.Button()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.txtKmLibreModCat = New System.Windows.Forms.TextBox()
+        Me.cbxModCat = New System.Windows.Forms.ComboBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.txtNomCatMod = New System.Windows.Forms.TextBox()
+        Me.txtTarifa150ModCat = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtTarifa300ModCat = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.txtTarifaBaseModCat = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.tbpSucursales = New System.Windows.Forms.TabPage()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -109,6 +109,9 @@ Partial Class frmCambiosGenerales
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnAddSuc = New System.Windows.Forms.Button()
         Me.pnlmodsuc = New System.Windows.Forms.Panel()
+        Me.txttelefonosucmod2 = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.btnmodsuc = New System.Windows.Forms.Button()
         Me.pnlmovimiento = New System.Windows.Forms.Panel()
         Me.Label33 = New System.Windows.Forms.Label()
@@ -129,9 +132,6 @@ Partial Class frmCambiosGenerales
         Me.tbcTabControl = New System.Windows.Forms.TabControl()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.txttelefonosucmod2 = New System.Windows.Forms.TextBox()
-        Me.Label36 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         Me.tbpMarcas.SuspendLayout()
@@ -761,18 +761,18 @@ Partial Class frmCambiosGenerales
         Me.Panel9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel9.BackColor = System.Drawing.Color.Silver
         Me.Panel9.Controls.Add(Me.Label28)
-        Me.Panel9.Controls.Add(Me.TextBox5)
-        Me.Panel9.Controls.Add(Me.ComboBox1)
+        Me.Panel9.Controls.Add(Me.txtKmLibreModCat)
+        Me.Panel9.Controls.Add(Me.cbxModCat)
         Me.Panel9.Controls.Add(Me.Label20)
         Me.Panel9.Controls.Add(Me.Button3)
         Me.Panel9.Controls.Add(Me.Label23)
         Me.Panel9.Controls.Add(Me.Label22)
-        Me.Panel9.Controls.Add(Me.TextBox6)
-        Me.Panel9.Controls.Add(Me.TextBox7)
+        Me.Panel9.Controls.Add(Me.txtNomCatMod)
+        Me.Panel9.Controls.Add(Me.txtTarifa150ModCat)
         Me.Panel9.Controls.Add(Me.Label27)
-        Me.Panel9.Controls.Add(Me.TextBox8)
+        Me.Panel9.Controls.Add(Me.txtTarifa300ModCat)
         Me.Panel9.Controls.Add(Me.Label25)
-        Me.Panel9.Controls.Add(Me.TextBox12)
+        Me.Panel9.Controls.Add(Me.txtTarifaBaseModCat)
         Me.Panel9.Controls.Add(Me.Label24)
         Me.Panel9.Location = New System.Drawing.Point(455, 219)
         Me.Panel9.Name = "Panel9"
@@ -790,22 +790,22 @@ Partial Class frmCambiosGenerales
         Me.Label28.TabIndex = 81
         Me.Label28.Text = "Estado"
         '
-        'TextBox5
+        'txtKmLibreModCat
         '
-        Me.TextBox5.Location = New System.Drawing.Point(12, 103)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox5.TabIndex = 79
+        Me.txtKmLibreModCat.Location = New System.Drawing.Point(12, 103)
+        Me.txtKmLibreModCat.Name = "txtKmLibreModCat"
+        Me.txtKmLibreModCat.Size = New System.Drawing.Size(100, 20)
+        Me.txtKmLibreModCat.TabIndex = 79
         '
-        'ComboBox1
+        'cbxModCat
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Activa", "Inactiva"})
-        Me.ComboBox1.Location = New System.Drawing.Point(122, 103)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
-        Me.ComboBox1.TabIndex = 72
+        Me.cbxModCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxModCat.FormattingEnabled = True
+        Me.cbxModCat.Items.AddRange(New Object() {"Activa", "Inactiva"})
+        Me.cbxModCat.Location = New System.Drawing.Point(122, 103)
+        Me.cbxModCat.Name = "cbxModCat"
+        Me.cbxModCat.Size = New System.Drawing.Size(100, 21)
+        Me.cbxModCat.TabIndex = 72
         '
         'Label20
         '
@@ -858,19 +858,19 @@ Partial Class frmCambiosGenerales
         Me.Label22.TabIndex = 68
         Me.Label22.Text = "Modificar"
         '
-        'TextBox6
+        'txtNomCatMod
         '
-        Me.TextBox6.Location = New System.Drawing.Point(12, 50)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox6.TabIndex = 71
+        Me.txtNomCatMod.Location = New System.Drawing.Point(12, 50)
+        Me.txtNomCatMod.Name = "txtNomCatMod"
+        Me.txtNomCatMod.Size = New System.Drawing.Size(100, 20)
+        Me.txtNomCatMod.TabIndex = 71
         '
-        'TextBox7
+        'txtTarifa150ModCat
         '
-        Me.TextBox7.Location = New System.Drawing.Point(233, 50)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox7.TabIndex = 72
+        Me.txtTarifa150ModCat.Location = New System.Drawing.Point(233, 50)
+        Me.txtTarifa150ModCat.Name = "txtTarifa150ModCat"
+        Me.txtTarifa150ModCat.Size = New System.Drawing.Size(100, 20)
+        Me.txtTarifa150ModCat.TabIndex = 72
         '
         'Label27
         '
@@ -883,12 +883,12 @@ Partial Class frmCambiosGenerales
         Me.Label27.TabIndex = 78
         Me.Label27.Text = "150 km/Dia"
         '
-        'TextBox8
+        'txtTarifa300ModCat
         '
-        Me.TextBox8.Location = New System.Drawing.Point(339, 50)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox8.TabIndex = 73
+        Me.txtTarifa300ModCat.Location = New System.Drawing.Point(339, 50)
+        Me.txtTarifa300ModCat.Name = "txtTarifa300ModCat"
+        Me.txtTarifa300ModCat.Size = New System.Drawing.Size(100, 20)
+        Me.txtTarifa300ModCat.TabIndex = 73
         '
         'Label25
         '
@@ -901,12 +901,12 @@ Partial Class frmCambiosGenerales
         Me.Label25.TabIndex = 77
         Me.Label25.Text = "300 km/Dia"
         '
-        'TextBox12
+        'txtTarifaBaseModCat
         '
-        Me.TextBox12.Location = New System.Drawing.Point(122, 50)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox12.TabIndex = 74
+        Me.txtTarifaBaseModCat.Location = New System.Drawing.Point(122, 50)
+        Me.txtTarifaBaseModCat.Name = "txtTarifaBaseModCat"
+        Me.txtTarifaBaseModCat.Size = New System.Drawing.Size(100, 20)
+        Me.txtTarifaBaseModCat.TabIndex = 74
         '
         'Label24
         '
@@ -1185,6 +1185,35 @@ Partial Class frmCambiosGenerales
         Me.pnlmodsuc.Size = New System.Drawing.Size(478, 282)
         Me.pnlmodsuc.TabIndex = 70
         '
+        'txttelefonosucmod2
+        '
+        Me.txttelefonosucmod2.Location = New System.Drawing.Point(226, 50)
+        Me.txttelefonosucmod2.Name = "txttelefonosucmod2"
+        Me.txttelefonosucmod2.Size = New System.Drawing.Size(100, 20)
+        Me.txttelefonosucmod2.TabIndex = 71
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label35.Location = New System.Drawing.Point(332, 74)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(48, 17)
+        Me.Label35.TabIndex = 78
+        Me.Label35.Text = "Estado"
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label36.Location = New System.Drawing.Point(224, 32)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(69, 17)
+        Me.Label36.TabIndex = 72
+        Me.Label36.Text = "Telefono 2"
+        '
         'btnmodsuc
         '
         Me.btnmodsuc.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1394,35 +1423,6 @@ Partial Class frmCambiosGenerales
         Me.Panel7.Size = New System.Drawing.Size(10, 629)
         Me.Panel7.TabIndex = 39
         '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label35.Location = New System.Drawing.Point(332, 74)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(48, 17)
-        Me.Label35.TabIndex = 78
-        Me.Label35.Text = "Estado"
-        '
-        'txttelefonosucmod2
-        '
-        Me.txttelefonosucmod2.Location = New System.Drawing.Point(226, 50)
-        Me.txttelefonosucmod2.Name = "txttelefonosucmod2"
-        Me.txttelefonosucmod2.Size = New System.Drawing.Size(100, 20)
-        Me.txttelefonosucmod2.TabIndex = 71
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label36.Location = New System.Drawing.Point(224, 32)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(69, 17)
-        Me.Label36.TabIndex = 72
-        Me.Label36.Text = "Telefono 2"
-        '
         'frmCambiosGenerales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1551,18 +1551,18 @@ Partial Class frmCambiosGenerales
     Friend WithEvents btncatadd As Button
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Label28 As Label
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents txtKmLibreModCat As TextBox
+    Friend WithEvents cbxModCat As ComboBox
     Friend WithEvents Label20 As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents Label23 As Label
     Friend WithEvents Label22 As Label
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents txtNomCatMod As TextBox
+    Friend WithEvents txtTarifa150ModCat As TextBox
     Friend WithEvents Label27 As Label
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents txtTarifa300ModCat As TextBox
     Friend WithEvents Label25 As Label
-    Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents txtTarifaBaseModCat As TextBox
     Friend WithEvents Label24 As Label
     Friend WithEvents chboxsucinactivas As CheckBox
     Friend WithEvents Panel2 As Panel

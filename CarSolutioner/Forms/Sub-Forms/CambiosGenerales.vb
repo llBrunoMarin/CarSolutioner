@@ -10,6 +10,7 @@
         conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
         dgvCategorias.Columns("idcategoria").Visible = False
         chboxsucinactivas.Checked = True
+
     End Sub
 
     Private Sub btnMinimizar_Click(sender As Object, e As EventArgs)
@@ -210,5 +211,22 @@
 
         cargando(frmMainMenu.pcboxloading, 500)
         CargarDatosComboBox(cboxsucursalmov, conexion.EjecutarSelect("SELECT * FROM sucursal where idsucursal != " + idsucursalmod + "  and estado = 't'"), "nombre", "idsucursal")
+    End Sub
+
+    Private Sub categoriamod(sender As Object, e As EventArgs) Handles dgvCategorias.SelectionChanged
+        txtNomCatMod.Text = dgvCategorias.CurrentRow.Cells("nombre").Value.ToString()
+        txtTarifaBaseModCat.Text = dgvCategorias.CurrentRow.Cells("tarifadiariabase").Value.ToString()
+        txtTarifa150ModCat.Text = dgvCategorias.CurrentRow.Cells("tarifax150kmdia").Value.ToString()
+        txtTarifa300ModCat.Text = dgvCategorias.CurrentRow.Cells("tarifax300kmdia").Value.ToString()
+        txtKmLibreModCat.Text = dgvCategorias.CurrentRow.Cells("tarifakmlibredia").Value.ToString()
+        Dim estado As String
+        Dim idcategoria = dgvCategorias.CurrentRow.Cells("idcategoria").Value.ToString()
+        estado = dgvCategorias.CurrentRow.Cells("estado").Value.ToString()
+        If estado = "True" Then
+            cbxModCat.SelectedItem = "Activa"
+
+        Else
+            cbxModCat.SelectedItem = "Inactiva"
+        End If
     End Sub
 End Class

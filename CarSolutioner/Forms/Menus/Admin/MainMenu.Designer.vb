@@ -272,7 +272,6 @@ Partial Class frmMainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabEmpleado = New System.Windows.Forms.TabPage()
         Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
-
         Me.pnlMEmp = New System.Windows.Forms.Panel()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label74 = New System.Windows.Forms.Label()
@@ -348,7 +347,6 @@ Partial Class frmMainMenu
         Me.TextBox38 = New System.Windows.Forms.TextBox()
         Me.DateTimePicker10 = New System.Windows.Forms.DateTimePicker()
         Me.ComboBox49 = New System.Windows.Forms.ComboBox()
-
         Me.dgvMant = New System.Windows.Forms.DataGridView()
         Me.matriculamant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idmantenimientomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -358,10 +356,8 @@ Partial Class frmMainMenu
         Me.fechafinmant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadomant = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.nrochasismant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-
         Me.pnlAmant = New System.Windows.Forms.Panel()
         Me.lblMatriculaMant = New System.Windows.Forms.Label()
-        Me.txtDescripcionMant = New System.Windows.Forms.RichTextBox()
         Me.Label108 = New System.Windows.Forms.Label()
         Me.cbxTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label119 = New System.Windows.Forms.Label()
@@ -485,9 +481,8 @@ Partial Class frmMainMenu
         Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipoEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtDescripcionMant = New System.Windows.Forms.TextBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -524,9 +519,7 @@ Partial Class frmMainMenu
         Me.tbpMantenimiento.SuspendLayout()
         Me.pnlmmant.SuspendLayout()
         Me.pnlFmant.SuspendLayout()
-
         CType(Me.dgvMant, System.ComponentModel.ISupportInitialize).BeginInit()
-
         Me.pnlAmant.SuspendLayout()
         Me.tbpReservas.SuspendLayout()
         Me.tabRes_Alq.SuspendLayout()
@@ -710,19 +703,6 @@ Partial Class frmMainMenu
         Me.btnClientes.Text = "CLIENTES/USUARIOS"
         Me.btnClientes.UseVisualStyleBackColor = False
         '
-
-        'pcboxloading
-        '
-        Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
-        Me.pcboxloading.Location = New System.Drawing.Point(36, 44)
-        Me.pcboxloading.Name = "pcboxloading"
-        Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
-        Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pcboxloading.TabIndex = 34
-        Me.pcboxloading.TabStop = False
-        Me.pcboxloading.Visible = False
-        '
-
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
@@ -3279,7 +3259,6 @@ Partial Class frmMainMenu
         Me.dgvEmpleados.Size = New System.Drawing.Size(743, 798)
         Me.dgvEmpleados.TabIndex = 10
         '
-
         'pnlMEmp
         '
         Me.pnlMEmp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
@@ -3747,9 +3726,7 @@ Partial Class frmMainMenu
         Me.tbpMantenimiento.BackColor = System.Drawing.Color.Silver
         Me.tbpMantenimiento.Controls.Add(Me.pnlmmant)
         Me.tbpMantenimiento.Controls.Add(Me.pnlFmant)
-
         Me.tbpMantenimiento.Controls.Add(Me.dgvMant)
-
         Me.tbpMantenimiento.Controls.Add(Me.pnlAmant)
         Me.tbpMantenimiento.Location = New System.Drawing.Point(4, 25)
         Me.tbpMantenimiento.Name = "tbpMantenimiento"
@@ -4153,7 +4130,6 @@ Partial Class frmMainMenu
         Me.ComboBox49.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox49.TabIndex = 17
         '
-
         'dgvMant
         '
         Me.dgvMant.AllowUserToAddRows = False
@@ -4236,7 +4212,6 @@ Partial Class frmMainMenu
         Me.nrochasismant.Name = "nrochasismant"
         Me.nrochasismant.ReadOnly = True
         Me.nrochasismant.Visible = False
-
         '
         'pnlAmant
         '
@@ -4245,7 +4220,6 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlAmant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlAmant.Controls.Add(Me.lblMatriculaMant)
-        Me.pnlAmant.Controls.Add(Me.txtDescripcionMant)
         Me.pnlAmant.Controls.Add(Me.Label108)
         Me.pnlAmant.Controls.Add(Me.cbxTipoMant)
         Me.pnlAmant.Controls.Add(Me.Label119)
@@ -4255,6 +4229,7 @@ Partial Class frmMainMenu
         Me.pnlAmant.Controls.Add(Me.dtpFechaInicioMant)
         Me.pnlAmant.Controls.Add(Me.Label134)
         Me.pnlAmant.Controls.Add(Me.Label135)
+        Me.pnlAmant.Controls.Add(Me.txtDescripcionMant)
         Me.pnlAmant.Controls.Add(Me.txtMatriculaMant)
         Me.pnlAmant.Location = New System.Drawing.Point(789, 215)
         Me.pnlAmant.Name = "pnlAmant"
@@ -4271,14 +4246,6 @@ Partial Class frmMainMenu
         Me.lblMatriculaMant.Size = New System.Drawing.Size(79, 17)
         Me.lblMatriculaMant.TabIndex = 41
         Me.lblMatriculaMant.Text = "Descripción"
-        '
-        'txtDescripcionMant
-        '
-        Me.txtDescripcionMant.Location = New System.Drawing.Point(253, 64)
-        Me.txtDescripcionMant.Name = "txtDescripcionMant"
-        Me.txtDescripcionMant.Size = New System.Drawing.Size(149, 63)
-        Me.txtDescripcionMant.TabIndex = 40
-        Me.txtDescripcionMant.Text = ""
         '
         'Label108
         '
@@ -5594,7 +5561,6 @@ Partial Class frmMainMenu
         Me.Button1.Text = "↺"
         Me.Button1.UseVisualStyleBackColor = False
         '
-
         'apellidoE
         '
         Me.apellidoE.DataPropertyName = "apellido"
@@ -5625,14 +5591,6 @@ Partial Class frmMainMenu
         Me.idsucursalE.ReadOnly = True
         Me.idsucursalE.Visible = False
         '
-        'idtipo
-        '
-        Me.idtipo.DataPropertyName = "idtipo"
-        Me.idtipo.HeaderText = "idtipo"
-        Me.idtipo.Name = "idtipo"
-        Me.idtipo.ReadOnly = True
-        Me.idtipo.Visible = False
-        '
         'idpersonaE
         '
         Me.idpersonaE.DataPropertyName = "idpersona"
@@ -5641,14 +5599,14 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
-        'tipoEmpleado
+        'txtDescripcionMant
         '
-        Me.tipoEmpleado.DataPropertyName = "tipo"
-        Me.tipoEmpleado.HeaderText = "Tipo"
-        Me.tipoEmpleado.Name = "tipoEmpleado"
-        Me.tipoEmpleado.ReadOnly = True
+        Me.txtDescripcionMant.Location = New System.Drawing.Point(253, 64)
+        Me.txtDescripcionMant.Multiline = True
+        Me.txtDescripcionMant.Name = "txtDescripcionMant"
+        Me.txtDescripcionMant.Size = New System.Drawing.Size(100, 64)
+        Me.txtDescripcionMant.TabIndex = 22
         '
-
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5721,9 +5679,7 @@ Partial Class frmMainMenu
         Me.pnlmmant.PerformLayout()
         Me.pnlFmant.ResumeLayout(False)
         Me.pnlFmant.PerformLayout()
-
         CType(Me.dgvMant, System.ComponentModel.ISupportInitialize).EndInit()
-
         Me.pnlAmant.ResumeLayout(False)
         Me.pnlAmant.PerformLayout()
         Me.tbpReservas.ResumeLayout(False)
@@ -6189,7 +6145,6 @@ Partial Class frmMainMenu
 
     Friend WithEvents tipoE As DataGridViewTextBoxColumn
     Friend WithEvents lblMatriculaMant As Label
-    Friend WithEvents txtDescripcionMant As RichTextBox
     Friend WithEvents lblEstadoMant As Label
     Friend WithEvents cbxModifEstadoMant As ComboBox
     Friend WithEvents Label33 As Label
@@ -6202,5 +6157,5 @@ Partial Class frmMainMenu
     Friend WithEvents fechafinmant As DataGridViewTextBoxColumn
     Friend WithEvents estadomant As DataGridViewCheckBoxColumn
     Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
-
+    Friend WithEvents txtDescripcionMant As TextBox
 End Class

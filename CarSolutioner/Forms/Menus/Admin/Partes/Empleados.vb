@@ -80,7 +80,7 @@ Partial Public Class frmMainMenu
 
             'cbxSucursalMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idsucursalE").Value.ToString()
             'cbxTipoMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idtipo").Value.ToString()
-            txtNroDocEempleado.Text = dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString()
+            'txtNroDocEempleado.Text = dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString()
         End If
 
     End Sub

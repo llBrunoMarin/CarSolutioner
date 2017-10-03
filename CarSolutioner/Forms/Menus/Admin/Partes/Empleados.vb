@@ -12,7 +12,7 @@ Partial Public Class frmMainMenu
     Private Sub BorrarSucEmpleado(sender As Object, e As EventArgs) Handles lblBorrarSucursalFEmpleado.Click
         cbxSucursalFempleados.SelectedItem = Nothing
     End Sub
-    Private Sub FiltrosEmpleados(sender As Object, e As EventArgs) Handles txtNroDocFempleado.TextChanged, cbxSucursalFempleados.TextChanged,
+    Private Sub FiltrosEmpleados(sender As Object, e As EventArgs) Handles txtNroDocFempleado.TextChanged, cbxSucursalFempleados.SelectionChangeCommitted,
                                                                             cbxTipoFempleados.SelectionChangeCommitted, txtNombreFempleado.TextChanged,
                                                                              txtApellidoFempleado.TextChanged, lblBorrarTipoFEmpleado.Click, lblBorrarSucursalFEmpleado.Click
 
@@ -21,7 +21,8 @@ Partial Public Class frmMainMenu
         filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'",
                                            "nrodocumento", txtNroDocFempleado.Text,
                                            "nombre", txtNombreFempleado.Text,
-                                           "apellido", txtApellidoFempleado.Text) + TipoFiltro(cbxTipoFempleados, "idtipo") '+ TipoFiltro(cbxSucursalFempleados, "idsucursalE")
+                                           "apellido", txtApellidoFempleado.Text) + TipoFiltro(cbxTipoFempleados, "idtipo") '+
+        'TipoFiltro(cbxSucursalFempleados, "idsucursalE")
 
         dgvEmpleados.DataSource.Filter = filtro
 
@@ -133,24 +134,48 @@ Partial Public Class frmMainMenu
             Dim NombreUsuarioEmpM As String
             Dim SucursalUsuarioEmpM As String
             Dim TipoUsuarioEmpM As String
+            Dim fechActual As String
+            Dim TipoEmpleadoDGV As String
+            Dim SucursalEmpleadoDGV As String
+            fechActual = DateTime.Now.ToString("dd/MM/yyyy")
+
             Try
 
-                idPersonaUsuarioEM = conexion.EjecutarSelect("select idpersona from cliente where nrodocumento = '" & dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString() & "'").Rows(0)(0).ToString()
+                idPersonaUsuarioEM = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" & dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString() & "'").Rows(0)(0).ToString()
                 NombreUsuarioEmpM = dgvEmpleados.CurrentRow.Cells("usuarioE").Value.ToString()
-                SucursalUsuarioEmpM = cbxSucursalMempleados.SelectedValue.ToString()
-                TipoUsuarioEmpM = cbxTipoMempleados.SelectedValue.ToString()
+                TipoEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idtipo").Value.ToString()
+                SucursalEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idsucursalE").Value.ToString()
+                SucursalUsuarioEmpM = cbxSucursalMempleados.SelectedValue
+                TipoUsuarioEmpM = cbxTipoMempleados.SelectedValue
 
-                If (conexion.EjecutarNonQuery("UPDATE trabaja SET idsucursal = " + SucursalUsuarioEmpM + " WHERE usuarioempleado = '" + NombreUsuarioEmpM + "'") = True) Then
-                    If (conexion.EjecutarNonQuery("UPDATE empleado SET tipo = " + TipoUsuarioEmpM + "   WHERE idpersona = '" + idPersonaUsuarioEM + "'") = True) Then
+                Dim test As New DataTable
+                test = conexion.EjecutarSelect("SELECT * FROM trabaja WHERE usuarioempleado ='" + NombreUsuarioEmpM + "' and fechafin is NULL")
+                If (test.Rows.Count <> 0) Then
+                    Dim UsuarioEUpdate As String = test.Rows(0)("usuarioempleado").ToString()
+                    Dim SucursalEUpdate As String = test.Rows(0)("idsucursal").ToString()
+                    Dim FechaiEUpdate As String = Date.Parse(test.Rows(0)("fechainicio").ToString()).ToShortDateString
 
-                        MsgBox("Empleado Modificado Correctamente")
-                        RecargarDatos(dgvEmpleados)
+                    If Not (TipoUsuarioEmpM.ToString() = TipoEmpleadoDGV And SucursalUsuarioEmpM.ToString() = SucursalEmpleadoDGV) Then
+                        If (conexion.EjecutarNonQuery("UPDATE trabaja SET fechafin = '" + fechActual + "' WHERE usuarioempleado = '" + UsuarioEUpdate + "' AND idsucursal = '" + SucursalEUpdate + "' AND fechainicio = '" + FechaiEUpdate + "'") = True) Then
+                            If (conexion.EjecutarNonQuery("INSERT INTO trabaja VALUES ('" + NombreUsuarioEmpM + "','" + SucursalUsuarioEmpM + "','" + fechActual + "',NULL)") = True) Then
+                                If (conexion.EjecutarNonQuery("UPDATE empleado SET tipo = " + TipoUsuarioEmpM + " WHERE idpersona = '" + idPersonaUsuarioEM + "'") = True) Then
 
+                                    MsgBox("Empleado Modificado Correctamente")
+                                    RecargarDatos(dgvEmpleados)
+
+                                Else
+                                    MsgBox("Modifica el tipo!")
+                                End If
+
+                            End If
+                        End If
                     Else
-                        MsgBox("Modifica el tipo!")
+                        MsgBox("Debe modificar algo")
                     End If
-
+                Else
+                    MsgBox("error no existe ese empleado")
                 End If
+
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try

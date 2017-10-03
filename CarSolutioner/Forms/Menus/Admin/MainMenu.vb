@@ -46,6 +46,8 @@ Public Class frmMainMenu
         cbxAnioNACliente.SelectedItem = Nothing
         cbxAnioNFCliente.SelectedItem = Nothing
 
+        cbxSucursalFempleados.SelectedItem = Nothing
+        cbxTipoFempleados.SelectedItem = Nothing
 
 
     End Sub

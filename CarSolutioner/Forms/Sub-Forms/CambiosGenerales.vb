@@ -133,7 +133,7 @@
             Dim ReservasActivas As DataTable = conexion.EjecutarSelect("Select idreserva from reserva where estado = 1 and ( idsucursalllegada = '" + idsucursalmod + "' or idsucursalsalida = '" + idsucursalmod + "')")
             If ReservasActivas.Rows.Count = 0 Then
                 estado = "f"
-                If conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = " + cboxsucursalmov.SelectedValue.ToString + " where idsucursal = " + idsucursalmod + "") Then
+                If conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = " + cboxsucursalmov.SelectedValue.ToString + " where idsucursal = " + idsucursalmod + "", "Vehiculos") Then
 
                     MsgBox("Vehiculos trasladados satisfactoriamente a " + cboxsucursalmov.Text + ". La sucursal se declara inactiva.", MsgBoxStyle.Information, "Notificacion")
                     conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
@@ -261,8 +261,8 @@
             conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
         ElseIf Not cbxcatmov.SelectedItem Is Nothing Then
 
-            If conexion.EjecutarNonQuery("update vehiculo set idcategoria = '" + cbxcatmov.SelectedValue.ToString + "' where idcategoria='" + idcategoria + "' ") = False Then
-
+            If conexion.EjecutarNonQuery("update vehiculo set idcategoria = '" + cbxcatmov.SelectedValue.ToString + "' where idcategoria='" + idcategoria + "' ", "Vehiculos") = False Then
+                MsgBox("Categoria ha pasado inactiva.", MsgBoxStyle.Information, "Notificacion")
                 conexion.EjecutarNonQuery("update categoria Set tarifadiariabase ='" + txtTarifaBaseModCat.Text.ToString + "', tarifax150kmdia = '" + txtTarifa150ModCat.Text.ToString + "', tarifax300kmdia = '" + txtTarifa300ModCat.Text.ToString + "', tarifakmlibredia =  '" + txtKmLibreModCat.Text.ToString + "', estado ='f', nombre = '" + txtNomCatMod.Text.ToString + "' where idcategoria='" + idcategoria + "'")
                 conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
             Else

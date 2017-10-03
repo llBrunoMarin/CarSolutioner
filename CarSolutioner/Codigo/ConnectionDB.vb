@@ -291,7 +291,7 @@
 
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
-    Public Function EjecutarNonQuery(sentencia As String) As Boolean
+    Public Function EjecutarNonQuery(sentencia As String, Optional frase As String = Nothing) As Boolean
 
         Dim nrofilas As New Integer()
         Conectar(Usuario, Contraseña)
@@ -303,7 +303,12 @@
             nrofilas = cm.ExecuteNonQuery()
 
             If nrofilas = 0 Then
-                MsgBox("No se realizaron cambios.", MsgBoxStyle.Information, "Advertencia")
+                If frase = Nothing Then
+                    MsgBox("No se realizaron cambios.", MsgBoxStyle.Information, "Advertencia")
+                Else
+                    MsgBox("No se realizaron cambios, en: " + frase, MsgBoxStyle.Information, "Advertencia")
+
+                End If
                 Return False
 
             Else

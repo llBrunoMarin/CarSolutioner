@@ -78,8 +78,8 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvEmpleados.CurrentRow) Then
 
-            cbxSucursalMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idsucursalE").Value.ToString()
-            cbxTipoMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idtipo").Value.ToString()
+            'cbxSucursalMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idsucursalE").Value.ToString()
+            'cbxTipoMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idtipo").Value.ToString()
             txtNroDocEempleado.Text = dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString()
         End If
 

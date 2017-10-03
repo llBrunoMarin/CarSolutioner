@@ -21,9 +21,7 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub lblBorrarTipoDoc_Click(sender As Object, e As EventArgs) Handles lblBorrarTipoDoc.Click
-        cbxTipoDocumFCliente.SelectedItem = Nothing
-    End Sub
+
 
     Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, cbxDiaNFCliente.SelectionChangeCommitted, cbxMesNFCliente.SelectionChangeCommitted, cbxAnioNFCliente.SelectionChangeCommitted, lblBorrarTipoDoc.Click
 
@@ -202,7 +200,7 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvClientes.CurrentRow) Then
 
-            cbxTipoDocumMCliente.SelectedIndex = cbxTipoDocumMCliente.FindString(dgvClientes.CurrentRow.Cells("tipodocumento").Value.ToString())
+            cbxTipoDocumMCliente.SelectedValue = dgvClientes.CurrentRow.Cells("idtipodoc").Value.ToString()
             txtDocumMCliente.Text = dgvClientes.CurrentRow.Cells("nrodocumento").Value.ToString()
             txtNombreMCliente.Text = dgvClientes.CurrentRow.Cells("nombre").Value.ToString
             txtApellidoMCliente.Text = dgvClientes.CurrentRow.Cells("apellido").Value.ToString()

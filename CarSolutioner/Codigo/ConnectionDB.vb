@@ -13,12 +13,14 @@
     Dim _TipoUsuario As String = Nothing
     Dim _ConnectionStatus As String = Nothing
 
+
     Dim _Marcas As DataTable
     Dim _Modelos As DataTable
     Dim _Categorias As DataTable
     Dim _Tipos As DataTable
     Dim _Sucursales As DataTable
     Dim _Documentos As DataTable
+    Dim _TipoEmpleados As New DataTable
 
     Dim _Años As New List(Of String)
 
@@ -31,6 +33,15 @@
         End While
 
         timer.Interval = 10000
+
+        TipoEmpleados.Columns.Add("id", GetType(Integer))
+        TipoEmpleados.Columns.Add("tipos", GetType(String))
+        TipoEmpleados.Rows.Add(1, "Director General")
+        TipoEmpleados.Rows.Add(2, "Gerente")
+        TipoEmpleados.Rows.Add(3, "Jefe de Personal")
+        TipoEmpleados.Rows.Add(4, "Empleado")
+
+
     End Sub
 
     Public Property Usuario() As String
@@ -119,6 +130,15 @@
         End Get
         Set(value As List(Of String))
             _Años = value
+        End Set
+    End Property
+
+    Public Property TipoEmpleados As DataTable
+        Get
+            Return _TipoEmpleados
+        End Get
+        Set(value As DataTable)
+            _TipoEmpleados = value
         End Set
     End Property
 
@@ -292,7 +312,7 @@
 
 
         Catch ex As Exception
-
+            MsgBox(ex.Message)
             Return False
 
         Finally

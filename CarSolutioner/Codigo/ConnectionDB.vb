@@ -287,12 +287,13 @@
                 Return False
 
             Else
+
                 Return True
             End If
 
 
         Catch ex As Exception
-
+            MsgBox(ex.Message)
             Return False
 
         Finally

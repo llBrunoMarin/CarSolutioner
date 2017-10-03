@@ -1,11 +1,10 @@
 ﻿Public Class Reconectar
-    Dim conexion As ConnectionBD = Login.conexion
-    Private Declare Function GetTickCount Lib "kernel32" () As Integer
+
     Private Sub load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnreconectar.Visible = True
         lblreconnect.Text = "Se ha perdido la conexion, pulse reconectar para reintentarlo."
         pboxreconnecting.Visible = False
-   
+
 
 
     End Sub
@@ -43,7 +42,7 @@
 
     Private Sub bgwcargando_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwcargando.DoWork
 
-        Login.conexion.Conectar(conexion.Usuario, conexion.Contraseña)
+        conexion.Conectar(conexion.Usuario, conexion.Contraseña)
 
 
     End Sub
@@ -53,14 +52,14 @@
 
             Case "Opened"
 
-                Login.conexion.ConnectionStatus = "Opened"
+                conexion.ConnectionStatus = "Opened"
                 lblreconnect.Text = "Conexion establecida, pulse continuar."
                 pboxreconnecting.Visible = False
 
                 btncontinuar.Visible = True
 
             Case "BadCredentials"
-                Login.conexion.ConnectionStatus = "BadCredentials"
+                conexion.ConnectionStatus = "BadCredentials"
                 btncontinuar.Visible = True
                 lblreconnect.Text = "Conexion establecida, pulse continuar."
                 pboxreconnecting.Visible = False

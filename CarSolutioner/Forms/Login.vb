@@ -4,8 +4,6 @@ Imports System.Windows.Forms.Integration
 
 
 Public Class Login
-    Private Declare Function GetTickCount Lib "kernel32" () As Integer
-    Public conexion As New ConnectionBD
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         pboxLoading.Hide()

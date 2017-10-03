@@ -134,7 +134,7 @@
         Try
 
             If cx.State = ConnectionState.Closed Then
-
+                cx.ConnectionTimeout = 2
 
                 'SERVIDOR UTU
                 cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
@@ -167,10 +167,10 @@
                 'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
 
 
-                'Me.ConnectionStatus = "NetworkFailure"
-                'If Not Application.OpenForms().OfType(Of Reconectar).Any Then
-                Reconectar.ShowDialog()
-                'End If
+                Me.ConnectionStatus = "NetworkFailure"
+                If Not Application.OpenForms().OfType(Of Reconectar).Any Then
+                    Reconectar.ShowDialog()
+                End If
             End If
 
 

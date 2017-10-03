@@ -1,13 +1,14 @@
 ﻿Module Metodos
 
-    Private Declare Function GetTickCount Lib "kernel32" () As Integer
+    Public Declare Function GetTickCount Lib "kernel32" () As Integer
+
+    Public conexion As New ConnectionBD
 
     Public Sub cargando(imagen As PictureBox, milisegundos As Integer)
 
         Dim retraso As Integer
 
         retraso = milisegundos + GetTickCount
-
 
         While retraso >= GetTickCount
             Application.DoEvents()

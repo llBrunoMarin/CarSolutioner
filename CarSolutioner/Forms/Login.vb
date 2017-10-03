@@ -1,17 +1,13 @@
 ﻿Imports System
 Imports System.Windows.Forms
 Imports System.Windows.Forms.Integration
+
+
 Public Class Login
 
-    Public conexion As New ConnectionBD
-
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         pboxLoading.Hide()
-
     End Sub
-
-
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
@@ -33,41 +29,48 @@ Public Class Login
         lbluser.Visible = False
         lbldataincorrect.Visible = False
 
-
         Dim retraso As Integer
 
         retraso = 2000 + GetTickCount
-
-
 
         While retraso >= GetTickCount
             Application.DoEvents()
         End While
 
-
-
-
     End Sub
-    Private Declare Function GetTickCount Lib "kernel32" () As Integer
-
 
 
     'Hacer operaciones de LOGIN, establece el Tipo de Usuario una vez que termina. Si termina con un error, establece el tipo de usuario según el error.
     Private Sub bgwLogin_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwLogin.DoWork
 
-        conexion.TipoUsuario = Nothing
+
 
         If Not (txtContraseña.Text = "" Or txtUsuario.Text = "") Then
 
             conexion.Usuario = txtUsuario.Text
             conexion.Contraseña = txtContraseña.Text
 
-            'Si conecta:
+            conexion.Conectar(conexion.Usuario, conexion.Contraseña)
+            conexion.Cerrar()
 
-            If (conexion.Conectar(conexion.Usuario, conexion.Contraseña)) = "Verdadero" Then
-                'Cerrar esa conexión
+        Else
+            pboxLoading.Visible = False
+            lbldataincorrect.Text = "Faltan datos"
+            lbldataincorrect.Visible = True
+            txtContraseña.Visible = True
+            txtUsuario.Visible = True
+            btnLogin.Visible = True
+            lblpass.Visible = True
+            lbluser.Visible = True
+        End If
+    End Sub
 
-                conexion.Cerrar()
+    'Este código se ejecuta solamente cuando el método "DoWork" termina de ejecutarse.
+    Private Sub bgwLogin_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bgwLogin.RunWorkerCompleted
+
+        Select Case conexion.ConnectionStatus
+            Case "Opened"
+
                 'Conseguimos el Tipo de Usuario de la persona conectada:
                 Dim tipousuario As New DataTable
                 tipousuario = conexion.EjecutarSelect("SELECT tipo from empleado where usuario = '" & conexion.Usuario & "' ;")
@@ -76,7 +79,7 @@ Public Class Login
                     Select Case tipousuario.Rows(0).Item(0)
 
                         Case 1
-                            conexion.TipoUsuario = 1
+                            frmMainMenu.Show()
 
                         Case 2
                             Me.Hide()
@@ -94,73 +97,18 @@ Public Class Login
 
                 Catch ex As IndexOutOfRangeException
 
-                    conexion.TipoUsuario = "Error"
+                    pboxLoading.Visible = False
+                    lbldataincorrect.Text = "Usuario carece de rango."
+                    lbldataincorrect.Visible = True
+                    txtContraseña.Visible = True
+                    txtUsuario.Visible = True
+                    btnLogin.Visible = True
+                    lblpass.Visible = True
+                    lbluser.Visible = True
 
                 End Try
-            ElseIf (conexion.Conectar(conexion.Usuario, conexion.Contraseña)) = "BadCredentials" Then
-                conexion.TipoUsuario = "Incorrecto"
 
-            Else
-                conexion.TipoUsuario = "Red"
-                conexion.Cerrar()
-            End If
-
-        Else
-            conexion.TipoUsuario = "Vacio"
-        End If
-    End Sub
-
-    'Este código se ejecuta solamente cuando el método "DoWork" termina de ejecutarse.
-    Private Sub bgwLogin_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bgwLogin.RunWorkerCompleted
-
-        'Según como haya quedado el tipo de Usuario:
-        Select Case conexion.TipoUsuario
-
-            Case 1
-                frmMainMenu.Show()
-            Case 2
-
-            Case 3
-
-            Case "Red"
-                pboxLoading.Visible = False
-                lbldataincorrect.Text = "Hubo un problema de red, intente nuevamente"
-                lbldataincorrect.Visible = True
-                txtContraseña.Visible = True
-                txtUsuario.Visible = True
-                btnLogin.Visible = True
-                lblpass.Visible = True
-                lbluser.Visible = True
-
-            Case "Error"
-
-
-                'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
-                pboxLoading.Visible = False
-                lbldataincorrect.Text = "Usuario carece de rango."
-                lbldataincorrect.Visible = True
-                txtContraseña.Visible = True
-                txtUsuario.Visible = True
-                btnLogin.Visible = True
-                lblpass.Visible = True
-                lbluser.Visible = True
-
-
-
-            Case "Vacio"
-
-                pboxLoading.Visible = False
-                lbldataincorrect.Text = "Faltan datos en  los campos."
-                lbldataincorrect.Visible = True
-                txtContraseña.Visible = True
-                txtUsuario.Visible = True
-                btnLogin.Visible = True
-                lblpass.Visible = True
-                lbluser.Visible = True
-
-                'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
-
-            Case "Incorrecto"
+            Case "BadCredentials"
                 pboxLoading.Visible = False
                 lbldataincorrect.Text = "Datos incorrectos."
                 lbldataincorrect.Visible = True
@@ -170,8 +118,10 @@ Public Class Login
                 lblpass.Visible = True
                 lbluser.Visible = True
 
+            Case "NetworkFailure"
+
+
             Case Else
-                'ACÁ PONER PROPIEDADES POR DEFECTO DEL DATAGRIDVIEW (el pbox desactivado, por ej)
                 pboxLoading.Visible = False
                 lbldataincorrect.Text = "Ups!, ha ocurrido un error, contacta al soporte."
                 lbldataincorrect.Visible = True
@@ -182,6 +132,7 @@ Public Class Login
                 lbluser.Visible = True
 
         End Select
+
     End Sub
 
 

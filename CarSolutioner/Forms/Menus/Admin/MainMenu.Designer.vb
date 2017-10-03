@@ -18,7 +18,7 @@ Partial Class frmMainMenu
     Private components As System.ComponentModel.IContainer
 
     'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
+    'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
@@ -272,6 +272,15 @@ Partial Class frmMainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabEmpleado = New System.Windows.Forms.TabPage()
         Me.dgvEmpleados = New System.Windows.Forms.DataGridView()
+        Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlMEmp = New System.Windows.Forms.Panel()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Label74 = New System.Windows.Forms.Label()
@@ -617,7 +626,7 @@ Partial Class frmMainMenu
         Me.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReservas.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReservas.ForeColor = System.Drawing.Color.White
-        Me.btnReservas.Location = New System.Drawing.Point(-3, 141)
+        Me.btnReservas.Location = New System.Drawing.Point(-3, 182)
         Me.btnReservas.Name = "btnReservas"
         Me.btnReservas.Size = New System.Drawing.Size(260, 65)
         Me.btnReservas.TabIndex = 0
@@ -634,7 +643,7 @@ Partial Class frmMainMenu
         Me.btnMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMantenimiento.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMantenimiento.ForeColor = System.Drawing.Color.White
-        Me.btnMantenimiento.Location = New System.Drawing.Point(2, 416)
+        Me.btnMantenimiento.Location = New System.Drawing.Point(2, 457)
         Me.btnMantenimiento.Name = "btnMantenimiento"
         Me.btnMantenimiento.Size = New System.Drawing.Size(255, 65)
         Me.btnMantenimiento.TabIndex = 2
@@ -651,7 +660,7 @@ Partial Class frmMainMenu
         Me.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEmpleados.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEmpleados.ForeColor = System.Drawing.Color.White
-        Me.btnEmpleados.Location = New System.Drawing.Point(-3, 345)
+        Me.btnEmpleados.Location = New System.Drawing.Point(-3, 386)
         Me.btnEmpleados.Name = "btnEmpleados"
         Me.btnEmpleados.Size = New System.Drawing.Size(260, 65)
         Me.btnEmpleados.TabIndex = 0
@@ -668,7 +677,7 @@ Partial Class frmMainMenu
         Me.btnVehiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVehiculos.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVehiculos.ForeColor = System.Drawing.Color.White
-        Me.btnVehiculos.Location = New System.Drawing.Point(-3, 283)
+        Me.btnVehiculos.Location = New System.Drawing.Point(-3, 324)
         Me.btnVehiculos.Name = "btnVehiculos"
         Me.btnVehiculos.Size = New System.Drawing.Size(260, 65)
         Me.btnVehiculos.TabIndex = 0
@@ -685,7 +694,7 @@ Partial Class frmMainMenu
         Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClientes.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClientes.ForeColor = System.Drawing.Color.White
-        Me.btnClientes.Location = New System.Drawing.Point(-3, 212)
+        Me.btnClientes.Location = New System.Drawing.Point(-3, 253)
         Me.btnClientes.Name = "btnClientes"
         Me.btnClientes.Size = New System.Drawing.Size(260, 65)
         Me.btnClientes.TabIndex = 0
@@ -695,7 +704,7 @@ Partial Class frmMainMenu
         'pcboxloading
         '
         Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
-        Me.pcboxloading.Location = New System.Drawing.Point(36, 24)
+        Me.pcboxloading.Location = New System.Drawing.Point(36, 44)
         Me.pcboxloading.Name = "pcboxloading"
         Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
         Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -706,7 +715,7 @@ Partial Class frmMainMenu
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
-        Me.PictureBox2.Location = New System.Drawing.Point(36, 24)
+        Me.PictureBox2.Location = New System.Drawing.Point(36, 44)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -3247,6 +3256,71 @@ Partial Class frmMainMenu
         Me.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvEmpleados.Size = New System.Drawing.Size(743, 798)
         Me.dgvEmpleados.TabIndex = 10
+        '
+        'nrodocumentoE
+        '
+        Me.nrodocumentoE.DataPropertyName = "nrodocumento"
+        Me.nrodocumentoE.HeaderText = "Nro Documento"
+        Me.nrodocumentoE.Name = "nrodocumentoE"
+        Me.nrodocumentoE.ReadOnly = True
+        '
+        'nombreE
+        '
+        Me.nombreE.DataPropertyName = "nombre"
+        Me.nombreE.HeaderText = "Nombre"
+        Me.nombreE.Name = "nombreE"
+        Me.nombreE.ReadOnly = True
+        '
+        'apellidoE
+        '
+        Me.apellidoE.DataPropertyName = "apellido"
+        Me.apellidoE.HeaderText = "Apellido"
+        Me.apellidoE.Name = "apellidoE"
+        Me.apellidoE.ReadOnly = True
+        '
+        'emailE
+        '
+        Me.emailE.DataPropertyName = "email"
+        Me.emailE.HeaderText = "Correo"
+        Me.emailE.Name = "emailE"
+        Me.emailE.ReadOnly = True
+        '
+        'usuarioE
+        '
+        Me.usuarioE.DataPropertyName = "usuario"
+        Me.usuarioE.HeaderText = "Usuario"
+        Me.usuarioE.Name = "usuarioE"
+        Me.usuarioE.ReadOnly = True
+        '
+        'sucursalesE
+        '
+        Me.sucursalesE.DataPropertyName = "sucursales"
+        Me.sucursalesE.HeaderText = "Sucursales"
+        Me.sucursalesE.Name = "sucursalesE"
+        Me.sucursalesE.ReadOnly = True
+        '
+        'idpersonaE
+        '
+        Me.idpersonaE.DataPropertyName = "idpersona"
+        Me.idpersonaE.HeaderText = "id Persona"
+        Me.idpersonaE.Name = "idpersonaE"
+        Me.idpersonaE.ReadOnly = True
+        Me.idpersonaE.Visible = False
+        '
+        'idsucursalE
+        '
+        Me.idsucursalE.DataPropertyName = "idsucursal"
+        Me.idsucursalE.HeaderText = "id Sucursal"
+        Me.idsucursalE.Name = "idsucursalE"
+        Me.idsucursalE.ReadOnly = True
+        Me.idsucursalE.Visible = False
+        '
+        'tipoE
+        '
+        Me.tipoE.DataPropertyName = "tipo"
+        Me.tipoE.HeaderText = "Tipo"
+        Me.tipoE.Name = "tipoE"
+        Me.tipoE.ReadOnly = True
         '
         'pnlMEmp
         '

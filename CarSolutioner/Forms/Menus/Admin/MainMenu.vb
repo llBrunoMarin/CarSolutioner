@@ -1,10 +1,7 @@
 ﻿'MenuPrincipal (DISEÑO)
 Public Class frmMainMenu
 
-    Dim conexion As ConnectionBD = Login.conexion
     Public ReservaSeleccionada As New ReservaSeleccionada(conexion)
-
-
 
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -48,7 +45,6 @@ Public Class frmMainMenu
 
         cbxSucursalFempleados.SelectedItem = Nothing
         cbxTipoFempleados.SelectedItem = Nothing
-
 
     End Sub
 

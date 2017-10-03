@@ -169,6 +169,12 @@
       <DependentUpon>MainMenu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Sub-Forms\Reconectar.Designer.vb">
+      <DependentUpon>Reconectar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sub-Forms\Reconectar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Sub-Forms\TelefonosCliente.Designer.vb">
       <DependentUpon>TelefonosCliente.vb</DependentUpon>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menus\Admin\MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sub-Forms\Reconectar.resx">
+      <DependentUpon>Reconectar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sub-Forms\TelefonosCliente.resx">
       <DependentUpon>TelefonosCliente.vb</DependentUpon>

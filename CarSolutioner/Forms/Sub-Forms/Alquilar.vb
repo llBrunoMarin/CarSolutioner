@@ -1,6 +1,5 @@
 ﻿Public Class frmAlquilar
 
-    Dim conexion As ConnectionBD = Login.conexion
     Dim ReservaSeleccionada As ReservaSeleccionada = frmMainMenu.ReservaSeleccionada
 
     'Agregar resalquiler fin para cambiar con la q este en el form, por si la quiere cambiar 

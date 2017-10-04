@@ -46,6 +46,7 @@ Public Class frmMainMenu
         cbxSucursalFempleados.SelectedItem = Nothing
         cbxTipoFempleados.SelectedItem = Nothing
 
+
     End Sub
 
     Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnVehiculos.Click, btnReservas.Click, btnMantenimiento.Click, btnEmpleados.Click, btnClientes.Click
@@ -160,6 +161,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos, "nombre", "idtipo")
+
         CargarDatosComboBox(cbxTipoFempleados, conexion.TipoEmpleados, "tipos", "id")
         CargarDatosComboBox(cbxTipoMempleados, conexion.TipoEmpleados, "tipos", "id")
         CargarDatosComboBox(cbxTipoCempleados, conexion.TipoEmpleados, "tipos", "id")
@@ -195,6 +197,10 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxAnioNFCliente, conexion.Años)
         CargarDatosComboBox(cbxAnioNACliente, conexion.Años)
         CargarDatosComboBox(cbxAnioNMCliente, conexion.Años)
+
+        'KILOMETROS
+        CargarDatosComboBox(cbxKilomFRes, conexion.CantidadKM, "km", "id")
+        CargarDatosComboBox(cbxKmARes, conexion.CantidadKM, "km", "id")
 
 
 
@@ -248,8 +254,12 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnCargarDatos_Click(sender As Object, e As EventArgs) Handles btnRecargarDatos.Click
         CargarDatos()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        ExportarDataGridViewPDF(dgvClientes, "")
     End Sub
 
 End Class

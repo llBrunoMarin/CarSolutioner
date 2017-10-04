@@ -18,6 +18,7 @@
     Dim _Modelos As DataTable
     Dim _Categorias As DataTable
     Dim _Tipos As DataTable
+    Dim _CantidadKM As DataTable
     Dim _Sucursales As DataTable
     Dim _Documentos As DataTable
     Dim _TipoEmpleados As New DataTable
@@ -26,6 +27,7 @@
 
     'El constructor de la clase. El código de aquí se ejecutará cada vez que se cree una instancia de esta clase. Es como el "load" pero de la clase, no es de ningun formulario.
     Public Sub New()
+
         Dim añosaux As Integer = 1900
         While añosaux <= CInt(DateTime.Today.Year)
             Años.Add(añosaux.ToString)
@@ -41,6 +43,11 @@
         TipoEmpleados.Rows.Add(3, "Jefe de Personal")
         TipoEmpleados.Rows.Add(4, "Empleado")
 
+        CantidadKM.Columns.Add("id", GetType(Integer))
+        CantidadKM.Columns.Add("km", GetType(String))
+        CantidadKM.Rows.Add(1, "Máx. 150 KM por día")
+        CantidadKM.Rows.Add(2, "Máx. 300 KM por día")
+        CantidadKM.Rows.Add(3, "KM Libres por día")
 
     End Sub
 
@@ -142,6 +149,15 @@
         End Set
     End Property
 
+    Public Property CantidadKM As DataTable
+        Get
+            Return _CantidadKM
+        End Get
+        Set(value As DataTable)
+            _CantidadKM = value
+        End Set
+    End Property
+
 
 
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
@@ -157,11 +173,11 @@
                 cx.ConnectionTimeout = 2
 
                 'SERVIDOR UTU
-                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
 
                 'SERVIDOR VICTOR
-                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
                 'SERVIDOR VICTOR 32 BITS
                 'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"

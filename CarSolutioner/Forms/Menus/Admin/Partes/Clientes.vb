@@ -7,7 +7,7 @@ End Class
 
 'CLIENTES
 Partial Public Class frmMainMenu
-
+    'TODO: Telefonos con coma
     Private Sub chboxFechaFClientes_CheckedChanged(sender As Object, e As EventArgs) Handles chbxFechaFClientes.CheckedChanged
 
         If chbxFechaFClientes.Checked Then

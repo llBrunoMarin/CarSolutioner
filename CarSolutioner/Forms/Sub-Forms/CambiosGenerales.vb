@@ -21,7 +21,7 @@
         Me.Dispose()
     End Sub
     Dim idsucursalmod As String
-    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnSucursales.Click, btnCategorias.Click, btnMarcas.Click, btnModelos.Click
+    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnSucursales.Click, btnCategorias.Click
 
         ResetColors()
 
@@ -38,7 +38,7 @@
 
 
             Case "btnMarcas"
-                SetTabAndColors(btnMarcas, tbpMarcas, Color.White)
+                SetTabAndColors(btnMarcas, tbpVehiculos, Color.White)
 
             Case "btnModelos"
                 SetTabAndColors(btnModelos, tbpModelos, Color.White)
@@ -148,7 +148,7 @@
                 End If
 
             Else
-                    MsgBox("Tienes reservas activas en esta sucursal, no puede ser dada de baja hasta que las reservas sean derivadas manualmente.", MsgBoxStyle.Exclamation, "Notificacion")
+                MsgBox("Tienes reservas activas en esta sucursal, no puede ser dada de baja hasta que las reservas sean derivadas manualmente.", MsgBoxStyle.Exclamation, "Notificacion")
             End If
 
 
@@ -228,7 +228,7 @@
     End Sub
     Private Sub categoriamod(sender As Object, e As EventArgs) Handles dgvCategorias.SelectionChanged
         cbxcatmov.SelectedItem = Nothing
-        cbxcatmov.DataSource=Nothing
+        cbxcatmov.DataSource = Nothing
         If Not IsNothing(dgvCategorias.CurrentRow) Then
             txtNomCatMod.Text = dgvCategorias.CurrentRow.Cells("nombre").Value.ToString()
             txtTarifaBaseModCat.Text = dgvCategorias.CurrentRow.Cells("tarifadiariabase").Value.ToString()
@@ -298,5 +298,9 @@
             pnlcatmov.Enabled = False
 
         End If
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+
     End Sub
 End Class

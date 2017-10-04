@@ -1,7 +1,6 @@
 ﻿Module Metodos
 
     Public Declare Function GetTickCount Lib "kernel32" () As Integer
-
     Public conexion As New ConnectionBD
 
     Public Sub cargando(imagen As PictureBox, milisegundos As Integer)

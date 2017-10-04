@@ -1,14 +1,5 @@
 ﻿Public Class Reconectar
 
-    Private Sub load(sender As Object, e As EventArgs) Handles MyBase.Load
-        btnreconectar.Visible = True
-        lblreconnect.Text = "Se ha perdido la conexion, pulse reconectar para reintentarlo."
-        pboxreconnecting.Visible = False
-
-
-
-    End Sub
-
 
     Private Sub loading()
         Dim retraso As Integer
@@ -27,6 +18,9 @@
     End Sub
 
     Private Sub Reconectar_Load(sender As Object, e As EventArgs) Handles btnreconectar.Click
+        btnreconectar.Visible = True
+        lblreconnect.Text = "Se ha perdido la conexion, pulse reconectar para reintentarlo."
+        pboxreconnecting.Visible = False
         loading()
         bgwcargando.RunWorkerAsync()
     End Sub

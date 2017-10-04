@@ -1,9 +1,4 @@
-﻿Imports iTextSharp
-Imports iTextSharp.text
-Imports iTextSharp.text.pdf
-Imports System.IO
-
-Module Metodos
+﻿Module Metodos
 
     Public Declare Function GetTickCount Lib "kernel32" () As Integer
 
@@ -184,46 +179,6 @@ Module Metodos
 
     End Sub
 
-    Public Sub ExportarDataGridViewPDF(dgv As DataGridView, nombrearchivo As String)
-
-        Dim pdfTable As New PdfPTable(dgv.ColumnCount)
-        pdfTable.SetWidths(TamañoColumnas(dgv))
-        pdfTable.WidthPercentage = 100
-        pdfTable.DefaultCell.BorderWidth = 2
-        pdfTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER
-        pdfTable.HeaderRows = 1
-        pdfTable.DefaultCell.BorderWidth = 1
-
-        For Each row As DataGridViewRow In dgv.Rows
-            For Each cell As DataGridViewCell In row.Cells
-                pdfTable.AddCell(cell.Value.ToString())
-            Next
-        Next
-
-        'Exporting to PDF
-        Dim folderPath As String = "C:\PDFs\"
-        If Not Directory.Exists(folderPath) Then
-            Directory.CreateDirectory(folderPath)
-        End If
-        Using stream As New FileStream(folderPath & "DataGridViewExport.pdf", FileMode.Create)
-            Dim pdfDoc As New Document(PageSize.A4, 10.0F, 10.0F, 10.0F, 0.0F)
-            PdfWriter.GetInstance(pdfDoc, stream)
-            pdfDoc.Open()
-            pdfDoc.Add(pdfTable)
-            pdfDoc.Close()
-            stream.Close()
-        End Using
-
-    End Sub
-
-    'La funcion se usara en el metodo para crear el reporte en PDF.
-    Public Function TamañoColumnas(dgv As DataGridView) As Single()
-        Dim values As Single() = New Single(dgv.ColumnCount - 1) {}
-        For i As Integer = 0 To dgv.ColumnCount - 1
-            values(i) = CSng(dgv.Columns(i).Width)
-        Next
-        Return values
-    End Function
 
 End Module
 

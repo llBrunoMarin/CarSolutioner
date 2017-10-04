@@ -202,7 +202,7 @@ Public Class frmMainMenu
         Me.Opacity = 100
         Login.Hide()
     End Sub
-
+    'compilanding
     'Segun el DataGridView que se pase como argumento, es las cargas que realiza.
     Public Sub RecargarDatos(dgv As DataGridView, Optional sentencia As String = "")
 

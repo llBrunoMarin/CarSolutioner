@@ -37,7 +37,7 @@ Partial Public Class frmMainMenu
                         'Si el item seleccionado es "Otro"
                     Else
                         frmCambiosGenerales.Show()
-                        frmCambiosGenerales.btnMarcas.PerformClick()
+                        frmCambiosGenerales.btnvehiculos.PerformClick()
                     End If
                 End If
             End If
@@ -81,7 +81,7 @@ Partial Public Class frmMainMenu
 
                 Else
                     frmCambiosGenerales.Show()
-                    frmCambiosGenerales.btnModelos.PerformClick()
+                    frmCambiosGenerales.btnvehiculos.PerformClick()
                 End If
             End If
         Else

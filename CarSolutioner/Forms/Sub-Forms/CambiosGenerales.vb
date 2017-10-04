@@ -38,10 +38,9 @@
 
 
             Case "btnMarcas"
-                SetTabAndColors(btnMarcas, tbpVehiculos, Color.White)
+                SetTabAndColors(btnvehiculos, tbpVehiculos, Color.White)
 
-            Case "btnModelos"
-                SetTabAndColors(btnModelos, tbpModelos, Color.White)
+
 
 
         End Select

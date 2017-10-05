@@ -12,17 +12,15 @@ Partial Public Class frmMainMenu
     Private Sub BorrarSucEmpleado(sender As Object, e As EventArgs) Handles lblBorrarSucursalFEmpleado.Click
         cbxSucursalFempleados.SelectedItem = Nothing
     End Sub
-    Private Sub FiltrosEmpleados(sender As Object, e As EventArgs) Handles txtNroDocFempleado.TextChanged, cbxSucursalFempleados.SelectionChangeCommitted,
-                                                                            cbxTipoFempleados.SelectionChangeCommitted, txtNombreFempleado.TextChanged,
-                                                                             txtApellidoFempleado.TextChanged, lblBorrarTipoFEmpleado.Click, lblBorrarSucursalFEmpleado.Click
+    Private Sub FiltrosEmpleados(sender As Object, e As EventArgs) Handles txtNroDocFempleado.TextChanged, cbxSucursalFempleados.SelectionChangeCommitted, cbxTipoFempleados.SelectionChangeCommitted, txtNombreFempleado.TextChanged, txtApellidoFempleado.TextChanged, lblBorrarTipoFEmpleado.Click, lblBorrarSucursalFEmpleado.Click
 
         Dim filtro As String
 
         filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'",
                                            "nrodocumento", txtNroDocFempleado.Text,
                                            "nombre", txtNombreFempleado.Text,
-                                           "apellido", txtApellidoFempleado.Text) + TipoFiltro(cbxTipoFempleados, "idtipo") '+
-        'TipoFiltro(cbxSucursalFempleados, "idsucursalE")
+                                           "apellido", txtApellidoFempleado.Text) + TipoFiltro(cbxTipoFempleados, "idtipo") +
+                                                                                    TipoFiltro(cbxSucursalFempleados, "idsucursal")
 
         dgvEmpleados.DataSource.Filter = filtro
 
@@ -37,9 +35,18 @@ Partial Public Class frmMainMenu
         Dim FaltaDato As Boolean = False
 
         For Each ctrl As Control In pnlAEmp.Controls
-            If TypeOf (ctrl) Is ComboBox Then
-                If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
-                    FaltaDato = True
+            If TypeOf (ctrl) Is TextBox Then
+                If Not ctrl.Name = "txtCorreoACliente" Then
+                    If ctrl.Text = "" Then
+                        FaltaDato = True
+                        Exit For
+                    End If
+                End If
+            Else
+                If TypeOf (ctrl) Is ComboBox Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                        FaltaDato = True
+                    End If
                 End If
             End If
         Next
@@ -47,28 +54,35 @@ Partial Public Class frmMainMenu
         If Not (FaltaDato) Then
             Dim idPersonaInsertar As New DataTable
 
-            idPersonaInsertar = conexion.EjecutarSelect("select idpersona from cliente where nrodocumento = '" & txtNroDocumentoCempleado.Text & "'")
+            idPersonaInsertar = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" + txtNroDocumentoCempleado.Text + "'")
+
 
             If (idPersonaInsertar.Rows.Count <> 0) Then
-                Dim IdPersona As String = idPersonaInsertar.Rows(0)("idpersona").ToString()
 
-                If (conexion.EjecutarNonQuery("insert into empleado values ('" + IdPersona + "','" + cbxTipoCempleados.SelectedValue.ToString + "','" + txtNombreUsuarioCempleado.Text.ToString + "','t')") = True) Then
+                Dim idpersonaRepetido As New DataTable
+                idpersonaRepetido = conexion.EjecutarSelect("SELECT idpersona FROM empleado where idpersona = '" + idPersonaInsertar.Rows(0)(0).ToString() + "'")
 
-                    If (conexion.EjecutarNonQuery("insert into trabaja values ('" + txtNombreUsuarioCempleado.Text + "','" + cbxSucursalCempleados.SelectedValue.ToString + "','" + fechActual.ToString + "',NULL)") = True) Then
+                If Not (idpersonaRepetido.Rows.Count <> 0) Then
 
-                        MsgBox("Empleado insertado correctamente")
-                        RecargarDatos(dgvEmpleados)
+                    Dim IdPersona As String = idPersonaInsertar.Rows(0)("idpersona").ToString()
 
+                    If (conexion.EjecutarNonQuery("INSERT INTO empleado VALUES ('" + IdPersona + "','" + cbxTipoCempleados.SelectedValue.ToString + "','" + txtNombreUsuarioCempleado.Text.ToString + "','t')") = True) Then
+
+                        If (conexion.EjecutarNonQuery("INSERT INTO trabaja VALUES ('" + txtNombreUsuarioCempleado.Text + "','" + cbxSucursalCempleados.SelectedValue.ToString + "','" + fechActual.ToString + "',NULL)") = True) Then
+
+                            MsgBox("Empleado insertado correctamente")
+                            RecargarDatos(dgvEmpleados)
+
+                        End If
+                    Else
+                        MsgBox("Error en el insert")
                     End If
                 Else
-                    MsgBox(" noseqpaso")
+                    MsgBox("Este empleado ya existe")
                 End If
-
             Else
-                MsgBox("Ese cliente no existe. Por favor, verifique.")
-
+                MsgBox("Ese cliente no existe por favor verifique")
             End If
-
         Else
             MsgBox("Por favor, rellene todos los campos.")
         End If
@@ -78,9 +92,9 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvEmpleados.CurrentRow) Then
 
-            'cbxSucursalMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idsucursalE").Value.ToString()
-            'cbxTipoMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idtipo").Value.ToString()
-            'txtNroDocEempleado.Text = dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString()
+            cbxSucursalMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idsucursalEmpleado").Value.ToString()
+            cbxTipoMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idtipoEmpleado").Value.ToString()
+            txtNroDocEempleado.Text = dgvEmpleados.CurrentRow.Cells("nrodocumentoEmpleado").Value.ToString()
         End If
 
     End Sub
@@ -112,8 +126,6 @@ Partial Public Class frmMainMenu
             MsgBox("Ese cliente no existe. Por favor, verifique.")
 
         End If
-
-
     End Sub
 
 
@@ -141,10 +153,10 @@ Partial Public Class frmMainMenu
 
             Try
 
-                idPersonaUsuarioEM = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" & dgvEmpleados.CurrentRow.Cells("nrodocumentoE").Value.ToString() & "'").Rows(0)(0).ToString()
-                NombreUsuarioEmpM = dgvEmpleados.CurrentRow.Cells("usuarioE").Value.ToString()
-                TipoEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idtipo").Value.ToString()
-                SucursalEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idsucursalE").Value.ToString()
+                idPersonaUsuarioEM = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" & dgvEmpleados.CurrentRow.Cells("nrodocumentoEmpleado").Value.ToString() & "'").Rows(0)(0).ToString()
+                NombreUsuarioEmpM = dgvEmpleados.CurrentRow.Cells("usuariosEmpleado").Value.ToString()
+                TipoEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idtipoEmpleado").Value.ToString()
+                SucursalEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idsucursalEmpleado").Value.ToString()
                 SucursalUsuarioEmpM = cbxSucursalMempleados.SelectedValue
                 TipoUsuarioEmpM = cbxTipoMempleados.SelectedValue
 
@@ -179,8 +191,6 @@ Partial Public Class frmMainMenu
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-
-
         Else
             MsgBox("Faltan campos")
         End If

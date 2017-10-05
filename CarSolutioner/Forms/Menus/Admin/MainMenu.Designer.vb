@@ -96,7 +96,6 @@ Partial Class frmMainMenu
         Me.Label80 = New System.Windows.Forms.Label()
         Me.txtDocumentoBCliente = New System.Windows.Forms.TextBox()
         Me.pnlFClientes = New System.Windows.Forms.Panel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label107 = New System.Windows.Forms.Label()
         Me.lblBorrarTipoDoc = New System.Windows.Forms.Label()
         Me.gbxFecNacFCliente = New System.Windows.Forms.GroupBox()
@@ -1315,7 +1314,6 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFClientes.BackColor = System.Drawing.Color.Silver
         Me.pnlFClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlFClientes.Controls.Add(Me.TextBox1)
         Me.pnlFClientes.Controls.Add(Me.Label107)
         Me.pnlFClientes.Controls.Add(Me.lblBorrarTipoDoc)
         Me.pnlFClientes.Controls.Add(Me.gbxFecNacFCliente)
@@ -1337,13 +1335,6 @@ Partial Class frmMainMenu
         Me.pnlFClientes.Name = "pnlFClientes"
         Me.pnlFClientes.Size = New System.Drawing.Size(578, 199)
         Me.pnlFClientes.TabIndex = 42
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(29, 174)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 46
         '
         'Label107
         '
@@ -6650,7 +6641,6 @@ Partial Class frmMainMenu
     Friend WithEvents idsucursalveh As DataGridViewTextBoxColumn
     Friend WithEvents idmarcaveh As DataGridViewTextBoxColumn
     Friend WithEvents estadov As DataGridViewTextBoxColumn
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents tabEmpleado As TabPage
     Friend WithEvents tabReporteEmpleado As TabPage

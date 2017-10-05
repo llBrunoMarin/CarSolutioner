@@ -27,9 +27,11 @@ Partial Public Class frmMainMenu
                             Case "cbxMarcaAVeh"
                                 CargarDatosComboBox(cbxModeloAVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
                                 cbxModeloAVeh.Enabled = True
+                                cbxModeloAVeh.SelectedItem = Nothing
                             Case "cbxMarcaFVeh"
                                 CargarDatosComboBox(cbxModeloFVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaFVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
                                 cbxModeloFVeh.Enabled = True
+                                cbxModeloFVeh.SelectedItem = Nothing
                             Case Else
 
                         End Select
@@ -217,9 +219,5 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub lblBorrarMarcaFVeh_Click(sender As Object, e As EventArgs) Handles lblBorrarMarcaFVeh.Click
-        cbxMarcaFVeh.SelectedItem = Nothing
-        cbxMarcaFVeh.Text = "Todos"
 
-    End Sub
 End Class

@@ -29,23 +29,26 @@ Partial Public Class frmMainMenu
             dtpModifFechaFinMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToShortDateString()
             txtModifDescripcionMant.Text = dgvMant.CurrentRow.Cells("descripcionmant").Value.ToString()
 
+            Dim estadomodif As Boolean
+            estadomodif = dgvMant.CurrentRow.Cells("estadomant").Value
+
+
 
         End If
     End Sub
 
     Private Sub btnModifMant_Click(sender As Object, e As EventArgs) Handles btnModifMant.Click
 
-        'Dim nrochasismodif As String
-        'nrochasismodif = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtModifMatriculaMant.Text.ToString + "'").Rows(0)(0).ToString
-        '
-        ' Dim idmantmodif As String
-        'idmantmodif = dgvMant.CurrentRow.Cells("idmantenimientomant").Value.ToString()
+        Dim nrochasismodif As String
+        nrochasismodif = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtModifMatriculaMant.Text.ToString + "'").Rows(0)(0).ToString
 
-        'conexion.EjecutarNonQuery("UPDATE mantenimiento SET tipo ='" + cbxModifTipoMant.SelectedItem + ",
-        ' descripcion = '" + txtModifDescripcionMant.Text.ToString + "',
-        'fechainicio = '" + dtpModifFechaInicioMant.Value.ToShortDateString + "',
-        'fechafin = '" + dtpModifFechaFinMant.Value.ToShortDateString + "',
-        'nrochasis = '" + nrochasismodif + "', estado = '' WHERE idmantenimiento= " + idmantmodif + ")")
+        Dim idmantmodif As String
+        idmantmodif = dgvMant.CurrentRow.Cells("idmantenimientomant").Value.ToString()
+
+        If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET tipo ='" + cbxModifTipoMant.SelectedItem + "', descripcion = '" + txtModifDescripcionMant.Text.ToString + "', fechainicio = '" + dtpModifFechaInicioMant.Value.ToShortDateString + "', fechafin = '" + dtpModifFechaFinMant.Value.ToShortDateString + "', nrochasis = '" + nrochasismodif + "', estado = 't' WHERE idmantenimiento= '" + idmantmodif + "'") = True) Then
+            MsgBox("Modificación existosa")
+            RecargarDatos(dgvMant)
+        End If
     End Sub
 
 End Class

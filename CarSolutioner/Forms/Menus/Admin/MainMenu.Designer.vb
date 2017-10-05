@@ -483,6 +483,19 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
+        Me.nrodocumentoEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombreEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellidoEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.emailEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuariosEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipoEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursalesEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipoEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadoEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonaEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label77 = New System.Windows.Forms.Label()
@@ -503,6 +516,7 @@ Partial Class frmMainMenu
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -3262,6 +3276,7 @@ Partial Class frmMainMenu
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvEmpleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrodocumentoEmpleado, Me.nombreEmpleado, Me.apellidoEmpleado, Me.emailEmpleado, Me.usuariosEmpleado, Me.tipoEmpleado, Me.sucursalesEmpleado, Me.idtipoEmpleado, Me.idsucursalEmpleado, Me.estadoEmpleado, Me.idpersonaEmpleado})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -5629,6 +5644,88 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
+
+        'nrodocumentoEmpleado
+        '
+        Me.nrodocumentoEmpleado.DataPropertyName = "nrodocumento"
+        Me.nrodocumentoEmpleado.HeaderText = "Nro Documento"
+        Me.nrodocumentoEmpleado.Name = "nrodocumentoEmpleado"
+        Me.nrodocumentoEmpleado.ReadOnly = True
+        '
+        'nombreEmpleado
+        '
+        Me.nombreEmpleado.DataPropertyName = "nombre"
+        Me.nombreEmpleado.HeaderText = "Nombre"
+        Me.nombreEmpleado.Name = "nombreEmpleado"
+        Me.nombreEmpleado.ReadOnly = True
+        '
+        'apellidoEmpleado
+        '
+        Me.apellidoEmpleado.DataPropertyName = "apellido"
+        Me.apellidoEmpleado.HeaderText = "Apellido"
+        Me.apellidoEmpleado.Name = "apellidoEmpleado"
+        Me.apellidoEmpleado.ReadOnly = True
+        '
+        'emailEmpleado
+        '
+        Me.emailEmpleado.DataPropertyName = "email"
+        Me.emailEmpleado.HeaderText = "Correo"
+        Me.emailEmpleado.Name = "emailEmpleado"
+        Me.emailEmpleado.ReadOnly = True
+        '
+        'usuariosEmpleado
+        '
+        Me.usuariosEmpleado.DataPropertyName = "usuario"
+        Me.usuariosEmpleado.HeaderText = "Usuario"
+        Me.usuariosEmpleado.Name = "usuariosEmpleado"
+        Me.usuariosEmpleado.ReadOnly = True
+        '
+        'tipoEmpleado
+        '
+        Me.tipoEmpleado.DataPropertyName = "tipo"
+        Me.tipoEmpleado.HeaderText = "Tipo"
+        Me.tipoEmpleado.Name = "tipoEmpleado"
+        Me.tipoEmpleado.ReadOnly = True
+        '
+        'sucursalesEmpleado
+        '
+        Me.sucursalesEmpleado.DataPropertyName = "sucursales"
+        Me.sucursalesEmpleado.HeaderText = "Sucursal"
+        Me.sucursalesEmpleado.Name = "sucursalesEmpleado"
+        Me.sucursalesEmpleado.ReadOnly = True
+        '
+        'idtipoEmpleado
+        '
+        Me.idtipoEmpleado.DataPropertyName = "idtipo"
+        Me.idtipoEmpleado.HeaderText = "IdTipo"
+        Me.idtipoEmpleado.Name = "idtipoEmpleado"
+        Me.idtipoEmpleado.ReadOnly = True
+        Me.idtipoEmpleado.Visible = False
+        '
+        'idsucursalEmpleado
+        '
+        Me.idsucursalEmpleado.DataPropertyName = "idsucursal"
+        Me.idsucursalEmpleado.HeaderText = "IdSucursal"
+        Me.idsucursalEmpleado.Name = "idsucursalEmpleado"
+        Me.idsucursalEmpleado.ReadOnly = True
+        Me.idsucursalEmpleado.Visible = False
+        '
+        'estadoEmpleado
+        '
+        Me.estadoEmpleado.DataPropertyName = "estado"
+        Me.estadoEmpleado.HeaderText = "Estado"
+        Me.estadoEmpleado.Name = "estadoEmpleado"
+        Me.estadoEmpleado.ReadOnly = True
+        Me.estadoEmpleado.Visible = False
+        '
+        'idpersonaEmpleado
+        '
+        Me.idpersonaEmpleado.DataPropertyName = "Idpersona"
+        Me.idpersonaEmpleado.HeaderText = "idpersona"
+        Me.idpersonaEmpleado.Name = "idpersonaEmpleado"
+        Me.idpersonaEmpleado.ReadOnly = True
+        Me.idpersonaEmpleado.Visible = False
+
         'Panel1
         '
         Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -5856,6 +5953,7 @@ Partial Class frmMainMenu
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox5.TabIndex = 19
+
         '
         'frmMainMenu
         '
@@ -6410,6 +6508,19 @@ Partial Class frmMainMenu
     Friend WithEvents estadomant As DataGridViewCheckBoxColumn
     Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
     Friend WithEvents txtDescripcionMant As TextBox
+
+    Friend WithEvents nrodocumentoEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents nombreEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents apellidoEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents emailEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents usuariosEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents tipoEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents sucursalesEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents idtipoEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents estadoEmpleado As DataGridViewTextBoxColumn
+    Friend WithEvents idpersonaEmpleado As DataGridViewTextBoxColumn
+
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button2 As Button
     Friend WithEvents Label77 As Label

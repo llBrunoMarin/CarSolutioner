@@ -514,6 +514,30 @@ Partial Class frmMainMenu
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
 
+        Me.idreservaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrodocumalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechaalquilerinicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechaalquilerfin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservainicioalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservafinalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidadkmalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.costototalalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechatramitealq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrochasisaql = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.matriculaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombreapellidoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoriaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoriaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalsalidaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursalsalidaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalllegadaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursaldestinoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarioempleadoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
+
         Me.chbxModifEstadoMant = New System.Windows.Forms.CheckBox()
 
         Me.mstMenuStrip.SuspendLayout()
@@ -4509,10 +4533,10 @@ Partial Class frmMainMenu
         '
         'Panel1
         '
-
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
 
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Button2)
@@ -4534,10 +4558,7 @@ Partial Class frmMainMenu
         Me.Panel1.Controls.Add(Me.DateTimePicker2)
         Me.Panel1.Controls.Add(Me.ComboBox4)
         Me.Panel1.Controls.Add(Me.ComboBox5)
-
         Me.Panel1.Location = New System.Drawing.Point(662, 599)
-
-
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(652, 203)
         Me.Panel1.TabIndex = 37
@@ -4742,9 +4763,7 @@ Partial Class frmMainMenu
         '
         'pnlARes
         '
-        Me.pnlARes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlARes.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlARes.BackColor = System.Drawing.Color.Silver
         Me.pnlARes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlARes.Controls.Add(Me.btnReservarARes)
@@ -4783,6 +4802,7 @@ Partial Class frmMainMenu
         Me.btnReservarARes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReservarARes.ForeColor = System.Drawing.Color.White
         Me.btnReservarARes.Location = New System.Drawing.Point(543, 161)
+
         Me.btnReservarARes.Name = "btnReservarARes"
         Me.btnReservarARes.Size = New System.Drawing.Size(99, 31)
         Me.btnReservarARes.TabIndex = 18
@@ -5011,6 +5031,7 @@ Partial Class frmMainMenu
         Me.btnReservarARes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReservarARes.ForeColor = System.Drawing.Color.White
         Me.btnReservarARes.Location = New System.Drawing.Point(543, 161)
+
         Me.btnReservarARes.Name = "btnReservarARes"
         Me.btnReservarARes.Size = New System.Drawing.Size(99, 31)
         Me.btnReservarARes.TabIndex = 18
@@ -5198,6 +5219,7 @@ Partial Class frmMainMenu
         '
         'pnlBRes
         '
+
         Me.pnlBRes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlBRes.BackColor = System.Drawing.Color.Silver
@@ -5205,6 +5227,7 @@ Partial Class frmMainMenu
         Me.pnlBRes.Controls.Add(Me.Label18)
         Me.pnlBRes.Controls.Add(Me.btnBajaBRes)
         Me.pnlBRes.Controls.Add(Me.Label34)
+
         Me.pnlBRes.Location = New System.Drawing.Point(6, 599)
         Me.pnlBRes.Name = "pnlBRes"
         Me.pnlBRes.Size = New System.Drawing.Size(650, 203)
@@ -5252,6 +5275,7 @@ Partial Class frmMainMenu
         '
         'pnlFRes
         '
+
         Me.pnlFRes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlFRes.BackColor = System.Drawing.Color.Silver
@@ -6023,11 +6047,15 @@ Partial Class frmMainMenu
         '
         'dgvAlquileres
         '
+        Me.dgvAlquileres.AllowUserToAddRows = False
+        Me.dgvAlquileres.AllowUserToDeleteRows = False
         Me.dgvAlquileres.AllowUserToResizeColumns = False
         Me.dgvAlquileres.AllowUserToResizeRows = False
         Me.dgvAlquileres.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvAlquileres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvAlquileres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAlquileres.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idreservaalquiler, Me.nrodocumalq, Me.idpersonaalquiler, Me.fechaalquilerinicio, Me.fechaalquilerfin, Me.fechareservainicioalq, Me.fechareservafinalq, Me.cantidadkmalq, Me.costototalalq, Me.fechatramitealq, Me.nrochasisaql, Me.matriculaalq, Me.nombreapellidoalq, Me.idcategoriaalq, Me.categoriaalq, Me.idtipoalq, Me.tipoalq, Me.idsucursalsalidaalq, Me.sucursalsalidaalq, Me.idsucursalllegadaalq, Me.sucursaldestinoalq, Me.usuarioempleadoalq})
         Me.dgvAlquileres.Location = New System.Drawing.Point(3, 3)
         Me.dgvAlquileres.MultiSelect = False
         Me.dgvAlquileres.Name = "dgvAlquileres"
@@ -6174,6 +6202,167 @@ Partial Class frmMainMenu
         Me.idpersonaE.Visible = False
         '
 
+        'idreservaalquiler
+        '
+        Me.idreservaalquiler.DataPropertyName = "idreserva"
+        Me.idreservaalquiler.HeaderText = "idreserva"
+        Me.idreservaalquiler.Name = "idreservaalquiler"
+        Me.idreservaalquiler.ReadOnly = True
+        Me.idreservaalquiler.Visible = False
+        '
+        'nrodocumalq
+        '
+        Me.nrodocumalq.DataPropertyName = "nrodocumento"
+        Me.nrodocumalq.HeaderText = "Documento"
+        Me.nrodocumalq.Name = "nrodocumalq"
+        Me.nrodocumalq.ReadOnly = True
+        '
+        'idpersonaalquiler
+        '
+        Me.idpersonaalquiler.DataPropertyName = "idpersona"
+        Me.idpersonaalquiler.HeaderText = "idpersona"
+        Me.idpersonaalquiler.Name = "idpersonaalquiler"
+        Me.idpersonaalquiler.ReadOnly = True
+        Me.idpersonaalquiler.Visible = False
+        '
+        'fechaalquilerinicio
+        '
+        Me.fechaalquilerinicio.DataPropertyName = "fechaalquilerinicio"
+        Me.fechaalquilerinicio.HeaderText = "Fecha Inicio"
+        Me.fechaalquilerinicio.Name = "fechaalquilerinicio"
+        Me.fechaalquilerinicio.ReadOnly = True
+        '
+        'fechaalquilerfin
+        '
+        Me.fechaalquilerfin.DataPropertyName = "fechaalquilerfin"
+        Me.fechaalquilerfin.HeaderText = "Fecha Fin"
+        Me.fechaalquilerfin.Name = "fechaalquilerfin"
+        Me.fechaalquilerfin.ReadOnly = True
+        '
+        'fechareservainicioalq
+        '
+        Me.fechareservainicioalq.DataPropertyName = "fechareservainicio"
+        Me.fechareservainicioalq.HeaderText = "Inicio Reserva"
+        Me.fechareservainicioalq.Name = "fechareservainicioalq"
+        Me.fechareservainicioalq.ReadOnly = True
+        '
+        'fechareservafinalq
+        '
+        Me.fechareservafinalq.DataPropertyName = "fechareservafin"
+        Me.fechareservafinalq.HeaderText = "Fin Reserva"
+        Me.fechareservafinalq.Name = "fechareservafinalq"
+        Me.fechareservafinalq.ReadOnly = True
+        '
+        'cantidadkmalq
+        '
+        Me.cantidadkmalq.DataPropertyName = "cantidadkm"
+        Me.cantidadkmalq.HeaderText = "KM"
+        Me.cantidadkmalq.Name = "cantidadkmalq"
+        Me.cantidadkmalq.ReadOnly = True
+        '
+        'costototalalq
+        '
+        Me.costototalalq.DataPropertyName = "costototal"
+        Me.costototalalq.HeaderText = "Costo Total"
+        Me.costototalalq.Name = "costototalalq"
+        Me.costototalalq.ReadOnly = True
+        '
+        'fechatramitealq
+        '
+        Me.fechatramitealq.DataPropertyName = "fechatramite"
+        Me.fechatramitealq.HeaderText = "Fecha Tramite"
+        Me.fechatramitealq.Name = "fechatramitealq"
+        Me.fechatramitealq.ReadOnly = True
+        '
+        'nrochasisaql
+        '
+        Me.nrochasisaql.DataPropertyName = "nrochasis"
+        Me.nrochasisaql.HeaderText = "nrochasis"
+        Me.nrochasisaql.Name = "nrochasisaql"
+        Me.nrochasisaql.ReadOnly = True
+        Me.nrochasisaql.Visible = False
+        '
+        'matriculaalq
+        '
+        Me.matriculaalq.DataPropertyName = "matricula"
+        Me.matriculaalq.HeaderText = "Matricula"
+        Me.matriculaalq.Name = "matriculaalq"
+        Me.matriculaalq.ReadOnly = True
+        '
+        'nombreapellidoalq
+        '
+        Me.nombreapellidoalq.DataPropertyName = "nombreapellido"
+        Me.nombreapellidoalq.HeaderText = "Nombre"
+        Me.nombreapellidoalq.Name = "nombreapellidoalq"
+        Me.nombreapellidoalq.ReadOnly = True
+        '
+        'idcategoriaalq
+        '
+        Me.idcategoriaalq.DataPropertyName = "idcategoria"
+        Me.idcategoriaalq.HeaderText = "idcategoriaalq"
+        Me.idcategoriaalq.Name = "idcategoriaalq"
+        Me.idcategoriaalq.ReadOnly = True
+        Me.idcategoriaalq.Visible = False
+        '
+        'categoriaalq
+        '
+        Me.categoriaalq.DataPropertyName = "categoria"
+        Me.categoriaalq.HeaderText = "Categoria"
+        Me.categoriaalq.Name = "categoriaalq"
+        Me.categoriaalq.ReadOnly = True
+        '
+        'idtipoalq
+        '
+        Me.idtipoalq.DataPropertyName = "idtipo"
+        Me.idtipoalq.HeaderText = "idtipo"
+        Me.idtipoalq.Name = "idtipoalq"
+        Me.idtipoalq.ReadOnly = True
+        Me.idtipoalq.Visible = False
+        '
+        'tipoalq
+        '
+        Me.tipoalq.DataPropertyName = "tipo"
+        Me.tipoalq.HeaderText = "Tipo"
+        Me.tipoalq.Name = "tipoalq"
+        Me.tipoalq.ReadOnly = True
+        '
+        'idsucursalsalidaalq
+        '
+        Me.idsucursalsalidaalq.DataPropertyName = "idsucsalida"
+        Me.idsucursalsalidaalq.HeaderText = "idsucursalsalida"
+        Me.idsucursalsalidaalq.Name = "idsucursalsalidaalq"
+        Me.idsucursalsalidaalq.ReadOnly = True
+        Me.idsucursalsalidaalq.Visible = False
+        '
+        'sucursalsalidaalq
+        '
+        Me.sucursalsalidaalq.DataPropertyName = "sucsalida"
+        Me.sucursalsalidaalq.HeaderText = "Sucursal Partida"
+        Me.sucursalsalidaalq.Name = "sucursalsalidaalq"
+        Me.sucursalsalidaalq.ReadOnly = True
+        '
+        'idsucursalllegadaalq
+        '
+        Me.idsucursalllegadaalq.DataPropertyName = "idsucllegada"
+        Me.idsucursalllegadaalq.HeaderText = "idsucursaldestino"
+        Me.idsucursalllegadaalq.Name = "idsucursalllegadaalq"
+        Me.idsucursalllegadaalq.ReadOnly = True
+        Me.idsucursalllegadaalq.Visible = False
+        '
+        'sucursaldestinoalq
+        '
+        Me.sucursaldestinoalq.DataPropertyName = "sucllegada"
+        Me.sucursaldestinoalq.HeaderText = "Sucursal Destino"
+        Me.sucursaldestinoalq.Name = "sucursaldestinoalq"
+        Me.sucursaldestinoalq.ReadOnly = True
+        '
+        'usuarioempleadoalq
+        '
+        Me.usuarioempleadoalq.DataPropertyName = "usuarioempleado"
+        Me.usuarioempleadoalq.HeaderText = "Usuario"
+        Me.usuarioempleadoalq.Name = "usuarioempleadoalq"
+        Me.usuarioempleadoalq.ReadOnly = True
+
         'chbxModifEstadoMant
         '
         Me.chbxModifEstadoMant.AutoSize = True
@@ -6183,6 +6372,7 @@ Partial Class frmMainMenu
         Me.chbxModifEstadoMant.TabIndex = 46
         Me.chbxModifEstadoMant.Text = "Inactivo"
         Me.chbxModifEstadoMant.UseVisualStyleBackColor = True
+
         '
 
         'frmMainMenu
@@ -6736,7 +6926,6 @@ Partial Class frmMainMenu
     Friend WithEvents estadomant As DataGridViewCheckBoxColumn
     Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
     Friend WithEvents txtDescripcionMant As TextBox
-
     Friend WithEvents nrodocumentoEmpleado As DataGridViewTextBoxColumn
     Friend WithEvents nombreEmpleado As DataGridViewTextBoxColumn
     Friend WithEvents apellidoEmpleado As DataGridViewTextBoxColumn
@@ -6748,7 +6937,6 @@ Partial Class frmMainMenu
     Friend WithEvents idsucursalEmpleado As DataGridViewTextBoxColumn
     Friend WithEvents estadoEmpleado As DataGridViewTextBoxColumn
     Friend WithEvents idpersonaEmpleado As DataGridViewTextBoxColumn
-
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button2 As Button
     Friend WithEvents Label77 As Label
@@ -6769,6 +6957,29 @@ Partial Class frmMainMenu
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents ComboBox4 As ComboBox
     Friend WithEvents ComboBox5 As ComboBox
+    Friend WithEvents idreservaalquiler As DataGridViewTextBoxColumn
+    Friend WithEvents nrodocumalq As DataGridViewTextBoxColumn
+    Friend WithEvents idpersonaalquiler As DataGridViewTextBoxColumn
+    Friend WithEvents fechaalquilerinicio As DataGridViewTextBoxColumn
+    Friend WithEvents fechaalquilerfin As DataGridViewTextBoxColumn
+    Friend WithEvents fechareservainicioalq As DataGridViewTextBoxColumn
+    Friend WithEvents fechareservafinalq As DataGridViewTextBoxColumn
+    Friend WithEvents cantidadkmalq As DataGridViewTextBoxColumn
+    Friend WithEvents costototalalq As DataGridViewTextBoxColumn
+    Friend WithEvents fechatramitealq As DataGridViewTextBoxColumn
+    Friend WithEvents nrochasisaql As DataGridViewTextBoxColumn
+    Friend WithEvents matriculaalq As DataGridViewTextBoxColumn
+    Friend WithEvents nombreapellidoalq As DataGridViewTextBoxColumn
+    Friend WithEvents idcategoriaalq As DataGridViewTextBoxColumn
+    Friend WithEvents categoriaalq As DataGridViewTextBoxColumn
+    Friend WithEvents idtipoalq As DataGridViewTextBoxColumn
+    Friend WithEvents tipoalq As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalsalidaalq As DataGridViewTextBoxColumn
+    Friend WithEvents sucursalsalidaalq As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalllegadaalq As DataGridViewTextBoxColumn
+    Friend WithEvents sucursaldestinoalq As DataGridViewTextBoxColumn
+    Friend WithEvents usuarioempleadoalq As DataGridViewTextBoxColumn
+
     Friend WithEvents txtModifDescripcionMant As TextBox
     Friend WithEvents chbxModifEstadoMant As CheckBox
 End Class

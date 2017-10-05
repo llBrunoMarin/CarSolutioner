@@ -95,6 +95,7 @@ Partial Public Class frmMainMenu
             cbxSucursalMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idsucursalEmpleado").Value.ToString()
             cbxTipoMempleados.SelectedValue = dgvEmpleados.CurrentRow.Cells("idtipoEmpleado").Value.ToString()
             txtNroDocEempleado.Text = dgvEmpleados.CurrentRow.Cells("nrodocumentoEmpleado").Value.ToString()
+
         End If
 
     End Sub

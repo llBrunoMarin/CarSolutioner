@@ -214,37 +214,26 @@ Public Class frmMainMenu
                 dgvClientes.Columns("idpersona").Visible = False
 
             Case "dgvEmpleados"
-
+                dgvEmpleados.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.idpersona, Cliente.nrodocumento, Cliente.nombre, Cliente.apellido, Cliente.email, empleado.estado, empleado.usuario, empleado.tipo idtipo, sucursal.idsucursal, sucursal.nombre sucursales, CASE WHEN empleado.tipo = 1 THEN ""Director General"" WHEN empleado.tipo = 2 THEN ""Gerente"" WHEN empleado.tipo = 3 THEN ""Jefe de Personal"" WHEN empleado.tipo = 4 THEN ""Empleado"" ELSE NULL END tipo FROM EMPLEADO, CLIENTE, TRABAJA, SUCURSAL WHERE Cliente.idpersona = Empleado.idpersona AND trabaja.usuarioempleado = empleado.usuario AND trabaja.idsucursal = sucursal.idsucursal AND trabaja.fechafin is null AND Empleado.estado = 't'")
 
             Case "dgvVehiculos"
-                conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo,
- T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C,
- Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria
- AND V.idmodelo = Mo.idmodelo 
-AND Mo.Idmarca = Ma.Idmarca 
-AND Mo.Idtipo = T.idtipo 
-AND V.idsucursal = S.idsucursal
-UNION SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, 
-T.nombre tipo, T.idtipo, C.nombre categoria, 'En la calle' Sucursal 
-FROM Vehiculo V,
- Categoria C, Marca Ma,
-Modelo Mo, Tipo T WHERE V.idsucursal is null 
-AND V.idcategoria = C.idcategoria 
-AND V.idmodelo = Mo.idmodelo 
-AND Mo.Idmarca = Ma.Idmarca 
-AND Mo.Idtipo = T.idtipo ")
+                dgvVehiculos.AutoGenerateColumns = False
+                conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursalUNION SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, 'En la calle' Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T WHERE V.idsucursal is null AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo ")
+
 
             Case "dgvReservas"
+                dgvReservas.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, ca.nombre categoria, R.fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada and r.estado=1")
 
 
             Case "dgvAlquileres"
-                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio FechaInicio, R.fechaalquilerfin FechaFin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, V.matricula, Cl.nombre, Cl.apellido, Ca.nombre Categoria, T.nombre Tipo, SS.nombre Sucursal, SL.nombre SucursalDestino, R.usuarioempleado Empleado FROM Reserva R, Categoria Ca, Cliente Cl, Tipo T, Sucursal SS, Sucursal SL, Vehiculo V WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY Cl.nombre")
-                dgvAlquileres.Columns("idpersona").Visible = False
-                dgvAlquileres.Columns("idreserva").Visible = False
+                dgvAlquileres.AutoGenerateColumns = False
+                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio, R.fechaalquilerfin, R.fechareservainicio, R.fechareservafin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, R.nrochasis, V.matricula, Cl.nombre ||"" ""|| Cl.apellido nombreapellido, Cl.nrodocumento, ca.idcategoria, Ca.nombre categoria, T.idtipo, T.nombre tipo, SS.nombre sucsalida, SS.idsucursal idsucsalida, SL.nombre sucllegada, SL.idsucursal idsucllegada, R.usuarioempleado FROM Reserva R, Vehiculo V, Cliente Cl, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY nombreapellido")
+
 
             Case "dgvAlquilar"
+                dgvClientes.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(frmAlquilar.dgvAlquilar, "SELECT V.matricula Matricula, Ma.nombre Marca, Mo.nombre Modelo, T.nombre Tipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal, V.nrochasis FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
                 frmAlquilar.dgvAlquilar.Columns("nrochasis").Visible = False
                 frmAlquilar.dgvAlquilar.Columns("categoria").Visible = False
@@ -253,6 +242,7 @@ AND Mo.Idtipo = T.idtipo ")
 
 
             Case "dgvMant"
+                dgvClientes.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvMant, "SELECT m.*, v.matricula from mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis")
 
             Case Else

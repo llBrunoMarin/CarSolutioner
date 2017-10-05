@@ -320,6 +320,13 @@ Module Metodos
 
     End Sub
 
+    Public Function AmaranthMessagebox(Texto As String, Tipo As String) As DialogResult
 
+        Dim AmaranthMsgbox As New AmaranthMsgbox(Texto, Tipo)
+        Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog()
+        Return resultado
+
+
+    End Function
 End Module
 

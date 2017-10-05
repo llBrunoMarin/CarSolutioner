@@ -141,6 +141,12 @@
   <ItemGroup>
     <Compile Include="Codigo\Custom Objects\CustomMenustrip.vb" />
     <Compile Include="Codigo\Metodos.vb" />
+    <Compile Include="Forms\AmaranthMsgbox.Designer.vb">
+      <DependentUpon>AmaranthMsgbox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AmaranthMsgbox.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Sub-Forms\Alquilar.Designer.vb">
       <DependentUpon>Alquilar.vb</DependentUpon>
     </Compile>
@@ -202,6 +208,9 @@
     <Compile Include="Codigo\ConnectionDB.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AmaranthMsgbox.resx">
+      <DependentUpon>AmaranthMsgbox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sub-Forms\Alquilar.resx">
       <DependentUpon>Alquilar.vb</DependentUpon>
       <SubType>Designer</SubType>

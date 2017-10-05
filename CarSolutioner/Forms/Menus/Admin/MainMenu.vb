@@ -267,4 +267,11 @@ AND Mo.Idtipo = T.idtipo ")
         CargarDatos()
     End Sub
 
+    Private Sub tbpReservas_Click(sender As Object, e As EventArgs) Handles tbpReservas.Click
+
+    End Sub
+
+    Private Sub pnlBRes_Paint(sender As Object, e As PaintEventArgs) Handles pnlBRes.Paint
+
+    End Sub
 End Class

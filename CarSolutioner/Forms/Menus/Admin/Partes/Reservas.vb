@@ -42,7 +42,7 @@ Partial Public Class frmMainMenu
 
             Dim selectedRow = dgvReservas.Rows(e.RowIndex)
 
-
+            ReservaSeleccionada.IdReserva = selectedRow.Cells("idreserva").Value.ToString
             ReservaSeleccionada.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
             ReservaSeleccionada.FechaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
             ReservaSeleccionada.FechaFin = selectedRow.Cells("fechareservafin").Value.ToString

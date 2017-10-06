@@ -324,10 +324,8 @@ Partial Class frmMainMenu
         Me.tabReporteEmpleado = New System.Windows.Forms.TabPage()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
         Me.pnlmmant = New System.Windows.Forms.Panel()
-        Me.chbxModifEstadoMant = New System.Windows.Forms.CheckBox()
         Me.txtModifDescripcionMant = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
-        Me.lblEstadoMant = New System.Windows.Forms.Label()
         Me.cbxModifTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label112 = New System.Windows.Forms.Label()
         Me.btnVaciarMant = New System.Windows.Forms.Button()
@@ -340,23 +338,19 @@ Partial Class frmMainMenu
         Me.txtModifMatriculaMant = New System.Windows.Forms.TextBox()
         Me.dtpModifFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.pnlFmant = New System.Windows.Forms.Panel()
-        Me.ComboBox40 = New System.Windows.Forms.ComboBox()
+        Me.chbxFiltrarEstadoMant = New System.Windows.Forms.CheckBox()
+        Me.cbxFiltrarTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label118 = New System.Windows.Forms.Label()
-        Me.ComboBox45 = New System.Windows.Forms.ComboBox()
-        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
-        Me.Button26 = New System.Windows.Forms.Button()
+        Me.chbxFiltrarFechaMant = New System.Windows.Forms.CheckBox()
+        Me.btnVaciarFiltradoMant = New System.Windows.Forms.Button()
         Me.Label120 = New System.Windows.Forms.Label()
         Me.Label121 = New System.Windows.Forms.Label()
         Me.Label122 = New System.Windows.Forms.Label()
-        Me.Label124 = New System.Windows.Forms.Label()
-        Me.Label125 = New System.Windows.Forms.Label()
         Me.Label126 = New System.Windows.Forms.Label()
         Me.Label127 = New System.Windows.Forms.Label()
-        Me.DateTimePicker9 = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBox47 = New System.Windows.Forms.ComboBox()
-        Me.TextBox38 = New System.Windows.Forms.TextBox()
-        Me.DateTimePicker10 = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBox49 = New System.Windows.Forms.ComboBox()
+        Me.dtpFiltrarFechaFinMant = New System.Windows.Forms.DateTimePicker()
+        Me.txtFiltrarMatriculaMant = New System.Windows.Forms.TextBox()
+        Me.dtpFiltrarFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.dgvMant = New System.Windows.Forms.DataGridView()
         Me.matriculamant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idmantenimientomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -535,6 +529,7 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblBorraFiltroTipoManenimiento = New System.Windows.Forms.Label()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -3869,10 +3864,8 @@ Partial Class frmMainMenu
         Me.pnlmmant.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlmmant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlmmant.Controls.Add(Me.chbxModifEstadoMant)
         Me.pnlmmant.Controls.Add(Me.txtModifDescripcionMant)
         Me.pnlmmant.Controls.Add(Me.Label33)
-        Me.pnlmmant.Controls.Add(Me.lblEstadoMant)
         Me.pnlmmant.Controls.Add(Me.cbxModifTipoMant)
         Me.pnlmmant.Controls.Add(Me.Label112)
         Me.pnlmmant.Controls.Add(Me.btnVaciarMant)
@@ -3888,16 +3881,6 @@ Partial Class frmMainMenu
         Me.pnlmmant.Name = "pnlmmant"
         Me.pnlmmant.Size = New System.Drawing.Size(578, 198)
         Me.pnlmmant.TabIndex = 36
-        '
-        'chbxModifEstadoMant
-        '
-        Me.chbxModifEstadoMant.AutoSize = True
-        Me.chbxModifEstadoMant.Location = New System.Drawing.Point(423, 68)
-        Me.chbxModifEstadoMant.Name = "chbxModifEstadoMant"
-        Me.chbxModifEstadoMant.Size = New System.Drawing.Size(64, 17)
-        Me.chbxModifEstadoMant.TabIndex = 46
-        Me.chbxModifEstadoMant.Text = "Inactivo"
-        Me.chbxModifEstadoMant.UseVisualStyleBackColor = True
         '
         'txtModifDescripcionMant
         '
@@ -3917,17 +3900,6 @@ Partial Class frmMainMenu
         Me.Label33.Size = New System.Drawing.Size(79, 17)
         Me.Label33.TabIndex = 45
         Me.Label33.Text = "Descripción"
-        '
-        'lblEstadoMant
-        '
-        Me.lblEstadoMant.AutoSize = True
-        Me.lblEstadoMant.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEstadoMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblEstadoMant.Location = New System.Drawing.Point(420, 47)
-        Me.lblEstadoMant.Name = "lblEstadoMant"
-        Me.lblEstadoMant.Size = New System.Drawing.Size(48, 17)
-        Me.lblEstadoMant.TabIndex = 44
-        Me.lblEstadoMant.Text = "Estado"
         '
         'cbxModifTipoMant
         '
@@ -4058,36 +4030,46 @@ Partial Class frmMainMenu
         Me.pnlFmant.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFmant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlFmant.Controls.Add(Me.ComboBox40)
+        Me.pnlFmant.Controls.Add(Me.lblBorraFiltroTipoManenimiento)
+        Me.pnlFmant.Controls.Add(Me.chbxFiltrarEstadoMant)
+        Me.pnlFmant.Controls.Add(Me.cbxFiltrarTipoMant)
         Me.pnlFmant.Controls.Add(Me.Label118)
-        Me.pnlFmant.Controls.Add(Me.ComboBox45)
-        Me.pnlFmant.Controls.Add(Me.CheckBox8)
-        Me.pnlFmant.Controls.Add(Me.Button26)
+        Me.pnlFmant.Controls.Add(Me.chbxFiltrarFechaMant)
+        Me.pnlFmant.Controls.Add(Me.btnVaciarFiltradoMant)
         Me.pnlFmant.Controls.Add(Me.Label120)
         Me.pnlFmant.Controls.Add(Me.Label121)
         Me.pnlFmant.Controls.Add(Me.Label122)
-        Me.pnlFmant.Controls.Add(Me.Label124)
-        Me.pnlFmant.Controls.Add(Me.Label125)
         Me.pnlFmant.Controls.Add(Me.Label126)
         Me.pnlFmant.Controls.Add(Me.Label127)
-        Me.pnlFmant.Controls.Add(Me.DateTimePicker9)
-        Me.pnlFmant.Controls.Add(Me.ComboBox47)
-        Me.pnlFmant.Controls.Add(Me.TextBox38)
-        Me.pnlFmant.Controls.Add(Me.DateTimePicker10)
-        Me.pnlFmant.Controls.Add(Me.ComboBox49)
+        Me.pnlFmant.Controls.Add(Me.dtpFiltrarFechaFinMant)
+        Me.pnlFmant.Controls.Add(Me.txtFiltrarMatriculaMant)
+        Me.pnlFmant.Controls.Add(Me.dtpFiltrarFechaInicioMant)
         Me.pnlFmant.Location = New System.Drawing.Point(789, 7)
         Me.pnlFmant.Name = "pnlFmant"
         Me.pnlFmant.Size = New System.Drawing.Size(578, 203)
         Me.pnlFmant.TabIndex = 37
         '
-        'ComboBox40
+        'chbxFiltrarEstadoMant
         '
-        Me.ComboBox40.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox40.FormattingEnabled = True
-        Me.ComboBox40.Location = New System.Drawing.Point(373, 133)
-        Me.ComboBox40.Name = "ComboBox40"
-        Me.ComboBox40.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox40.TabIndex = 36
+        Me.chbxFiltrarEstadoMant.AutoSize = True
+        Me.chbxFiltrarEstadoMant.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chbxFiltrarEstadoMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.chbxFiltrarEstadoMant.Location = New System.Drawing.Point(13, 84)
+        Me.chbxFiltrarEstadoMant.Name = "chbxFiltrarEstadoMant"
+        Me.chbxFiltrarEstadoMant.Size = New System.Drawing.Size(77, 20)
+        Me.chbxFiltrarEstadoMant.TabIndex = 37
+        Me.chbxFiltrarEstadoMant.Text = "Inactivos"
+        Me.chbxFiltrarEstadoMant.UseVisualStyleBackColor = True
+        '
+        'cbxFiltrarTipoMant
+        '
+        Me.cbxFiltrarTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxFiltrarTipoMant.FormattingEnabled = True
+        Me.cbxFiltrarTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Blanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
+        Me.cbxFiltrarTipoMant.Location = New System.Drawing.Point(131, 132)
+        Me.cbxFiltrarTipoMant.Name = "cbxFiltrarTipoMant"
+        Me.cbxFiltrarTipoMant.Size = New System.Drawing.Size(121, 21)
+        Me.cbxFiltrarTipoMant.TabIndex = 36
         '
         'Label118
         '
@@ -4096,49 +4078,39 @@ Partial Class frmMainMenu
         Me.Label118.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label118.Location = New System.Drawing.Point(10, 64)
         Me.Label118.Name = "Label118"
-        Me.Label118.Size = New System.Drawing.Size(48, 17)
+        Me.Label118.Size = New System.Drawing.Size(0, 17)
         Me.Label118.TabIndex = 35
-        Me.Label118.Text = "Estado"
         '
-        'ComboBox45
+        'chbxFiltrarFechaMant
         '
-        Me.ComboBox45.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox45.FormattingEnabled = True
-        Me.ComboBox45.Location = New System.Drawing.Point(9, 84)
-        Me.ComboBox45.Name = "ComboBox45"
-        Me.ComboBox45.Size = New System.Drawing.Size(104, 21)
-        Me.ComboBox45.TabIndex = 34
+        Me.chbxFiltrarFechaMant.AutoSize = True
+        Me.chbxFiltrarFechaMant.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chbxFiltrarFechaMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.chbxFiltrarFechaMant.Location = New System.Drawing.Point(122, 84)
+        Me.chbxFiltrarFechaMant.Name = "chbxFiltrarFechaMant"
+        Me.chbxFiltrarFechaMant.Size = New System.Drawing.Size(91, 20)
+        Me.chbxFiltrarFechaMant.TabIndex = 33
+        Me.chbxFiltrarFechaMant.Text = "Filtrar Fecha"
+        Me.chbxFiltrarFechaMant.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chbxFiltrarFechaMant.UseVisualStyleBackColor = True
         '
-        'CheckBox8
+        'btnVaciarFiltradoMant
         '
-        Me.CheckBox8.AutoSize = True
-        Me.CheckBox8.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CheckBox8.Location = New System.Drawing.Point(122, 84)
-        Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(91, 20)
-        Me.CheckBox8.TabIndex = 33
-        Me.CheckBox8.Text = "Filtrar Fecha"
-        Me.CheckBox8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox8.UseVisualStyleBackColor = True
-        '
-        'Button26
-        '
-        Me.Button26.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button26.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button26.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button26.FlatAppearance.BorderSize = 0
-        Me.Button26.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button26.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button26.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button26.ForeColor = System.Drawing.Color.White
-        Me.Button26.Location = New System.Drawing.Point(469, 162)
-        Me.Button26.Name = "Button26"
-        Me.Button26.Size = New System.Drawing.Size(99, 31)
-        Me.Button26.TabIndex = 32
-        Me.Button26.Text = "Vaciar"
-        Me.Button26.UseVisualStyleBackColor = False
+        Me.btnVaciarFiltradoMant.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnVaciarFiltradoMant.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnVaciarFiltradoMant.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnVaciarFiltradoMant.FlatAppearance.BorderSize = 0
+        Me.btnVaciarFiltradoMant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnVaciarFiltradoMant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnVaciarFiltradoMant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVaciarFiltradoMant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVaciarFiltradoMant.ForeColor = System.Drawing.Color.White
+        Me.btnVaciarFiltradoMant.Location = New System.Drawing.Point(469, 162)
+        Me.btnVaciarFiltradoMant.Name = "btnVaciarFiltradoMant"
+        Me.btnVaciarFiltradoMant.Size = New System.Drawing.Size(99, 31)
+        Me.btnVaciarFiltradoMant.TabIndex = 32
+        Me.btnVaciarFiltradoMant.Text = "Vaciar"
+        Me.btnVaciarFiltradoMant.UseVisualStyleBackColor = False
         '
         'Label120
         '
@@ -4167,33 +4139,11 @@ Partial Class frmMainMenu
         Me.Label122.AutoSize = True
         Me.Label122.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label122.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label122.Location = New System.Drawing.Point(370, 112)
+        Me.Label122.Location = New System.Drawing.Point(128, 112)
         Me.Label122.Name = "Label122"
         Me.Label122.Size = New System.Drawing.Size(32, 17)
         Me.Label122.TabIndex = 29
         Me.Label122.Text = "Tipo"
-        '
-        'Label124
-        '
-        Me.Label124.AutoSize = True
-        Me.Label124.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label124.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label124.Location = New System.Drawing.Point(246, 112)
-        Me.Label124.Name = "Label124"
-        Me.Label124.Size = New System.Drawing.Size(57, 17)
-        Me.Label124.TabIndex = 27
-        Me.Label124.Text = "Sucursal"
-        '
-        'Label125
-        '
-        Me.Label125.AutoSize = True
-        Me.Label125.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label125.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label125.Location = New System.Drawing.Point(119, 112)
-        Me.Label125.Name = "Label125"
-        Me.Label125.Size = New System.Drawing.Size(69, 17)
-        Me.Label125.TabIndex = 26
-        Me.Label125.Text = "Categoria"
         '
         'Label126
         '
@@ -4217,48 +4167,28 @@ Partial Class frmMainMenu
         Me.Label127.TabIndex = 24
         Me.Label127.Text = "Filtrado de Mantenimientos"
         '
-        'DateTimePicker9
+        'dtpFiltrarFechaFinMant
         '
-        Me.DateTimePicker9.Enabled = False
-        Me.DateTimePicker9.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker9.Location = New System.Drawing.Point(322, 82)
-        Me.DateTimePicker9.Name = "DateTimePicker9"
-        Me.DateTimePicker9.Size = New System.Drawing.Size(78, 20)
-        Me.DateTimePicker9.TabIndex = 20
+        Me.dtpFiltrarFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFiltrarFechaFinMant.Location = New System.Drawing.Point(322, 82)
+        Me.dtpFiltrarFechaFinMant.Name = "dtpFiltrarFechaFinMant"
+        Me.dtpFiltrarFechaFinMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpFiltrarFechaFinMant.TabIndex = 20
         '
-        'ComboBox47
+        'txtFiltrarMatriculaMant
         '
-        Me.ComboBox47.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox47.FormattingEnabled = True
-        Me.ComboBox47.Location = New System.Drawing.Point(119, 133)
-        Me.ComboBox47.Name = "ComboBox47"
-        Me.ComboBox47.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox47.TabIndex = 23
+        Me.txtFiltrarMatriculaMant.Location = New System.Drawing.Point(13, 133)
+        Me.txtFiltrarMatriculaMant.Name = "txtFiltrarMatriculaMant"
+        Me.txtFiltrarMatriculaMant.Size = New System.Drawing.Size(100, 20)
+        Me.txtFiltrarMatriculaMant.TabIndex = 22
         '
-        'TextBox38
+        'dtpFiltrarFechaInicioMant
         '
-        Me.TextBox38.Location = New System.Drawing.Point(13, 133)
-        Me.TextBox38.Name = "TextBox38"
-        Me.TextBox38.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox38.TabIndex = 22
-        '
-        'DateTimePicker10
-        '
-        Me.DateTimePicker10.Enabled = False
-        Me.DateTimePicker10.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker10.Location = New System.Drawing.Point(218, 82)
-        Me.DateTimePicker10.Name = "DateTimePicker10"
-        Me.DateTimePicker10.Size = New System.Drawing.Size(78, 20)
-        Me.DateTimePicker10.TabIndex = 21
-        '
-        'ComboBox49
-        '
-        Me.ComboBox49.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox49.FormattingEnabled = True
-        Me.ComboBox49.Location = New System.Drawing.Point(246, 133)
-        Me.ComboBox49.Name = "ComboBox49"
-        Me.ComboBox49.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox49.TabIndex = 17
+        Me.dtpFiltrarFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFiltrarFechaInicioMant.Location = New System.Drawing.Point(218, 82)
+        Me.dtpFiltrarFechaInicioMant.Name = "dtpFiltrarFechaInicioMant"
+        Me.dtpFiltrarFechaInicioMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpFiltrarFechaInicioMant.TabIndex = 21
         '
         'dgvMant
         '
@@ -6127,6 +6057,17 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
+        'lblBorraFiltroTipoManenimiento
+        '
+        Me.lblBorraFiltroTipoManenimiento.AutoSize = True
+        Me.lblBorraFiltroTipoManenimiento.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorraFiltroTipoManenimiento.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorraFiltroTipoManenimiento.Location = New System.Drawing.Point(232, 112)
+        Me.lblBorraFiltroTipoManenimiento.Name = "lblBorraFiltroTipoManenimiento"
+        Me.lblBorraFiltroTipoManenimiento.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorraFiltroTipoManenimiento.TabIndex = 46
+        Me.lblBorraFiltroTipoManenimiento.Text = "←"
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -6390,21 +6331,16 @@ Partial Class frmMainMenu
     Friend WithEvents dtpModifFechaInicioMant As DateTimePicker
     Friend WithEvents pnlFmant As Panel
     Friend WithEvents Label118 As Label
-    Friend WithEvents ComboBox45 As ComboBox
-    Friend WithEvents CheckBox8 As CheckBox
-    Friend WithEvents Button26 As Button
+    Friend WithEvents chbxFiltrarFechaMant As CheckBox
+    Friend WithEvents btnVaciarFiltradoMant As Button
     Friend WithEvents Label120 As Label
     Friend WithEvents Label121 As Label
     Friend WithEvents Label122 As Label
-    Friend WithEvents Label124 As Label
-    Friend WithEvents Label125 As Label
     Friend WithEvents Label126 As Label
     Friend WithEvents Label127 As Label
-    Friend WithEvents DateTimePicker9 As DateTimePicker
-    Friend WithEvents ComboBox47 As ComboBox
-    Friend WithEvents TextBox38 As TextBox
-    Friend WithEvents DateTimePicker10 As DateTimePicker
-    Friend WithEvents ComboBox49 As ComboBox
+    Friend WithEvents dtpFiltrarFechaFinMant As DateTimePicker
+    Friend WithEvents txtFiltrarMatriculaMant As TextBox
+    Friend WithEvents dtpFiltrarFechaInicioMant As DateTimePicker
 
     Friend WithEvents dgvMant As DataGridView
 
@@ -6419,7 +6355,7 @@ Partial Class frmMainMenu
     Friend WithEvents dtpFechaInicioMant As DateTimePicker
     Friend WithEvents cbxModifTipoMant As ComboBox
     Friend WithEvents Label112 As Label
-    Friend WithEvents ComboBox40 As ComboBox
+    Friend WithEvents cbxFiltrarTipoMant As ComboBox
     Friend WithEvents Label108 As Label
     Friend WithEvents cbxTipoMant As ComboBox
     Friend WithEvents tsitemCambiosGenerales As ToolStripMenuItem
@@ -6666,7 +6602,6 @@ Partial Class frmMainMenu
 
     Friend WithEvents tipoE As DataGridViewTextBoxColumn
     Friend WithEvents lblMatriculaMant As Label
-    Friend WithEvents lblEstadoMant As Label
     Friend WithEvents Label33 As Label
     Friend WithEvents matriculamant As DataGridViewTextBoxColumn
     Friend WithEvents idmantenimientomant As DataGridViewTextBoxColumn
@@ -6732,5 +6667,6 @@ Partial Class frmMainMenu
     Friend WithEvents usuarioempleadoalq As DataGridViewTextBoxColumn
 
     Friend WithEvents txtModifDescripcionMant As TextBox
-    Friend WithEvents chbxModifEstadoMant As CheckBox
+    Friend WithEvents chbxFiltrarEstadoMant As CheckBox
+    Friend WithEvents lblBorraFiltroTipoManenimiento As Label
 End Class

@@ -254,7 +254,7 @@ Module Metodos
                     If Not (cbx.DataSource Is Nothing) Then
                         Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue.ToString + ""
                     Else
-                        Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedItem.ToString + ""
+                        Return " AND " + columna + " = '" + DirectCast(ctrl, ComboBox).SelectedItem.ToString + "'"
                     End If
                 Else
                     Return ""

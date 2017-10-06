@@ -22,6 +22,7 @@ group by s.nombre
         dgvCategorias.Columns("idcategoria").Visible = False
         chboxsucinactivas.Checked = True
         inactivascategorias.Checked = True
+
     End Sub
     Dim idcategoria
     Private Sub btnMinimizar_Click(sender As Object, e As EventArgs)

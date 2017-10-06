@@ -45,6 +45,7 @@ Public Class frmMainMenu
 
         cbxSucursalFempleados.SelectedItem = Nothing
         cbxTipoFempleados.SelectedItem = Nothing
+        chbxFiltrarEstadoMant.Checked = True
 
     End Sub
 
@@ -243,7 +244,7 @@ Public Class frmMainMenu
 
             Case "dgvMant"
                 dgvClientes.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvMant, "SELECT m.*, v.matricula from mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis")
+                conexion.RellenarDataGridView(dgvMant, "SELECT m.*, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
 
             Case Else
 
@@ -262,6 +263,10 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub pnlBRes_Paint(sender As Object, e As PaintEventArgs) Handles pnlBRes.Paint
+
+    End Sub
+
+    Private Sub pnlFmant_Paint(sender As Object, e As PaintEventArgs) Handles pnlFmant.Paint
 
     End Sub
 End Class

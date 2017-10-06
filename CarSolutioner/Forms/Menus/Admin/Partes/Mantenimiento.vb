@@ -7,17 +7,38 @@ End Class
 Partial Public Class frmMainMenu
     Private Sub btnIngresarMant_Click(sender As Object, e As EventArgs) Handles btnIngresarMant.Click
 
-        Dim nrochasisinsert As String
-        nrochasisinsert = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows(0)(0).ToString
+        Dim FaltaDato As Boolean = False
 
-        conexion.EjecutarNonQuery("INSERT INTO mantenimiento VALUES (0,
+        For Each ctrl As Control In pnlFmant.Controls
+            If TypeOf (ctrl) Is TextBox Then
+                If ctrl.Text = "" Then
+                    FaltaDato = True
+                    Exit For
+                End If
+            Else
+                If TypeOf (ctrl) Is ComboBox Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                        FaltaDato = True
+                    End If
+                End If
+            End If
+        Next
+        If Not FaltaDato = True Then
+            Dim nrochasisinsert As String
+            nrochasisinsert = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows(0)(0).ToString
+
+            conexion.EjecutarNonQuery("INSERT INTO mantenimiento VALUES (0,
                                   '" + cbxTipoMant.SelectedItem + "',
                                   '" + txtDescripcionMant.Text.ToString + "',
                                   '" + dtpFechaInicioMant.Value.ToShortDateString + "', 
                                   '" + dtpFechaFinMant.Value.ToShortDateString + "',
                                   '" + nrochasisinsert + "',
                                   't')")
-        RecargarDatos(dgvMant)
+            RecargarDatos(dgvMant)
+        Else
+            MsgBox("Los campos no deben quedar vacíos")
+        End If
+
     End Sub
 
     Private Sub RellenarDatosMantenimiento(sender As Object, e As EventArgs) Handles dgvMant.SelectionChanged
@@ -28,20 +49,13 @@ Partial Public Class frmMainMenu
             dtpModifFechaInicioMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToShortDateString()
             dtpModifFechaFinMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToShortDateString()
             txtModifDescripcionMant.Text = dgvMant.CurrentRow.Cells("descripcionmant").Value.ToString()
-
-            Dim estadomodif As Boolean
-            estadomodif = dgvMant.CurrentRow.Cells("estadomant").Value
-
-
-
         End If
     End Sub
 
     Private Sub btnModifMant_Click(sender As Object, e As EventArgs) Handles btnModifMant.Click
 
         Dim nrochasismodif As String
-        nrochasismodif = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtModifMatriculaMant.Text.ToString + "'").Rows(0)(0).ToString
-
+        nrochasismodif = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
         Dim idmantmodif As String
         idmantmodif = dgvMant.CurrentRow.Cells("idmantenimientomant").Value.ToString()
 
@@ -49,6 +63,59 @@ Partial Public Class frmMainMenu
             MsgBox("Modificación existosa")
             RecargarDatos(dgvMant)
         End If
+    End Sub
+
+    Private Sub FiltroMantenimiento(sender As Object, e As EventArgs) Handles txtFiltrarMatriculaMant.TextChanged, chbxFiltrarEstadoMant.CheckedChanged,
+        cbxFiltrarTipoMant.SelectionChangeCommitted,
+       chbxFiltrarFechaMant.CheckStateChanged,
+       dtpFiltrarFechaInicioMant.ValueChanged,
+       dtpFiltrarFechaFinMant.ValueChanged
+
+        Try
+            Dim filtro As String
+
+            If chbxFiltrarEstadoMant.Checked Then
+
+                If chbxFiltrarFechaMant.Checked = True Then
+
+                    filtro = String.Format("{0} LIKE '%{1}%' and fechainicio >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafin <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "'",
+                                           "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "tipo")
+                    dgvMant.DataSource.Filter = filtro
+
+                Else
+
+                    filtro = String.Format("{0} Like '%{1}%' ", "matricula", txtFiltrarMatriculaMant.Text) +
+                    TipoFiltro(cbxFiltrarTipoMant, "tipo")
+
+                    dgvMant.DataSource.Filter = filtro
+
+                End If
+            Else
+                If chbxFiltrarFechaMant.Checked = True Then
+
+                    filtro = String.Format("{0} LIKE '%{1}%' and fechainicio >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafin <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "'",
+                                           "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "tipo")
+                    dgvMant.DataSource.Filter = filtro
+
+                Else
+
+                    filtro = String.Format("{0} LIKE '%{1}%' and estado = true ", "matricula", txtFiltrarMatriculaMant.Text) +
+                  TipoFiltro(cbxFiltrarTipoMant, "tipo")
+
+                    dgvMant.DataSource.Filter = filtro
+
+                End If
+
+            End If
+
+        Catch ex As NullReferenceException
+
+        End Try
+    End Sub
+
+    Private Sub BorrarFiltroTipoMantenimiento(sender As Object, e As EventArgs) Handles lblBorraFiltroTipoManenimiento.Click
+        cbxFiltrarTipoMant.SelectedItem = Nothing
+        RecargarDatos(dgvMant)
     End Sub
 
 End Class

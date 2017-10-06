@@ -54,13 +54,13 @@ Partial Public Class frmMainMenu
         If Not (FaltaDato) Then
             Dim idPersonaInsertar As New DataTable
 
-            idPersonaInsertar = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" + txtNroDocumentoCempleado.Text + "'")
+            idPersonaInsertar = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" + txtNroDocumentoCempleado.Text.ToString + "'")
 
 
             If (idPersonaInsertar.Rows.Count <> 0) Then
 
                 Dim idpersonaRepetido As New DataTable
-                idpersonaRepetido = conexion.EjecutarSelect("SELECT idpersona FROM empleado where idpersona = '" + idPersonaInsertar.Rows(0)(0).ToString() + "'")
+                idpersonaRepetido = conexion.EjecutarSelect("SELECT idpersona FROM empleado where idpersona = '" + idPersonaInsertar.Rows(0)(0).ToString + "'")
 
                 If Not (idpersonaRepetido.Rows.Count <> 0) Then
 
@@ -178,7 +178,6 @@ Partial Public Class frmMainMenu
                                 Else
                                     MsgBox("Modifica el tipo!")
                                 End If
-
                             End If
                         End If
                     Else

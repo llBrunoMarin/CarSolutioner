@@ -9,12 +9,25 @@
         conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
         dgvSucursales.Columns("idsucursal").Visible = False
         conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
-        conexion.RellenarDataGridView(dgvVehiculoXSucursal, "
-select s.nombre, count(v.nrochasis)cantidad from sucursal s, vehiculo v
-where s.idsucursal=v.idsucursal
-group by s.nombre
+
+
+        CargarDatosComboBox(cbxTipoFilter, conexion.Tipos, "nombre", "idtipo")
+        cbxTipoFilter.SelectedItem = 1
+        conexion.RellenarDataGridView(dgvVehiculoXSucursal, "SELECT s.nombre,
+c.idcategoria,CantVehCatSuc(c.idcategoria, s.idsucursal," + cbxTipoFilter.SelectedValue.ToString + ")
+Cantidad  FROM
+Categoria C, Sucursal S
+
+group by s.nombre, cantidad, c.idcategoria
+order by s.nombre
+
+
+
+
 
 ")
+        dgvVehiculoXSucursal.Columns("idcategoria").Visible = False
+        CargarDatosComboBox(cbxCategoriaFilter, conexion.EjecutarSelect("Select * from categoria where estado='t'"), "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaHacia, conexion.EjecutarSelect("Select * from categoria where estado='t'"), "nombre", "idcategoria")
         cbxCategoriaHacia.SelectedItem = Nothing
         CargarDatosComboBox(cbxTipoHacia, conexion.EjecutarSelect("SELECT * FROM tipo where estado = 't'"), "nombre", "idtipo")
@@ -22,6 +35,11 @@ group by s.nombre
         dgvCategorias.Columns("idcategoria").Visible = False
         chboxsucinactivas.Checked = True
         inactivascategorias.Checked = True
+
+        Dim filtro As String
+        cbxCategoriaFilter.SelectedItem = 1
+        filtro = " idcategoria = " + cbxCategoriaFilter.SelectedValue.ToString + ""
+        dgvVehiculoXSucursal.DataSource.Filter = filtro
 
     End Sub
     Dim idcategoria
@@ -395,12 +413,21 @@ group by s.nombre
         ")
  MsgBox("Se movieron " + vehiculosposiblesamover.ToString + " vehiculos desde " + cbxSucursalDesde.Text + ", hacia " + cbxSucursalHacia.Text + " Satisfactoriamente.")
 
-                conexion.RellenarDataGridView(dgvVehiculoXSucursal, "
-select s.nombre, count(v.nrochasis)cantidad from sucursal s, vehiculo v
-where s.idsucursal=v.idsucursal
-group by s.nombre
+                conexion.RellenarDataGridView(dgvVehiculoXSucursal, "SELECT s.nombre,
+c.idcategoria,CantVehCatSuc(c.idcategoria, s.idsucursal, 1)
+Cantidad  FROM
+Categoria C, Sucursal S
+
+group by s.nombre, cantidad, c.idcategoria
+order by s.nombre
+
+
+
+
 
 ")
+
+
             End If
         Else
             MsgBox("No puedes dejar campos vacios ni la cantidad de vehiculos puede ser 0")
@@ -408,5 +435,36 @@ group by s.nombre
 
 
 
+    End Sub
+
+    Private Sub cbxCategoriaFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxCategoriaFilter.SelectionChangeCommitted
+
+
+        Dim filtro As String
+        filtro = " idcategoria = " + cbxCategoriaFilter.SelectedValue.ToString + ""
+        dgvVehiculoXSucursal.DataSource.Filter = filtro
+        dgvVehiculoXSucursal.Columns("idcategoria").Visible = False
+
+    End Sub
+
+    Private Sub cbxTipoFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxTipoFilter.SelectionChangeCommitted
+
+        conexion.RellenarDataGridView(dgvVehiculoXSucursal, "SELECT s.nombre,
+c.idcategoria,CantVehCatSuc(c.idcategoria, s.idsucursal," + cbxTipoFilter.SelectedValue.ToString + ")
+Cantidad  FROM
+Categoria C, Sucursal S
+
+group by s.nombre, cantidad, c.idcategoria
+order by s.nombre
+
+
+
+
+
+")
+        Dim filtro As String
+        filtro = " idcategoria = " + cbxCategoriaFilter.SelectedValue.ToString + ""
+        dgvVehiculoXSucursal.DataSource.Filter = filtro
+        dgvVehiculoXSucursal.Columns("idcategoria").Visible = False
     End Sub
 End Class

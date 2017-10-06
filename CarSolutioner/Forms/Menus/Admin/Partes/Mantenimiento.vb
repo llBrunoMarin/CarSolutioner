@@ -9,7 +9,7 @@ Partial Public Class frmMainMenu
 
         Dim FaltaDato As Boolean = False
 
-        For Each ctrl As Control In pnlFmant.Controls
+        For Each ctrl As Control In pnlAmant.Controls
             If TypeOf (ctrl) Is TextBox Then
                 If ctrl.Text = "" Then
                     FaltaDato = True
@@ -27,13 +27,14 @@ Partial Public Class frmMainMenu
             Dim nrochasisinsert As String
             nrochasisinsert = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows(0)(0).ToString
 
-            conexion.EjecutarNonQuery("INSERT INTO mantenimiento VALUES (0,
+            Dim prueba As String
+            prueba = ("INSERT INTO mantenimiento VALUES (
                                   '" + cbxTipoMant.SelectedItem + "',
-                                  '" + txtDescripcionMant.Text.ToString + "',
                                   '" + dtpFechaInicioMant.Value.ToShortDateString + "', 
                                   '" + dtpFechaFinMant.Value.ToShortDateString + "',
-                                  '" + nrochasisinsert + "',
+                                  '" + nrochasisinsert + "  ',
                                   't')")
+            conexion.EjecutarNonQuery(prueba)
             RecargarDatos(dgvMant)
         Else
             MsgBox("Los campos no deben quedar vacíos")
@@ -48,7 +49,6 @@ Partial Public Class frmMainMenu
             cbxModifTipoMant.SelectedIndex = cbxModifTipoMant.FindString(dgvMant.CurrentRow.Cells("tipomant").Value.ToString())
             dtpModifFechaInicioMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToShortDateString()
             dtpModifFechaFinMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToShortDateString()
-            txtModifDescripcionMant.Text = dgvMant.CurrentRow.Cells("descripcionmant").Value.ToString()
         End If
     End Sub
 
@@ -56,10 +56,14 @@ Partial Public Class frmMainMenu
 
         Dim nrochasismodif As String
         nrochasismodif = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
-        Dim idmantmodif As String
-        idmantmodif = dgvMant.CurrentRow.Cells("idmantenimientomant").Value.ToString()
+        Dim fechainicioant As String
+        fechainicioant = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToShortDateString()
+        Dim nrochasisant As String
+        nrochasisant = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
+        Dim tipoant As String
+        tipoant = dgvMant.CurrentRow.Cells("tipomant").Value.ToString()
 
-        If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET tipo ='" + cbxModifTipoMant.SelectedItem + "', descripcion = '" + txtModifDescripcionMant.Text.ToString + "', fechainicio = '" + dtpModifFechaInicioMant.Value.ToShortDateString + "', fechafin = '" + dtpModifFechaFinMant.Value.ToShortDateString + "', nrochasis = '" + nrochasismodif + "', estado = 't' WHERE idmantenimiento= '" + idmantmodif + "'") = True) Then
+        If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET descripcion ='" + cbxModifTipoMant.SelectedItem + "', fechainicio = '" + dtpModifFechaInicioMant.Value.ToShortDateString + "', fechafin = '" + dtpModifFechaFinMant.Value.ToShortDateString + "', estado = 't' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "' ") = True) Then
             MsgBox("Modificación existosa")
             RecargarDatos(dgvMant)
         End If
@@ -78,14 +82,14 @@ Partial Public Class frmMainMenu
 
                 If chbxFiltrarFechaMant.Checked = True Then
 
-                    filtro = String.Format("{0} LIKE '%{1}%' and fechainicio >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafin <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "'",
-                                           "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "tipo")
+                    filtro = String.Format("{0} Like '%{1}%' and fechainicio >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafin <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "'",
+                                           "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion")
                     dgvMant.DataSource.Filter = filtro
 
                 Else
 
                     filtro = String.Format("{0} Like '%{1}%' ", "matricula", txtFiltrarMatriculaMant.Text) +
-                    TipoFiltro(cbxFiltrarTipoMant, "tipo")
+                    TipoFiltro(cbxFiltrarTipoMant, "descripcion")
 
                     dgvMant.DataSource.Filter = filtro
 
@@ -94,13 +98,13 @@ Partial Public Class frmMainMenu
                 If chbxFiltrarFechaMant.Checked = True Then
 
                     filtro = String.Format("{0} LIKE '%{1}%' and fechainicio >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafin <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "'",
-                                           "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "tipo")
+                                           "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion")
                     dgvMant.DataSource.Filter = filtro
 
                 Else
 
                     filtro = String.Format("{0} LIKE '%{1}%' and estado = true ", "matricula", txtFiltrarMatriculaMant.Text) +
-                  TipoFiltro(cbxFiltrarTipoMant, "tipo")
+                  TipoFiltro(cbxFiltrarTipoMant, "descripcion")
 
                     dgvMant.DataSource.Filter = filtro
 
@@ -116,6 +120,42 @@ Partial Public Class frmMainMenu
     Private Sub BorrarFiltroTipoMantenimiento(sender As Object, e As EventArgs) Handles lblBorraFiltroTipoManenimiento.Click
         cbxFiltrarTipoMant.SelectedItem = Nothing
         RecargarDatos(dgvMant)
+    End Sub
+
+    Private Sub VaciarFiltradoMantenimiento(sender As Object, e As EventArgs) Handles btnVaciarFiltradoMant.Click
+
+        For Each item In pnlFmant.Controls
+
+            If TypeOf item Is TextBox Then
+                item.text = ""
+            End If
+
+            If TypeOf item Is ComboBox Then
+                item.SelectedItem = Nothing
+            End If
+
+            If TypeOf item Is NumericUpDown Then
+                DirectCast(item, NumericUpDown).Value = Nothing
+            End If
+        Next
+
+    End Sub
+
+    Private Sub VaciarModificarMantenimiento(sender As Object, e As EventArgs) Handles btnVaciarMant.Click
+        For Each item In pnlmmant.Controls
+
+            If TypeOf item Is TextBox Then
+                item.text = ""
+            End If
+
+            If TypeOf item Is ComboBox Then
+                item.SelectedItem = Nothing
+            End If
+
+            If TypeOf item Is NumericUpDown Then
+                DirectCast(item, NumericUpDown).Value = Nothing
+            End If
+        Next
     End Sub
 
 End Class

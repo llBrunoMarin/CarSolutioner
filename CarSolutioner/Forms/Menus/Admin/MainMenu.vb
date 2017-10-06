@@ -269,4 +269,5 @@ Public Class frmMainMenu
     Private Sub pnlFmant_Paint(sender As Object, e As PaintEventArgs) Handles pnlFmant.Paint
 
     End Sub
+
 End Class

@@ -324,8 +324,6 @@ Partial Class frmMainMenu
         Me.tabReporteEmpleado = New System.Windows.Forms.TabPage()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
         Me.pnlmmant = New System.Windows.Forms.Panel()
-        Me.txtModifDescripcionMant = New System.Windows.Forms.TextBox()
-        Me.Label33 = New System.Windows.Forms.Label()
         Me.cbxModifTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label112 = New System.Windows.Forms.Label()
         Me.btnVaciarMant = New System.Windows.Forms.Button()
@@ -338,6 +336,7 @@ Partial Class frmMainMenu
         Me.txtModifMatriculaMant = New System.Windows.Forms.TextBox()
         Me.dtpModifFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.pnlFmant = New System.Windows.Forms.Panel()
+        Me.lblBorraFiltroTipoManenimiento = New System.Windows.Forms.Label()
         Me.chbxFiltrarEstadoMant = New System.Windows.Forms.CheckBox()
         Me.cbxFiltrarTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label118 = New System.Windows.Forms.Label()
@@ -353,15 +352,12 @@ Partial Class frmMainMenu
         Me.dtpFiltrarFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.dgvMant = New System.Windows.Forms.DataGridView()
         Me.matriculamant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmantenimientomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tipomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcionmant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fechainiciomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fechafinmant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadomant = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.nrochasismant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlAmant = New System.Windows.Forms.Panel()
-        Me.lblMatriculaMant = New System.Windows.Forms.Label()
         Me.Label108 = New System.Windows.Forms.Label()
         Me.cbxTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label119 = New System.Windows.Forms.Label()
@@ -371,7 +367,6 @@ Partial Class frmMainMenu
         Me.dtpFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.Label134 = New System.Windows.Forms.Label()
         Me.Label135 = New System.Windows.Forms.Label()
-        Me.txtDescripcionMant = New System.Windows.Forms.TextBox()
         Me.txtMatriculaMant = New System.Windows.Forms.TextBox()
         Me.tbpReservas = New System.Windows.Forms.TabPage()
         Me.tabRes_Alq = New System.Windows.Forms.TabControl()
@@ -529,7 +524,6 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblBorraFiltroTipoManenimiento = New System.Windows.Forms.Label()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -3864,8 +3858,6 @@ Partial Class frmMainMenu
         Me.pnlmmant.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlmmant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlmmant.Controls.Add(Me.txtModifDescripcionMant)
-        Me.pnlmmant.Controls.Add(Me.Label33)
         Me.pnlmmant.Controls.Add(Me.cbxModifTipoMant)
         Me.pnlmmant.Controls.Add(Me.Label112)
         Me.pnlmmant.Controls.Add(Me.btnVaciarMant)
@@ -3881,25 +3873,6 @@ Partial Class frmMainMenu
         Me.pnlmmant.Name = "pnlmmant"
         Me.pnlmmant.Size = New System.Drawing.Size(578, 198)
         Me.pnlmmant.TabIndex = 36
-        '
-        'txtModifDescripcionMant
-        '
-        Me.txtModifDescripcionMant.Location = New System.Drawing.Point(13, 111)
-        Me.txtModifDescripcionMant.Multiline = True
-        Me.txtModifDescripcionMant.Name = "txtModifDescripcionMant"
-        Me.txtModifDescripcionMant.Size = New System.Drawing.Size(227, 64)
-        Me.txtModifDescripcionMant.TabIndex = 42
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label33.Location = New System.Drawing.Point(12, 91)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(79, 17)
-        Me.Label33.TabIndex = 45
-        Me.Label33.Text = "Descripción"
         '
         'cbxModifTipoMant
         '
@@ -4048,6 +4021,17 @@ Partial Class frmMainMenu
         Me.pnlFmant.Name = "pnlFmant"
         Me.pnlFmant.Size = New System.Drawing.Size(578, 203)
         Me.pnlFmant.TabIndex = 37
+        '
+        'lblBorraFiltroTipoManenimiento
+        '
+        Me.lblBorraFiltroTipoManenimiento.AutoSize = True
+        Me.lblBorraFiltroTipoManenimiento.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorraFiltroTipoManenimiento.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorraFiltroTipoManenimiento.Location = New System.Drawing.Point(232, 112)
+        Me.lblBorraFiltroTipoManenimiento.Name = "lblBorraFiltroTipoManenimiento"
+        Me.lblBorraFiltroTipoManenimiento.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorraFiltroTipoManenimiento.TabIndex = 46
+        Me.lblBorraFiltroTipoManenimiento.Text = "←"
         '
         'chbxFiltrarEstadoMant
         '
@@ -4201,7 +4185,7 @@ Partial Class frmMainMenu
         Me.dgvMant.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvMant.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvMant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvMant.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.matriculamant, Me.idmantenimientomant, Me.tipomant, Me.descripcionmant, Me.fechainiciomant, Me.fechafinmant, Me.estadomant, Me.nrochasismant})
+        Me.dgvMant.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.matriculamant, Me.tipomant, Me.fechainiciomant, Me.fechafinmant, Me.estadomant, Me.nrochasismant})
         Me.dgvMant.Location = New System.Drawing.Point(34, 4)
         Me.dgvMant.MultiSelect = False
         Me.dgvMant.Name = "dgvMant"
@@ -4220,28 +4204,13 @@ Partial Class frmMainMenu
         Me.matriculamant.Name = "matriculamant"
         Me.matriculamant.ReadOnly = True
         '
-        'idmantenimientomant
-        '
-        Me.idmantenimientomant.DataPropertyName = "idmantenimiento"
-        Me.idmantenimientomant.HeaderText = "Idmantenimiento"
-        Me.idmantenimientomant.Name = "idmantenimientomant"
-        Me.idmantenimientomant.ReadOnly = True
-        Me.idmantenimientomant.Visible = False
-        '
         'tipomant
         '
-        Me.tipomant.DataPropertyName = "tipo"
+        Me.tipomant.DataPropertyName = "descripcion"
         Me.tipomant.HeaderText = "Tipo"
         Me.tipomant.Name = "tipomant"
         Me.tipomant.ReadOnly = True
         Me.tipomant.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'descripcionmant
-        '
-        Me.descripcionmant.DataPropertyName = "descripcion"
-        Me.descripcionmant.HeaderText = "Descripción"
-        Me.descripcionmant.Name = "descripcionmant"
-        Me.descripcionmant.ReadOnly = True
         '
         'fechainiciomant
         '
@@ -4280,7 +4249,6 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlAmant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlAmant.Controls.Add(Me.lblMatriculaMant)
         Me.pnlAmant.Controls.Add(Me.Label108)
         Me.pnlAmant.Controls.Add(Me.cbxTipoMant)
         Me.pnlAmant.Controls.Add(Me.Label119)
@@ -4290,23 +4258,11 @@ Partial Class frmMainMenu
         Me.pnlAmant.Controls.Add(Me.dtpFechaInicioMant)
         Me.pnlAmant.Controls.Add(Me.Label134)
         Me.pnlAmant.Controls.Add(Me.Label135)
-        Me.pnlAmant.Controls.Add(Me.txtDescripcionMant)
         Me.pnlAmant.Controls.Add(Me.txtMatriculaMant)
         Me.pnlAmant.Location = New System.Drawing.Point(789, 215)
         Me.pnlAmant.Name = "pnlAmant"
         Me.pnlAmant.Size = New System.Drawing.Size(578, 210)
         Me.pnlAmant.TabIndex = 33
-        '
-        'lblMatriculaMant
-        '
-        Me.lblMatriculaMant.AutoSize = True
-        Me.lblMatriculaMant.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMatriculaMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblMatriculaMant.Location = New System.Drawing.Point(250, 45)
-        Me.lblMatriculaMant.Name = "lblMatriculaMant"
-        Me.lblMatriculaMant.Size = New System.Drawing.Size(79, 17)
-        Me.lblMatriculaMant.TabIndex = 41
-        Me.lblMatriculaMant.Text = "Descripción"
         '
         'Label108
         '
@@ -4406,14 +4362,6 @@ Partial Class frmMainMenu
         Me.Label135.Size = New System.Drawing.Size(221, 22)
         Me.Label135.TabIndex = 24
         Me.Label135.Text = "Ingreso Mantenimiento"
-        '
-        'txtDescripcionMant
-        '
-        Me.txtDescripcionMant.Location = New System.Drawing.Point(253, 64)
-        Me.txtDescripcionMant.Multiline = True
-        Me.txtDescripcionMant.Name = "txtDescripcionMant"
-        Me.txtDescripcionMant.Size = New System.Drawing.Size(100, 64)
-        Me.txtDescripcionMant.TabIndex = 22
         '
         'txtMatriculaMant
         '
@@ -6057,17 +6005,6 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
-        'lblBorraFiltroTipoManenimiento
-        '
-        Me.lblBorraFiltroTipoManenimiento.AutoSize = True
-        Me.lblBorraFiltroTipoManenimiento.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorraFiltroTipoManenimiento.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorraFiltroTipoManenimiento.Location = New System.Drawing.Point(232, 112)
-        Me.lblBorraFiltroTipoManenimiento.Name = "lblBorraFiltroTipoManenimiento"
-        Me.lblBorraFiltroTipoManenimiento.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorraFiltroTipoManenimiento.TabIndex = 46
-        Me.lblBorraFiltroTipoManenimiento.Text = "←"
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -6601,17 +6538,6 @@ Partial Class frmMainMenu
     Friend WithEvents idsucursalE As DataGridViewTextBoxColumn
 
     Friend WithEvents tipoE As DataGridViewTextBoxColumn
-    Friend WithEvents lblMatriculaMant As Label
-    Friend WithEvents Label33 As Label
-    Friend WithEvents matriculamant As DataGridViewTextBoxColumn
-    Friend WithEvents idmantenimientomant As DataGridViewTextBoxColumn
-    Friend WithEvents tipomant As DataGridViewTextBoxColumn
-    Friend WithEvents descripcionmant As DataGridViewTextBoxColumn
-    Friend WithEvents fechainiciomant As DataGridViewTextBoxColumn
-    Friend WithEvents fechafinmant As DataGridViewTextBoxColumn
-    Friend WithEvents estadomant As DataGridViewCheckBoxColumn
-    Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
-    Friend WithEvents txtDescripcionMant As TextBox
     Friend WithEvents nrodocumentoEmpleado As DataGridViewTextBoxColumn
     Friend WithEvents nombreEmpleado As DataGridViewTextBoxColumn
     Friend WithEvents apellidoEmpleado As DataGridViewTextBoxColumn
@@ -6665,8 +6591,12 @@ Partial Class frmMainMenu
     Friend WithEvents idsucursalllegadaalq As DataGridViewTextBoxColumn
     Friend WithEvents sucursaldestinoalq As DataGridViewTextBoxColumn
     Friend WithEvents usuarioempleadoalq As DataGridViewTextBoxColumn
-
-    Friend WithEvents txtModifDescripcionMant As TextBox
     Friend WithEvents chbxFiltrarEstadoMant As CheckBox
     Friend WithEvents lblBorraFiltroTipoManenimiento As Label
+    Friend WithEvents matriculamant As DataGridViewTextBoxColumn
+    Friend WithEvents tipomant As DataGridViewTextBoxColumn
+    Friend WithEvents fechainiciomant As DataGridViewTextBoxColumn
+    Friend WithEvents fechafinmant As DataGridViewTextBoxColumn
+    Friend WithEvents estadomant As DataGridViewCheckBoxColumn
+    Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
 End Class

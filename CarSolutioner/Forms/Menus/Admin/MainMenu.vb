@@ -129,6 +129,10 @@ Public Class frmMainMenu
         'Se marcan como inactivas las reservas que pasen la fecha de hoy
         conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO = 2 WHERE fechareservafin <= '" + DateTime.Today.ToShortDateString + "'")
 
+        Dim time As DateTime = DateTime.Now
+        Dim format As String = "yyyy-MM-dd HH:mm"
+        conexion.EjecutarNonQuery("UPDATE mantenimiento SET estado = 'f' WHERE fechafin <= '" + time.ToString(format) + "'")
+
         'Cargas Tablas
         conexion.Modelos = conexion.EjecutarSelect("SELECT * from modelo")
         conexion.Marcas = conexion.EjecutarSelect("SELECT * from marca")
@@ -136,9 +140,6 @@ Public Class frmMainMenu
         conexion.Tipos = conexion.EjecutarSelect("SELECT * from tipo")
         conexion.Sucursales = conexion.EjecutarSelect("SELECT * from sucursal")
         conexion.Documentos = conexion.EjecutarSelect("SELECT * from tipodocumento")
-
-
-
 
         'Cargas DataGridView
         RecargarDatos(dgvReservas)

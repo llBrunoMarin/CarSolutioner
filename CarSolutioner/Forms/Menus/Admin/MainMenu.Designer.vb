@@ -363,7 +363,6 @@ Partial Class frmMainMenu
         Me.Label119 = New System.Windows.Forms.Label()
         Me.btnIngresarMant = New System.Windows.Forms.Button()
         Me.Label123 = New System.Windows.Forms.Label()
-        Me.dtpFechaFinMant = New System.Windows.Forms.DateTimePicker()
         Me.dtpFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.Label134 = New System.Windows.Forms.Label()
         Me.Label135 = New System.Windows.Forms.Label()
@@ -524,6 +523,7 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dtpFechaFinMant = New System.Windows.Forms.DateTimePicker()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -4269,7 +4269,7 @@ Partial Class frmMainMenu
         Me.Label108.AutoSize = True
         Me.Label108.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label108.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label108.Location = New System.Drawing.Point(119, 45)
+        Me.Label108.Location = New System.Drawing.Point(157, 44)
         Me.Label108.Name = "Label108"
         Me.Label108.Size = New System.Drawing.Size(32, 17)
         Me.Label108.TabIndex = 37
@@ -4280,7 +4280,7 @@ Partial Class frmMainMenu
         Me.cbxTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipoMant.FormattingEnabled = True
         Me.cbxTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Blanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
-        Me.cbxTipoMant.Location = New System.Drawing.Point(122, 64)
+        Me.cbxTipoMant.Location = New System.Drawing.Point(157, 64)
         Me.cbxTipoMant.Name = "cbxTipoMant"
         Me.cbxTipoMant.Size = New System.Drawing.Size(121, 21)
         Me.cbxTipoMant.TabIndex = 37
@@ -4290,7 +4290,7 @@ Partial Class frmMainMenu
         Me.Label119.AutoSize = True
         Me.Label119.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label119.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label119.Location = New System.Drawing.Point(117, 88)
+        Me.Label119.Location = New System.Drawing.Point(157, 96)
         Me.Label119.Name = "Label119"
         Me.Label119.Size = New System.Drawing.Size(64, 17)
         Me.Label119.TabIndex = 39
@@ -4319,26 +4319,19 @@ Partial Class frmMainMenu
         Me.Label123.AutoSize = True
         Me.Label123.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label123.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label123.Location = New System.Drawing.Point(11, 88)
+        Me.Label123.Location = New System.Drawing.Point(10, 96)
         Me.Label123.Name = "Label123"
         Me.Label123.Size = New System.Drawing.Size(80, 17)
         Me.Label123.TabIndex = 38
         Me.Label123.Text = "Fecha Inicio"
         '
-        'dtpFechaFinMant
-        '
-        Me.dtpFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaFinMant.Location = New System.Drawing.Point(119, 108)
-        Me.dtpFechaFinMant.Name = "dtpFechaFinMant"
-        Me.dtpFechaFinMant.Size = New System.Drawing.Size(78, 20)
-        Me.dtpFechaFinMant.TabIndex = 36
-        '
         'dtpFechaInicioMant
         '
-        Me.dtpFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaInicioMant.Location = New System.Drawing.Point(15, 108)
+        Me.dtpFechaInicioMant.CustomFormat = "yyyy-MM-dd HH:mm"
+        Me.dtpFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFechaInicioMant.Location = New System.Drawing.Point(13, 116)
         Me.dtpFechaInicioMant.Name = "dtpFechaInicioMant"
-        Me.dtpFechaInicioMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpFechaInicioMant.Size = New System.Drawing.Size(141, 20)
         Me.dtpFechaInicioMant.TabIndex = 37
         '
         'Label134
@@ -6005,6 +5998,15 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
+        'dtpFechaFinMant
+        '
+        Me.dtpFechaFinMant.CustomFormat = "yyyy-MM-dd HH:mm"
+        Me.dtpFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFechaFinMant.Location = New System.Drawing.Point(160, 116)
+        Me.dtpFechaFinMant.Name = "dtpFechaFinMant"
+        Me.dtpFechaFinMant.Size = New System.Drawing.Size(141, 20)
+        Me.dtpFechaFinMant.TabIndex = 36
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -6288,7 +6290,6 @@ Partial Class frmMainMenu
     Friend WithEvents txtMatriculaMant As TextBox
     Friend WithEvents Label119 As Label
     Friend WithEvents Label123 As Label
-    Friend WithEvents dtpFechaFinMant As DateTimePicker
     Friend WithEvents dtpFechaInicioMant As DateTimePicker
     Friend WithEvents cbxModifTipoMant As ComboBox
     Friend WithEvents Label112 As Label
@@ -6599,4 +6600,5 @@ Partial Class frmMainMenu
     Friend WithEvents fechafinmant As DataGridViewTextBoxColumn
     Friend WithEvents estadomant As DataGridViewCheckBoxColumn
     Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
+    Friend WithEvents dtpFechaFinMant As DateTimePicker
 End Class

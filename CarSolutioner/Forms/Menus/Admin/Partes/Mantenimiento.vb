@@ -26,12 +26,12 @@ Partial Public Class frmMainMenu
         If Not FaltaDato = True Then
             Dim nrochasisinsert As String
             nrochasisinsert = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows(0)(0).ToString
-
+            Dim format As String = "yyyy-MM-dd HH:mm"
             Dim prueba As String
             prueba = ("INSERT INTO mantenimiento VALUES (
                                   '" + cbxTipoMant.SelectedItem + "',
-                                  '" + dtpFechaInicioMant.Value.ToShortDateString + "', 
-                                  '" + dtpFechaFinMant.Value.ToShortDateString + "',
+                                  '" + dtpFechaInicioMant.Value.ToString(format) + "', 
+                                  '" + dtpFechaFinMant.Value.ToString(format) + "',
                                   '" + nrochasisinsert + "  ',
                                   't')")
             conexion.EjecutarNonQuery(prueba)

@@ -4,10 +4,21 @@
 
         tbcTabControl.ItemSize = New Size(0, 1)
         btnSucursales.PerformClick()
-
+        CargarDatosComboBox(cbxSucursalDesde, conexion.EjecutarSelect("SELECT * FROM sucursal where estado = 't'"), "nombre", "idsucursal")
+        cbxSucursalDesde.SelectedItem = Nothing
         conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
         dgvSucursales.Columns("idsucursal").Visible = False
         conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
+        conexion.RellenarDataGridView(dgvVehiculoXSucursal, "
+select s.nombre, count(v.nrochasis)cantidad from sucursal s, vehiculo v
+where s.idsucursal=v.idsucursal
+group by s.nombre
+
+")
+        CargarDatosComboBox(cbxCategoriaHacia, conexion.EjecutarSelect("Select * from categoria where estado='t'"), "nombre", "idcategoria")
+        cbxCategoriaHacia.SelectedItem = Nothing
+        CargarDatosComboBox(cbxTipoHacia, conexion.EjecutarSelect("SELECT * FROM tipo where estado = 't'"), "nombre", "idtipo")
+        cbxTipoHacia.SelectedItem = Nothing
         dgvCategorias.Columns("idcategoria").Visible = False
         chboxsucinactivas.Checked = True
         inactivascategorias.Checked = True
@@ -21,27 +32,27 @@
         Me.Dispose()
     End Sub
     Dim idsucursalmod As String
-    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnSucursales.Click, btnCategorias.Click, btnMarcas.Click, btnModelos.Click
+    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnSucursales.Click, btnCategorias.Click, btnVehiculo.Click
 
         ResetColors()
 
         Select Case sender.Name
+            Case "btnCategorias"
+                SetTabAndColors(btnCategorias, tbpCategorias, Color.White)
 
             Case "btnSucursales"
                 SetTabAndColors(btnSucursales, tbpSucursales, Color.White)
 
-            Case "btnCategorias"
-                SetTabAndColors(btnCategorias, tbpCategorias, Color.White)
+            Case "btnVehiculo"
+                SetTabAndColors(btnVehiculo, tbpVehiculo, Color.White)
 
 
 
 
 
-            Case "btnMarcas"
-                SetTabAndColors(btnMarcas, tbpMarcas, Color.White)
 
-            Case "btnModelos"
-                SetTabAndColors(btnModelos, tbpModelos, Color.White)
+
+
 
 
         End Select
@@ -298,5 +309,103 @@
             pnlcatmov.Enabled = False
 
         End If
+    End Sub
+
+    Private Sub btnVehiculo_Click(sender As Object, e As EventArgs) Handles btnVehiculo.Click
+
+    End Sub
+
+
+
+    Private Sub cbxSucursalHacia_Click(sender As Object, e As EventArgs) Handles cbxSucursalHacia.Click
+        If cbxSucursalDesde.SelectedItem Is Nothing Then
+            MsgBox("Primero debes seleccionar sucursal Desde")
+        Else
+            CargarDatosComboBox(cbxSucursalHacia, conexion.EjecutarSelect("SELECT * FROM sucursal where estado = 't' and idsucursal !='" + cbxSucursalDesde.SelectedValue.ToString + "'"), "nombre", "idsucursal")
+        End If
+
+    End Sub
+
+    Private Sub cbxSucursalDesde_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxSucursalDesde.SelectedIndexChanged
+        cbxSucursalHacia.SelectedItem = Nothing
+    End Sub
+
+    Private Sub btnMover_Click(sender As Object, e As EventArgs) Handles btnMover.Click
+        Dim datosvacios As Boolean = False
+        For Each control In pnlMovimientoVeh.Controls
+            If TypeOf (control) Is ComboBox Then
+                If DirectCast(control, ComboBox).SelectedItem Is Nothing Then
+
+                    datosvacios = True
+                End If
+
+            ElseIf (TypeOf (control) Is NumericUpDown) Then
+                If DirectCast(control, NumericUpDown).Value = 0 Then
+
+                    datosvacios = True
+                End If
+            End If
+        Next
+        If Not datosvacios Then
+            Dim vehiculosposiblesamover As Integer = conexion.EjecutarSelect(" SELECT first " + NupCantidadHacia.Value.ToString + " nrochasis
+         FROM vehiculo v, modelo mo, tipo t
+        where idcategoria='" + cbxCategoriaHacia.SelectedValue.ToString + "' and
+        V.IDMODELO=mo.idmodelo and t.idtipo=mo.idtipo and t.idtipo='" + cbxTipoHacia.SelectedValue.ToString + "' and idsucursal='" + cbxSucursalDesde.SelectedValue.ToString + "'
+").Rows.Count
+            If vehiculosposiblesamover = 0 Then
+                MsgBox("No tienes vehiculos de estas caracteristicas en esta sucursal, intenta con otra nuevamente.")
+            ElseIf vehiculosposiblesamover < NupCantidadHacia.Value Then
+
+                Dim decision As MsgBoxResult = MsgBox("Solo puedes mover " + vehiculosposiblesamover.ToString + " con estas caracteristicas, desea continuar?", MsgBoxStyle.YesNo)
+                If decision = MsgBoxResult.Yes Then
+                    conexion.EjecutarNonQuery("update vehiculo set idsucursal=" + cbxSucursalHacia.SelectedValue.ToString + "
+
+        WHERE nrochasis IN
+           (Select nrochasis from (
+        SELECT first " + NupCantidadHacia.Value.ToString + " nrochasis
+         FROM vehiculo v, modelo mo, tipo t
+        where idcategoria='" + cbxCategoriaHacia.SelectedValue.ToString + "' and
+        V.IDMODELO=mo.idmodelo and t.idtipo=mo.idtipo and t.idtipo='" + cbxTipoHacia.SelectedValue.ToString + "' and idsucursal='" + cbxSucursalDesde.SelectedValue.ToString + "'
+
+         ))
+        ")
+                    MsgBox("Se movieron " + vehiculosposiblesamover.ToString + " vehiculos desde " + cbxSucursalDesde.Text + ", hacia " + cbxSucursalHacia.Text + " Satisfactoriamente.")
+                    conexion.RellenarDataGridView(dgvVehiculoXSucursal, "
+select s.nombre, count(v.nrochasis)cantidad from sucursal s, vehiculo v
+where s.idsucursal=v.idsucursal
+group by s.nombre
+
+")
+                Else
+
+
+                End If
+            Else
+                conexion.EjecutarNonQuery("update vehiculo set idsucursal=" + cbxSucursalHacia.SelectedValue.ToString + "
+
+        WHERE nrochasis IN
+           (Select nrochasis from (
+        SELECT first " + NupCantidadHacia.Value.ToString + " nrochasis
+         FROM vehiculo v, modelo mo, tipo t
+        where idcategoria='" + cbxCategoriaHacia.SelectedValue.ToString + "' and
+        V.IDMODELO=mo.idmodelo and t.idtipo=mo.idtipo and t.idtipo='" + cbxTipoHacia.SelectedValue.ToString + "' and idsucursal='" + cbxSucursalDesde.SelectedValue.ToString + "'
+
+         ))
+        ")
+ MsgBox("Se movieron " + vehiculosposiblesamover.ToString + " vehiculos desde " + cbxSucursalDesde.Text + ", hacia " + cbxSucursalHacia.Text + " Satisfactoriamente.")
+
+                conexion.RellenarDataGridView(dgvVehiculoXSucursal, "
+select s.nombre, count(v.nrochasis)cantidad from sucursal s, vehiculo v
+where s.idsucursal=v.idsucursal
+group by s.nombre
+
+")
+            End If
+        Else
+            MsgBox("No puedes dejar campos vacios ni la cantidad de vehiculos puede ser 0")
+        End If
+
+
+
     End Sub
 End Class

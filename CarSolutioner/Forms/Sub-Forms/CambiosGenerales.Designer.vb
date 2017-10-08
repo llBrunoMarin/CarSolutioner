@@ -157,6 +157,8 @@ Partial Class frmCambiosGenerales
         Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.Label54 = New System.Windows.Forms.Label()
         Me.pnlMovimientoVeh = New System.Windows.Forms.Panel()
+        Me.cbxCategoriaFilter = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoFilter = New System.Windows.Forms.ComboBox()
         Me.dgvVehiculoXSucursal = New System.Windows.Forms.DataGridView()
         Me.Label57 = New System.Windows.Forms.Label()
         Me.Label50 = New System.Windows.Forms.Label()
@@ -1738,6 +1740,8 @@ Partial Class frmCambiosGenerales
         '
         Me.pnlMovimientoVeh.BackColor = System.Drawing.Color.Silver
         Me.pnlMovimientoVeh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlMovimientoVeh.Controls.Add(Me.cbxCategoriaFilter)
+        Me.pnlMovimientoVeh.Controls.Add(Me.cbxTipoFilter)
         Me.pnlMovimientoVeh.Controls.Add(Me.dgvVehiculoXSucursal)
         Me.pnlMovimientoVeh.Controls.Add(Me.Label57)
         Me.pnlMovimientoVeh.Controls.Add(Me.Label50)
@@ -1757,6 +1761,22 @@ Partial Class frmCambiosGenerales
         Me.pnlMovimientoVeh.Size = New System.Drawing.Size(214, 560)
         Me.pnlMovimientoVeh.TabIndex = 91
         '
+        'cbxCategoriaFilter
+        '
+        Me.cbxCategoriaFilter.FormattingEnabled = True
+        Me.cbxCategoriaFilter.Location = New System.Drawing.Point(81, 211)
+        Me.cbxCategoriaFilter.Name = "cbxCategoriaFilter"
+        Me.cbxCategoriaFilter.Size = New System.Drawing.Size(124, 21)
+        Me.cbxCategoriaFilter.TabIndex = 98
+        '
+        'cbxTipoFilter
+        '
+        Me.cbxTipoFilter.FormattingEnabled = True
+        Me.cbxTipoFilter.Location = New System.Drawing.Point(81, 238)
+        Me.cbxTipoFilter.Name = "cbxTipoFilter"
+        Me.cbxTipoFilter.Size = New System.Drawing.Size(124, 21)
+        Me.cbxTipoFilter.TabIndex = 97
+        '
         'dgvVehiculoXSucursal
         '
         Me.dgvVehiculoXSucursal.AllowUserToAddRows = False
@@ -1767,7 +1787,7 @@ Partial Class frmCambiosGenerales
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvVehiculoXSucursal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvVehiculoXSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVehiculoXSucursal.Location = New System.Drawing.Point(9, 218)
+        Me.dgvVehiculoXSucursal.Location = New System.Drawing.Point(9, 265)
         Me.dgvVehiculoXSucursal.MultiSelect = False
         Me.dgvVehiculoXSucursal.Name = "dgvVehiculoXSucursal"
         Me.dgvVehiculoXSucursal.ReadOnly = True
@@ -1775,7 +1795,7 @@ Partial Class frmCambiosGenerales
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvVehiculoXSucursal.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dgvVehiculoXSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvVehiculoXSucursal.Size = New System.Drawing.Size(196, 284)
+        Me.dgvVehiculoXSucursal.Size = New System.Drawing.Size(196, 237)
         Me.dgvVehiculoXSucursal.TabIndex = 96
         '
         'Label57
@@ -1783,7 +1803,7 @@ Partial Class frmCambiosGenerales
         Me.Label57.AutoSize = True
         Me.Label57.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label57.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label57.Location = New System.Drawing.Point(6, 198)
+        Me.Label57.Location = New System.Drawing.Point(6, 193)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(139, 17)
         Me.Label57.TabIndex = 95
@@ -2447,4 +2467,6 @@ Partial Class frmCambiosGenerales
     Friend WithEvents DataGridView4 As DataGridView
     Friend WithEvents dgvVehiculoXSucursal As DataGridView
     Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents cbxCategoriaFilter As ComboBox
+    Friend WithEvents cbxTipoFilter As ComboBox
 End Class

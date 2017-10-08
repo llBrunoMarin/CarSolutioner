@@ -54,13 +54,13 @@ Partial Public Class frmMainMenu
         If Not (FaltaDato) Then
             Dim idPersonaInsertar As New DataTable
 
-            idPersonaInsertar = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" + txtNroDocumentoCempleado.Text + "'")
+            idPersonaInsertar = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" + txtNroDocumentoCempleado.Text.ToString + "'")
 
 
             If (idPersonaInsertar.Rows.Count <> 0) Then
 
                 Dim idpersonaRepetido As New DataTable
-                idpersonaRepetido = conexion.EjecutarSelect("SELECT idpersona FROM empleado where idpersona = '" + idPersonaInsertar.Rows(0)(0).ToString() + "'")
+                idpersonaRepetido = conexion.EjecutarSelect("SELECT idpersona FROM empleado where idpersona = '" + idPersonaInsertar.Rows(0)(0).ToString + "'")
 
                 If Not (idpersonaRepetido.Rows.Count <> 0) Then
 
@@ -163,27 +163,38 @@ Partial Public Class frmMainMenu
                 Dim test As New DataTable
                 test = conexion.EjecutarSelect("SELECT * FROM trabaja WHERE usuarioempleado ='" + NombreUsuarioEmpM + "' and fechafin is NULL")
                 If (test.Rows.Count <> 0) Then
+
+
                     Dim UsuarioEUpdate As String = test.Rows(0)("usuarioempleado").ToString()
                     Dim SucursalEUpdate As String = test.Rows(0)("idsucursal").ToString()
                     Dim FechaiEUpdate As String = Date.Parse(test.Rows(0)("fechainicio").ToString()).ToShortDateString
 
                     If Not (TipoUsuarioEmpM.ToString() = TipoEmpleadoDGV And SucursalUsuarioEmpM.ToString() = SucursalEmpleadoDGV) Then
-                        If (conexion.EjecutarNonQuery("UPDATE trabaja SET fechafin = '" + fechActual + "' WHERE usuarioempleado = '" + UsuarioEUpdate + "' AND idsucursal = '" + SucursalEUpdate + "' AND fechainicio = '" + FechaiEUpdate + "'") = True) Then
-                            If (conexion.EjecutarNonQuery("INSERT INTO trabaja VALUES ('" + NombreUsuarioEmpM + "','" + SucursalUsuarioEmpM + "','" + fechActual + "',NULL)") = True) Then
-                                If (conexion.EjecutarNonQuery("UPDATE empleado SET tipo = " + TipoUsuarioEmpM + " WHERE idpersona = '" + idPersonaUsuarioEM + "'") = True) Then
 
-                                    MsgBox("Empleado Modificado Correctamente")
-                                    RecargarDatos(dgvEmpleados)
+                        If (TipoUsuarioEmpM.ToString() <> TipoEmpleadoDGV And SucursalUsuarioEmpM.ToString <> SucursalEmpleadoDGV) Then
 
-                                Else
-                                    MsgBox("Modifica el tipo!")
-                                End If
+                            conexion.EjecutarNonQuery("UPDATE empleado SET tipo = " + TipoUsuarioEmpM + " WHERE idpersona = '" + idPersonaUsuarioEM + "'")
+                            conexion.EjecutarNonQuery("UPDATE trabaja SET fechafin = '" + fechActual + "' WHERE usuarioempleado = '" + UsuarioEUpdate + "' AND idsucursal = '" + SucursalEUpdate + "' AND fechainicio = '" + FechaiEUpdate + "'")
+                            conexion.EjecutarNonQuery("INSERT INTO trabaja VALUES ('" + NombreUsuarioEmpM + "','" + SucursalUsuarioEmpM + "','" + fechActual + "',NULL)")
 
-                            End If
+                            MsgBox("Empleado modificado correctamente")
+                            RecargarDatos(dgvEmpleados)
+                        ElseIf (TipoUsuarioEmpM.ToString() <> TipoEmpleadoDGV) Then
+                            conexion.EjecutarNonQuery("UPDATE empleado SET tipo = " + TipoUsuarioEmpM + " WHERE idpersona = '" + idPersonaUsuarioEM + "'")
+                            MsgBox("Tipo empleado modificado correctamente")
+                            RecargarDatos(dgvEmpleados)
+                        ElseIf (SucursalUsuarioEmpM.ToString <> SucursalEmpleadoDGV) Then
+                            conexion.EjecutarNonQuery("UPDATE trabaja SET fechafin = '" + fechActual + "' WHERE usuarioempleado = '" + UsuarioEUpdate + "' AND idsucursal = '" + SucursalEUpdate + "' AND fechainicio = '" + FechaiEUpdate + "'")
+                            conexion.EjecutarNonQuery("INSERT INTO trabaja VALUES ('" + NombreUsuarioEmpM + "','" + SucursalUsuarioEmpM + "','" + fechActual + "',NULL)")
+                            MsgBox("Sucursal empleado modificada correctamente")
+                            RecargarDatos(dgvEmpleados)
+
                         End If
+
                     Else
-                        MsgBox("Debe modificar algo")
+                            MsgBox("Debe modificar algo")
                     End If
+
                 Else
                     MsgBox("error no existe ese empleado")
                 End If

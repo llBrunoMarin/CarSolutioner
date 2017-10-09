@@ -26,8 +26,8 @@ Partial Class frmCambiosGenerales
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCambiosGenerales))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnCerrar = New System.Windows.Forms.Button()
@@ -157,10 +157,6 @@ Partial Class frmCambiosGenerales
         Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.Label54 = New System.Windows.Forms.Label()
         Me.pnlMovimientoVeh = New System.Windows.Forms.Panel()
-        Me.cbxCategoriaFilter = New System.Windows.Forms.ComboBox()
-        Me.cbxTipoFilter = New System.Windows.Forms.ComboBox()
-        Me.dgvVehiculoXSucursal = New System.Windows.Forms.DataGridView()
-        Me.Label57 = New System.Windows.Forms.Label()
         Me.Label50 = New System.Windows.Forms.Label()
         Me.NupCantidadHacia = New System.Windows.Forms.NumericUpDown()
         Me.Label61 = New System.Windows.Forms.Label()
@@ -197,6 +193,10 @@ Partial Class frmCambiosGenerales
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.dgvVehiculoXSucursal = New System.Windows.Forms.DataGridView()
+        Me.cbxTipoFilter = New System.Windows.Forms.ComboBox()
+        Me.cbxCategoriaFilter = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         Me.tbpCategorias.SuspendLayout()
@@ -218,12 +218,12 @@ Partial Class frmCambiosGenerales
         Me.Panel10.SuspendLayout()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMovimientoVeh.SuspendLayout()
-        CType(Me.dgvVehiculoXSucursal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NupCantidadHacia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvVehiculoXSucursal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -1761,54 +1761,6 @@ Partial Class frmCambiosGenerales
         Me.pnlMovimientoVeh.Size = New System.Drawing.Size(214, 560)
         Me.pnlMovimientoVeh.TabIndex = 91
         '
-        'cbxCategoriaFilter
-        '
-        Me.cbxCategoriaFilter.FormattingEnabled = True
-        Me.cbxCategoriaFilter.Location = New System.Drawing.Point(81, 211)
-        Me.cbxCategoriaFilter.Name = "cbxCategoriaFilter"
-        Me.cbxCategoriaFilter.Size = New System.Drawing.Size(124, 21)
-        Me.cbxCategoriaFilter.TabIndex = 98
-        '
-        'cbxTipoFilter
-        '
-        Me.cbxTipoFilter.FormattingEnabled = True
-        Me.cbxTipoFilter.Location = New System.Drawing.Point(81, 238)
-        Me.cbxTipoFilter.Name = "cbxTipoFilter"
-        Me.cbxTipoFilter.Size = New System.Drawing.Size(124, 21)
-        Me.cbxTipoFilter.TabIndex = 97
-        '
-        'dgvVehiculoXSucursal
-        '
-        Me.dgvVehiculoXSucursal.AllowUserToAddRows = False
-        Me.dgvVehiculoXSucursal.AllowUserToDeleteRows = False
-        Me.dgvVehiculoXSucursal.AllowUserToResizeColumns = False
-        Me.dgvVehiculoXSucursal.AllowUserToResizeRows = False
-        Me.dgvVehiculoXSucursal.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.dgvVehiculoXSucursal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvVehiculoXSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVehiculoXSucursal.Location = New System.Drawing.Point(9, 265)
-        Me.dgvVehiculoXSucursal.MultiSelect = False
-        Me.dgvVehiculoXSucursal.Name = "dgvVehiculoXSucursal"
-        Me.dgvVehiculoXSucursal.ReadOnly = True
-        Me.dgvVehiculoXSucursal.RowHeadersVisible = False
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvVehiculoXSucursal.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.dgvVehiculoXSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvVehiculoXSucursal.Size = New System.Drawing.Size(196, 237)
-        Me.dgvVehiculoXSucursal.TabIndex = 96
-        '
-        'Label57
-        '
-        Me.Label57.AutoSize = True
-        Me.Label57.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label57.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label57.Location = New System.Drawing.Point(6, 193)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(139, 17)
-        Me.Label57.TabIndex = 95
-        Me.Label57.Text = "Vehiculos por sucursal"
-        '
         'Label50
         '
         Me.Label50.AutoSize = True
@@ -2239,6 +2191,54 @@ Partial Class frmCambiosGenerales
         Me.DataGridView3.Size = New System.Drawing.Size(187, 332)
         Me.DataGridView3.TabIndex = 43
         '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label57.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label57.Location = New System.Drawing.Point(6, 193)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(139, 17)
+        Me.Label57.TabIndex = 95
+        Me.Label57.Text = "Vehiculos por sucursal"
+        '
+        'dgvVehiculoXSucursal
+        '
+        Me.dgvVehiculoXSucursal.AllowUserToAddRows = False
+        Me.dgvVehiculoXSucursal.AllowUserToDeleteRows = False
+        Me.dgvVehiculoXSucursal.AllowUserToResizeColumns = False
+        Me.dgvVehiculoXSucursal.AllowUserToResizeRows = False
+        Me.dgvVehiculoXSucursal.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvVehiculoXSucursal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvVehiculoXSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvVehiculoXSucursal.Location = New System.Drawing.Point(9, 265)
+        Me.dgvVehiculoXSucursal.MultiSelect = False
+        Me.dgvVehiculoXSucursal.Name = "dgvVehiculoXSucursal"
+        Me.dgvVehiculoXSucursal.ReadOnly = True
+        Me.dgvVehiculoXSucursal.RowHeadersVisible = False
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvVehiculoXSucursal.RowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgvVehiculoXSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvVehiculoXSucursal.Size = New System.Drawing.Size(196, 237)
+        Me.dgvVehiculoXSucursal.TabIndex = 96
+        '
+        'cbxTipoFilter
+        '
+        Me.cbxTipoFilter.FormattingEnabled = True
+        Me.cbxTipoFilter.Location = New System.Drawing.Point(81, 238)
+        Me.cbxTipoFilter.Name = "cbxTipoFilter"
+        Me.cbxTipoFilter.Size = New System.Drawing.Size(124, 21)
+        Me.cbxTipoFilter.TabIndex = 97
+        '
+        'cbxCategoriaFilter
+        '
+        Me.cbxCategoriaFilter.FormattingEnabled = True
+        Me.cbxCategoriaFilter.Location = New System.Drawing.Point(81, 211)
+        Me.cbxCategoriaFilter.Name = "cbxCategoriaFilter"
+        Me.cbxCategoriaFilter.Size = New System.Drawing.Size(124, 21)
+        Me.cbxCategoriaFilter.TabIndex = 98
+        '
         'frmCambiosGenerales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2290,13 +2290,13 @@ Partial Class frmCambiosGenerales
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMovimientoVeh.ResumeLayout(False)
         Me.pnlMovimientoVeh.PerformLayout()
-        CType(Me.dgvVehiculoXSucursal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NupCantidadHacia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvVehiculoXSucursal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2435,7 +2435,6 @@ Partial Class frmCambiosGenerales
     Friend WithEvents TextBox9 As TextBox
     Public WithEvents Label54 As Label
     Friend WithEvents pnlMovimientoVeh As Panel
-    Friend WithEvents Label57 As Label
     Friend WithEvents Label50 As Label
     Friend WithEvents NupCantidadHacia As NumericUpDown
     Friend WithEvents Label61 As Label
@@ -2465,8 +2464,9 @@ Partial Class frmCambiosGenerales
     Public WithEvents Label56 As Label
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DataGridView4 As DataGridView
-    Friend WithEvents dgvVehiculoXSucursal As DataGridView
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents cbxCategoriaFilter As ComboBox
     Friend WithEvents cbxTipoFilter As ComboBox
+    Friend WithEvents dgvVehiculoXSucursal As DataGridView
+    Friend WithEvents Label57 As Label
 End Class

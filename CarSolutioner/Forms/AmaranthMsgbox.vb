@@ -42,7 +42,7 @@
 
     End Sub
 
-    Private Sub SiNo(sender As Object, e As EventArgs) Handles btnNo.Click, btnSi.Click
+    Private Sub SiNo(sender As Object, e As EventArgs)
 
     End Sub
 End Class

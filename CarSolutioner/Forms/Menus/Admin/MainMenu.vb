@@ -1,7 +1,6 @@
 ﻿'MenuPrincipal (DISEÑO)
 Public Class frmMainMenu
 
-    Public ReservaSeleccionada As New ReservaSeleccionada(conexion)
 
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -20,13 +19,12 @@ Public Class frmMainMenu
         cbxTipoDocumFCliente.SelectedItem = Nothing
 
         cbxCategoriaFRes.SelectedItem = Nothing
-        cbxCategoriaARes.SelectedItem = Nothing
         cbxCategoriaFVeh.SelectedItem = Nothing
         cbxCategoriaAVeh.SelectedItem = Nothing
 
         cbxTipoFVeh.SelectedItem = Nothing
         cbxTipoAVeh.SelectedItem = Nothing
-
+        cbxTipoFRes.SelectedItem = Nothing
         cbxMarcaFVeh.SelectedItem = Nothing
         cbxMarcaAVeh.SelectedItem = Nothing
 
@@ -46,6 +44,9 @@ Public Class frmMainMenu
         cbxSucursalFempleados.SelectedItem = Nothing
         cbxTipoFempleados.SelectedItem = Nothing
         chbxFiltrarEstadoMant.Checked = True
+
+        cbxKilomFRes.SelectedItem = Nothing
+
 
     End Sub
 
@@ -93,7 +94,7 @@ Public Class frmMainMenu
 
     Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
 
-        cargando(pcboxloading, 500)
+        Cargando(500)
 
         frmCambiosGenerales.ShowDialog()
 
@@ -147,8 +148,8 @@ Public Class frmMainMenu
         RecargarDatos(dgvClientes)
         RecargarDatos(dgvVehiculos)
         RecargarDatos(dgvEmpleados)
-        RecargarDatos(frmAlquilar.dgvAlquilar)
-        RecargarDatos(dgvMant)
+
+        'RecargarDatos(dgvMant)
 
         'Cargas de ComboBox
         'MARCAS
@@ -161,7 +162,10 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxPuertasMVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoFRes, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos, "nombre", "idtipo")
+
+        'RANGOS EMPLEADOS
         CargarDatosComboBox(cbxTipoFempleados, conexion.TipoEmpleados, "tipos", "id")
         CargarDatosComboBox(cbxTipoMempleados, conexion.TipoEmpleados, "tipos", "id")
         CargarDatosComboBox(cbxTipoCempleados, conexion.TipoEmpleados, "tipos", "id")
@@ -198,8 +202,9 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxAnioNACliente, conexion.Años)
         CargarDatosComboBox(cbxAnioNMCliente, conexion.Años)
 
-
-
+        'TIPOS DE KM (para que no se lea "1, 2, 3")
+        CargarDatosComboBox(cbxKilomFRes, conexion.Kilometros, "km", "id")
+        CargarDatosComboBox(cbxKmARes, conexion.Kilometros, "km", "id")
 
         Me.Opacity = 100
         Login.Hide()
@@ -226,21 +231,12 @@ Public Class frmMainMenu
 
             Case "dgvReservas"
                 dgvReservas.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, ca.nombre categoria, R.fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada and r.estado=1")
+                conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria, R.fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadtext, R.cantidadkm idcantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada")
 
 
             Case "dgvAlquileres"
                 dgvAlquileres.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio, R.fechaalquilerfin, R.fechareservainicio, R.fechareservafin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, R.nrochasis, V.matricula, Cl.nombre ||"" ""|| Cl.apellido nombreapellido, Cl.nrodocumento, ca.idcategoria, Ca.nombre categoria, T.idtipo, T.nombre tipo, SS.nombre sucsalida, SS.idsucursal idsucsalida, SL.nombre sucllegada, SL.idsucursal idsucllegada, R.usuarioempleado FROM Reserva R, Vehiculo V, Cliente Cl, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY nombreapellido")
-
-
-            Case "dgvAlquilar"
-                dgvClientes.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(frmAlquilar.dgvAlquilar, "SELECT V.matricula Matricula, Ma.nombre Marca, Mo.nombre Modelo, T.nombre Tipo, V.anio Anio, C.nombre Categoria, V.deducible Deducible, V.aireacondicionado Aire, V.cantidaddepuertas Puertas, V.cantidaddepasajeros Pasajeros, V.cantidaddemaletas Maletas, V.esmanual Manual, V.kilometraje KM, S.Nombre Sucursal, V.nrochasis FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal AND V.estado = 't'")
-                frmAlquilar.dgvAlquilar.Columns("nrochasis").Visible = False
-                frmAlquilar.dgvAlquilar.Columns("categoria").Visible = False
-                frmAlquilar.dgvAlquilar.Columns("tipo").Visible = False
-                frmAlquilar.dgvAlquilar.Columns("sucursal").Visible = False
 
 
             Case "dgvMant"
@@ -257,18 +253,6 @@ Public Class frmMainMenu
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         CargarDatos()
-    End Sub
-
-    Private Sub tbpReservas_Click(sender As Object, e As EventArgs) Handles tbpReservas.Click
-
-    End Sub
-
-    Private Sub pnlBRes_Paint(sender As Object, e As PaintEventArgs) Handles pnlBRes.Paint
-
-    End Sub
-
-    Private Sub pnlFmant_Paint(sender As Object, e As PaintEventArgs) Handles pnlFmant.Paint
-
     End Sub
 
 End Class

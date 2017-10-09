@@ -3,45 +3,32 @@
     Dim ReservaSeleccionada As ReservaSeleccionada = frmMainMenu.ReservaSeleccionada
 
     'Agregar resalquiler fin para cambiar con la q este en el form, por si la quiere cambiar 
-    Private Sub Alquilar_Activated(sender As Object, e As EventArgs) Handles Me.Activated, Me.Load
-        'Juntamos nombre con apellido 
-        Dim ClienteReserva As String = ReservaSeleccionada.NomCliente + " " + ReservaSeleccionada.ApeCliente
+    Private Sub Alquilar_Activated(sender As Object, e As EventArgs) Handles Me.Load
+
+        'Rellenamos el DataGridView con los autos disponibles en ese momento, en esa sucursal, que no estén en mantenimiento
+        Dim sentencia As String = "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal From Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S Where V.idsucursal = '" + ReservaSeleccionada.IdSucursalPartida.ToString + "' AND V.idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "' AND Mo.idtipo = '" + ReservaSeleccionada.IdTipo.ToString + "' AND V.idcategoria = C.idcategoria And V.idmodelo = Mo.idmodelo And Mo.Idmarca = Ma.Idmarca And Mo.Idtipo = T.idtipo And V.idsucursal = S.idsucursal And V.estado = 't' And  V.nrochasis Not IN (Select nrochasis FROM Mantenimiento WHERE fechainicio >= '" + ReservaSeleccionada.FechaReservaInicio.ToShortDateString + "' AND fechafin <= '" + ReservaSeleccionada.FechaReservaInicio.ToShortDateString + "')"
+        conexion.RellenarDataGridView(dgvAlquilar, sentencia)
+
         CargarDatosComboBox(cbxSucLlegada, conexion.Sucursales, "nombre", "idsucursal")
+        cbxSucLlegada.SelectedValue = ReservaSeleccionada.IdSucursalDestino
 
         'estos llenan los datetime picker
         'TODO: LAS FECHAS DE ALQUILER NO SE DEBEN SETEAR ASÍ
-        dtpFRInicio.Value = ReservaSeleccionada.FechaInicio
-        dtpFRfin.Value = ReservaSeleccionada.FechaFin
+        dtpFRInicio.Value = ReservaSeleccionada.FechaReservaInicio
+        dtpFRfin.Value = ReservaSeleccionada.FechaReservaFin
         dtpFAinicio.Value = DateTime.Today.ToShortDateString
 
-
-        txtTipo.Text = ReservaSeleccionada.Tipo
-        txtCategoria.Text = ReservaSeleccionada.Categoria
-        txtSucursal.Text = ReservaSeleccionada.SucursalInicio
-        txtCliente.Text = ClienteReserva
-
-        'Pasamos las variables date a string para poder hacer el insert
-        'resfin2 = ResFin
-        'res2 = ResInicio
-
-        'Resta de fechas para saber los dias
-        ReservaSeleccionada.Diasalquilados = (ReservaSeleccionada.FechaFin - ReservaSeleccionada.FechaInicio).Days
-
-
-        'filtramos el dgv con las reservas para esa persona
-        Dim filtro As String
-        filtro = "categoria = '" + ReservaSeleccionada.Categoria + "' AND tipo = '" + ReservaSeleccionada.Tipo + "' AND sucursal = '" + ReservaSeleccionada.SucursalInicio + "'"
-
-        dgvAlquilar.DataSource.Filter = filtro
-
+        txtCliente.Text = ReservaSeleccionada.NomCliente
+        txtTipo.Text = conexion.Tipos.Select("idtipo =" + ReservaSeleccionada.IdTipo.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
+        txtCategoria.Text = conexion.Categorias.Select("idcategoria =" + ReservaSeleccionada.IdCategoria.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
+        txtSucursal.Text = conexion.Sucursales.Select("idsucursal =" + ReservaSeleccionada.IdSucursalPartida.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
 
     End Sub
 
-    'Doble click en el dgv alquilar
+    'Doble click en el dgv alquilar, o click en el botón Alquilar
     Public Sub AlquilarAutoSeleccionado(sender As Object, e As EventArgs) Handles dgvAlquilar.CellMouseDoubleClick, btnAlquilar.Click
 
         Dim selectedRow As DataGridViewRow
-
 
         If sender Is dgvAlquilar Then
             selectedRow = dgvAlquilar.Rows(DirectCast(e, DataGridViewCellMouseEventArgs).RowIndex)
@@ -49,20 +36,17 @@
             selectedRow = dgvAlquilar.CurrentRow
         End If
 
-        Dim nrochasis As String = selectedRow.Cells("nrochasis").Value.ToString
+        Dim NroChasis As String = selectedRow.Cells("nrochasis").Value.ToString
 
         'Dim resultado As DialogResult = MsgBox("Estas seguro que deseas alquilar el vehiculo?", MsgBoxStyle.YesNo, "Desea continuar?")
         Dim resultado As DialogResult = AmaranthMessagebox("¿Estás seguro que deseas alquilar el vehículo?", "Si/No")
         If resultado = vbYes Then
 
             'Actualiza la Reserva para que sea un ALQUILER, con NroChasis = al seleccionado, fechaalquilerinicio = hoy, fechareservafin = seleccionada (en caso que el cliente cambie su fecha reserva fin)
-            conexion.EjecutarNonQuery("UPDATE Reserva SET nrochasis = '" + nrochasis + "', idsucursalllegada = '" + cbxSucLlegada.SelectedValue.ToString + "', fechaalquilerinicio = '" + DateTime.Today.Date.ToShortDateString + "', fechareservafin = '" + dtpFRfin.Value.ToShortDateString + "' WHERE idreserva = " + ReservaSeleccionada.IdReserva.ToString + " ")
-            conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = NULL WHERE nrochasis='" + nrochasis + "'")
+            conexion.EjecutarNonQuery("UPDATE Reserva SET nrochasis = '" + NroChasis + "', idsucursalllegada = '" + cbxSucLlegada.SelectedValue.ToString + "', fechaalquilerinicio = '" + DateTime.Today.Date.ToShortDateString + "', fechareservafin = '" + dtpFRfin.Value.ToShortDateString + "' WHERE idreserva = " + ReservaSeleccionada.IdReserva.ToString + " ")
+            conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = NULL WHERE nrochasis='" + NroChasis + "'")
             MsgBox("Alquiler Ingresado")
-            frmMainMenu.RecargarDatos(dgvAlquilar)
-            frmMainMenu.RecargarDatos(frmMainMenu.dgvReservas)
-            frmMainMenu.RecargarDatos(frmMainMenu.dgvAlquileres)
-
+            frmMainMenu.CargarDatos()
             Me.Hide()
 
         End If
@@ -96,12 +80,8 @@
 
     End Sub
 
-    'Boton cerrar
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
         Me.Hide()
     End Sub
 
-    Private Sub btnAlquilar_Click(sender As Object, e As EventArgs) Handles btnAlquilar.Click
-
-    End Sub
 End Class

@@ -28,10 +28,12 @@ Partial Public Class frmMainMenu
                                 CargarDatosComboBox(cbxModeloAVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
                                 cbxModeloAVeh.Enabled = True
                                 cbxModeloAVeh.SelectedItem = Nothing
+                                cbxTipoAVeh.SelectedItem = Nothing
                             Case "cbxMarcaFVeh"
                                 CargarDatosComboBox(cbxModeloFVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaFVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
                                 cbxModeloFVeh.Enabled = True
                                 cbxModeloFVeh.SelectedItem = Nothing
+                                cbxTipoFVeh.SelectedItem = Nothing
                             Case Else
 
                         End Select

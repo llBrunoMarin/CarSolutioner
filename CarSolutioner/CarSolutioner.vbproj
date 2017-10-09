@@ -147,10 +147,10 @@
     <Compile Include="Forms\AmaranthMsgbox.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Sub-Forms\Alquilar.Designer.vb">
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\Alquilar.Designer.vb">
       <DependentUpon>Alquilar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Sub-Forms\Alquilar.vb">
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\Alquilar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Menus\Admin\Partes\Mantenimiento.vb" />
@@ -159,10 +159,10 @@
     <Compile Include="Forms\Menus\Admin\Partes\ReservaSeleccionada.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Reservas.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Vehiculos.vb" />
-    <Compile Include="Forms\Sub-Forms\CambiosGenerales.Designer.vb">
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\CambiosGenerales.Designer.vb">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Sub-Forms\CambiosGenerales.vb">
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\CambiosGenerales.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login.Designer.vb">
@@ -178,16 +178,16 @@
       <DependentUpon>MainMenu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Sub-Forms\Reconectar.Designer.vb">
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\Reconectar.Designer.vb">
       <DependentUpon>Reconectar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Sub-Forms\Reconectar.vb">
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\Reconectar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Sub-Forms\TelefonosCliente.Designer.vb">
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\TelefonosCliente.Designer.vb">
       <DependentUpon>TelefonosCliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Sub-Forms\TelefonosCliente.vb">
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\TelefonosCliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -211,11 +211,11 @@
     <EmbeddedResource Include="Forms\AmaranthMsgbox.resx">
       <DependentUpon>AmaranthMsgbox.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Sub-Forms\Alquilar.resx">
+    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\Alquilar.resx">
       <DependentUpon>Alquilar.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Sub-Forms\CambiosGenerales.resx">
+    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\CambiosGenerales.resx">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
@@ -224,10 +224,10 @@
     <EmbeddedResource Include="Forms\Menus\Admin\MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Sub-Forms\Reconectar.resx">
+    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\Reconectar.resx">
       <DependentUpon>Reconectar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Sub-Forms\TelefonosCliente.resx">
+    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\TelefonosCliente.resx">
       <DependentUpon>TelefonosCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

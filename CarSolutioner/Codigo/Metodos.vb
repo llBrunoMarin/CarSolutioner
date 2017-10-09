@@ -3,8 +3,9 @@ Module Metodos
 
     Public Declare Function GetTickCount Lib "kernel32" () As Integer
     Public conexion As New ConnectionBD
+    Public bgwCargar As New ComponentModel.BackgroundWorker
 
-    Public Sub cargando(imagen As PictureBox, milisegundos As Integer)
+    Public Sub Cargando(milisegundos As Integer)
 
         Dim retraso As Integer
 
@@ -12,10 +13,10 @@ Module Metodos
 
         While retraso >= GetTickCount
             Application.DoEvents()
-            imagen.Visible = True
+            frmMainMenu.pcboxloading.Visible = True
         End While
 
-        imagen.Visible = False
+        frmMainMenu.pcboxloading.Visible = False
     End Sub
 
     'Verifica una cédula que entra como parámetro

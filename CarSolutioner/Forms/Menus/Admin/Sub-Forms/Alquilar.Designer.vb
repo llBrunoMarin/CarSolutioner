@@ -22,6 +22,7 @@ Partial Class frmAlquilar
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAlquilar))
         Me.dgvAlquilar = New System.Windows.Forms.DataGridView()
         Me.txtTipo = New System.Windows.Forms.TextBox()
@@ -50,6 +51,27 @@ Partial Class frmAlquilar
         Me.dtpFRInicio = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cbxSucLlegada = New System.Windows.Forms.ComboBox()
+        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmodelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvAlquilar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,19 +83,29 @@ Partial Class frmAlquilar
         '
         'dgvAlquilar
         '
+        Me.dgvAlquilar.AllowUserToAddRows = False
+        Me.dgvAlquilar.AllowUserToDeleteRows = False
+        Me.dgvAlquilar.AllowUserToResizeColumns = False
+        Me.dgvAlquilar.AllowUserToResizeRows = False
+        Me.dgvAlquilar.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.dgvAlquilar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvAlquilar.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvAlquilar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAlquilar.Location = New System.Drawing.Point(4, 135)
+        Me.dgvAlquilar.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.matricula, Me.marca, Me.modelo, Me.nrochasis, Me.anio, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.aireacondicionado, Me.esmanual, Me.deducible, Me.idcategoria, Me.idmodelo, Me.idsucursal, Me.estado, Me.idmarca, Me.tipo, Me.idtipo, Me.categoria, Me.sucursal})
+        Me.dgvAlquilar.Location = New System.Drawing.Point(12, 141)
         Me.dgvAlquilar.Name = "dgvAlquilar"
         Me.dgvAlquilar.ReadOnly = True
         Me.dgvAlquilar.RowHeadersVisible = False
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvAlquilar.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvAlquilar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvAlquilar.Size = New System.Drawing.Size(1038, 487)
+        Me.dgvAlquilar.Size = New System.Drawing.Size(1035, 476)
         Me.dgvAlquilar.TabIndex = 0
         '
         'txtTipo
         '
         Me.txtTipo.Enabled = False
-        Me.txtTipo.Location = New System.Drawing.Point(12, 59)
+        Me.txtTipo.Location = New System.Drawing.Point(12, 61)
         Me.txtTipo.Name = "txtTipo"
         Me.txtTipo.Size = New System.Drawing.Size(100, 20)
         Me.txtTipo.TabIndex = 1
@@ -119,7 +151,7 @@ Partial Class frmAlquilar
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(10, 41)
+        Me.Label10.Location = New System.Drawing.Point(12, 41)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(32, 17)
         Me.Label10.TabIndex = 31
@@ -158,7 +190,7 @@ Partial Class frmAlquilar
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(115, 41)
+        Me.Label1.Location = New System.Drawing.Point(115, 39)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 17)
         Me.Label1.TabIndex = 37
@@ -169,7 +201,7 @@ Partial Class frmAlquilar
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(224, 41)
+        Me.Label2.Location = New System.Drawing.Point(224, 39)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 17)
         Me.Label2.TabIndex = 38
@@ -180,7 +212,7 @@ Partial Class frmAlquilar
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(330, 41)
+        Me.Label3.Location = New System.Drawing.Point(330, 39)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(102, 17)
         Me.Label3.TabIndex = 39
@@ -197,7 +229,7 @@ Partial Class frmAlquilar
         Me.btnAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAlquilar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlquilar.ForeColor = System.Drawing.Color.White
-        Me.btnAlquilar.Location = New System.Drawing.Point(948, 98)
+        Me.btnAlquilar.Location = New System.Drawing.Point(948, 104)
         Me.btnAlquilar.Name = "btnAlquilar"
         Me.btnAlquilar.Size = New System.Drawing.Size(99, 31)
         Me.btnAlquilar.TabIndex = 40
@@ -257,7 +289,7 @@ Partial Class frmAlquilar
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(15, 82)
+        Me.Label4.Location = New System.Drawing.Point(12, 84)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(131, 17)
         Me.Label4.TabIndex = 44
@@ -268,7 +300,7 @@ Partial Class frmAlquilar
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(657, 82)
+        Me.Label5.Location = New System.Drawing.Point(560, 84)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(115, 17)
         Me.Label5.TabIndex = 46
@@ -289,7 +321,7 @@ Partial Class frmAlquilar
         '
         Me.dtpFRfin.CustomFormat = ""
         Me.dtpFRfin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFRfin.Location = New System.Drawing.Point(660, 102)
+        Me.dtpFRfin.Location = New System.Drawing.Point(560, 104)
         Me.dtpFRfin.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFRfin.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFRfin.Name = "dtpFRfin"
@@ -315,7 +347,7 @@ Partial Class frmAlquilar
         Me.dtpFRInicio.CustomFormat = ""
         Me.dtpFRInicio.Enabled = False
         Me.dtpFRInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFRInicio.Location = New System.Drawing.Point(18, 102)
+        Me.dtpFRInicio.Location = New System.Drawing.Point(12, 104)
         Me.dtpFRInicio.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFRInicio.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFRInicio.Name = "dtpFRInicio"
@@ -328,7 +360,7 @@ Partial Class frmAlquilar
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(520, 82)
+        Me.Label8.Location = New System.Drawing.Point(430, 83)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(109, 17)
         Me.Label8.TabIndex = 57
@@ -339,10 +371,171 @@ Partial Class frmAlquilar
         Me.cbxSucLlegada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxSucLlegada.FormattingEnabled = True
         Me.cbxSucLlegada.Items.AddRange(New Object() {"Flying Cars", "Uruguay Motors", "Rentafrank", "Punta Motors"})
-        Me.cbxSucLlegada.Location = New System.Drawing.Point(523, 102)
+        Me.cbxSucLlegada.Location = New System.Drawing.Point(433, 102)
         Me.cbxSucLlegada.Name = "cbxSucLlegada"
         Me.cbxSucLlegada.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucLlegada.TabIndex = 56
+        '
+        'matricula
+        '
+        Me.matricula.DataPropertyName = "matricula"
+        Me.matricula.HeaderText = "Matrícula"
+        Me.matricula.Name = "matricula"
+        Me.matricula.ReadOnly = True
+        '
+        'marca
+        '
+        Me.marca.DataPropertyName = "marca"
+        Me.marca.HeaderText = "Marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        '
+        'modelo
+        '
+        Me.modelo.DataPropertyName = "modelo"
+        Me.modelo.HeaderText = "Modelo"
+        Me.modelo.Name = "modelo"
+        Me.modelo.ReadOnly = True
+        '
+        'nrochasis
+        '
+        Me.nrochasis.DataPropertyName = "nrochasis"
+        Me.nrochasis.HeaderText = "nrochasis"
+        Me.nrochasis.Name = "nrochasis"
+        Me.nrochasis.ReadOnly = True
+        Me.nrochasis.Visible = False
+        '
+        'anio
+        '
+        Me.anio.DataPropertyName = "anio"
+        Me.anio.HeaderText = "Año"
+        Me.anio.Name = "anio"
+        Me.anio.ReadOnly = True
+        '
+        'kilometraje
+        '
+        Me.kilometraje.DataPropertyName = "kilometraje"
+        Me.kilometraje.HeaderText = "Kilometraje"
+        Me.kilometraje.Name = "kilometraje"
+        Me.kilometraje.ReadOnly = True
+        '
+        'cantidaddepuertas
+        '
+        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
+        Me.cantidaddepuertas.HeaderText = "Puertas"
+        Me.cantidaddepuertas.Name = "cantidaddepuertas"
+        Me.cantidaddepuertas.ReadOnly = True
+        '
+        'cantidaddepasajeros
+        '
+        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
+        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.ReadOnly = True
+        '
+        'cantidaddemaletas
+        '
+        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
+        Me.cantidaddemaletas.HeaderText = "Maletas"
+        Me.cantidaddemaletas.Name = "cantidaddemaletas"
+        Me.cantidaddemaletas.ReadOnly = True
+        '
+        'aireacondicionado
+        '
+        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
+        Me.aireacondicionado.HeaderText = "Aire"
+        Me.aireacondicionado.Name = "aireacondicionado"
+        Me.aireacondicionado.ReadOnly = True
+        Me.aireacondicionado.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'esmanual
+        '
+        Me.esmanual.DataPropertyName = "esmanual"
+        Me.esmanual.HeaderText = "Manual"
+        Me.esmanual.Name = "esmanual"
+        Me.esmanual.ReadOnly = True
+        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'deducible
+        '
+        Me.deducible.DataPropertyName = "deducible"
+        Me.deducible.HeaderText = "Deducible"
+        Me.deducible.Name = "deducible"
+        Me.deducible.ReadOnly = True
+        '
+        'idcategoria
+        '
+        Me.idcategoria.DataPropertyName = "idcategoria"
+        Me.idcategoria.HeaderText = "idcategoria"
+        Me.idcategoria.Name = "idcategoria"
+        Me.idcategoria.ReadOnly = True
+        Me.idcategoria.Visible = False
+        '
+        'idmodelo
+        '
+        Me.idmodelo.DataPropertyName = "idmodelo"
+        Me.idmodelo.HeaderText = "idmodelo"
+        Me.idmodelo.Name = "idmodelo"
+        Me.idmodelo.ReadOnly = True
+        Me.idmodelo.Visible = False
+        '
+        'idsucursal
+        '
+        Me.idsucursal.DataPropertyName = "idsucursal"
+        Me.idsucursal.HeaderText = "idsucursal"
+        Me.idsucursal.Name = "idsucursal"
+        Me.idsucursal.ReadOnly = True
+        Me.idsucursal.Visible = False
+        '
+        'estado
+        '
+        Me.estado.DataPropertyName = "estado"
+        Me.estado.HeaderText = "estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        Me.estado.Visible = False
+        '
+        'idmarca
+        '
+        Me.idmarca.DataPropertyName = "idmarca"
+        Me.idmarca.HeaderText = "idmarca"
+        Me.idmarca.Name = "idmarca"
+        Me.idmarca.ReadOnly = True
+        Me.idmarca.Visible = False
+        '
+        'tipo
+        '
+        Me.tipo.DataPropertyName = "tipo"
+        Me.tipo.HeaderText = "Tipo"
+        Me.tipo.Name = "tipo"
+        Me.tipo.ReadOnly = True
+        Me.tipo.Visible = False
+        '
+        'idtipo
+        '
+        Me.idtipo.DataPropertyName = "idtipo"
+        Me.idtipo.HeaderText = "idtipo"
+        Me.idtipo.Name = "idtipo"
+        Me.idtipo.ReadOnly = True
+        Me.idtipo.Visible = False
+        '
+        'categoria
+        '
+        Me.categoria.DataPropertyName = "categoria"
+        Me.categoria.HeaderText = "Categoria"
+        Me.categoria.Name = "categoria"
+        Me.categoria.ReadOnly = True
+        Me.categoria.Visible = False
+        '
+        'sucursal
+        '
+        Me.sucursal.DataPropertyName = "sucursal"
+        Me.sucursal.HeaderText = "Sucursal"
+        Me.sucursal.Name = "sucursal"
+        Me.sucursal.ReadOnly = True
+        Me.sucursal.Visible = False
         '
         'frmAlquilar
         '
@@ -414,4 +607,25 @@ Partial Class frmAlquilar
     Friend WithEvents dtpFRInicio As DateTimePicker
     Friend WithEvents Label8 As Label
     Friend WithEvents cbxSucLlegada As ComboBox
+    Friend WithEvents matricula As DataGridViewTextBoxColumn
+    Friend WithEvents marca As DataGridViewTextBoxColumn
+    Friend WithEvents modelo As DataGridViewTextBoxColumn
+    Friend WithEvents nrochasis As DataGridViewTextBoxColumn
+    Friend WithEvents anio As DataGridViewTextBoxColumn
+    Friend WithEvents kilometraje As DataGridViewTextBoxColumn
+    Friend WithEvents cantidaddepuertas As DataGridViewTextBoxColumn
+    Friend WithEvents cantidaddepasajeros As DataGridViewTextBoxColumn
+    Friend WithEvents cantidaddemaletas As DataGridViewTextBoxColumn
+    Friend WithEvents aireacondicionado As DataGridViewCheckBoxColumn
+    Friend WithEvents esmanual As DataGridViewCheckBoxColumn
+    Friend WithEvents deducible As DataGridViewTextBoxColumn
+    Friend WithEvents idcategoria As DataGridViewTextBoxColumn
+    Friend WithEvents idmodelo As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursal As DataGridViewTextBoxColumn
+    Friend WithEvents estado As DataGridViewTextBoxColumn
+    Friend WithEvents idmarca As DataGridViewTextBoxColumn
+    Friend WithEvents tipo As DataGridViewTextBoxColumn
+    Friend WithEvents idtipo As DataGridViewTextBoxColumn
+    Friend WithEvents categoria As DataGridViewTextBoxColumn
+    Friend WithEvents sucursal As DataGridViewTextBoxColumn
 End Class

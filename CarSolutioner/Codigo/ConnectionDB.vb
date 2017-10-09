@@ -20,6 +20,7 @@
     Dim _Tipos As DataTable
     Dim _Sucursales As DataTable
     Dim _Documentos As DataTable
+    Dim _Kilometros As New DataTable
     Dim _TipoEmpleados As New DataTable
 
     Dim _Años As New List(Of String)
@@ -41,6 +42,11 @@
         TipoEmpleados.Rows.Add(3, "Jefe de Personal")
         TipoEmpleados.Rows.Add(4, "Empleado")
 
+        Kilometros.Columns.Add("id", GetType(Integer))
+        Kilometros.Columns.Add("km", GetType(String))
+        Kilometros.Rows.Add(1, "150 KM por día")
+        Kilometros.Rows.Add(2, "300 KM por día")
+        Kilometros.Rows.Add(3, "KM Libres por día")
 
     End Sub
 
@@ -139,6 +145,15 @@
         End Get
         Set(value As DataTable)
             _TipoEmpleados = value
+        End Set
+    End Property
+
+    Public Property Kilometros As DataTable
+        Get
+            Return _Kilometros
+        End Get
+        Set(value As DataTable)
+            _Kilometros = value
         End Set
     End Property
 

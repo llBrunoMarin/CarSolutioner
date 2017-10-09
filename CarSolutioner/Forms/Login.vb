@@ -43,8 +43,6 @@ Public Class Login
     'Hacer operaciones de LOGIN, establece el Tipo de Usuario una vez que termina. Si termina con un error, establece el tipo de usuario según el error.
     Private Sub bgwLogin_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwLogin.DoWork
 
-
-
         If Not (txtContraseña.Text = "" Or txtUsuario.Text = "") Then
 
             conexion.Usuario = txtUsuario.Text

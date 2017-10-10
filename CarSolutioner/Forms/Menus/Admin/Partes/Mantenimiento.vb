@@ -82,13 +82,13 @@ Partial Public Class frmMainMenu
 
                 If chbxFiltrarFechaMant.Checked = True Then
 
-                    filtro = String.Format("{0} Like '%{1}%' and fechainicio >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafin <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "'",
+                    filtro = String.Format("{0} Like '%{1}%' and fechainiciof >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafinf <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "' AND fechafinf > '" + DateTime.Today.ToShortDateString + "' ",
                                            "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion")
                     dgvMant.DataSource.Filter = filtro
 
                 Else
 
-                    filtro = String.Format("{0} Like '%{1}%' ", "matricula", txtFiltrarMatriculaMant.Text) +
+                    filtro = String.Format("{0} Like '%{1}%' AND fechafinf > '" + DateTime.Today.ToShortDateString + "'", "matricula", txtFiltrarMatriculaMant.Text) +
                     TipoFiltro(cbxFiltrarTipoMant, "descripcion")
 
                     dgvMant.DataSource.Filter = filtro
@@ -97,13 +97,13 @@ Partial Public Class frmMainMenu
             Else
                 If chbxFiltrarFechaMant.Checked = True Then
 
-                    filtro = String.Format("{0} LIKE '%{1}%' and fechainicio >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafin <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "'",
+                    filtro = String.Format("{0} LIKE '%{1}%' and fechainiciof >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafinf <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "'",
                                            "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion")
                     dgvMant.DataSource.Filter = filtro
 
                 Else
 
-                    filtro = String.Format("{0} LIKE '%{1}%' and estado = true ", "matricula", txtFiltrarMatriculaMant.Text) +
+                    filtro = String.Format("{0} LIKE '%{1}%'", "matricula", txtFiltrarMatriculaMant.Text) +
                   TipoFiltro(cbxFiltrarTipoMant, "descripcion")
 
                     dgvMant.DataSource.Filter = filtro

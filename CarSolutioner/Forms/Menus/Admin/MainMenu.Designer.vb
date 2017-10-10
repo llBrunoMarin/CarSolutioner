@@ -351,18 +351,13 @@ Partial Class frmMainMenu
         Me.txtFiltrarMatriculaMant = New System.Windows.Forms.TextBox()
         Me.dtpFiltrarFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.dgvMant = New System.Windows.Forms.DataGridView()
-        Me.matriculamant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechainiciomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechafinmant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadomant = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.nrochasismant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlAmant = New System.Windows.Forms.Panel()
         Me.Label108 = New System.Windows.Forms.Label()
         Me.cbxTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label119 = New System.Windows.Forms.Label()
         Me.btnIngresarMant = New System.Windows.Forms.Button()
         Me.Label123 = New System.Windows.Forms.Label()
+        Me.dtpFechaFinMant = New System.Windows.Forms.DateTimePicker()
         Me.dtpFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.Label134 = New System.Windows.Forms.Label()
         Me.Label135 = New System.Windows.Forms.Label()
@@ -533,7 +528,13 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dtpFechaFinMant = New System.Windows.Forms.DateTimePicker()
+        Me.matriculamant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechainiciomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechafinmant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrochasismant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechainicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechafin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -3399,7 +3400,7 @@ Partial Class frmMainMenu
         Me.pnlMEmp.Controls.Add(Me.cbxSucursalMempleados)
         Me.pnlMEmp.Controls.Add(Me.btnModificarEmpleado)
         Me.pnlMEmp.Controls.Add(Me.Label78)
-        Me.pnlMEmp.Location = New System.Drawing.Point(756, 611)
+        Me.pnlMEmp.Location = New System.Drawing.Point(756, 592)
         Me.pnlMEmp.Name = "pnlMEmp"
         Me.pnlMEmp.Size = New System.Drawing.Size(575, 190)
         Me.pnlMEmp.TabIndex = 37
@@ -3482,7 +3483,7 @@ Partial Class frmMainMenu
         Me.pnlBEmp.Controls.Add(Me.Label75)
         Me.pnlBEmp.Controls.Add(Me.Label76)
         Me.pnlBEmp.Controls.Add(Me.txtNroDocEempleado)
-        Me.pnlBEmp.Location = New System.Drawing.Point(756, 415)
+        Me.pnlBEmp.Location = New System.Drawing.Point(756, 396)
         Me.pnlBEmp.Name = "pnlBEmp"
         Me.pnlBEmp.Size = New System.Drawing.Size(575, 190)
         Me.pnlBEmp.TabIndex = 36
@@ -3879,9 +3880,9 @@ Partial Class frmMainMenu
         Me.pnlmmant.Controls.Add(Me.dtpModifFechaFinMant)
         Me.pnlmmant.Controls.Add(Me.txtModifMatriculaMant)
         Me.pnlmmant.Controls.Add(Me.dtpModifFechaInicioMant)
-        Me.pnlmmant.Location = New System.Drawing.Point(789, 431)
+        Me.pnlmmant.Location = New System.Drawing.Point(794, 432)
         Me.pnlmmant.Name = "pnlmmant"
-        Me.pnlmmant.Size = New System.Drawing.Size(578, 198)
+        Me.pnlmmant.Size = New System.Drawing.Size(573, 198)
         Me.pnlmmant.TabIndex = 36
         '
         'cbxModifTipoMant
@@ -3916,7 +3917,7 @@ Partial Class frmMainMenu
         Me.btnVaciarMant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVaciarMant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVaciarMant.ForeColor = System.Drawing.Color.White
-        Me.btnVaciarMant.Location = New System.Drawing.Point(364, 159)
+        Me.btnVaciarMant.Location = New System.Drawing.Point(359, 159)
         Me.btnVaciarMant.Name = "btnVaciarMant"
         Me.btnVaciarMant.Size = New System.Drawing.Size(99, 31)
         Me.btnVaciarMant.TabIndex = 34
@@ -3934,7 +3935,7 @@ Partial Class frmMainMenu
         Me.btnModifMant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModifMant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModifMant.ForeColor = System.Drawing.Color.White
-        Me.btnModifMant.Location = New System.Drawing.Point(469, 159)
+        Me.btnModifMant.Location = New System.Drawing.Point(464, 159)
         Me.btnModifMant.Name = "btnModifMant"
         Me.btnModifMant.Size = New System.Drawing.Size(99, 31)
         Me.btnModifMant.TabIndex = 18
@@ -3981,9 +3982,9 @@ Partial Class frmMainMenu
         Me.Label117.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label117.Location = New System.Drawing.Point(9, 17)
         Me.Label117.Name = "Label117"
-        Me.Label117.Size = New System.Drawing.Size(187, 22)
+        Me.Label117.Size = New System.Drawing.Size(387, 22)
         Me.Label117.TabIndex = 24
-        Me.Label117.Text = "Modificar Seleccion"
+        Me.Label117.Text = "Modificar el mantenimiento seleccionado"
         '
         'dtpModifFechaFinMant
         '
@@ -4027,9 +4028,9 @@ Partial Class frmMainMenu
         Me.pnlFmant.Controls.Add(Me.dtpFiltrarFechaFinMant)
         Me.pnlFmant.Controls.Add(Me.txtFiltrarMatriculaMant)
         Me.pnlFmant.Controls.Add(Me.dtpFiltrarFechaInicioMant)
-        Me.pnlFmant.Location = New System.Drawing.Point(789, 7)
+        Me.pnlFmant.Location = New System.Drawing.Point(794, 7)
         Me.pnlFmant.Name = "pnlFmant"
-        Me.pnlFmant.Size = New System.Drawing.Size(578, 203)
+        Me.pnlFmant.Size = New System.Drawing.Size(573, 203)
         Me.pnlFmant.TabIndex = 37
         '
         'lblBorraFiltroTipoManenimiento
@@ -4037,7 +4038,7 @@ Partial Class frmMainMenu
         Me.lblBorraFiltroTipoManenimiento.AutoSize = True
         Me.lblBorraFiltroTipoManenimiento.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorraFiltroTipoManenimiento.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorraFiltroTipoManenimiento.Location = New System.Drawing.Point(232, 112)
+        Me.lblBorraFiltroTipoManenimiento.Location = New System.Drawing.Point(232, 115)
         Me.lblBorraFiltroTipoManenimiento.Name = "lblBorraFiltroTipoManenimiento"
         Me.lblBorraFiltroTipoManenimiento.Size = New System.Drawing.Size(20, 17)
         Me.lblBorraFiltroTipoManenimiento.TabIndex = 46
@@ -4046,13 +4047,15 @@ Partial Class frmMainMenu
         'chbxFiltrarEstadoMant
         '
         Me.chbxFiltrarEstadoMant.AutoSize = True
+        Me.chbxFiltrarEstadoMant.Checked = True
+        Me.chbxFiltrarEstadoMant.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chbxFiltrarEstadoMant.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chbxFiltrarEstadoMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.chbxFiltrarEstadoMant.Location = New System.Drawing.Point(13, 84)
+        Me.chbxFiltrarEstadoMant.Location = New System.Drawing.Point(364, 47)
         Me.chbxFiltrarEstadoMant.Name = "chbxFiltrarEstadoMant"
-        Me.chbxFiltrarEstadoMant.Size = New System.Drawing.Size(77, 20)
+        Me.chbxFiltrarEstadoMant.Size = New System.Drawing.Size(154, 20)
         Me.chbxFiltrarEstadoMant.TabIndex = 37
-        Me.chbxFiltrarEstadoMant.Text = "Inactivos"
+        Me.chbxFiltrarEstadoMant.Text = "Mostrar solo pendientes"
         Me.chbxFiltrarEstadoMant.UseVisualStyleBackColor = True
         '
         'cbxFiltrarTipoMant
@@ -4080,7 +4083,7 @@ Partial Class frmMainMenu
         Me.chbxFiltrarFechaMant.AutoSize = True
         Me.chbxFiltrarFechaMant.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chbxFiltrarFechaMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.chbxFiltrarFechaMant.Location = New System.Drawing.Point(122, 84)
+        Me.chbxFiltrarFechaMant.Location = New System.Drawing.Point(69, 91)
         Me.chbxFiltrarFechaMant.Name = "chbxFiltrarFechaMant"
         Me.chbxFiltrarFechaMant.Size = New System.Drawing.Size(91, 20)
         Me.chbxFiltrarFechaMant.TabIndex = 33
@@ -4099,7 +4102,7 @@ Partial Class frmMainMenu
         Me.btnVaciarFiltradoMant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVaciarFiltradoMant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVaciarFiltradoMant.ForeColor = System.Drawing.Color.White
-        Me.btnVaciarFiltradoMant.Location = New System.Drawing.Point(469, 162)
+        Me.btnVaciarFiltradoMant.Location = New System.Drawing.Point(464, 162)
         Me.btnVaciarFiltradoMant.Name = "btnVaciarFiltradoMant"
         Me.btnVaciarFiltradoMant.Size = New System.Drawing.Size(99, 31)
         Me.btnVaciarFiltradoMant.TabIndex = 32
@@ -4111,7 +4114,7 @@ Partial Class frmMainMenu
         Me.Label120.AutoSize = True
         Me.Label120.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label120.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label120.Location = New System.Drawing.Point(321, 64)
+        Me.Label120.Location = New System.Drawing.Point(116, 47)
         Me.Label120.Name = "Label120"
         Me.Label120.Size = New System.Drawing.Size(64, 17)
         Me.Label120.TabIndex = 31
@@ -4122,7 +4125,7 @@ Partial Class frmMainMenu
         Me.Label121.AutoSize = True
         Me.Label121.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label121.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label121.Location = New System.Drawing.Point(215, 64)
+        Me.Label121.Location = New System.Drawing.Point(10, 47)
         Me.Label121.Name = "Label121"
         Me.Label121.Size = New System.Drawing.Size(80, 17)
         Me.Label121.TabIndex = 30
@@ -4157,14 +4160,14 @@ Partial Class frmMainMenu
         Me.Label127.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label127.Location = New System.Drawing.Point(9, 17)
         Me.Label127.Name = "Label127"
-        Me.Label127.Size = New System.Drawing.Size(257, 22)
+        Me.Label127.Size = New System.Drawing.Size(284, 22)
         Me.Label127.TabIndex = 24
-        Me.Label127.Text = "Filtrado de Mantenimientos"
+        Me.Label127.Text = "Búsqueda de Mantenimientos"
         '
         'dtpFiltrarFechaFinMant
         '
         Me.dtpFiltrarFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFiltrarFechaFinMant.Location = New System.Drawing.Point(322, 82)
+        Me.dtpFiltrarFechaFinMant.Location = New System.Drawing.Point(121, 65)
         Me.dtpFiltrarFechaFinMant.Name = "dtpFiltrarFechaFinMant"
         Me.dtpFiltrarFechaFinMant.Size = New System.Drawing.Size(78, 20)
         Me.dtpFiltrarFechaFinMant.TabIndex = 20
@@ -4179,9 +4182,9 @@ Partial Class frmMainMenu
         'dtpFiltrarFechaInicioMant
         '
         Me.dtpFiltrarFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFiltrarFechaInicioMant.Location = New System.Drawing.Point(218, 82)
+        Me.dtpFiltrarFechaInicioMant.Location = New System.Drawing.Point(13, 65)
         Me.dtpFiltrarFechaInicioMant.Name = "dtpFiltrarFechaInicioMant"
-        Me.dtpFiltrarFechaInicioMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpFiltrarFechaInicioMant.Size = New System.Drawing.Size(98, 20)
         Me.dtpFiltrarFechaInicioMant.TabIndex = 21
         '
         'dgvMant
@@ -4195,8 +4198,8 @@ Partial Class frmMainMenu
         Me.dgvMant.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvMant.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvMant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvMant.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.matriculamant, Me.tipomant, Me.fechainiciomant, Me.fechafinmant, Me.estadomant, Me.nrochasismant})
-        Me.dgvMant.Location = New System.Drawing.Point(34, 4)
+        Me.dgvMant.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.matriculamant, Me.tipomant, Me.fechainiciomant, Me.fechafinmant, Me.nrochasismant, Me.fechainicio, Me.fechafin})
+        Me.dgvMant.Location = New System.Drawing.Point(34, 7)
         Me.dgvMant.MultiSelect = False
         Me.dgvMant.Name = "dgvMant"
         Me.dgvMant.ReadOnly = True
@@ -4204,54 +4207,8 @@ Partial Class frmMainMenu
         DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvMant.RowsDefaultCellStyle = DataGridViewCellStyle7
         Me.dgvMant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvMant.Size = New System.Drawing.Size(754, 817)
+        Me.dgvMant.Size = New System.Drawing.Size(754, 814)
         Me.dgvMant.TabIndex = 34
-        '
-        'matriculamant
-        '
-        Me.matriculamant.DataPropertyName = "matricula"
-        Me.matriculamant.HeaderText = "Matrícula"
-        Me.matriculamant.Name = "matriculamant"
-        Me.matriculamant.ReadOnly = True
-        '
-        'tipomant
-        '
-        Me.tipomant.DataPropertyName = "descripcion"
-        Me.tipomant.HeaderText = "Tipo"
-        Me.tipomant.Name = "tipomant"
-        Me.tipomant.ReadOnly = True
-        Me.tipomant.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'fechainiciomant
-        '
-        Me.fechainiciomant.DataPropertyName = "fechainicio"
-        Me.fechainiciomant.HeaderText = "Fecha Inicio"
-        Me.fechainiciomant.Name = "fechainiciomant"
-        Me.fechainiciomant.ReadOnly = True
-        '
-        'fechafinmant
-        '
-        Me.fechafinmant.DataPropertyName = "fechafin"
-        Me.fechafinmant.HeaderText = "Fecha Fin"
-        Me.fechafinmant.Name = "fechafinmant"
-        Me.fechafinmant.ReadOnly = True
-        '
-        'estadomant
-        '
-        Me.estadomant.DataPropertyName = "estado"
-        Me.estadomant.HeaderText = "Estado"
-        Me.estadomant.Name = "estadomant"
-        Me.estadomant.ReadOnly = True
-        Me.estadomant.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.estadomant.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
-        'nrochasismant
-        '
-        Me.nrochasismant.DataPropertyName = "nrochasis"
-        Me.nrochasismant.HeaderText = "Nro Chasis"
-        Me.nrochasismant.Name = "nrochasismant"
-        Me.nrochasismant.ReadOnly = True
-        Me.nrochasismant.Visible = False
         '
         'pnlAmant
         '
@@ -4269,9 +4226,9 @@ Partial Class frmMainMenu
         Me.pnlAmant.Controls.Add(Me.Label134)
         Me.pnlAmant.Controls.Add(Me.Label135)
         Me.pnlAmant.Controls.Add(Me.txtMatriculaMant)
-        Me.pnlAmant.Location = New System.Drawing.Point(789, 215)
+        Me.pnlAmant.Location = New System.Drawing.Point(794, 216)
         Me.pnlAmant.Name = "pnlAmant"
-        Me.pnlAmant.Size = New System.Drawing.Size(578, 210)
+        Me.pnlAmant.Size = New System.Drawing.Size(573, 210)
         Me.pnlAmant.TabIndex = 33
         '
         'Label108
@@ -4317,7 +4274,7 @@ Partial Class frmMainMenu
         Me.btnIngresarMant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnIngresarMant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIngresarMant.ForeColor = System.Drawing.Color.White
-        Me.btnIngresarMant.Location = New System.Drawing.Point(469, 168)
+        Me.btnIngresarMant.Location = New System.Drawing.Point(464, 168)
         Me.btnIngresarMant.Name = "btnIngresarMant"
         Me.btnIngresarMant.Size = New System.Drawing.Size(99, 31)
         Me.btnIngresarMant.TabIndex = 18
@@ -4334,6 +4291,15 @@ Partial Class frmMainMenu
         Me.Label123.Size = New System.Drawing.Size(80, 17)
         Me.Label123.TabIndex = 38
         Me.Label123.Text = "Fecha Inicio"
+        '
+        'dtpFechaFinMant
+        '
+        Me.dtpFechaFinMant.CustomFormat = "yyyy-MM-dd HH:mm"
+        Me.dtpFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFechaFinMant.Location = New System.Drawing.Point(160, 116)
+        Me.dtpFechaFinMant.Name = "dtpFechaFinMant"
+        Me.dtpFechaFinMant.Size = New System.Drawing.Size(141, 20)
+        Me.dtpFechaFinMant.TabIndex = 36
         '
         'dtpFechaInicioMant
         '
@@ -6112,14 +6078,58 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
-        'dtpFechaFinMant
+        'matriculamant
         '
-        Me.dtpFechaFinMant.CustomFormat = "yyyy-MM-dd HH:mm"
-        Me.dtpFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFechaFinMant.Location = New System.Drawing.Point(160, 116)
-        Me.dtpFechaFinMant.Name = "dtpFechaFinMant"
-        Me.dtpFechaFinMant.Size = New System.Drawing.Size(141, 20)
-        Me.dtpFechaFinMant.TabIndex = 36
+        Me.matriculamant.DataPropertyName = "matricula"
+        Me.matriculamant.HeaderText = "Matrícula"
+        Me.matriculamant.Name = "matriculamant"
+        Me.matriculamant.ReadOnly = True
+        '
+        'tipomant
+        '
+        Me.tipomant.DataPropertyName = "descripcion"
+        Me.tipomant.HeaderText = "Tipo"
+        Me.tipomant.Name = "tipomant"
+        Me.tipomant.ReadOnly = True
+        Me.tipomant.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'fechainiciomant
+        '
+        Me.fechainiciomant.DataPropertyName = "fechainiciof"
+        Me.fechainiciomant.HeaderText = "Fecha Inicio"
+        Me.fechainiciomant.Name = "fechainiciomant"
+        Me.fechainiciomant.ReadOnly = True
+        '
+        'fechafinmant
+        '
+        Me.fechafinmant.DataPropertyName = "fechafinf"
+        Me.fechafinmant.HeaderText = "Fecha Fin"
+        Me.fechafinmant.Name = "fechafinmant"
+        Me.fechafinmant.ReadOnly = True
+        '
+        'nrochasismant
+        '
+        Me.nrochasismant.DataPropertyName = "nrochasis"
+        Me.nrochasismant.HeaderText = "Nro Chasis"
+        Me.nrochasismant.Name = "nrochasismant"
+        Me.nrochasismant.ReadOnly = True
+        Me.nrochasismant.Visible = False
+        '
+        'fechainicio
+        '
+        Me.fechainicio.DataPropertyName = "fechainicio"
+        Me.fechainicio.HeaderText = "fechainicio"
+        Me.fechainicio.Name = "fechainicio"
+        Me.fechainicio.ReadOnly = True
+        Me.fechainicio.Visible = False
+        '
+        'fechafin
+        '
+        Me.fechafin.DataPropertyName = "fechafin"
+        Me.fechafin.HeaderText = "fechafin"
+        Me.fechafin.Name = "fechafin"
+        Me.fechafin.ReadOnly = True
+        Me.fechafin.Visible = False
         '
         'frmMainMenu
         '
@@ -6139,7 +6149,7 @@ Partial Class frmMainMenu
         Me.MinimumSize = New System.Drawing.Size(1024, 768)
         Me.Name = "frmMainMenu"
         Me.Opacity = 0R
-        Me.Text = "Car Solutioner"
+        Me.Text = " "
         Me.TransparencyKey = System.Drawing.Color.Magenta
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.mstMenuStrip.ResumeLayout(False)
@@ -6718,11 +6728,12 @@ Partial Class frmMainMenu
     Friend WithEvents ComboBox5 As ComboBox
     Friend WithEvents Label130 As Label
     Friend WithEvents txtCostoTotalAReserva As TextBox
+    Friend WithEvents dtpFechaFinMant As DateTimePicker
     Friend WithEvents matriculamant As DataGridViewTextBoxColumn
     Friend WithEvents tipomant As DataGridViewTextBoxColumn
     Friend WithEvents fechainiciomant As DataGridViewTextBoxColumn
     Friend WithEvents fechafinmant As DataGridViewTextBoxColumn
-    Friend WithEvents estadomant As DataGridViewCheckBoxColumn
     Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
-    Friend WithEvents dtpFechaFinMant As DateTimePicker
+    Friend WithEvents fechainicio As DataGridViewTextBoxColumn
+    Friend WithEvents fechafin As DataGridViewTextBoxColumn
 End Class

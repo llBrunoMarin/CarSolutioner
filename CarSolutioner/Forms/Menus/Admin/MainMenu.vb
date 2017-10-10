@@ -130,10 +130,6 @@ Public Class frmMainMenu
         'Se marcan como inactivas las reservas que pasen la fecha de hoy
         conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO = 2 WHERE fechareservafin <= '" + DateTime.Today.ToShortDateString + "'")
 
-        'Dim time As DateTime = DateTime.Now
-        'Dim format As String = "yyyy-MM-dd HH:mm"
-        'conexion.EjecutarNonQuery("UPDATE mantenimiento SET estado = 'f' WHERE fechafin <= '" + time.ToString(format) + "'")
-
         'Cargas Tablas
         conexion.Modelos = conexion.EjecutarSelect("SELECT * from modelo")
         conexion.Marcas = conexion.EjecutarSelect("SELECT * from marca")
@@ -148,8 +144,7 @@ Public Class frmMainMenu
         RecargarDatos(dgvClientes)
         RecargarDatos(dgvVehiculos)
         RecargarDatos(dgvEmpleados)
-
-        'RecargarDatos(dgvMant)
+        RecargarDatos(dgvMant)
 
         'Cargas de ComboBox
         'MARCAS
@@ -240,8 +235,7 @@ Public Class frmMainMenu
 
 
             Case "dgvMant"
-                dgvClientes.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvMant, "SELECT m.*, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
+                conexion.RellenarDataGridView(dgvMant, "SELECT m.*, TO_CHAR(m.fechainicio, '%d/%m/%y %H:%M') fechainiciof, TO_CHAR(m.fechafin, '%d/%m/%y %H:%M') fechafinf, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
 
             Case Else
 

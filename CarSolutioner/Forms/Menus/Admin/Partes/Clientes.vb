@@ -50,6 +50,16 @@ Partial Public Class frmMainMenu
 
     End Sub
 
+    Private Sub chbxEmpresa_CheckedChanged(sender As Object, e As EventArgs) Handles chbxEmpresaACliente.CheckedChanged
+        If chbxEmpresaACliente.Checked = True Then
+            txtEmpresaACliente.Enabled = True
+            lblEmpresaACliente.Enabled = True
+        Else
+            txtEmpresaACliente.Enabled = False
+            lblEmpresaACliente.Enabled = False
+            txtEmpresaACliente.Text = ""
+        End If
+    End Sub
     Private Sub AltaCliente(sender As Object, e As EventArgs) Handles btnIngresarACliente.Click
 
         Dim FechaSeleccionada As String = cbxDiaNACliente.Text + "/" + cbxMesNACliente.Text + "/" + cbxAnioNACliente.Text
@@ -57,14 +67,15 @@ Partial Public Class frmMainMenu
 
         For Each ctrl As Control In pnlAClientes.Controls
             If TypeOf (ctrl) Is TextBox Then
-                If Not ctrl.Name = "txtCorreoACliente" Then
-                    If ctrl.Text = "" Then
+                If ctrl.Text = "" Then
+                    If Not ((ctrl.Name = "txtEmpresaACliente") Or (ctrl.Name = "txtCorreoACliente")) Then
                         FaltaDato = True
-                        Exit For
                     End If
+
                 End If
+
             Else
-                If TypeOf (ctrl) Is ComboBox Then
+                    If TypeOf (ctrl) Is ComboBox Then
                     If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
                         FaltaDato = True
                     End If
@@ -74,15 +85,38 @@ Partial Public Class frmMainMenu
 
         If Not (FaltaDato) Then
             If (IsDate(FechaSeleccionada)) Then
+                If (DateTime.Today - Date.Parse(FechaSeleccionada)).Days / 365 > 18 Then
+                    'TODO: Agregar posibilidad de insertar descuento en el alta de cliente
+                    Dim sentencia As String
+                    sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, porcdescuento, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', 't' )",
+                                     cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, FechaSeleccionada, txtEmpresaACliente.Text, "0")
 
-                Dim sentencia As String
-                sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 't' )",
-                                 cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, FechaSeleccionada, txtEmpresaACliente.Text)
+                    If cbxTipoDocumACliente.SelectedValue = 1 Then
 
-                If cbxTipoDocumACliente.SelectedValue = 1 Then
+                        'Si la cédula es válida
+                        If VerificarCI(txtDocumACliente.Text) Then
 
-                    'Si la cédula es válida
-                    If VerificarCI(txtDocumACliente.Text) Then
+                            'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
+                            If conexion.EjecutarNonQuery(sentencia) Then
+                                MsgBox("Cliente ingresado satisfactoriamente")
+                                RecargarDatos(dgvClientes)
+                                Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
+                                Dim ListaTelefonos As New List(Of String)
+
+                                'Agrega cada item del combobox a la Lista
+                                For Each item In cbxTelefonosACliente.Items
+                                    ListaTelefonos.Add(item.ToString)
+                                Next
+
+                                'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
+                                For Each Telefono In ListaTelefonos.Distinct()
+                                    conexion.EjecutarNonQuery("INSERT INTO telefonopersona VALUES ('" + IDPersonaInsertada + "', '" + Telefono + "')")
+                                Next
+                            End If
+
+                        End If
+
+                    Else
 
                         'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
                         If conexion.EjecutarNonQuery(sentencia) Then
@@ -103,28 +137,10 @@ Partial Public Class frmMainMenu
                         End If
 
                     End If
-
                 Else
-
-                    'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
-                    If conexion.EjecutarNonQuery(sentencia) Then
-                        MsgBox("Cliente ingresado satisfactoriamente")
-                        RecargarDatos(dgvClientes)
-                        Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
-                        Dim ListaTelefonos As New List(Of String)
-
-                        'Agrega cada item del combobox a la Lista
-                        For Each item In cbxTelefonosACliente.Items
-                            ListaTelefonos.Add(item.ToString)
-                        Next
-
-                        'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
-                        For Each Telefono In ListaTelefonos.Distinct()
-                            conexion.EjecutarNonQuery("INSERT INTO telefonopersona VALUES ('" + IDPersonaInsertada + "', '" + Telefono + "')")
-                        Next
-                    End If
-
+                    AmaranthMessagebox("Solo puede registrar clientes mayores a 18 años.", "Advertencia")
                 End If
+
 
             Else
                 'Si la fecha seleccionada no es una fecha válida, mostramos un mensaje de error y salimos del Sub.

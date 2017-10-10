@@ -123,7 +123,8 @@ Partial Class frmMainMenu
         Me.cbxDiaNACliente = New System.Windows.Forms.ComboBox()
         Me.cbxTelefonosACliente = New System.Windows.Forms.ComboBox()
         Me.cbxTipoDocumACliente = New System.Windows.Forms.ComboBox()
-        Me.Label115 = New System.Windows.Forms.Label()
+        Me.chbxEmpresaACliente = New System.Windows.Forms.CheckBox()
+        Me.lblEmpresaACliente = New System.Windows.Forms.Label()
         Me.txtEmpresaACliente = New System.Windows.Forms.TextBox()
         Me.txtCorreoACliente = New System.Windows.Forms.TextBox()
         Me.txtApellidoACliente = New System.Windows.Forms.TextBox()
@@ -351,6 +352,13 @@ Partial Class frmMainMenu
         Me.txtFiltrarMatriculaMant = New System.Windows.Forms.TextBox()
         Me.dtpFiltrarFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.dgvMant = New System.Windows.Forms.DataGridView()
+        Me.matriculamant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechainiciomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechafinmant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrochasismant = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechainicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechafin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlAmant = New System.Windows.Forms.Panel()
         Me.Label108 = New System.Windows.Forms.Label()
         Me.cbxTipoMant = New System.Windows.Forms.ComboBox()
@@ -528,13 +536,6 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.matriculamant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechainiciomant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechafinmant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrochasismant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechainicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechafin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1565,7 +1566,8 @@ Partial Class frmMainMenu
         Me.pnlAClientes.Controls.Add(Me.gbxFecNacACliente)
         Me.pnlAClientes.Controls.Add(Me.cbxTelefonosACliente)
         Me.pnlAClientes.Controls.Add(Me.cbxTipoDocumACliente)
-        Me.pnlAClientes.Controls.Add(Me.Label115)
+        Me.pnlAClientes.Controls.Add(Me.chbxEmpresaACliente)
+        Me.pnlAClientes.Controls.Add(Me.lblEmpresaACliente)
         Me.pnlAClientes.Controls.Add(Me.txtEmpresaACliente)
         Me.pnlAClientes.Controls.Add(Me.txtCorreoACliente)
         Me.pnlAClientes.Controls.Add(Me.txtApellidoACliente)
@@ -1657,20 +1659,35 @@ Partial Class frmMainMenu
         Me.cbxTipoDocumACliente.Size = New System.Drawing.Size(124, 21)
         Me.cbxTipoDocumACliente.TabIndex = 42
         '
-        'Label115
+        'chbxEmpresaACliente
         '
-        Me.Label115.AutoSize = True
-        Me.Label115.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label115.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label115.Location = New System.Drawing.Point(276, 99)
-        Me.Label115.Name = "Label115"
-        Me.Label115.Size = New System.Drawing.Size(58, 17)
-        Me.Label115.TabIndex = 38
-        Me.Label115.Tag = ""
-        Me.Label115.Text = "Empresa"
+        Me.chbxEmpresaACliente.AutoSize = True
+        Me.chbxEmpresaACliente.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chbxEmpresaACliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.chbxEmpresaACliente.Location = New System.Drawing.Point(261, 145)
+        Me.chbxEmpresaACliente.Name = "chbxEmpresaACliente"
+        Me.chbxEmpresaACliente.Size = New System.Drawing.Size(144, 20)
+        Me.chbxEmpresaACliente.TabIndex = 41
+        Me.chbxEmpresaACliente.Text = "Pertenece a empresa"
+        Me.chbxEmpresaACliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chbxEmpresaACliente.UseVisualStyleBackColor = True
+        '
+        'lblEmpresaACliente
+        '
+        Me.lblEmpresaACliente.AutoSize = True
+        Me.lblEmpresaACliente.Enabled = False
+        Me.lblEmpresaACliente.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmpresaACliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblEmpresaACliente.Location = New System.Drawing.Point(273, 99)
+        Me.lblEmpresaACliente.Name = "lblEmpresaACliente"
+        Me.lblEmpresaACliente.Size = New System.Drawing.Size(58, 17)
+        Me.lblEmpresaACliente.TabIndex = 38
+        Me.lblEmpresaACliente.Tag = ""
+        Me.lblEmpresaACliente.Text = "Empresa"
         '
         'txtEmpresaACliente
         '
+        Me.txtEmpresaACliente.Enabled = False
         Me.txtEmpresaACliente.Location = New System.Drawing.Point(275, 119)
         Me.txtEmpresaACliente.Name = "txtEmpresaACliente"
         Me.txtEmpresaACliente.Size = New System.Drawing.Size(124, 20)
@@ -4210,6 +4227,59 @@ Partial Class frmMainMenu
         Me.dgvMant.Size = New System.Drawing.Size(754, 814)
         Me.dgvMant.TabIndex = 34
         '
+        'matriculamant
+        '
+        Me.matriculamant.DataPropertyName = "matricula"
+        Me.matriculamant.HeaderText = "Matrícula"
+        Me.matriculamant.Name = "matriculamant"
+        Me.matriculamant.ReadOnly = True
+        '
+        'tipomant
+        '
+        Me.tipomant.DataPropertyName = "descripcion"
+        Me.tipomant.HeaderText = "Tipo"
+        Me.tipomant.Name = "tipomant"
+        Me.tipomant.ReadOnly = True
+        Me.tipomant.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'fechainiciomant
+        '
+        Me.fechainiciomant.DataPropertyName = "fechainiciof"
+        Me.fechainiciomant.HeaderText = "Fecha Inicio"
+        Me.fechainiciomant.Name = "fechainiciomant"
+        Me.fechainiciomant.ReadOnly = True
+        '
+        'fechafinmant
+        '
+        Me.fechafinmant.DataPropertyName = "fechafinf"
+        Me.fechafinmant.HeaderText = "Fecha Fin"
+        Me.fechafinmant.Name = "fechafinmant"
+        Me.fechafinmant.ReadOnly = True
+        '
+        'nrochasismant
+        '
+        Me.nrochasismant.DataPropertyName = "nrochasis"
+        Me.nrochasismant.HeaderText = "Nro Chasis"
+        Me.nrochasismant.Name = "nrochasismant"
+        Me.nrochasismant.ReadOnly = True
+        Me.nrochasismant.Visible = False
+        '
+        'fechainicio
+        '
+        Me.fechainicio.DataPropertyName = "fechainicio"
+        Me.fechainicio.HeaderText = "fechainicio"
+        Me.fechainicio.Name = "fechainicio"
+        Me.fechainicio.ReadOnly = True
+        Me.fechainicio.Visible = False
+        '
+        'fechafin
+        '
+        Me.fechafin.DataPropertyName = "fechafin"
+        Me.fechafin.HeaderText = "fechafin"
+        Me.fechafin.Name = "fechafin"
+        Me.fechafin.ReadOnly = True
+        Me.fechafin.Visible = False
+        '
         'pnlAmant
         '
         Me.pnlAmant.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -5096,7 +5166,7 @@ Partial Class frmMainMenu
         Me.lblBorrarSucLlegadaFReserva.AutoSize = True
         Me.lblBorrarSucLlegadaFReserva.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarSucLlegadaFReserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarSucLlegadaFReserva.Location = New System.Drawing.Point(241, 107)
+        Me.lblBorrarSucLlegadaFReserva.Location = New System.Drawing.Point(241, 105)
         Me.lblBorrarSucLlegadaFReserva.Name = "lblBorrarSucLlegadaFReserva"
         Me.lblBorrarSucLlegadaFReserva.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarSucLlegadaFReserva.TabIndex = 34
@@ -5107,7 +5177,7 @@ Partial Class frmMainMenu
         Me.lblBorrarSucSalidaFReserva.AutoSize = True
         Me.lblBorrarSucSalidaFReserva.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarSucSalidaFReserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarSucSalidaFReserva.Location = New System.Drawing.Point(114, 107)
+        Me.lblBorrarSucSalidaFReserva.Location = New System.Drawing.Point(114, 105)
         Me.lblBorrarSucSalidaFReserva.Name = "lblBorrarSucSalidaFReserva"
         Me.lblBorrarSucSalidaFReserva.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarSucSalidaFReserva.TabIndex = 34
@@ -5118,7 +5188,7 @@ Partial Class frmMainMenu
         Me.lblBorrarKMFReserva.AutoSize = True
         Me.lblBorrarKMFReserva.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarKMFReserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarKMFReserva.Location = New System.Drawing.Point(492, 54)
+        Me.lblBorrarKMFReserva.Location = New System.Drawing.Point(492, 52)
         Me.lblBorrarKMFReserva.Name = "lblBorrarKMFReserva"
         Me.lblBorrarKMFReserva.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarKMFReserva.TabIndex = 34
@@ -5129,7 +5199,7 @@ Partial Class frmMainMenu
         Me.lblBorrarTipoFReserva.AutoSize = True
         Me.lblBorrarTipoFReserva.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarTipoFReserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarTipoFReserva.Location = New System.Drawing.Point(368, 55)
+        Me.lblBorrarTipoFReserva.Location = New System.Drawing.Point(368, 53)
         Me.lblBorrarTipoFReserva.Name = "lblBorrarTipoFReserva"
         Me.lblBorrarTipoFReserva.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarTipoFReserva.TabIndex = 34
@@ -5140,7 +5210,7 @@ Partial Class frmMainMenu
         Me.lblBorrarCategoriaFReserva.AutoSize = True
         Me.lblBorrarCategoriaFReserva.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarCategoriaFReserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarCategoriaFReserva.Location = New System.Drawing.Point(239, 55)
+        Me.lblBorrarCategoriaFReserva.Location = New System.Drawing.Point(239, 53)
         Me.lblBorrarCategoriaFReserva.Name = "lblBorrarCategoriaFReserva"
         Me.lblBorrarCategoriaFReserva.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarCategoriaFReserva.TabIndex = 34
@@ -6078,59 +6148,6 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
-        'matriculamant
-        '
-        Me.matriculamant.DataPropertyName = "matricula"
-        Me.matriculamant.HeaderText = "Matrícula"
-        Me.matriculamant.Name = "matriculamant"
-        Me.matriculamant.ReadOnly = True
-        '
-        'tipomant
-        '
-        Me.tipomant.DataPropertyName = "descripcion"
-        Me.tipomant.HeaderText = "Tipo"
-        Me.tipomant.Name = "tipomant"
-        Me.tipomant.ReadOnly = True
-        Me.tipomant.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'fechainiciomant
-        '
-        Me.fechainiciomant.DataPropertyName = "fechainiciof"
-        Me.fechainiciomant.HeaderText = "Fecha Inicio"
-        Me.fechainiciomant.Name = "fechainiciomant"
-        Me.fechainiciomant.ReadOnly = True
-        '
-        'fechafinmant
-        '
-        Me.fechafinmant.DataPropertyName = "fechafinf"
-        Me.fechafinmant.HeaderText = "Fecha Fin"
-        Me.fechafinmant.Name = "fechafinmant"
-        Me.fechafinmant.ReadOnly = True
-        '
-        'nrochasismant
-        '
-        Me.nrochasismant.DataPropertyName = "nrochasis"
-        Me.nrochasismant.HeaderText = "Nro Chasis"
-        Me.nrochasismant.Name = "nrochasismant"
-        Me.nrochasismant.ReadOnly = True
-        Me.nrochasismant.Visible = False
-        '
-        'fechainicio
-        '
-        Me.fechainicio.DataPropertyName = "fechainicio"
-        Me.fechainicio.HeaderText = "fechainicio"
-        Me.fechainicio.Name = "fechainicio"
-        Me.fechainicio.ReadOnly = True
-        Me.fechainicio.Visible = False
-        '
-        'fechafin
-        '
-        Me.fechafin.DataPropertyName = "fechafin"
-        Me.fechafin.HeaderText = "fechafin"
-        Me.fechafin.Name = "fechafin"
-        Me.fechafin.ReadOnly = True
-        Me.fechafin.Visible = False
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -6421,7 +6438,7 @@ Partial Class frmMainMenu
     Friend WithEvents Label108 As Label
     Friend WithEvents cbxTipoMant As ComboBox
     Friend WithEvents tsitemCambiosGenerales As ToolStripMenuItem
-    Friend WithEvents Label115 As Label
+    Friend WithEvents lblEmpresaACliente As Label
     Friend WithEvents txtEmpresaACliente As TextBox
     Friend WithEvents cbxTipoDocumFCliente As ComboBox
     Friend WithEvents Label21 As Label
@@ -6736,4 +6753,5 @@ Partial Class frmMainMenu
     Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
     Friend WithEvents fechainicio As DataGridViewTextBoxColumn
     Friend WithEvents fechafin As DataGridViewTextBoxColumn
+    Friend WithEvents chbxEmpresaACliente As CheckBox
 End Class

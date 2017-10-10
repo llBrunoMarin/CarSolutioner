@@ -20,7 +20,7 @@ Partial Public Class frmMainMenu
 
                         'Si no existe el item "Otro", crearlo.
                         If conexion.Modelos.Select("nombre = 'Otro'").Count = 0 Then
-                            conexion.Modelos.Rows.Add(0, 0, "Otro", 0)
+                            conexion.Modelos.Rows.Add(0, 0, "Otro", 0, True)
                         End If
 
                         Select Case sender.Name

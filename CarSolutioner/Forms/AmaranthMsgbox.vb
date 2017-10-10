@@ -7,6 +7,7 @@
         Select Case Tipo
             Case "Advertencia"
                 lblTexto.Text = Texto
+                lblTitulo.Text = "Advertencia"
                 'pboxAdvertencia.Visible = True
                 'pboxError.Visible = False
                 'pboxSiNo.Visible = False
@@ -16,6 +17,7 @@
 
             Case "Error"
                 lblTexto.Text = Texto
+                lblTitulo.Text = "Error"
                 'pboxAdvertencia.Visible = True
                 'pboxError.Visible = False
                 'pboxSiNo.Visible = False
@@ -25,6 +27,7 @@
 
             Case "Si/No"
                 lblTexto.Text = Texto
+                lblTitulo.Text = "Elija una opción"
                 'pboxAdvertencia.Visible = True
                 'pboxError.Visible = False
                 'pboxSiNo.Visible = False
@@ -34,7 +37,6 @@
             Case Else
 
         End Select
-        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
 
     End Sub
 
@@ -42,7 +44,8 @@
 
     End Sub
 
-    Private Sub SiNo(sender As Object, e As EventArgs)
 
+    Private Sub Cerrar(sender As Object, e As EventArgs) Handles btnCerrarMsgbox.Click
+        Me.Dispose()
     End Sub
 End Class

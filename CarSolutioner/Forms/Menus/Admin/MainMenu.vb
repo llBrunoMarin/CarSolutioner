@@ -148,17 +148,17 @@ Public Class frmMainMenu
 
         'Cargas de ComboBox
         'MARCAS
-        CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas.Select("estado = true").CopyToDataTable, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas.Select("estado = true").CopyToDataTable, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas.Select("estado = true").CopyToDataTable, "nombre", "idmarca")
 
         'TIPOS
-        CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxPuertasMVeh, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoFRes, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+        CargarDatosComboBox(cbxPuertasMVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoFRes, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
 
         'RANGOS EMPLEADOS
         CargarDatosComboBox(cbxTipoFempleados, conexion.TipoEmpleados, "tipos", "id")
@@ -166,31 +166,31 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxTipoCempleados, conexion.TipoEmpleados, "tipos", "id")
 
         'CATEGORIAS
-        CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaMVeh, conexion.Categorias, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaMVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
 
         'Los modelos se cargan en el apartado "Vehiculos".
 
         'SUCURSALES
-        CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalAVeh, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalMVeh, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucSalFres, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucLlegFRes, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucSalidaARes, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucLlegadaARes, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalFempleados, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalCempleados, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalMempleados, conexion.Sucursales, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalAVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalMVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucSalFres, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucLlegFRes, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucSalidaARes, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucLlegadaARes, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalFempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalCempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalMempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
 
         'DOCUMENTOS
-        CargarDatosComboBox(cbxTipoDocumFCliente, conexion.Documentos, "nombre", "idtipodoc")
-        CargarDatosComboBox(cbxTipoDocumACliente, conexion.Documentos, "nombre", "idtipodoc")
-        CargarDatosComboBox(cbxTipoDocumMCliente, conexion.Documentos, "nombre", "idtipodoc")
-        CargarDatosComboBox(cbxTipoDocumMCliente, conexion.Documentos, "nombre", "idtipodoc")
+        CargarDatosComboBox(cbxTipoDocumFCliente, conexion.Documentos.Select("estado = true").CopyToDataTable, "nombre", "idtipodoc")
+        CargarDatosComboBox(cbxTipoDocumACliente, conexion.Documentos.Select("estado = true").CopyToDataTable, "nombre", "idtipodoc")
+        CargarDatosComboBox(cbxTipoDocumMCliente, conexion.Documentos.Select("estado = true").CopyToDataTable, "nombre", "idtipodoc")
+        CargarDatosComboBox(cbxTipoDocumMCliente, conexion.Documentos.Select("estado = true").CopyToDataTable, "nombre", "idtipodoc")
 
         'AÑOS
         CargarDatosComboBox(cbxAnioNFCliente, conexion.Años)
@@ -201,7 +201,39 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxKilomFRes, conexion.Kilometros, "km", "id")
         CargarDatosComboBox(cbxKmARes, conexion.Kilometros, "km", "id")
 
+        cbxTipoDocumFCliente.SelectedItem = Nothing
+
+        cbxCategoriaFRes.SelectedItem = Nothing
+        cbxCategoriaFVeh.SelectedItem = Nothing
+        cbxCategoriaAVeh.SelectedItem = Nothing
+
+        cbxTipoFVeh.SelectedItem = Nothing
+        cbxTipoAVeh.SelectedItem = Nothing
+        cbxTipoFRes.SelectedItem = Nothing
+        cbxMarcaFVeh.SelectedItem = Nothing
+        cbxMarcaAVeh.SelectedItem = Nothing
+
+        cbxModeloAVeh.SelectedItem = Nothing
+        cbxModeloFVeh.SelectedItem = Nothing
+
+        cbxSucLlegadaARes.SelectedItem = Nothing
+        cbxSucSalidaARes.SelectedItem = Nothing
+        cbxSucLlegFRes.SelectedItem = Nothing
+        cbxSucSalFres.SelectedItem = Nothing
+        cbxSucursalAVeh.SelectedItem = Nothing
+        cbxSucursalFVeh.SelectedItem = Nothing
+
+        cbxAnioNACliente.SelectedItem = Nothing
+        cbxAnioNFCliente.SelectedItem = Nothing
+
+        cbxSucursalFempleados.SelectedItem = Nothing
+        cbxTipoFempleados.SelectedItem = Nothing
+        chbxFiltrarEstadoMant.Checked = True
+
+        cbxKilomFRes.SelectedItem = Nothing
         Me.Opacity = 100
+
+
         Login.Hide()
     End Sub
     'compilanding
@@ -212,7 +244,7 @@ Public Class frmMainMenu
 
             Case "dgvClientes"
                 dgvClientes.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvClientes, "SELECT DAY(fecnac) dia, Cliente.*, Doc.nombre tipodocumento, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE, Tipodocumento Doc WHERE estado = 't' AND Cliente.idtipodoc = Doc.idtipodoc")
+                conexion.RellenarDataGridView(dgvClientes, "SELECT DAY(fecnac) dia, Cliente.*, Doc.nombre tipodocumento, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE, Tipodocumento Doc WHERE Cliente.idtipodoc = Doc.idtipodoc")
                 dgvClientes.Columns("idpersona").Visible = False
 
             Case "dgvEmpleados"
@@ -226,7 +258,7 @@ Public Class frmMainMenu
 
             Case "dgvReservas"
                 dgvReservas.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria, R.fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadtext, R.cantidadkm idcantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada")
+                conexion.RellenarDataGridView(dgvReservas, "SELECT TO_CHAR(R.fechareservainicio, '%d/%m/%Y %H:%M' ) fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria, TO_CHAR(R.fechareservafin, '%d/%m/%Y %H:%M') fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadtext, R.cantidadkm idcantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada")
 
 
             Case "dgvAlquileres"
@@ -235,7 +267,7 @@ Public Class frmMainMenu
 
 
             Case "dgvMant"
-                conexion.RellenarDataGridView(dgvMant, "SELECT m.*, TO_CHAR(m.fechainicio, '%d/%m/%y %H:%M') fechainiciof, TO_CHAR(m.fechafin, '%d/%m/%y %H:%M') fechafinf, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
+                conexion.RellenarDataGridView(dgvMant, "SELECT m.*, TO_CHAR(m.fechainicio, '%d/%m/%Y %H:%M') fechainiciof, TO_CHAR(m.fechafin, '%d/%m/%y %H:%M') fechafinf, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
 
             Case Else
 
@@ -248,5 +280,4 @@ Public Class frmMainMenu
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         CargarDatos()
     End Sub
-
 End Class

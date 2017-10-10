@@ -27,9 +27,9 @@ Partial Class AmaranthMsgbox
         Me.btnSi = New System.Windows.Forms.Button()
         Me.btnNo = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnCerrarMsgbox = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.lblTitulo = New System.Windows.Forms.Label()
         Me.pbxmsgerror = New System.Windows.Forms.PictureBox()
         Me.btnAccept = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -85,13 +85,28 @@ Partial Class AmaranthMsgbox
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.btnCerrarMsgbox)
         Me.Panel1.Controls.Add(Me.btnCerrar)
-        Me.Panel1.Controls.Add(Me.Label17)
+        Me.Panel1.Controls.Add(Me.lblTitulo)
         Me.Panel1.Location = New System.Drawing.Point(0, -1)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(383, 30)
         Me.Panel1.TabIndex = 52
+        '
+        'btnCerrarMsgbox
+        '
+        Me.btnCerrarMsgbox.BackColor = System.Drawing.Color.Transparent
+        Me.btnCerrarMsgbox.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrarMsgbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrarMsgbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrarMsgbox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCerrarMsgbox.ForeColor = System.Drawing.Color.Cornsilk
+        Me.btnCerrarMsgbox.Location = New System.Drawing.Point(337, -1)
+        Me.btnCerrarMsgbox.Name = "btnCerrarMsgbox"
+        Me.btnCerrarMsgbox.Size = New System.Drawing.Size(36, 37)
+        Me.btnCerrarMsgbox.TabIndex = 53
+        Me.btnCerrarMsgbox.Text = "✕"
+        Me.btnCerrarMsgbox.UseVisualStyleBackColor = False
         '
         'btnCerrar
         '
@@ -108,31 +123,16 @@ Partial Class AmaranthMsgbox
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False
         '
-        'Label17
+        'lblTitulo
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.ForeColor = System.Drawing.Color.White
-        Me.Label17.Location = New System.Drawing.Point(3, 7)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(82, 17)
-        Me.Label17.TabIndex = 35
-        Me.Label17.Text = "Notificacion"
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Cornsilk
-        Me.Button1.Location = New System.Drawing.Point(337, -1)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(36, 37)
-        Me.Button1.TabIndex = 53
-        Me.Button1.Text = "✕"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.lblTitulo.AutoSize = True
+        Me.lblTitulo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitulo.ForeColor = System.Drawing.Color.White
+        Me.lblTitulo.Location = New System.Drawing.Point(3, 7)
+        Me.lblTitulo.Name = "lblTitulo"
+        Me.lblTitulo.Size = New System.Drawing.Size(82, 17)
+        Me.lblTitulo.TabIndex = 35
+        Me.lblTitulo.Text = "Notificacion"
         '
         'pbxmsgerror
         '
@@ -178,6 +178,7 @@ Partial Class AmaranthMsgbox
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "AmaranthMsgbox"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AmaranthMsgbox"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -191,8 +192,8 @@ Partial Class AmaranthMsgbox
     Friend WithEvents btnNo As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnCerrar As Button
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents lblTitulo As Label
+    Friend WithEvents btnCerrarMsgbox As Button
     Friend WithEvents pbxmsgerror As PictureBox
     Friend WithEvents btnAccept As Button
 End Class

@@ -161,55 +161,58 @@ Partial Public Class frmMainMenu
 
     Private Sub CalculoCostoReserva(sender As Object, e As EventArgs) Handles cbxCategoriaARes.SelectionChangeCommitted, cbxKmARes.SelectionChangeCommitted, dtpInicioARes.ValueChanged, dtpFinARes.ValueChanged
 
-        'Valores Seleccionados
-        Dim IdCategoria As Integer = cbxCategoriaARes.SelectedValue
-        Dim IdKm As Integer = cbxKilomFRes.SelectedValue
-        Dim FechaInicio As Date = dtpInicioARes.Value
-        Dim FechaFin As Date = dtpFinARes.Value
-        Dim CantidadDias As Integer = (FechaFin - FechaInicio).Days
+        If Not dtpFinARes.Value < dtpInicioARes.Value Then
+            'Valores Seleccionados
+            Dim IdCategoria As Integer = cbxCategoriaARes.SelectedValue
+            Dim IdKm As Integer = cbxKmARes.SelectedValue
+            Dim FechaInicio As Date = dtpInicioARes.Value
+            Dim FechaFin As Date = dtpFinARes.Value
+            Dim CantidadDias As Integer = (FechaFin - FechaInicio).Days + 1
 
-        Dim TarifaDiariaBase As Integer
-        Dim TarifaDiariaKM As Integer
-        Dim CostoTotal As Integer
+            Dim TarifaDiariaBase As Integer
+            Dim TarifaDiariaKM As Integer
+            Dim CostoTotal As Integer
 
-        Select Case IdKm
-            Case 1
-                TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0).Item("tarifadiariabase").ToString)
-                TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0).Item("tarifax150kmdia").ToString)
-            Case 2
-                TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0).Item("tarifadiariabase").ToString)
-                TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0).Item("tarifax150kmdia").ToString)
-            Case 3
-                TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0).Item("tarifadiariabase").ToString)
-                TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0).Item("tarifax150kmdia").ToString)
+            Select Case IdKm
+                Case 1
+                    TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
+                    TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(2).ToString)
+                Case 2
+                    TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
+                    TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(3).ToString)
+                Case 3
+                    TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
+                    TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(4).ToString)
 
-        End Select
+            End Select
 
-        CostoTotal = (TarifaDiariaBase + TarifaDiariaKM) * CantidadDias
-        txtCostoTotalAReserva.Text = CantidadDias.ToString()
-        'Cuentas para el precio final 
-        'TODO: TODO ESTO EN REALIDAD VA EN EL ALTA DE RESERVA. FALTA ARREGLAR COSAS
-        'Dim precio As DataTable = conexion.EjecutarSelect("Select tarifadiariabase,tarifax150kmdia,tarifax300kmdia,tarifakmlibredia from categoria where nombre='" + CategoriaReserva + "'")
+            CostoTotal = (TarifaDiariaBase + TarifaDiariaKM) * CantidadDias
+            txtCostoTotalAReserva.Text = CostoTotal.ToString()
+        Else
+            AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error")
+        End If
 
-        'Select Case ReservaSeleccionada.CantKM
-
-        '    Case 1
-        '        precioxdia = precio.Rows(0).Item("tarifadiariabase")
-        '        tarifakm = precio.Rows(0).Item("tarifax150kmdia")
-        '        preciofinal = precioxdia * diasalquilados + tarifakm * diasalquilados
-        '    Case 2
-        '        precioxdia = precio.Rows(0).Item("tarifadiariabase")
-        '        tarifakm = precio.Rows(0).Item("tarifax300kmdia")
-        '        preciofinal = precioxdia * diasalquilados + tarifakm * diasalquilados
-        '    Case 3
-        '        precioxdia = precio.Rows(0).Item("tarifadiariabase")
-        '        tarifakm = precio.Rows(0).Item("tarifakmlibredia")
-
-        '    Case Else
-        '        MsgBox("Error")
-
-        'End Select
-        'preciofinal = precioxdia * diasalquilados + tarifakm * diasalquilados
     End Sub
 
+    Private Sub AgregarReserva(sender As Object, e As EventArgs) Handles btnReservarARes.Click
+        If Not dtpFinARes.Value < dtpInicioARes.Value Then
+            Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumARes.Text + "'")
+
+            'Si la persona existe
+            If Persona.Rows.Count <> 0 Then
+                Dim IdPersona As String = Persona.Rows(0)(0).ToString
+                Dim sentencia As String
+                sentencia = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND (('" + dtpInicioARes.Value.ToShortDateString + "' > fechareservainicio AND '" + dtpInicioARes.Value.ToShortDateString + "' < fechareservafin) OR ('" + dtpFinARes.Value.ToShortDateString + "' > fechareservainicio AND '" + dtpFinARes.Value.ToShortDateString + "' < fechareservafin)) "
+                If conexion.EjecutarSelect(sentencia).Rows.Count <> 0 Then
+
+                Else
+                    AmaranthMessagebox("Ese cliente ya tiene una reserva activa.", "Error")
+                End If
+            End If
+
+        Else
+            AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error")
+        End If
+
+    End Sub
 End Class

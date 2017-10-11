@@ -26,14 +26,10 @@ Partial Public Class frmMainMenu
         If Not FaltaDato = True Then
             Dim nrochasisinsert As String
             nrochasisinsert = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows(0)(0).ToString
-            Dim format As String = "yyyy-MM-dd HH:mm"
+
+            Dim format As String = "dd/MM/yyyy HH:mm"
             Dim prueba As String
-            prueba = ("INSERT INTO mantenimiento VALUES (
-                                  '" + cbxTipoMant.SelectedItem + "',
-                                  '" + dtpFechaInicioMant.Value.ToString(format) + "', 
-                                  '" + dtpFechaFinMant.Value.ToString(format) + "',
-                                  '" + nrochasisinsert + "  ',
-                                  't')")
+            prueba = ("INSERT INTO mantenimiento VALUES ('" + cbxTipoMant.SelectedItem + "', TO_DATE('" + dtpFechaInicioMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'), TO_DATE('" + dtpFechaFinMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'),'" + nrochasisinsert + "','t')")
             conexion.EjecutarNonQuery(prueba)
             RecargarDatos(dgvMant)
         Else
@@ -54,19 +50,22 @@ Partial Public Class frmMainMenu
 
     Private Sub btnModifMant_Click(sender As Object, e As EventArgs) Handles btnModifMant.Click
 
+        Dim format As String = "dd/MM/yyyy HH:mm"
         Dim nrochasismodif As String
         nrochasismodif = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
         Dim fechainicioant As String
-        fechainicioant = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToShortDateString()
+        fechainicioant = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToString(format)
         Dim nrochasisant As String
         nrochasisant = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
         Dim tipoant As String
         tipoant = dgvMant.CurrentRow.Cells("tipomant").Value.ToString()
 
-        If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET descripcion ='" + cbxModifTipoMant.SelectedItem + "', fechainicio = '" + dtpModifFechaInicioMant.Value.ToShortDateString + "', fechafin = '" + dtpModifFechaFinMant.Value.ToShortDateString + "', estado = 't' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "' ") = True) Then
+
+        If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET descripcion ='" + cbxModifTipoMant.SelectedItem + "', fechainicio = TO_DATE('" + dtpFiltrarFechaInicioMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'), fechafin = TO_DATE('" + dtpFiltrarFechaFinMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'), estado = 't' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = TO_DATE('" + fechainicioant + "', '%d/%m/%Y %H:%M') AND descripcion = '" + tipoant + "' ") = True) Then
             MsgBox("Modificación existosa")
             RecargarDatos(dgvMant)
         End If
+
     End Sub
 
     Private Sub FiltroMantenimiento(sender As Object, e As EventArgs) Handles txtFiltrarMatriculaMant.TextChanged, chbxFiltrarEstadoMant.CheckedChanged,
@@ -76,13 +75,14 @@ Partial Public Class frmMainMenu
        dtpFiltrarFechaFinMant.ValueChanged
 
         Try
+            Dim format As String = "dd/MM/yyyy HH:mm"
             Dim filtro As String
 
             If chbxFiltrarEstadoMant.Checked Then
 
                 If chbxFiltrarFechaMant.Checked = True Then
 
-                    filtro = String.Format("{0} Like '%{1}%' and fechainiciof >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafinf <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "' AND fechafinf > '" + DateTime.Today.ToShortDateString + "' ",
+                    filtro = String.Format("{0} Like '%{1}%' and fechainiciof >= '" + dtpFiltrarFechaInicioMant.Value.ToString(format) + "' and fechafinf <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "' AND fechafinf > '" + DateTime.Today.ToShortDateString + "' ",
                                            "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion")
                     dgvMant.DataSource.Filter = filtro
 

@@ -3907,7 +3907,7 @@ Partial Class frmMainMenu
         Me.cbxModifTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxModifTipoMant.FormattingEnabled = True
         Me.cbxModifTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Blanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
-        Me.cbxModifTipoMant.Location = New System.Drawing.Point(121, 68)
+        Me.cbxModifTipoMant.Location = New System.Drawing.Point(124, 93)
         Me.cbxModifTipoMant.Name = "cbxModifTipoMant"
         Me.cbxModifTipoMant.Size = New System.Drawing.Size(121, 21)
         Me.cbxModifTipoMant.TabIndex = 42
@@ -3917,7 +3917,7 @@ Partial Class frmMainMenu
         Me.Label112.AutoSize = True
         Me.Label112.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label112.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label112.Location = New System.Drawing.Point(118, 45)
+        Me.Label112.Location = New System.Drawing.Point(128, 73)
         Me.Label112.Name = "Label112"
         Me.Label112.Size = New System.Drawing.Size(32, 17)
         Me.Label112.TabIndex = 41
@@ -3964,7 +3964,7 @@ Partial Class frmMainMenu
         Me.Label110.AutoSize = True
         Me.Label110.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label110.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label110.Location = New System.Drawing.Point(337, 45)
+        Me.Label110.Location = New System.Drawing.Point(385, 70)
         Me.Label110.Name = "Label110"
         Me.Label110.Size = New System.Drawing.Size(64, 17)
         Me.Label110.TabIndex = 31
@@ -3975,7 +3975,7 @@ Partial Class frmMainMenu
         Me.Label111.AutoSize = True
         Me.Label111.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label111.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label111.Location = New System.Drawing.Point(250, 45)
+        Me.Label111.Location = New System.Drawing.Point(253, 70)
         Me.Label111.Name = "Label111"
         Me.Label111.Size = New System.Drawing.Size(80, 17)
         Me.Label111.TabIndex = 30
@@ -3986,7 +3986,7 @@ Partial Class frmMainMenu
         Me.Label116.AutoSize = True
         Me.Label116.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label116.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label116.Location = New System.Drawing.Point(10, 45)
+        Me.Label116.Location = New System.Drawing.Point(16, 74)
         Me.Label116.Name = "Label116"
         Me.Label116.Size = New System.Drawing.Size(65, 17)
         Me.Label116.TabIndex = 25
@@ -4005,25 +4005,27 @@ Partial Class frmMainMenu
         '
         'dtpModifFechaFinMant
         '
-        Me.dtpModifFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpModifFechaFinMant.Location = New System.Drawing.Point(340, 68)
+        Me.dtpModifFechaFinMant.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.dtpModifFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpModifFechaFinMant.Location = New System.Drawing.Point(382, 90)
         Me.dtpModifFechaFinMant.Name = "dtpModifFechaFinMant"
-        Me.dtpModifFechaFinMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpModifFechaFinMant.Size = New System.Drawing.Size(136, 20)
         Me.dtpModifFechaFinMant.TabIndex = 20
         '
         'txtModifMatriculaMant
         '
-        Me.txtModifMatriculaMant.Location = New System.Drawing.Point(15, 68)
+        Me.txtModifMatriculaMant.Location = New System.Drawing.Point(13, 94)
         Me.txtModifMatriculaMant.Name = "txtModifMatriculaMant"
         Me.txtModifMatriculaMant.Size = New System.Drawing.Size(100, 20)
         Me.txtModifMatriculaMant.TabIndex = 22
         '
         'dtpModifFechaInicioMant
         '
-        Me.dtpModifFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(251, 68)
+        Me.dtpModifFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.dtpModifFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(251, 90)
         Me.dtpModifFechaInicioMant.Name = "dtpModifFechaInicioMant"
-        Me.dtpModifFechaInicioMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpModifFechaInicioMant.Size = New System.Drawing.Size(125, 20)
         Me.dtpModifFechaInicioMant.TabIndex = 21
         '
         'pnlFmant
@@ -4068,7 +4070,7 @@ Partial Class frmMainMenu
         Me.chbxFiltrarEstadoMant.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chbxFiltrarEstadoMant.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chbxFiltrarEstadoMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.chbxFiltrarEstadoMant.Location = New System.Drawing.Point(364, 47)
+        Me.chbxFiltrarEstadoMant.Location = New System.Drawing.Point(13, 173)
         Me.chbxFiltrarEstadoMant.Name = "chbxFiltrarEstadoMant"
         Me.chbxFiltrarEstadoMant.Size = New System.Drawing.Size(154, 20)
         Me.chbxFiltrarEstadoMant.TabIndex = 37
@@ -4100,7 +4102,7 @@ Partial Class frmMainMenu
         Me.chbxFiltrarFechaMant.AutoSize = True
         Me.chbxFiltrarFechaMant.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chbxFiltrarFechaMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.chbxFiltrarFechaMant.Location = New System.Drawing.Point(69, 91)
+        Me.chbxFiltrarFechaMant.Location = New System.Drawing.Point(305, 65)
         Me.chbxFiltrarFechaMant.Name = "chbxFiltrarFechaMant"
         Me.chbxFiltrarFechaMant.Size = New System.Drawing.Size(91, 20)
         Me.chbxFiltrarFechaMant.TabIndex = 33
@@ -4131,7 +4133,7 @@ Partial Class frmMainMenu
         Me.Label120.AutoSize = True
         Me.Label120.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label120.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label120.Location = New System.Drawing.Point(116, 47)
+        Me.Label120.Location = New System.Drawing.Point(154, 45)
         Me.Label120.Name = "Label120"
         Me.Label120.Size = New System.Drawing.Size(64, 17)
         Me.Label120.TabIndex = 31
@@ -4183,10 +4185,11 @@ Partial Class frmMainMenu
         '
         'dtpFiltrarFechaFinMant
         '
-        Me.dtpFiltrarFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFiltrarFechaFinMant.Location = New System.Drawing.Point(121, 65)
+        Me.dtpFiltrarFechaFinMant.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.dtpFiltrarFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFiltrarFechaFinMant.Location = New System.Drawing.Point(157, 65)
         Me.dtpFiltrarFechaFinMant.Name = "dtpFiltrarFechaFinMant"
-        Me.dtpFiltrarFechaFinMant.Size = New System.Drawing.Size(78, 20)
+        Me.dtpFiltrarFechaFinMant.Size = New System.Drawing.Size(136, 20)
         Me.dtpFiltrarFechaFinMant.TabIndex = 20
         '
         'txtFiltrarMatriculaMant
@@ -4198,10 +4201,11 @@ Partial Class frmMainMenu
         '
         'dtpFiltrarFechaInicioMant
         '
-        Me.dtpFiltrarFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFiltrarFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.dtpFiltrarFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFiltrarFechaInicioMant.Location = New System.Drawing.Point(13, 65)
         Me.dtpFiltrarFechaInicioMant.Name = "dtpFiltrarFechaInicioMant"
-        Me.dtpFiltrarFechaInicioMant.Size = New System.Drawing.Size(98, 20)
+        Me.dtpFiltrarFechaInicioMant.Size = New System.Drawing.Size(136, 20)
         Me.dtpFiltrarFechaInicioMant.TabIndex = 21
         '
         'dgvMant
@@ -4364,7 +4368,7 @@ Partial Class frmMainMenu
         '
         'dtpFechaFinMant
         '
-        Me.dtpFechaFinMant.CustomFormat = "yyyy-MM-dd HH:mm"
+        Me.dtpFechaFinMant.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFechaFinMant.Location = New System.Drawing.Point(160, 116)
         Me.dtpFechaFinMant.Name = "dtpFechaFinMant"
@@ -4373,7 +4377,7 @@ Partial Class frmMainMenu
         '
         'dtpFechaInicioMant
         '
-        Me.dtpFechaInicioMant.CustomFormat = "yyyy-MM-dd HH:mm"
+        Me.dtpFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFechaInicioMant.Location = New System.Drawing.Point(13, 116)
         Me.dtpFechaInicioMant.Name = "dtpFechaInicioMant"

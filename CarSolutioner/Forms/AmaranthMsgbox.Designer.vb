@@ -27,9 +27,11 @@ Partial Class AmaranthMsgbox
         Me.btnSi = New System.Windows.Forms.Button()
         Me.btnNo = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+
         Me.btnCerrarMsgbox = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.lblTitulo = New System.Windows.Forms.Label()
+
         Me.pbxmsgerror = New System.Windows.Forms.PictureBox()
         Me.btnAccept = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -93,6 +95,7 @@ Partial Class AmaranthMsgbox
         Me.Panel1.Size = New System.Drawing.Size(383, 30)
         Me.Panel1.TabIndex = 52
         '
+
         'btnCerrarMsgbox
         '
         Me.btnCerrarMsgbox.BackColor = System.Drawing.Color.Transparent
@@ -107,7 +110,7 @@ Partial Class AmaranthMsgbox
         Me.btnCerrarMsgbox.TabIndex = 53
         Me.btnCerrarMsgbox.Text = "✕"
         Me.btnCerrarMsgbox.UseVisualStyleBackColor = False
-        '
+
         'btnCerrar
         '
         Me.btnCerrar.BackColor = System.Drawing.Color.Transparent
@@ -123,6 +126,9 @@ Partial Class AmaranthMsgbox
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False
         '
+
+    
+
         'lblTitulo
         '
         Me.lblTitulo.AutoSize = True

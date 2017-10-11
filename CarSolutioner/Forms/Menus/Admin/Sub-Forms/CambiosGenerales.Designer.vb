@@ -26,7 +26,6 @@ Partial Class frmCambiosGenerales
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCambiosGenerales))
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -119,70 +118,65 @@ Partial Class frmCambiosGenerales
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.tbcTabControl = New System.Windows.Forms.TabControl()
-        Me.tbpVehiculo = New System.Windows.Forms.TabPage()
+        Me.tbpVehiculos = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label56 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.btnAddModelo = New System.Windows.Forms.Button()
+        Me.btnModificarModelo = New System.Windows.Forms.Button()
+        Me.dgvModelos = New System.Windows.Forms.DataGridView()
+        Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipo_mod = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmarca_mod = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoModelo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.idmodelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnEstadoModelo = New System.Windows.Forms.Button()
         Me.Label55 = New System.Windows.Forms.Label()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.cboxTipoModelo = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cboxMarcasModelo = New System.Windows.Forms.ComboBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label39 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.cboxModeloModificarMarca = New System.Windows.Forms.ComboBox()
+        Me.txtNombreModelo = New System.Windows.Forms.TextBox()
         Me.Label41 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.chboxInactivosModelos = New System.Windows.Forms.CheckBox()
+        Me.txtNombreModeloModificar = New System.Windows.Forms.TextBox()
+        Me.txtBuscarModelos = New System.Windows.Forms.TextBox()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.Label43 = New System.Windows.Forms.Label()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Label53 = New System.Windows.Forms.Label()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.Button13 = New System.Windows.Forms.Button()
-        Me.Button14 = New System.Windows.Forms.Button()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.pnlMovimientoVeh = New System.Windows.Forms.Panel()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.NupCantidadHacia = New System.Windows.Forms.NumericUpDown()
-        Me.Label61 = New System.Windows.Forms.Label()
-        Me.cbxTipoHacia = New System.Windows.Forms.ComboBox()
-        Me.cbxCategoriaHacia = New System.Windows.Forms.ComboBox()
-        Me.cbxSucursalHacia = New System.Windows.Forms.ComboBox()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label58 = New System.Windows.Forms.Label()
-        Me.cbxSucursalDesde = New System.Windows.Forms.ComboBox()
-        Me.Label59 = New System.Windows.Forms.Label()
-        Me.btnMover = New System.Windows.Forms.Button()
-        Me.Label60 = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.dgvMarcas = New System.Windows.Forms.DataGridView()
+        Me.nombremarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadomarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.chboxInactivasMarcas = New System.Windows.Forms.CheckBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtBuscarMarcas = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.dgvTipos = New System.Windows.Forms.DataGridView()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.idtipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label45 = New System.Windows.Forms.Label()
         Me.Label46 = New System.Windows.Forms.Label()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtNombreTipo = New System.Windows.Forms.TextBox()
         Me.Label47 = New System.Windows.Forms.Label()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.chboxTiposInactivos = New System.Windows.Forms.CheckBox()
+        Me.txtModificarTipo = New System.Windows.Forms.TextBox()
+        Me.btnModificarTipo = New System.Windows.Forms.Button()
+        Me.BtnEliminarTipo = New System.Windows.Forms.Button()
+        Me.btnAgregarTipo = New System.Windows.Forms.Button()
+        Me.txtBuscarTipo = New System.Windows.Forms.TextBox()
         Me.Label48 = New System.Windows.Forms.Label()
         Me.tbpReservas = New System.Windows.Forms.TabPage()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
@@ -193,10 +187,8 @@ Partial Class frmCambiosGenerales
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.Label57 = New System.Windows.Forms.Label()
-        Me.dgvVehiculoXSucursal = New System.Windows.Forms.DataGridView()
-        Me.cbxTipoFilter = New System.Windows.Forms.ComboBox()
-        Me.cbxCategoriaFilter = New System.Windows.Forms.ComboBox()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.cbxTipoModeloModificar = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         Me.tbpCategorias.SuspendLayout()
@@ -211,19 +203,16 @@ Partial Class frmCambiosGenerales
         Me.pnlmodsuc.SuspendLayout()
         Me.pnlmovimiento.SuspendLayout()
         Me.tbcTabControl.SuspendLayout()
-        Me.tbpVehiculo.SuspendLayout()
+        Me.tbpVehiculos.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvModelos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel10.SuspendLayout()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlMovimientoVeh.SuspendLayout()
-        CType(Me.NupCantidadHacia, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvMarcas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvTipos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvVehiculoXSucursal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -1263,7 +1252,7 @@ Partial Class frmCambiosGenerales
         Me.tbcTabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
         Me.tbcTabControl.Controls.Add(Me.tbpSucursales)
         Me.tbcTabControl.Controls.Add(Me.tbpCategorias)
-        Me.tbcTabControl.Controls.Add(Me.tbpVehiculo)
+        Me.tbcTabControl.Controls.Add(Me.tbpVehiculos)
         Me.tbcTabControl.Controls.Add(Me.tbpReservas)
         Me.tbcTabControl.Controls.Add(Me.tbpDocumento)
         Me.tbcTabControl.Location = New System.Drawing.Point(119, 22)
@@ -1272,15 +1261,15 @@ Partial Class frmCambiosGenerales
         Me.tbcTabControl.Size = New System.Drawing.Size(950, 631)
         Me.tbcTabControl.TabIndex = 34
         '
-        'tbpVehiculo
+        'tbpVehiculos
         '
-        Me.tbpVehiculo.Controls.Add(Me.Panel4)
-        Me.tbpVehiculo.Location = New System.Drawing.Point(4, 25)
-        Me.tbpVehiculo.Name = "tbpVehiculo"
-        Me.tbpVehiculo.Size = New System.Drawing.Size(942, 602)
-        Me.tbpVehiculo.TabIndex = 4
-        Me.tbpVehiculo.Text = "Vehiculo"
-        Me.tbpVehiculo.UseVisualStyleBackColor = True
+        Me.tbpVehiculos.Controls.Add(Me.Panel4)
+        Me.tbpVehiculos.Location = New System.Drawing.Point(4, 25)
+        Me.tbpVehiculos.Name = "tbpVehiculos"
+        Me.tbpVehiculos.Size = New System.Drawing.Size(942, 602)
+        Me.tbpVehiculos.TabIndex = 4
+        Me.tbpVehiculos.Text = "Vehiculo"
+        Me.tbpVehiculos.UseVisualStyleBackColor = True
         '
         'Panel4
         '
@@ -1288,7 +1277,6 @@ Partial Class frmCambiosGenerales
         Me.Panel4.Controls.Add(Me.Label56)
         Me.Panel4.Controls.Add(Me.Panel3)
         Me.Panel4.Controls.Add(Me.Panel10)
-        Me.Panel4.Controls.Add(Me.pnlMovimientoVeh)
         Me.Panel4.Controls.Add(Me.Panel5)
         Me.Panel4.Location = New System.Drawing.Point(17, 16)
         Me.Panel4.Name = "Panel4"
@@ -1310,94 +1298,205 @@ Partial Class frmCambiosGenerales
         '
         Me.Panel3.BackColor = System.Drawing.Color.Silver
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.DataGridView1)
+        Me.Panel3.Controls.Add(Me.Label49)
+        Me.Panel3.Controls.Add(Me.cbxTipoModeloModificar)
+        Me.Panel3.Controls.Add(Me.btnAddModelo)
+        Me.Panel3.Controls.Add(Me.btnModificarModelo)
+        Me.Panel3.Controls.Add(Me.dgvModelos)
+        Me.Panel3.Controls.Add(Me.btnEstadoModelo)
         Me.Panel3.Controls.Add(Me.Label55)
-        Me.Panel3.Controls.Add(Me.ComboBox4)
+        Me.Panel3.Controls.Add(Me.cboxTipoModelo)
         Me.Panel3.Controls.Add(Me.Label10)
-        Me.Panel3.Controls.Add(Me.ComboBox2)
+        Me.Panel3.Controls.Add(Me.cboxMarcasModelo)
         Me.Panel3.Controls.Add(Me.Label14)
         Me.Panel3.Controls.Add(Me.Label15)
         Me.Panel3.Controls.Add(Me.Label39)
-        Me.Panel3.Controls.Add(Me.ComboBox1)
-        Me.Panel3.Controls.Add(Me.TextBox1)
+        Me.Panel3.Controls.Add(Me.cboxModeloModificarMarca)
+        Me.Panel3.Controls.Add(Me.txtNombreModelo)
         Me.Panel3.Controls.Add(Me.Label41)
-        Me.Panel3.Controls.Add(Me.CheckBox1)
-        Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Controls.Add(Me.Button3)
-        Me.Panel3.Controls.Add(Me.Button4)
-        Me.Panel3.Controls.Add(Me.Button5)
-        Me.Panel3.Controls.Add(Me.TextBox3)
+        Me.Panel3.Controls.Add(Me.chboxInactivosModelos)
+        Me.Panel3.Controls.Add(Me.txtNombreModeloModificar)
+        Me.Panel3.Controls.Add(Me.txtBuscarModelos)
         Me.Panel3.Controls.Add(Me.Label42)
-        Me.Panel3.Location = New System.Drawing.Point(233, 37)
+        Me.Panel3.Location = New System.Drawing.Point(233, 33)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(214, 560)
+        Me.Panel3.Size = New System.Drawing.Size(443, 564)
         Me.Panel3.TabIndex = 97
         '
-        'DataGridView1
+        'btnAddModelo
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AllowUserToResizeColumns = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.btnAddModelo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAddModelo.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAddModelo.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnAddModelo.FlatAppearance.BorderSize = 0
+        Me.btnAddModelo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAddModelo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnAddModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddModelo.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddModelo.ForeColor = System.Drawing.Color.White
+        Me.btnAddModelo.Location = New System.Drawing.Point(9, 516)
+        Me.btnAddModelo.Name = "btnAddModelo"
+        Me.btnAddModelo.Size = New System.Drawing.Size(64, 30)
+        Me.btnAddModelo.TabIndex = 90
+        Me.btnAddModelo.Text = "Agregar"
+        Me.btnAddModelo.UseVisualStyleBackColor = False
+        '
+        'btnModificarModelo
+        '
+        Me.btnModificarModelo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModificarModelo.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModificarModelo.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnModificarModelo.FlatAppearance.BorderSize = 0
+        Me.btnModificarModelo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModificarModelo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnModificarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarModelo.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarModelo.ForeColor = System.Drawing.Color.White
+        Me.btnModificarModelo.Location = New System.Drawing.Point(360, 513)
+        Me.btnModificarModelo.Name = "btnModificarModelo"
+        Me.btnModificarModelo.Size = New System.Drawing.Size(71, 30)
+        Me.btnModificarModelo.TabIndex = 92
+        Me.btnModificarModelo.Text = "Modificar"
+        Me.btnModificarModelo.UseVisualStyleBackColor = False
+        '
+        'dgvModelos
+        '
+        Me.dgvModelos.AllowUserToAddRows = False
+        Me.dgvModelos.AllowUserToDeleteRows = False
+        Me.dgvModelos.AllowUserToResizeColumns = False
+        Me.dgvModelos.AllowUserToResizeRows = False
+        Me.dgvModelos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(9, 85)
-        Me.DataGridView1.MultiSelect = False
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersVisible = False
+        Me.dgvModelos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvModelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvModelos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.modelo, Me.Marca, Me.Tipo, Me.idtipo_mod, Me.idmarca_mod, Me.EstadoModelo, Me.idmodelo})
+        Me.dgvModelos.Location = New System.Drawing.Point(9, 85)
+        Me.dgvModelos.MultiSelect = False
+        Me.dgvModelos.Name = "dgvModelos"
+        Me.dgvModelos.ReadOnly = True
+        Me.dgvModelos.RowHeadersVisible = False
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(114, 452)
-        Me.DataGridView1.TabIndex = 93
+        Me.dgvModelos.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvModelos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvModelos.Size = New System.Drawing.Size(422, 269)
+        Me.dgvModelos.TabIndex = 93
+        '
+        'modelo
+        '
+        Me.modelo.DataPropertyName = "nombremodelo"
+        Me.modelo.HeaderText = "Nombre"
+        Me.modelo.Name = "modelo"
+        Me.modelo.ReadOnly = True
+        '
+        'Marca
+        '
+        Me.Marca.DataPropertyName = "nombremarca"
+        Me.Marca.HeaderText = "Marca"
+        Me.Marca.Name = "Marca"
+        Me.Marca.ReadOnly = True
+        '
+        'Tipo
+        '
+        Me.Tipo.DataPropertyName = "nombretipo"
+        Me.Tipo.HeaderText = "Tipo"
+        Me.Tipo.Name = "Tipo"
+        Me.Tipo.ReadOnly = True
+        '
+        'idtipo_mod
+        '
+        Me.idtipo_mod.DataPropertyName = "idtipo"
+        Me.idtipo_mod.HeaderText = "idtipo"
+        Me.idtipo_mod.Name = "idtipo_mod"
+        Me.idtipo_mod.ReadOnly = True
+        Me.idtipo_mod.Visible = False
+        '
+        'idmarca_mod
+        '
+        Me.idmarca_mod.DataPropertyName = "idmarca"
+        Me.idmarca_mod.HeaderText = "idmarca"
+        Me.idmarca_mod.Name = "idmarca_mod"
+        Me.idmarca_mod.ReadOnly = True
+        Me.idmarca_mod.Visible = False
+        '
+        'EstadoModelo
+        '
+        Me.EstadoModelo.DataPropertyName = "estadomodelo"
+        Me.EstadoModelo.HeaderText = "Estado"
+        Me.EstadoModelo.Name = "EstadoModelo"
+        Me.EstadoModelo.ReadOnly = True
+        Me.EstadoModelo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.EstadoModelo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'idmodelo
+        '
+        Me.idmodelo.DataPropertyName = "idmodelo"
+        Me.idmodelo.HeaderText = "idmodelo"
+        Me.idmodelo.Name = "idmodelo"
+        Me.idmodelo.ReadOnly = True
+        Me.idmodelo.Visible = False
+        '
+        'btnEstadoModelo
+        '
+        Me.btnEstadoModelo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEstadoModelo.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnEstadoModelo.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnEstadoModelo.FlatAppearance.BorderSize = 0
+        Me.btnEstadoModelo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnEstadoModelo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnEstadoModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEstadoModelo.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEstadoModelo.ForeColor = System.Drawing.Color.White
+        Me.btnEstadoModelo.Location = New System.Drawing.Point(198, 513)
+        Me.btnEstadoModelo.Name = "btnEstadoModelo"
+        Me.btnEstadoModelo.Size = New System.Drawing.Size(52, 29)
+        Me.btnEstadoModelo.TabIndex = 91
+        Me.btnEstadoModelo.Text = "Estado"
+        Me.btnEstadoModelo.UseVisualStyleBackColor = False
         '
         'Label55
         '
         Me.Label55.AutoSize = True
         Me.Label55.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label55.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label55.Location = New System.Drawing.Point(129, 135)
+        Me.Label55.Location = New System.Drawing.Point(6, 411)
         Me.Label55.Name = "Label55"
         Me.Label55.Size = New System.Drawing.Size(32, 17)
         Me.Label55.TabIndex = 92
         Me.Label55.Text = "Tipo"
         '
-        'ComboBox4
+        'cboxTipoModelo
         '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(129, 155)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(76, 21)
-        Me.ComboBox4.TabIndex = 91
+        Me.cboxTipoModelo.FormattingEnabled = True
+        Me.cboxTipoModelo.Location = New System.Drawing.Point(3, 429)
+        Me.cboxTipoModelo.Name = "cboxTipoModelo"
+        Me.cboxTipoModelo.Size = New System.Drawing.Size(64, 21)
+        Me.cboxTipoModelo.TabIndex = 91
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(129, 90)
+        Me.Label10.Location = New System.Drawing.Point(3, 364)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(47, 17)
         Me.Label10.TabIndex = 90
         Me.Label10.Text = "Marca"
         '
-        'ComboBox2
+        'cboxMarcasModelo
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(129, 113)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(76, 21)
-        Me.ComboBox2.TabIndex = 89
+        Me.cboxMarcasModelo.FormattingEnabled = True
+        Me.cboxMarcasModelo.Location = New System.Drawing.Point(3, 387)
+        Me.cboxMarcasModelo.Name = "cboxMarcasModelo"
+        Me.cboxMarcasModelo.Size = New System.Drawing.Size(64, 21)
+        Me.cboxMarcasModelo.TabIndex = 89
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(131, 426)
+        Me.Label14.Location = New System.Drawing.Point(353, 367)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(47, 17)
         Me.Label14.TabIndex = 87
@@ -1408,7 +1507,7 @@ Partial Class frmCambiosGenerales
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(131, 466)
+        Me.Label15.Location = New System.Drawing.Point(355, 449)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(56, 17)
         Me.Label15.TabIndex = 86
@@ -1419,26 +1518,26 @@ Partial Class frmCambiosGenerales
         Me.Label39.AutoSize = True
         Me.Label39.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label39.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label39.Location = New System.Drawing.Point(129, 185)
+        Me.Label39.Location = New System.Drawing.Point(3, 459)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(56, 17)
         Me.Label39.TabIndex = 85
         Me.Label39.Text = "Nombre"
         '
-        'ComboBox1
+        'cboxModeloModificarMarca
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(131, 446)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(76, 21)
-        Me.ComboBox1.TabIndex = 82
+        Me.cboxModeloModificarMarca.FormattingEnabled = True
+        Me.cboxModeloModificarMarca.Location = New System.Drawing.Point(358, 387)
+        Me.cboxModeloModificarMarca.Name = "cboxModeloModificarMarca"
+        Me.cboxModeloModificarMarca.Size = New System.Drawing.Size(71, 21)
+        Me.cboxModeloModificarMarca.TabIndex = 82
         '
-        'TextBox1
+        'txtNombreModelo
         '
-        Me.TextBox1.Location = New System.Drawing.Point(129, 207)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox1.TabIndex = 79
+        Me.txtNombreModelo.Location = New System.Drawing.Point(3, 481)
+        Me.txtNombreModelo.Name = "txtNombreModelo"
+        Me.txtNombreModelo.Size = New System.Drawing.Size(64, 20)
+        Me.txtNombreModelo.TabIndex = 79
         '
         'Label41
         '
@@ -1451,85 +1550,31 @@ Partial Class frmCambiosGenerales
         Me.Label41.TabIndex = 74
         Me.Label41.Text = "Buscar"
         '
-        'CheckBox1
+        'chboxInactivosModelos
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CheckBox1.Location = New System.Drawing.Point(9, 37)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(77, 20)
-        Me.CheckBox1.TabIndex = 77
-        Me.CheckBox1.Text = "Inactivos"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chboxInactivosModelos.AutoSize = True
+        Me.chboxInactivosModelos.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chboxInactivosModelos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.chboxInactivosModelos.Location = New System.Drawing.Point(9, 37)
+        Me.chboxInactivosModelos.Name = "chboxInactivosModelos"
+        Me.chboxInactivosModelos.Size = New System.Drawing.Size(77, 20)
+        Me.chboxInactivosModelos.TabIndex = 77
+        Me.chboxInactivosModelos.Text = "Inactivos"
+        Me.chboxInactivosModelos.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'txtNombreModeloModificar
         '
-        Me.TextBox2.Location = New System.Drawing.Point(131, 486)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox2.TabIndex = 78
+        Me.txtNombreModeloModificar.Location = New System.Drawing.Point(360, 469)
+        Me.txtNombreModeloModificar.Name = "txtNombreModeloModificar"
+        Me.txtNombreModeloModificar.Size = New System.Drawing.Size(71, 20)
+        Me.txtNombreModeloModificar.TabIndex = 78
         '
-        'Button3
+        'txtBuscarModelos
         '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(129, 508)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(76, 30)
-        Me.Button3.TabIndex = 77
-        Me.Button3.Text = "Modificar"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Location = New System.Drawing.Point(127, 320)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(76, 30)
-        Me.Button4.TabIndex = 76
-        Me.Button4.Text = "Eliminar"
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'Button5
-        '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.White
-        Me.Button5.Location = New System.Drawing.Point(127, 235)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(76, 30)
-        Me.Button5.TabIndex = 75
-        Me.Button5.Text = "Agregar"
-        Me.Button5.UseVisualStyleBackColor = False
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(59, 59)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(64, 20)
-        Me.TextBox3.TabIndex = 74
+        Me.txtBuscarModelos.Location = New System.Drawing.Point(59, 59)
+        Me.txtBuscarModelos.Name = "txtBuscarModelos"
+        Me.txtBuscarModelos.Size = New System.Drawing.Size(64, 20)
+        Me.txtBuscarModelos.TabIndex = 74
         '
         'Label42
         '
@@ -1546,93 +1591,78 @@ Partial Class frmCambiosGenerales
         '
         Me.Panel10.BackColor = System.Drawing.Color.Silver
         Me.Panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel10.Controls.Add(Me.DataGridView4)
         Me.Panel10.Controls.Add(Me.Label43)
-        Me.Panel10.Controls.Add(Me.Label51)
-        Me.Panel10.Controls.Add(Me.Label52)
-        Me.Panel10.Controls.Add(Me.ComboBox3)
-        Me.Panel10.Controls.Add(Me.TextBox7)
+        Me.Panel10.Controls.Add(Me.dgvMarcas)
+        Me.Panel10.Controls.Add(Me.Label44)
         Me.Panel10.Controls.Add(Me.Label53)
-        Me.Panel10.Controls.Add(Me.CheckBox3)
-        Me.Panel10.Controls.Add(Me.TextBox8)
-        Me.Panel10.Controls.Add(Me.Button13)
-        Me.Panel10.Controls.Add(Me.Button14)
-        Me.Panel10.Controls.Add(Me.Button15)
-        Me.Panel10.Controls.Add(Me.TextBox9)
+        Me.Panel10.Controls.Add(Me.TextBox1)
+        Me.Panel10.Controls.Add(Me.chboxInactivasMarcas)
+        Me.Panel10.Controls.Add(Me.TextBox2)
+        Me.Panel10.Controls.Add(Me.txtBuscarMarcas)
+        Me.Panel10.Controls.Add(Me.Button2)
         Me.Panel10.Controls.Add(Me.Label54)
-        Me.Panel10.Location = New System.Drawing.Point(13, 37)
+        Me.Panel10.Controls.Add(Me.Button3)
+        Me.Panel10.Controls.Add(Me.Button4)
+        Me.Panel10.Location = New System.Drawing.Point(13, 33)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(214, 560)
+        Me.Panel10.Size = New System.Drawing.Size(214, 564)
         Me.Panel10.TabIndex = 96
-        '
-        'DataGridView4
-        '
-        Me.DataGridView4.AllowUserToAddRows = False
-        Me.DataGridView4.AllowUserToDeleteRows = False
-        Me.DataGridView4.AllowUserToResizeColumns = False
-        Me.DataGridView4.AllowUserToResizeRows = False
-        Me.DataGridView4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Location = New System.Drawing.Point(9, 86)
-        Me.DataGridView4.MultiSelect = False
-        Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.ReadOnly = True
-        Me.DataGridView4.RowHeadersVisible = False
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.DataGridView4.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView4.Size = New System.Drawing.Size(114, 452)
-        Me.DataGridView4.TabIndex = 88
         '
         'Label43
         '
         Me.Label43.AutoSize = True
         Me.Label43.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label43.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label43.Location = New System.Drawing.Point(129, 426)
+        Me.Label43.Location = New System.Drawing.Point(134, 446)
         Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(47, 17)
-        Me.Label43.TabIndex = 87
-        Me.Label43.Text = "Marca"
+        Me.Label43.Size = New System.Drawing.Size(56, 17)
+        Me.Label43.TabIndex = 96
+        Me.Label43.Text = "Nombre"
         '
-        'Label51
+        'dgvMarcas
         '
-        Me.Label51.AutoSize = True
-        Me.Label51.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label51.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label51.Location = New System.Drawing.Point(129, 466)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(56, 17)
-        Me.Label51.TabIndex = 86
-        Me.Label51.Text = "Nombre"
+        Me.dgvMarcas.AllowUserToAddRows = False
+        Me.dgvMarcas.AllowUserToDeleteRows = False
+        Me.dgvMarcas.AllowUserToResizeColumns = False
+        Me.dgvMarcas.AllowUserToResizeRows = False
+        Me.dgvMarcas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvMarcas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvMarcas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombremarca, Me.estadomarca})
+        Me.dgvMarcas.Location = New System.Drawing.Point(3, 85)
+        Me.dgvMarcas.MultiSelect = False
+        Me.dgvMarcas.Name = "dgvMarcas"
+        Me.dgvMarcas.ReadOnly = True
+        Me.dgvMarcas.RowHeadersVisible = False
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvMarcas.RowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgvMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvMarcas.Size = New System.Drawing.Size(206, 358)
+        Me.dgvMarcas.TabIndex = 88
         '
-        'Label52
+        'nombremarca
         '
-        Me.Label52.AutoSize = True
-        Me.Label52.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label52.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label52.Location = New System.Drawing.Point(129, 133)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(56, 17)
-        Me.Label52.TabIndex = 85
-        Me.Label52.Text = "Nombre"
+        Me.nombremarca.HeaderText = "Nombre"
+        Me.nombremarca.Name = "nombremarca"
+        Me.nombremarca.ReadOnly = True
         '
-        'ComboBox3
+        'estadomarca
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(129, 446)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(76, 21)
-        Me.ComboBox3.TabIndex = 82
+        Me.estadomarca.HeaderText = "Estado"
+        Me.estadomarca.Name = "estadomarca"
+        Me.estadomarca.ReadOnly = True
         '
-        'TextBox7
+        'Label44
         '
-        Me.TextBox7.Location = New System.Drawing.Point(129, 155)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox7.TabIndex = 79
+        Me.Label44.AutoSize = True
+        Me.Label44.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label44.Location = New System.Drawing.Point(9, 446)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(56, 17)
+        Me.Label44.TabIndex = 95
+        Me.Label44.Text = "Nombre"
         '
         'Label53
         '
@@ -1645,85 +1675,56 @@ Partial Class frmCambiosGenerales
         Me.Label53.TabIndex = 74
         Me.Label53.Text = "Buscar"
         '
-        'CheckBox3
+        'TextBox1
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CheckBox3.Location = New System.Drawing.Point(9, 37)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(77, 20)
-        Me.CheckBox3.TabIndex = 77
-        Me.CheckBox3.Text = "Inactivos"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.TextBox1.Location = New System.Drawing.Point(9, 468)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(64, 20)
+        Me.TextBox1.TabIndex = 94
         '
-        'TextBox8
+        'chboxInactivasMarcas
         '
-        Me.TextBox8.Location = New System.Drawing.Point(129, 486)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox8.TabIndex = 78
+        Me.chboxInactivasMarcas.AutoSize = True
+        Me.chboxInactivasMarcas.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chboxInactivasMarcas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.chboxInactivasMarcas.Location = New System.Drawing.Point(9, 37)
+        Me.chboxInactivasMarcas.Name = "chboxInactivasMarcas"
+        Me.chboxInactivasMarcas.Size = New System.Drawing.Size(77, 20)
+        Me.chboxInactivasMarcas.TabIndex = 77
+        Me.chboxInactivasMarcas.Text = "Inactivos"
+        Me.chboxInactivasMarcas.UseVisualStyleBackColor = True
         '
-        'Button13
+        'TextBox2
         '
-        Me.Button13.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button13.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button13.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button13.FlatAppearance.BorderSize = 0
-        Me.Button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button13.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button13.ForeColor = System.Drawing.Color.White
-        Me.Button13.Location = New System.Drawing.Point(127, 508)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(76, 30)
-        Me.Button13.TabIndex = 77
-        Me.Button13.Text = "Modificar"
-        Me.Button13.UseVisualStyleBackColor = False
+        Me.TextBox2.Location = New System.Drawing.Point(135, 466)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(73, 20)
+        Me.TextBox2.TabIndex = 93
         '
-        'Button14
+        'txtBuscarMarcas
         '
-        Me.Button14.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button14.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button14.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button14.FlatAppearance.BorderSize = 0
-        Me.Button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button14.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button14.ForeColor = System.Drawing.Color.White
-        Me.Button14.Location = New System.Drawing.Point(127, 320)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(76, 30)
-        Me.Button14.TabIndex = 76
-        Me.Button14.Text = "Eliminar"
-        Me.Button14.UseVisualStyleBackColor = False
+        Me.txtBuscarMarcas.Location = New System.Drawing.Point(59, 59)
+        Me.txtBuscarMarcas.Name = "txtBuscarMarcas"
+        Me.txtBuscarMarcas.Size = New System.Drawing.Size(64, 20)
+        Me.txtBuscarMarcas.TabIndex = 74
         '
-        'Button15
+        'Button2
         '
-        Me.Button15.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button15.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button15.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button15.FlatAppearance.BorderSize = 0
-        Me.Button15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button15.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button15.ForeColor = System.Drawing.Color.White
-        Me.Button15.Location = New System.Drawing.Point(127, 183)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(76, 30)
-        Me.Button15.TabIndex = 75
-        Me.Button15.Text = "Agregar"
-        Me.Button15.UseVisualStyleBackColor = False
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(59, 59)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(64, 20)
-        Me.TextBox9.TabIndex = 74
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(137, 507)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(71, 30)
+        Me.Button2.TabIndex = 92
+        Me.Button2.Text = "Modificar"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Label54
         '
@@ -1736,219 +1737,113 @@ Partial Class frmCambiosGenerales
         Me.Label54.TabIndex = 72
         Me.Label54.Text = "Marcas"
         '
-        'pnlMovimientoVeh
+        'Button3
         '
-        Me.pnlMovimientoVeh.BackColor = System.Drawing.Color.Silver
-        Me.pnlMovimientoVeh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlMovimientoVeh.Controls.Add(Me.cbxCategoriaFilter)
-        Me.pnlMovimientoVeh.Controls.Add(Me.cbxTipoFilter)
-        Me.pnlMovimientoVeh.Controls.Add(Me.dgvVehiculoXSucursal)
-        Me.pnlMovimientoVeh.Controls.Add(Me.Label57)
-        Me.pnlMovimientoVeh.Controls.Add(Me.Label50)
-        Me.pnlMovimientoVeh.Controls.Add(Me.NupCantidadHacia)
-        Me.pnlMovimientoVeh.Controls.Add(Me.Label61)
-        Me.pnlMovimientoVeh.Controls.Add(Me.cbxTipoHacia)
-        Me.pnlMovimientoVeh.Controls.Add(Me.cbxCategoriaHacia)
-        Me.pnlMovimientoVeh.Controls.Add(Me.cbxSucursalHacia)
-        Me.pnlMovimientoVeh.Controls.Add(Me.Label49)
-        Me.pnlMovimientoVeh.Controls.Add(Me.Label58)
-        Me.pnlMovimientoVeh.Controls.Add(Me.cbxSucursalDesde)
-        Me.pnlMovimientoVeh.Controls.Add(Me.Label59)
-        Me.pnlMovimientoVeh.Controls.Add(Me.btnMover)
-        Me.pnlMovimientoVeh.Controls.Add(Me.Label60)
-        Me.pnlMovimientoVeh.Location = New System.Drawing.Point(673, 37)
-        Me.pnlMovimientoVeh.Name = "pnlMovimientoVeh"
-        Me.pnlMovimientoVeh.Size = New System.Drawing.Size(214, 560)
-        Me.pnlMovimientoVeh.TabIndex = 91
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.White
+        Me.Button3.Location = New System.Drawing.Point(79, 507)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(52, 30)
+        Me.Button3.TabIndex = 91
+        Me.Button3.Text = "Estado"
+        Me.Button3.UseVisualStyleBackColor = False
         '
-        'Label50
+        'Button4
         '
-        Me.Label50.AutoSize = True
-        Me.Label50.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label50.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label50.Location = New System.Drawing.Point(6, 173)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(64, 17)
-        Me.Label50.TabIndex = 94
-        Me.Label50.Text = "Cantidad"
-        '
-        'NupCantidadHacia
-        '
-        Me.NupCantidadHacia.Location = New System.Drawing.Point(81, 170)
-        Me.NupCantidadHacia.Name = "NupCantidadHacia"
-        Me.NupCantidadHacia.Size = New System.Drawing.Size(124, 20)
-        Me.NupCantidadHacia.TabIndex = 93
-        '
-        'Label61
-        '
-        Me.Label61.AutoSize = True
-        Me.Label61.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label61.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label61.Location = New System.Drawing.Point(6, 117)
-        Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(32, 17)
-        Me.Label61.TabIndex = 92
-        Me.Label61.Text = "Tipo"
-        '
-        'cbxTipoHacia
-        '
-        Me.cbxTipoHacia.FormattingEnabled = True
-        Me.cbxTipoHacia.Location = New System.Drawing.Point(81, 116)
-        Me.cbxTipoHacia.Name = "cbxTipoHacia"
-        Me.cbxTipoHacia.Size = New System.Drawing.Size(124, 21)
-        Me.cbxTipoHacia.TabIndex = 91
-        '
-        'cbxCategoriaHacia
-        '
-        Me.cbxCategoriaHacia.FormattingEnabled = True
-        Me.cbxCategoriaHacia.Location = New System.Drawing.Point(81, 143)
-        Me.cbxCategoriaHacia.Name = "cbxCategoriaHacia"
-        Me.cbxCategoriaHacia.Size = New System.Drawing.Size(124, 21)
-        Me.cbxCategoriaHacia.TabIndex = 90
-        '
-        'cbxSucursalHacia
-        '
-        Me.cbxSucursalHacia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxSucursalHacia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cbxSucursalHacia.FormattingEnabled = True
-        Me.cbxSucursalHacia.Location = New System.Drawing.Point(81, 86)
-        Me.cbxSucursalHacia.Name = "cbxSucursalHacia"
-        Me.cbxSucursalHacia.Size = New System.Drawing.Size(124, 21)
-        Me.cbxSucursalHacia.TabIndex = 89
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label49.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label49.Location = New System.Drawing.Point(6, 86)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(43, 17)
-        Me.Label49.TabIndex = 88
-        Me.Label49.Text = "Hacia"
-        '
-        'Label58
-        '
-        Me.Label58.AutoSize = True
-        Me.Label58.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label58.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label58.Location = New System.Drawing.Point(3, 147)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(69, 17)
-        Me.Label58.TabIndex = 85
-        Me.Label58.Text = "Categoria"
-        '
-        'cbxSucursalDesde
-        '
-        Me.cbxSucursalDesde.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxSucursalDesde.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cbxSucursalDesde.FormattingEnabled = True
-        Me.cbxSucursalDesde.Location = New System.Drawing.Point(81, 59)
-        Me.cbxSucursalDesde.Name = "cbxSucursalDesde"
-        Me.cbxSucursalDesde.Size = New System.Drawing.Size(124, 21)
-        Me.cbxSucursalDesde.TabIndex = 81
-        '
-        'Label59
-        '
-        Me.Label59.AutoSize = True
-        Me.Label59.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label59.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label59.Location = New System.Drawing.Point(6, 60)
-        Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(46, 17)
-        Me.Label59.TabIndex = 74
-        Me.Label59.Text = "Desde"
-        '
-        'btnMover
-        '
-        Me.btnMover.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMover.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMover.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnMover.FlatAppearance.BorderSize = 0
-        Me.btnMover.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMover.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnMover.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMover.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMover.ForeColor = System.Drawing.Color.White
-        Me.btnMover.Location = New System.Drawing.Point(129, 508)
-        Me.btnMover.Name = "btnMover"
-        Me.btnMover.Size = New System.Drawing.Size(76, 30)
-        Me.btnMover.TabIndex = 77
-        Me.btnMover.Text = "Mover"
-        Me.btnMover.UseVisualStyleBackColor = False
-        '
-        'Label60
-        '
-        Me.Label60.AutoSize = True
-        Me.Label60.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label60.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label60.Location = New System.Drawing.Point(5, 5)
-        Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(204, 21)
-        Me.Label60.TabIndex = 72
-        Me.Label60.Text = "Movimiento de vehiculos"
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.Color.White
+        Me.Button4.Location = New System.Drawing.Point(9, 507)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(64, 30)
+        Me.Button4.TabIndex = 90
+        Me.Button4.Text = "Agregar"
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.Silver
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel5.Controls.Add(Me.DataGridView2)
-        Me.Panel5.Controls.Add(Me.Label44)
+        Me.Panel5.Controls.Add(Me.dgvTipos)
         Me.Panel5.Controls.Add(Me.Label45)
         Me.Panel5.Controls.Add(Me.Label46)
-        Me.Panel5.Controls.Add(Me.ComboBox5)
-        Me.Panel5.Controls.Add(Me.TextBox4)
+        Me.Panel5.Controls.Add(Me.txtNombreTipo)
         Me.Panel5.Controls.Add(Me.Label47)
-        Me.Panel5.Controls.Add(Me.CheckBox2)
-        Me.Panel5.Controls.Add(Me.TextBox5)
-        Me.Panel5.Controls.Add(Me.Button9)
-        Me.Panel5.Controls.Add(Me.Button10)
-        Me.Panel5.Controls.Add(Me.Button11)
-        Me.Panel5.Controls.Add(Me.TextBox6)
+        Me.Panel5.Controls.Add(Me.chboxTiposInactivos)
+        Me.Panel5.Controls.Add(Me.txtModificarTipo)
+        Me.Panel5.Controls.Add(Me.btnModificarTipo)
+        Me.Panel5.Controls.Add(Me.BtnEliminarTipo)
+        Me.Panel5.Controls.Add(Me.btnAgregarTipo)
+        Me.Panel5.Controls.Add(Me.txtBuscarTipo)
         Me.Panel5.Controls.Add(Me.Label48)
-        Me.Panel5.Location = New System.Drawing.Point(453, 37)
+        Me.Panel5.Location = New System.Drawing.Point(682, 33)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(214, 560)
         Me.Panel5.TabIndex = 91
         '
-        'DataGridView2
+        'dgvTipos
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.AllowUserToResizeColumns = False
-        Me.DataGridView2.AllowUserToResizeRows = False
-        Me.DataGridView2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvTipos.AllowUserToAddRows = False
+        Me.dgvTipos.AllowUserToDeleteRows = False
+        Me.dgvTipos.AllowUserToResizeColumns = False
+        Me.dgvTipos.AllowUserToResizeRows = False
+        Me.dgvTipos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(9, 85)
-        Me.DataGridView2.MultiSelect = False
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.RowHeadersVisible = False
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.DataGridView2.RowsDefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(114, 452)
-        Me.DataGridView2.TabIndex = 89
+        Me.dgvTipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvTipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvTipos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombre, Me.estado, Me.idtipo})
+        Me.dgvTipos.Location = New System.Drawing.Point(3, 85)
+        Me.dgvTipos.MultiSelect = False
+        Me.dgvTipos.Name = "dgvTipos"
+        Me.dgvTipos.ReadOnly = True
+        Me.dgvTipos.RowHeadersVisible = False
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvTipos.RowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgvTipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvTipos.Size = New System.Drawing.Size(206, 358)
+        Me.dgvTipos.TabIndex = 89
         '
-        'Label44
+        'nombre
         '
-        Me.Label44.AutoSize = True
-        Me.Label44.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label44.Location = New System.Drawing.Point(129, 426)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(47, 17)
-        Me.Label44.TabIndex = 87
-        Me.Label44.Text = "Marca"
+        Me.nombre.DataPropertyName = "nombre"
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        '
+        'estado
+        '
+        Me.estado.DataPropertyName = "estado"
+        Me.estado.HeaderText = "Estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        '
+        'idtipo
+        '
+        Me.idtipo.DataPropertyName = "idtipo"
+        Me.idtipo.HeaderText = "idtipo"
+        Me.idtipo.Name = "idtipo"
+        Me.idtipo.ReadOnly = True
+        Me.idtipo.Visible = False
         '
         'Label45
         '
         Me.Label45.AutoSize = True
         Me.Label45.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label45.Location = New System.Drawing.Point(129, 466)
+        Me.Label45.Location = New System.Drawing.Point(131, 450)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(56, 17)
         Me.Label45.TabIndex = 86
@@ -1959,26 +1854,18 @@ Partial Class frmCambiosGenerales
         Me.Label46.AutoSize = True
         Me.Label46.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label46.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label46.Location = New System.Drawing.Point(129, 133)
+        Me.Label46.Location = New System.Drawing.Point(6, 450)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(56, 17)
         Me.Label46.TabIndex = 85
         Me.Label46.Text = "Nombre"
         '
-        'ComboBox5
+        'txtNombreTipo
         '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(129, 446)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(76, 21)
-        Me.ComboBox5.TabIndex = 82
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(129, 155)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox4.TabIndex = 79
+        Me.txtNombreTipo.Location = New System.Drawing.Point(6, 472)
+        Me.txtNombreTipo.Name = "txtNombreTipo"
+        Me.txtNombreTipo.Size = New System.Drawing.Size(64, 20)
+        Me.txtNombreTipo.TabIndex = 79
         '
         'Label47
         '
@@ -1991,85 +1878,85 @@ Partial Class frmCambiosGenerales
         Me.Label47.TabIndex = 74
         Me.Label47.Text = "Buscar"
         '
-        'CheckBox2
+        'chboxTiposInactivos
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CheckBox2.Location = New System.Drawing.Point(9, 37)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(77, 20)
-        Me.CheckBox2.TabIndex = 77
-        Me.CheckBox2.Text = "Inactivos"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.chboxTiposInactivos.AutoSize = True
+        Me.chboxTiposInactivos.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chboxTiposInactivos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.chboxTiposInactivos.Location = New System.Drawing.Point(9, 37)
+        Me.chboxTiposInactivos.Name = "chboxTiposInactivos"
+        Me.chboxTiposInactivos.Size = New System.Drawing.Size(77, 20)
+        Me.chboxTiposInactivos.TabIndex = 77
+        Me.chboxTiposInactivos.Text = "Inactivos"
+        Me.chboxTiposInactivos.UseVisualStyleBackColor = True
         '
-        'TextBox5
+        'txtModificarTipo
         '
-        Me.TextBox5.Location = New System.Drawing.Point(129, 486)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox5.TabIndex = 78
+        Me.txtModificarTipo.Location = New System.Drawing.Point(132, 470)
+        Me.txtModificarTipo.Name = "txtModificarTipo"
+        Me.txtModificarTipo.Size = New System.Drawing.Size(73, 20)
+        Me.txtModificarTipo.TabIndex = 78
         '
-        'Button9
+        'btnModificarTipo
         '
-        Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button9.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button9.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button9.FlatAppearance.BorderSize = 0
-        Me.Button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.ForeColor = System.Drawing.Color.White
-        Me.Button9.Location = New System.Drawing.Point(127, 508)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(76, 30)
-        Me.Button9.TabIndex = 77
-        Me.Button9.Text = "Modificar"
-        Me.Button9.UseVisualStyleBackColor = False
+        Me.btnModificarTipo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModificarTipo.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModificarTipo.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnModificarTipo.FlatAppearance.BorderSize = 0
+        Me.btnModificarTipo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnModificarTipo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnModificarTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarTipo.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarTipo.ForeColor = System.Drawing.Color.White
+        Me.btnModificarTipo.Location = New System.Drawing.Point(134, 507)
+        Me.btnModificarTipo.Name = "btnModificarTipo"
+        Me.btnModificarTipo.Size = New System.Drawing.Size(71, 30)
+        Me.btnModificarTipo.TabIndex = 77
+        Me.btnModificarTipo.Text = "Modificar"
+        Me.btnModificarTipo.UseVisualStyleBackColor = False
         '
-        'Button10
+        'BtnEliminarTipo
         '
-        Me.Button10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button10.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button10.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button10.FlatAppearance.BorderSize = 0
-        Me.Button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button10.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.ForeColor = System.Drawing.Color.White
-        Me.Button10.Location = New System.Drawing.Point(127, 320)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(76, 30)
-        Me.Button10.TabIndex = 76
-        Me.Button10.Text = "Eliminar"
-        Me.Button10.UseVisualStyleBackColor = False
+        Me.BtnEliminarTipo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnEliminarTipo.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.BtnEliminarTipo.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.BtnEliminarTipo.FlatAppearance.BorderSize = 0
+        Me.BtnEliminarTipo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.BtnEliminarTipo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.BtnEliminarTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEliminarTipo.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEliminarTipo.ForeColor = System.Drawing.Color.White
+        Me.BtnEliminarTipo.Location = New System.Drawing.Point(76, 507)
+        Me.BtnEliminarTipo.Name = "BtnEliminarTipo"
+        Me.BtnEliminarTipo.Size = New System.Drawing.Size(52, 30)
+        Me.BtnEliminarTipo.TabIndex = 76
+        Me.BtnEliminarTipo.Text = "Estado"
+        Me.BtnEliminarTipo.UseVisualStyleBackColor = False
         '
-        'Button11
+        'btnAgregarTipo
         '
-        Me.Button11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button11.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button11.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button11.FlatAppearance.BorderSize = 0
-        Me.Button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button11.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.ForeColor = System.Drawing.Color.White
-        Me.Button11.Location = New System.Drawing.Point(127, 183)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(76, 30)
-        Me.Button11.TabIndex = 75
-        Me.Button11.Text = "Agregar"
-        Me.Button11.UseVisualStyleBackColor = False
+        Me.btnAgregarTipo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAgregarTipo.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAgregarTipo.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnAgregarTipo.FlatAppearance.BorderSize = 0
+        Me.btnAgregarTipo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAgregarTipo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnAgregarTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregarTipo.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregarTipo.ForeColor = System.Drawing.Color.White
+        Me.btnAgregarTipo.Location = New System.Drawing.Point(6, 507)
+        Me.btnAgregarTipo.Name = "btnAgregarTipo"
+        Me.btnAgregarTipo.Size = New System.Drawing.Size(64, 30)
+        Me.btnAgregarTipo.TabIndex = 75
+        Me.btnAgregarTipo.Text = "Agregar"
+        Me.btnAgregarTipo.UseVisualStyleBackColor = False
         '
-        'TextBox6
+        'txtBuscarTipo
         '
-        Me.TextBox6.Location = New System.Drawing.Point(59, 59)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(64, 20)
-        Me.TextBox6.TabIndex = 74
+        Me.txtBuscarTipo.Location = New System.Drawing.Point(59, 59)
+        Me.txtBuscarTipo.Name = "txtBuscarTipo"
+        Me.txtBuscarTipo.Size = New System.Drawing.Size(64, 20)
+        Me.txtBuscarTipo.TabIndex = 74
         '
         'Label48
         '
@@ -2191,53 +2078,24 @@ Partial Class frmCambiosGenerales
         Me.DataGridView3.Size = New System.Drawing.Size(187, 332)
         Me.DataGridView3.TabIndex = 43
         '
-        'Label57
+        'Label49
         '
-        Me.Label57.AutoSize = True
-        Me.Label57.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label57.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label57.Location = New System.Drawing.Point(6, 193)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(139, 17)
-        Me.Label57.TabIndex = 95
-        Me.Label57.Text = "Vehiculos por sucursal"
+        Me.Label49.AutoSize = True
+        Me.Label49.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label49.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label49.Location = New System.Drawing.Point(361, 411)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(32, 17)
+        Me.Label49.TabIndex = 95
+        Me.Label49.Text = "Tipo"
         '
-        'dgvVehiculoXSucursal
+        'cbxTipoModeloModificar
         '
-        Me.dgvVehiculoXSucursal.AllowUserToAddRows = False
-        Me.dgvVehiculoXSucursal.AllowUserToDeleteRows = False
-        Me.dgvVehiculoXSucursal.AllowUserToResizeColumns = False
-        Me.dgvVehiculoXSucursal.AllowUserToResizeRows = False
-        Me.dgvVehiculoXSucursal.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.dgvVehiculoXSucursal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvVehiculoXSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVehiculoXSucursal.Location = New System.Drawing.Point(9, 265)
-        Me.dgvVehiculoXSucursal.MultiSelect = False
-        Me.dgvVehiculoXSucursal.Name = "dgvVehiculoXSucursal"
-        Me.dgvVehiculoXSucursal.ReadOnly = True
-        Me.dgvVehiculoXSucursal.RowHeadersVisible = False
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvVehiculoXSucursal.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.dgvVehiculoXSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvVehiculoXSucursal.Size = New System.Drawing.Size(196, 237)
-        Me.dgvVehiculoXSucursal.TabIndex = 96
-        '
-        'cbxTipoFilter
-        '
-        Me.cbxTipoFilter.FormattingEnabled = True
-        Me.cbxTipoFilter.Location = New System.Drawing.Point(81, 238)
-        Me.cbxTipoFilter.Name = "cbxTipoFilter"
-        Me.cbxTipoFilter.Size = New System.Drawing.Size(124, 21)
-        Me.cbxTipoFilter.TabIndex = 97
-        '
-        'cbxCategoriaFilter
-        '
-        Me.cbxCategoriaFilter.FormattingEnabled = True
-        Me.cbxCategoriaFilter.Location = New System.Drawing.Point(81, 211)
-        Me.cbxCategoriaFilter.Name = "cbxCategoriaFilter"
-        Me.cbxCategoriaFilter.Size = New System.Drawing.Size(124, 21)
-        Me.cbxCategoriaFilter.TabIndex = 98
+        Me.cbxTipoModeloModificar.FormattingEnabled = True
+        Me.cbxTipoModeloModificar.Location = New System.Drawing.Point(358, 429)
+        Me.cbxTipoModeloModificar.Name = "cbxTipoModeloModificar"
+        Me.cbxTipoModeloModificar.Size = New System.Drawing.Size(64, 21)
+        Me.cbxTipoModeloModificar.TabIndex = 94
         '
         'frmCambiosGenerales
         '
@@ -2279,24 +2137,20 @@ Partial Class frmCambiosGenerales
         Me.pnlmovimiento.ResumeLayout(False)
         Me.pnlmovimiento.PerformLayout()
         Me.tbcTabControl.ResumeLayout(False)
-        Me.tbpVehiculo.ResumeLayout(False)
+        Me.tbpVehiculos.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvModelos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlMovimientoVeh.ResumeLayout(False)
-        Me.pnlMovimientoVeh.PerformLayout()
-        CType(Me.NupCantidadHacia, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvMarcas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvTipos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvVehiculoXSucursal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2390,7 +2244,7 @@ Partial Class frmCambiosGenerales
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents tbcTabControl As TabControl
-    Friend WithEvents tbpVehiculo As TabPage
+    Friend WithEvents tbpVehiculos As TabPage
     Friend WithEvents Panel4 As Panel
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents TextBox10 As TextBox
@@ -2404,69 +2258,62 @@ Partial Class frmCambiosGenerales
     Friend WithEvents tbpReservas As TabPage
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label55 As Label
-    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents cboxTipoModelo As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents cboxMarcasModelo As ComboBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label39 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents cboxModeloModificarMarca As ComboBox
+    Friend WithEvents txtNombreModelo As TextBox
     Friend WithEvents Label41 As Label
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents chboxInactivosModelos As CheckBox
+    Friend WithEvents txtNombreModeloModificar As TextBox
+    Friend WithEvents txtBuscarModelos As TextBox
     Public WithEvents Label42 As Label
     Friend WithEvents Panel10 As Panel
-    Friend WithEvents Label43 As Label
-    Friend WithEvents Label51 As Label
-    Friend WithEvents Label52 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents TextBox7 As TextBox
     Friend WithEvents Label53 As Label
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents Button13 As Button
-    Friend WithEvents Button14 As Button
-    Friend WithEvents Button15 As Button
-    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents chboxInactivasMarcas As CheckBox
+    Friend WithEvents txtBuscarMarcas As TextBox
     Public WithEvents Label54 As Label
-    Friend WithEvents pnlMovimientoVeh As Panel
-    Friend WithEvents Label50 As Label
-    Friend WithEvents NupCantidadHacia As NumericUpDown
-    Friend WithEvents Label61 As Label
-    Friend WithEvents cbxTipoHacia As ComboBox
-    Friend WithEvents cbxCategoriaHacia As ComboBox
-    Friend WithEvents cbxSucursalHacia As ComboBox
-    Friend WithEvents Label49 As Label
-    Friend WithEvents Label58 As Label
-    Friend WithEvents cbxSucursalDesde As ComboBox
-    Friend WithEvents Label59 As Label
-    Friend WithEvents btnMover As Button
-    Public WithEvents Label60 As Label
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents Label44 As Label
     Friend WithEvents Label45 As Label
     Friend WithEvents Label46 As Label
-    Friend WithEvents ComboBox5 As ComboBox
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txtNombreTipo As TextBox
     Friend WithEvents Label47 As Label
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button10 As Button
-    Friend WithEvents Button11 As Button
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents chboxTiposInactivos As CheckBox
+    Friend WithEvents txtModificarTipo As TextBox
+    Friend WithEvents btnModificarTipo As Button
+    Friend WithEvents BtnEliminarTipo As Button
+    Friend WithEvents btnAgregarTipo As Button
+    Friend WithEvents txtBuscarTipo As TextBox
     Public WithEvents Label48 As Label
     Public WithEvents Label56 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DataGridView4 As DataGridView
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents cbxCategoriaFilter As ComboBox
-    Friend WithEvents cbxTipoFilter As ComboBox
-    Friend WithEvents dgvVehiculoXSucursal As DataGridView
-    Friend WithEvents Label57 As Label
+    Friend WithEvents dgvModelos As DataGridView
+    Friend WithEvents dgvMarcas As DataGridView
+    Friend WithEvents dgvTipos As DataGridView
+    Friend WithEvents nombre As DataGridViewTextBoxColumn
+    Friend WithEvents estado As DataGridViewCheckBoxColumn
+    Friend WithEvents idtipo As DataGridViewTextBoxColumn
+    Friend WithEvents btnAddModelo As Button
+    Friend WithEvents btnModificarModelo As Button
+    Friend WithEvents btnEstadoModelo As Button
+    Friend WithEvents modelo As DataGridViewTextBoxColumn
+    Friend WithEvents Marca As DataGridViewTextBoxColumn
+    Friend WithEvents Tipo As DataGridViewTextBoxColumn
+    Friend WithEvents idtipo_mod As DataGridViewTextBoxColumn
+    Friend WithEvents idmarca_mod As DataGridViewTextBoxColumn
+    Friend WithEvents EstadoModelo As DataGridViewCheckBoxColumn
+    Friend WithEvents idmodelo As DataGridViewTextBoxColumn
+    Friend WithEvents Label43 As Label
+    Friend WithEvents Label44 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents nombremarca As DataGridViewTextBoxColumn
+    Friend WithEvents estadomarca As DataGridViewTextBoxColumn
+    Friend WithEvents Label49 As Label
+    Friend WithEvents cbxTipoModeloModificar As ComboBox
 End Class

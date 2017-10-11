@@ -13,6 +13,7 @@
                 'pboxSiNo.Visible = False
                 btnSi.Visible = False
                 btnNo.Visible = False
+                btnAccept.Visible = True
                 Me.Text = "Advertencia"
 
             Case "Error"
@@ -23,6 +24,7 @@
                 'pboxSiNo.Visible = False
                 btnSi.Visible = False
                 btnNo.Visible = False
+                btnAccept.Visible = True
                 Me.Text = "Error"
 
             Case "Si/No"
@@ -33,7 +35,15 @@
                 'pboxSiNo.Visible = False
                 btnSi.Visible = True
                 btnNo.Visible = True
-
+                btnAccept.Visible = False
+            Case "Continuar"
+                lblTexto.Text = Texto
+                'pboxAdvertencia.Visible = True
+                'pboxError.Visible = False
+                'pboxSiNo.Visible = False
+                btnSi.Visible = False
+                btnNo.Visible = False
+                btnAccept.Visible = True
             Case Else
 
         End Select
@@ -47,5 +57,9 @@
 
     Private Sub Cerrar(sender As Object, e As EventArgs) Handles btnCerrarMsgbox.Click
         Me.Dispose()
+    End Sub
+
+    Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
+        Me.Close()
     End Sub
 End Class

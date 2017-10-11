@@ -244,7 +244,9 @@ Public Class frmMainMenu
 
             Case "dgvClientes"
                 dgvClientes.AutoGenerateColumns = False
+
                 conexion.RellenarDataGridView(dgvClientes, "SELECT DAY(fecnac) dia, Cliente.*, Doc.nombre tipodocumento, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE, Tipodocumento Doc WHERE Cliente.idtipodoc = Doc.idtipodoc")
+
                 dgvClientes.Columns("idpersona").Visible = False
 
             Case "dgvEmpleados"

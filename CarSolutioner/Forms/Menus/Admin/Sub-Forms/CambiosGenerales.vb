@@ -692,8 +692,9 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
         If cboxModeloModificarMarca.SelectedValue = dgvModelos.CurrentRow.Cells("idmarca_mod").Value.ToString And txtNombreModeloModificar.Text = dgvModelos.CurrentRow.Cells("modelo").Value.ToString And cbxTipoModeloModificar.SelectedValue = dgvModelos.CurrentRow.Cells("idtipo_mod").Value.ToString Then
             MsgBox("Debes realizar cambios")
         ElseIf cboxModeloModificarMarca.SelectedValue <> dgvModelos.CurrentRow.Cells("idmarca_mod").Value.ToString And txtNombreModeloModificar.Text = dgvModelos.CurrentRow.Cells("modelo").Value.ToString And cbxTipoModeloModificar.SelectedValue = dgvModelos.CurrentRow.Cells("idtipo_mod").Value.ToString Then
-            MsgBox("Se ha modificado la marca")
+
             If conexion.EjecutarNonQuery("UPDATE MODELO SET IDMARCA=" + cboxModeloModificarMarca.SelectedValue.ToString + " WHERE IDMODELO='" + idmodelo + "'") = False Then
+                MsgBox("Ya existe otro modelo con estas caracteristicas")
             Else
                 MsgBox("Se ha modificado la marca")
             End If

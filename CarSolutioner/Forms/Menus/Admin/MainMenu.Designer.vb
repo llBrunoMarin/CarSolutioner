@@ -28,11 +28,13 @@ Partial Class frmMainMenu
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -362,6 +364,7 @@ Partial Class frmMainMenu
         Me.fechainicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fechafin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlAmant = New System.Windows.Forms.Panel()
+        Me.btnVaciarIngresoMant = New System.Windows.Forms.Button()
         Me.Label108 = New System.Windows.Forms.Label()
         Me.cbxTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label119 = New System.Windows.Forms.Label()
@@ -410,11 +413,13 @@ Partial Class frmMainMenu
         Me.txtDocumMReserva = New System.Windows.Forms.TextBox()
         Me.cbxTipoMReserva = New System.Windows.Forms.ComboBox()
         Me.cbxKilomMReserva = New System.Windows.Forms.ComboBox()
+        Me.Label33 = New System.Windows.Forms.Label()
         Me.dtpFechaInicioMReserva = New System.Windows.Forms.DateTimePicker()
         Me.Label128 = New System.Windows.Forms.Label()
         Me.Label129 = New System.Windows.Forms.Label()
         Me.cbxSucursalSalidaMReserva = New System.Windows.Forms.ComboBox()
         Me.cbxSucursalLlegadaMReserva = New System.Windows.Forms.ComboBox()
+        Me.txtCostoMReserva = New System.Windows.Forms.TextBox()
         Me.pnlNuevaReserva = New System.Windows.Forms.Panel()
         Me.btnReservarARes = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -540,8 +545,6 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtCostoMReserva = New System.Windows.Forms.TextBox()
-        Me.Label33 = New System.Windows.Forms.Label()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -3912,7 +3915,7 @@ Partial Class frmMainMenu
         '
         Me.cbxModifTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxModifTipoMant.FormattingEnabled = True
-        Me.cbxModifTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Blanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
+        Me.cbxModifTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Balanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
         Me.cbxModifTipoMant.Location = New System.Drawing.Point(124, 93)
         Me.cbxModifTipoMant.Name = "cbxModifTipoMant"
         Me.cbxModifTipoMant.Size = New System.Drawing.Size(121, 21)
@@ -4087,7 +4090,7 @@ Partial Class frmMainMenu
         '
         Me.cbxFiltrarTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxFiltrarTipoMant.FormattingEnabled = True
-        Me.cbxFiltrarTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Blanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
+        Me.cbxFiltrarTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Balanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
         Me.cbxFiltrarTipoMant.Location = New System.Drawing.Point(131, 132)
         Me.cbxFiltrarTipoMant.Name = "cbxFiltrarTipoMant"
         Me.cbxFiltrarTipoMant.Size = New System.Drawing.Size(121, 21)
@@ -4185,9 +4188,9 @@ Partial Class frmMainMenu
         Me.Label127.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label127.Location = New System.Drawing.Point(9, 17)
         Me.Label127.Name = "Label127"
-        Me.Label127.Size = New System.Drawing.Size(284, 22)
+        Me.Label127.Size = New System.Drawing.Size(222, 22)
         Me.Label127.TabIndex = 24
-        Me.Label127.Text = "Búsqueda de Mantenimientos"
+        Me.Label127.Text = "Buscar mantenimientos"
         '
         'dtpFiltrarFechaFinMant
         '
@@ -4231,8 +4234,8 @@ Partial Class frmMainMenu
         Me.dgvMant.Name = "dgvMant"
         Me.dgvMant.ReadOnly = True
         Me.dgvMant.RowHeadersVisible = False
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvMant.RowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvMant.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvMant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvMant.Size = New System.Drawing.Size(754, 814)
         Me.dgvMant.TabIndex = 34
@@ -4255,6 +4258,8 @@ Partial Class frmMainMenu
         'fechainiciomant
         '
         Me.fechainiciomant.DataPropertyName = "fechainiciof"
+        DataGridViewCellStyle7.Format = "dd/MM/yyyy HH:mm"
+        Me.fechainiciomant.DefaultCellStyle = DataGridViewCellStyle7
         Me.fechainiciomant.HeaderText = "Fecha Inicio"
         Me.fechainiciomant.Name = "fechainiciomant"
         Me.fechainiciomant.ReadOnly = True
@@ -4262,6 +4267,8 @@ Partial Class frmMainMenu
         'fechafinmant
         '
         Me.fechafinmant.DataPropertyName = "fechafinf"
+        DataGridViewCellStyle8.Format = "dd/MM/yyyy HH:mm"
+        Me.fechafinmant.DefaultCellStyle = DataGridViewCellStyle8
         Me.fechafinmant.HeaderText = "Fecha Fin"
         Me.fechafinmant.Name = "fechafinmant"
         Me.fechafinmant.ReadOnly = True
@@ -4296,6 +4303,7 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlAmant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlAmant.Controls.Add(Me.btnVaciarIngresoMant)
         Me.pnlAmant.Controls.Add(Me.Label108)
         Me.pnlAmant.Controls.Add(Me.cbxTipoMant)
         Me.pnlAmant.Controls.Add(Me.Label119)
@@ -4311,12 +4319,30 @@ Partial Class frmMainMenu
         Me.pnlAmant.Size = New System.Drawing.Size(573, 210)
         Me.pnlAmant.TabIndex = 33
         '
+        'btnVaciarIngresoMant
+        '
+        Me.btnVaciarIngresoMant.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnVaciarIngresoMant.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnVaciarIngresoMant.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnVaciarIngresoMant.FlatAppearance.BorderSize = 0
+        Me.btnVaciarIngresoMant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnVaciarIngresoMant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnVaciarIngresoMant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVaciarIngresoMant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVaciarIngresoMant.ForeColor = System.Drawing.Color.White
+        Me.btnVaciarIngresoMant.Location = New System.Drawing.Point(350, 168)
+        Me.btnVaciarIngresoMant.Name = "btnVaciarIngresoMant"
+        Me.btnVaciarIngresoMant.Size = New System.Drawing.Size(99, 31)
+        Me.btnVaciarIngresoMant.TabIndex = 43
+        Me.btnVaciarIngresoMant.Text = "Vaciar"
+        Me.btnVaciarIngresoMant.UseVisualStyleBackColor = False
+        '
         'Label108
         '
         Me.Label108.AutoSize = True
         Me.Label108.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label108.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label108.Location = New System.Drawing.Point(157, 44)
+        Me.Label108.Location = New System.Drawing.Point(161, 65)
         Me.Label108.Name = "Label108"
         Me.Label108.Size = New System.Drawing.Size(32, 17)
         Me.Label108.TabIndex = 37
@@ -4326,8 +4352,8 @@ Partial Class frmMainMenu
         '
         Me.cbxTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipoMant.FormattingEnabled = True
-        Me.cbxTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Blanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
-        Me.cbxTipoMant.Location = New System.Drawing.Point(157, 64)
+        Me.cbxTipoMant.Items.AddRange(New Object() {"Chequeo", "Aceite", "Filtros", "Aire Acondicionado", "Ruedas", "Frenos", "Balanceo", "Alineación", "Lavado", "Espejos", "Interior", "Otro"})
+        Me.cbxTipoMant.Location = New System.Drawing.Point(157, 85)
         Me.cbxTipoMant.Name = "cbxTipoMant"
         Me.cbxTipoMant.Size = New System.Drawing.Size(121, 21)
         Me.cbxTipoMant.TabIndex = 37
@@ -4337,7 +4363,7 @@ Partial Class frmMainMenu
         Me.Label119.AutoSize = True
         Me.Label119.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label119.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label119.Location = New System.Drawing.Point(157, 96)
+        Me.Label119.Location = New System.Drawing.Point(163, 135)
         Me.Label119.Name = "Label119"
         Me.Label119.Size = New System.Drawing.Size(64, 17)
         Me.Label119.TabIndex = 39
@@ -4366,7 +4392,7 @@ Partial Class frmMainMenu
         Me.Label123.AutoSize = True
         Me.Label123.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label123.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label123.Location = New System.Drawing.Point(10, 96)
+        Me.Label123.Location = New System.Drawing.Point(11, 135)
         Me.Label123.Name = "Label123"
         Me.Label123.Size = New System.Drawing.Size(80, 17)
         Me.Label123.TabIndex = 38
@@ -4376,7 +4402,7 @@ Partial Class frmMainMenu
         '
         Me.dtpFechaFinMant.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFechaFinMant.Location = New System.Drawing.Point(160, 116)
+        Me.dtpFechaFinMant.Location = New System.Drawing.Point(160, 155)
         Me.dtpFechaFinMant.Name = "dtpFechaFinMant"
         Me.dtpFechaFinMant.Size = New System.Drawing.Size(141, 20)
         Me.dtpFechaFinMant.TabIndex = 36
@@ -4385,7 +4411,8 @@ Partial Class frmMainMenu
         '
         Me.dtpFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFechaInicioMant.Location = New System.Drawing.Point(13, 116)
+        Me.dtpFechaInicioMant.Location = New System.Drawing.Point(8, 155)
+        Me.dtpFechaInicioMant.MinDate = New Date(2017, 10, 12, 0, 0, 0, 0)
         Me.dtpFechaInicioMant.Name = "dtpFechaInicioMant"
         Me.dtpFechaInicioMant.Size = New System.Drawing.Size(141, 20)
         Me.dtpFechaInicioMant.TabIndex = 37
@@ -4395,7 +4422,7 @@ Partial Class frmMainMenu
         Me.Label134.AutoSize = True
         Me.Label134.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label134.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label134.Location = New System.Drawing.Point(10, 45)
+        Me.Label134.Location = New System.Drawing.Point(11, 66)
         Me.Label134.Name = "Label134"
         Me.Label134.Size = New System.Drawing.Size(65, 17)
         Me.Label134.TabIndex = 25
@@ -4414,7 +4441,7 @@ Partial Class frmMainMenu
         '
         'txtMatriculaMant
         '
-        Me.txtMatriculaMant.Location = New System.Drawing.Point(13, 65)
+        Me.txtMatriculaMant.Location = New System.Drawing.Point(8, 85)
         Me.txtMatriculaMant.Name = "txtMatriculaMant"
         Me.txtMatriculaMant.Size = New System.Drawing.Size(100, 20)
         Me.txtMatriculaMant.TabIndex = 22
@@ -4476,8 +4503,8 @@ Partial Class frmMainMenu
         Me.dgvReservas.Name = "dgvReservas"
         Me.dgvReservas.ReadOnly = True
         Me.dgvReservas.RowHeadersVisible = False
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvReservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReservas.Size = New System.Drawing.Size(1308, 355)
         Me.dgvReservas.TabIndex = 9
@@ -4501,9 +4528,9 @@ Partial Class frmMainMenu
         'fechareservainicio
         '
         Me.fechareservainicio.DataPropertyName = "fechareservainicio"
-        DataGridViewCellStyle8.Format = "dd/MM/yyyy hh:mm"
-        DataGridViewCellStyle8.NullValue = Nothing
-        Me.fechareservainicio.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle10.Format = "dd/MM/yyyy hh:mm"
+        DataGridViewCellStyle10.NullValue = Nothing
+        Me.fechareservainicio.DefaultCellStyle = DataGridViewCellStyle10
         Me.fechareservainicio.HeaderText = "Inicio"
         Me.fechareservainicio.Name = "fechareservainicio"
         Me.fechareservainicio.ReadOnly = True
@@ -4511,9 +4538,9 @@ Partial Class frmMainMenu
         'fechareservafin
         '
         Me.fechareservafin.DataPropertyName = "fechareservafin"
-        DataGridViewCellStyle9.Format = "dd/MM/yyyy hh:mm"
-        DataGridViewCellStyle9.NullValue = Nothing
-        Me.fechareservafin.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle11.Format = "dd/MM/yyyy hh:mm"
+        DataGridViewCellStyle11.NullValue = Nothing
+        Me.fechareservafin.DefaultCellStyle = DataGridViewCellStyle11
         Me.fechareservafin.HeaderText = "Fin"
         Me.fechareservafin.Name = "fechareservafin"
         Me.fechareservafin.ReadOnly = True
@@ -4804,6 +4831,17 @@ Partial Class frmMainMenu
         Me.cbxKilomMReserva.Size = New System.Drawing.Size(121, 21)
         Me.cbxKilomMReserva.TabIndex = 16
         '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label33.Location = New System.Drawing.Point(516, 50)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(75, 17)
+        Me.Label33.TabIndex = 29
+        Me.Label33.Text = "Costo Total"
+        '
         'dtpFechaInicioMReserva
         '
         Me.dtpFechaInicioMReserva.CustomFormat = "dd/MM/yyyy hh:mm"
@@ -4852,6 +4890,15 @@ Partial Class frmMainMenu
         Me.cbxSucursalLlegadaMReserva.Name = "cbxSucursalLlegadaMReserva"
         Me.cbxSucursalLlegadaMReserva.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucursalLlegadaMReserva.TabIndex = 19
+        '
+        'txtCostoMReserva
+        '
+        Me.txtCostoMReserva.Enabled = False
+        Me.txtCostoMReserva.Location = New System.Drawing.Point(519, 70)
+        Me.txtCostoMReserva.Name = "txtCostoMReserva"
+        Me.txtCostoMReserva.Size = New System.Drawing.Size(121, 20)
+        Me.txtCostoMReserva.TabIndex = 22
+        Me.txtCostoMReserva.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'pnlNuevaReserva
         '
@@ -5572,8 +5619,8 @@ Partial Class frmMainMenu
         Me.dgvAlquileres.Name = "dgvAlquileres"
         Me.dgvAlquileres.ReadOnly = True
         Me.dgvAlquileres.RowHeadersVisible = False
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle13
         Me.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAlquileres.Size = New System.Drawing.Size(1311, 603)
         Me.dgvAlquileres.TabIndex = 10
@@ -6200,26 +6247,6 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
-        'txtCostoMReserva
-        '
-        Me.txtCostoMReserva.Enabled = False
-        Me.txtCostoMReserva.Location = New System.Drawing.Point(519, 70)
-        Me.txtCostoMReserva.Name = "txtCostoMReserva"
-        Me.txtCostoMReserva.Size = New System.Drawing.Size(121, 20)
-        Me.txtCostoMReserva.TabIndex = 22
-        Me.txtCostoMReserva.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label33.Location = New System.Drawing.Point(516, 50)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(75, 17)
-        Me.Label33.TabIndex = 29
-        Me.Label33.Text = "Costo Total"
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -6798,13 +6825,6 @@ Partial Class frmMainMenu
     Friend WithEvents Label130 As Label
     Friend WithEvents txtCostoTotalAReserva As TextBox
     Friend WithEvents dtpFechaFinMant As DateTimePicker
-    Friend WithEvents matriculamant As DataGridViewTextBoxColumn
-    Friend WithEvents tipomant As DataGridViewTextBoxColumn
-    Friend WithEvents fechainiciomant As DataGridViewTextBoxColumn
-    Friend WithEvents fechafinmant As DataGridViewTextBoxColumn
-    Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
-    Friend WithEvents fechainicio As DataGridViewTextBoxColumn
-    Friend WithEvents fechafin As DataGridViewTextBoxColumn
     Friend WithEvents chbxEmpresaACliente As CheckBox
     Friend WithEvents nombreapellido As DataGridViewTextBoxColumn
     Friend WithEvents nrodocumentores As DataGridViewTextBoxColumn
@@ -6830,4 +6850,12 @@ Partial Class frmMainMenu
     Friend WithEvents chboxVerHoyFReserva As CheckBox
     Friend WithEvents Label33 As Label
     Friend WithEvents txtCostoMReserva As TextBox
+    Friend WithEvents matriculamant As DataGridViewTextBoxColumn
+    Friend WithEvents tipomant As DataGridViewTextBoxColumn
+    Friend WithEvents fechainiciomant As DataGridViewTextBoxColumn
+    Friend WithEvents fechafinmant As DataGridViewTextBoxColumn
+    Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
+    Friend WithEvents fechainicio As DataGridViewTextBoxColumn
+    Friend WithEvents fechafin As DataGridViewTextBoxColumn
+    Friend WithEvents btnVaciarIngresoMant As Button
 End Class

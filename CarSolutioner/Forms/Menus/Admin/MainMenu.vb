@@ -244,7 +244,7 @@ Public Class frmMainMenu
 
             Case "dgvMant"
 
-                conexion.RellenarDataGridView(dgvMant, "SELECT m.*, TO_CHAR(m.fechainicio, '%d/%m/%Y %H:%M') fechainiciof, TO_CHAR(m.fechafin, '%d/%m/%Y %H:%M') fechafinf, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
+                conexion.RellenarDataGridView(dgvMant, "SELECT m.*, m.fechainicio fechainiciof, m.fechafin fechafinf, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
 
             Case Else
 
@@ -257,4 +257,5 @@ Public Class frmMainMenu
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         CargarDatos()
     End Sub
+
 End Class

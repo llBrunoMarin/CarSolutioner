@@ -9,12 +9,13 @@
         conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
         dgvSucursales.Columns("idsucursal").Visible = False
         conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
-
+        conexion.RellenarDataGridView(dgvMarcas, "SELECT * FROM MARCA")
         conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
 
         conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where
 ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
         chboxInactivosModelos.Checked = True
+        chboxInactivasMarcas.Checked = True
         'CargarDatosComboBox(cbxTipoFilter, conexion.Tipos, "nombre", "idtipo")
 
         CargarDatosComboBox(cboxTipoModelo, conexion.Tipos, "nombre", "idtipo")
@@ -133,17 +134,39 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
 
 
     Private Sub btnAddSuc_Click(sender As Object, e As EventArgs) Handles btnAddSuc.Click
-        conexion.EjecutarNonQuery("INSERT INTO sucursal values (0, '" + txtNomSuc.Text + "', '" + txtCidSuc.Text + "', '" + txtDicSuc.Text.ToString + "', " + txtTelSuc1.Text.ToString + "," + txttelefonosucmod2.Text.ToString + ",'T')")
-        If chboxsucinactivas.Checked Then
-            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
-            dgvSucursales.Columns("idsucursal").Visible = False
 
+
+
+        If Not (txtTelSuc1.Text = "" Or txtNomSuc.Text = "" Or txtDicSuc.Text = "" Or txtCidSuc.Text = "") Then
+            If txttelefono2suc.Text = "" Then
+                txttelefono2suc.Text = "-"
+            End If
+            Dim variable As String = "INSERT INTO sucursal values (0, '" + txtNomSuc.Text.ToString + "', '" + txtCidSuc.Text.ToString + "', '" + txtDicSuc.Text.ToString + "', '" + txtTelSuc1.Text.ToString + "','" + txttelefono2suc.Text.ToString + "','T')"
+            If conexion.EjecutarNonQuery(variable) Then
+                'TE KREISTE Q LO ROMPISTE PPERO NOOOOOO JAAAAAJAJAJAJ ES PERFEKTO MI PROGRAMA
+                MsgBox("Sucursal agregada")
+                conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
+                If chboxsucinactivas.Checked Then
+                    conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
+                    dgvSucursales.Columns("idsucursal").Visible = False
+
+                Else
+                    conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
+                End If
+                For Each con As Control In pnlsuccambios.Controls
+                    VaciarControl(con)
+                Next
+            Else
+
+                MsgBox("No puedes agregar una sucursal en el mismo lugar que otra")
+            End If
         Else
-            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM SUCURSAL")
-        End If
-        For Each con As Control In pnlsuccambios.Controls
-            VaciarControl(con)
-        Next
+            MsgBox("Debes rellenar los campos obligatorios")
+            End If
+
+
+
+
     End Sub
 
     Private Sub dgvSucursales_s(ByVal sender As Object, ByVal e As EventArgs) Handles dgvSucursales.SelectionChanged
@@ -175,57 +198,87 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
 
     Private Sub btnmodsuc_Click(sender As Object, e As EventArgs) Handles btnmodsuc.Click
 
-        Dim estado As String
+        If Not (txttelefonosucmod1.Text = "" Or txtnombresucmod.Text = "" Or txtciudadsucmod.Text = "" Or txtdireccionsucmod.Text = "") Then
+            Dim estado As String
+            If txttelefonosucmod2.Text = "" Then
+                txttelefonosucmod2.Text = "-"
+            End If
 
-        If cboxestadosucmod.SelectedItem = "Activa" Then
+            If cboxestadosucmod.SelectedItem = "Activa" Then
 
-            estado = "t"
+                estado = "t"
 
-            conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
-            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
-            dgvSucursales.Columns("idsucursal").Visible = False
-            MsgBox("Sucursal dada de alta")
-        ElseIf Not cboxsucursalmov.SelectedItem Is Nothing Then
-            Dim ReservasActivas As DataTable = conexion.EjecutarSelect("Select idreserva from reserva where estado = 1 and ( idsucursalllegada = '" + idsucursalmod + "' or idsucursalsalida = '" + idsucursalmod + "')")
-            If ReservasActivas.Rows.Count = 0 Then
-                estado = "f"
-                If conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = " + cboxsucursalmov.SelectedValue.ToString + " where idsucursal = " + idsucursalmod + "", " Vehiculos, debido a que esta sucursal no poseia vehiculos.") Then
+                conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text.ToString + "', direccion = '" + txtdireccionsucmod.Text.ToString + "', telefono1 = '" + txttelefonosucmod1.Text.ToString + "', telefono2 = '" + txttelefonosucmod2.Text.ToString + "', ciudad = '" + txtciudadsucmod.Text.ToString + "', estado = '" + estado.ToString + "' where idsucursal = '" + idsucursalmod + "'")
+                conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
+                dgvSucursales.Columns("idsucursal").Visible = False
+                MsgBox("Sucursal modificada")
+            ElseIf Not cboxsucursalmov.SelectedItem Is Nothing Then
+                Dim ReservasActivas As DataTable = conexion.EjecutarSelect("Select idreserva from reserva where estado = 1 and ( idsucursalllegada = '" + idsucursalmod + "' or idsucursalsalida = '" + idsucursalmod + "')")
+                If ReservasActivas.Rows.Count = 0 Then
+                    estado = "f"
+                    If conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = " + cboxsucursalmov.SelectedValue.ToString + " where idsucursal = " + idsucursalmod + "", " Vehiculos, debido a que esta sucursal no poseia vehiculos.") Then
 
-                    MsgBox("Vehiculos trasladados satisfactoriamente a " + cboxsucursalmov.Text + ". La sucursal se declara inactiva.", MsgBoxStyle.Information, "Notificacion")
-                    conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
-                    conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
-                    dgvSucursales.Columns("idsucursal").Visible = False
+                        MsgBox("Vehiculos trasladados satisfactoriamente a " + cboxsucursalmov.Text + ". La sucursal se declara inactiva.", MsgBoxStyle.Information, "Notificacion")
+                        conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
+                        conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
+                        dgvSucursales.Columns("idsucursal").Visible = False
+
+                    Else
+                        MsgBox("La sucursal ha sido modificada.", MsgBoxStyle.Information, "Notificacion")
+
+                        conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = 'f' where idsucursal = '" + idsucursalmod + "'")
+                        conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
+                    End If
 
                 Else
-                    MsgBox("La sucursal se declara inactiva.", MsgBoxStyle.Information, "Notificacion")
-
-                    conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = 'f' where idsucursal = '" + idsucursalmod + "'")
-                    conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
+                    MsgBox("Tienes reservas activas en esta sucursal, no puede ser dada de baja hasta que las reservas sean derivadas manualmente.", MsgBoxStyle.Exclamation, "Notificacion")
                 End If
-
+            ElseIf pnlmovimiento.Enabled = False Then
+                estado = "f"
+                conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
+                conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
+                dgvSucursales.Columns("idsucursal").Visible = False
+                MsgBox("Sucursal modificada")
             Else
-                MsgBox("Tienes reservas activas en esta sucursal, no puede ser dada de baja hasta que las reservas sean derivadas manualmente.", MsgBoxStyle.Exclamation, "Notificacion")
+                MsgBox("Imposible dar de baja, verifica que esta sucursal no es la ultima y que has seleccionado una sucursal a la cual mover los vehiculos de la sucursal seleccionada.")
             End If
-        ElseIf pnlmovimiento.enabled = False Then
-            estado = "f"
-            conexion.EjecutarNonQuery("UPDATE sucursal set nombre = '" + txtnombresucmod.Text + "', direccion = '" + txtdireccionsucmod.Text + "', telefono1 = " + txttelefonosucmod1.Text.ToString + ", telefono2 = " + txttelefonosucmod2.Text.ToString + ", ciudad = '" + txtciudadsucmod.Text + "', estado = '" + estado + "' where idsucursal = '" + idsucursalmod + "'")
-            conexion.RellenarDataGridView(dgvSucursales, "SELECT * FROM sucursal")
-            dgvSucursales.Columns("idsucursal").Visible = False
-            MsgBox("Sucursal dada de baja")
         Else
-            MsgBox("Imposible dar de baja, verifica que esta sucurasl no es la ultima y que has seleccionado una sucursal a la cual mover los vehiculos de: " + dgvSucursales.CurrentRow.Cells("Nombre").Value.ToString())
+            MsgBox("Debes rellenar los campos")
         End If
-
-
     End Sub
 
     Private Sub btncatadd_Click(sender As Object, e As EventArgs) Handles btncatadd.Click
-        conexion.EjecutarNonQuery("Insert into categoria values (0, " + txttarifabasecatadd.Text + "," + txttarifa150catadd.Text + "," + txttarifa300catadd.Text + "," + txttarifalibrecatadd.Text + ",'" + txtnomcatadd.Text + "','T')")
-        conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
-        dgvCategorias.Columns("idcategoria").Visible = False
-        For Each con As Control In pnlcatcambios.Controls
-            VaciarControl(con)
+
+        Dim FaltaDato As Boolean = False
+
+        For Each ctrl As Control In pnlcatcambios.Controls
+            If TypeOf (ctrl) Is TextBox Then
+                If ctrl.Text = "" Then
+                    FaltaDato = True
+                    Exit For
+                End If
+            Else
+                If TypeOf (ctrl) Is ComboBox Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                        FaltaDato = True
+                    End If
+                End If
+            End If
         Next
+        If Not FaltaDato = True Then
+
+            If conexion.EjecutarNonQuery("Insert into categoria values (0, " + txttarifabasecatadd.Text + "," + txttarifa150catadd.Text + "," + txttarifa300catadd.Text + "," + txttarifalibrecatadd.Text + ",'" + txtnomcatadd.Text + "','T')") Then
+                conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
+                dgvCategorias.Columns("idcategoria").Visible = False
+                For Each con As Control In pnlcatcambios.Controls
+                    VaciarControl(con)
+                Next
+            Else
+                MsgBox("Precios no validos")
+            End If
+        Else
+                MsgBox("Faltan datos en los campos obligatorios.")
+        End If
     End Sub
 
 
@@ -243,7 +296,7 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
 
     End Sub
 
-    Private Sub btndeletesuc_Click(sender As Object, e As EventArgs) Handles btndeletesuc.Click
+    Private Sub btndeletesuc_Click(sender As Object, e As EventArgs)
 
         If conexion.EjecutarNonQuery("delete from sucursal where idsucursal=" + idsucursalmod + "") = False Then
 
@@ -313,36 +366,55 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnModificarCat.Click
-        If cbxModCat.SelectedItem = "Activa" Then
+        Dim faltadato As Boolean
+        For Each ctrl As Control In pnlmodificarcat.Controls
+            If TypeOf (ctrl) Is TextBox Then
+                If ctrl.Text = "" Then
+                    FaltaDato = True
+                    Exit For
+                End If
+            Else
+                If TypeOf (ctrl) Is ComboBox Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                        FaltaDato = True
+                    End If
+                End If
+            End If
+        Next
+        If Not faltadato = True Then
 
-            Dim estadomod As String
             If cbxModCat.SelectedItem = "Activa" Then
-                estadomod = "t"
-            Else
-                estadomod = "f"
-            End If
-            conexion.EjecutarNonQuery("update categoria Set tarifadiariabase='" + txtTarifaBaseModCat.Text.ToString + "', tarifax150kmdia = '" + txtTarifa150ModCat.Text.ToString + "', tarifax300kmdia = '" + txtTarifa300ModCat.Text.ToString + "', tarifakmlibredia =  '" + txtKmLibreModCat.Text.ToString + "', estado ='t', nombre = '" + txtNomCatMod.Text.ToString + "' where idcategoria='" + idcategoria + "'")
-            conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
-        ElseIf Not cbxcatmov.SelectedItem Is Nothing Then
 
-            If conexion.EjecutarNonQuery("update vehiculo set idcategoria = '" + cbxcatmov.SelectedValue.ToString + "' where idcategoria='" + idcategoria + "' ", "Vehiculos") = False Then
-                MsgBox("Categoria ha pasado inactiva.", MsgBoxStyle.Information, "Notificacion")
-                conexion.EjecutarNonQuery("update categoria Set tarifadiariabase ='" + txtTarifaBaseModCat.Text.ToString + "', tarifax150kmdia = '" + txtTarifa150ModCat.Text.ToString + "', tarifax300kmdia = '" + txtTarifa300ModCat.Text.ToString + "', tarifakmlibredia =  '" + txtKmLibreModCat.Text.ToString + "', estado ='f', nombre = '" + txtNomCatMod.Text.ToString + "' where idcategoria='" + idcategoria + "'")
+                Dim estadomod As String
+                If cbxModCat.SelectedItem = "Activa" Then
+                    estadomod = "t"
+                Else
+                    estadomod = "f"
+                End If
+                conexion.EjecutarNonQuery("update categoria Set tarifadiariabase='" + txtTarifaBaseModCat.Text.ToString + "', tarifax150kmdia = '" + txtTarifa150ModCat.Text.ToString + "', tarifax300kmdia = '" + txtTarifa300ModCat.Text.ToString + "', tarifakmlibredia =  '" + txtKmLibreModCat.Text.ToString + "', estado ='t', nombre = '" + txtNomCatMod.Text.ToString + "' where idcategoria='" + idcategoria + "'")
                 conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
-            Else
-                MsgBox("Vehiculos  de esta categoria han sido trasladados satisfactoriamente a la categoria " + cbxcatmov.Text + ".", MsgBoxStyle.Information, "Notificacion")
-                conexion.EjecutarNonQuery("update categoria Set tarifadiariabase ='" + txtTarifaBaseModCat.Text.ToString + "', tarifax150kmdia = '" + txtTarifa150ModCat.Text.ToString + "', tarifax300kmdia = '" + txtTarifa300ModCat.Text.ToString + "', tarifakmlibredia =  '" + txtKmLibreModCat.Text.ToString + "', estado ='f', nombre = '" + txtNomCatMod.Text.ToString + "' where idcategoria='" + idcategoria + "'")
-                conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
-            End If
-        ElseIf pnlcatmov.Enabled = False Then
+            ElseIf Not cbxcatmov.SelectedItem Is Nothing Then
 
-            conexion.EjecutarNonQuery("update categoria Set tarifadiariabase='" + txtTarifaBaseModCat.Text.ToString + "', tarifax150kmdia = '" + txtTarifa150ModCat.Text.ToString + "', tarifax300kmdia = '" + txtTarifa300ModCat.Text.ToString + "', tarifakmlibredia =  '" + txtKmLibreModCat.Text.ToString + "', estado ='f', nombre = '" + txtNomCatMod.Text.ToString + "' where idcategoria='" + idcategoria + "'")
-            conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
-            MsgBox("Categoria inactiva")
+                If conexion.EjecutarNonQuery("update vehiculo set idcategoria = '" + cbxcatmov.SelectedValue.ToString + "' where idcategoria='" + idcategoria + "' ", "Vehiculos") = False Then
+                    MsgBox("Categoria ha pasado inactiva.", MsgBoxStyle.Information, "Notificacion")
+                    conexion.EjecutarNonQuery("update categoria Set tarifadiariabase ='" + txtTarifaBaseModCat.Text.ToString + "', tarifax150kmdia = '" + txtTarifa150ModCat.Text.ToString + "', tarifax300kmdia = '" + txtTarifa300ModCat.Text.ToString + "', tarifakmlibredia =  '" + txtKmLibreModCat.Text.ToString + "', estado ='f', nombre = '" + txtNomCatMod.Text.ToString + "' where idcategoria='" + idcategoria + "'")
+                    conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
+                Else
+                    MsgBox("Vehiculos  de esta categoria han sido trasladados satisfactoriamente a la categoria " + cbxcatmov.Text + ".", MsgBoxStyle.Information, "Notificacion")
+                    conexion.EjecutarNonQuery("update categoria Set tarifadiariabase ='" + txtTarifaBaseModCat.Text.ToString + "', tarifax150kmdia = '" + txtTarifa150ModCat.Text.ToString + "', tarifax300kmdia = '" + txtTarifa300ModCat.Text.ToString + "', tarifakmlibredia =  '" + txtKmLibreModCat.Text.ToString + "', estado ='f', nombre = '" + txtNomCatMod.Text.ToString + "' where idcategoria='" + idcategoria + "'")
+                    conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
+                End If
+            ElseIf pnlcatmov.Enabled = False Then
+
+                conexion.EjecutarNonQuery("update categoria Set tarifadiariabase='" + txtTarifaBaseModCat.Text.ToString + "', tarifax150kmdia = '" + txtTarifa150ModCat.Text.ToString + "', tarifax300kmdia = '" + txtTarifa300ModCat.Text.ToString + "', tarifakmlibredia =  '" + txtKmLibreModCat.Text.ToString + "', estado ='f', nombre = '" + txtNomCatMod.Text.ToString + "' where idcategoria='" + idcategoria + "'")
+                conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
+                MsgBox("Categoria inactiva")
+            Else
+                MsgBox("Imposible dar de baja, asegurate que has seleccionado una categoria a la cual mover los vehiculos. O verifica que esta no sea tu ultima categoria.")
+            End If
         Else
-            MsgBox("Imposible dar de baja, asegurate que has seleccionado una categoria a la cual mover los vehiculos. O verifica que esta no sea tu ultima categoria.")
+            MsgBox("Faltan datos en los campos obligatorios")
         End If
-
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles inactivascategorias.CheckedChanged, btnModificarCat.Click, btncatadd.Click
@@ -376,7 +448,17 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
 
     End Sub
 
-
+    Private Sub numeros(sender As Object, e As KeyPressEventArgs) Handles txttarifa150catadd.KeyPress, txttarifa300catadd.KeyPress, txttarifabasecatadd.KeyPress, txttarifalibrecatadd.KeyPress, txtTarifa150ModCat.KeyPress, txtTarifaBaseModCat.KeyPress, txtTarifa300ModCat.KeyPress, txtKmLibreModCat.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsSeparator(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
 
     '    Private Sub cbxSucursalHacia_Click(sender As Object, e As EventArgs)
     '        If cbxSucursalDesde.SelectedItem Is Nothing Then
@@ -528,19 +610,24 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
     End Sub
 
     Private Sub btnModificarTipo_Click(sender As Object, e As EventArgs) Handles btnModificarTipo.Click
+
         Dim idtipo As String = dgvTipos.CurrentRow.Cells("idtipo").Value.ToString()
 
-        If txtModificarTipo.Text = dgvTipos.CurrentRow.Cells("nombre").Value.ToString() Then
-            AmaranthMessagebox("No has hecho ningun cambio", "Advertencia")
-        ElseIf Not txtModificarTipo.Text = Nothing Then
-            conexion.EjecutarNonQuery("UPDATE TIPO Set NOMBRE='" + txtModificarTipo.Text.ToString + "' WHERE IDTIPO='" + idtipo + "'")
-            AmaranthMessagebox("Se modifico el nombre del tipo correctamente", "Continuar")
-            conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
-            txtModificarTipo.Text = dgvTipos.CurrentRow.Cells("nombre").Value.ToString()
-
+            If txtModificarTipo.Text = dgvTipos.CurrentRow.Cells("nombre").Value.ToString() Then
+                AmaranthMessagebox("No has hecho ningun cambio", "Advertencia")
+            ElseIf Not txtModificarTipo.Text = Nothing Then
+            If conexion.EjecutarNonQuery("UPDATE TIPO Set NOMBRE='" + txtModificarTipo.Text.ToString + "' WHERE IDTIPO='" + idtipo + "'") Then
+                AmaranthMessagebox("Se modifico el nombre del tipo correctamente", "Continuar")
+                conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
+                txtModificarTipo.Text = dgvTipos.CurrentRow.Cells("nombre").Value.ToString()
+            Else
+                MsgBox("Ya existe un tipo con este nombre")
+            End If
         End If
 
-        txtBuscarTipo.Text = Nothing
+            txtBuscarTipo.Text = Nothing
+
+
     End Sub
     Private Sub chboxTiposInactivos_CheckedChanged(sender As Object, e As EventArgs) Handles chboxTiposInactivos.CheckedChanged, btnAgregarTipo.Click, BtnEliminarTipo.Click, txtBuscarTipo.TextChanged, btnModificarTipo.Click
         Dim filtro As String
@@ -579,8 +666,9 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
     End Sub
 
     Private Sub BtnEliminarTipo_Click(sender As Object, e As EventArgs) Handles BtnEliminarTipo.Click
+
         Dim idtipo As String = dgvTipos.CurrentRow.Cells("idtipo").Value.ToString()
-        If conexion.EjecutarSelect("SELECT idreserva from reserva where idtipo='" + idtipo + "' and estado=1 ").Rows.Count > 0 And conexion.EjecutarSelect("
+        If conexion.EjecutarSelect("SELECT idreserva from reserva where idtipo='" + idtipo + "' and estado=1 ").Rows.Count > 0 Or conexion.EjecutarSelect("
 select nrochasis from mantenimiento where
 nrochasis in (Select nrochasis from vehiculo v, tipo t where
 idtipo='" + idtipo + "')
@@ -592,31 +680,37 @@ idtipo='" + idtipo + "')
             Dim resultado As MsgBoxResult
             resultado = MsgBox("Los vehiculos de este tipo seran dados de baja, desea continuar?", MsgBoxStyle.YesNo)
 
-            If resultado = MsgBoxResult.Yes Then
+            If resultado = MsgBoxResult.Yes And conexion.EjecutarSelect("SELECT idtipo from tipo where estado = 't'").Rows.Count > 1 Then
                 conexion.EjecutarNonQuery("update tipo set estado='f' where idtipo='" + idtipo + "'")
                 MsgBox("El tipo " + dgvTipos.CurrentRow.Cells("nombre").Value.ToString() + " ha sido dado de baja")
-                conexion.EjecutarNonQuery("
+                If conexion.EjecutarNonQuery("
 UPDATE vehiculo set estado= 't' where idmodelo IN(
 Select idmodelo from modelo m
-where m.idtipo='" + idtipo + "')")
-                MsgBox("Vehiculos y tipo dados de baja")
+where m.idtipo='" + idtipo + "')", "Vehiculos, debido a que este tipo no estaba asignado a ningun vehiculo") = False Then
+                    MsgBox("Tipo dado de baja")
+                Else
+                    MsgBox("Vehiculos y Tipo dados de baja")
+                End If
+
                 conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
+            ElseIf resultado = MsgBoxResult.No Then
             Else
 
+                MsgBox("No puedes dar de baja el ultimo tipo")
             End If
 
 
         Else
 
             conexion.EjecutarNonQuery("update tipo set estado='t' where idtipo='" + idtipo + "'")
-            MsgBox("El tipo " + dgvTipos.CurrentRow.Cells("nombre").Value.ToString() + " ha sido dado de alta")
-            conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
+                MsgBox("El tipo " + dgvTipos.CurrentRow.Cells("nombre").Value.ToString() + " ha sido dado de alta")
+                conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
 
-        End If
+            End If
 
 
 
-        txtBuscarTipo.Text = Nothing
+            txtBuscarTipo.Text = Nothing
 
     End Sub
 
@@ -789,6 +883,127 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
             End If
         End If
     End Sub
+    Private Sub btnModificarMarca_Click(sender As Object, e As EventArgs) Handles btnMarcaModificar.Click
+        Dim idmarca As String = dgvMarcas.CurrentRow.Cells("idmarca").Value.ToString()
+
+        If txtModificarMarca.Text = dgvMarcas.CurrentRow.Cells("nombremarca").Value.ToString() Then
+            AmaranthMessagebox("No has hecho ningun cambio", "Advertencia")
+        ElseIf Not txtModificarMarca.Text = Nothing Then
+            If conexion.EjecutarNonQuery("UPDATE marca Set NOMBRE='" + txtModificarMarca.Text.ToString + "' WHERE IDmarca='" + idmarca + "'") Then
+                AmaranthMessagebox("Se modifico el nombre del tipo correctamente", "Continuar")
+                conexion.RellenarDataGridView(dgvMarcas, "SELECT * FROM Marca")
+                txtModificarTipo.Text = dgvMarcas.CurrentRow.Cells("nombremarca").Value.ToString()
+            Else
+                MsgBox("Esa marca ya existe actualmente.")
+            End If
+        Else
+
+        End If
+
+        txtBuscarMarcas.Text = Nothing
+    End Sub
+    Private Sub btnAddMarca_Click(sender As Object, e As EventArgs) Handles btnAddMarca.Click
+        If Not txtNombreMarcaAgregar.Text = Nothing Then
+
+            If conexion.EjecutarNonQuery("INSERT INTO marca VALUES(0, '" + txtNombreMarcaAgregar.Text.ToString + "','t')") = False Then
+                MsgBox("No puedes insertar una marca con el mismo nombre que una ya existente")
+                txtNombreMarcaAgregar.Text = Nothing
+            Else
+                MsgBox("Marca agregada correctamente")
+                conexion.RellenarDataGridView(dgvMarcas, "SELECT * FROM Marca")
+
+                txtNombreMarcaAgregar.Text = Nothing
+
+            End If
+        Else
+            MsgBox("Debe escribir un nombre de marca")
+        End If
+        txtNombreMarcaAgregar.Text = Nothing
+
+    End Sub
+
+    Private Sub btnEstadoMarca_Click(sender As Object, e As EventArgs) Handles btnEstadoMarca.Click
+        Dim idmarca As String = dgvMarcas.CurrentRow.Cells("idmarca").Value.ToString()
+        If conexion.EjecutarSelect("
+
+select idreserva from reserva where nrochasis in
+(select nrochasis from vehiculo v, marca ma, modelo mo
+where v.idmodelo=mo.idmodelo and mo.idmarca=ma.idmarca and ma.idmarca=" + idmarca + ")
+
+and estado= 1 ").Rows.Count > 0 Or conexion.EjecutarSelect("
+select nrochasis from mantenimiento where nrochasis in
+(select nrochasis from vehiculo v, marca ma, modelo mo
+where ma.idmarca=mo.idmarca and v.idmodelo=mo.idmodelo and
+ma.idmarca='" + idmarca + "')
+
+").Rows.Count > 0 Then
 
 
+            MsgBox("Existen Alquileres, Mantenimientos o Reservas relacionadas con esta marca.")
+
+        ElseIf dgvMarcas.CurrentRow.Cells("estadomarca").Value.ToString() = True Then
+            Dim resultado As MsgBoxResult
+            resultado = MsgBox("Los vehiculos de esta marca seran dados de baja, desea continuar?", MsgBoxStyle.YesNo)
+
+            If resultado = MsgBoxResult.Yes And conexion.EjecutarSelect("SELECT idmarca from marca where estado = 't'").Rows.Count > 1 Then
+                conexion.EjecutarNonQuery("update marca set estado='f' where idmarca='" + idmarca + "'")
+
+                If conexion.EjecutarNonQuery("
+Update vehiculo set estado='f' where nrochasis in(
+                    Select nrochasis from vehiculo v, marca ma, modelo mo
+where v.idmodelo = mo.idmodelo And ma.idmarca = mo.idmarca
+And ma.idmarca='" + idmarca + "')
+", "Vehiculos, debido a que esta marca no estaba asignada a ningun vehiculo") = False Then
+                    MsgBox("Marca dada de baja")
+                Else
+                    MsgBox("Vehiculos y Marca dados de baja")
+                End If
+
+                conexion.RellenarDataGridView(dgvMarcas, "SELECT * FROM Marca")
+            ElseIf resultado = MsgBoxResult.No Then
+            Else
+
+                MsgBox("No puedes dar de baja la ultima marca")
+            End If
+
+
+        Else
+
+            conexion.EjecutarNonQuery("update marca set estado='t' where idmarca='" + idmarca + "'")
+            MsgBox("La marca " + dgvMarcas.CurrentRow.Cells("nombremarca").Value.ToString() + " ha sido dado de alta")
+            conexion.RellenarDataGridView(dgvMarcas, "SELECT * FROM Marca")
+
+        End If
+
+
+
+        txtBuscarMarcas.Text = Nothing
+    End Sub
+    Private Sub chboxInactivasMarcas_CheckedChanged(sender As Object, e As EventArgs) Handles chboxInactivasMarcas.CheckedChanged, txtBuscarMarcas.TextChanged, btnEstadoMarca.Click, btnMarcaModificar.Click, btnAddMarca.Click
+
+        Dim filtro As String
+
+        If chboxInactivasMarcas.Checked Then
+
+            filtro = "nombre LIKE '" + txtBuscarMarcas.Text + "%'"
+
+        Else
+            filtro = "estado = True and ( nombre LIKE '" + txtBuscarMarcas.Text + "%')"
+
+
+        End If
+
+        dgvMarcas.DataSource.Filter = filtro
+    End Sub
+
+    Private Sub dgvMarcas_CellContentClick(sender As Object, e As EventArgs) Handles dgvMarcas.SelectionChanged
+        If Not IsNothing(dgvMarcas.CurrentRow) Then
+            txtModificarMarca.Text = dgvMarcas.CurrentRow.Cells("nombremarca").Value.ToString()
+            If dgvMarcas.CurrentRow.Cells("estadomarca").Value.ToString() = True Then
+                btnEstadoMarca.Text = "Baja"
+            Else
+                btnEstadoMarca.Text = "Alta"
+            End If
+        End If
+    End Sub
 End Class

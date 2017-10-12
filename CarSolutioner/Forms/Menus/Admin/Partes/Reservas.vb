@@ -13,15 +13,15 @@ Partial Public Class frmMainMenu
             Case "chboxFechaFRes"
                 If sender.Checked = True Then
 
-                    dtpDesdeFReserva.Enabled = False
-                    dtpHastaFReserva.Enabled = False
-                    lblDesde.Enabled = False
-                    lblHasta.Enabled = False
-                Else
                     dtpDesdeFReserva.Enabled = True
                     dtpHastaFReserva.Enabled = True
                     lblDesde.Enabled = True
                     lblHasta.Enabled = True
+                Else
+                    dtpDesdeFReserva.Enabled = False
+                    dtpHastaFReserva.Enabled = False
+                    lblDesde.Enabled = False
+                    lblHasta.Enabled = False
                 End If
 
             Case "chboxFechaTramiteFReserva"
@@ -66,39 +66,18 @@ Partial Public Class frmMainMenu
         End Select
     End Sub
 
-    Private Sub FiltrosReserva(sender As Object, e As EventArgs) Handles txtDocumFRes.TextChanged, txtCostoTotalFReserva.TextChanged, txtUsuarioFReserva.TextChanged, cbxCategoriaFRes.SelectionChangeCommitted, cbxTipoFRes.SelectionChangeCommitted, cbxKilomFRes.SelectionChangeCommitted, cbxSucLlegFRes.SelectionChangeCommitted, cbxSucSalFres.SelectionChangeCommitted, lblBorrarCategoriaFReserva.Click, lblBorrarKMFReserva.Click, lblBorrarSucLlegadaFReserva.Click, lblBorrarSucSalidaFReserva.Click, lblBorrarTipoFReserva.Click ', chboxFechaFRes.CheckedChanged, chboxFechaTramiteFReserva.CheckedChanged, dtpDesdeFReserva.ValueChanged, dtpHastaFReserva.ValueChanged, dtpFechaTramiteFReserva.ValueChanged
+    Private Sub FiltrosReserva(sender As Object, e As EventArgs) Handles txtDocumFRes.TextChanged, txtCostoTotalFReserva.TextChanged, txtUsuarioFReserva.TextChanged, cbxCategoriaFRes.SelectionChangeCommitted, cbxTipoFRes.SelectionChangeCommitted, cbxKilomFRes.SelectionChangeCommitted, cbxSucLlegFRes.SelectionChangeCommitted, cbxSucSalFres.SelectionChangeCommitted, lblBorrarCategoriaFReserva.Click, lblBorrarKMFReserva.Click, lblBorrarSucLlegadaFReserva.Click, lblBorrarSucSalidaFReserva.Click, lblBorrarTipoFReserva.Click, chboxFechaFRes.CheckedChanged, chboxFechaTramiteFReserva.CheckedChanged, dtpDesdeFReserva.ValueChanged, dtpHastaFReserva.ValueChanged, dtpFechaTramiteFReserva.ValueChanged, chboxVerHoyFReserva.CheckedChanged, chboxInactivasFReserva.CheckedChanged
 
-        Dim filtro As String
+        Try
+            Dim filtrado As String
+            filtrado = "nrodocumento LIKE '" + txtDocumFRes.Text.ToString + "%' AND Convert(costototal, System.String) LIKE '%" + txtCostoTotalFReserva.Text.ToString + "%' AND usuarioempleado LIKE '%" + txtUsuarioFReserva.Text + "%'" + TipoFiltroReserva(chboxFechaFRes) + TipoFiltroReserva(chboxFechaTramiteFReserva) + TipoFiltroReserva(chboxInactivasFReserva) + TipoFiltroReserva(chboxVerHoyFReserva)
 
-        'Si quiero filtrar por fecha:
-        If chboxFechaFRes.Checked = False Then
-            'Si quiero filtrar por fecha de Tramite
-            If chboxFechaTramiteFReserva.Checked = True Then
-                filtro = "nrodocumento LIKE '" + txtDocumFRes.Text.ToString + "%' AND Convert(costototal, System.String) LIKE '%" + txtCostoTotalFReserva.Text.ToString + "%' AND usuarioempleado LIKE '%" + txtUsuarioFReserva.Text + "%' AND fechatramite = '" + dtpFechaTramiteFReserva.Value.ToShortDateString + "' AND fechareservainicio > '" + dtpDesdeFReserva.Value.ToShortDateString + "' AND fechareservafin < '" + dtpHastaFReserva.Value.ToShortDateString + "' " + TipoFiltro(cbxCategoriaFRes, "idcategoria") + TipoFiltro(cbxTipoFRes, "idtipo") + TipoFiltro(cbxSucLlegFRes, "idsucursalllegada") + TipoFiltro(cbxSucSalFres, "idsucursalsalida") + TipoFiltro(cbxKilomFRes, "idcantidadkm")
-                dgvReservas.DataSource.Filter = filtro
+            dgvReservas.DataSource.Filter = filtrado
 
-                'Si quiero por fecha pero no por fecha de Trámite:
-            Else
-                filtro = "nrodocumento LIKE '" + txtDocumFRes.Text.ToString + "%' AND Convert(costototal, System.String) LIKE '%" + txtCostoTotalFReserva.Text.ToString + "%' AND usuarioempleado LIKE '%" + txtUsuarioFReserva.Text + "%' AND fechareservainicio > '" + dtpDesdeFReserva.Value.ToShortDateString + "' AND fechareservafin < '" + dtpHastaFReserva.Value.ToShortDateString + "'" + TipoFiltro(cbxCategoriaFRes, "idcategoria") + TipoFiltro(cbxTipoFRes, "idtipo") + TipoFiltro(cbxSucLlegFRes, "idsucursalllegada") + TipoFiltro(cbxSucSalFres, "idsucursalsalida") + TipoFiltro(cbxKilomFRes, "idcantidadkm")
-                dgvReservas.DataSource.Filter = filtro
-            End If
+        Catch ex As NullReferenceException
 
-            'Si no quiero filtrar por fecha
-        Else
-            'Pero si por fecha tramite
-            If chboxFechaTramiteFReserva.Checked = True Then
+        End Try
 
-                filtro = "nrodocumento LIKE '" + txtDocumFRes.Text.ToString + "%' AND Convert(costototal, System.String) LIKE '%" + txtCostoTotalFReserva.Text.ToString + "%' AND usuarioempleado LIKE '%" + txtUsuarioFReserva.Text + "%' AND fechatramite = '" + dtpFechaTramiteFReserva.Value.ToShortDateString + "' " + TipoFiltro(cbxCategoriaFRes, "idcategoria") + TipoFiltro(cbxTipoFRes, "idtipo") + TipoFiltro(cbxSucLlegFRes, "idsucursalllegada") + TipoFiltro(cbxSucSalFres, "idsucursalsalida") + TipoFiltro(cbxKilomFRes, "idcantidadkm")
-                dgvReservas.DataSource.Filter = filtro
-
-                'Y no filtrar por fecha tramite
-            Else
-
-                filtro = "nrodocumento LIKE '" + txtDocumFRes.Text.ToString + "%' AND Convert(costototal, System.String) LIKE '%" + txtCostoTotalFReserva.Text.ToString + "%' AND usuarioempleado LIKE '%" + txtUsuarioFReserva.Text + "%' " + TipoFiltro(cbxCategoriaFRes, "idcategoria") + TipoFiltro(cbxTipoFRes, "idtipo") + TipoFiltro(cbxSucLlegFRes, "idsucursalllegada") + TipoFiltro(cbxSucSalFres, "idsucursalsalida") + TipoFiltro(cbxKilomFRes, "idcantidadkm")
-                dgvReservas.DataSource.Filter = filtro
-            End If
-
-        End If
     End Sub
 
     Public Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick
@@ -200,9 +179,10 @@ Partial Public Class frmMainMenu
 
             'Si la persona existe
             If Persona.Rows.Count <> 0 Then
+
                 Dim IdPersona As String = Persona.Rows(0)(0).ToString
                 Dim sentencia As String
-                sentencia = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND (('" + dtpInicioARes.Value.ToShortDateString + "' > fechareservainicio AND '" + dtpInicioARes.Value.ToShortDateString + "' < fechareservafin) OR ('" + dtpFinARes.Value.ToShortDateString + "' > fechareservainicio AND '" + dtpFinARes.Value.ToShortDateString + "' < fechareservafin)) "
+                sentencia = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND (('" + dtpInicioARes.Value.ToString("dd/MM/yyyy hh:mm") + "' > fechareservainicio AND '" + dtpInicioARes.Value.ToString("dd/MM/yyyy hh:mm") + "' < fechareservafin) OR ('" + dtpFinARes.Value.ToString("dd/MM/yyyy hh:mm") + "' > fechareservainicio AND '" + dtpFinARes.Value.ToString("dd/MM/yyyy hh:mm") + "' < fechareservafin)) "
                 If conexion.EjecutarSelect(sentencia).Rows.Count <> 0 Then
 
                 Else
@@ -215,4 +195,40 @@ Partial Public Class frmMainMenu
         End If
 
     End Sub
+
+
+    Private Function TipoFiltroReserva(chbx As CheckBox) As String
+        Select Case chbx.Name
+            Case "chboxFechaFRes"
+                If chboxFechaFRes.Checked = True Then
+                    Return " AND fechareservainicio >= '" + dtpDesdeFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "' AND fechareservafin < '" + dtpHastaFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "'"
+                Else
+                    Return ""
+                End If
+
+            Case "chboxFechaTramiteFReserva"
+                If chboxFechaTramiteFReserva.Checked = True Then
+                    Return " AND fechatramite = '" + dtpFechaTramiteFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "'"
+                Else
+                    Return ""
+                End If
+
+
+            Case "chboxInactivasFReserva"
+                If chboxInactivasFReserva.Checked = True Then
+                    Return ""
+                Else
+                    Return " AND estado = 1"
+                End If
+            Case "chboxVerHoyFReserva"
+                If chboxVerHoyFReserva.Checked = True Then
+                    Return " AND fechareservainiciof = '" + Date.Today.ToString("dd/MM/yyyy") + "'"
+                Else
+                    Return ""
+                End If
+
+        End Select
+
+        Return ""
+    End Function
 End Class

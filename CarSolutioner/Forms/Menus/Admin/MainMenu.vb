@@ -128,7 +128,7 @@ Public Class frmMainMenu
     'TODO: Reportar estado de carga en el formulario Loading
     Public Sub CargarDatos()
         'Se marcan como inactivas las reservas que pasen la fecha de hoy
-        conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO = 2 WHERE fechareservafin <= '" + DateTime.Today.ToShortDateString + "'")
+        conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO = 2 WHERE fechareservafin < TO_DATE('" + DateTime.Today.ToString("dd/MM/yyyy HH:mm") + "', '%d/%m/%Y %H:%M') ")
 
         'Cargas Tablas
         conexion.Modelos = conexion.EjecutarSelect("SELECT * from modelo")
@@ -258,8 +258,10 @@ Public Class frmMainMenu
 
             Case "dgvReservas"
                 dgvReservas.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvReservas, "SELECT TO_CHAR(R.fechareservainicio, '%d/%m/%Y %H:%M' ) fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria, TO_CHAR(R.fechareservafin, '%d/%m/%Y %H:%M') fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadtext, R.cantidadkm idcantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada")
 
+                conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria, R.fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadtext, R.cantidadkm idcantidadkm, TO_CHAR(fechareservainicio, '%d/%m/%Y') fechareservainiciof FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada ORDER BY fechareservainicio")
+                dgvReservas.Columns("fechareservainicio").ValueType = GetType(Date)
+                dgvReservas.Columns("fechareservafin").ValueType = GetType(Date)
 
             Case "dgvAlquileres"
                 dgvAlquileres.AutoGenerateColumns = False
@@ -269,7 +271,6 @@ Public Class frmMainMenu
             Case "dgvMant"
 
                 conexion.RellenarDataGridView(dgvMant, "SELECT m.*, TO_CHAR(m.fechainicio, '%d/%m/%Y %H:%M') fechainiciof, TO_CHAR(m.fechafin, '%d/%m/%Y %H:%M') fechafinf, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
-
 
             Case Else
 

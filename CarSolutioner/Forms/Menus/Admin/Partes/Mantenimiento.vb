@@ -24,16 +24,19 @@ Partial Public Class frmMainMenu
             End If
         Next
         If Not FaltaDato = True Then
-            Dim nrochasisinsert As String
-            nrochasisinsert = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows(0)(0).ToString
 
-            Dim format As String = "dd/MM/yyyy HH:mm"
-            Dim prueba As String
-            prueba = ("INSERT INTO mantenimiento VALUES ('" + cbxTipoMant.SelectedItem + "', TO_DATE('" + dtpFechaInicioMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'), TO_DATE('" + dtpFechaFinMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'),'" + nrochasisinsert + "','t')")
-            conexion.EjecutarNonQuery(prueba)
-            RecargarDatos(dgvMant)
+            If (conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows.Count > 0) Then
+                Dim nrochasisinsert As String
+                nrochasisinsert = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows(0)(0)
+                Dim format As String = "dd/MM/yyyy HH:mm"
+                conexion.EjecutarNonQuery("INSERT INTO mantenimiento VALUES ('" + cbxTipoMant.SelectedItem + "', TO_DATE('" + dtpFechaInicioMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'), TO_DATE('" + dtpFechaFinMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'),'" + nrochasisinsert + "')")
+                RecargarDatos(dgvMant)
+            Else
+                MsgBox("La matricula ingresada no pertenece a un vehículo registrado")
+            End If
         Else
             MsgBox("Los campos no deben quedar vacíos")
+
         End If
 
     End Sub
@@ -42,7 +45,7 @@ Partial Public Class frmMainMenu
         If Not IsNothing(dgvMant.CurrentRow) Then
 
             txtModifMatriculaMant.Text = dgvMant.CurrentRow.Cells("matriculamant").Value.ToString()
-            'cbxModifTipoMant.SelectedIndex = cbxModifTipoMant.FindString(dgvMant.CurrentRow.Cells("tipomant").Value.ToString())
+            cbxModifTipoMant.SelectedIndex = cbxModifTipoMant.FindString(dgvMant.CurrentRow.Cells("tipomant").Value.ToString())
             dtpModifFechaInicioMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToShortDateString()
             dtpModifFechaFinMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToShortDateString()
         End If
@@ -64,6 +67,9 @@ Partial Public Class frmMainMenu
         If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET descripcion ='" + cbxModifTipoMant.SelectedItem + "', fechainicio = TO_DATE('" + dtpFiltrarFechaInicioMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'), fechafin = TO_DATE('" + dtpFiltrarFechaFinMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'), estado = 't' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = TO_DATE('" + fechainicioant + "', '%d/%m/%Y %H:%M') AND descripcion = '" + tipoant + "' ") = True) Then
             MsgBox("Modificación existosa")
             RecargarDatos(dgvMant)
+
+        Else
+            MsgBox("Mantenimiento ya existente")
         End If
 
     End Sub
@@ -82,13 +88,13 @@ Partial Public Class frmMainMenu
 
                 If chbxFiltrarFechaMant.Checked = True Then
 
-                    filtro = String.Format("{0} Like '%{1}%' and fechainiciof >= '" + dtpFiltrarFechaInicioMant.Value.ToString(format) + "' and fechafinf <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "' AND fechafinf > '" + DateTime.Today.ToShortDateString + "' ",
-                                           "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion")
+                    filtro = String.Format("{0} Like '%{1}%' and fechainiciof = '" + dtpFiltrarFechaInicioMant.Value + "' and fechafinf = '" + dtpFiltrarFechaFinMant.Value + "'", "matricula", (txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion"))
+
                     dgvMant.DataSource.Filter = filtro
 
                 Else
 
-                    filtro = String.Format("{0} Like '%{1}%' AND fechafinf > '" + DateTime.Today.ToShortDateString + "'", "matricula", txtFiltrarMatriculaMant.Text) +
+                    filtro = String.Format("{0} Like '%{1}%' AND (fechainiciof > '" + DateTime.Today.ToString(format) + "' and fechafinf > '" + DateTime.Today.ToString(format) + "') OR (fechainiciof < '" + DateTime.Today.ToString(format) + "' and fechafinf > '" + DateTime.Today.ToString(format) + "') ", "matricula", txtFiltrarMatriculaMant.Text) +
                     TipoFiltro(cbxFiltrarTipoMant, "descripcion")
 
                     dgvMant.DataSource.Filter = filtro
@@ -97,7 +103,7 @@ Partial Public Class frmMainMenu
             Else
                 If chbxFiltrarFechaMant.Checked = True Then
 
-                    filtro = String.Format("{0} LIKE '%{1}%' and fechainiciof >= '" + dtpFiltrarFechaInicioMant.Value.ToShortDateString + "' and fechafinf <= '" + dtpFiltrarFechaFinMant.Value.ToShortDateString + "'",
+                    filtro = String.Format("{0} LIKE '%{1}%' and fechainiciof >= '" + dtpFiltrarFechaInicioMant.Value + "' and fechafinf <= '" + dtpFiltrarFechaFinMant.Value + "'",
                                            "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion")
                     dgvMant.DataSource.Filter = filtro
 

@@ -16,38 +16,6 @@ Public Class frmMainMenu
         'Hacemos toda la carga de datos
         CargarDatos()
 
-        cbxTipoDocumFCliente.SelectedItem = Nothing
-
-        cbxCategoriaFRes.SelectedItem = Nothing
-        cbxCategoriaFVeh.SelectedItem = Nothing
-        cbxCategoriaAVeh.SelectedItem = Nothing
-
-        cbxTipoFVeh.SelectedItem = Nothing
-        cbxTipoAVeh.SelectedItem = Nothing
-        cbxTipoFRes.SelectedItem = Nothing
-        cbxMarcaFVeh.SelectedItem = Nothing
-        cbxMarcaAVeh.SelectedItem = Nothing
-
-        cbxModeloAVeh.SelectedItem = Nothing
-        cbxModeloFVeh.SelectedItem = Nothing
-
-        cbxSucLlegadaARes.SelectedItem = Nothing
-        cbxSucSalidaARes.SelectedItem = Nothing
-        cbxSucLlegFRes.SelectedItem = Nothing
-        cbxSucSalFres.SelectedItem = Nothing
-        cbxSucursalAVeh.SelectedItem = Nothing
-        cbxSucursalFVeh.SelectedItem = Nothing
-
-        cbxAnioNACliente.SelectedItem = Nothing
-        cbxAnioNFCliente.SelectedItem = Nothing
-
-        cbxSucursalFempleados.SelectedItem = Nothing
-        cbxTipoFempleados.SelectedItem = Nothing
-        chbxFiltrarEstadoMant.Checked = True
-
-        cbxKilomFRes.SelectedItem = Nothing
-
-
     End Sub
 
     Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnVehiculos.Click, btnReservas.Click, btnMantenimiento.Click, btnEmpleados.Click, btnClientes.Click
@@ -159,6 +127,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoFRes, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoMReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
 
         'RANGOS EMPLEADOS
         CargarDatosComboBox(cbxTipoFempleados, conexion.TipoEmpleados, "tipos", "id")
@@ -166,6 +135,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxTipoCempleados, conexion.TipoEmpleados, "tipos", "id")
 
         'CATEGORIAS
+        CargarDatosComboBox(cbxCategoriaMReserva, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
@@ -185,6 +155,8 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxSucursalFempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalCempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalMempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalLlegadaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalSalidaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
 
         'DOCUMENTOS
         CargarDatosComboBox(cbxTipoDocumFCliente, conexion.Documentos.Select("estado = true").CopyToDataTable, "nombre", "idtipodoc")
@@ -200,6 +172,7 @@ Public Class frmMainMenu
         'TIPOS DE KM (para que no se lea "1, 2, 3")
         CargarDatosComboBox(cbxKilomFRes, conexion.Kilometros, "km", "id")
         CargarDatosComboBox(cbxKmARes, conexion.Kilometros, "km", "id")
+        CargarDatosComboBox(cbxKilomMReserva, conexion.Kilometros, "km", "id")
 
         cbxTipoDocumFCliente.SelectedItem = Nothing
 
@@ -216,8 +189,6 @@ Public Class frmMainMenu
         cbxModeloAVeh.SelectedItem = Nothing
         cbxModeloFVeh.SelectedItem = Nothing
 
-        cbxSucLlegadaARes.SelectedItem = Nothing
-        cbxSucSalidaARes.SelectedItem = Nothing
         cbxSucLlegFRes.SelectedItem = Nothing
         cbxSucSalFres.SelectedItem = Nothing
         cbxSucursalAVeh.SelectedItem = Nothing
@@ -230,7 +201,10 @@ Public Class frmMainMenu
         cbxTipoFempleados.SelectedItem = Nothing
         chbxFiltrarEstadoMant.Checked = True
 
+
+
         cbxKilomFRes.SelectedItem = Nothing
+        chboxVerHoyFReserva.Checked = True
         Me.Opacity = 100
 
 
@@ -259,13 +233,13 @@ Public Class frmMainMenu
             Case "dgvReservas"
                 dgvReservas.AutoGenerateColumns = False
 
-                conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria, R.fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadtext, R.cantidadkm idcantidadkm, TO_CHAR(fechareservainicio, '%d/%m/%Y') fechareservainiciof FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada ORDER BY fechareservainicio")
+                conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria, R.fechareservafin, R.costototal, R.fechatramite, R.estado, R.idpersona,	R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadtext, R.cantidadkm idcantidadkm, TO_CHAR(fechareservainicio, '%d/%m/%Y') fechareservainiciof FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada AND R.nrochasis IS NULL ORDER BY fechareservainicio")
                 dgvReservas.Columns("fechareservainicio").ValueType = GetType(Date)
                 dgvReservas.Columns("fechareservafin").ValueType = GetType(Date)
 
             Case "dgvAlquileres"
                 dgvAlquileres.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio, R.fechaalquilerfin, R.fechareservainicio, R.fechareservafin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, R.nrochasis, V.matricula, Cl.nombre ||"" ""|| Cl.apellido nombreapellido, Cl.nrodocumento, ca.idcategoria, Ca.nombre categoria, T.idtipo, T.nombre tipo, SS.nombre sucsalida, SS.idsucursal idsucsalida, SL.nombre sucllegada, SL.idsucursal idsucllegada, R.usuarioempleado FROM Reserva R, Vehiculo V, Cliente Cl, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY nombreapellido")
+                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio, R.fechaalquilerfin, R.fechareservainicio, R.fechareservafin, R.cantidadkm, R.costototal, R.fechatramite, R.estado, R.nrochasis, V.matricula, Cl.nombre ||"" ""|| Cl.apellido nombreapellido, Cl.nrodocumento, ca.idcategoria, Ca.nombre categoria, T.idtipo, T.nombre tipo, SS.nombre sucsalida, SS.idsucursal idsucsalida, SL.nombre sucllegada, SL.idsucursal idsucllegada, R.usuarioempleado FROM Reserva R, Vehiculo V, Cliente Cl, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis AND R.NROCHASIS IS NOT NULL ORDER BY nombreapellido")
 
 
             Case "dgvMant"

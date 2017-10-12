@@ -43,40 +43,13 @@
         If resultado = vbYes Then
 
             'Actualiza la Reserva para que sea un ALQUILER, con NroChasis = al seleccionado, fechaalquilerinicio = hoy, fechareservafin = seleccionada (en caso que el cliente cambie su fecha reserva fin)
-            conexion.EjecutarNonQuery("UPDATE Reserva SET nrochasis = '" + NroChasis + "', idsucursalllegada = '" + cbxSucLlegada.SelectedValue.ToString + "', fechaalquilerinicio = '" + DateTime.Today.Date.ToShortDateString + "', fechareservafin = '" + dtpFRfin.Value.ToShortDateString + "' WHERE idreserva = " + ReservaSeleccionada.IdReserva.ToString + " ")
+            conexion.EjecutarNonQuery("UPDATE Reserva SET nrochasis = '" + NroChasis + "', idsucursalllegada = '" + cbxSucLlegada.SelectedValue.ToString + "', fechaalquilerinicio = '" + DateTime.Today.Date.ToString("yyyy-MM-dd hh:mm") + "', fechareservafin = '" + dtpFRfin.Value.ToString("yyyy-MM-dd hh:mm") + "' WHERE idreserva = " + ReservaSeleccionada.IdReserva.ToString + " ")
             conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = NULL WHERE nrochasis='" + NroChasis + "'")
             MsgBox("Alquiler Ingresado")
             frmMainMenu.CargarDatos()
             Me.Hide()
 
         End If
-        'Cuentas para el precio final
-
-        'Cuentas para el precio final 
-        'TODO: TODO ESTO EN REALIDAD VA EN EL ALTA DE RESERVA. FALTA ARREGLAR COSAS
-        'Dim precio As DataTable = conexion.EjecutarSelect("Select tarifadiariabase,tarifax150kmdia,tarifax300kmdia,tarifakmlibredia from categoria where nombre='" + CategoriaReserva + "'")
-
-        'Select Case ReservaSeleccionada.CantKM
-
-        '    Case 1
-        '        precioxdia = precio.Rows(0).Item("tarifadiariabase")
-        '        tarifakm = precio.Rows(0).Item("tarifax150kmdia")
-        '        preciofinal = precioxdia * diasalquilados + tarifakm * diasalquilados
-        '    Case 2
-        '        precioxdia = precio.Rows(0).Item("tarifadiariabase")
-        '        tarifakm = precio.Rows(0).Item("tarifax300kmdia")
-        '        preciofinal = precioxdia * diasalquilados + tarifakm * diasalquilados
-        '    Case 3
-        '        precioxdia = precio.Rows(0).Item("tarifadiariabase")
-        '        tarifakm = precio.Rows(0).Item("tarifakmlibredia")
-
-        '    Case Else
-        '        MsgBox("Error")
-
-        'End Select
-        'preciofinal = precioxdia * diasalquilados + tarifakm * diasalquilados
-
-
 
     End Sub
 

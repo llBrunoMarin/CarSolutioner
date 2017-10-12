@@ -327,5 +327,20 @@
   <ItemGroup>
     <None Include="Resources\error.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Xbox X-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

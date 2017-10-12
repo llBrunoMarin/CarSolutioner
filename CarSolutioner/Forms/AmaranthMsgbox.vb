@@ -8,9 +8,12 @@
             Case "Advertencia"
                 lblTexto.Text = Texto
                 lblTitulo.Text = "Advertencia"
-                'pboxAdvertencia.Visible = True
-                'pboxError.Visible = False
-                'pboxSiNo.Visible = False
+
+                pbxAdvertencia.Visible = True
+                pbxError.Visible = False
+                pbxContinuar.Visible = False
+                pbxPregunta.Visible = False
+
                 btnSi.Visible = False
                 btnNo.Visible = False
                 btnAccept.Visible = True
@@ -19,9 +22,12 @@
             Case "Error"
                 lblTexto.Text = Texto
                 lblTitulo.Text = "Error"
-                'pboxAdvertencia.Visible = True
-                'pboxError.Visible = False
-                'pboxSiNo.Visible = False
+
+                pbxError.Visible = True
+                pbxContinuar.Visible = False
+                pbxAdvertencia.Visible = False
+                pbxPregunta.Visible = False
+
                 btnSi.Visible = False
                 btnNo.Visible = False
                 btnAccept.Visible = True
@@ -30,17 +36,24 @@
             Case "Si/No"
                 lblTexto.Text = Texto
                 lblTitulo.Text = "Elija una opción"
-                'pboxAdvertencia.Visible = True
-                'pboxError.Visible = False
-                'pboxSiNo.Visible = False
+
+                pbxPregunta.Visible = True
+                pbxContinuar.Visible = False
+                pbxError.Visible = False
+                pbxAdvertencia.Visible = False
+
                 btnSi.Visible = True
                 btnNo.Visible = True
                 btnAccept.Visible = False
             Case "Continuar"
                 lblTexto.Text = Texto
-                'pboxAdvertencia.Visible = True
-                'pboxError.Visible = False
-                'pboxSiNo.Visible = False
+                lblTitulo.Text = "Continuar"
+
+                pbxAdvertencia.Visible = False
+                pbxContinuar.Visible = True
+                pbxError.Visible = False
+                pbxPregunta.Visible = False
+
                 btnSi.Visible = False
                 btnNo.Visible = False
                 btnAccept.Visible = True
@@ -52,6 +65,16 @@
 
     Private Sub AmaranthMsgbox_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub Si(sender As Object, e As EventArgs) Handles btnSi.Click
+        Me.DialogResult = vbYes
+        Me.Dispose()
+    End Sub
+
+    Private Sub No(sender As Object, e As EventArgs) Handles btnNo.Click
+        Me.DialogResult = vbNo
+        Me.Dispose()
     End Sub
 
 

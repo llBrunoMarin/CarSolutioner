@@ -25,20 +25,28 @@ Partial Public Class frmMainMenu
         Next
         If Not FaltaDato = True Then
 
-            If (conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows.Count > 0) Then
+            Dim nrochasisdt As New DataTable
+            nrochasisdt = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'")
+
+            If (nrochasisdt.Rows.Count <> 0) Then
                 Dim nrochasisinsert As String
-                nrochasisinsert = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'").Rows(0)(0)
-                Dim format As String = "dd/MM/yyyy HH:mm"
-                conexion.EjecutarNonQuery("INSERT INTO mantenimiento VALUES ('" + cbxTipoMant.SelectedItem + "', TO_DATE('" + dtpFechaInicioMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'), TO_DATE('" + dtpFechaFinMant.Value.ToString(format) + "', '%d/%m/%Y %H:%M'),'" + nrochasisinsert + "')")
-                RecargarDatos(dgvMant)
+                nrochasisinsert = nrochasisdt.Rows(0)(0).ToString()
+
+                Dim format As String = "dd/mm/yyyy hh:mm"
+
+                If (conexion.EjecutarNonQuery("insert into mantenimiento values ('" + cbxTipoMant.SelectedItem.ToString() + "', to_date('" + dtpFechaInicioMant.Value.ToString(format) + "', '%d/%m/%y %h:%m'), to_date('" + dtpFechaFinMant.Value.ToString(format) + "', '%d/%m/%y %h:%m'),'" + nrochasisinsert + "')") = True) Then
+                    RecargarDatos(dgvMant)
+                    MsgBox("Mantenimiento ingresado")
+
+                    'Else
+                    '    MsgBox("Mantenimiento ya existente")
+
+                End If
             Else
-                MsgBox("La matricula ingresada no pertenece a un vehículo registrado")
+                MsgBox("La matricula ingresada no pertenece a un vehículo existente")
             End If
-        Else
-            MsgBox("Los campos no deben quedar vacíos")
 
         End If
-
     End Sub
 
     Private Sub RellenarDatosMantenimiento(sender As Object, e As EventArgs) Handles dgvMant.SelectionChanged

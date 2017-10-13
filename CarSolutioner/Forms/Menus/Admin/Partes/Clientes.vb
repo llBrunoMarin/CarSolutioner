@@ -216,13 +216,22 @@ Partial Public Class frmMainMenu
         'Si el cliente existe
         If (Persona.Rows.Count <> 0) Then
             Dim IdPersona As String = Persona.Rows(0)("idpersona").ToString()
-            Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
-            Dim NuevoEstado As Boolean = Not EstadoActual
-            If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
 
-                RecargarDatos(dgvClientes)
-                MsgBox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+            Dim ReservasActivasPersona As DataTable = conexion.EjecutarSelect("SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1")
+
+            If (ReservasActivasPersona.Rows.Count <> 0) Then
+                Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
+                Dim NuevoEstado As Boolean = Not EstadoActual
+                If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
+                    RecargarDatos(dgvClientes)
+                    MsgBox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                Else
+                    MsgBox("Hubo un error. Por favor, verifique que pueda eliminar ese cliente.")
+                End If
+            Else
+                AmaranthMessagebox("No puede desactivar un cliente que tiene reservas activas.", "Error")
             End If
+
         Else
             MsgBox("Ese cliente no existe. Por favor, verifique.")
 
@@ -290,9 +299,14 @@ Partial Public Class frmMainMenu
             'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView, pero los borra de la BD (ya que serán ingresados nuevamente con (o sin) modificaciones)
             TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + " ")
 
+            Dim telefonospersonaS As String
+            telefonospersonaS = TelefonosPersona.Rows(0)(0).ToString()
+
+            Dim TelArray() As String = telefonospersonaS.Split(",")
+
             'Cargamos en una lista los teléfonos para no perderlos una vez que los borremos.
-            For Each rw As DataRow In TelefonosPersona.Rows
-                ListaTelefonos.Add(rw("telefono"))
+            For Each item As String In TelArray
+                ListaTelefonos.Add(item)
             Next
 
         Else

@@ -25,7 +25,6 @@ Partial Class frmTelefonosCliente
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTelefonosCliente))
         Me.dgvTelefonos = New System.Windows.Forms.DataGridView()
-        Me.telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblAyuda = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblNombrePersona = New System.Windows.Forms.Label()
@@ -35,6 +34,7 @@ Partial Class frmTelefonosCliente
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnModificar = New System.Windows.Forms.Button()
+        Me.telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -58,13 +58,6 @@ Partial Class frmTelefonosCliente
         Me.dgvTelefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvTelefonos.Size = New System.Drawing.Size(163, 131)
         Me.dgvTelefonos.TabIndex = 0
-        '
-        'telefono
-        '
-        Me.telefono.DataPropertyName = "telefono"
-        Me.telefono.HeaderText = "Teléfonos"
-        Me.telefono.MaxInputLength = 30
-        Me.telefono.Name = "telefono"
         '
         'lblAyuda
         '
@@ -171,6 +164,13 @@ Partial Class frmTelefonosCliente
         Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = False
         '
+        'telefono
+        '
+        Me.telefono.DataPropertyName = "telefono"
+        Me.telefono.HeaderText = "Teléfonos"
+        Me.telefono.MaxInputLength = 15
+        Me.telefono.Name = "telefono"
+        '
         'frmTelefonosCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -206,7 +206,7 @@ Partial Class frmTelefonosCliente
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents telefono As DataGridViewTextBoxColumn
     Friend WithEvents lblNombrePersona As Label
     Friend WithEvents btnModificar As Button
+    Friend WithEvents telefono As DataGridViewTextBoxColumn
 End Class

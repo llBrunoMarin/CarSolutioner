@@ -129,13 +129,17 @@ Partial Public Class frmMainMenu
 
             End If
         Next
+
+        chboxVerHoyFReserva.Checked = True
+        chboxFechaFRes.Checked = False
+        chboxFechaTramiteFReserva.Checked = False
     End Sub
 
     Private Sub btnBajaBRes_Click(sender As Object, e As EventArgs) Handles btnBajaBRes.Click
         Dim reservaseleccionadaid As String
         reservaseleccionadaid = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString()
 
-        If conexion.EjecutarNonQuery("Update reserva set estado = 2 where idreserva = " + reservaseleccionadaid.ToString() + "") = True Then
+        If conexion.EjecutarNonQuery("Update reserva set estado = 3 where idreserva = " + reservaseleccionadaid.ToString() + "") = True Then
             RecargarDatos(dgvReservas)
             MsgBox("Reserva anulada satisfactoriamente.", MsgBoxStyle.Information, "Notificacion")
 
@@ -247,7 +251,7 @@ Partial Public Class frmMainMenu
 
                 If Not dtpFinARes.Value < dtpInicioARes.Value Then
 
-                    Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumARes.Text + "'")
+                    Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumARes.Text + "' AND estado = 't'")
 
                     'Si la persona existe
                     If Persona.Rows.Count <> 0 Then
@@ -267,7 +271,7 @@ Partial Public Class frmMainMenu
                         End If
 
                     Else
-                        AmaranthMessagebox("Ese cliente no está registrado.", "Error")
+                        AmaranthMessagebox("Ese cliente no está registrado o está inactivo.", "Error")
                     End If
 
                 Else
@@ -332,6 +336,7 @@ Partial Public Class frmMainMenu
             dtpFechaFinMReserva.Value = fechaFM
         End If
     End Sub
+
     Private Function TipoFiltroReserva(chbx As CheckBox) As String
         Select Case chbx.Name
             Case "chboxFechaFRes"
@@ -352,7 +357,7 @@ Partial Public Class frmMainMenu
                 If chboxInactivasFReserva.Checked = True Then
                     Return ""
                 Else
-                    Return " AND estado = 1"
+                    Return " AND idestado = 1"
                 End If
             Case "chboxVerHoyFReserva"
                 If chboxVerHoyFReserva.Checked = True Then

@@ -46,11 +46,12 @@ Partial Class AmaranthMsgbox
         '
         Me.lblTexto.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTexto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblTexto.Location = New System.Drawing.Point(106, 65)
+        Me.lblTexto.Location = New System.Drawing.Point(92, 61)
         Me.lblTexto.Name = "lblTexto"
-        Me.lblTexto.Size = New System.Drawing.Size(227, 75)
+        Me.lblTexto.Size = New System.Drawing.Size(293, 113)
         Me.lblTexto.TabIndex = 0
-        Me.lblTexto.Text = "Error: Texto de ejemplo para mostrar un error. Por favor verifique." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblTexto.Text = "No hay autos disponibles para hoy con esas características. Por favor, búsque los" &
+    " autos disponibles para hoy y modifique la reserva de manera acorde."
         '
         'btnSi
         '
@@ -63,7 +64,7 @@ Partial Class AmaranthMsgbox
         Me.btnSi.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSi.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSi.ForeColor = System.Drawing.Color.White
-        Me.btnSi.Location = New System.Drawing.Point(73, 158)
+        Me.btnSi.Location = New System.Drawing.Point(94, 177)
         Me.btnSi.Name = "btnSi"
         Me.btnSi.Size = New System.Drawing.Size(91, 30)
         Me.btnSi.TabIndex = 50
@@ -82,7 +83,7 @@ Partial Class AmaranthMsgbox
         Me.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNo.ForeColor = System.Drawing.Color.White
-        Me.btnNo.Location = New System.Drawing.Point(205, 158)
+        Me.btnNo.Location = New System.Drawing.Point(226, 177)
         Me.btnNo.Name = "btnNo"
         Me.btnNo.Size = New System.Drawing.Size(91, 30)
         Me.btnNo.TabIndex = 51
@@ -155,7 +156,7 @@ Partial Class AmaranthMsgbox
         Me.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAccept.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAccept.ForeColor = System.Drawing.Color.White
-        Me.btnAccept.Location = New System.Drawing.Point(139, 158)
+        Me.btnAccept.Location = New System.Drawing.Point(160, 177)
         Me.btnAccept.Name = "btnAccept"
         Me.btnAccept.Size = New System.Drawing.Size(91, 30)
         Me.btnAccept.TabIndex = 54
@@ -210,7 +211,7 @@ Partial Class AmaranthMsgbox
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.CancelButton = Me.btnNo
-        Me.ClientSize = New System.Drawing.Size(372, 202)
+        Me.ClientSize = New System.Drawing.Size(393, 221)
         Me.Controls.Add(Me.btnAccept)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnNo)

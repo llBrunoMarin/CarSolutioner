@@ -263,14 +263,18 @@
 
     'Rellena un datagridview que se le coloca como parámetro, con el nombre de la tabla que también
     'entra como tal.
-    Public Sub RellenarDataGridView(dgv As DataGridView, sentencia As String)
+    Public Sub RellenarDataGridView(dgv As DataGridView, sentencia As String, Optional Tabla As DataTable = Nothing)
         Conectar(Usuario, Contraseña)
         'Creamos una nueva fuente de datos, para poder asignarla al DataGridView luego.
         Dim fuente As New BindingSource()
 
         Try
+            If Tabla Is Nothing Then
+                fuente.DataSource = EjecutarSelect(sentencia).DefaultView
+            Else
+                fuente.DataSource = Tabla
+            End If
 
-            fuente.DataSource = EjecutarSelect(sentencia).DefaultView
             dgv.DataSource = fuente
 
         Catch ex As Exception

@@ -545,6 +545,10 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabControl2 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -597,6 +601,8 @@ Partial Class frmMainMenu
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabControl2.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -1869,11 +1875,7 @@ Partial Class frmMainMenu
         'tbpVehiculos
         '
         Me.tbpVehiculos.BackColor = System.Drawing.Color.Silver
-        Me.tbpVehiculos.Controls.Add(Me.dgvVehiculos)
-        Me.tbpVehiculos.Controls.Add(Me.pnlBajaVeh)
-        Me.tbpVehiculos.Controls.Add(Me.pnlMVehi)
-        Me.tbpVehiculos.Controls.Add(Me.pnlFVehi)
-        Me.tbpVehiculos.Controls.Add(Me.pnlAVehi)
+        Me.tbpVehiculos.Controls.Add(Me.TabControl2)
         Me.tbpVehiculos.Location = New System.Drawing.Point(4, 25)
         Me.tbpVehiculos.Margin = New System.Windows.Forms.Padding(0)
         Me.tbpVehiculos.Name = "tbpVehiculos"
@@ -1892,7 +1894,7 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvVehiculos.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoriaveh, Me.idmodeloveh, Me.idtipoveh, Me.idsucursalveh, Me.idmarcaveh, Me.estadov})
-        Me.dgvVehiculos.Location = New System.Drawing.Point(32, 7)
+        Me.dgvVehiculos.Location = New System.Drawing.Point(0, 0)
         Me.dgvVehiculos.MultiSelect = False
         Me.dgvVehiculos.Name = "dgvVehiculos"
         Me.dgvVehiculos.ReadOnly = True
@@ -1900,7 +1902,7 @@ Partial Class frmMainMenu
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvVehiculos.Size = New System.Drawing.Size(1324, 373)
+        Me.dgvVehiculos.Size = New System.Drawing.Size(1332, 367)
         Me.dgvVehiculos.TabIndex = 37
         '
         'nrochasis
@@ -2090,7 +2092,7 @@ Partial Class frmMainMenu
         Me.pnlBajaVeh.Controls.Add(Me.Label31)
         Me.pnlBajaVeh.Controls.Add(Me.Label32)
         Me.pnlBajaVeh.Controls.Add(Me.txtMatriculaBVeh)
-        Me.pnlBajaVeh.Location = New System.Drawing.Point(695, 608)
+        Me.pnlBajaVeh.Location = New System.Drawing.Point(671, 592)
         Me.pnlBajaVeh.Name = "pnlBajaVeh"
         Me.pnlBajaVeh.Size = New System.Drawing.Size(661, 216)
         Me.pnlBajaVeh.TabIndex = 34
@@ -2177,7 +2179,7 @@ Partial Class frmMainMenu
         Me.pnlMVehi.Controls.Add(Me.cbxSucursalMVeh)
         Me.pnlMVehi.Controls.Add(Me.Button10)
         Me.pnlMVehi.Controls.Add(Me.Label43)
-        Me.pnlMVehi.Location = New System.Drawing.Point(32, 608)
+        Me.pnlMVehi.Location = New System.Drawing.Point(1, 593)
         Me.pnlMVehi.Name = "pnlMVehi"
         Me.pnlMVehi.Size = New System.Drawing.Size(657, 216)
         Me.pnlMVehi.TabIndex = 35
@@ -2532,7 +2534,7 @@ Partial Class frmMainMenu
         Me.pnlFVehi.Controls.Add(Me.lblBorrarMarcaFVeh)
         Me.pnlFVehi.Controls.Add(Me.Label51)
         Me.pnlFVehi.Controls.Add(Me.Label52)
-        Me.pnlFVehi.Location = New System.Drawing.Point(32, 386)
+        Me.pnlFVehi.Location = New System.Drawing.Point(1, 370)
         Me.pnlFVehi.Name = "pnlFVehi"
         Me.pnlFVehi.Size = New System.Drawing.Size(657, 216)
         Me.pnlFVehi.TabIndex = 36
@@ -2982,7 +2984,7 @@ Partial Class frmMainMenu
         Me.pnlAVehi.Controls.Add(Me.cbxSucursalAVeh)
         Me.pnlAVehi.Controls.Add(Me.cbxPuertasAVeh)
         Me.pnlAVehi.Controls.Add(Me.Label60)
-        Me.pnlAVehi.Location = New System.Drawing.Point(695, 386)
+        Me.pnlAVehi.Location = New System.Drawing.Point(671, 371)
         Me.pnlAVehi.Name = "pnlAVehi"
         Me.pnlAVehi.Size = New System.Drawing.Size(661, 216)
         Me.pnlAVehi.TabIndex = 33
@@ -4791,7 +4793,7 @@ Partial Class frmMainMenu
         '
         'dtpFechaFinMReserva
         '
-        Me.dtpFechaFinMReserva.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.dtpFechaFinMReserva.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFechaFinMReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFechaFinMReserva.Location = New System.Drawing.Point(402, 124)
         Me.dtpFechaFinMReserva.Name = "dtpFechaFinMReserva"
@@ -4844,7 +4846,7 @@ Partial Class frmMainMenu
         '
         'dtpFechaInicioMReserva
         '
-        Me.dtpFechaInicioMReserva.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.dtpFechaInicioMReserva.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFechaInicioMReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFechaInicioMReserva.Location = New System.Drawing.Point(267, 123)
         Me.dtpFechaInicioMReserva.Name = "dtpFechaInicioMReserva"
@@ -5027,7 +5029,7 @@ Partial Class frmMainMenu
         '
         'dtpFinARes
         '
-        Me.dtpFinARes.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.dtpFinARes.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFinARes.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFinARes.Location = New System.Drawing.Point(402, 124)
         Me.dtpFinARes.Name = "dtpFinARes"
@@ -5080,7 +5082,7 @@ Partial Class frmMainMenu
         '
         'dtpInicioARes
         '
-        Me.dtpInicioARes.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.dtpInicioARes.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpInicioARes.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpInicioARes.Location = New System.Drawing.Point(267, 124)
         Me.dtpInicioARes.Name = "dtpInicioARes"
@@ -5505,7 +5507,7 @@ Partial Class frmMainMenu
         '
         'dtpHastaFReserva
         '
-        Me.dtpHastaFReserva.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.dtpHastaFReserva.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpHastaFReserva.Enabled = False
         Me.dtpHastaFReserva.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpHastaFReserva.Location = New System.Drawing.Point(394, 124)
@@ -5563,7 +5565,7 @@ Partial Class frmMainMenu
         '
         'dtpDesdeFReserva
         '
-        Me.dtpDesdeFReserva.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.dtpDesdeFReserva.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpDesdeFReserva.Enabled = False
         Me.dtpDesdeFReserva.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDesdeFReserva.Location = New System.Drawing.Point(267, 124)
@@ -6247,6 +6249,43 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
+
+        'TabControl2
+        '
+        Me.TabControl2.Controls.Add(Me.TabPage1)
+        Me.TabControl2.Controls.Add(Me.TabPage2)
+        Me.TabControl2.Location = New System.Drawing.Point(26, 0)
+        Me.TabControl2.Name = "TabControl2"
+        Me.TabControl2.SelectedIndex = 0
+        Me.TabControl2.Size = New System.Drawing.Size(1340, 838)
+        Me.TabControl2.TabIndex = 38
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.dgvVehiculos)
+        Me.TabPage1.Controls.Add(Me.pnlBajaVeh)
+        Me.TabPage1.Controls.Add(Me.pnlFVehi)
+        Me.TabPage1.Controls.Add(Me.pnlAVehi)
+        Me.TabPage1.Controls.Add(Me.pnlMVehi)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1332, 812)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(192, 74)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -6342,6 +6381,8 @@ Partial Class frmMainMenu
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabControl2.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -6850,6 +6891,11 @@ Partial Class frmMainMenu
     Friend WithEvents chboxVerHoyFReserva As CheckBox
     Friend WithEvents Label33 As Label
     Friend WithEvents txtCostoMReserva As TextBox
+
+    Friend WithEvents TabControl2 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
+
     Friend WithEvents matriculamant As DataGridViewTextBoxColumn
     Friend WithEvents tipomant As DataGridViewTextBoxColumn
     Friend WithEvents fechainiciomant As DataGridViewTextBoxColumn
@@ -6858,4 +6904,5 @@ Partial Class frmMainMenu
     Friend WithEvents fechainicio As DataGridViewTextBoxColumn
     Friend WithEvents fechafin As DataGridViewTextBoxColumn
     Friend WithEvents btnVaciarIngresoMant As Button
+
 End Class

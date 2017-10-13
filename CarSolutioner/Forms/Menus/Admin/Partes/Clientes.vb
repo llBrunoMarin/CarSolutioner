@@ -60,6 +60,7 @@ Partial Public Class frmMainMenu
             txtEmpresaACliente.Text = ""
         End If
     End Sub
+
     Private Sub AltaCliente(sender As Object, e As EventArgs) Handles btnIngresarACliente.Click
 
         Dim FechaSeleccionada As String = cbxDiaNACliente.Text + "/" + cbxMesNACliente.Text + "/" + cbxAnioNACliente.Text
@@ -75,7 +76,7 @@ Partial Public Class frmMainMenu
                 End If
 
             Else
-                    If TypeOf (ctrl) Is ComboBox Then
+                If TypeOf (ctrl) Is ComboBox Then
                     If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
                         FaltaDato = True
                     End If
@@ -87,9 +88,29 @@ Partial Public Class frmMainMenu
             If (IsDate(FechaSeleccionada)) Then
                 If (DateTime.Today - Date.Parse(FechaSeleccionada)).Days / 365 > 18 Then
                     'TODO: Agregar posibilidad de insertar descuento en el alta de cliente
+                    Dim ListaTelefonos As New List(Of String)
+
+                    'Agrega cada item del combobox a la Lista
+                    For Each item In cbxTelefonosACliente.Items
+                        ListaTelefonos.Add(item.ToString)
+                    Next
+                    Dim numeros As String = ""
+                    'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
+                    For Each Telefono In ListaTelefonos.Distinct()
+                        If (numeros = "") Then
+                            numeros += Telefono
+                        Else
+                            numeros += "," + Telefono
+                        End If
+                    Next
+
                     Dim sentencia As String
-                    sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, porcdescuento, estado) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', 't' )",
-                                     cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, FechaSeleccionada, txtEmpresaACliente.Text, "0")
+                    sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, porcdescuento, estado, telefono) VALUES 
+                                                ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')",
+                                                cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text,
+                                              txtNombreACliente.Text, txtApellidoACliente.Text,
+                                              txtCorreoACliente.Text, FechaSeleccionada,
+                                              txtEmpresaACliente.Text, "0", "t", numeros.ToString)
 
                     If cbxTipoDocumACliente.SelectedValue = 1 Then
 
@@ -101,17 +122,6 @@ Partial Public Class frmMainMenu
                                 MsgBox("Cliente ingresado satisfactoriamente")
                                 RecargarDatos(dgvClientes)
                                 Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
-                                Dim ListaTelefonos As New List(Of String)
-
-                                'Agrega cada item del combobox a la Lista
-                                For Each item In cbxTelefonosACliente.Items
-                                    ListaTelefonos.Add(item.ToString)
-                                Next
-
-                                'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
-                                For Each Telefono In ListaTelefonos.Distinct()
-                                    conexion.EjecutarNonQuery("INSERT INTO telefonopersona VALUES ('" + IDPersonaInsertada + "', '" + Telefono + "')")
-                                Next
                             End If
 
                         End If
@@ -121,19 +131,11 @@ Partial Public Class frmMainMenu
                         'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
                         If conexion.EjecutarNonQuery(sentencia) Then
                             MsgBox("Cliente ingresado satisfactoriamente")
+
                             RecargarDatos(dgvClientes)
                             Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
-                            Dim ListaTelefonos As New List(Of String)
 
-                            'Agrega cada item del combobox a la Lista
-                            For Each item In cbxTelefonosACliente.Items
-                                ListaTelefonos.Add(item.ToString)
-                            Next
 
-                            'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
-                            For Each Telefono In ListaTelefonos.Distinct()
-                                conexion.EjecutarNonQuery("INSERT INTO telefonopersona VALUES ('" + IDPersonaInsertada + "', '" + Telefono + "')")
-                            Next
                         End If
 
                     End If
@@ -163,18 +165,34 @@ Partial Public Class frmMainMenu
 
             If (IsDate(FechaSeleccionada)) Then
 
-                conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "' WHERE idpersona = " + IdPersona + "")
-
                 Dim TelefonosPersona As New DataTable
-                TelefonosPersona = conexion.EjecutarSelect("SELECT idpersona, telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + "")
+                TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + "")
+                Dim telefonoInsertar As String
+                Dim ListaTelefonos As New List(Of String)
 
-                conexion.EjecutarNonQuery("DELETE FROM TelefonoPersona WHERE idpersona = " + IdPersona + "")
-
-                For Each telefono In cbxTelefonosMCliente.Items
-                    conexion.EjecutarNonQuery("INSERT INTO TelefonoPersona VALUES (" + IdPersona + ", '" + telefono + "')")
+                'Agrega cada item del combobox a la Lista
+                For Each item In cbxTelefonosMCliente.Items
+                    ListaTelefonos.Add(item.ToString)
+                Next
+                Dim numeros As String = ""
+                'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
+                For Each Telefono In ListaTelefonos.Distinct()
+                    If (numeros = "") Then
+                        numeros += Telefono
+                    Else
+                        numeros += "," + Telefono
+                    End If
                 Next
 
-                MsgBox("Persona ingresada satisfactoriamente.")
+                conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ",
+                                                              nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', 
+                                                              apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', 
+                                                              fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "',
+                                                              telefono ='" + numeros + "'
+                                                              WHERE idpersona = " + IdPersona + "")
+
+
+                MsgBox("Persona modificada satisfactoriamente.")
                 RecargarDatos(dgvClientes)
 
             Else
@@ -232,7 +250,6 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-
     Private Sub VerTelefonos(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellContentClick
 
         If TypeOf DirectCast(sender, DataGridView).Columns(e.ColumnIndex) Is DataGridViewButtonColumn AndAlso e.RowIndex >= 0 Then
@@ -244,9 +261,17 @@ Partial Public Class frmMainMenu
             'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView
             Dim VerTelefonos As New frmTelefonosCliente("Ver", NombrePersona)
 
-            conexion.RellenarDataGridView(VerTelefonos.dgvTelefonos, "SELECT telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + " ")
-            VerTelefonos.ShowDialog()
+            Dim telefonosPersona As New DataTable
+            telefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + " ")
+            Dim telefonospersonaS As String
+            telefonospersonaS = telefonosPersona.Rows(0)(0).ToString()
 
+            Dim TelArray() As String = telefonospersonaS.Split(",")
+
+            For Each item In TelArray
+                VerTelefonos.dgvTelefonos.Rows.Add(item)
+            Next
+            VerTelefonos.ShowDialog()
         End If
 
     End Sub
@@ -263,7 +288,7 @@ Partial Public Class frmMainMenu
         If cbxTelefonosMCliente.DataSource Is Nothing Then
 
             'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView, pero los borra de la BD (ya que serán ingresados nuevamente con (o sin) modificaciones)
-            TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM TelefonoPersona WHERE idpersona = " + IdPersona + " ")
+            TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + " ")
 
             'Cargamos en una lista los teléfonos para no perderlos una vez que los borremos.
             For Each rw As DataRow In TelefonosPersona.Rows
@@ -296,10 +321,7 @@ Partial Public Class frmMainMenu
             ListaTelefonos.Add(item.ToString)
         Next
 
-
-
         Dim AgregarTelefonos As New frmTelefonosCliente("Agregar", "", ListaTelefonos)
-
         AgregarTelefonos.ShowDialog()
 
     End Sub

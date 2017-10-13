@@ -133,11 +133,12 @@ Partial Public Class frmMainMenu
 
     Private Sub btnBajaBRes_Click(sender As Object, e As EventArgs) Handles btnBajaBRes.Click
         Dim reservaseleccionadaid As String
-        reservaseleccionadaid = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString
+        reservaseleccionadaid = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString()
 
-        If conexion.EjecutarNonQuery("Update reserva set estado = 2 where idreserva = " + reservaseleccionadaid.ToString + "") = True Then
-            MsgBox("Reserva anulada satisfactoriamente.", MsgBoxStyle.Information, "Notificacion")
+        If conexion.EjecutarNonQuery("Update reserva set estado = 2 where idreserva = " + reservaseleccionadaid.ToString() + "") = True Then
             RecargarDatos(dgvReservas)
+            MsgBox("Reserva anulada satisfactoriamente.", MsgBoxStyle.Information, "Notificacion")
+
         Else
             MsgBox("No se pudo eliminar la reserva.", MsgBoxStyle.Critical, "Notificacion")
         End If
@@ -146,7 +147,8 @@ Partial Public Class frmMainMenu
 
     Private Sub RellenarDatosReserva(sender As Object, e As EventArgs) Handles dgvReservas.SelectionChanged
         If Not IsNothing(dgvReservas.CurrentRow) Then
-            txtDocumMCliente.Text = dgvReservas.CurrentRow.Cells("nrodocumentores").Value.ToString()
+
+            txtDocumMReserva.Text = dgvReservas.CurrentRow.Cells("nrodocumentores").Value.ToString()
             cbxCategoriaMReserva.SelectedValue = dgvReservas.CurrentRow.Cells("idcategoriareserva").Value.ToString()
             cbxTipoMReserva.SelectedValue = dgvReservas.CurrentRow.Cells("idtiporeserva").Value.ToString()
             cbxKilomMReserva.SelectedValue = dgvReservas.CurrentRow.Cells("idcantidadkm").Value.ToString()
@@ -237,35 +239,48 @@ Partial Public Class frmMainMenu
 
     Private Sub AgregarReserva(sender As Object, e As EventArgs) Handles btnReservarARes.Click
 
-        If Not dtpFinARes.Value < dtpInicioARes.Value Then
+        Dim fechaActual As Date
+        fechaActual = Date.Today
 
-            Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumARes.Text + "'")
+        If Not (dtpInicioARes.Value < fechaActual) Then
+            If Not (dtpFinARes.Value < fechaActual) Then
 
-            'Si la persona existe
-            If Persona.Rows.Count <> 0 Then
+                If Not dtpFinARes.Value < dtpInicioARes.Value Then
 
-                Dim IdPersona As String = Persona.Rows(0)(0).ToString
-                Dim sentencia As String
+                    Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumARes.Text + "'")
 
-                sentencia = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND ((fechareservafin BETWEEN '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio BETWEEN '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio < '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin > '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "'))"
-                If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
+                    'Si la persona existe
+                    If Persona.Rows.Count <> 0 Then
 
-                    conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "', '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "', '" + cbxKmARes.SelectedValue.ToString + "', '" + txtCostoTotalAReserva.Text + "', '" + Date.Today.ToString("yyyy-MM-dd hh:mm") + "', 1, NULL, '" + IdPersona + "', '" + cbxCategoriaARes.SelectedValue.ToString + "', '" + cbxTipoAReserva.SelectedValue.ToString + "', '" + cbxSucSalidaARes.SelectedValue.ToString + "', '" + cbxSucLlegadaARes.SelectedValue.ToString + "', '" + conexion.Usuario + "'  )")
+                        Dim IdPersona As String = Persona.Rows(0)(0).ToString
+                        Dim sentencia As String
+
+                        sentencia = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND ((fechareservafin BETWEEN '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio BETWEEN '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio < '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin > '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "'))"
+                        If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
+
+                            conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "', '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "', '" + cbxKmARes.SelectedValue.ToString + "', '" + txtCostoTotalAReserva.Text + "', '" + Date.Today.ToString("yyyy-MM-dd hh:mm") + "', 1, NULL, '" + IdPersona + "', '" + cbxCategoriaARes.SelectedValue.ToString + "', '" + cbxTipoAReserva.SelectedValue.ToString + "', '" + cbxSucSalidaARes.SelectedValue.ToString + "', '" + cbxSucLlegadaARes.SelectedValue.ToString + "', '" + conexion.Usuario + "'  )")
+                            RecargarDatos(dgvReservas)
+                            AmaranthMessagebox("Reserva ingresada correctamente!", "Continuar")
+
+                        Else
+                            AmaranthMessagebox("Ese cliente ya tiene una reserva activa.", "Error")
+                        End If
+
+                    Else
+                        AmaranthMessagebox("Ese cliente no está registrado.", "Error")
+                    End If
 
                 Else
-                    AmaranthMessagebox("Ese cliente ya tiene una reserva activa.", "Error")
+                    AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error")
+                    dtpInicioARes.Value = Date.Today
+                    dtpFinARes.Value = Date.Today
                 End If
-
             Else
-                AmaranthMessagebox("Ese cliente no está registrado.", "Error")
+                AmaranthMessagebox("La fecha de fin no puede ser menor a la de hoy", "Continuar")
             End If
-
         Else
-            AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error")
-            dtpInicioARes.Value = Date.Today
-            dtpFinARes.Value = Date.Today
+            AmaranthMessagebox("La fecha de inicio no puede ser menor a la de hoy", "Continuar")
         End If
-
     End Sub
 
     Private Sub ModificarReserva(sender As Object, e As EventArgs) Handles btnModificarReserva.Click
@@ -273,7 +288,7 @@ Partial Public Class frmMainMenu
         Dim IdReserva As String
         IdReserva = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString
 
-        If Not dtpFinARes.Value < dtpInicioARes.Value Then
+        If Not dtpFechaFinMReserva.Value < dtpFechaInicioMReserva.Value Then
 
             Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumMReserva.Text + "'")
 
@@ -286,28 +301,42 @@ Partial Public Class frmMainMenu
                 'Si la persona no tiene ninguna reserva activa por esas fechas (exceptuando la que se va a modificar)
                 sentencia = "SELECT idreserva FROM Reserva WHERE idreserva != '" + IdReserva + "' AND idpersona = '" + IdPersona + "' AND ((fechareservafin BETWEEN '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "' AND '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio BETWEEN '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "' AND '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio < '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin > '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "'))"
                 If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
+                    Dim prueba As String
+                    prueba = ("UPDATE RESERVA SET fechaalquilerinicio = NULL,
+                                                  fechaalquilerfin = NULL, 
+                                                  fechareservainicio = '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd HH:mm") + "', 
+                                                  fechareservafin = '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd HH:mm") + "',
+                                                  cantidadkm = '" + cbxKilomMReserva.SelectedValue.ToString + "', 
+                                                  costototal = '" + txtCostoMReserva.Text + "', estado = '1', 
+                                                  nrochasis = NULL, idpersona = '" + IdPersona + "',
+                                                  idcategoria = '" + cbxCategoriaMReserva.SelectedValue.ToString + "',
+                                                  idtipo = '" + cbxTipoMReserva.SelectedValue.ToString + "',
+                                                  idsucursalsalida = '" + cbxSucursalSalidaMReserva.SelectedValue.ToString + "', 
+                                                  idsucursalllegada = '" + cbxSucursalLlegadaMReserva.SelectedValue.ToString + "'
+                                                  WHERE idreserva = '" + IdReserva + "'")
 
-                    conexion.EjecutarNonQuery("UPDATE FROM RESERVA SET (fechaalquilerinicio = NULL, fechaalquilerfin = NULL, fechareservainicio = '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "', fechareservafin = '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "', cantidadkm = '" + cbxKilomMReserva.SelectedValue.ToString + "', costototal = '" + txtCostoMReserva.Text + "', estado = 1, nrochasis = NULL, idpersona = '" + IdPersona + "', idcategoria = '" + cbxCategoriaMReserva.SelectedValue.ToString + "', idtipo = '" + cbxTipoMReserva.SelectedValue.ToString + "', idsucursalsalida = '" + cbxSucursalSalidaMReserva.SelectedValue.ToString + "', idsucursalllegada = '" + cbxSucursalLlegadaMReserva.SelectedValue.ToString + "'  ) WHERE idreserva = '" + IdReserva + "'")
-
+                    conexion.EjecutarNonQuery(prueba)
+                    RecargarDatos(dgvReservas)
+                    AmaranthMessagebox("Reserva modificada correctamente", "Continuar")
                 Else
                     AmaranthMessagebox("Ese cliente ya tiene una reserva activa entre esas fechas.", "Error")
                 End If
-
             Else
                 AmaranthMessagebox("Ese cliente no está registrado.", "Error")
             End If
-
         Else
             AmaranthMessagebox("La Fecha Fin no puede ser menor a la Fecha de Inicio.", "Error")
-            dtpInicioARes.Value = Date.Today
-            dtpFinARes.Value = Date.Today
+            Dim fechaIM As String = dgvReservas.CurrentRow.Cells("fechareservainicio").Value.ToString()
+            Dim fechaFM As String = dgvReservas.CurrentRow.Cells("fechareservafin").Value.ToString()
+            dtpFechaInicioMReserva.Value = fechaIM
+            dtpFechaFinMReserva.Value = fechaFM
         End If
     End Sub
     Private Function TipoFiltroReserva(chbx As CheckBox) As String
         Select Case chbx.Name
             Case "chboxFechaFRes"
                 If chboxFechaFRes.Checked = True Then
-                    Return " AND fechareservainicio >= '" + dtpDesdeFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "' AND fechareservafin < '" + dtpHastaFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "'"
+                    Return " And fechareservainicio >= '" + dtpDesdeFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "' AND fechareservafin < '" + dtpHastaFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "'"
                 Else
                     Return ""
                 End If

@@ -1,4 +1,7 @@
-﻿'MenuPrincipal (DISEÑO)
+﻿Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports System.IO
+'MenuPrincipal (DISEÑO)
 Public Class frmMainMenu
 
 
@@ -116,16 +119,17 @@ Public Class frmMainMenu
 
         'Cargas de ComboBox
         'MARCAS
-        CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas.Select("estado = true").CopyToDataTable, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas.Select("estado = true").CopyToDataTable, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas.Select("estado = true").CopyToDataTable, "nombre", "idmarca")
+        Dim MarcasYOtro As DataTable = conexion.Marcas.Select("estado = true").CopyToDataTable
+        MarcasYOtro.Rows.Add(0, "Nueva...", True)
+        CargarDatosComboBox(cbxMarcaAVeh, MarcasYOtro, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaMVeh, MarcasYOtro, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre", "idmarca")
 
         'TIPOS
-        CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
-        CargarDatosComboBox(cbxPuertasMVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoFRes, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoFRes, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
 
@@ -136,32 +140,31 @@ Public Class frmMainMenu
 
         'CATEGORIAS
         CargarDatosComboBox(cbxCategoriaMReserva, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaMVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
 
         'Los modelos se cargan en el apartado "Vehiculos".
 
         'SUCURSALES
-        CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalAVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalMVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucSalFres, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucLlegFRes, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucSalFres, conexion.Sucursales, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucLlegFRes, conexion.Sucursales, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucSalidaARes, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucLlegadaARes, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalFempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalFempleados, conexion.Sucursales, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalCempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalMempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalLlegadaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalSalidaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
 
         'DOCUMENTOS
-        CargarDatosComboBox(cbxTipoDocumFCliente, conexion.Documentos.Select("estado = true").CopyToDataTable, "nombre", "idtipodoc")
+        CargarDatosComboBox(cbxTipoDocumFCliente, conexion.Documentos, "nombre", "idtipodoc")
         CargarDatosComboBox(cbxTipoDocumACliente, conexion.Documentos.Select("estado = true").CopyToDataTable, "nombre", "idtipodoc")
-        CargarDatosComboBox(cbxTipoDocumMCliente, conexion.Documentos.Select("estado = true").CopyToDataTable, "nombre", "idtipodoc")
         CargarDatosComboBox(cbxTipoDocumMCliente, conexion.Documentos.Select("estado = true").CopyToDataTable, "nombre", "idtipodoc")
 
         'AÑOS
@@ -258,4 +261,22 @@ Public Class frmMainMenu
         CargarDatos()
     End Sub
 
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+        'Try
+        'Intentar generar el documento.
+        Dim doc As New Document(PageSize.A4.Rotate(), 10, 10, 10, 10)
+        'Path que guarda el reporte en el escritorio de windows (Desktop).
+        Dim filename As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\Reporteproductos.pdf"
+        Dim file As New FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.ReadWrite)
+        PdfWriter.GetInstance(doc, file)
+        doc.Open()
+        GenerarDocumentoPDF(doc, dgvClientes)
+        doc.Close()
+        'Process.Start(filename)
+        'Catch ex As Exception
+        'Si el intento es fallido, mostrar MsgBox.
+        ' MessageBox.Show("No se puede generar el documento PDF.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'End Try
+    End Sub
 End Class

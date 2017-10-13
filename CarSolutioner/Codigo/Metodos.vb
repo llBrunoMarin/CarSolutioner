@@ -1,10 +1,22 @@
-﻿Imports iTextSharp
+﻿Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports System.IO
+Imports System.Runtime.CompilerServices
+
+Imports System.Net
+
 Module Metodos
+    <Extension()>
+    Public Sub Add(Of T)(ByRef arr As T(), item As T)
+        Array.Resize(arr, arr.Length + 1)
+        arr(arr.Length - 1) = item
+    End Sub
 
     Public Declare Function GetTickCount Lib "kernel32" () As Integer
     Public conexion As New ConnectionBD
     Public bgwCargar As New ComponentModel.BackgroundWorker
 
+    'Cargando
     Public Sub Cargando(milisegundos As Integer)
 
         Dim retraso As Integer
@@ -101,147 +113,6 @@ Module Metodos
 
     End Function
 
-    Public Function VerificarDescuento(codigo As String) As Boolean
-
-        'Si el valor ingresado es numérico
-        If IsNumeric(codigo) Then
-
-            'Si el largo del numero es exactamente 8
-            If (codigo.Length = 4) Then
-
-                'Verificador es el 4 dígito del código.
-                Dim verificador As String = codigo.Substring(3, 1)
-
-                'El número son los 3 primeros dígitos del código.
-                Dim numero As String = codigo.Substring(0, 3)
-
-                'El algoritmo es un valor fijo para hacer cuentas, para el cifrado.
-                Dim Algoritmo() As Integer = {2, 9, 8, 7, 6, 3, 4}
-
-                'Inizializamos variables.
-                Dim Operacion As String
-                Dim sumaVerificarCI As Integer
-                Dim valor As Integer
-
-                Try
-
-                    For i = 0 To 2
-                        'Multiplicar el caracter nro "i" del numero, por el carácter numero "i" del Algoritmo.
-                        Operacion = (CInt(numero.Substring(i, 1)) * Algoritmo(i)).ToString
-
-                        'Si el resultado es de 2 cifras
-                        If Operacion.Length = 2 Then
-
-                            'Quedarse solo con la segunda.
-                            sumaVerificarCI += Operacion.Substring(1, 1)
-
-                        Else
-                            'Sino, simplemente ir sumando los resultados en "SumaVerificarCI".
-                            sumaVerificarCI += Operacion
-
-                        End If
-
-
-
-                    Next
-
-                    'Guardo el valor de SumaVerificarCI para usarlo más tarde.
-                    valor = sumaVerificarCI
-                    Do
-                        'Encontrar el siguiente nro + grande que SumaverificarCI
-                        If Not (sumaVerificarCI.ToString.Substring(1, 1) = "0") Then
-                            sumaVerificarCI = sumaVerificarCI + 1
-                        End If
-
-                    Loop Until (sumaVerificarCI.ToString.Substring(1, 1) = "0")
-
-
-                    If sumaVerificarCI - valor = verificador Then
-
-                        Return True
-
-                    Else
-
-                        MsgBox("Su cédula es inválida. Por favor verifique.", MsgBoxStyle.Critical, "CI Inválida")
-                        Return False
-
-                    End If
-
-                Catch ex As Exception
-
-                    MsgBox("Su cédula es inválida. Por favor verifique.", MsgBoxStyle.Critical, "CI Inválida")
-                    Return False
-
-                End Try
-
-            Else
-                MsgBox("Ingrese una cédula de largo válido por favor.", MsgBoxStyle.Critical, "CI Inválida")
-                Return False
-            End If
-
-        Else
-            MsgBox("Limítese solo a numeros en los campos numéricos, por favor.", MsgBoxStyle.Critical, "CI Inválida")
-            Return False
-        End If
-    End Function
-
-    Public Function GenerarCodigoDescuento() As Integer
-
-        'Verificador es el 4 dígito del código.
-        Dim codigo As String = "000"
-
-        For Each car As Char In codigo
-            Dim random As New Random
-            car = random.Next(0, 9).ToString
-        Next
-
-        'El algoritmo es un valor fijo para hacer cuentas, para el cifrado.
-        Dim Algoritmo() As Integer = {Date.Today.Month, 7, Date.Today.Minute}
-
-        'Inizializamos variables.
-        Dim Operacion As String
-        Dim sumaVerificarCI As Integer
-        Dim verificador As Integer
-        Dim valor As Integer
-
-
-        For i = 0 To 2
-            'Multiplicar el caracter nro "i" del numero, por el carácter numero "i" del Algoritmo.
-            Operacion = (CInt(codigo.Substring(i, 1)) * Algoritmo(i)).ToString
-
-            'Si el resultado es de 2 cifras
-            If Operacion.Length = 2 Then
-
-                'Quedarse solo con la segunda.
-                sumaVerificarCI += Operacion.Substring(1, 1)
-
-            Else
-                'Sino, simplemente ir sumando los resultados en "SumaVerificarCI".
-                sumaVerificarCI += Operacion
-            End If
-        Next
-
-        'Guardo el valor de SumaVerificarCI para usarlo más tarde.
-        valor = sumaVerificarCI
-
-        Do
-            'Encontrar el siguiente nro + grande que SumaverificarCI
-            If Not (sumaVerificarCI.ToString.Substring(1, 1) = "0") Then
-                sumaVerificarCI = sumaVerificarCI + 1
-            End If
-
-        Loop Until (sumaVerificarCI.ToString.Substring(1, 1) = "0")
-
-        verificador = sumaVerificarCI - valor
-
-        codigo = CInt(codigo.ToString + verificador.ToString)
-        Return codigo
-
-        MsgBox("Su cédula es inválida. Por favor verifique.", MsgBoxStyle.Critical, "CI Inválida")
-        Return False
-
-    End Function
-
     'Establece el tipo de filtro que se está usando. Si no hay valor seleccionado de ese control, no se toma en cuenta en el filtro.
     Public Function TipoFiltro(ctrl As Control, columna As String) As String
 
@@ -299,7 +170,7 @@ Module Metodos
 
     End Sub
 
-
+    '"Vaciar" el control, dependiendo de su tipo.
     Public Sub VaciarControl(con As Control)
 
         Select Case con.GetType
@@ -321,6 +192,7 @@ Module Metodos
 
     End Sub
 
+    'Msgbox personalizado de AmaranthSolutions
     Public Function AmaranthMessagebox(Texto As String, Tipo As String) As DialogResult
 
         Dim AmaranthMsgbox As New AmaranthMsgbox(Texto, Tipo)
@@ -329,5 +201,192 @@ Module Metodos
 
 
     End Function
+
+    'Verificar codigo de Descuento
+    Public Function VerificarCodigo(codigo As String) As Boolean
+
+        'Si el valor ingresado es numérico
+        If IsNumeric(codigo) Then
+
+            'Si el largo del numero es exactamente 8
+            If (codigo.Length = 8) Then
+
+                Dim dia As String = DateTime.Today.Day
+                Dim minuto As String = DateTime.Now.ToString("mm")
+                Dim mes As String = DateTime.Today.Month
+                Dim verificador As String = codigo.Substring(7, 1)
+                Dim cedula As String = codigo.Substring(0, 7)
+                Dim algoritmo() As Integer = {2, minuto.Substring(1, 1), mes.Substring(0, 1), dia.Substring(0, 1), 6, 3, 4}
+                Dim Operacion As String
+                Dim sumaVerificarCI As Integer
+                Dim valor As Integer
+
+                Try
+
+                    For i = 0 To 6
+                        'Multiplicar el caracter nro "i" de la cedula, por el carácter numero "i" del Algoritmo.
+                        ' MsgBox((CInt(cedula.Substring(i, 1))))
+                        'MsgBox(algoritmo(i))
+                        Console.WriteLine("ci")
+                        Console.WriteLine(CInt(cedula.Substring(i, 1)))
+                        Console.WriteLine("algoritmo")
+                        Console.WriteLine(algoritmo(i))
+                        Operacion = (CInt(cedula.Substring(i, 1)) * algoritmo(i)).ToString
+
+                        'MsgBox("operacion" + Operacion)
+                        'Si el resultado es de 2 cifras
+                        If Operacion.Length = 2 Then
+
+                            'Quedarse solo con la segunda.
+                            sumaVerificarCI += Operacion.Substring(1, 1)
+                        Else
+                            'Sino, simplemente ir sumando los resultados en "SumaVerificarCI".
+                            sumaVerificarCI += Operacion
+                        End If
+
+                    Next
+                    Console.WriteLine("sumaverifac")
+                    Console.WriteLine(sumaVerificarCI)
+                    'MsgBox(sumaVerificarCI)
+                    'Guardo el valor de SumaVerificarCI para usarlo más tarde.
+                    valor = sumaVerificarCI
+
+                    Do
+                        'Encontrar el siguiente nro + grande que SumaverificarCI
+                        If Not (sumaVerificarCI.ToString.Substring(1, 1) = "0") Then
+                            sumaVerificarCI = sumaVerificarCI + 1
+                        End If
+
+                    Loop Until (sumaVerificarCI.ToString.Substring(1, 1) = "0")
+
+                    If sumaVerificarCI - valor = verificador Then
+
+                        Return True
+
+                    Else
+
+                        MsgBox("Su codigo es inválido. Por favor verifique.")
+                        Return False
+
+                    End If
+
+                Catch ex As Exception
+
+                    MsgBox("Su codigo es inválido. Por favor verifique.")
+                    Return False
+
+                End Try
+
+            Else
+                MsgBox("Ingrese un codigo de largo válido por favor.")
+                Return False
+            End If
+
+        Else
+            MsgBox("Limítese solo a numeros en los campos numéricos, por favor.")
+            Return False
+        End If
+
+    End Function
+
+    'Obtener IP
+    Public Function GetIPAddress() As String
+
+        Dim strIPAddress As String
+        strIPAddress = Dns.GetHostByName(Dns.GetHostName()).AddressList(0).ToString()
+
+        Return strIPAddress
+
+    End Function
+
+    'Obtener el tamaño de Columnas de un datagridview
+    Public Function TamañoColumnasVisibles(dgv As DataGridView) As Single()
+
+        Dim values = New Single() {}
+
+        For Each column As DataGridViewColumn In dgv.Columns
+            If column.Visible = True Then
+                values.Add(column.Width)
+            End If
+        Next
+
+        Return values
+    End Function
+
+    'Obtener cantidad de columnas visibles de un datagridview
+    Public Function CantidadColumnasVisibles(dgv As DataGridView) As Integer
+        Dim cantidad As Integer = 0
+        For Each column As DataGridViewColumn In dgv.Columns
+            If column.Visible = True Then
+                cantidad = cantidad + 1
+            End If
+        Next
+
+        Return cantidad
+    End Function
+
+    'Genera un documento PDF
+    Public Function GenerarDocumentoPDF(ByVal document As Document, dgv As DataGridView) As Document
+
+        'Se crea un objeto PDFTable con el numero de columnas del DataGridView. 
+        Dim datatable As New PdfPTable(CantidadColumnasVisibles(dgv))
+        Dim headerwidths As Single() = TamañoColumnasVisibles(dgv)
+
+        'Se asignan algunas propiedades para el diseño del PDF.
+        datatable.DefaultCell.Padding = 3
+        datatable.SetWidths(headerwidths)
+        datatable.WidthPercentage = 100
+        datatable.DefaultCell.BorderWidth = 2
+        datatable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER
+
+        'Se crea el encabezado en el PDF (POR AHORA DESACTIVADO)
+        'Dim encabezado As New Paragraph("PRODUCTOS INFORMATICOS", New Font(Font, = "Tahoma", 20, Font.BOLD))
+
+        'Se crea el texto abajo del encabezado.
+        'Dim texto As New Phrase("Reporte productos:" + Now.Date(), New Font(Font.Name = "Tahoma", 14, Font.BOLD))
+
+        'Se capturan los nombres de las columnas del DataGridView.
+        For i As Integer = 0 To dgv.ColumnCount - 1
+            If dgv.Columns(i).Visible = True Then
+                datatable.AddCell(dgv.Columns(i).HeaderText)
+            End If
+        Next
+
+        datatable.HeaderRows = 1
+        datatable.DefaultCell.BorderWidth = 0.5
+
+        'Se generan las columnas del DataGridView. 
+        For i As Integer = 0 To dgv.RowCount - 1
+            For j As Integer = 0 To dgv.ColumnCount - 1
+                If dgv.Columns(j).Visible = True Then
+                    datatable.AddCell(dgv(j, i).Value.ToString())
+
+                End If
+            Next
+            datatable.CompleteRow()
+        Next
+
+        'Se agrega el PDFTable al documento.
+        document.Add(datatable)
+
+        Return document
+
+    End Function
+
+    Public Sub GuardarPDF(document As Document)
+
+        Dim dlg As New SaveFileDialog()
+        dlg.Filter = "PDF Files|*.pdf"
+        dlg.FilterIndex = 0
+
+        Dim fileName As String = String.Empty
+
+        If dlg.ShowDialog() = DialogResult.OK Then
+            fileName = dlg.FileName
+            PdfWriter.GetInstance(document, New FileStream(fileName, FileMode.Create))
+
+        End If
+
+    End Sub
 End Module
 

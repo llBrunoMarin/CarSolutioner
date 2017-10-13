@@ -79,6 +79,7 @@
 
 
     Private Sub Cerrar(sender As Object, e As EventArgs) Handles btnCerrarMsgbox.Click
+        Me.DialogResult = vbNo
         Me.Dispose()
     End Sub
 

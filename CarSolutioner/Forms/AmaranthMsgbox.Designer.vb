@@ -98,7 +98,7 @@ Partial Class AmaranthMsgbox
         Me.Panel1.Controls.Add(Me.lblTitulo)
         Me.Panel1.Location = New System.Drawing.Point(0, -1)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(383, 30)
+        Me.Panel1.Size = New System.Drawing.Size(394, 30)
         Me.Panel1.TabIndex = 52
         '
         'btnCerrarMsgbox
@@ -110,7 +110,7 @@ Partial Class AmaranthMsgbox
         Me.btnCerrarMsgbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrarMsgbox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrarMsgbox.ForeColor = System.Drawing.Color.Cornsilk
-        Me.btnCerrarMsgbox.Location = New System.Drawing.Point(337, -1)
+        Me.btnCerrarMsgbox.Location = New System.Drawing.Point(358, -2)
         Me.btnCerrarMsgbox.Name = "btnCerrarMsgbox"
         Me.btnCerrarMsgbox.Size = New System.Drawing.Size(36, 37)
         Me.btnCerrarMsgbox.TabIndex = 53

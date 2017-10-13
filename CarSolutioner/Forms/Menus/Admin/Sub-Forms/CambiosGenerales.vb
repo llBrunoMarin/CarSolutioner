@@ -12,8 +12,7 @@
         conexion.RellenarDataGridView(dgvMarcas, "SELECT * FROM MARCA")
         conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
 
-        conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where
-ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
+        conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
         chboxInactivosModelos.Checked = True
         chboxInactivasMarcas.Checked = True
         'CargarDatosComboBox(cbxTipoFilter, conexion.Tipos, "nombre", "idtipo")

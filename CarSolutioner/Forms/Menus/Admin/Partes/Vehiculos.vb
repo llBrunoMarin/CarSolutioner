@@ -8,55 +8,72 @@ Partial Public Class frmMainMenu
 
     Private Sub CargasModelo(sender As ComboBox, e As EventArgs) Handles cbxMarcaAVeh.SelectedValueChanged, cbxMarcaFVeh.SelectedValueChanged, cbxMarcaFVeh.SelectedValueChanged
 
+        Dim ModelosYOtro As New DataTable
 
-        If (Not (sender.SelectedValue Is Nothing)) Then
 
-            If (Not (sender.SelectedValue.ToString = "")) Then
+        Try
+            If (Not (sender.SelectedValue Is Nothing)) Then
 
-                If (Not (sender.SelectedValue.ToString = "System.Data.DataRowView")) Then
+                If (Not (sender.SelectedValue.ToString = "")) Then
 
-                    'Si el item seleccionado NO es "Otro":
-                    If Not sender.SelectedValue.ToString = "Otro" Then
+                    If (Not (sender.SelectedValue.ToString = "System.Data.DataRowView")) Then
 
-                        'Si no existe el item "Otro", crearlo.
-                        If conexion.Modelos.Select("nombre = 'Otro'").Count = 0 Then
-                            conexion.Modelos.Rows.Add(0, 0, "Otro", 0, True)
+                        'Si el item seleccionado NO es "Otro":
+                        If Not (sender.SelectedIndex = sender.FindString("Nueva...")) Then
+
+                            Select Case sender.Name
+                                Case "cbxMarcaAVeh"
+
+                                    ModelosYOtro = conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable
+                                    ModelosYOtro.Rows.Add(0, 0, "Nuevo...", 0, True)
+                                    CargarDatosComboBox(cbxModeloAVeh, ModelosYOtro, "nombre", "idmodelo")
+                                    cbxModeloAVeh.Enabled = True
+                                    cbxModeloAVeh.SelectedItem = Nothing
+                                    cbxTipoAVeh.SelectedItem = Nothing
+
+                                Case "cbxMarcaFVeh"
+                                    ModelosYOtro = conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable
+                                    ModelosYOtro.Rows.Add(0, 0, "Nuevo...", 0, True)
+                                    CargarDatosComboBox(cbxModeloFVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable, "nombre", "idmodelo")
+                                    cbxModeloFVeh.Enabled = True
+                                    cbxModeloFVeh.SelectedItem = Nothing
+                                    cbxTipoFVeh.SelectedItem = Nothing
+
+                                Case "cbxMarcaMVeh"
+                                    ModelosYOtro = conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable
+                                    ModelosYOtro.Rows.Add(0, 0, "Nuevo...", 0, True)
+                                    CargarDatosComboBox(cbxModeloMVeh, ModelosYOtro, "nombre", "idmodelo")
+                                    cbxModeloMVeh.Enabled = True
+                                    cbxModeloMVeh.SelectedItem = Nothing
+                                    cbxTipoMVeh.SelectedItem = Nothing
+                                Case Else
+
+                            End Select
+
+                            'Si el item seleccionado es "Otro"
+                        Else
+                            frmCambiosGenerales.Show()
+                            frmCambiosGenerales.btnVehiculo.PerformClick()
                         End If
-
-                        Select Case sender.Name
-                            Case "cbxMarcaAVeh"
-                                CargarDatosComboBox(cbxModeloAVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
-                                cbxModeloAVeh.Enabled = True
-                                cbxModeloAVeh.SelectedItem = Nothing
-                                cbxTipoAVeh.SelectedItem = Nothing
-                            Case "cbxMarcaFVeh"
-                                CargarDatosComboBox(cbxModeloFVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaFVeh.SelectedValue.ToString + "'").CopyToDataTable, "nombre", "idmodelo")
-                                cbxModeloFVeh.Enabled = True
-                                cbxModeloFVeh.SelectedItem = Nothing
-                                cbxTipoFVeh.SelectedItem = Nothing
-                            Case Else
-
-                        End Select
-
-                        'Si el item seleccionado es "Otro"
-                    Else
-                        frmCambiosGenerales.Show()
-                        frmCambiosGenerales.btnCategorias.PerformClick()
                     End If
                 End If
+            Else
+
+                Select Case sender.Name
+                    Case "cbxMarcaAVeh"
+                        cbxModeloAVeh.Enabled = False
+                    Case "cbxMarcaFVeh"
+                        cbxModeloFVeh.Enabled = False
+                    Case "cbxMarcaMVeh"
+                        cbxModeloMVeh.Enabled = False
+
+                End Select
+
             End If
-        Else
+        Catch ex As NullReferenceException
 
-            Select Case sender.Name
-                Case "cbxMarcaAVeh"
-                    cbxModeloAVeh.Enabled = False
-                Case "cbxMarcaFVeh"
-                    cbxModeloFVeh.Enabled = False
-                Case Else
+        End Try
 
-            End Select
-
-        End If
 
     End Sub
 
@@ -66,7 +83,7 @@ Partial Public Class frmMainMenu
             If (Not (sender.SelectedValue.ToString = "System.Data.DataRowView")) Then
 
                 'Si el valor seleccionado del modelo NO es "Otro"
-                If Not sender.Text = "Otro" Then
+                If Not (sender.SelectedIndex = sender.FindString("Nuevo...")) Then
 
                     Dim idmodeloselect As String = sender.SelectedValue
                     Dim idtipo As String = conexion.Modelos.Select("idmodelo = " + idmodeloselect + "").CopyToDataTable.Rows(0).Field(Of Integer)("idtipo")
@@ -79,8 +96,9 @@ Partial Public Class frmMainMenu
                             cbxTipoFVeh.SelectedValue = idtipo
                             cbxTipoFVeh.Enabled = False
                             lblBorrarTipoFVeh.Enabled = False
-                        Case Else
-
+                        Case "cbxModeloMVeh"
+                            cbxTipoMVeh.SelectedValue = idtipo
+                            cbxTipoMVeh.Enabled = False
                     End Select
 
                 Else
@@ -96,7 +114,8 @@ Partial Public Class frmMainMenu
                 Case "cbxModeloFVeh"
                     cbxTipoFVeh.Enabled = True
                     lblBorrarTipoFVeh.Enabled = True
-                Case Else
+                Case "cbxModeloMVeh"
+                    cbxTipoMVeh.Enabled = True
             End Select
 
         End If

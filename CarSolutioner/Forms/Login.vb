@@ -28,7 +28,7 @@ Public Class Login
         lblpass.Visible = False
         lbluser.Visible = False
         lbldataincorrect.Visible = False
-
+        PictureBox2.Visible = False
         Dim retraso As Integer
 
         retraso = 2000 + GetTickCount
@@ -59,6 +59,7 @@ Public Class Login
             txtUsuario.Visible = True
             btnLogin.Visible = True
             lblpass.Visible = True
+            PictureBox2.Visible = True
             lbluser.Visible = True
         End If
     End Sub
@@ -100,6 +101,7 @@ Public Class Login
                     lbldataincorrect.Visible = True
                     txtContraseña.Visible = True
                     txtUsuario.Visible = True
+                    PictureBox2.Visible = True
                     btnLogin.Visible = True
                     lblpass.Visible = True
                     lbluser.Visible = True
@@ -114,6 +116,7 @@ Public Class Login
                 txtUsuario.Visible = True
                 btnLogin.Visible = True
                 lblpass.Visible = True
+                PictureBox2.Visible = True
                 lbluser.Visible = True
 
             Case "NetworkFailure"
@@ -126,7 +129,8 @@ Public Class Login
                 txtContraseña.Visible = True
                 txtUsuario.Visible = True
                 btnLogin.Visible = True
-                lblpass.Visible = True
+                lblpass.Visible =
+                     PictureBox2.Visible = True
                 lbluser.Visible = True
 
         End Select
@@ -159,5 +163,14 @@ Public Class Login
 
     Private Sub pboxLoading_Click(sender As Object, e As EventArgs) Handles pboxLoading.Click
 
+    End Sub
+
+    Private Sub PictureBox2_MouseDown(sender As Object, e As MouseEventArgs) Handles PictureBox2.MouseDown
+        txtContraseña.PasswordChar = Nothing
+        PictureBox2.Image = CarSolutioner.My.Resources.show
+    End Sub
+    Private Sub PictureBox2_MouseDowns(sender As Object, e As MouseEventArgs) Handles PictureBox2.MouseUp
+        txtContraseña.PasswordChar = "●"
+        PictureBox2.Image = CarSolutioner.My.Resources.hide2
     End Sub
 End Class

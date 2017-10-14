@@ -12,7 +12,19 @@
         conexion.RellenarDataGridView(dgvMarcas, "SELECT * FROM MARCA")
         conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
 
+        conexion.RellenarDataGridView(dgvDocumentos, "Select * from tipodocumento")
+        conexion.RellenarDataGridView(dgvDocxCliente, "
+select doc.nombre, count(idpersona) Cantidad from
+tipodocumento doc, cliente c where
+doc.idtipodoc=c.idtipodoc
+group by nombre
+")
+        conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where
+ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
+
+
         conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
+
         chboxInactivosModelos.Checked = True
         chboxInactivasMarcas.Checked = True
         'CargarDatosComboBox(cbxTipoFilter, conexion.Tipos, "nombre", "idtipo")
@@ -59,6 +71,7 @@
         'CargarDatosComboBox(cbxTipoHacia, conexion.EjecutarSelect("SELECT * FROM tipo where estado = 't'"), "nombre", "idtipo")
         'cbxTipoHacia.SelectedItem = Nothing
         dgvCategorias.Columns("idcategoria").Visible = False
+        chboxInactivotipodoc.Checked = True
         chboxsucinactivas.Checked = True
         inactivascategorias.Checked = True
         chboxTiposInactivos.Checked = True
@@ -77,7 +90,7 @@
         Me.Dispose()
     End Sub
     Dim idsucursalmod As String
-    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnSucursales.Click, btnCategorias.Click, btnVehiculo.Click
+    Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnSucursales.Click, btnCategorias.Click, btnVehiculo.Click, btnDocumento.Click
 
         ResetColors()
 
@@ -90,11 +103,8 @@
 
             Case "btnVehiculo"
                 SetTabAndColors(btnVehiculo, tbpVehiculos, Color.White)
-
-
-
-
-
+            Case "btnDocumento"
+                SetTabAndColors(btnDocumento, tbpDocumento, Color.White)
 
 
 
@@ -668,9 +678,11 @@
 
         Dim idtipo As String = dgvTipos.CurrentRow.Cells("idtipo").Value.ToString()
         If conexion.EjecutarSelect("SELECT idreserva from reserva where idtipo='" + idtipo + "' and estado=1 ").Rows.Count > 0 Or conexion.EjecutarSelect("
+
 select nrochasis from mantenimiento where
-nrochasis in (Select nrochasis from vehiculo v, tipo t where
-idtipo='" + idtipo + "')
+nrochasis in (Select nrochasis from vehiculo v, tipo t, modelo mo  where
+v.idmodelo=mo.idmodelo and mo.idtipo=t.idtipo and t.idtipo='" + idtipo + "')
+
 
 ").Rows.Count > 0 Then
             MsgBox("Existen Alquileres, Mantenimientos o Reservas relacionadas con este tipo.")
@@ -686,7 +698,8 @@ idtipo='" + idtipo + "')
 UPDATE vehiculo set estado= 't' where idmodelo IN(
 Select idmodelo from modelo m
 where m.idtipo='" + idtipo + "')", "Vehiculos, debido a que este tipo no estaba asignado a ningun vehiculo") = False Then
-                    MsgBox("Tipo dado de baja")
+           MsgBox("Tipo dado de baja")
+
                 Else
                     MsgBox("Vehiculos y Tipo dados de baja")
                 End If
@@ -762,12 +775,15 @@ V.IDMODELO='" + idmodelo + "' ) and estado='1'
         Else
             Dim resultado As MsgBoxResult = MsgBox("Los vehiculos de este modelo seran dados de baja, desea continuar?", MsgBoxStyle.YesNo)
 
-            If resultado = MsgBoxResult.Yes Then
+            If resultado = MsgBoxResult.Yes And conexion.EjecutarSelect("SELECT IDMODELO FROM MODELO WHERE ESTADO='T'").Rows.Count > 1 Then
                 conexion.EjecutarNonQuery("UPDATE VEHICULO SET ESTADO='F' WHERE IDMODELO='" + idmodelo + "'", "Vehiculos")
                 conexion.EjecutarNonQuery("UPDATE  MODELO SET ESTADO='F' WHERE IDMODELO='" + idmodelo + "'", "Modelo")
                 conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where
 ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
                 MsgBox("El modelo " + dgvModelos.CurrentRow.Cells("modelo").Value.ToString + " de la marca " + dgvModelos.CurrentRow.Cells("Marca").Value.ToString + " y sus respectivos Vehiculos han pasado a inactivos")
+            ElseIf resultado = MsgBoxResult.No Then
+            Else
+                MsgBox("No puede eliminar su ultimo modelo")
 
             End If
         End If
@@ -885,11 +901,12 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
     Private Sub btnModificarMarca_Click(sender As Object, e As EventArgs) Handles btnMarcaModificar.Click
         Dim idmarca As String = dgvMarcas.CurrentRow.Cells("idmarca").Value.ToString()
 
+
         If txtModificarMarca.Text = dgvMarcas.CurrentRow.Cells("nombremarca").Value.ToString() Then
             AmaranthMessagebox("No has hecho ningun cambio", "Advertencia")
         ElseIf Not txtModificarMarca.Text = Nothing Then
             If conexion.EjecutarNonQuery("UPDATE marca Set NOMBRE='" + txtModificarMarca.Text.ToString + "' WHERE IDmarca='" + idmarca + "'") Then
-                AmaranthMessagebox("Se modifico el nombre del tipo correctamente", "Continuar")
+                AmaranthMessagebox("Se modifico el nombre de la marca correctamente", "Continuar")
                 conexion.RellenarDataGridView(dgvMarcas, "SELECT * FROM Marca")
                 txtModificarTipo.Text = dgvMarcas.CurrentRow.Cells("nombremarca").Value.ToString()
             Else
@@ -900,6 +917,23 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
         End If
 
         txtBuscarMarcas.Text = Nothing
+    End Sub
+    Private Sub btnModificarMtipodoc(sender As Object, e As EventArgs) Handles btnModificartipodoc.Click
+        Dim idtipodoc As String = dgvDocumentos.CurrentRow.Cells("idtipodoc").Value.ToString()
+
+        If txtmodificartipodoc.Text = dgvDocumentos.CurrentRow.Cells("nombretipodoc").Value.ToString() Then
+            AmaranthMessagebox("No has hecho ningun cambio", "Advertencia")
+        ElseIf Not txtmodificartipodoc.Text = Nothing Then
+            If conexion.EjecutarNonQuery("UPDATE tipodocumento Set NOMBRE='" + txtmodificartipodoc.Text.ToString + "' WHERE IDtipodoc='" + idtipodoc + "'") Then
+                AmaranthMessagebox("Se modifico el nombre del tipo correctamente", "Continuar")
+                conexion.RellenarDataGridView(dgvDocumentos, "SELECT * FROM tipodocumento")
+                txtmodificartipodoc.Text = dgvDocumentos.CurrentRow.Cells("nombretipodoc").Value.ToString()
+            Else
+                MsgBox("Ese tipo ya existe actualmente.")
+            End If
+        Else
+            MsgBox("Debes escribir algo")
+        End If
     End Sub
     Private Sub btnAddMarca_Click(sender As Object, e As EventArgs) Handles btnAddMarca.Click
         If Not txtNombreMarcaAgregar.Text = Nothing Then
@@ -1005,4 +1039,70 @@ And ma.idmarca='" + idmarca + "')
             End If
         End If
     End Sub
+
+
+
+    Private Sub dgvDocumentos_changed(ByVal sender As Object, ByVal e As EventArgs) Handles dgvDocumentos.SelectionChanged
+        txtmodificartipodoc.Text = dgvDocumentos.CurrentRow.Cells("nombretipodoc").Value.ToString
+        Dim estado As String = dgvDocumentos.CurrentRow.Cells("estadotipodoc").Value.ToString
+        If estado = "True" Then
+            btnestadotipodoc.Text = "Baja"
+        Else
+            btnestadotipodoc.Text = "Alta"
+        End If
+
+    End Sub
+    Private Sub btnaddtipodoc_Click(sender As Object, e As EventArgs) Handles btnaddtipodoc.Click
+        If Not txtnombretipodoc.Text = "" Then
+            If conexion.EjecutarNonQuery("INSERT INTO TIPODOCUMENTO VALUES(0, '" + txtnombretipodoc.Text.ToString + "', 'T')") Then
+                MsgBox("Documento ingresado correctamente.")
+                conexion.RellenarDataGridView(dgvDocumentos, "Select * from tipodocumento")
+                txtnombretipodoc.Text = Nothing
+            Else
+                MsgBox("Este tipo de documento ya existe")
+            End If
+
+        End If
+    End Sub
+
+    Private Sub btnestadotipodoc_Click(sender As Object, e As EventArgs) Handles btnestadotipodoc.Click
+        Dim idtipodoc As String = dgvDocumentos.CurrentRow.Cells("idtipodoc").Value.ToString
+        Dim nombre As String = dgvDocumentos.CurrentRow.Cells("nombretipodoc").Value.ToString
+        If idtipodoc = "1" Or idtipodoc = "2" Or idtipodoc = "3" Then
+            MsgBox("No puedes eliminar tipos de documentos predefinidos por el sistema")
+
+        ElseIf dgvDocumentos.CurrentRow.cells("estadotipodoc").Value.ToString = "True" Then
+            If conexion.EjecutarSelect("Select idpersona from cliente where idtipodoc='" + idtipodoc + "'").Rows.Count > 1 Then
+                MsgBox("No puede eliminar un tipo de documento hasta que haya modificado el tipo de documento de los clientes que se registraron con el mismo.")
+            Else
+                conexion.EjecutarNonQuery("Update tipodocumento set estado='f' where idtipodoc='" + idtipodoc + "'")
+                MsgBox("El tipo de documento ha sido dado de baja")
+                conexion.RellenarDataGridView(dgvDocumentos, "Select * from tipodocumento")
+            End If
+
+        Else
+            MsgBox("El tipo de documento ha sido dado de alta")
+            conexion.RellenarDataGridView(dgvDocumentos, "Select * from tipodocumento")
+        End If
+
+    End Sub
+    Private Sub chboxInactivotipodoc_CheckedChanged(sender As Object, e As EventArgs) Handles chboxInactivotipodoc.CheckedChanged, btnaddtipodoc.Click, btnModificartipodoc.Click, btnestadotipodoc.Click, txtbuscartipodoc.TextChanged
+        Dim filtro As String
+        Dim filtro2 As String
+
+        If chboxInactivotipodoc.Checked Then
+
+            filtro = "nombre LIKE '" + txtbuscartipodoc.Text + "%'"
+
+            dgvDocumentos.DataSource.Filter = filtro
+
+        Else
+            filtro = "estado = True and nombre LIKE '" + txtbuscartipodoc.Text + "%'"
+
+
+            dgvDocumentos.DataSource.Filter = filtro
+
+        End If
+    End Sub
+
 End Class

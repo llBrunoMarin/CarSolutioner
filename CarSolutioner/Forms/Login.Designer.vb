@@ -38,10 +38,12 @@ Partial Class Login
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tmrLoading = New System.Windows.Forms.Timer(Me.components)
         Me.bgwLogin = New System.ComponentModel.BackgroundWorker()
+        Me.lbldataincorrect = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.pboxLoading = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.lbldataincorrect = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -191,6 +193,29 @@ Partial Class Login
         'bgwLogin
         '
         '
+        'lbldataincorrect
+        '
+        Me.lbldataincorrect.BackColor = System.Drawing.Color.Transparent
+        Me.lbldataincorrect.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbldataincorrect.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lbldataincorrect.Location = New System.Drawing.Point(69, 265)
+        Me.lbldataincorrect.Name = "lbldataincorrect"
+        Me.lbldataincorrect.Size = New System.Drawing.Size(395, 15)
+        Me.lbldataincorrect.TabIndex = 35
+        Me.lbldataincorrect.Text = "lbldataincorrect"
+        Me.lbldataincorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lbldataincorrect.Visible = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.hide2
+        Me.PictureBox2.Location = New System.Drawing.Point(323, 242)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(27, 20)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 36
+        Me.PictureBox2.TabStop = False
+        '
         'pboxLoading
         '
         Me.pboxLoading.Image = Global.CarSolutioner.My.Resources.Resources.loadingsquare
@@ -213,19 +238,6 @@ Partial Class Login
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
-        'lbldataincorrect
-        '
-        Me.lbldataincorrect.BackColor = System.Drawing.Color.Transparent
-        Me.lbldataincorrect.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbldataincorrect.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lbldataincorrect.Location = New System.Drawing.Point(69, 265)
-        Me.lbldataincorrect.Name = "lbldataincorrect"
-        Me.lbldataincorrect.Size = New System.Drawing.Size(395, 15)
-        Me.lbldataincorrect.TabIndex = 35
-        Me.lbldataincorrect.Text = "lbldataincorrect"
-        Me.lbldataincorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.lbldataincorrect.Visible = False
-        '
         'Login
         '
         Me.AcceptButton = Me.btnLogin
@@ -233,6 +245,7 @@ Partial Class Login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(536, 381)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.lbldataincorrect)
         Me.Controls.Add(Me.pboxLoading)
         Me.Controls.Add(Me.Label3)
@@ -252,6 +265,7 @@ Partial Class Login
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "sh"
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -275,4 +289,5 @@ Partial Class Login
     Friend WithEvents tmrLoading As Timer
     Friend WithEvents bgwLogin As System.ComponentModel.BackgroundWorker
     Friend WithEvents lbldataincorrect As Label
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

@@ -346,6 +346,15 @@
     <None Include="Resources\error.png" />
   </ItemGroup>
   <ItemGroup>
+
+    <None Include="Resources\hide1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show.png" />
+
     <None Include="Resources\icons8-Xbox X-100.png" />
   </ItemGroup>
   <ItemGroup>
@@ -359,6 +368,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\preg.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

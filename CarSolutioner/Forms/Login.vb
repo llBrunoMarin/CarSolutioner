@@ -173,4 +173,8 @@ Public Class Login
         txtContraseña.PasswordChar = "●"
         PictureBox2.Image = CarSolutioner.My.Resources.hide2
     End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+
+    End Sub
 End Class

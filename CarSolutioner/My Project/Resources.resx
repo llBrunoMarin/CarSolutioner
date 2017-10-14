@@ -133,7 +133,7 @@
   </data>
   <data name="carga1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
+  </data>
   <data name="icons8-Xbox X-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-Xbox X-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -171,7 +171,7 @@
 
   <data name="carga4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carga1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
+  </data>
   <data name="carga6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carga2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 
@@ -185,7 +185,7 @@
   </data>
   <data name="dfdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dfdf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
+  </data>
   <data name="jiyu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jiyu.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 
@@ -208,7 +208,7 @@
   </data>
   <data name="carga8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
+  </data>
   <data name="ImagenLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ImagenLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -246,7 +246,7 @@
   </data>
   <data name="hide1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hide1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
+  </data>
   <data name="loadingsquare" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loadingsquare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -281,7 +281,7 @@
   </data>
   <data name="show1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
+  </data>
   <data name="carga" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carga.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

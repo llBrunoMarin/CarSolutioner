@@ -207,8 +207,7 @@ Partial Class Login
         Me.lbldataincorrect.Visible = False
         '
         'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.hide2
+        PictureBox2.Image = CarSolutioner.My.Resources.hide2
         Me.PictureBox2.Location = New System.Drawing.Point(323, 242)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(27, 20)
@@ -218,7 +217,7 @@ Partial Class Login
         '
         'pboxLoading
         '
-        Me.pboxLoading.Image = Global.CarSolutioner.My.Resources.Resources.loadingsquare
+        Me.pboxLoading.Image = CType(resources.GetObject("pboxLoading.Image"), System.Drawing.Image)
         Me.pboxLoading.Location = New System.Drawing.Point(218, 176)
         Me.pboxLoading.Name = "pboxLoading"
         Me.pboxLoading.Size = New System.Drawing.Size(99, 75)

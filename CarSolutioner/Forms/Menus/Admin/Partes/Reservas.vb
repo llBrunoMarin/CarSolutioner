@@ -247,7 +247,7 @@ Partial Public Class frmMainMenu
 
 
                     Else
-                        AmaranthMessagebox("Ese cliente ya tiene una reserva activa.", "Error")
+                        AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")
                     End If
 
                 Else

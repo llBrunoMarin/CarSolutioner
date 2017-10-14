@@ -1,6 +1,6 @@
 ﻿Public Class frmAlquilar
 
-    Dim ReservaSeleccionada As ReservaSeleccionada = frmMainMenu.ReservaSeleccionada
+    Dim ReservaSeleccionada As ReservaSeleccionada = frmMainMenu.ReservaSeleccionadaAlquiler
 
     'Agregar resalquiler fin para cambiar con la q este en el form, por si la quiere cambiar 
     Private Sub Alquilar_Activated(sender As Object, e As EventArgs) Handles Me.Load

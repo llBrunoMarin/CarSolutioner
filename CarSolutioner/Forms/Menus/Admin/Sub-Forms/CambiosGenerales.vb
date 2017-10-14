@@ -75,7 +75,6 @@ ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
         chboxsucinactivas.Checked = True
         inactivascategorias.Checked = True
         chboxTiposInactivos.Checked = True
-        Dim filtro As String
         'cbxCategoriaFilter.SelectedItem = 1
         'filtro = " idcategoria = " + cbxCategoriaFilter.SelectedValue.ToString + ""
         'dgvVehiculoXSucursal.DataSource.Filter = filtro
@@ -1093,7 +1092,6 @@ And ma.idmarca='" + idmarca + "')
     End Sub
     Private Sub chboxInactivotipodoc_CheckedChanged(sender As Object, e As EventArgs) Handles chboxInactivotipodoc.CheckedChanged, btnaddtipodoc.Click, btnModificartipodoc.Click, btnestadotipodoc.Click, txtbuscartipodoc.TextChanged
         Dim filtro As String
-        Dim filtro2 As String
 
         If chboxInactivotipodoc.Checked Then
 

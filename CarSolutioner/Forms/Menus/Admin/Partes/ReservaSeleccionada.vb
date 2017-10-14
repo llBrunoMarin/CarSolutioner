@@ -13,6 +13,7 @@
     Dim _UsuarioEmpleado As String
     Dim _IdCantKM As Integer
     Dim _CostoTotal As Integer
+    Dim _DescuentoCliente As Integer
     Dim _DiasReservados As DateInterval
 
     Public Property IdReserva As Integer
@@ -138,6 +139,15 @@
         End Get
         Set()
             _DiasReservados = (Me.FechaReservaFin - Me.FechaReservaInicio).Days
+        End Set
+    End Property
+
+    Public Property DescuentoCliente As Integer
+        Get
+            Return _DescuentoCliente
+        End Get
+        Set(value As Integer)
+            _DescuentoCliente = value
         End Set
     End Property
 End Class

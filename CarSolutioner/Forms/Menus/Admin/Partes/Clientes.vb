@@ -167,7 +167,6 @@ Partial Public Class frmMainMenu
 
                 Dim TelefonosPersona As New DataTable
                 TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + "")
-                Dim telefonoInsertar As String
                 Dim ListaTelefonos As New List(Of String)
 
                 'Agrega cada item del combobox a la Lista

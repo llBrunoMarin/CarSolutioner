@@ -33,12 +33,12 @@ Partial Class FinalizarAlquiler
         Me.txtDescuentoCliente = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnAgregarDescuentoCliente = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnCerrarMsgbox = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.lblTitulo = New System.Windows.Forms.Label()
-        Me.btnAgregarDescuentoCliente = New System.Windows.Forms.Button()
         Me.btnAgregarDescuentoAlquiler = New System.Windows.Forms.Button()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -171,6 +171,24 @@ Partial Class FinalizarAlquiler
         Me.Panel1.Size = New System.Drawing.Size(233, 302)
         Me.Panel1.TabIndex = 56
         '
+        'btnAgregarDescuentoCliente
+        '
+        Me.btnAgregarDescuentoCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAgregarDescuentoCliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnAgregarDescuentoCliente.FlatAppearance.BorderSize = 0
+        Me.btnAgregarDescuentoCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnAgregarDescuentoCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnAgregarDescuentoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregarDescuentoCliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
+        Me.btnAgregarDescuentoCliente.ForeColor = System.Drawing.Color.White
+        Me.btnAgregarDescuentoCliente.Location = New System.Drawing.Point(135, 151)
+        Me.btnAgregarDescuentoCliente.Name = "btnAgregarDescuentoCliente"
+        Me.btnAgregarDescuentoCliente.Size = New System.Drawing.Size(18, 18)
+        Me.btnAgregarDescuentoCliente.TabIndex = 49
+        Me.btnAgregarDescuentoCliente.Text = "+"
+        Me.btnAgregarDescuentoCliente.UseCompatibleTextRendering = True
+        Me.btnAgregarDescuentoCliente.UseVisualStyleBackColor = False
+        '
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -235,24 +253,6 @@ Partial Class FinalizarAlquiler
         Me.lblTitulo.Size = New System.Drawing.Size(78, 17)
         Me.lblTitulo.TabIndex = 35
         Me.lblTitulo.Text = "Alquiler de: "
-        '
-        'btnAgregarDescuentoCliente
-        '
-        Me.btnAgregarDescuentoCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnAgregarDescuentoCliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnAgregarDescuentoCliente.FlatAppearance.BorderSize = 0
-        Me.btnAgregarDescuentoCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnAgregarDescuentoCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnAgregarDescuentoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarDescuentoCliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
-        Me.btnAgregarDescuentoCliente.ForeColor = System.Drawing.Color.White
-        Me.btnAgregarDescuentoCliente.Location = New System.Drawing.Point(135, 151)
-        Me.btnAgregarDescuentoCliente.Name = "btnAgregarDescuentoCliente"
-        Me.btnAgregarDescuentoCliente.Size = New System.Drawing.Size(18, 18)
-        Me.btnAgregarDescuentoCliente.TabIndex = 49
-        Me.btnAgregarDescuentoCliente.Text = "+"
-        Me.btnAgregarDescuentoCliente.UseCompatibleTextRendering = True
-        Me.btnAgregarDescuentoCliente.UseVisualStyleBackColor = False
         '
         'btnAgregarDescuentoAlquiler
         '
@@ -339,6 +339,7 @@ Partial Class FinalizarAlquiler
         Me.Controls.Add(Me.txtCostoTotal)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FinalizarAlquiler"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FinalizarAlquiler"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

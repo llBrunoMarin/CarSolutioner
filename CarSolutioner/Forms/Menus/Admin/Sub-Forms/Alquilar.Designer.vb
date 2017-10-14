@@ -25,6 +25,27 @@ Partial Class frmAlquilar
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAlquilar))
         Me.dgvAlquilar = New System.Windows.Forms.DataGridView()
+        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmodelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtTipo = New System.Windows.Forms.TextBox()
         Me.txtCategoria = New System.Windows.Forms.TextBox()
         Me.txtSucursal = New System.Windows.Forms.TextBox()
@@ -51,27 +72,6 @@ Partial Class frmAlquilar
         Me.dtpFRInicio = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cbxSucLlegada = New System.Windows.Forms.ComboBox()
-        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcategoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmodelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvAlquilar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,6 +101,167 @@ Partial Class frmAlquilar
         Me.dgvAlquilar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAlquilar.Size = New System.Drawing.Size(1035, 476)
         Me.dgvAlquilar.TabIndex = 0
+        '
+        'matricula
+        '
+        Me.matricula.DataPropertyName = "matricula"
+        Me.matricula.HeaderText = "Matrícula"
+        Me.matricula.Name = "matricula"
+        Me.matricula.ReadOnly = True
+        '
+        'marca
+        '
+        Me.marca.DataPropertyName = "marca"
+        Me.marca.HeaderText = "Marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        '
+        'modelo
+        '
+        Me.modelo.DataPropertyName = "modelo"
+        Me.modelo.HeaderText = "Modelo"
+        Me.modelo.Name = "modelo"
+        Me.modelo.ReadOnly = True
+        '
+        'nrochasis
+        '
+        Me.nrochasis.DataPropertyName = "nrochasis"
+        Me.nrochasis.HeaderText = "nrochasis"
+        Me.nrochasis.Name = "nrochasis"
+        Me.nrochasis.ReadOnly = True
+        Me.nrochasis.Visible = False
+        '
+        'anio
+        '
+        Me.anio.DataPropertyName = "anio"
+        Me.anio.HeaderText = "Año"
+        Me.anio.Name = "anio"
+        Me.anio.ReadOnly = True
+        '
+        'kilometraje
+        '
+        Me.kilometraje.DataPropertyName = "kilometraje"
+        Me.kilometraje.HeaderText = "Kilometraje"
+        Me.kilometraje.Name = "kilometraje"
+        Me.kilometraje.ReadOnly = True
+        '
+        'cantidaddepuertas
+        '
+        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
+        Me.cantidaddepuertas.HeaderText = "Puertas"
+        Me.cantidaddepuertas.Name = "cantidaddepuertas"
+        Me.cantidaddepuertas.ReadOnly = True
+        '
+        'cantidaddepasajeros
+        '
+        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
+        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.ReadOnly = True
+        '
+        'cantidaddemaletas
+        '
+        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
+        Me.cantidaddemaletas.HeaderText = "Maletas"
+        Me.cantidaddemaletas.Name = "cantidaddemaletas"
+        Me.cantidaddemaletas.ReadOnly = True
+        '
+        'aireacondicionado
+        '
+        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
+        Me.aireacondicionado.HeaderText = "Aire"
+        Me.aireacondicionado.Name = "aireacondicionado"
+        Me.aireacondicionado.ReadOnly = True
+        Me.aireacondicionado.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'esmanual
+        '
+        Me.esmanual.DataPropertyName = "esmanual"
+        Me.esmanual.HeaderText = "Manual"
+        Me.esmanual.Name = "esmanual"
+        Me.esmanual.ReadOnly = True
+        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'deducible
+        '
+        Me.deducible.DataPropertyName = "deducible"
+        Me.deducible.HeaderText = "Deducible"
+        Me.deducible.Name = "deducible"
+        Me.deducible.ReadOnly = True
+        '
+        'idcategoria
+        '
+        Me.idcategoria.DataPropertyName = "idcategoria"
+        Me.idcategoria.HeaderText = "idcategoria"
+        Me.idcategoria.Name = "idcategoria"
+        Me.idcategoria.ReadOnly = True
+        Me.idcategoria.Visible = False
+        '
+        'idmodelo
+        '
+        Me.idmodelo.DataPropertyName = "idmodelo"
+        Me.idmodelo.HeaderText = "idmodelo"
+        Me.idmodelo.Name = "idmodelo"
+        Me.idmodelo.ReadOnly = True
+        Me.idmodelo.Visible = False
+        '
+        'idsucursal
+        '
+        Me.idsucursal.DataPropertyName = "idsucursal"
+        Me.idsucursal.HeaderText = "idsucursal"
+        Me.idsucursal.Name = "idsucursal"
+        Me.idsucursal.ReadOnly = True
+        Me.idsucursal.Visible = False
+        '
+        'estado
+        '
+        Me.estado.DataPropertyName = "estado"
+        Me.estado.HeaderText = "estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        Me.estado.Visible = False
+        '
+        'idmarca
+        '
+        Me.idmarca.DataPropertyName = "idmarca"
+        Me.idmarca.HeaderText = "idmarca"
+        Me.idmarca.Name = "idmarca"
+        Me.idmarca.ReadOnly = True
+        Me.idmarca.Visible = False
+        '
+        'tipo
+        '
+        Me.tipo.DataPropertyName = "tipo"
+        Me.tipo.HeaderText = "Tipo"
+        Me.tipo.Name = "tipo"
+        Me.tipo.ReadOnly = True
+        Me.tipo.Visible = False
+        '
+        'idtipo
+        '
+        Me.idtipo.DataPropertyName = "idtipo"
+        Me.idtipo.HeaderText = "idtipo"
+        Me.idtipo.Name = "idtipo"
+        Me.idtipo.ReadOnly = True
+        Me.idtipo.Visible = False
+        '
+        'categoria
+        '
+        Me.categoria.DataPropertyName = "categoria"
+        Me.categoria.HeaderText = "Categoria"
+        Me.categoria.Name = "categoria"
+        Me.categoria.ReadOnly = True
+        Me.categoria.Visible = False
+        '
+        'sucursal
+        '
+        Me.sucursal.DataPropertyName = "sucursal"
+        Me.sucursal.HeaderText = "Sucursal"
+        Me.sucursal.Name = "sucursal"
+        Me.sucursal.ReadOnly = True
+        Me.sucursal.Visible = False
         '
         'txtTipo
         '
@@ -376,167 +537,6 @@ Partial Class frmAlquilar
         Me.cbxSucLlegada.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucLlegada.TabIndex = 56
         '
-        'matricula
-        '
-        Me.matricula.DataPropertyName = "matricula"
-        Me.matricula.HeaderText = "Matrícula"
-        Me.matricula.Name = "matricula"
-        Me.matricula.ReadOnly = True
-        '
-        'marca
-        '
-        Me.marca.DataPropertyName = "marca"
-        Me.marca.HeaderText = "Marca"
-        Me.marca.Name = "marca"
-        Me.marca.ReadOnly = True
-        '
-        'modelo
-        '
-        Me.modelo.DataPropertyName = "modelo"
-        Me.modelo.HeaderText = "Modelo"
-        Me.modelo.Name = "modelo"
-        Me.modelo.ReadOnly = True
-        '
-        'nrochasis
-        '
-        Me.nrochasis.DataPropertyName = "nrochasis"
-        Me.nrochasis.HeaderText = "nrochasis"
-        Me.nrochasis.Name = "nrochasis"
-        Me.nrochasis.ReadOnly = True
-        Me.nrochasis.Visible = False
-        '
-        'anio
-        '
-        Me.anio.DataPropertyName = "anio"
-        Me.anio.HeaderText = "Año"
-        Me.anio.Name = "anio"
-        Me.anio.ReadOnly = True
-        '
-        'kilometraje
-        '
-        Me.kilometraje.DataPropertyName = "kilometraje"
-        Me.kilometraje.HeaderText = "Kilometraje"
-        Me.kilometraje.Name = "kilometraje"
-        Me.kilometraje.ReadOnly = True
-        '
-        'cantidaddepuertas
-        '
-        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
-        Me.cantidaddepuertas.HeaderText = "Puertas"
-        Me.cantidaddepuertas.Name = "cantidaddepuertas"
-        Me.cantidaddepuertas.ReadOnly = True
-        '
-        'cantidaddepasajeros
-        '
-        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
-        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.ReadOnly = True
-        '
-        'cantidaddemaletas
-        '
-        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
-        Me.cantidaddemaletas.HeaderText = "Maletas"
-        Me.cantidaddemaletas.Name = "cantidaddemaletas"
-        Me.cantidaddemaletas.ReadOnly = True
-        '
-        'aireacondicionado
-        '
-        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
-        Me.aireacondicionado.HeaderText = "Aire"
-        Me.aireacondicionado.Name = "aireacondicionado"
-        Me.aireacondicionado.ReadOnly = True
-        Me.aireacondicionado.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
-        'esmanual
-        '
-        Me.esmanual.DataPropertyName = "esmanual"
-        Me.esmanual.HeaderText = "Manual"
-        Me.esmanual.Name = "esmanual"
-        Me.esmanual.ReadOnly = True
-        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
-        'deducible
-        '
-        Me.deducible.DataPropertyName = "deducible"
-        Me.deducible.HeaderText = "Deducible"
-        Me.deducible.Name = "deducible"
-        Me.deducible.ReadOnly = True
-        '
-        'idcategoria
-        '
-        Me.idcategoria.DataPropertyName = "idcategoria"
-        Me.idcategoria.HeaderText = "idcategoria"
-        Me.idcategoria.Name = "idcategoria"
-        Me.idcategoria.ReadOnly = True
-        Me.idcategoria.Visible = False
-        '
-        'idmodelo
-        '
-        Me.idmodelo.DataPropertyName = "idmodelo"
-        Me.idmodelo.HeaderText = "idmodelo"
-        Me.idmodelo.Name = "idmodelo"
-        Me.idmodelo.ReadOnly = True
-        Me.idmodelo.Visible = False
-        '
-        'idsucursal
-        '
-        Me.idsucursal.DataPropertyName = "idsucursal"
-        Me.idsucursal.HeaderText = "idsucursal"
-        Me.idsucursal.Name = "idsucursal"
-        Me.idsucursal.ReadOnly = True
-        Me.idsucursal.Visible = False
-        '
-        'estado
-        '
-        Me.estado.DataPropertyName = "estado"
-        Me.estado.HeaderText = "estado"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        Me.estado.Visible = False
-        '
-        'idmarca
-        '
-        Me.idmarca.DataPropertyName = "idmarca"
-        Me.idmarca.HeaderText = "idmarca"
-        Me.idmarca.Name = "idmarca"
-        Me.idmarca.ReadOnly = True
-        Me.idmarca.Visible = False
-        '
-        'tipo
-        '
-        Me.tipo.DataPropertyName = "tipo"
-        Me.tipo.HeaderText = "Tipo"
-        Me.tipo.Name = "tipo"
-        Me.tipo.ReadOnly = True
-        Me.tipo.Visible = False
-        '
-        'idtipo
-        '
-        Me.idtipo.DataPropertyName = "idtipo"
-        Me.idtipo.HeaderText = "idtipo"
-        Me.idtipo.Name = "idtipo"
-        Me.idtipo.ReadOnly = True
-        Me.idtipo.Visible = False
-        '
-        'categoria
-        '
-        Me.categoria.DataPropertyName = "categoria"
-        Me.categoria.HeaderText = "Categoria"
-        Me.categoria.Name = "categoria"
-        Me.categoria.ReadOnly = True
-        Me.categoria.Visible = False
-        '
-        'sucursal
-        '
-        Me.sucursal.DataPropertyName = "sucursal"
-        Me.sucursal.HeaderText = "Sucursal"
-        Me.sucursal.Name = "sucursal"
-        Me.sucursal.ReadOnly = True
-        Me.sucursal.Visible = False
-        '
         'frmAlquilar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -567,7 +567,6 @@ Partial Class frmAlquilar
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAlquilar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Alquilar"
         CType(Me.dgvAlquilar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()

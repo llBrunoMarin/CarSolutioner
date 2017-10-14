@@ -32,9 +32,9 @@ Partial Class frmMainMenu
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,7 +49,9 @@ Partial Class frmMainMenu
         Me.btnMantenimiento = New System.Windows.Forms.Button()
         Me.btnEmpleados = New System.Windows.Forms.Button()
         Me.btnVehiculos = New System.Windows.Forms.Button()
+        Me.pcboxloading = New System.Windows.Forms.PictureBox()
         Me.btnClientes = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.tbcTabControl = New System.Windows.Forms.TabControl()
         Me.tbpClientes = New System.Windows.Forms.TabPage()
         Me.tabClientes = New System.Windows.Forms.TabControl()
@@ -380,6 +382,27 @@ Partial Class frmMainMenu
         Me.tabRes_Alq = New System.Windows.Forms.TabControl()
         Me.Reservas = New System.Windows.Forms.TabPage()
         Me.dgvReservas = New System.Windows.Forms.DataGridView()
+        Me.nombreapellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrodocumentores = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservainicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservafin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcantidadkm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidadkmtext = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.costototalres = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.salida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.llegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarioempleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechatramite = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalsalida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idestadoreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadoreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalllegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnModificarReserva = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -415,13 +438,11 @@ Partial Class frmMainMenu
         Me.txtDocumARes = New System.Windows.Forms.TextBox()
         Me.cbxTipoAReserva = New System.Windows.Forms.ComboBox()
         Me.cbxKmARes = New System.Windows.Forms.ComboBox()
-        Me.Label130 = New System.Windows.Forms.Label()
         Me.dtpInicioARes = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cbxSucSalidaARes = New System.Windows.Forms.ComboBox()
         Me.cbxSucLlegadaARes = New System.Windows.Forms.ComboBox()
-        Me.txtCostoTotalAReserva = New System.Windows.Forms.TextBox()
         Me.pnlBRes = New System.Windows.Forms.Panel()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.btnBajaBRes = New System.Windows.Forms.Button()
@@ -461,49 +482,28 @@ Partial Class frmMainMenu
         Me.cbxSucSalFres = New System.Windows.Forms.ComboBox()
         Me.cbxSucLlegFRes = New System.Windows.Forms.ComboBox()
         Me.Alquileres = New System.Windows.Forms.TabPage()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label151 = New System.Windows.Forms.Label()
+        Me.Label152 = New System.Windows.Forms.Label()
+        Me.Label153 = New System.Windows.Forms.Label()
+        Me.Label154 = New System.Windows.Forms.Label()
+        Me.Label155 = New System.Windows.Forms.Label()
+        Me.Label156 = New System.Windows.Forms.Label()
+        Me.Label157 = New System.Windows.Forms.Label()
+        Me.DateTimePicker4 = New System.Windows.Forms.DateTimePicker()
+        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
+        Me.Label158 = New System.Windows.Forms.Label()
+        Me.DateTimePicker5 = New System.Windows.Forms.DateTimePicker()
+        Me.Label159 = New System.Windows.Forms.Label()
+        Me.Label160 = New System.Windows.Forms.Label()
+        Me.ComboBox9 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox10 = New System.Windows.Forms.ComboBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.dgvAlquileres = New System.Windows.Forms.DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label133 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Label136 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Label147 = New System.Windows.Forms.Label()
-        Me.tbpMenuPrincipal = New System.Windows.Forms.TabPage()
-        Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnCerrar = New System.Windows.Forms.Button()
-        Me.btnMinimizar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.nombreapellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrodocumentores = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechareservainicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechareservafin = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcantidadkm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidadkmtext = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.costototalres = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.salida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.llegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarioempleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechatramite = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalsalida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idestadoreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadoreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersonareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcategoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalllegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idreservaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nrodocumalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -526,6 +526,11 @@ Partial Class frmMainMenu
         Me.idsucursalllegadaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sucursaldestinoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.usuarioempleadoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label133 = New System.Windows.Forms.Label()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Label136 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label115 = New System.Windows.Forms.Label()
         Me.Label131 = New System.Windows.Forms.Label()
         Me.Label132 = New System.Windows.Forms.Label()
@@ -557,33 +562,29 @@ Partial Class frmMainMenu
         Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label151 = New System.Windows.Forms.Label()
-        Me.Label152 = New System.Windows.Forms.Label()
-        Me.Label153 = New System.Windows.Forms.Label()
-        Me.Label154 = New System.Windows.Forms.Label()
-        Me.Label155 = New System.Windows.Forms.Label()
-        Me.Label156 = New System.Windows.Forms.Label()
-        Me.Label157 = New System.Windows.Forms.Label()
-        Me.DateTimePicker4 = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
-        Me.Label158 = New System.Windows.Forms.Label()
-        Me.DateTimePicker5 = New System.Windows.Forms.DateTimePicker()
-        Me.Label159 = New System.Windows.Forms.Label()
-        Me.Label160 = New System.Windows.Forms.Label()
-        Me.ComboBox9 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox10 = New System.Windows.Forms.ComboBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.pcboxloading = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label147 = New System.Windows.Forms.Label()
+        Me.tbpMenuPrincipal = New System.Windows.Forms.TabPage()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.btnMinimizar = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label161 = New System.Windows.Forms.Label()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
+        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbcTabControl.SuspendLayout()
         Me.tbpClientes.SuspendLayout()
         Me.tabClientes.SuspendLayout()
@@ -629,13 +630,11 @@ Partial Class frmMainMenu
         Me.pnlBRes.SuspendLayout()
         Me.pnlFReserva.SuspendLayout()
         Me.Alquileres.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
-        Me.Panel4.SuspendLayout()
-        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -790,6 +789,17 @@ Partial Class frmMainMenu
         Me.btnVehiculos.Text = "VEHÍCULOS"
         Me.btnVehiculos.UseVisualStyleBackColor = False
         '
+        'pcboxloading
+        '
+        Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
+        Me.pcboxloading.Location = New System.Drawing.Point(36, 46)
+        Me.pcboxloading.Name = "pcboxloading"
+        Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
+        Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pcboxloading.TabIndex = 34
+        Me.pcboxloading.TabStop = False
+        Me.pcboxloading.Visible = False
+        '
         'btnClientes
         '
         Me.btnClientes.BackColor = System.Drawing.Color.Transparent
@@ -806,6 +816,16 @@ Partial Class frmMainMenu
         Me.btnClientes.TabIndex = 0
         Me.btnClientes.Text = "CLIENTES/USUARIOS"
         Me.btnClientes.UseVisualStyleBackColor = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
+        Me.PictureBox2.Location = New System.Drawing.Point(36, 46)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 35
+        Me.PictureBox2.TabStop = False
         '
         'tbcTabControl
         '
@@ -4570,6 +4590,169 @@ Partial Class frmMainMenu
         Me.dgvReservas.Size = New System.Drawing.Size(1308, 355)
         Me.dgvReservas.TabIndex = 9
         '
+        'nombreapellido
+        '
+        Me.nombreapellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.nombreapellido.DataPropertyName = "nombreapellido"
+        Me.nombreapellido.HeaderText = "Nombre"
+        Me.nombreapellido.Name = "nombreapellido"
+        Me.nombreapellido.ReadOnly = True
+        Me.nombreapellido.Width = 69
+        '
+        'nrodocumentores
+        '
+        Me.nrodocumentores.DataPropertyName = "nrodocumento"
+        Me.nrodocumentores.HeaderText = "Documento"
+        Me.nrodocumentores.Name = "nrodocumentores"
+        Me.nrodocumentores.ReadOnly = True
+        '
+        'fechareservainicio
+        '
+        Me.fechareservainicio.DataPropertyName = "fechareservainicio"
+        DataGridViewCellStyle9.Format = "dd/MM/yyyy hh:mm"
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.fechareservainicio.DefaultCellStyle = DataGridViewCellStyle9
+        Me.fechareservainicio.HeaderText = "Inicio"
+        Me.fechareservainicio.Name = "fechareservainicio"
+        Me.fechareservainicio.ReadOnly = True
+        '
+        'fechareservafin
+        '
+        Me.fechareservafin.DataPropertyName = "fechareservafin"
+        DataGridViewCellStyle10.Format = "dd/MM/yyyy hh:mm"
+        DataGridViewCellStyle10.NullValue = Nothing
+        Me.fechareservafin.DefaultCellStyle = DataGridViewCellStyle10
+        Me.fechareservafin.HeaderText = "Fin"
+        Me.fechareservafin.Name = "fechareservafin"
+        Me.fechareservafin.ReadOnly = True
+        '
+        'categoriareserva
+        '
+        Me.categoriareserva.DataPropertyName = "categoria"
+        Me.categoriareserva.HeaderText = "Categoria"
+        Me.categoriareserva.Name = "categoriareserva"
+        Me.categoriareserva.ReadOnly = True
+        '
+        'tiporeserva
+        '
+        Me.tiporeserva.DataPropertyName = "tipo"
+        Me.tiporeserva.HeaderText = "Tipo"
+        Me.tiporeserva.Name = "tiporeserva"
+        Me.tiporeserva.ReadOnly = True
+        '
+        'idcantidadkm
+        '
+        Me.idcantidadkm.DataPropertyName = "idcantidadkm"
+        Me.idcantidadkm.HeaderText = "KM"
+        Me.idcantidadkm.Name = "idcantidadkm"
+        Me.idcantidadkm.ReadOnly = True
+        Me.idcantidadkm.Visible = False
+        '
+        'cantidadkmtext
+        '
+        Me.cantidadkmtext.DataPropertyName = "cantidadkmtext"
+        Me.cantidadkmtext.HeaderText = "Cantidad KM"
+        Me.cantidadkmtext.Name = "cantidadkmtext"
+        Me.cantidadkmtext.ReadOnly = True
+        '
+        'costototalres
+        '
+        Me.costototalres.DataPropertyName = "costototal"
+        Me.costototalres.HeaderText = "Costo"
+        Me.costototalres.Name = "costototalres"
+        Me.costototalres.ReadOnly = True
+        '
+        'salida
+        '
+        Me.salida.DataPropertyName = "salida"
+        Me.salida.HeaderText = "Salida"
+        Me.salida.Name = "salida"
+        Me.salida.ReadOnly = True
+        '
+        'llegada
+        '
+        Me.llegada.DataPropertyName = "llegada"
+        Me.llegada.HeaderText = "Llegada"
+        Me.llegada.Name = "llegada"
+        Me.llegada.ReadOnly = True
+        '
+        'usuarioempleado
+        '
+        Me.usuarioempleado.DataPropertyName = "usuarioempleado"
+        Me.usuarioempleado.HeaderText = "Vendedor"
+        Me.usuarioempleado.Name = "usuarioempleado"
+        Me.usuarioempleado.ReadOnly = True
+        '
+        'fechatramite
+        '
+        Me.fechatramite.DataPropertyName = "fechatramite"
+        Me.fechatramite.HeaderText = "Tramite"
+        Me.fechatramite.Name = "fechatramite"
+        Me.fechatramite.ReadOnly = True
+        '
+        'idreserva
+        '
+        Me.idreserva.DataPropertyName = "idreserva"
+        Me.idreserva.HeaderText = "idreserva"
+        Me.idreserva.Name = "idreserva"
+        Me.idreserva.ReadOnly = True
+        Me.idreserva.Visible = False
+        '
+        'idsucursalsalida
+        '
+        Me.idsucursalsalida.DataPropertyName = "idsucursalsalida"
+        Me.idsucursalsalida.HeaderText = "idsucursalsalida"
+        Me.idsucursalsalida.Name = "idsucursalsalida"
+        Me.idsucursalsalida.ReadOnly = True
+        Me.idsucursalsalida.Visible = False
+        '
+        'idestadoreserva
+        '
+        Me.idestadoreserva.DataPropertyName = "idestado"
+        Me.idestadoreserva.HeaderText = "idestado"
+        Me.idestadoreserva.Name = "idestadoreserva"
+        Me.idestadoreserva.ReadOnly = True
+        Me.idestadoreserva.Visible = False
+        '
+        'estadoreserva
+        '
+        Me.estadoreserva.DataPropertyName = "estado"
+        Me.estadoreserva.HeaderText = "Estado"
+        Me.estadoreserva.Name = "estadoreserva"
+        Me.estadoreserva.ReadOnly = True
+        '
+        'idpersonareserva
+        '
+        Me.idpersonareserva.DataPropertyName = "idpersona"
+        Me.idpersonareserva.HeaderText = "idpersona"
+        Me.idpersonareserva.Name = "idpersonareserva"
+        Me.idpersonareserva.ReadOnly = True
+        Me.idpersonareserva.Visible = False
+        '
+        'idcategoriareserva
+        '
+        Me.idcategoriareserva.DataPropertyName = "idcategoria"
+        Me.idcategoriareserva.HeaderText = "idcategoriareserva"
+        Me.idcategoriareserva.Name = "idcategoriareserva"
+        Me.idcategoriareserva.ReadOnly = True
+        Me.idcategoriareserva.Visible = False
+        '
+        'idtiporeserva
+        '
+        Me.idtiporeserva.DataPropertyName = "idtipo"
+        Me.idtiporeserva.HeaderText = "idtipo"
+        Me.idtiporeserva.Name = "idtiporeserva"
+        Me.idtiporeserva.ReadOnly = True
+        Me.idtiporeserva.Visible = False
+        '
+        'idsucursalllegada
+        '
+        Me.idsucursalllegada.DataPropertyName = "idsucursalllegada"
+        Me.idsucursalllegada.HeaderText = "idsucursalllegada"
+        Me.idsucursalllegada.Name = "idsucursalllegada"
+        Me.idsucursalllegada.ReadOnly = True
+        Me.idsucursalllegada.Visible = False
+        '
         'Panel1
         '
         Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -4814,6 +4997,7 @@ Partial Class frmMainMenu
         Me.pnlNuevaReserva.Controls.Add(Me.btnReservarARes)
         Me.pnlNuevaReserva.Controls.Add(Me.Label8)
         Me.pnlNuevaReserva.Controls.Add(Me.Label7)
+        Me.pnlNuevaReserva.Controls.Add(Me.Label161)
         Me.pnlNuevaReserva.Controls.Add(Me.Label6)
         Me.pnlNuevaReserva.Controls.Add(Me.Label20)
         Me.pnlNuevaReserva.Controls.Add(Me.Label3)
@@ -4824,13 +5008,11 @@ Partial Class frmMainMenu
         Me.pnlNuevaReserva.Controls.Add(Me.txtDocumARes)
         Me.pnlNuevaReserva.Controls.Add(Me.cbxTipoAReserva)
         Me.pnlNuevaReserva.Controls.Add(Me.cbxKmARes)
-        Me.pnlNuevaReserva.Controls.Add(Me.Label130)
         Me.pnlNuevaReserva.Controls.Add(Me.dtpInicioARes)
         Me.pnlNuevaReserva.Controls.Add(Me.Label5)
         Me.pnlNuevaReserva.Controls.Add(Me.Label4)
         Me.pnlNuevaReserva.Controls.Add(Me.cbxSucSalidaARes)
         Me.pnlNuevaReserva.Controls.Add(Me.cbxSucLlegadaARes)
-        Me.pnlNuevaReserva.Controls.Add(Me.txtCostoTotalAReserva)
         Me.pnlNuevaReserva.Location = New System.Drawing.Point(662, 364)
         Me.pnlNuevaReserva.Name = "pnlNuevaReserva"
         Me.pnlNuevaReserva.Size = New System.Drawing.Size(652, 216)
@@ -4973,17 +5155,6 @@ Partial Class frmMainMenu
         Me.cbxKmARes.Size = New System.Drawing.Size(121, 21)
         Me.cbxKmARes.TabIndex = 16
         '
-        'Label130
-        '
-        Me.Label130.AutoSize = True
-        Me.Label130.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label130.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label130.Location = New System.Drawing.Point(516, 50)
-        Me.Label130.Name = "Label130"
-        Me.Label130.Size = New System.Drawing.Size(75, 17)
-        Me.Label130.TabIndex = 29
-        Me.Label130.Text = "Costo Total"
-        '
         'dtpInicioARes
         '
         Me.dtpInicioARes.CustomFormat = "dd/MM/yyyy HH:mm"
@@ -5032,15 +5203,6 @@ Partial Class frmMainMenu
         Me.cbxSucLlegadaARes.Name = "cbxSucLlegadaARes"
         Me.cbxSucLlegadaARes.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucLlegadaARes.TabIndex = 19
-        '
-        'txtCostoTotalAReserva
-        '
-        Me.txtCostoTotalAReserva.Enabled = False
-        Me.txtCostoTotalAReserva.Location = New System.Drawing.Point(519, 70)
-        Me.txtCostoTotalAReserva.Name = "txtCostoTotalAReserva"
-        Me.txtCostoTotalAReserva.Size = New System.Drawing.Size(121, 20)
-        Me.txtCostoTotalAReserva.TabIndex = 22
-        Me.txtCostoTotalAReserva.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'pnlBRes
         '
@@ -5507,6 +5669,243 @@ Partial Class frmMainMenu
         Me.Alquileres.TabIndex = 1
         Me.Alquileres.Text = "Alquileres"
         '
+        'Panel4
+        '
+        Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel4.BackColor = System.Drawing.Color.Silver
+        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel4.Controls.Add(Me.Button2)
+        Me.Panel4.Controls.Add(Me.Label151)
+        Me.Panel4.Controls.Add(Me.Label152)
+        Me.Panel4.Controls.Add(Me.Label153)
+        Me.Panel4.Controls.Add(Me.Label154)
+        Me.Panel4.Controls.Add(Me.Label155)
+        Me.Panel4.Controls.Add(Me.Label156)
+        Me.Panel4.Controls.Add(Me.Label157)
+        Me.Panel4.Controls.Add(Me.DateTimePicker4)
+        Me.Panel4.Controls.Add(Me.ComboBox6)
+        Me.Panel4.Controls.Add(Me.TextBox4)
+        Me.Panel4.Controls.Add(Me.ComboBox7)
+        Me.Panel4.Controls.Add(Me.ComboBox8)
+        Me.Panel4.Controls.Add(Me.Label158)
+        Me.Panel4.Controls.Add(Me.DateTimePicker5)
+        Me.Panel4.Controls.Add(Me.Label159)
+        Me.Panel4.Controls.Add(Me.Label160)
+        Me.Panel4.Controls.Add(Me.ComboBox9)
+        Me.Panel4.Controls.Add(Me.ComboBox10)
+        Me.Panel4.Controls.Add(Me.TextBox5)
+        Me.Panel4.Location = New System.Drawing.Point(333, 589)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(652, 216)
+        Me.Panel4.TabIndex = 43
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(543, 174)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(99, 31)
+        Me.Button2.TabIndex = 18
+        Me.Button2.Text = "Modificar"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Label151
+        '
+        Me.Label151.AutoSize = True
+        Me.Label151.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label151.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label151.Location = New System.Drawing.Point(402, 101)
+        Me.Label151.Name = "Label151"
+        Me.Label151.Size = New System.Drawing.Size(64, 17)
+        Me.Label151.TabIndex = 31
+        Me.Label151.Text = "Fecha Fin"
+        '
+        'Label152
+        '
+        Me.Label152.AutoSize = True
+        Me.Label152.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label152.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label152.Location = New System.Drawing.Point(264, 101)
+        Me.Label152.Name = "Label152"
+        Me.Label152.Size = New System.Drawing.Size(80, 17)
+        Me.Label152.TabIndex = 30
+        Me.Label152.Text = "Fecha Inicio"
+        '
+        'Label153
+        '
+        Me.Label153.AutoSize = True
+        Me.Label153.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label153.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label153.Location = New System.Drawing.Point(399, 50)
+        Me.Label153.Name = "Label153"
+        Me.Label153.Size = New System.Drawing.Size(76, 17)
+        Me.Label153.TabIndex = 29
+        Me.Label153.Text = "Kilometraje"
+        '
+        'Label154
+        '
+        Me.Label154.AutoSize = True
+        Me.Label154.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label154.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label154.Location = New System.Drawing.Point(263, 51)
+        Me.Label154.Name = "Label154"
+        Me.Label154.Size = New System.Drawing.Size(32, 17)
+        Me.Label154.TabIndex = 26
+        Me.Label154.Text = "Tipo"
+        '
+        'Label155
+        '
+        Me.Label155.AutoSize = True
+        Me.Label155.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label155.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label155.Location = New System.Drawing.Point(136, 51)
+        Me.Label155.Name = "Label155"
+        Me.Label155.Size = New System.Drawing.Size(69, 17)
+        Me.Label155.TabIndex = 26
+        Me.Label155.Text = "Categoria"
+        '
+        'Label156
+        '
+        Me.Label156.AutoSize = True
+        Me.Label156.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label156.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label156.Location = New System.Drawing.Point(10, 51)
+        Me.Label156.Name = "Label156"
+        Me.Label156.Size = New System.Drawing.Size(103, 17)
+        Me.Label156.TabIndex = 25
+        Me.Label156.Text = "Nro Documento"
+        '
+        'Label157
+        '
+        Me.Label157.AutoSize = True
+        Me.Label157.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label157.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label157.Location = New System.Drawing.Point(9, 17)
+        Me.Label157.Name = "Label157"
+        Me.Label157.Size = New System.Drawing.Size(167, 22)
+        Me.Label157.TabIndex = 24
+        Me.Label157.Text = "Modificar Alquiler"
+        '
+        'DateTimePicker4
+        '
+        Me.DateTimePicker4.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.DateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker4.Location = New System.Drawing.Point(402, 124)
+        Me.DateTimePicker4.Name = "DateTimePicker4"
+        Me.DateTimePicker4.Size = New System.Drawing.Size(129, 20)
+        Me.DateTimePicker4.TabIndex = 20
+        '
+        'ComboBox6
+        '
+        Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox6.Location = New System.Drawing.Point(139, 71)
+        Me.ComboBox6.Name = "ComboBox6"
+        Me.ComboBox6.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox6.TabIndex = 23
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(12, 70)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(121, 20)
+        Me.TextBox4.TabIndex = 22
+        '
+        'ComboBox7
+        '
+        Me.ComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox7.FormattingEnabled = True
+        Me.ComboBox7.Location = New System.Drawing.Point(266, 71)
+        Me.ComboBox7.Name = "ComboBox7"
+        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox7.TabIndex = 16
+        '
+        'ComboBox8
+        '
+        Me.ComboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox8.FormattingEnabled = True
+        Me.ComboBox8.Location = New System.Drawing.Point(393, 70)
+        Me.ComboBox8.Name = "ComboBox8"
+        Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox8.TabIndex = 16
+        '
+        'Label158
+        '
+        Me.Label158.AutoSize = True
+        Me.Label158.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label158.Location = New System.Drawing.Point(516, 50)
+        Me.Label158.Name = "Label158"
+        Me.Label158.Size = New System.Drawing.Size(75, 17)
+        Me.Label158.TabIndex = 29
+        Me.Label158.Text = "Costo Total"
+        '
+        'DateTimePicker5
+        '
+        Me.DateTimePicker5.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.DateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker5.Location = New System.Drawing.Point(267, 123)
+        Me.DateTimePicker5.Name = "DateTimePicker5"
+        Me.DateTimePicker5.Size = New System.Drawing.Size(129, 20)
+        Me.DateTimePicker5.TabIndex = 21
+        '
+        'Label159
+        '
+        Me.Label159.AutoSize = True
+        Me.Label159.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label159.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label159.Location = New System.Drawing.Point(136, 101)
+        Me.Label159.Name = "Label159"
+        Me.Label159.Size = New System.Drawing.Size(105, 17)
+        Me.Label159.TabIndex = 28
+        Me.Label159.Text = "Sucursal Destino"
+        '
+        'Label160
+        '
+        Me.Label160.AutoSize = True
+        Me.Label160.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label160.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label160.Location = New System.Drawing.Point(9, 101)
+        Me.Label160.Name = "Label160"
+        Me.Label160.Size = New System.Drawing.Size(103, 17)
+        Me.Label160.TabIndex = 27
+        Me.Label160.Text = "Sucursal Partida"
+        '
+        'ComboBox9
+        '
+        Me.ComboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox9.FormattingEnabled = True
+        Me.ComboBox9.Location = New System.Drawing.Point(12, 123)
+        Me.ComboBox9.Name = "ComboBox9"
+        Me.ComboBox9.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox9.TabIndex = 17
+        '
+        'ComboBox10
+        '
+        Me.ComboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox10.FormattingEnabled = True
+        Me.ComboBox10.Location = New System.Drawing.Point(140, 123)
+        Me.ComboBox10.Name = "ComboBox10"
+        Me.ComboBox10.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox10.TabIndex = 19
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Enabled = False
+        Me.TextBox5.Location = New System.Drawing.Point(519, 70)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(121, 20)
+        Me.TextBox5.TabIndex = 22
+        Me.TextBox5.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'dgvAlquileres
         '
         Me.dgvAlquileres.AllowUserToAddRows = False
@@ -5529,419 +5928,6 @@ Partial Class frmMainMenu
         Me.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAlquileres.Size = New System.Drawing.Size(1308, 355)
         Me.dgvAlquileres.TabIndex = 10
-        '
-        'Panel2
-        '
-        Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel2.BackColor = System.Drawing.Color.Silver
-        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.Label133)
-        Me.Panel2.Controls.Add(Me.Button5)
-        Me.Panel2.Controls.Add(Me.Label136)
-        Me.Panel2.Location = New System.Drawing.Point(662, 364)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(650, 216)
-        Me.Panel2.TabIndex = 42
-        '
-        'Label133
-        '
-        Me.Label133.AutoSize = True
-        Me.Label133.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label133.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label133.Location = New System.Drawing.Point(9, 55)
-        Me.Label133.Name = "Label133"
-        Me.Label133.Size = New System.Drawing.Size(571, 34)
-        Me.Label133.TabIndex = 25
-        Me.Label133.Text = "Seleccione el alquiler que quiere dar por finalizado, y presione ""Finalizar"" para" &
-    " continuar" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Button5
-        '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.White
-        Me.Button5.Location = New System.Drawing.Point(540, 171)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(99, 31)
-        Me.Button5.TabIndex = 18
-        Me.Button5.Text = "Finalizar"
-        Me.Button5.UseVisualStyleBackColor = False
-        '
-        'Label136
-        '
-        Me.Label136.AutoSize = True
-        Me.Label136.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label136.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label136.Location = New System.Drawing.Point(9, 17)
-        Me.Label136.Name = "Label136"
-        Me.Label136.Size = New System.Drawing.Size(152, 22)
-        Me.Label136.TabIndex = 24
-        Me.Label136.Text = "Finalizar Alquiler"
-        '
-        'Panel3
-        '
-        Me.Panel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Panel3.BackColor = System.Drawing.Color.Silver
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.Label115)
-        Me.Panel3.Controls.Add(Me.Label131)
-        Me.Panel3.Controls.Add(Me.Label132)
-        Me.Panel3.Controls.Add(Me.Label137)
-        Me.Panel3.Controls.Add(Me.Label138)
-        Me.Panel3.Controls.Add(Me.CheckBox1)
-        Me.Panel3.Controls.Add(Me.CheckBox2)
-        Me.Panel3.Controls.Add(Me.CheckBox3)
-        Me.Panel3.Controls.Add(Me.CheckBox4)
-        Me.Panel3.Controls.Add(Me.Label139)
-        Me.Panel3.Controls.Add(Me.Label140)
-        Me.Panel3.Controls.Add(Me.Label141)
-        Me.Panel3.Controls.Add(Me.Label142)
-        Me.Panel3.Controls.Add(Me.Label143)
-        Me.Panel3.Controls.Add(Me.Label144)
-        Me.Panel3.Controls.Add(Me.Label145)
-        Me.Panel3.Controls.Add(Me.Label146)
-        Me.Panel3.Controls.Add(Me.Label148)
-        Me.Panel3.Controls.Add(Me.Label149)
-        Me.Panel3.Controls.Add(Me.Label150)
-        Me.Panel3.Controls.Add(Me.ComboBox1)
-        Me.Panel3.Controls.Add(Me.DateTimePicker1)
-        Me.Panel3.Controls.Add(Me.ComboBox2)
-        Me.Panel3.Controls.Add(Me.TextBox1)
-        Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Controls.Add(Me.TextBox3)
-        Me.Panel3.Controls.Add(Me.ComboBox3)
-        Me.Panel3.Controls.Add(Me.DateTimePicker2)
-        Me.Panel3.Controls.Add(Me.DateTimePicker3)
-        Me.Panel3.Controls.Add(Me.ComboBox4)
-        Me.Panel3.Controls.Add(Me.ComboBox5)
-        Me.Panel3.Controls.Add(Me.Button6)
-        Me.Panel3.Controls.Add(Me.Label147)
-        Me.Panel3.Location = New System.Drawing.Point(6, 364)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(650, 216)
-        Me.Panel3.TabIndex = 41
-        '
-        'Button6
-        '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button6.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.ForeColor = System.Drawing.Color.White
-        Me.Button6.Location = New System.Drawing.Point(541, 175)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(99, 31)
-        Me.Button6.TabIndex = 32
-        Me.Button6.Text = "Vaciar"
-        Me.Button6.UseVisualStyleBackColor = False
-        '
-        'Label147
-        '
-        Me.Label147.AutoSize = True
-        Me.Label147.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label147.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label147.Location = New System.Drawing.Point(9, 17)
-        Me.Label147.Name = "Label147"
-        Me.Label147.Size = New System.Drawing.Size(224, 22)
-        Me.Label147.TabIndex = 24
-        Me.Label147.Text = "Búsqueda de Alquileres"
-        '
-        'tbpMenuPrincipal
-        '
-        Me.tbpMenuPrincipal.BackColor = System.Drawing.Color.Silver
-        Me.tbpMenuPrincipal.Controls.Add(Me.PictureBox1)
-        Me.tbpMenuPrincipal.Location = New System.Drawing.Point(4, 25)
-        Me.tbpMenuPrincipal.Name = "tbpMenuPrincipal"
-        Me.tbpMenuPrincipal.Size = New System.Drawing.Size(1379, 862)
-        Me.tbpMenuPrincipal.TabIndex = 4
-        Me.tbpMenuPrincipal.Text = "MenuPrincipal"
-        '
-        'emailE
-        '
-        Me.emailE.DataPropertyName = "email"
-        Me.emailE.HeaderText = "Correo"
-        Me.emailE.Name = "emailE"
-        Me.emailE.ReadOnly = True
-        '
-        'nombreE
-        '
-        Me.nombreE.DataPropertyName = "nombre"
-        Me.nombreE.HeaderText = "Nombre"
-        Me.nombreE.Name = "nombreE"
-        Me.nombreE.ReadOnly = True
-        '
-        'nrodocumentoE
-        '
-        Me.nrodocumentoE.DataPropertyName = "nrodocumento"
-        Me.nrodocumentoE.HeaderText = "Nro Documento"
-        Me.nrodocumentoE.Name = "nrodocumentoE"
-        Me.nrodocumentoE.ReadOnly = True
-        '
-        'sucursalesE
-        '
-        Me.sucursalesE.DataPropertyName = "sucursales"
-        Me.sucursalesE.HeaderText = "Sucursales"
-        Me.sucursalesE.Name = "sucursalesE"
-        Me.sucursalesE.ReadOnly = True
-        '
-        'btnCerrar
-        '
-        Me.btnCerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCerrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCerrar.Location = New System.Drawing.Point(1572, 0)
-        Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
-        Me.btnCerrar.TabIndex = 35
-        Me.btnCerrar.Text = "✕"
-        Me.btnCerrar.UseVisualStyleBackColor = False
-        '
-        'btnMinimizar
-        '
-        Me.btnMinimizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMinimizar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMinimizar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnMinimizar.Location = New System.Drawing.Point(1534, 0)
-        Me.btnMinimizar.Name = "btnMinimizar"
-        Me.btnMinimizar.Size = New System.Drawing.Size(32, 30)
-        Me.btnMinimizar.TabIndex = 35
-        Me.btnMinimizar.Text = "—"
-        Me.btnMinimizar.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(1496, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(32, 30)
-        Me.Button1.TabIndex = 35
-        Me.Button1.Text = "↺"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'apellidoE
-        '
-        Me.apellidoE.DataPropertyName = "apellido"
-        Me.apellidoE.HeaderText = "Apellido"
-        Me.apellidoE.Name = "apellidoE"
-        Me.apellidoE.ReadOnly = True
-        '
-        'usuarioE
-        '
-        Me.usuarioE.DataPropertyName = "usuario"
-        Me.usuarioE.HeaderText = "Usuario"
-        Me.usuarioE.Name = "usuarioE"
-        Me.usuarioE.ReadOnly = True
-        '
-        'estadoE
-        '
-        Me.estadoE.DataPropertyName = "estado"
-        Me.estadoE.HeaderText = "estado"
-        Me.estadoE.Name = "estadoE"
-        Me.estadoE.ReadOnly = True
-        Me.estadoE.Visible = False
-        '
-        'idsucursalE
-        '
-        Me.idsucursalE.DataPropertyName = "idsucursal"
-        Me.idsucursalE.HeaderText = "id Sucursal"
-        Me.idsucursalE.Name = "idsucursalE"
-        Me.idsucursalE.ReadOnly = True
-        Me.idsucursalE.Visible = False
-        '
-        'idpersonaE
-        '
-        Me.idpersonaE.DataPropertyName = "idpersona"
-        Me.idpersonaE.HeaderText = "id Persona"
-        Me.idpersonaE.Name = "idpersonaE"
-        Me.idpersonaE.ReadOnly = True
-        Me.idpersonaE.Visible = False
-        '
-        'nombreapellido
-        '
-        Me.nombreapellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.nombreapellido.DataPropertyName = "nombreapellido"
-        Me.nombreapellido.HeaderText = "Nombre"
-        Me.nombreapellido.Name = "nombreapellido"
-        Me.nombreapellido.ReadOnly = True
-        Me.nombreapellido.Width = 69
-        '
-        'nrodocumentores
-        '
-        Me.nrodocumentores.DataPropertyName = "nrodocumento"
-        Me.nrodocumentores.HeaderText = "Documento"
-        Me.nrodocumentores.Name = "nrodocumentores"
-        Me.nrodocumentores.ReadOnly = True
-        '
-        'fechareservainicio
-        '
-        Me.fechareservainicio.DataPropertyName = "fechareservainicio"
-        DataGridViewCellStyle9.Format = "dd/MM/yyyy hh:mm"
-        DataGridViewCellStyle9.NullValue = Nothing
-        Me.fechareservainicio.DefaultCellStyle = DataGridViewCellStyle9
-        Me.fechareservainicio.HeaderText = "Inicio"
-        Me.fechareservainicio.Name = "fechareservainicio"
-        Me.fechareservainicio.ReadOnly = True
-        '
-        'fechareservafin
-        '
-        Me.fechareservafin.DataPropertyName = "fechareservafin"
-        DataGridViewCellStyle10.Format = "dd/MM/yyyy hh:mm"
-        DataGridViewCellStyle10.NullValue = Nothing
-        Me.fechareservafin.DefaultCellStyle = DataGridViewCellStyle10
-        Me.fechareservafin.HeaderText = "Fin"
-        Me.fechareservafin.Name = "fechareservafin"
-        Me.fechareservafin.ReadOnly = True
-        '
-        'categoriareserva
-        '
-        Me.categoriareserva.DataPropertyName = "categoria"
-        Me.categoriareserva.HeaderText = "Categoria"
-        Me.categoriareserva.Name = "categoriareserva"
-        Me.categoriareserva.ReadOnly = True
-        '
-        'tiporeserva
-        '
-        Me.tiporeserva.DataPropertyName = "tipo"
-        Me.tiporeserva.HeaderText = "Tipo"
-        Me.tiporeserva.Name = "tiporeserva"
-        Me.tiporeserva.ReadOnly = True
-        '
-        'idcantidadkm
-        '
-        Me.idcantidadkm.DataPropertyName = "idcantidadkm"
-        Me.idcantidadkm.HeaderText = "KM"
-        Me.idcantidadkm.Name = "idcantidadkm"
-        Me.idcantidadkm.ReadOnly = True
-        Me.idcantidadkm.Visible = False
-        '
-        'cantidadkmtext
-        '
-        Me.cantidadkmtext.DataPropertyName = "cantidadkmtext"
-        Me.cantidadkmtext.HeaderText = "Cantidad KM"
-        Me.cantidadkmtext.Name = "cantidadkmtext"
-        Me.cantidadkmtext.ReadOnly = True
-        '
-        'costototalres
-        '
-        Me.costototalres.DataPropertyName = "costototal"
-        Me.costototalres.HeaderText = "Costo"
-        Me.costototalres.Name = "costototalres"
-        Me.costototalres.ReadOnly = True
-        '
-        'salida
-        '
-        Me.salida.DataPropertyName = "salida"
-        Me.salida.HeaderText = "Salida"
-        Me.salida.Name = "salida"
-        Me.salida.ReadOnly = True
-        '
-        'llegada
-        '
-        Me.llegada.DataPropertyName = "llegada"
-        Me.llegada.HeaderText = "Llegada"
-        Me.llegada.Name = "llegada"
-        Me.llegada.ReadOnly = True
-        '
-        'usuarioempleado
-        '
-        Me.usuarioempleado.DataPropertyName = "usuarioempleado"
-        Me.usuarioempleado.HeaderText = "Vendedor"
-        Me.usuarioempleado.Name = "usuarioempleado"
-        Me.usuarioempleado.ReadOnly = True
-        '
-        'fechatramite
-        '
-        Me.fechatramite.DataPropertyName = "fechatramite"
-        Me.fechatramite.HeaderText = "Tramite"
-        Me.fechatramite.Name = "fechatramite"
-        Me.fechatramite.ReadOnly = True
-        '
-        'idreserva
-        '
-        Me.idreserva.DataPropertyName = "idreserva"
-        Me.idreserva.HeaderText = "idreserva"
-        Me.idreserva.Name = "idreserva"
-        Me.idreserva.ReadOnly = True
-        Me.idreserva.Visible = False
-        '
-        'idsucursalsalida
-        '
-        Me.idsucursalsalida.DataPropertyName = "idsucursalsalida"
-        Me.idsucursalsalida.HeaderText = "idsucursalsalida"
-        Me.idsucursalsalida.Name = "idsucursalsalida"
-        Me.idsucursalsalida.ReadOnly = True
-        Me.idsucursalsalida.Visible = False
-        '
-        'idestadoreserva
-        '
-        Me.idestadoreserva.DataPropertyName = "idestado"
-        Me.idestadoreserva.HeaderText = "idestado"
-        Me.idestadoreserva.Name = "idestadoreserva"
-        Me.idestadoreserva.ReadOnly = True
-        Me.idestadoreserva.Visible = False
-        '
-        'estadoreserva
-        '
-        Me.estadoreserva.DataPropertyName = "estado"
-        Me.estadoreserva.HeaderText = "Estado"
-        Me.estadoreserva.Name = "estadoreserva"
-        Me.estadoreserva.ReadOnly = True
-        '
-        'idpersonareserva
-        '
-        Me.idpersonareserva.DataPropertyName = "idpersona"
-        Me.idpersonareserva.HeaderText = "idpersona"
-        Me.idpersonareserva.Name = "idpersonareserva"
-        Me.idpersonareserva.ReadOnly = True
-        Me.idpersonareserva.Visible = False
-        '
-        'idcategoriareserva
-        '
-        Me.idcategoriareserva.DataPropertyName = "idcategoria"
-        Me.idcategoriareserva.HeaderText = "idcategoriareserva"
-        Me.idcategoriareserva.Name = "idcategoriareserva"
-        Me.idcategoriareserva.ReadOnly = True
-        Me.idcategoriareserva.Visible = False
-        '
-        'idtiporeserva
-        '
-        Me.idtiporeserva.DataPropertyName = "idtipo"
-        Me.idtiporeserva.HeaderText = "idtipo"
-        Me.idtiporeserva.Name = "idtiporeserva"
-        Me.idtiporeserva.ReadOnly = True
-        Me.idtiporeserva.Visible = False
-        '
-        'idsucursalllegada
-        '
-        Me.idsucursalllegada.DataPropertyName = "idsucursalllegada"
-        Me.idsucursalllegada.HeaderText = "idsucursalllegada"
-        Me.idsucursalllegada.Name = "idsucursalllegada"
-        Me.idsucursalllegada.ReadOnly = True
-        Me.idsucursalllegada.Visible = False
         '
         'idreservaalquiler
         '
@@ -6104,6 +6090,103 @@ Partial Class frmMainMenu
         Me.usuarioempleadoalq.HeaderText = "Usuario"
         Me.usuarioempleadoalq.Name = "usuarioempleadoalq"
         Me.usuarioempleadoalq.ReadOnly = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.BackColor = System.Drawing.Color.Silver
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Label133)
+        Me.Panel2.Controls.Add(Me.Button5)
+        Me.Panel2.Controls.Add(Me.Label136)
+        Me.Panel2.Location = New System.Drawing.Point(662, 364)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(650, 216)
+        Me.Panel2.TabIndex = 42
+        '
+        'Label133
+        '
+        Me.Label133.AutoSize = True
+        Me.Label133.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label133.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label133.Location = New System.Drawing.Point(9, 55)
+        Me.Label133.Name = "Label133"
+        Me.Label133.Size = New System.Drawing.Size(571, 34)
+        Me.Label133.TabIndex = 25
+        Me.Label133.Text = "Seleccione el alquiler que quiere dar por finalizado, y presione ""Finalizar"" para" &
+    " continuar" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'Button5
+        '
+        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.Color.White
+        Me.Button5.Location = New System.Drawing.Point(540, 171)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(99, 31)
+        Me.Button5.TabIndex = 18
+        Me.Button5.Text = "Finalizar"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'Label136
+        '
+        Me.Label136.AutoSize = True
+        Me.Label136.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label136.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label136.Location = New System.Drawing.Point(9, 17)
+        Me.Label136.Name = "Label136"
+        Me.Label136.Size = New System.Drawing.Size(152, 22)
+        Me.Label136.TabIndex = 24
+        Me.Label136.Text = "Finalizar Alquiler"
+        '
+        'Panel3
+        '
+        Me.Panel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.BackColor = System.Drawing.Color.Silver
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.Label115)
+        Me.Panel3.Controls.Add(Me.Label131)
+        Me.Panel3.Controls.Add(Me.Label132)
+        Me.Panel3.Controls.Add(Me.Label137)
+        Me.Panel3.Controls.Add(Me.Label138)
+        Me.Panel3.Controls.Add(Me.CheckBox1)
+        Me.Panel3.Controls.Add(Me.CheckBox2)
+        Me.Panel3.Controls.Add(Me.CheckBox3)
+        Me.Panel3.Controls.Add(Me.CheckBox4)
+        Me.Panel3.Controls.Add(Me.Label139)
+        Me.Panel3.Controls.Add(Me.Label140)
+        Me.Panel3.Controls.Add(Me.Label141)
+        Me.Panel3.Controls.Add(Me.Label142)
+        Me.Panel3.Controls.Add(Me.Label143)
+        Me.Panel3.Controls.Add(Me.Label144)
+        Me.Panel3.Controls.Add(Me.Label145)
+        Me.Panel3.Controls.Add(Me.Label146)
+        Me.Panel3.Controls.Add(Me.Label148)
+        Me.Panel3.Controls.Add(Me.Label149)
+        Me.Panel3.Controls.Add(Me.Label150)
+        Me.Panel3.Controls.Add(Me.ComboBox1)
+        Me.Panel3.Controls.Add(Me.DateTimePicker1)
+        Me.Panel3.Controls.Add(Me.ComboBox2)
+        Me.Panel3.Controls.Add(Me.TextBox1)
+        Me.Panel3.Controls.Add(Me.TextBox2)
+        Me.Panel3.Controls.Add(Me.TextBox3)
+        Me.Panel3.Controls.Add(Me.ComboBox3)
+        Me.Panel3.Controls.Add(Me.DateTimePicker2)
+        Me.Panel3.Controls.Add(Me.DateTimePicker3)
+        Me.Panel3.Controls.Add(Me.ComboBox4)
+        Me.Panel3.Controls.Add(Me.ComboBox5)
+        Me.Panel3.Controls.Add(Me.Button6)
+        Me.Panel3.Controls.Add(Me.Label147)
+        Me.Panel3.Location = New System.Drawing.Point(6, 364)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(650, 216)
+        Me.Panel3.TabIndex = 41
         '
         'Label115
         '
@@ -6431,263 +6514,44 @@ Partial Class frmMainMenu
         Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox5.TabIndex = 38
         '
-        'Panel4
+        'Button6
         '
-        Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel4.BackColor = System.Drawing.Color.Silver
-        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel4.Controls.Add(Me.Button2)
-        Me.Panel4.Controls.Add(Me.Label151)
-        Me.Panel4.Controls.Add(Me.Label152)
-        Me.Panel4.Controls.Add(Me.Label153)
-        Me.Panel4.Controls.Add(Me.Label154)
-        Me.Panel4.Controls.Add(Me.Label155)
-        Me.Panel4.Controls.Add(Me.Label156)
-        Me.Panel4.Controls.Add(Me.Label157)
-        Me.Panel4.Controls.Add(Me.DateTimePicker4)
-        Me.Panel4.Controls.Add(Me.ComboBox6)
-        Me.Panel4.Controls.Add(Me.TextBox4)
-        Me.Panel4.Controls.Add(Me.ComboBox7)
-        Me.Panel4.Controls.Add(Me.ComboBox8)
-        Me.Panel4.Controls.Add(Me.Label158)
-        Me.Panel4.Controls.Add(Me.DateTimePicker5)
-        Me.Panel4.Controls.Add(Me.Label159)
-        Me.Panel4.Controls.Add(Me.Label160)
-        Me.Panel4.Controls.Add(Me.ComboBox9)
-        Me.Panel4.Controls.Add(Me.ComboBox10)
-        Me.Panel4.Controls.Add(Me.TextBox5)
-        Me.Panel4.Location = New System.Drawing.Point(333, 589)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(652, 216)
-        Me.Panel4.TabIndex = 43
+        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button6.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ForeColor = System.Drawing.Color.White
+        Me.Button6.Location = New System.Drawing.Point(541, 175)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(99, 31)
+        Me.Button6.TabIndex = 32
+        Me.Button6.Text = "Vaciar"
+        Me.Button6.UseVisualStyleBackColor = False
         '
-        'Button2
+        'Label147
         '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(543, 174)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(99, 31)
-        Me.Button2.TabIndex = 18
-        Me.Button2.Text = "Modificar"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.Label147.AutoSize = True
+        Me.Label147.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label147.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label147.Location = New System.Drawing.Point(9, 17)
+        Me.Label147.Name = "Label147"
+        Me.Label147.Size = New System.Drawing.Size(224, 22)
+        Me.Label147.TabIndex = 24
+        Me.Label147.Text = "Búsqueda de Alquileres"
         '
-        'Label151
+        'tbpMenuPrincipal
         '
-        Me.Label151.AutoSize = True
-        Me.Label151.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label151.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label151.Location = New System.Drawing.Point(402, 101)
-        Me.Label151.Name = "Label151"
-        Me.Label151.Size = New System.Drawing.Size(64, 17)
-        Me.Label151.TabIndex = 31
-        Me.Label151.Text = "Fecha Fin"
-        '
-        'Label152
-        '
-        Me.Label152.AutoSize = True
-        Me.Label152.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label152.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label152.Location = New System.Drawing.Point(264, 101)
-        Me.Label152.Name = "Label152"
-        Me.Label152.Size = New System.Drawing.Size(80, 17)
-        Me.Label152.TabIndex = 30
-        Me.Label152.Text = "Fecha Inicio"
-        '
-        'Label153
-        '
-        Me.Label153.AutoSize = True
-        Me.Label153.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label153.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label153.Location = New System.Drawing.Point(399, 50)
-        Me.Label153.Name = "Label153"
-        Me.Label153.Size = New System.Drawing.Size(76, 17)
-        Me.Label153.TabIndex = 29
-        Me.Label153.Text = "Kilometraje"
-        '
-        'Label154
-        '
-        Me.Label154.AutoSize = True
-        Me.Label154.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label154.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label154.Location = New System.Drawing.Point(263, 51)
-        Me.Label154.Name = "Label154"
-        Me.Label154.Size = New System.Drawing.Size(32, 17)
-        Me.Label154.TabIndex = 26
-        Me.Label154.Text = "Tipo"
-        '
-        'Label155
-        '
-        Me.Label155.AutoSize = True
-        Me.Label155.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label155.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label155.Location = New System.Drawing.Point(136, 51)
-        Me.Label155.Name = "Label155"
-        Me.Label155.Size = New System.Drawing.Size(69, 17)
-        Me.Label155.TabIndex = 26
-        Me.Label155.Text = "Categoria"
-        '
-        'Label156
-        '
-        Me.Label156.AutoSize = True
-        Me.Label156.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label156.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label156.Location = New System.Drawing.Point(10, 51)
-        Me.Label156.Name = "Label156"
-        Me.Label156.Size = New System.Drawing.Size(103, 17)
-        Me.Label156.TabIndex = 25
-        Me.Label156.Text = "Nro Documento"
-        '
-        'Label157
-        '
-        Me.Label157.AutoSize = True
-        Me.Label157.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label157.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label157.Location = New System.Drawing.Point(9, 17)
-        Me.Label157.Name = "Label157"
-        Me.Label157.Size = New System.Drawing.Size(167, 22)
-        Me.Label157.TabIndex = 24
-        Me.Label157.Text = "Modificar Alquiler"
-        '
-        'DateTimePicker4
-        '
-        Me.DateTimePicker4.CustomFormat = "dd/MM/yyyy HH:mm"
-        Me.DateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker4.Location = New System.Drawing.Point(402, 124)
-        Me.DateTimePicker4.Name = "DateTimePicker4"
-        Me.DateTimePicker4.Size = New System.Drawing.Size(129, 20)
-        Me.DateTimePicker4.TabIndex = 20
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox6.Location = New System.Drawing.Point(139, 71)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox6.TabIndex = 23
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(12, 70)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(121, 20)
-        Me.TextBox4.TabIndex = 22
-        '
-        'ComboBox7
-        '
-        Me.ComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(266, 71)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox7.TabIndex = 16
-        '
-        'ComboBox8
-        '
-        Me.ComboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(393, 70)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox8.TabIndex = 16
-        '
-        'Label158
-        '
-        Me.Label158.AutoSize = True
-        Me.Label158.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label158.Location = New System.Drawing.Point(516, 50)
-        Me.Label158.Name = "Label158"
-        Me.Label158.Size = New System.Drawing.Size(75, 17)
-        Me.Label158.TabIndex = 29
-        Me.Label158.Text = "Costo Total"
-        '
-        'DateTimePicker5
-        '
-        Me.DateTimePicker5.CustomFormat = "dd/MM/yyyy HH:mm"
-        Me.DateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker5.Location = New System.Drawing.Point(267, 123)
-        Me.DateTimePicker5.Name = "DateTimePicker5"
-        Me.DateTimePicker5.Size = New System.Drawing.Size(129, 20)
-        Me.DateTimePicker5.TabIndex = 21
-        '
-        'Label159
-        '
-        Me.Label159.AutoSize = True
-        Me.Label159.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label159.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label159.Location = New System.Drawing.Point(136, 101)
-        Me.Label159.Name = "Label159"
-        Me.Label159.Size = New System.Drawing.Size(105, 17)
-        Me.Label159.TabIndex = 28
-        Me.Label159.Text = "Sucursal Destino"
-        '
-        'Label160
-        '
-        Me.Label160.AutoSize = True
-        Me.Label160.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label160.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label160.Location = New System.Drawing.Point(9, 101)
-        Me.Label160.Name = "Label160"
-        Me.Label160.Size = New System.Drawing.Size(103, 17)
-        Me.Label160.TabIndex = 27
-        Me.Label160.Text = "Sucursal Partida"
-        '
-        'ComboBox9
-        '
-        Me.ComboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox9.FormattingEnabled = True
-        Me.ComboBox9.Location = New System.Drawing.Point(12, 123)
-        Me.ComboBox9.Name = "ComboBox9"
-        Me.ComboBox9.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox9.TabIndex = 17
-        '
-        'ComboBox10
-        '
-        Me.ComboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox10.FormattingEnabled = True
-        Me.ComboBox10.Location = New System.Drawing.Point(140, 123)
-        Me.ComboBox10.Name = "ComboBox10"
-        Me.ComboBox10.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox10.TabIndex = 19
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Enabled = False
-        Me.TextBox5.Location = New System.Drawing.Point(519, 70)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(121, 20)
-        Me.TextBox5.TabIndex = 22
-        Me.TextBox5.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'pcboxloading
-        '
-        Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
-        Me.pcboxloading.Location = New System.Drawing.Point(36, 46)
-        Me.pcboxloading.Name = "pcboxloading"
-        Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
-        Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pcboxloading.TabIndex = 34
-        Me.pcboxloading.TabStop = False
-        Me.pcboxloading.Visible = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
-        Me.PictureBox2.Location = New System.Drawing.Point(36, 46)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 35
-        Me.PictureBox2.TabStop = False
+        Me.tbpMenuPrincipal.BackColor = System.Drawing.Color.Silver
+        Me.tbpMenuPrincipal.Controls.Add(Me.PictureBox1)
+        Me.tbpMenuPrincipal.Location = New System.Drawing.Point(4, 25)
+        Me.tbpMenuPrincipal.Name = "tbpMenuPrincipal"
+        Me.tbpMenuPrincipal.Size = New System.Drawing.Size(1379, 862)
+        Me.tbpMenuPrincipal.TabIndex = 4
+        Me.tbpMenuPrincipal.Text = "MenuPrincipal"
         '
         'PictureBox1
         '
@@ -6698,6 +6562,131 @@ Partial Class frmMainMenu
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
+        '
+        'emailE
+        '
+        Me.emailE.DataPropertyName = "email"
+        Me.emailE.HeaderText = "Correo"
+        Me.emailE.Name = "emailE"
+        Me.emailE.ReadOnly = True
+        '
+        'nombreE
+        '
+        Me.nombreE.DataPropertyName = "nombre"
+        Me.nombreE.HeaderText = "Nombre"
+        Me.nombreE.Name = "nombreE"
+        Me.nombreE.ReadOnly = True
+        '
+        'nrodocumentoE
+        '
+        Me.nrodocumentoE.DataPropertyName = "nrodocumento"
+        Me.nrodocumentoE.HeaderText = "Nro Documento"
+        Me.nrodocumentoE.Name = "nrodocumentoE"
+        Me.nrodocumentoE.ReadOnly = True
+        '
+        'sucursalesE
+        '
+        Me.sucursalesE.DataPropertyName = "sucursales"
+        Me.sucursalesE.HeaderText = "Sucursales"
+        Me.sucursalesE.Name = "sucursalesE"
+        Me.sucursalesE.ReadOnly = True
+        '
+        'btnCerrar
+        '
+        Me.btnCerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCerrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
+        Me.btnCerrar.Location = New System.Drawing.Point(1572, 0)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
+        Me.btnCerrar.TabIndex = 35
+        Me.btnCerrar.Text = "✕"
+        Me.btnCerrar.UseVisualStyleBackColor = False
+        '
+        'btnMinimizar
+        '
+        Me.btnMinimizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMinimizar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMinimizar.ForeColor = System.Drawing.Color.Transparent
+        Me.btnMinimizar.Location = New System.Drawing.Point(1534, 0)
+        Me.btnMinimizar.Name = "btnMinimizar"
+        Me.btnMinimizar.Size = New System.Drawing.Size(32, 30)
+        Me.btnMinimizar.TabIndex = 35
+        Me.btnMinimizar.Text = "—"
+        Me.btnMinimizar.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Transparent
+        Me.Button1.Location = New System.Drawing.Point(1496, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(32, 30)
+        Me.Button1.TabIndex = 35
+        Me.Button1.Text = "↺"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'apellidoE
+        '
+        Me.apellidoE.DataPropertyName = "apellido"
+        Me.apellidoE.HeaderText = "Apellido"
+        Me.apellidoE.Name = "apellidoE"
+        Me.apellidoE.ReadOnly = True
+        '
+        'usuarioE
+        '
+        Me.usuarioE.DataPropertyName = "usuario"
+        Me.usuarioE.HeaderText = "Usuario"
+        Me.usuarioE.Name = "usuarioE"
+        Me.usuarioE.ReadOnly = True
+        '
+        'estadoE
+        '
+        Me.estadoE.DataPropertyName = "estado"
+        Me.estadoE.HeaderText = "estado"
+        Me.estadoE.Name = "estadoE"
+        Me.estadoE.ReadOnly = True
+        Me.estadoE.Visible = False
+        '
+        'idsucursalE
+        '
+        Me.idsucursalE.DataPropertyName = "idsucursal"
+        Me.idsucursalE.HeaderText = "id Sucursal"
+        Me.idsucursalE.Name = "idsucursalE"
+        Me.idsucursalE.ReadOnly = True
+        Me.idsucursalE.Visible = False
+        '
+        'idpersonaE
+        '
+        Me.idpersonaE.DataPropertyName = "idpersona"
+        Me.idpersonaE.HeaderText = "id Persona"
+        Me.idpersonaE.Name = "idpersonaE"
+        Me.idpersonaE.ReadOnly = True
+        Me.idpersonaE.Visible = False
+        '
+        'Label161
+        '
+        Me.Label161.AutoSize = True
+        Me.Label161.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label161.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label161.Location = New System.Drawing.Point(383, 1)
+        Me.Label161.Name = "Label161"
+        Me.Label161.Size = New System.Drawing.Size(265, 32)
+        Me.Label161.TabIndex = 29
+        Me.Label161.Text = "(Para calcular el costo haga click en ""Reservar"")" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'frmMainMenu
         '
@@ -6723,6 +6712,8 @@ Partial Class frmMainMenu
         Me.mstMenuStrip.ResumeLayout(False)
         Me.mstMenuStrip.PerformLayout()
         Me.pnlSidebar.ResumeLayout(False)
+        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbcTabControl.ResumeLayout(False)
         Me.tbpClientes.ResumeLayout(False)
         Me.tabClientes.ResumeLayout(False)
@@ -6787,16 +6778,14 @@ Partial Class frmMainMenu
         Me.pnlFReserva.ResumeLayout(False)
         Me.pnlFReserva.PerformLayout()
         Me.Alquileres.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
-        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -7214,8 +7203,6 @@ Partial Class frmMainMenu
     Friend WithEvents Label129 As Label
     Friend WithEvents cbxSucursalSalidaMReserva As ComboBox
     Friend WithEvents cbxSucursalLlegadaMReserva As ComboBox
-    Friend WithEvents Label130 As Label
-    Friend WithEvents txtCostoTotalAReserva As TextBox
     Friend WithEvents dtpFechaFinMant As DateTimePicker
     Friend WithEvents chbxEmpresaACliente As CheckBox
     Friend WithEvents chboxInactivasFReserva As CheckBox
@@ -7353,4 +7340,5 @@ Partial Class frmMainMenu
     Friend WithEvents ComboBox4 As ComboBox
     Friend WithEvents ComboBox5 As ComboBox
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Label161 As Label
 End Class

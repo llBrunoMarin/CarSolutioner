@@ -208,19 +208,14 @@ Partial Public Class frmMainMenu
 
         Dim Filtro As String
         Filtro = "nrochasis LIKE '%" + txtNroChasisFVeh.Text + "%' AND matricula LIKE '%" + txtMatriculaFVeh.Text + "%'" + TipoFiltro(cbxAireFVeh, "aire") + TipoFiltro(cbxAutomaticoFVeh, "automatico") + TipoFiltro(cbxMaletasFVeh, "maletas") + TipoFiltro(cbxPuertasFVeh, "puertas") + TipoFiltro(numPasajerosFVeh, "pasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxTipoFVeh, "idtipo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
-
         dgvVehiculos.DataSource.Filter = Filtro
 
     End Sub
-
-
-
 
     Private Sub RellenarDatosVehiculo(sender As Object, e As EventArgs) Handles dgvVehiculos.SelectionChanged
 
         If Not IsNothing(dgvVehiculos.CurrentRow) Then
             CargarDatosComboBox(cbxModeloMVeh, conexion.Modelos.Select("idmarca = '" + dgvVehiculos.CurrentRow.Cells("idmarcaveh").Value.ToString() + "'").CopyToDataTable, "nombre", "idmodelo")
-
             txtNroChasisMVeh.Text = dgvVehiculos.CurrentRow.Cells("nrochasis").Value.ToString()
             txtMatriculaMVeh.Text = dgvVehiculos.CurrentRow.Cells("matricula").Value.ToString()
             txtKMMVeh.Text = dgvVehiculos.CurrentRow.Cells("kilometraje").Value.ToString()
@@ -235,16 +230,101 @@ Partial Public Class frmMainMenu
             Else
                 cbxSucursalMVeh.SelectedValue = dgvVehiculos.CurrentRow.Cells("idsucursalveh").Value.ToString()
                 cbxSucursalMVeh.Enabled = True
-
             End If
             cbxMaletasMVeh.SelectedItem = dgvVehiculos.CurrentRow.Cells("cantidaddemaletas").Value.ToString()
-                numPasajerosMVehiculo.Value = dgvVehiculos.CurrentRow.Cells("cantidaddepasajeros").Value.ToString()
-                txtAnioMVeh.Text = dgvVehiculos.CurrentRow.Cells("aniov").Value.ToString()
-                cbxPuertasMVeh.SelectedItem = dgvVehiculos.CurrentRow.Cells("cantidaddepuertas").Value.ToString()
+            numPasajerosMVehiculo.Value = dgvVehiculos.CurrentRow.Cells("cantidaddepasajeros").Value.ToString()
+            txtAnioMVeh.Text = dgvVehiculos.CurrentRow.Cells("aniov").Value.ToString()
+            cbxPuertasMVeh.SelectedItem = dgvVehiculos.CurrentRow.Cells("cantidaddepuertas").Value.ToString()
+        End If
+    End Sub
 
+    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtDeducibleAVeh.KeyPress, txtKilometrajeAVeh.KeyPress, txtAnioAVeh.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsSeparator(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub AltaVehiculo(sender As Object, e As EventArgs) Handles btnAltaAVeh.Click
+
+        Dim FaltaDato As Boolean = False
+
+        For Each ctrl As Control In pnlAVehi.Controls
+            If TypeOf (ctrl) Is TextBox Then
+                If Not ctrl.Name = "txtCorreoACliente" Then
+                    If ctrl.Text = "" Then
+                        FaltaDato = True
+                        Exit For
+                    End If
+                End If
+            Else
+                If TypeOf (ctrl) Is ComboBox Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                        FaltaDato = True
+                    End If
+                End If
             End If
+        Next
 
+        Dim automaticoAVeh As String
+        Dim aireAVeh
+        Dim cantpasajeros As String
+        Dim matricula As String
+        Dim añoActual As String = Date.Now.Year
+        Dim añoInsertar As Integer
 
+        If Not (FaltaDato) Then
+            'Me quedo con solo el 1er digito para hacer el insert despues
+            automaticoAVeh = cbxAutomaticoAVeh.Checked.ToString.Substring(0, 1)
+            aireAVeh = chbxAireAVeh.Checked.ToString.Substring(0, 1)
+
+            cantpasajeros = numPasajerosAVeh.Value.ToString
+            matricula = txtMatriculaAVeh.Text.ToString
+            añoInsertar = txtAnioAVeh.Text
+
+            If (matricula.Length = 7) Then
+
+                Dim matriculaletras As String = matricula.Substring(0, 3)
+                Dim matriculanumeros As String = matricula.Substring(3, 4)
+
+                If Not (cantpasajeros = 0) Then
+
+                    If IsNumeric(matriculaletras) = False And IsNumeric(matriculanumeros) = True Then
+
+                        If Not (añoInsertar > añoActual) Then
+
+                            Dim nrochasisrepetido As New DataTable
+                            nrochasisrepetido = conexion.EjecutarSelect("select nrochasis from vehiculo where nrochasis = '" + txtNroChasisAVeh.Text.ToString + "'")
+
+                            If Not (nrochasisrepetido.Rows.Count > 0) Then
+                                Dim sentencia As String
+                                sentencia = "insert into vehiculo values('" + txtNroChasisAVeh.Text.ToString + "','" + txtMatriculaAVeh.Text.ToString + "','" + txtAnioAVeh.Text.ToString + "','" + txtKilometrajeAVeh.Text.ToString + "','" + aireAVeh + "','" + cbxPuertasAVeh.SelectedItem.ToString + "','" + cantpasajeros + "','" + cbxMaletasAVeh.SelectedItem.ToString + "','" + automaticoAVeh + "','" + txtDeducibleAVeh.Text.ToString + "','" + cbxCategoriaAVeh.SelectedValue.ToString + "','" + cbxModeloAVeh.SelectedValue.ToString + "','" + cbxSucursalAVeh.SelectedValue.ToString + "','t')"
+                                conexion.EjecutarNonQuery(sentencia)
+                                RecargarDatos(dgvVehiculos)
+                                MsgBox("bien")
+                            Else
+                                MsgBox("Ya posee un vehiculo con el mismo numero de chasis.")
+                            End If
+                        Else
+                            MsgBox("Error en el año del vehiculo, no puede ser mayor al año actual.")
+                        End If
+                    Else
+                        MsgBox("Error en la matricula, debe contar con 3 letras y 4 números.")
+                    End If
+                Else
+                    MsgBox("La cantidad de pasajeros no puede ser 0.")
+                End If
+            Else
+                MsgBox("Largo de matricula inválido.")
+            End If
+        Else
+            MsgBox("por favor, rellene todos los campos.")
+        End If
     End Sub
 
 

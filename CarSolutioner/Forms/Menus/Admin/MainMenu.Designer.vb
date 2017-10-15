@@ -544,10 +544,10 @@ Partial Class frmMainMenu
 
         Me.cbxMaletasAVeh = New System.Windows.Forms.ComboBox()
         Me.txtDeducibleAVeh = New System.Windows.Forms.TextBox()
-        Me.Label130 = New System.Windows.Forms.Label()
+        Me.lblhelpVEH = New System.Windows.Forms.Label()
         Me.numPasajerosAVeh = New System.Windows.Forms.NumericUpDown()
         Me.txtKilometrajeAVeh = New System.Windows.Forms.TextBox()
-        Me.Label162 = New System.Windows.Forms.Label()
+        Me.lblhelpVEh160 = New System.Windows.Forms.Label()
 
         Me.idreservaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.matriculaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -2707,9 +2707,9 @@ Partial Class frmMainMenu
         Me.pnlAVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlAVehi.Controls.Add(Me.txtKilometrajeAVeh)
         Me.pnlAVehi.Controls.Add(Me.numPasajerosAVeh)
-        Me.pnlAVehi.Controls.Add(Me.Label162)
+        Me.pnlAVehi.Controls.Add(Me.lblhelpVEh160)
         Me.pnlAVehi.Controls.Add(Me.txtDeducibleAVeh)
-        Me.pnlAVehi.Controls.Add(Me.Label130)
+        Me.pnlAVehi.Controls.Add(Me.lblhelpVEH)
         Me.pnlAVehi.Controls.Add(Me.lblBorrarEstadoFVeh)
         Me.pnlAVehi.Controls.Add(Me.cbxTipoAVeh)
         Me.pnlAVehi.Controls.Add(Me.txtMatriculaAVeh)
@@ -6392,14 +6392,14 @@ Partial Class frmMainMenu
         '
         'Label130
         '
-        Me.Label130.AutoSize = True
-        Me.Label130.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label130.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label130.Location = New System.Drawing.Point(367, 54)
-        Me.Label130.Name = "Label130"
-        Me.Label130.Size = New System.Drawing.Size(70, 17)
-        Me.Label130.TabIndex = 64
-        Me.Label130.Text = "Deducible"
+        Me.lblhelpVEH.AutoSize = True
+        Me.lblhelpVEH.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblhelpVEH.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblhelpVEH.Location = New System.Drawing.Point(367, 54)
+        Me.lblhelpVEH.Name = "Label130"
+        Me.lblhelpVEH.Size = New System.Drawing.Size(70, 17)
+        Me.lblhelpVEH.TabIndex = 64
+        Me.lblhelpVEH.Text = "Deducible"
         '
         'numPasajerosAVeh
         '
@@ -6417,14 +6417,14 @@ Partial Class frmMainMenu
         '
         'Label162
         '
-        Me.Label162.AutoSize = True
-        Me.Label162.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label162.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label162.Location = New System.Drawing.Point(471, 55)
-        Me.Label162.Name = "Label162"
-        Me.Label162.Size = New System.Drawing.Size(76, 17)
-        Me.Label162.TabIndex = 66
-        Me.Label162.Text = "Kilometraje"
+        Me.lblhelpVEh160.AutoSize = True
+        Me.lblhelpVEh160.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblhelpVEh160.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblhelpVEh160.Location = New System.Drawing.Point(471, 55)
+        Me.lblhelpVEh160.Name = "Label162"
+        Me.lblhelpVEh160.Size = New System.Drawing.Size(76, 17)
+        Me.lblhelpVEh160.TabIndex = 66
+        Me.lblhelpVEh160.Text = "Kilometraje"
 
         'idreservaalquiler
         '
@@ -6607,7 +6607,7 @@ Partial Class frmMainMenu
         Me.Panel5.BackColor = System.Drawing.Color.Silver
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel5.Controls.Add(Me.Label130)
-        Me.Panel5.Controls.Add(Me.Label162)
+        Me.Panel5.Controls.Add(Me.lblhelpVEh160)
         Me.Panel5.Location = New System.Drawing.Point(664, 364)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(650, 216)
@@ -7457,8 +7457,8 @@ Partial Class frmMainMenu
     Friend WithEvents idtipoalq As DataGridViewTextBoxColumn
     Friend WithEvents nrochasisaql As DataGridViewTextBoxColumn
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents Label130 As Label
-    Friend WithEvents Label162 As Label
+    Friend WithEvents lblhelpVEH As Label
+    Friend WithEvents lblhelpVEh160 As Label
     Friend WithEvents nombreapellido As DataGridViewTextBoxColumn
     Friend WithEvents nrodocumentores As DataGridViewTextBoxColumn
     Friend WithEvents fechareservainicio As DataGridViewTextBoxColumn

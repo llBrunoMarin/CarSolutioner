@@ -136,7 +136,7 @@ Module Metodos
                 Dim num As NumericUpDown = DirectCast(ctrl, NumericUpDown)
 
                 If Not (num.Value = 0) Then
-                    Return " AND " + columna + " = " + num.Value + ""
+                    Return " AND " + columna + " = " + num.Value.ToString + ""
                 Else
                     Return ""
                 End If

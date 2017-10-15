@@ -186,6 +186,8 @@ Public Class frmMainMenu
         cbxTipoFVeh.SelectedItem = Nothing
         cbxTipoAVeh.SelectedItem = Nothing
         cbxTipoFRes.SelectedItem = Nothing
+
+
         cbxMarcaFVeh.SelectedItem = Nothing
         cbxMarcaAVeh.SelectedItem = Nothing
 
@@ -204,12 +206,9 @@ Public Class frmMainMenu
         cbxTipoFempleados.SelectedItem = Nothing
         chbxFiltrarEstadoMant.Checked = True
 
-
-
         cbxKilomFRes.SelectedItem = Nothing
         chboxVerHoyFReserva.Checked = True
         Me.Opacity = 100
-
 
         Login.Hide()
     End Sub
@@ -260,7 +259,6 @@ Public Class frmMainMenu
         CargarDatos()
     End Sub
 
-
     Private Sub Button2_Click(sender As Object, e As EventArgs)
         'Try
         'Intentar generar el documento.
@@ -278,4 +276,6 @@ Public Class frmMainMenu
         ' MessageBox.Show("No se puede generar el documento PDF.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         'End Try
     End Sub
+
+
 End Class

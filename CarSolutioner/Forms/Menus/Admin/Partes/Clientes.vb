@@ -86,7 +86,7 @@ Partial Public Class frmMainMenu
 
         If Not (FaltaDato) Then
             If (IsDate(FechaSeleccionada)) Then
-                If (DateTime.Today - Date.Parse(FechaSeleccionada)).Days / 365 > 18 Then
+                If (Date.Now - Date.Parse(FechaSeleccionada)).Days / 365 > 18 Then
                     'TODO: Agregar posibilidad de insertar descuento en el alta de cliente
                     Dim ListaTelefonos As New List(Of String)
 

@@ -40,9 +40,9 @@ Partial Public Class frmMainMenu
 
                     If dtpFechaInicioMant.Value.ToString(format) > dtpFechaFinMant.Value.ToString(format) Then
                         MsgBox("No puede definir una fecha de inicio mayor a la fecha")
-                    ElseIf dtpFechaInicioMant.Value.ToString(format) < DateTime.Today.ToString(format) Then
+                    ElseIf dtpFechaInicioMant.Value.ToString(format) < Date.Now.ToString(format) Then
                         MsgBox("No puede ingresar una fecha de inicio menor a hoy")
-                    ElseIf dtpFechaFinMant.Value.ToString(format) < DateTime.Today.ToString(format) Then
+                    ElseIf dtpFechaFinMant.Value.ToString(format) < Date.Now.ToString(format) Then
                         MsgBox("No puede ingresar una fehca de fin menor a hoy")
 
                     Else
@@ -124,9 +124,9 @@ Partial Public Class frmMainMenu
 
                     If dtpModifFechaInicioMant.Value.ToString(format) > dtpModifFechaFinMant.Value.ToString(format) Then
                         MsgBox("No puede definir una fecha de inicio mayor a la fecha")
-                    ElseIf dtpModifFechaInicioMant.Value.ToString(format) < DateTime.Today.ToString(format) Then
+                    ElseIf dtpModifFechaInicioMant.Value.ToString(format) < Date.Now.ToString(format) Then
                         MsgBox("No puede ingresar una fecha de inicio menor a hoy")
-                    ElseIf dtpModifFechaFinMant.Value.ToString(format) < DateTime.Today.ToString(format) Then
+                    ElseIf dtpModifFechaFinMant.Value.ToString(format) < Date.Now.ToString(format) Then
                         MsgBox("No puede ingresar una fehca de fin menor a hoy")
                     Else
 
@@ -163,7 +163,7 @@ Partial Public Class frmMainMenu
 
                 Else
 
-                    filtro = String.Format("{0} Like '%{1}%' AND (fechainiciof > '" + DateTime.Today.ToString(format) + "' and fechafinf > '" + DateTime.Today.ToString(format) + "') OR (fechainiciof < '" + DateTime.Today.ToString(format) + "' and fechafinf > '" + DateTime.Today.ToString(format) + "') ", "matricula", txtFiltrarMatriculaMant.Text) +
+                    filtro = String.Format("{0} Like '%{1}%' AND (fechainiciof > '" + Date.Now.ToString(format) + "' and fechafinf > '" + Date.Now.ToString(format) + "') OR (fechainiciof < '" + Date.Now.ToString(format) + "' and fechafinf > '" + Date.Now.ToString(format) + "') ", "matricula", txtFiltrarMatriculaMant.Text) +
                     TipoFiltro(cbxFiltrarTipoMant, "descripcion")
 
                     dgvMant.DataSource.Filter = filtro

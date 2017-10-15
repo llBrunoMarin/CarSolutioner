@@ -126,7 +126,7 @@ Partial Class Login
         Me.btnCerrar.Location = New System.Drawing.Point(504, -1)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
-        Me.btnCerrar.TabIndex = 29
+        Me.btnCerrar.TabIndex = 90
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False
         '
@@ -207,7 +207,8 @@ Partial Class Login
         Me.lbldataincorrect.Visible = False
         '
         'PictureBox2
-        PictureBox2.Image = CarSolutioner.My.Resources.hide2
+        '
+        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.hide2
         Me.PictureBox2.Location = New System.Drawing.Point(323, 242)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(27, 20)

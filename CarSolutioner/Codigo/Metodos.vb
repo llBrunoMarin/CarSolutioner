@@ -211,9 +211,9 @@ Module Metodos
             'Si el largo del numero es exactamente 8
             If (codigo.Length = 8) Then
 
-                Dim dia As String = DateTime.Today.Day
+                Dim dia As String = Date.Now.Day
                 Dim minuto As String = DateTime.Now.ToString("mm")
-                Dim mes As String = DateTime.Today.Month
+                Dim mes As String = Date.Now.Month
                 Dim verificador As String = codigo.Substring(7, 1)
                 Dim cedula As String = codigo.Substring(0, 7)
                 Dim algoritmo() As Integer = {2, minuto.Substring(1, 1), mes.Substring(0, 1), dia.Substring(0, 1), 6, 3, 4}
@@ -329,15 +329,15 @@ Module Metodos
     Public Function GenerarDocumentoPDF(ByVal document As Document, dgv As DataGridView) As Document
 
         'Se crea un objeto PDFTable con el numero de columnas del DataGridView. 
-        Dim datatable As New PdfPTable(CantidadColumnasVisibles(dgv))
+        Dim PdfTable As New PdfPTable(CantidadColumnasVisibles(dgv))
         Dim headerwidths As Single() = TamañoColumnasVisibles(dgv)
 
         'Se asignan algunas propiedades para el diseño del PDF.
-        datatable.DefaultCell.Padding = 3
-        datatable.SetWidths(headerwidths)
-        datatable.WidthPercentage = 100
-        datatable.DefaultCell.BorderWidth = 2
-        datatable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER
+        PdfTable.DefaultCell.Padding = 3
+        PdfTable.SetWidths(headerwidths)
+        PdfTable.WidthPercentage = 100
+        PdfTable.DefaultCell.BorderWidth = 2
+        PdfTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER
 
         'Se crea el encabezado en el PDF (POR AHORA DESACTIVADO)
         'Dim encabezado As New Paragraph("PRODUCTOS INFORMATICOS", New Font(Font, = "Tahoma", 20, Font.BOLD))
@@ -348,26 +348,26 @@ Module Metodos
         'Se capturan los nombres de las columnas del DataGridView.
         For i As Integer = 0 To dgv.ColumnCount - 1
             If dgv.Columns(i).Visible = True Then
-                datatable.AddCell(dgv.Columns(i).HeaderText)
+                PdfTable.AddCell(dgv.Columns(i).HeaderText)
             End If
         Next
 
-        datatable.HeaderRows = 1
-        datatable.DefaultCell.BorderWidth = 0.5
+        PdfTable.HeaderRows = 1
+        PdfTable.DefaultCell.BorderWidth = 0.5
 
         'Se generan las columnas del DataGridView. 
         For i As Integer = 0 To dgv.RowCount - 1
             For j As Integer = 0 To dgv.ColumnCount - 1
                 If dgv.Columns(j).Visible = True Then
-                    datatable.AddCell(dgv(j, i).Value.ToString())
+                    PdfTable.AddCell(dgv(j, i).Value.ToString())
 
                 End If
             Next
-            datatable.CompleteRow()
+            PdfTable.CompleteRow()
         Next
 
         'Se agrega el PDFTable al documento.
-        document.Add(datatable)
+        document.Add(PdfTable)
 
         Return document
 

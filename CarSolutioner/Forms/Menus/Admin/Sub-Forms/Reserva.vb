@@ -10,7 +10,8 @@
         txtSucursalPartida.Text = conexion.Sucursales.Select("idsucursal = '" + ReservaSeleccionada.IdSucursalPartida.ToString + "'").CopyToDataTable.Rows(0)("nombre").ToString
         txtSucursalDestino.Text = conexion.Sucursales.Select("idsucursal = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "'").CopyToDataTable.Rows(0)("nombre").ToString
         txtCategoriaElegida.Text = conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)("nombre").ToString
-        txtCantidadDias.Text = (dtpFin.Value - dtpInicio.Value).Days + 1
+        'FIJARSE SI HACEMOS O NO EL +1
+        txtCantidadDias.Text = (dtpFin.Value - dtpInicio.Value).Days
         txtKMElegidos.Text = conexion.Kilometros.Select("id = '" + ReservaSeleccionada.IdCantKM.ToString + "'").CopyToDataTable.Rows(0)("km").ToString
         txtDescuentoCliente.Text = ReservaSeleccionada.DescuentoCliente.ToString
 
@@ -49,7 +50,7 @@
 
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
 
-        conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd hh:mm") + "', '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd hh:mm") + "', '" + ReservaSeleccionada.IdCantKM + "', '" + ReservaSeleccionada.CostoTotal + "', '" + Date.Today.ToString("yyyy-MM-dd hh:mm") + "', 1, NULL, '" + ReservaSeleccionada.IdCliente.ToString + "', '" + ReservaSeleccionada.IdCategoria.ToString + "', '" + ReservaSeleccionada.IdTipo.ToString + "', '" + ReservaSeleccionada.IdSucursalPartida.ToString + "', '" + ReservaSeleccionada.IdSucursalDestino.ToString + "', '" + conexion.Usuario + "'  )")
+        conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd hh:mm") + "', '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd hh:mm") + "', '" + ReservaSeleccionada.IdCantKM.ToString + "', '" + ReservaSeleccionada.CostoTotal.ToString + "', '" + Date.Now.ToString("yyyy-MM-dd hh:mm") + "', 1, NULL, '" + ReservaSeleccionada.IdCliente.ToString + "', '" + ReservaSeleccionada.IdCategoria.ToString + "', '" + ReservaSeleccionada.IdTipo.ToString + "', '" + ReservaSeleccionada.IdSucursalPartida.ToString + "', '" + ReservaSeleccionada.IdSucursalDestino.ToString + "', '" + conexion.Usuario + "'  )")
         frmMainMenu.CargarDatos()
         AmaranthMessagebox("Reserva ingresada correctamente!", "Continuar")
         Me.Dispose()

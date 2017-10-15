@@ -31,10 +31,15 @@ Partial Class frmMainMenu
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -382,27 +387,6 @@ Partial Class frmMainMenu
         Me.tabRes_Alq = New System.Windows.Forms.TabControl()
         Me.Reservas = New System.Windows.Forms.TabPage()
         Me.dgvReservas = New System.Windows.Forms.DataGridView()
-        Me.nombreapellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrodocumentores = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechareservainicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechareservafin = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcantidadkm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidadkmtext = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.costototalres = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.salida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.llegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarioempleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechatramite = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalsalida = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idestadoreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadoreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersonareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcategoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalllegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnModificarReserva = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -428,6 +412,7 @@ Partial Class frmMainMenu
         Me.btnReservarARes = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label161 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -504,28 +489,6 @@ Partial Class frmMainMenu
         Me.ComboBox10 = New System.Windows.Forms.ComboBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.dgvAlquileres = New System.Windows.Forms.DataGridView()
-        Me.idreservaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrodocumalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersonaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechaalquilerinicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechaalquilerfin = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechareservainicioalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechareservafinalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidadkmalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.costototalalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechatramitealq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrochasisaql = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.matriculaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombreapellidoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcategoriaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoriaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalsalidaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sucursalsalidaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalllegadaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sucursaldestinoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarioempleadoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label133 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -580,7 +543,53 @@ Partial Class frmMainMenu
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label161 = New System.Windows.Forms.Label()
+        Me.idreservaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.matriculaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrodocumalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombreapellidoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservainicioalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechaalquilerinicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechaalquilerfin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservafinalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidadkmalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoriaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.costototalalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursalsalidaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sucursaldestinoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalsalidaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalllegadaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechatramitealq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarioempleadoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoriaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrochasisaql = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label130 = New System.Windows.Forms.Label()
+        Me.Label162 = New System.Windows.Forms.Label()
+        Me.nombreapellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrodocumentores = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservainicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservafin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcantidadkm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidadkmtext = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.costototalres = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.salida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.llegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuarioempleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechatramite = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalsalida = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechareservainiciof = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idestadoreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadoreserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersonareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalllegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -636,6 +645,7 @@ Partial Class frmMainMenu
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -4578,180 +4588,17 @@ Partial Class frmMainMenu
         Me.dgvReservas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvReservas.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvReservas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombreapellido, Me.nrodocumentores, Me.fechareservainicio, Me.fechareservafin, Me.categoriareserva, Me.tiporeserva, Me.idcantidadkm, Me.cantidadkmtext, Me.costototalres, Me.salida, Me.llegada, Me.usuarioempleado, Me.fechatramite, Me.idreserva, Me.idsucursalsalida, Me.idestadoreserva, Me.estadoreserva, Me.idpersonareserva, Me.idcategoriareserva, Me.idtiporeserva, Me.idsucursalllegada})
+        Me.dgvReservas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombreapellido, Me.nrodocumentores, Me.fechareservainicio, Me.fechareservafin, Me.categoriareserva, Me.tiporeserva, Me.idcantidadkm, Me.cantidadkmtext, Me.costototalres, Me.salida, Me.llegada, Me.usuarioempleado, Me.fechatramite, Me.idreserva, Me.idsucursalsalida, Me.fechareservainiciof, Me.idestadoreserva, Me.estadoreserva, Me.idpersonareserva, Me.idcategoriareserva, Me.idtiporeserva, Me.idsucursalllegada})
         Me.dgvReservas.Location = New System.Drawing.Point(6, 3)
         Me.dgvReservas.MultiSelect = False
         Me.dgvReservas.Name = "dgvReservas"
         Me.dgvReservas.ReadOnly = True
         Me.dgvReservas.RowHeadersVisible = False
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvReservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReservas.Size = New System.Drawing.Size(1308, 355)
         Me.dgvReservas.TabIndex = 9
-        '
-        'nombreapellido
-        '
-        Me.nombreapellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.nombreapellido.DataPropertyName = "nombreapellido"
-        Me.nombreapellido.HeaderText = "Nombre"
-        Me.nombreapellido.Name = "nombreapellido"
-        Me.nombreapellido.ReadOnly = True
-        Me.nombreapellido.Width = 69
-        '
-        'nrodocumentores
-        '
-        Me.nrodocumentores.DataPropertyName = "nrodocumento"
-        Me.nrodocumentores.HeaderText = "Documento"
-        Me.nrodocumentores.Name = "nrodocumentores"
-        Me.nrodocumentores.ReadOnly = True
-        '
-        'fechareservainicio
-        '
-        Me.fechareservainicio.DataPropertyName = "fechareservainicio"
-        DataGridViewCellStyle9.Format = "dd/MM/yyyy hh:mm"
-        DataGridViewCellStyle9.NullValue = Nothing
-        Me.fechareservainicio.DefaultCellStyle = DataGridViewCellStyle9
-        Me.fechareservainicio.HeaderText = "Inicio"
-        Me.fechareservainicio.Name = "fechareservainicio"
-        Me.fechareservainicio.ReadOnly = True
-        '
-        'fechareservafin
-        '
-        Me.fechareservafin.DataPropertyName = "fechareservafin"
-        DataGridViewCellStyle10.Format = "dd/MM/yyyy hh:mm"
-        DataGridViewCellStyle10.NullValue = Nothing
-        Me.fechareservafin.DefaultCellStyle = DataGridViewCellStyle10
-        Me.fechareservafin.HeaderText = "Fin"
-        Me.fechareservafin.Name = "fechareservafin"
-        Me.fechareservafin.ReadOnly = True
-        '
-        'categoriareserva
-        '
-        Me.categoriareserva.DataPropertyName = "categoria"
-        Me.categoriareserva.HeaderText = "Categoria"
-        Me.categoriareserva.Name = "categoriareserva"
-        Me.categoriareserva.ReadOnly = True
-        '
-        'tiporeserva
-        '
-        Me.tiporeserva.DataPropertyName = "tipo"
-        Me.tiporeserva.HeaderText = "Tipo"
-        Me.tiporeserva.Name = "tiporeserva"
-        Me.tiporeserva.ReadOnly = True
-        '
-        'idcantidadkm
-        '
-        Me.idcantidadkm.DataPropertyName = "idcantidadkm"
-        Me.idcantidadkm.HeaderText = "KM"
-        Me.idcantidadkm.Name = "idcantidadkm"
-        Me.idcantidadkm.ReadOnly = True
-        Me.idcantidadkm.Visible = False
-        '
-        'cantidadkmtext
-        '
-        Me.cantidadkmtext.DataPropertyName = "cantidadkmtext"
-        Me.cantidadkmtext.HeaderText = "Cantidad KM"
-        Me.cantidadkmtext.Name = "cantidadkmtext"
-        Me.cantidadkmtext.ReadOnly = True
-        '
-        'costototalres
-        '
-        Me.costototalres.DataPropertyName = "costototal"
-        Me.costototalres.HeaderText = "Costo"
-        Me.costototalres.Name = "costototalres"
-        Me.costototalres.ReadOnly = True
-        '
-        'salida
-        '
-        Me.salida.DataPropertyName = "salida"
-        Me.salida.HeaderText = "Salida"
-        Me.salida.Name = "salida"
-        Me.salida.ReadOnly = True
-        '
-        'llegada
-        '
-        Me.llegada.DataPropertyName = "llegada"
-        Me.llegada.HeaderText = "Llegada"
-        Me.llegada.Name = "llegada"
-        Me.llegada.ReadOnly = True
-        '
-        'usuarioempleado
-        '
-        Me.usuarioempleado.DataPropertyName = "usuarioempleado"
-        Me.usuarioempleado.HeaderText = "Vendedor"
-        Me.usuarioempleado.Name = "usuarioempleado"
-        Me.usuarioempleado.ReadOnly = True
-        '
-        'fechatramite
-        '
-        Me.fechatramite.DataPropertyName = "fechatramite"
-        Me.fechatramite.HeaderText = "Tramite"
-        Me.fechatramite.Name = "fechatramite"
-        Me.fechatramite.ReadOnly = True
-        '
-        'idreserva
-        '
-        Me.idreserva.DataPropertyName = "idreserva"
-        Me.idreserva.HeaderText = "idreserva"
-        Me.idreserva.Name = "idreserva"
-        Me.idreserva.ReadOnly = True
-        Me.idreserva.Visible = False
-        '
-        'idsucursalsalida
-        '
-        Me.idsucursalsalida.DataPropertyName = "idsucursalsalida"
-        Me.idsucursalsalida.HeaderText = "idsucursalsalida"
-        Me.idsucursalsalida.Name = "idsucursalsalida"
-        Me.idsucursalsalida.ReadOnly = True
-        Me.idsucursalsalida.Visible = False
-        '
-        'idestadoreserva
-        '
-        Me.idestadoreserva.DataPropertyName = "idestado"
-        Me.idestadoreserva.HeaderText = "idestado"
-        Me.idestadoreserva.Name = "idestadoreserva"
-        Me.idestadoreserva.ReadOnly = True
-        Me.idestadoreserva.Visible = False
-        '
-        'estadoreserva
-        '
-        Me.estadoreserva.DataPropertyName = "estado"
-        Me.estadoreserva.HeaderText = "Estado"
-        Me.estadoreserva.Name = "estadoreserva"
-        Me.estadoreserva.ReadOnly = True
-        '
-        'idpersonareserva
-        '
-        Me.idpersonareserva.DataPropertyName = "idpersona"
-        Me.idpersonareserva.HeaderText = "idpersona"
-        Me.idpersonareserva.Name = "idpersonareserva"
-        Me.idpersonareserva.ReadOnly = True
-        Me.idpersonareserva.Visible = False
-        '
-        'idcategoriareserva
-        '
-        Me.idcategoriareserva.DataPropertyName = "idcategoria"
-        Me.idcategoriareserva.HeaderText = "idcategoriareserva"
-        Me.idcategoriareserva.Name = "idcategoriareserva"
-        Me.idcategoriareserva.ReadOnly = True
-        Me.idcategoriareserva.Visible = False
-        '
-        'idtiporeserva
-        '
-        Me.idtiporeserva.DataPropertyName = "idtipo"
-        Me.idtiporeserva.HeaderText = "idtipo"
-        Me.idtiporeserva.Name = "idtiporeserva"
-        Me.idtiporeserva.ReadOnly = True
-        Me.idtiporeserva.Visible = False
-        '
-        'idsucursalllegada
-        '
-        Me.idsucursalllegada.DataPropertyName = "idsucursalllegada"
-        Me.idsucursalllegada.HeaderText = "idsucursalllegada"
-        Me.idsucursalllegada.Name = "idsucursalllegada"
-        Me.idsucursalllegada.ReadOnly = True
-        Me.idsucursalllegada.Visible = False
         '
         'Panel1
         '
@@ -5057,6 +4904,17 @@ Partial Class frmMainMenu
         Me.Label7.Size = New System.Drawing.Size(80, 17)
         Me.Label7.TabIndex = 30
         Me.Label7.Text = "Fecha Inicio"
+        '
+        'Label161
+        '
+        Me.Label161.AutoSize = True
+        Me.Label161.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label161.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label161.Location = New System.Drawing.Point(383, 1)
+        Me.Label161.Name = "Label161"
+        Me.Label161.Size = New System.Drawing.Size(265, 32)
+        Me.Label161.TabIndex = 29
+        Me.Label161.Text = "(Para calcular el costo haga click en ""Reservar"")" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'Label6
         '
@@ -5660,6 +5518,7 @@ Partial Class frmMainMenu
         Me.Alquileres.BackColor = System.Drawing.Color.Silver
         Me.Alquileres.Controls.Add(Me.Panel4)
         Me.Alquileres.Controls.Add(Me.dgvAlquileres)
+        Me.Alquileres.Controls.Add(Me.Panel5)
         Me.Alquileres.Controls.Add(Me.Panel2)
         Me.Alquileres.Controls.Add(Me.Panel3)
         Me.Alquileres.Location = New System.Drawing.Point(4, 22)
@@ -5671,8 +5530,7 @@ Partial Class frmMainMenu
         '
         'Panel4
         '
-        Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel4.BackColor = System.Drawing.Color.Silver
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel4.Controls.Add(Me.Button2)
@@ -5695,7 +5553,7 @@ Partial Class frmMainMenu
         Me.Panel4.Controls.Add(Me.ComboBox9)
         Me.Panel4.Controls.Add(Me.ComboBox10)
         Me.Panel4.Controls.Add(Me.TextBox5)
-        Me.Panel4.Location = New System.Drawing.Point(333, 589)
+        Me.Panel4.Location = New System.Drawing.Point(6, 589)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(652, 216)
         Me.Panel4.TabIndex = 43
@@ -5917,179 +5775,17 @@ Partial Class frmMainMenu
         Me.dgvAlquileres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvAlquileres.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvAlquileres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAlquileres.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idreservaalquiler, Me.nrodocumalq, Me.idpersonaalquiler, Me.fechaalquilerinicio, Me.fechaalquilerfin, Me.fechareservainicioalq, Me.fechareservafinalq, Me.cantidadkmalq, Me.costototalalq, Me.fechatramitealq, Me.nrochasisaql, Me.matriculaalq, Me.nombreapellidoalq, Me.idcategoriaalq, Me.categoriaalq, Me.idtipoalq, Me.tipoalq, Me.idsucursalsalidaalq, Me.sucursalsalidaalq, Me.idsucursalllegadaalq, Me.sucursaldestinoalq, Me.usuarioempleadoalq})
+        Me.dgvAlquileres.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idreservaalquiler, Me.matriculaalq, Me.nrodocumalq, Me.nombreapellidoalq, Me.fechareservainicioalq, Me.fechaalquilerinicio, Me.fechaalquilerfin, Me.fechareservafinalq, Me.cantidadkmalq, Me.categoriaalq, Me.tipoalq, Me.costototalalq, Me.sucursalsalidaalq, Me.sucursaldestinoalq, Me.idsucursalsalidaalq, Me.idsucursalllegadaalq, Me.fechatramitealq, Me.usuarioempleadoalq, Me.idpersonaalquiler, Me.idcategoriaalq, Me.idtipoalq, Me.nrochasisaql})
         Me.dgvAlquileres.Location = New System.Drawing.Point(6, 3)
         Me.dgvAlquileres.MultiSelect = False
         Me.dgvAlquileres.Name = "dgvAlquileres"
         Me.dgvAlquileres.ReadOnly = True
         Me.dgvAlquileres.RowHeadersVisible = False
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle17
         Me.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAlquileres.Size = New System.Drawing.Size(1308, 355)
         Me.dgvAlquileres.TabIndex = 10
-        '
-        'idreservaalquiler
-        '
-        Me.idreservaalquiler.DataPropertyName = "idreserva"
-        Me.idreservaalquiler.HeaderText = "idreservaalquiler"
-        Me.idreservaalquiler.Name = "idreservaalquiler"
-        Me.idreservaalquiler.ReadOnly = True
-        Me.idreservaalquiler.Visible = False
-        '
-        'nrodocumalq
-        '
-        Me.nrodocumalq.DataPropertyName = "nrodocumento"
-        Me.nrodocumalq.HeaderText = "nrodocumalq"
-        Me.nrodocumalq.Name = "nrodocumalq"
-        Me.nrodocumalq.ReadOnly = True
-        Me.nrodocumalq.Visible = False
-        '
-        'idpersonaalquiler
-        '
-        Me.idpersonaalquiler.DataPropertyName = "idpersona"
-        Me.idpersonaalquiler.HeaderText = "idpersona"
-        Me.idpersonaalquiler.Name = "idpersonaalquiler"
-        Me.idpersonaalquiler.ReadOnly = True
-        Me.idpersonaalquiler.Visible = False
-        '
-        'fechaalquilerinicio
-        '
-        Me.fechaalquilerinicio.DataPropertyName = "fechaalquilerinicio"
-        Me.fechaalquilerinicio.HeaderText = "Fecha Inicio"
-        Me.fechaalquilerinicio.Name = "fechaalquilerinicio"
-        Me.fechaalquilerinicio.ReadOnly = True
-        '
-        'fechaalquilerfin
-        '
-        Me.fechaalquilerfin.DataPropertyName = "fechaalquilerfin"
-        Me.fechaalquilerfin.HeaderText = "Fecha Fin"
-        Me.fechaalquilerfin.Name = "fechaalquilerfin"
-        Me.fechaalquilerfin.ReadOnly = True
-        '
-        'fechareservainicioalq
-        '
-        Me.fechareservainicioalq.DataPropertyName = "fechareservainicio"
-        Me.fechareservainicioalq.HeaderText = "Inicio Reserva"
-        Me.fechareservainicioalq.Name = "fechareservainicioalq"
-        Me.fechareservainicioalq.ReadOnly = True
-        '
-        'fechareservafinalq
-        '
-        Me.fechareservafinalq.DataPropertyName = "fechareservafin"
-        Me.fechareservafinalq.HeaderText = "Fin Reserva"
-        Me.fechareservafinalq.Name = "fechareservafinalq"
-        Me.fechareservafinalq.ReadOnly = True
-        '
-        'cantidadkmalq
-        '
-        Me.cantidadkmalq.DataPropertyName = "cantidadkm"
-        Me.cantidadkmalq.HeaderText = "KM"
-        Me.cantidadkmalq.Name = "cantidadkmalq"
-        Me.cantidadkmalq.ReadOnly = True
-        '
-        'costototalalq
-        '
-        Me.costototalalq.DataPropertyName = "costototal"
-        Me.costototalalq.HeaderText = "Costo Total"
-        Me.costototalalq.Name = "costototalalq"
-        Me.costototalalq.ReadOnly = True
-        '
-        'fechatramitealq
-        '
-        Me.fechatramitealq.DataPropertyName = "fechatramite"
-        Me.fechatramitealq.HeaderText = "Fecha Tramite"
-        Me.fechatramitealq.Name = "fechatramitealq"
-        Me.fechatramitealq.ReadOnly = True
-        '
-        'nrochasisaql
-        '
-        Me.nrochasisaql.DataPropertyName = "nrochasis"
-        Me.nrochasisaql.HeaderText = "nrochasisaql"
-        Me.nrochasisaql.Name = "nrochasisaql"
-        Me.nrochasisaql.ReadOnly = True
-        Me.nrochasisaql.Visible = False
-        '
-        'matriculaalq
-        '
-        Me.matriculaalq.DataPropertyName = "matricula"
-        Me.matriculaalq.HeaderText = "Matricula"
-        Me.matriculaalq.Name = "matriculaalq"
-        Me.matriculaalq.ReadOnly = True
-        '
-        'nombreapellidoalq
-        '
-        Me.nombreapellidoalq.DataPropertyName = "nombreapellido"
-        Me.nombreapellidoalq.HeaderText = "Nombre"
-        Me.nombreapellidoalq.Name = "nombreapellidoalq"
-        Me.nombreapellidoalq.ReadOnly = True
-        '
-        'idcategoriaalq
-        '
-        Me.idcategoriaalq.DataPropertyName = "idcategoria"
-        Me.idcategoriaalq.HeaderText = "idcategoriaalq"
-        Me.idcategoriaalq.Name = "idcategoriaalq"
-        Me.idcategoriaalq.ReadOnly = True
-        Me.idcategoriaalq.Visible = False
-        '
-        'categoriaalq
-        '
-        Me.categoriaalq.DataPropertyName = "categoria"
-        Me.categoriaalq.HeaderText = "Categoria"
-        Me.categoriaalq.Name = "categoriaalq"
-        Me.categoriaalq.ReadOnly = True
-        '
-        'idtipoalq
-        '
-        Me.idtipoalq.DataPropertyName = "idtipo"
-        Me.idtipoalq.HeaderText = "idtipo"
-        Me.idtipoalq.Name = "idtipoalq"
-        Me.idtipoalq.ReadOnly = True
-        Me.idtipoalq.Visible = False
-        '
-        'tipoalq
-        '
-        Me.tipoalq.DataPropertyName = "tipo"
-        Me.tipoalq.HeaderText = "Tipo"
-        Me.tipoalq.Name = "tipoalq"
-        Me.tipoalq.ReadOnly = True
-        '
-        'idsucursalsalidaalq
-        '
-        Me.idsucursalsalidaalq.DataPropertyName = "idsucsalida"
-        Me.idsucursalsalidaalq.HeaderText = "idsucursalsalida"
-        Me.idsucursalsalidaalq.Name = "idsucursalsalidaalq"
-        Me.idsucursalsalidaalq.ReadOnly = True
-        Me.idsucursalsalidaalq.Visible = False
-        '
-        'sucursalsalidaalq
-        '
-        Me.sucursalsalidaalq.DataPropertyName = "sucsalida"
-        Me.sucursalsalidaalq.HeaderText = "Sucursal Partida"
-        Me.sucursalsalidaalq.Name = "sucursalsalidaalq"
-        Me.sucursalsalidaalq.ReadOnly = True
-        '
-        'idsucursalllegadaalq
-        '
-        Me.idsucursalllegadaalq.DataPropertyName = "idsucllegada"
-        Me.idsucursalllegadaalq.HeaderText = "idsucursaldestino"
-        Me.idsucursalllegadaalq.Name = "idsucursalllegadaalq"
-        Me.idsucursalllegadaalq.ReadOnly = True
-        Me.idsucursalllegadaalq.Visible = False
-        '
-        'sucursaldestinoalq
-        '
-        Me.sucursaldestinoalq.DataPropertyName = "sucllegada"
-        Me.sucursaldestinoalq.HeaderText = "Sucursal Destino"
-        Me.sucursaldestinoalq.Name = "sucursaldestinoalq"
-        Me.sucursaldestinoalq.ReadOnly = True
-        '
-        'usuarioempleadoalq
-        '
-        Me.usuarioempleadoalq.DataPropertyName = "usuarioempleado"
-        Me.usuarioempleadoalq.HeaderText = "Usuario"
-        Me.usuarioempleadoalq.Name = "usuarioempleadoalq"
-        Me.usuarioempleadoalq.ReadOnly = True
         '
         'Panel2
         '
@@ -6099,7 +5795,7 @@ Partial Class frmMainMenu
         Me.Panel2.Controls.Add(Me.Label133)
         Me.Panel2.Controls.Add(Me.Button5)
         Me.Panel2.Controls.Add(Me.Label136)
-        Me.Panel2.Location = New System.Drawing.Point(662, 364)
+        Me.Panel2.Location = New System.Drawing.Point(664, 589)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(650, 216)
         Me.Panel2.TabIndex = 42
@@ -6677,16 +6373,386 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
-        'Label161
+        'idreservaalquiler
         '
-        Me.Label161.AutoSize = True
-        Me.Label161.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label161.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label161.Location = New System.Drawing.Point(383, 1)
-        Me.Label161.Name = "Label161"
-        Me.Label161.Size = New System.Drawing.Size(265, 32)
-        Me.Label161.TabIndex = 29
-        Me.Label161.Text = "(Para calcular el costo haga click en ""Reservar"")" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.idreservaalquiler.DataPropertyName = "idreserva"
+        Me.idreservaalquiler.HeaderText = "idreservaalquiler"
+        Me.idreservaalquiler.Name = "idreservaalquiler"
+        Me.idreservaalquiler.ReadOnly = True
+        Me.idreservaalquiler.Visible = False
+        '
+        'matriculaalq
+        '
+        Me.matriculaalq.DataPropertyName = "matricula"
+        Me.matriculaalq.HeaderText = "Matricula"
+        Me.matriculaalq.Name = "matriculaalq"
+        Me.matriculaalq.ReadOnly = True
+        '
+        'nrodocumalq
+        '
+        Me.nrodocumalq.DataPropertyName = "nrodocumento"
+        Me.nrodocumalq.HeaderText = "Documento"
+        Me.nrodocumalq.Name = "nrodocumalq"
+        Me.nrodocumalq.ReadOnly = True
+        '
+        'nombreapellidoalq
+        '
+        Me.nombreapellidoalq.DataPropertyName = "nombreapellido"
+        Me.nombreapellidoalq.HeaderText = "Nombre"
+        Me.nombreapellidoalq.Name = "nombreapellidoalq"
+        Me.nombreapellidoalq.ReadOnly = True
+        '
+        'fechareservainicioalq
+        '
+        Me.fechareservainicioalq.DataPropertyName = "fechareservainicio"
+        DataGridViewCellStyle13.Format = "g"
+        DataGridViewCellStyle13.NullValue = Nothing
+        Me.fechareservainicioalq.DefaultCellStyle = DataGridViewCellStyle13
+        Me.fechareservainicioalq.HeaderText = "Inicio Reserva"
+        Me.fechareservainicioalq.Name = "fechareservainicioalq"
+        Me.fechareservainicioalq.ReadOnly = True
+        '
+        'fechaalquilerinicio
+        '
+        Me.fechaalquilerinicio.DataPropertyName = "fechaalquilerinicio"
+        DataGridViewCellStyle14.Format = "g"
+        DataGridViewCellStyle14.NullValue = Nothing
+        Me.fechaalquilerinicio.DefaultCellStyle = DataGridViewCellStyle14
+        Me.fechaalquilerinicio.HeaderText = "Fecha Inicio"
+        Me.fechaalquilerinicio.Name = "fechaalquilerinicio"
+        Me.fechaalquilerinicio.ReadOnly = True
+        '
+        'fechaalquilerfin
+        '
+        Me.fechaalquilerfin.DataPropertyName = "fechaalquilerfin"
+        DataGridViewCellStyle15.Format = "g"
+        DataGridViewCellStyle15.NullValue = Nothing
+        Me.fechaalquilerfin.DefaultCellStyle = DataGridViewCellStyle15
+        Me.fechaalquilerfin.HeaderText = "Fecha Fin"
+        Me.fechaalquilerfin.Name = "fechaalquilerfin"
+        Me.fechaalquilerfin.ReadOnly = True
+        '
+        'fechareservafinalq
+        '
+        Me.fechareservafinalq.DataPropertyName = "fechareservafin"
+        DataGridViewCellStyle16.Format = "g"
+        DataGridViewCellStyle16.NullValue = Nothing
+        Me.fechareservafinalq.DefaultCellStyle = DataGridViewCellStyle16
+        Me.fechareservafinalq.HeaderText = "Fin Reserva"
+        Me.fechareservafinalq.Name = "fechareservafinalq"
+        Me.fechareservafinalq.ReadOnly = True
+        '
+        'cantidadkmalq
+        '
+        Me.cantidadkmalq.DataPropertyName = "cantidadkm"
+        Me.cantidadkmalq.HeaderText = "KM"
+        Me.cantidadkmalq.Name = "cantidadkmalq"
+        Me.cantidadkmalq.ReadOnly = True
+        '
+        'categoriaalq
+        '
+        Me.categoriaalq.DataPropertyName = "categoria"
+        Me.categoriaalq.HeaderText = "Categoria"
+        Me.categoriaalq.Name = "categoriaalq"
+        Me.categoriaalq.ReadOnly = True
+        '
+        'tipoalq
+        '
+        Me.tipoalq.DataPropertyName = "tipo"
+        Me.tipoalq.HeaderText = "Tipo"
+        Me.tipoalq.Name = "tipoalq"
+        Me.tipoalq.ReadOnly = True
+        '
+        'costototalalq
+        '
+        Me.costototalalq.DataPropertyName = "costototal"
+        Me.costototalalq.HeaderText = "Costo Total"
+        Me.costototalalq.Name = "costototalalq"
+        Me.costototalalq.ReadOnly = True
+        '
+        'sucursalsalidaalq
+        '
+        Me.sucursalsalidaalq.DataPropertyName = "sucsalida"
+        Me.sucursalsalidaalq.HeaderText = "Sucursal Partida"
+        Me.sucursalsalidaalq.Name = "sucursalsalidaalq"
+        Me.sucursalsalidaalq.ReadOnly = True
+        '
+        'sucursaldestinoalq
+        '
+        Me.sucursaldestinoalq.DataPropertyName = "sucllegada"
+        Me.sucursaldestinoalq.HeaderText = "Sucursal Destino"
+        Me.sucursaldestinoalq.Name = "sucursaldestinoalq"
+        Me.sucursaldestinoalq.ReadOnly = True
+        '
+        'idsucursalsalidaalq
+        '
+        Me.idsucursalsalidaalq.DataPropertyName = "idsucsalida"
+        Me.idsucursalsalidaalq.HeaderText = "idsucursalsalida"
+        Me.idsucursalsalidaalq.Name = "idsucursalsalidaalq"
+        Me.idsucursalsalidaalq.ReadOnly = True
+        Me.idsucursalsalidaalq.Visible = False
+        '
+        'idsucursalllegadaalq
+        '
+        Me.idsucursalllegadaalq.DataPropertyName = "idsucllegada"
+        Me.idsucursalllegadaalq.HeaderText = "idsucursaldestino"
+        Me.idsucursalllegadaalq.Name = "idsucursalllegadaalq"
+        Me.idsucursalllegadaalq.ReadOnly = True
+        Me.idsucursalllegadaalq.Visible = False
+        '
+        'fechatramitealq
+        '
+        Me.fechatramitealq.DataPropertyName = "fechatramite"
+        Me.fechatramitealq.HeaderText = "Fecha Tramite"
+        Me.fechatramitealq.Name = "fechatramitealq"
+        Me.fechatramitealq.ReadOnly = True
+        '
+        'usuarioempleadoalq
+        '
+        Me.usuarioempleadoalq.DataPropertyName = "usuarioempleado"
+        Me.usuarioempleadoalq.HeaderText = "Usuario"
+        Me.usuarioempleadoalq.Name = "usuarioempleadoalq"
+        Me.usuarioempleadoalq.ReadOnly = True
+        '
+        'idpersonaalquiler
+        '
+        Me.idpersonaalquiler.DataPropertyName = "idpersona"
+        Me.idpersonaalquiler.HeaderText = "idpersona"
+        Me.idpersonaalquiler.Name = "idpersonaalquiler"
+        Me.idpersonaalquiler.ReadOnly = True
+        Me.idpersonaalquiler.Visible = False
+        '
+        'idcategoriaalq
+        '
+        Me.idcategoriaalq.DataPropertyName = "idcategoria"
+        Me.idcategoriaalq.HeaderText = "idcategoriaalq"
+        Me.idcategoriaalq.Name = "idcategoriaalq"
+        Me.idcategoriaalq.ReadOnly = True
+        Me.idcategoriaalq.Visible = False
+        '
+        'idtipoalq
+        '
+        Me.idtipoalq.DataPropertyName = "idtipo"
+        Me.idtipoalq.HeaderText = "idtipo"
+        Me.idtipoalq.Name = "idtipoalq"
+        Me.idtipoalq.ReadOnly = True
+        Me.idtipoalq.Visible = False
+        '
+        'nrochasisaql
+        '
+        Me.nrochasisaql.DataPropertyName = "nrochasis"
+        Me.nrochasisaql.HeaderText = "nrochasisaql"
+        Me.nrochasisaql.Name = "nrochasisaql"
+        Me.nrochasisaql.ReadOnly = True
+        Me.nrochasisaql.Visible = False
+        '
+        'Panel5
+        '
+        Me.Panel5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel5.BackColor = System.Drawing.Color.Silver
+        Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel5.Controls.Add(Me.Label130)
+        Me.Panel5.Controls.Add(Me.Label162)
+        Me.Panel5.Location = New System.Drawing.Point(664, 364)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(650, 216)
+        Me.Panel5.TabIndex = 42
+        '
+        'Label130
+        '
+        Me.Label130.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label130.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label130.Location = New System.Drawing.Point(9, 55)
+        Me.Label130.Name = "Label130"
+        Me.Label130.Size = New System.Drawing.Size(571, 34)
+        Me.Label130.TabIndex = 25
+        Me.Label130.Text = "En el apartado de Reservas, haga doble click en la reserva sobre la que quiere re" &
+    "alizar un Alquiler." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'Label162
+        '
+        Me.Label162.AutoSize = True
+        Me.Label162.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label162.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label162.Location = New System.Drawing.Point(9, 17)
+        Me.Label162.Name = "Label162"
+        Me.Label162.Size = New System.Drawing.Size(152, 22)
+        Me.Label162.TabIndex = 24
+        Me.Label162.Text = "Realizar Alquiler"
+        '
+        'nombreapellido
+        '
+        Me.nombreapellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.nombreapellido.DataPropertyName = "nombreapellido"
+        Me.nombreapellido.HeaderText = "Nombre"
+        Me.nombreapellido.Name = "nombreapellido"
+        Me.nombreapellido.ReadOnly = True
+        Me.nombreapellido.Width = 69
+        '
+        'nrodocumentores
+        '
+        Me.nrodocumentores.DataPropertyName = "nrodocumento"
+        Me.nrodocumentores.HeaderText = "Documento"
+        Me.nrodocumentores.Name = "nrodocumentores"
+        Me.nrodocumentores.ReadOnly = True
+        '
+        'fechareservainicio
+        '
+        Me.fechareservainicio.DataPropertyName = "fechareservainicio"
+        DataGridViewCellStyle9.Format = "g"
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.fechareservainicio.DefaultCellStyle = DataGridViewCellStyle9
+        Me.fechareservainicio.HeaderText = "Inicio"
+        Me.fechareservainicio.Name = "fechareservainicio"
+        Me.fechareservainicio.ReadOnly = True
+        '
+        'fechareservafin
+        '
+        Me.fechareservafin.DataPropertyName = "fechareservafin"
+        DataGridViewCellStyle10.Format = "g"
+        DataGridViewCellStyle10.NullValue = Nothing
+        Me.fechareservafin.DefaultCellStyle = DataGridViewCellStyle10
+        Me.fechareservafin.HeaderText = "Fin"
+        Me.fechareservafin.Name = "fechareservafin"
+        Me.fechareservafin.ReadOnly = True
+        '
+        'categoriareserva
+        '
+        Me.categoriareserva.DataPropertyName = "categoria"
+        Me.categoriareserva.HeaderText = "Categoria"
+        Me.categoriareserva.Name = "categoriareserva"
+        Me.categoriareserva.ReadOnly = True
+        '
+        'tiporeserva
+        '
+        Me.tiporeserva.DataPropertyName = "tipo"
+        Me.tiporeserva.HeaderText = "Tipo"
+        Me.tiporeserva.Name = "tiporeserva"
+        Me.tiporeserva.ReadOnly = True
+        '
+        'idcantidadkm
+        '
+        Me.idcantidadkm.DataPropertyName = "idcantidadkm"
+        Me.idcantidadkm.HeaderText = "KM"
+        Me.idcantidadkm.Name = "idcantidadkm"
+        Me.idcantidadkm.ReadOnly = True
+        Me.idcantidadkm.Visible = False
+        '
+        'cantidadkmtext
+        '
+        Me.cantidadkmtext.DataPropertyName = "cantidadkmtext"
+        Me.cantidadkmtext.HeaderText = "Cantidad KM"
+        Me.cantidadkmtext.Name = "cantidadkmtext"
+        Me.cantidadkmtext.ReadOnly = True
+        '
+        'costototalres
+        '
+        Me.costototalres.DataPropertyName = "costototal"
+        Me.costototalres.HeaderText = "Costo"
+        Me.costototalres.Name = "costototalres"
+        Me.costototalres.ReadOnly = True
+        '
+        'salida
+        '
+        Me.salida.DataPropertyName = "salida"
+        Me.salida.HeaderText = "Salida"
+        Me.salida.Name = "salida"
+        Me.salida.ReadOnly = True
+        '
+        'llegada
+        '
+        Me.llegada.DataPropertyName = "llegada"
+        Me.llegada.HeaderText = "Llegada"
+        Me.llegada.Name = "llegada"
+        Me.llegada.ReadOnly = True
+        '
+        'usuarioempleado
+        '
+        Me.usuarioempleado.DataPropertyName = "usuarioempleado"
+        Me.usuarioempleado.HeaderText = "Vendedor"
+        Me.usuarioempleado.Name = "usuarioempleado"
+        Me.usuarioempleado.ReadOnly = True
+        '
+        'fechatramite
+        '
+        Me.fechatramite.DataPropertyName = "fechatramite"
+        DataGridViewCellStyle11.Format = "g"
+        DataGridViewCellStyle11.NullValue = Nothing
+        Me.fechatramite.DefaultCellStyle = DataGridViewCellStyle11
+        Me.fechatramite.HeaderText = "Tramite"
+        Me.fechatramite.Name = "fechatramite"
+        Me.fechatramite.ReadOnly = True
+        '
+        'idreserva
+        '
+        Me.idreserva.DataPropertyName = "idreserva"
+        Me.idreserva.HeaderText = "idreserva"
+        Me.idreserva.Name = "idreserva"
+        Me.idreserva.ReadOnly = True
+        Me.idreserva.Visible = False
+        '
+        'idsucursalsalida
+        '
+        Me.idsucursalsalida.DataPropertyName = "idsucursalsalida"
+        Me.idsucursalsalida.HeaderText = "idsucursalsalida"
+        Me.idsucursalsalida.Name = "idsucursalsalida"
+        Me.idsucursalsalida.ReadOnly = True
+        Me.idsucursalsalida.Visible = False
+        '
+        'fechareservainiciof
+        '
+        Me.fechareservainiciof.DataPropertyName = "fechareservainiciof"
+        Me.fechareservainiciof.HeaderText = "fechareservainiciof"
+        Me.fechareservainiciof.Name = "fechareservainiciof"
+        Me.fechareservainiciof.ReadOnly = True
+        Me.fechareservainiciof.Visible = False
+        '
+        'idestadoreserva
+        '
+        Me.idestadoreserva.DataPropertyName = "idestado"
+        Me.idestadoreserva.HeaderText = "idestado"
+        Me.idestadoreserva.Name = "idestadoreserva"
+        Me.idestadoreserva.ReadOnly = True
+        Me.idestadoreserva.Visible = False
+        '
+        'estadoreserva
+        '
+        Me.estadoreserva.DataPropertyName = "estado"
+        Me.estadoreserva.HeaderText = "Estado"
+        Me.estadoreserva.Name = "estadoreserva"
+        Me.estadoreserva.ReadOnly = True
+        '
+        'idpersonareserva
+        '
+        Me.idpersonareserva.DataPropertyName = "idpersona"
+        Me.idpersonareserva.HeaderText = "idpersona"
+        Me.idpersonareserva.Name = "idpersonareserva"
+        Me.idpersonareserva.ReadOnly = True
+        Me.idpersonareserva.Visible = False
+        '
+        'idcategoriareserva
+        '
+        Me.idcategoriareserva.DataPropertyName = "idcategoria"
+        Me.idcategoriareserva.HeaderText = "idcategoriareserva"
+        Me.idcategoriareserva.Name = "idcategoriareserva"
+        Me.idcategoriareserva.ReadOnly = True
+        Me.idcategoriareserva.Visible = False
+        '
+        'idtiporeserva
+        '
+        Me.idtiporeserva.DataPropertyName = "idtipo"
+        Me.idtiporeserva.HeaderText = "idtipo"
+        Me.idtiporeserva.Name = "idtiporeserva"
+        Me.idtiporeserva.ReadOnly = True
+        Me.idtiporeserva.Visible = False
+        '
+        'idsucursalllegada
+        '
+        Me.idsucursalllegada.DataPropertyName = "idsucursalllegada"
+        Me.idsucursalllegada.HeaderText = "idsucursalllegada"
+        Me.idsucursalllegada.Name = "idsucursalllegada"
+        Me.idsucursalllegada.ReadOnly = True
+        Me.idsucursalllegada.Visible = False
         '
         'frmMainMenu
         '
@@ -6787,6 +6853,8 @@ Partial Class frmMainMenu
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -7244,49 +7312,6 @@ Partial Class frmMainMenu
     Friend WithEvents idmarcaveh As DataGridViewTextBoxColumn
     Friend WithEvents estadov As DataGridViewCheckBoxColumn
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
-    Friend WithEvents nombreapellido As DataGridViewTextBoxColumn
-    Friend WithEvents nrodocumentores As DataGridViewTextBoxColumn
-    Friend WithEvents fechareservainicio As DataGridViewTextBoxColumn
-    Friend WithEvents fechareservafin As DataGridViewTextBoxColumn
-    Friend WithEvents categoriareserva As DataGridViewTextBoxColumn
-    Friend WithEvents tiporeserva As DataGridViewTextBoxColumn
-    Friend WithEvents idcantidadkm As DataGridViewTextBoxColumn
-    Friend WithEvents cantidadkmtext As DataGridViewTextBoxColumn
-    Friend WithEvents costototalres As DataGridViewTextBoxColumn
-    Friend WithEvents salida As DataGridViewTextBoxColumn
-    Friend WithEvents llegada As DataGridViewTextBoxColumn
-    Friend WithEvents usuarioempleado As DataGridViewTextBoxColumn
-    Friend WithEvents fechatramite As DataGridViewTextBoxColumn
-    Friend WithEvents idreserva As DataGridViewTextBoxColumn
-    Friend WithEvents idsucursalsalida As DataGridViewTextBoxColumn
-    Friend WithEvents idestadoreserva As DataGridViewTextBoxColumn
-    Friend WithEvents estadoreserva As DataGridViewTextBoxColumn
-    Friend WithEvents idpersonareserva As DataGridViewTextBoxColumn
-    Friend WithEvents idcategoriareserva As DataGridViewTextBoxColumn
-    Friend WithEvents idtiporeserva As DataGridViewTextBoxColumn
-    Friend WithEvents idsucursalllegada As DataGridViewTextBoxColumn
-    Friend WithEvents idreservaalquiler As DataGridViewTextBoxColumn
-    Friend WithEvents nrodocumalq As DataGridViewTextBoxColumn
-    Friend WithEvents idpersonaalquiler As DataGridViewTextBoxColumn
-    Friend WithEvents fechaalquilerinicio As DataGridViewTextBoxColumn
-    Friend WithEvents fechaalquilerfin As DataGridViewTextBoxColumn
-    Friend WithEvents fechareservainicioalq As DataGridViewTextBoxColumn
-    Friend WithEvents fechareservafinalq As DataGridViewTextBoxColumn
-    Friend WithEvents cantidadkmalq As DataGridViewTextBoxColumn
-    Friend WithEvents costototalalq As DataGridViewTextBoxColumn
-    Friend WithEvents fechatramitealq As DataGridViewTextBoxColumn
-    Friend WithEvents nrochasisaql As DataGridViewTextBoxColumn
-    Friend WithEvents matriculaalq As DataGridViewTextBoxColumn
-    Friend WithEvents nombreapellidoalq As DataGridViewTextBoxColumn
-    Friend WithEvents idcategoriaalq As DataGridViewTextBoxColumn
-    Friend WithEvents categoriaalq As DataGridViewTextBoxColumn
-    Friend WithEvents idtipoalq As DataGridViewTextBoxColumn
-    Friend WithEvents tipoalq As DataGridViewTextBoxColumn
-    Friend WithEvents idsucursalsalidaalq As DataGridViewTextBoxColumn
-    Friend WithEvents sucursalsalidaalq As DataGridViewTextBoxColumn
-    Friend WithEvents idsucursalllegadaalq As DataGridViewTextBoxColumn
-    Friend WithEvents sucursaldestinoalq As DataGridViewTextBoxColumn
-    Friend WithEvents usuarioempleadoalq As DataGridViewTextBoxColumn
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Button2 As Button
     Friend WithEvents Label151 As Label
@@ -7341,4 +7366,51 @@ Partial Class frmMainMenu
     Friend WithEvents ComboBox5 As ComboBox
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents Label161 As Label
+    Friend WithEvents idreservaalquiler As DataGridViewTextBoxColumn
+    Friend WithEvents matriculaalq As DataGridViewTextBoxColumn
+    Friend WithEvents nrodocumalq As DataGridViewTextBoxColumn
+    Friend WithEvents nombreapellidoalq As DataGridViewTextBoxColumn
+    Friend WithEvents fechareservainicioalq As DataGridViewTextBoxColumn
+    Friend WithEvents fechaalquilerinicio As DataGridViewTextBoxColumn
+    Friend WithEvents fechaalquilerfin As DataGridViewTextBoxColumn
+    Friend WithEvents fechareservafinalq As DataGridViewTextBoxColumn
+    Friend WithEvents cantidadkmalq As DataGridViewTextBoxColumn
+    Friend WithEvents categoriaalq As DataGridViewTextBoxColumn
+    Friend WithEvents tipoalq As DataGridViewTextBoxColumn
+    Friend WithEvents costototalalq As DataGridViewTextBoxColumn
+    Friend WithEvents sucursalsalidaalq As DataGridViewTextBoxColumn
+    Friend WithEvents sucursaldestinoalq As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalsalidaalq As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalllegadaalq As DataGridViewTextBoxColumn
+    Friend WithEvents fechatramitealq As DataGridViewTextBoxColumn
+    Friend WithEvents usuarioempleadoalq As DataGridViewTextBoxColumn
+    Friend WithEvents idpersonaalquiler As DataGridViewTextBoxColumn
+    Friend WithEvents idcategoriaalq As DataGridViewTextBoxColumn
+    Friend WithEvents idtipoalq As DataGridViewTextBoxColumn
+    Friend WithEvents nrochasisaql As DataGridViewTextBoxColumn
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Label130 As Label
+    Friend WithEvents Label162 As Label
+    Friend WithEvents nombreapellido As DataGridViewTextBoxColumn
+    Friend WithEvents nrodocumentores As DataGridViewTextBoxColumn
+    Friend WithEvents fechareservainicio As DataGridViewTextBoxColumn
+    Friend WithEvents fechareservafin As DataGridViewTextBoxColumn
+    Friend WithEvents categoriareserva As DataGridViewTextBoxColumn
+    Friend WithEvents tiporeserva As DataGridViewTextBoxColumn
+    Friend WithEvents idcantidadkm As DataGridViewTextBoxColumn
+    Friend WithEvents cantidadkmtext As DataGridViewTextBoxColumn
+    Friend WithEvents costototalres As DataGridViewTextBoxColumn
+    Friend WithEvents salida As DataGridViewTextBoxColumn
+    Friend WithEvents llegada As DataGridViewTextBoxColumn
+    Friend WithEvents usuarioempleado As DataGridViewTextBoxColumn
+    Friend WithEvents fechatramite As DataGridViewTextBoxColumn
+    Friend WithEvents idreserva As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalsalida As DataGridViewTextBoxColumn
+    Friend WithEvents fechareservainiciof As DataGridViewTextBoxColumn
+    Friend WithEvents idestadoreserva As DataGridViewTextBoxColumn
+    Friend WithEvents estadoreserva As DataGridViewTextBoxColumn
+    Friend WithEvents idpersonareserva As DataGridViewTextBoxColumn
+    Friend WithEvents idcategoriareserva As DataGridViewTextBoxColumn
+    Friend WithEvents idtiporeserva As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalllegada As DataGridViewTextBoxColumn
 End Class

@@ -28,7 +28,7 @@
     'El constructor de la clase. El código de aquí se ejecutará cada vez que se cree una instancia de esta clase. Es como el "load" pero de la clase, no es de ningun formulario.
     Public Sub New()
         Dim añosaux As Integer = 1900
-        While añosaux <= CInt(DateTime.Today.Year)
+        While añosaux <= CInt(Date.Now.Year)
             Años.Add(añosaux.ToString)
             añosaux = añosaux + 1
         End While

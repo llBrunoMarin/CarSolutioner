@@ -89,22 +89,58 @@ Partial Public Class frmMainMenu
 
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 
-            Dim selectedRow = dgvReservas.Rows(e.RowIndex)
+            Dim selectedRow As DataGridViewRow = dgvReservas.Rows(e.RowIndex)
 
-            ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
-            ReservaSeleccionadaAlquiler.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
-            ReservaSeleccionadaAlquiler.FechaReservaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
-            ReservaSeleccionadaAlquiler.FechaReservaFin = selectedRow.Cells("fechareservafin").Value.ToString
-            ReservaSeleccionadaAlquiler.IdCantKM = selectedRow.Cells("idcantidadkm").Value.ToString
-            ReservaSeleccionadaAlquiler.CostoTotal = selectedRow.Cells("costototalres").Value.ToString
-            ReservaSeleccionadaAlquiler.FechaTramite = selectedRow.Cells("fechatramite").Value.ToString
-            ReservaSeleccionadaAlquiler.NomCliente = selectedRow.Cells("nombreapellido").Value.ToString
-            ReservaSeleccionadaAlquiler.IdCategoria = selectedRow.Cells("idcategoriareserva").Value.ToString
-            ReservaSeleccionadaAlquiler.IdTipo = selectedRow.Cells("idtiporeserva").Value.ToString
-            ReservaSeleccionadaAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalida").Value.ToString
-            ReservaSeleccionadaAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegada").Value.ToString
-            ReservaSeleccionadaAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleado").Value.ToString
-            frmAlquilar.ShowDialog()
+            If selectedRow.Cells("idestadoreserva").Value = 1 Then
+                If selectedRow.Cells("fechareservainicio").Value < Date.Now Then
+                    If ((selectedRow.Cells("fechareservainicio").Value >= Date.Now) Or ((selectedRow.Cells("fechareservainicio").Value >= Date.Now And selectedRow.Cells("fechareservainicio").Value <= ((Date.Now).AddHours(6))))) Then
+
+                        ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
+                        ReservaSeleccionadaAlquiler.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
+                        ReservaSeleccionadaAlquiler.FechaReservaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
+                        ReservaSeleccionadaAlquiler.FechaReservaFin = selectedRow.Cells("fechareservafin").Value.ToString
+                        ReservaSeleccionadaAlquiler.IdCantKM = selectedRow.Cells("idcantidadkm").Value.ToString
+                        ReservaSeleccionadaAlquiler.CostoTotal = selectedRow.Cells("costototalres").Value.ToString
+                        ReservaSeleccionadaAlquiler.FechaTramite = selectedRow.Cells("fechatramite").Value.ToString
+                        ReservaSeleccionadaAlquiler.NomCliente = selectedRow.Cells("nombreapellido").Value.ToString
+                        ReservaSeleccionadaAlquiler.IdCategoria = selectedRow.Cells("idcategoriareserva").Value.ToString
+                        ReservaSeleccionadaAlquiler.IdTipo = selectedRow.Cells("idtiporeserva").Value.ToString
+                        ReservaSeleccionadaAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalida").Value.ToString
+                        ReservaSeleccionadaAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegada").Value.ToString
+                        ReservaSeleccionadaAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleado").Value.ToString
+                        frmAlquilar.ShowDialog()
+
+                    Else
+                        Dim Diferencia As Integer = Math.Truncate((Date.Now - Date.Parse(selectedRow.Cells("fechareservainicio").Value.ToString)).TotalHours)
+
+
+                        Dim resultado As DialogResult = AmaranthMessagebox("Esta reserva era para hace más de " + Diferencia.ToString + " horas atrás. ¿Está seguro que quiere realizar el Alquiler?", "Si/No")
+                        If resultado = vbYes Then
+                            ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
+                            ReservaSeleccionadaAlquiler.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
+                            ReservaSeleccionadaAlquiler.FechaReservaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
+                            ReservaSeleccionadaAlquiler.FechaReservaFin = selectedRow.Cells("fechareservafin").Value.ToString
+                            ReservaSeleccionadaAlquiler.IdCantKM = selectedRow.Cells("idcantidadkm").Value.ToString
+                            ReservaSeleccionadaAlquiler.CostoTotal = selectedRow.Cells("costototalres").Value.ToString
+                            ReservaSeleccionadaAlquiler.FechaTramite = selectedRow.Cells("fechatramite").Value.ToString
+                            ReservaSeleccionadaAlquiler.NomCliente = selectedRow.Cells("nombreapellido").Value.ToString
+                            ReservaSeleccionadaAlquiler.IdCategoria = selectedRow.Cells("idcategoriareserva").Value.ToString
+                            ReservaSeleccionadaAlquiler.IdTipo = selectedRow.Cells("idtiporeserva").Value.ToString
+                            ReservaSeleccionadaAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalida").Value.ToString
+                            ReservaSeleccionadaAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegada").Value.ToString
+                            ReservaSeleccionadaAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleado").Value.ToString
+                            frmAlquilar.ShowDialog()
+                        End If
+                    End If
+                Else
+                    AmaranthMessagebox("Solo puede alquilar reservas que sean para hoy.", "Error")
+                End If
+
+
+            Else
+                AmaranthMessagebox("Solo puede alquilar reservas activas.", "Error")
+            End If
+
 
         End If
     End Sub
@@ -210,58 +246,56 @@ Partial Public Class frmMainMenu
     Private Sub AgregarReserva(sender As Object, e As EventArgs) Handles btnReservarARes.Click
 
         Dim fechaActual As Date
-        fechaActual = Date.Today
+        fechaActual = Date.Now
 
         If Not ((dtpInicioARes.Value < fechaActual) Or (dtpFinARes.Value < fechaActual)) Then
 
-            If Not dtpFinARes.Value < dtpInicioARes.Value Then
+            If Not dtpFinARes.Value <= dtpInicioARes.Value Then
+                If ((dtpFinARes.Value - dtpInicioARes.Value).Days >= 1) Then
 
-                Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona, nombre || ' ' || apellido nombreapellido, porcdescuento FROM Cliente WHERE nrodocumento = '" + txtDocumARes.Text + "' AND estado = 't'")
+                    Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona, nombre || ' ' || apellido nombreapellido, porcdescuento FROM Cliente WHERE nrodocumento = '" + txtDocumARes.Text + "' AND estado = 't'")
 
-                'Si la persona existe
-                If Persona.Rows.Count <> 0 Then
+                    'Si la persona existe
+                    If Persona.Rows.Count <> 0 Then
 
-                    Dim IdPersona As String = Persona.Rows(0)(0).ToString
-                    Dim NombreApellido As String = Persona.Rows(0)(1).ToString
-                    Dim PorcDescuento As String = Persona.Rows(0)(2).ToString
+                        Dim IdPersona As String = Persona.Rows(0)(0).ToString
+                        Dim NombreApellido As String = Persona.Rows(0)(1).ToString
+                        Dim PorcDescuento As String = Persona.Rows(0)(2).ToString
 
-                    'Si el cliente NO tiene reservas activas:
-                    '
-                    Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND ((fechareservafin > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservainicio < '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin < '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio < '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin > '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "'))"
-                    If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
+                        'Si el cliente NO tiene reservas activas:
+                        '
+                        Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND ((fechareservafin > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservainicio < '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin < '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio < '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin > '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "'))"
+                        If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
 
-                        ReservaSeleccionadaReserva.IdCliente = IdPersona
-                        ReservaSeleccionadaReserva.FechaReservaInicio = dtpInicioARes.Value
-                        ReservaSeleccionadaReserva.FechaReservaFin = dtpFinARes.Value
-                        ReservaSeleccionadaReserva.IdCantKM = cbxKmARes.SelectedValue
-                        ReservaSeleccionadaReserva.FechaTramite = Date.Today
-                        ReservaSeleccionadaReserva.NomCliente = NombreApellido
-                        ReservaSeleccionadaReserva.IdCategoria = cbxCategoriaARes.SelectedValue
-                        ReservaSeleccionadaReserva.IdTipo = cbxTipoAReserva.SelectedValue
-                        ReservaSeleccionadaReserva.IdSucursalPartida = cbxSucSalidaARes.SelectedValue
-                        ReservaSeleccionadaReserva.IdSucursalDestino = cbxSucLlegadaARes.SelectedValue
-                        ReservaSeleccionadaReserva.UsuarioEmpleado = conexion.Usuario
-                        ReservaSeleccionadaReserva.DescuentoCliente = PorcDescuento
+                            ReservaSeleccionadaReserva.IdCliente = IdPersona
+                            ReservaSeleccionadaReserva.FechaReservaInicio = dtpInicioARes.Value
+                            ReservaSeleccionadaReserva.FechaReservaFin = dtpFinARes.Value
+                            ReservaSeleccionadaReserva.IdCantKM = cbxKmARes.SelectedValue
+                            ReservaSeleccionadaReserva.FechaTramite = Date.Now
+                            ReservaSeleccionadaReserva.NomCliente = NombreApellido
+                            ReservaSeleccionadaReserva.IdCategoria = cbxCategoriaARes.SelectedValue
+                            ReservaSeleccionadaReserva.IdTipo = cbxTipoAReserva.SelectedValue
+                            ReservaSeleccionadaReserva.IdSucursalPartida = cbxSucSalidaARes.SelectedValue
+                            ReservaSeleccionadaReserva.IdSucursalDestino = cbxSucLlegadaARes.SelectedValue
+                            ReservaSeleccionadaReserva.UsuarioEmpleado = conexion.Usuario
+                            ReservaSeleccionadaReserva.DescuentoCliente = PorcDescuento
 
-                        Reserva.ShowDialog()
+                            Reserva.ShowDialog()
 
+                        Else
+                            AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")
+                        End If
 
                     Else
-                        AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")
+                        AmaranthMessagebox("Ese cliente no está registrado o está inactivo.", "Error")
                     End If
-
-                Else
-                    AmaranthMessagebox("Ese cliente no está registrado o está inactivo.", "Error")
                 End If
 
             Else
                 AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error")
-                dtpInicioARes.Value = Date.Today
-                dtpFinARes.Value = Date.Today
             End If
-
         Else
-            AmaranthMessagebox("La fechas no puede ser menor a la de hoy", "Continuar")
+            AmaranthMessagebox("La fechas no puede ser menor a la de hoy", "Error")
         End If
     End Sub
 
@@ -339,7 +373,7 @@ Partial Public Class frmMainMenu
                 End If
             Case "chboxVerHoyFReserva"
                 If chboxVerHoyFReserva.Checked = True Then
-                    Return " AND fechareservainiciof = '" + Date.Today.ToString("dd/MM/yyyy") + "'"
+                    Return " AND fechareservainiciof = '" + Date.Now.ToString("dd/MM/yyyy") + "'"
                 Else
                     Return ""
                 End If

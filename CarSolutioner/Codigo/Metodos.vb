@@ -326,9 +326,10 @@ Module Metodos
     End Function
 
     'Genera un documento PDF
-    Public Function GenerarDocumentoPDF(ByVal document As Document, dgv As DataGridView) As Document
+    Public Sub AñadirTablaPDF(doc As Document, dgv As DataGridView)
 
         'Se crea un objeto PDFTable con el numero de columnas del DataGridView. 
+
         Dim PdfTable As New PdfPTable(CantidadColumnasVisibles(dgv))
         Dim headerwidths As Single() = TamañoColumnasVisibles(dgv)
 
@@ -367,11 +368,11 @@ Module Metodos
         Next
 
         'Se agrega el PDFTable al documento.
-        document.Add(PdfTable)
+        doc.Add(PdfTable)
 
-        Return document
 
-    End Function
+
+    End Sub
 
     Public Sub GuardarPDF(document As Document)
 
@@ -382,10 +383,30 @@ Module Metodos
         Dim fileName As String = String.Empty
 
         If dlg.ShowDialog() = DialogResult.OK Then
+
             fileName = dlg.FileName
-            PdfWriter.GetInstance(document, New FileStream(fileName, FileMode.Create))
+            PdfWriter.GetInstance(document, New FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
 
         End If
+
+    End Sub
+
+    Public Sub CrearPDF(dgv As DataGridView)
+
+        Dim doc As New Document(PageSize.A4.Rotate(), 10, 10, 10, 10)
+        Dim fileName As String
+        Dim dlg As New SaveFileDialog()
+        dlg.Filter = "PDF Files|*.pdf"
+        dlg.FilterIndex = 0
+
+        If dlg.ShowDialog() = DialogResult.OK Then
+            fileName = dlg.FileName
+            PdfWriter.GetInstance(doc, New FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
+            doc.Open()
+            AñadirTablaPDF(doc, dgv)
+            doc.Close()
+        End If
+
 
     End Sub
 End Module

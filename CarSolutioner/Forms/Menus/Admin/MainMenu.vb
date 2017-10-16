@@ -116,6 +116,7 @@ Public Class frmMainMenu
         RecargarDatos(dgvVehiculos)
         RecargarDatos(dgvEmpleados)
         RecargarDatos(dgvMant)
+        RecargarDatos(dgvMasAlquileresRClientes)
 
         'Cargas de ComboBox
         'MARCAS
@@ -212,7 +213,7 @@ Public Class frmMainMenu
 
         Login.Hide()
     End Sub
-    'compilanding
+
     'Segun el DataGridView que se pase como argumento, es las cargas que realiza.
     Public Sub RecargarDatos(dgv As DataGridView, Optional sentencia As String = "")
 
@@ -247,6 +248,8 @@ Public Class frmMainMenu
             Case "dgvMant"
                 conexion.RellenarDataGridView(dgvMant, "SELECT m.*, m.fechainicio fechainiciof, m.fechafin fechafinf, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
 
+            Case "dgvMasAlquileresRClientes"
+                conexion.RellenarDataGridView(dgvMasAlquileresRClientes, "SELECT C.apellido  , c.nombre, c.email, 0 Alquileres FROM Cliente c group by apellido, nombre,email UNION SELECT c.apellido , c.nombre, c.email, count(r.nrochasis) Alquileres from cliente c, vehiculo v, reserva r where c.idpersona = r.idpersona and r.nrochasis=v.nrochasis group by apellido, nombre,email order by alquileres desc")
             Case Else
 
                 conexion.RellenarDataGridView(dgv, sentencia)
@@ -268,7 +271,7 @@ Public Class frmMainMenu
         Dim file As New FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.ReadWrite)
         PdfWriter.GetInstance(doc, file)
         doc.Open()
-        GenerarDocumentoPDF(doc, dgvClientes)
+        AñadirTablaPDF(doc, dgvClientes)
         doc.Close()
         'Process.Start(filename)
         'Catch ex As Exception
@@ -276,5 +279,6 @@ Public Class frmMainMenu
         ' MessageBox.Show("No se puede generar el documento PDF.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         'End Try
     End Sub
+
 
 End Class

@@ -151,6 +151,9 @@ Partial Class frmMainMenu
         Me.Label98 = New System.Windows.Forms.Label()
         Me.Label99 = New System.Windows.Forms.Label()
         Me.ReportesClientes = New System.Windows.Forms.TabPage()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label111 = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.tbpVehiculos = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -341,6 +344,7 @@ Partial Class frmMainMenu
         Me.tabReporteEmpleado = New System.Windows.Forms.TabPage()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
         Me.pnlmmant = New System.Windows.Forms.Panel()
+        Me.llbFechaInicioMmant = New System.Windows.Forms.Label()
         Me.cbxModifTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label112 = New System.Windows.Forms.Label()
         Me.btnVaciarMant = New System.Windows.Forms.Button()
@@ -597,7 +601,11 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.llbFechaInicioMmant = New System.Windows.Forms.Label()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Label115 = New System.Windows.Forms.Label()
+        Me.dgvMasAlquileresRClientes = New System.Windows.Forms.DataGridView()
+        Me.btnExportarMasAlquileresRClientes = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -614,6 +622,9 @@ Partial Class frmMainMenu
         Me.gbxFecNacFCliente.SuspendLayout()
         Me.pnlAClientes.SuspendLayout()
         Me.gbxFecNacACliente.SuspendLayout()
+        Me.ReportesClientes.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpVehiculos.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -654,6 +665,8 @@ Partial Class frmMainMenu
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel8.SuspendLayout()
+        CType(Me.dgvMasAlquileresRClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -1916,12 +1929,46 @@ Partial Class frmMainMenu
         'ReportesClientes
         '
         Me.ReportesClientes.BackColor = System.Drawing.Color.Silver
+        Me.ReportesClientes.Controls.Add(Me.Panel8)
+        Me.ReportesClientes.Controls.Add(Me.Panel7)
         Me.ReportesClientes.Location = New System.Drawing.Point(4, 22)
         Me.ReportesClientes.Name = "ReportesClientes"
         Me.ReportesClientes.Padding = New System.Windows.Forms.Padding(3)
         Me.ReportesClientes.Size = New System.Drawing.Size(1327, 795)
         Me.ReportesClientes.TabIndex = 1
-        Me.ReportesClientes.Text = "ReportesClientes"
+        Me.ReportesClientes.Text = "Reportes"
+        '
+        'Panel7
+        '
+        Me.Panel7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel7.Controls.Add(Me.Button2)
+        Me.Panel7.Controls.Add(Me.Label111)
+        Me.Panel7.Controls.Add(Me.DataGridView1)
+        Me.Panel7.Location = New System.Drawing.Point(6, 6)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(650, 778)
+        Me.Panel7.TabIndex = 0
+        '
+        'Label111
+        '
+        Me.Label111.AutoSize = True
+        Me.Label111.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label111.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label111.Location = New System.Drawing.Point(168, 11)
+        Me.Label111.Name = "Label111"
+        Me.Label111.Size = New System.Drawing.Size(290, 22)
+        Me.Label111.TabIndex = 25
+        Me.Label111.Text = "Clientes que más han gastado"
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(17, 49)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(613, 373)
+        Me.DataGridView1.TabIndex = 0
         '
         'tbpVehiculos
         '
@@ -4039,6 +4086,17 @@ Partial Class frmMainMenu
         Me.pnlmmant.Name = "pnlmmant"
         Me.pnlmmant.Size = New System.Drawing.Size(573, 198)
         Me.pnlmmant.TabIndex = 36
+        '
+        'llbFechaInicioMmant
+        '
+        Me.llbFechaInicioMmant.AutoSize = True
+        Me.llbFechaInicioMmant.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.llbFechaInicioMmant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.llbFechaInicioMmant.Location = New System.Drawing.Point(270, 74)
+        Me.llbFechaInicioMmant.Name = "llbFechaInicioMmant"
+        Me.llbFechaInicioMmant.Size = New System.Drawing.Size(62, 17)
+        Me.llbFechaInicioMmant.TabIndex = 43
+        Me.llbFechaInicioMmant.Text = "Fecha fin"
         '
         'cbxModifTipoMant
         '
@@ -6817,16 +6875,82 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'llbFechaInicioMmant
+        'Panel8
         '
-        Me.llbFechaInicioMmant.AutoSize = True
-        Me.llbFechaInicioMmant.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llbFechaInicioMmant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.llbFechaInicioMmant.Location = New System.Drawing.Point(270, 74)
-        Me.llbFechaInicioMmant.Name = "llbFechaInicioMmant"
-        Me.llbFechaInicioMmant.Size = New System.Drawing.Size(62, 17)
-        Me.llbFechaInicioMmant.TabIndex = 43
-        Me.llbFechaInicioMmant.Text = "Fecha fin"
+        Me.Panel8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel8.Controls.Add(Me.btnExportarMasAlquileresRClientes)
+        Me.Panel8.Controls.Add(Me.Label115)
+        Me.Panel8.Controls.Add(Me.dgvMasAlquileresRClientes)
+        Me.Panel8.Location = New System.Drawing.Point(671, 6)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(650, 778)
+        Me.Panel8.TabIndex = 0
+        '
+        'Label115
+        '
+        Me.Label115.AutoSize = True
+        Me.Label115.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label115.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label115.Location = New System.Drawing.Point(139, 11)
+        Me.Label115.Name = "Label115"
+        Me.Label115.Size = New System.Drawing.Size(381, 22)
+        Me.Label115.TabIndex = 25
+        Me.Label115.Text = "Clientes con mayor número de alquileres"
+        '
+        'dgvMasAlquileresRClientes
+        '
+        Me.dgvMasAlquileresRClientes.AllowUserToAddRows = False
+        Me.dgvMasAlquileresRClientes.AllowUserToDeleteRows = False
+        Me.dgvMasAlquileresRClientes.AllowUserToResizeColumns = False
+        Me.dgvMasAlquileresRClientes.AllowUserToResizeRows = False
+        Me.dgvMasAlquileresRClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvMasAlquileresRClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvMasAlquileresRClientes.Location = New System.Drawing.Point(17, 49)
+        Me.dgvMasAlquileresRClientes.MultiSelect = False
+        Me.dgvMasAlquileresRClientes.Name = "dgvMasAlquileresRClientes"
+        Me.dgvMasAlquileresRClientes.ReadOnly = True
+        Me.dgvMasAlquileresRClientes.RowHeadersVisible = False
+        Me.dgvMasAlquileresRClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvMasAlquileresRClientes.Size = New System.Drawing.Size(614, 373)
+        Me.dgvMasAlquileresRClientes.TabIndex = 0
+        '
+        'btnExportarMasAlquileresRClientes
+        '
+        Me.btnExportarMasAlquileresRClientes.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportarMasAlquileresRClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnExportarMasAlquileresRClientes.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnExportarMasAlquileresRClientes.FlatAppearance.BorderSize = 0
+        Me.btnExportarMasAlquileresRClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnExportarMasAlquileresRClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnExportarMasAlquileresRClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExportarMasAlquileresRClientes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportarMasAlquileresRClientes.ForeColor = System.Drawing.Color.White
+        Me.btnExportarMasAlquileresRClientes.Location = New System.Drawing.Point(532, 428)
+        Me.btnExportarMasAlquileresRClientes.Name = "btnExportarMasAlquileresRClientes"
+        Me.btnExportarMasAlquileresRClientes.Size = New System.Drawing.Size(99, 31)
+        Me.btnExportarMasAlquileresRClientes.TabIndex = 26
+        Me.btnExportarMasAlquileresRClientes.Text = "Exportar"
+        Me.btnExportarMasAlquileresRClientes.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(531, 428)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(99, 31)
+        Me.Button2.TabIndex = 26
+        Me.Button2.Text = "Exportar"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'frmMainMenu
         '
@@ -6870,6 +6994,10 @@ Partial Class frmMainMenu
         Me.pnlAClientes.ResumeLayout(False)
         Me.pnlAClientes.PerformLayout()
         Me.gbxFecNacACliente.ResumeLayout(False)
+        Me.ReportesClientes.ResumeLayout(False)
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpVehiculos.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
@@ -6929,6 +7057,9 @@ Partial Class frmMainMenu
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
+        CType(Me.dgvMasAlquileresRClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -7258,7 +7389,6 @@ Partial Class frmMainMenu
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents tabClientes As TabControl
     Friend WithEvents Clientes As TabPage
-    Friend WithEvents ReportesClientes As TabPage
     Friend WithEvents txtDeducibleMVeh As TextBox
     Friend WithEvents txtKMMVeh As TextBox
     Friend WithEvents Label92 As Label
@@ -7495,4 +7625,13 @@ Partial Class frmMainMenu
     Friend WithEvents nrochasisalq As DataGridViewTextBoxColumn
     Friend WithEvents dtpModifFechaInicioMant As DateTimePicker
     Friend WithEvents llbFechaInicioMmant As Label
+    Friend WithEvents ReportesClientes As TabPage
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents Label111 As Label
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents Label115 As Label
+    Friend WithEvents dgvMasAlquileresRClientes As DataGridView
+    Friend WithEvents btnExportarMasAlquileresRClientes As Button
+    Friend WithEvents Button2 As Button
 End Class

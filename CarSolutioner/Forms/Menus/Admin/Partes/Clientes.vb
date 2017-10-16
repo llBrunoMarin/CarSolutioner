@@ -1,4 +1,6 @@
-﻿
+﻿Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports System.IO
 'Ignorar, es para que no abra un Designer.
 <System.ComponentModel.DesignerCategory("")>
 Public Class NoDesignerClientes
@@ -20,8 +22,6 @@ Partial Public Class frmMainMenu
         End If
 
     End Sub
-
-
 
     Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, cbxDiaNFCliente.SelectionChangeCommitted, cbxMesNFCliente.SelectionChangeCommitted, cbxAnioNFCliente.SelectionChangeCommitted, lblBorrarTipoDoc.Click
 
@@ -349,6 +349,10 @@ Partial Public Class frmMainMenu
 
     End Sub
 
+    Private Sub ExportarMasAlquileres(sender As Object, e As EventArgs) Handles btnExportarMasAlquileresRClientes.Click
+        CrearPDF(dgvMasAlquileresRClientes)
 
+
+    End Sub
 
 End Class

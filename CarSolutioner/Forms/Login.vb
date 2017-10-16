@@ -43,25 +43,17 @@ Public Class Login
     'Hacer operaciones de LOGIN, establece el Tipo de Usuario una vez que termina. Si termina con un error, establece el tipo de usuario según el error.
     Private Sub bgwLogin_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwLogin.DoWork
 
-        If Not (txtContraseña.Text = "" Or txtUsuario.Text = "") Then
 
-            conexion.Usuario = txtUsuario.Text
+
+        conexion.Usuario = txtUsuario.Text
             conexion.Contraseña = txtContraseña.Text
 
             conexion.Conectar(conexion.Usuario, conexion.Contraseña)
             conexion.Cerrar()
 
-        Else
-            pboxLoading.Visible = False
-            lbldataincorrect.Text = "Faltan datos"
-            lbldataincorrect.Visible = True
-            txtContraseña.Visible = True
-            txtUsuario.Visible = True
-            btnLogin.Visible = True
-            lblpass.Visible = True
-            PictureBox2.Visible = True
-            lbluser.Visible = True
-        End If
+
+
+
     End Sub
 
     'Este código se ejecuta solamente cuando el método "DoWork" termina de ejecutarse.
@@ -121,6 +113,16 @@ Public Class Login
 
             Case "NetworkFailure"
 
+            Case "MissingData"
+                pboxLoading.Visible = False
+                lbldataincorrect.Text = "Faltan datos"
+                lbldataincorrect.Visible = True
+                txtContraseña.Visible = True
+                txtUsuario.Visible = True
+                btnLogin.Visible = True
+                lblpass.Visible = True
+                PictureBox2.Visible = True
+                lbluser.Visible = True
 
             Case Else
                 pboxLoading.Visible = False

@@ -147,6 +147,7 @@
     <Compile Include="Forms\AmaranthMsgbox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Menus\Admin\Partes\Alquileres.vb" />
     <Compile Include="Forms\Menus\Admin\Sub-Forms\Alquilar.Designer.vb">
       <DependentUpon>Alquilar.vb</DependentUpon>
     </Compile>
@@ -190,10 +191,10 @@
     <Compile Include="Forms\Menus\Admin\Sub-Forms\FinalizarAlquiler.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Reconectar.Designer.vb">
+    <Compile Include="Forms\Reconectar.Designer.vb">
       <DependentUpon>Reconectar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Reconectar.vb">
+    <Compile Include="Forms\Reconectar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Menus\Admin\Sub-Forms\Reserva.Designer.vb">
@@ -248,7 +249,7 @@
     <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\FinalizarAlquiler.resx">
       <DependentUpon>FinalizarAlquiler.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\Reconectar.resx">
+    <EmbeddedResource Include="Forms\Reconectar.resx">
       <DependentUpon>Reconectar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\Reserva.resx">

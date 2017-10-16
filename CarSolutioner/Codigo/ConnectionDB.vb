@@ -193,19 +193,21 @@
 
         Catch ex As Odbc.OdbcException
 
-            If (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]") Or ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
+            If (ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
 
                 Me.ConnectionStatus = "BadCredentials"
 
 
                 Cerrar()
 
+            ElseIf (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver]")) Then
+                Me.ConnectionStatus = "MissingData"
+
+                Cerrar()
             Else
 
                 ' MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
                 'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
-
-
                 Me.ConnectionStatus = "NetworkFailure"
                 If Not Application.OpenForms().OfType(Of Reconectar).Any Then
                     Reconectar.ShowDialog()

@@ -23,7 +23,7 @@ Partial Class FinalizarAlquiler
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label150 = New System.Windows.Forms.Label()
-        Me.txtKMAuto = New System.Windows.Forms.TextBox()
+        Me.txtKMAutoAhora = New System.Windows.Forms.TextBox()
         Me.txtCantidadDias = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCostoTotal = New System.Windows.Forms.TextBox()
@@ -35,6 +35,8 @@ Partial Class FinalizarAlquiler
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnAgregarDescuentoCliente = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtKMAutoAntes = New System.Windows.Forms.TextBox()
+        Me.lblAdvertencia = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnCerrarMsgbox = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
@@ -54,23 +56,23 @@ Partial Class FinalizarAlquiler
         Me.Label150.AutoSize = True
         Me.Label150.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label150.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label150.Location = New System.Drawing.Point(9, 9)
+        Me.Label150.Location = New System.Drawing.Point(4, 67)
         Me.Label150.Name = "Label150"
-        Me.Label150.Size = New System.Drawing.Size(203, 17)
+        Me.Label150.Size = New System.Drawing.Size(227, 17)
         Me.Label150.TabIndex = 48
-        Me.Label150.Text = "KM del auto al finalizar el Alquiler"
+        Me.Label150.Text = "KM del vehiculo al finalizar el Alquiler"
         '
-        'txtKMAuto
+        'txtKMAutoAhora
         '
-        Me.txtKMAuto.Location = New System.Drawing.Point(9, 29)
-        Me.txtKMAuto.Name = "txtKMAuto"
-        Me.txtKMAuto.Size = New System.Drawing.Size(121, 20)
-        Me.txtKMAuto.TabIndex = 47
+        Me.txtKMAutoAhora.Location = New System.Drawing.Point(9, 87)
+        Me.txtKMAutoAhora.Name = "txtKMAutoAhora"
+        Me.txtKMAutoAhora.Size = New System.Drawing.Size(121, 20)
+        Me.txtKMAutoAhora.TabIndex = 47
         '
         'txtCantidadDias
         '
         Me.txtCantidadDias.Enabled = False
-        Me.txtCantidadDias.Location = New System.Drawing.Point(9, 87)
+        Me.txtCantidadDias.Location = New System.Drawing.Point(9, 139)
         Me.txtCantidadDias.Name = "txtCantidadDias"
         Me.txtCantidadDias.Size = New System.Drawing.Size(121, 20)
         Me.txtCantidadDias.TabIndex = 47
@@ -80,7 +82,7 @@ Partial Class FinalizarAlquiler
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(6, 67)
+        Me.Label1.Location = New System.Drawing.Point(6, 119)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(201, 17)
         Me.Label1.TabIndex = 48
@@ -139,7 +141,7 @@ Partial Class FinalizarAlquiler
         'txtDescuentoCliente
         '
         Me.txtDescuentoCliente.Enabled = False
-        Me.txtDescuentoCliente.Location = New System.Drawing.Point(9, 150)
+        Me.txtDescuentoCliente.Location = New System.Drawing.Point(9, 194)
         Me.txtDescuentoCliente.Name = "txtDescuentoCliente"
         Me.txtDescuentoCliente.Size = New System.Drawing.Size(121, 20)
         Me.txtDescuentoCliente.TabIndex = 47
@@ -149,7 +151,7 @@ Partial Class FinalizarAlquiler
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(6, 130)
+        Me.Label2.Location = New System.Drawing.Point(6, 174)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(217, 17)
         Me.Label2.TabIndex = 48
@@ -159,11 +161,13 @@ Partial Class FinalizarAlquiler
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Panel1.Controls.Add(Me.btnAgregarDescuentoCliente)
+        Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label150)
-        Me.Panel1.Controls.Add(Me.txtKMAuto)
+        Me.Panel1.Controls.Add(Me.txtKMAutoAntes)
+        Me.Panel1.Controls.Add(Me.txtKMAutoAhora)
         Me.Panel1.Controls.Add(Me.txtCantidadDias)
         Me.Panel1.Controls.Add(Me.txtDescuentoCliente)
-        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.lblAdvertencia)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(12, 35)
@@ -181,7 +185,7 @@ Partial Class FinalizarAlquiler
         Me.btnAgregarDescuentoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarDescuentoCliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
         Me.btnAgregarDescuentoCliente.ForeColor = System.Drawing.Color.White
-        Me.btnAgregarDescuentoCliente.Location = New System.Drawing.Point(135, 151)
+        Me.btnAgregarDescuentoCliente.Location = New System.Drawing.Point(134, 195)
         Me.btnAgregarDescuentoCliente.Name = "btnAgregarDescuentoCliente"
         Me.btnAgregarDescuentoCliente.Size = New System.Drawing.Size(18, 18)
         Me.btnAgregarDescuentoCliente.TabIndex = 49
@@ -191,14 +195,34 @@ Partial Class FinalizarAlquiler
         '
         'Label3
         '
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(9, 228)
+        Me.Label3.Location = New System.Drawing.Point(4, 10)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(214, 64)
+        Me.Label3.Size = New System.Drawing.Size(209, 17)
         Me.Label3.TabIndex = 48
-        Me.Label3.Text = "Atención: Este cliente se pasó de los Kilómetros diarios permitidos. " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Se cobra" &
+        Me.Label3.Text = "KM del vehiculo antes del Alquiler"
+        '
+        'txtKMAutoAntes
+        '
+        Me.txtKMAutoAntes.Enabled = False
+        Me.txtKMAutoAntes.Location = New System.Drawing.Point(9, 30)
+        Me.txtKMAutoAntes.Name = "txtKMAutoAntes"
+        Me.txtKMAutoAntes.Size = New System.Drawing.Size(121, 20)
+        Me.txtKMAutoAntes.TabIndex = 47
+        '
+        'lblAdvertencia
+        '
+        Me.lblAdvertencia.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblAdvertencia.Location = New System.Drawing.Point(9, 228)
+        Me.lblAdvertencia.Name = "lblAdvertencia"
+        Me.lblAdvertencia.Size = New System.Drawing.Size(214, 64)
+        Me.lblAdvertencia.TabIndex = 48
+        Me.lblAdvertencia.Text = "Atención: Este cliente se pasó de los Kilómetros diarios permitidos. " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Se cobra" &
     "rá un recargo"
+        Me.lblAdvertencia.Visible = False
         '
         'Panel2
         '
@@ -315,6 +339,7 @@ Partial Class FinalizarAlquiler
         '
         'TextBox6
         '
+        Me.TextBox6.Enabled = False
         Me.TextBox6.Location = New System.Drawing.Point(279, 251)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(121, 20)
@@ -351,7 +376,7 @@ Partial Class FinalizarAlquiler
     End Sub
 
     Friend WithEvents Label150 As Label
-    Friend WithEvents txtKMAuto As TextBox
+    Friend WithEvents txtKMAutoAhora As TextBox
     Friend WithEvents txtCantidadDias As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txtCostoTotal As TextBox
@@ -361,7 +386,7 @@ Partial Class FinalizarAlquiler
     Friend WithEvents txtDescuentoCliente As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblAdvertencia As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnCerrarMsgbox As Button
     Friend WithEvents btnCerrar As Button
@@ -373,4 +398,6 @@ Partial Class FinalizarAlquiler
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtKMAutoAntes As TextBox
 End Class

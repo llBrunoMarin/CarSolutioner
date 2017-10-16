@@ -2,9 +2,12 @@
 
     Dim _IdReserva As Integer
     Dim _IdCliente As Integer
+    Dim _Matricula As String
+    Dim _NroChasis As String
     Dim _NomCliente As String
     Dim _FechaReservaInicio As Date
     Dim _FechaReservaFin As Date
+    Dim _FechaAlquilerInicio As Date
     Dim _FechaTramite As Date
     Dim _IdCategoria As Integer
     Dim _IdTipo As Integer
@@ -148,6 +151,33 @@
         End Get
         Set(value As Integer)
             _DescuentoCliente = value
+        End Set
+    End Property
+
+    Public Property FechaAlquilerInicio As Date
+        Get
+            Return _FechaAlquilerInicio
+        End Get
+        Set(value As Date)
+            _FechaAlquilerInicio = value
+        End Set
+    End Property
+
+    Public Property Matricula As String
+        Get
+            Return _Matricula
+        End Get
+        Set(value As String)
+            _Matricula = value
+        End Set
+    End Property
+
+    Public Property NroChasis As String
+        Get
+            Return _NroChasis
+        End Get
+        Set(value As String)
+            _NroChasis = value
         End Set
     End Property
 End Class

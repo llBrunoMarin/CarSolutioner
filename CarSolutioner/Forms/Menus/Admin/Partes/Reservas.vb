@@ -85,7 +85,7 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Public Sub AlquilarReserva(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick
+    Public Sub AlquilarReserva(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick
 
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 
@@ -111,7 +111,7 @@ Partial Public Class frmMainMenu
                         frmAlquilar.ShowDialog()
 
                     Else
-                        Dim Diferencia As Integer = Math.Truncate((Date.Now - Date.Parse(selectedRow.Cells("fechareservainicio").Value.ToString)).TotalHours)
+                        Dim Diferencia As Integer = Math.Truncate((Date.Now - Date.Parse(selectedRow.Cells("fechareservainicio").Value.ToString())).TotalHours)
 
 
                         Dim resultado As DialogResult = AmaranthMessagebox("Esta reserva era para hace más de " + Diferencia.ToString + " horas atrás. ¿Está seguro que quiere realizar el Alquiler?", "Si/No")
@@ -264,7 +264,7 @@ Partial Public Class frmMainMenu
 
                         'Si el cliente NO tiene reservas activas:
                         '
-                        Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND ((fechareservafin > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservainicio < '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin < '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio < '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin > '" + dtpFinARes.Value.ToString("yyyy-MM-dd hh:mm") + "'))"
+                        Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado != 3 AND ((fechareservafin > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservainicio < '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechareservainicio > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservafin < '" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechareservainicio < '" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservafin > '" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "'))"
                         If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
 
                             ReservaSeleccionadaReserva.IdCliente = IdPersona
@@ -315,7 +315,7 @@ Partial Public Class frmMainMenu
                 Dim sentencia As String
 
                 'Si la persona no tiene ninguna reserva activa por esas fechas (exceptuando la que se va a modificar)
-                sentencia = "SELECT idreserva FROM Reserva WHERE idreserva != '" + IdReserva + "' AND idpersona = '" + IdPersona + "' AND ((fechareservafin BETWEEN '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "' AND '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio BETWEEN '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "' AND '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "') OR (fechareservainicio < '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "' AND fechareservafin > '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd hh:mm") + "'))"
+                sentencia = "SELECT idreserva FROM Reserva WHERE idreserva != '" + IdReserva + "' AND idpersona = '" + IdPersona + "' AND estado != 3 AND ((fechareservafin BETWEEN '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechareservainicio BETWEEN '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechareservainicio < '" + dtpFechaInicioMReserva.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservafin > '" + dtpFechaFinMReserva.Value.ToString("yyyy-MM-dd HH:mm") + "'))"
                 If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
                     Dim prueba As String
                     prueba = ("UPDATE RESERVA SET fechaalquilerinicio = NULL,
@@ -353,14 +353,14 @@ Partial Public Class frmMainMenu
         Select Case chbx.Name
             Case "chboxFechaFRes"
                 If chboxFechaFRes.Checked = True Then
-                    Return " And fechareservainicio >= '" + dtpDesdeFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "' AND fechareservafin < '" + dtpHastaFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "'"
+                    Return " And fechareservainicio >= '" + dtpDesdeFReserva.Value.ToString("dd/MM/yyyy HH:mm") + "' AND fechareservafin < '" + dtpHastaFReserva.Value.ToString("dd/MM/yyyy HH:mm") + "'"
                 Else
                     Return ""
                 End If
 
             Case "chboxFechaTramiteFReserva"
                 If chboxFechaTramiteFReserva.Checked = True Then
-                    Return " AND fechatramite = '" + dtpFechaTramiteFReserva.Value.ToString("dd/MM/yyyy hh:mm") + "'"
+                    Return " AND fechatramite = '" + dtpFechaTramiteFReserva.Value.ToString("dd/MM/yyyy HH:mm") + "'"
                 Else
                     Return ""
                 End If

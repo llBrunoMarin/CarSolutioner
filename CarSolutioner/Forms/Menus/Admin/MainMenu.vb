@@ -277,5 +277,4 @@ Public Class frmMainMenu
         'End Try
     End Sub
 
-
 End Class

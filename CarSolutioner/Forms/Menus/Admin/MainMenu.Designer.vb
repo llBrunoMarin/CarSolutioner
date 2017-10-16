@@ -257,7 +257,6 @@ Partial Class frmMainMenu
         Me.txtNroChasisMVeh = New System.Windows.Forms.TextBox()
         Me.cbxTipoMVeh = New System.Windows.Forms.ComboBox()
         Me.cbxPuertasMVeh = New System.Windows.Forms.ComboBox()
-
         Me.cbxAutomaticoMVeh = New System.Windows.Forms.CheckBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.cbxMaletasMVeh = New System.Windows.Forms.ComboBox()
@@ -271,7 +270,6 @@ Partial Class frmMainMenu
         Me.cbxCategoriaMVeh = New System.Windows.Forms.ComboBox()
         Me.cbxMarcaMVeh = New System.Windows.Forms.ComboBox()
         Me.txtMatriculaMVeh = New System.Windows.Forms.TextBox()
-
         Me.chbxAireMVeh = New System.Windows.Forms.CheckBox()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Label92 = New System.Windows.Forms.Label()
@@ -342,6 +340,8 @@ Partial Class frmMainMenu
         Me.tabReporteEmpleado = New System.Windows.Forms.TabPage()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
         Me.pnlmmant = New System.Windows.Forms.Panel()
+        Me.Label111 = New System.Windows.Forms.Label()
+        Me.dtpModifFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.cbxModifTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label112 = New System.Windows.Forms.Label()
         Me.btnVaciarMant = New System.Windows.Forms.Button()
@@ -591,18 +591,9 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label162 = New System.Windows.Forms.Label()
-
-
-        Me.dtpModifFechaInicioMant = New System.Windows.Forms.DateTimePicker()
-        Me.Label111 = New System.Windows.Forms.Label()
-
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label162 = New System.Windows.Forms.Label()
+        Me.lbl162N = New System.Windows.Forms.Label()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -4045,6 +4036,26 @@ Partial Class frmMainMenu
         Me.pnlmmant.Size = New System.Drawing.Size(573, 198)
         Me.pnlmmant.TabIndex = 36
         '
+        'Label111
+        '
+        Me.Label111.AutoSize = True
+        Me.Label111.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label111.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label111.Location = New System.Drawing.Point(257, 74)
+        Me.Label111.Name = "Label111"
+        Me.Label111.Size = New System.Drawing.Size(80, 17)
+        Me.Label111.TabIndex = 44
+        Me.Label111.Text = "Fecha inicio"
+        '
+        'dtpModifFechaInicioMant
+        '
+        Me.dtpModifFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.dtpModifFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(260, 94)
+        Me.dtpModifFechaInicioMant.Name = "dtpModifFechaInicioMant"
+        Me.dtpModifFechaInicioMant.Size = New System.Drawing.Size(136, 20)
+        Me.dtpModifFechaInicioMant.TabIndex = 43
+        '
         'cbxModifTipoMant
         '
         Me.cbxModifTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -4625,7 +4636,6 @@ Partial Class frmMainMenu
         Me.dgvReservas.TabIndex = 9
         '
         'nombreapellido
-
         '
         Me.nombreapellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.nombreapellido.DataPropertyName = "nombreapellido"
@@ -4652,7 +4662,7 @@ Partial Class frmMainMenu
         Me.fechareservainicio.ReadOnly = True
         '
         'fechareservafin
-
+        '
         Me.fechareservafin.DataPropertyName = "fechareservafin"
         DataGridViewCellStyle10.Format = "g"
         DataGridViewCellStyle10.NullValue = Nothing
@@ -4660,216 +4670,6 @@ Partial Class frmMainMenu
         Me.fechareservafin.HeaderText = "Fin"
         Me.fechareservafin.Name = "fechareservafin"
         Me.fechareservafin.ReadOnly = True
-
-        '
-        'categoriareserva
-        '
-        Me.categoriareserva.DataPropertyName = "categoria"
-        Me.categoriareserva.HeaderText = "Categoria"
-        Me.categoriareserva.Name = "categoriareserva"
-        Me.categoriareserva.ReadOnly = True
-        '
-        'tiporeserva
-        '
-        Me.tiporeserva.DataPropertyName = "tipo"
-        Me.tiporeserva.HeaderText = "Tipo"
-        Me.tiporeserva.Name = "tiporeserva"
-        Me.tiporeserva.ReadOnly = True
-        '
-        'idcantidadkm
-        '
-        Me.idcantidadkm.DataPropertyName = "idcantidadkm"
-        Me.idcantidadkm.HeaderText = "KM"
-        Me.idcantidadkm.Name = "idcantidadkm"
-        Me.idcantidadkm.ReadOnly = True
-        Me.idcantidadkm.Visible = False
-        '
-        'cantidadkmtext
-        '
-        Me.cantidadkmtext.DataPropertyName = "cantidadkmtext"
-        Me.cantidadkmtext.HeaderText = "Cantidad KM"
-        Me.cantidadkmtext.Name = "cantidadkmtext"
-        Me.cantidadkmtext.ReadOnly = True
-        '
-        'costototalres
-        '
-        Me.costototalres.DataPropertyName = "costototal"
-        Me.costototalres.HeaderText = "Costo"
-        Me.costototalres.Name = "costototalres"
-        Me.costototalres.ReadOnly = True
-        '
-        'salida
-        '
-        Me.salida.DataPropertyName = "salida"
-        Me.salida.HeaderText = "Salida"
-        Me.salida.Name = "salida"
-        Me.salida.ReadOnly = True
-        '
-        'llegada
-        '
-        Me.llegada.DataPropertyName = "llegada"
-        Me.llegada.HeaderText = "Llegada"
-        Me.llegada.Name = "llegada"
-        Me.llegada.ReadOnly = True
-        '
-        'usuarioempleado
-        '
-        Me.usuarioempleado.DataPropertyName = "usuarioempleado"
-        Me.usuarioempleado.HeaderText = "Vendedor"
-        Me.usuarioempleado.Name = "usuarioempleado"
-        Me.usuarioempleado.ReadOnly = True
-        '
-        'fechatramite
-        '
-        Me.fechatramite.DataPropertyName = "fechatramite"
-        DataGridViewCellStyle11.Format = "g"
-        DataGridViewCellStyle11.NullValue = Nothing
-        Me.fechatramite.DefaultCellStyle = DataGridViewCellStyle11
-        Me.fechatramite.HeaderText = "Tramite"
-        Me.fechatramite.Name = "fechatramite"
-        Me.fechatramite.ReadOnly = True
-        '
-        'idreserva
-        '
-        Me.idreserva.DataPropertyName = "idreserva"
-        Me.idreserva.HeaderText = "idreserva"
-        Me.idreserva.Name = "idreserva"
-        Me.idreserva.ReadOnly = True
-        Me.idreserva.Visible = False
-        '
-        'idsucursalsalida
-        '
-        Me.idsucursalsalida.DataPropertyName = "idsucursalsalida"
-        Me.idsucursalsalida.HeaderText = "idsucursalsalida"
-        Me.idsucursalsalida.Name = "idsucursalsalida"
-        Me.idsucursalsalida.ReadOnly = True
-        Me.idsucursalsalida.Visible = False
-        '
-        'fechareservainiciof
-        '
-        Me.fechareservainiciof.DataPropertyName = "fechareservainiciof"
-        Me.fechareservainiciof.HeaderText = "fechareservainiciof"
-        Me.fechareservainiciof.Name = "fechareservainiciof"
-        Me.fechareservainiciof.ReadOnly = True
-        Me.fechareservainiciof.Visible = False
-        '
-        'idestadoreserva
-        '
-        Me.idestadoreserva.DataPropertyName = "idestado"
-        Me.idestadoreserva.HeaderText = "idestado"
-        Me.idestadoreserva.Name = "idestadoreserva"
-        Me.idestadoreserva.ReadOnly = True
-        Me.idestadoreserva.Visible = False
-        '
-        'estadoreserva
-        '
-        Me.estadoreserva.DataPropertyName = "estado"
-        Me.estadoreserva.HeaderText = "Estado"
-        Me.estadoreserva.Name = "estadoreserva"
-        Me.estadoreserva.ReadOnly = True
-        '
-        'idpersonareserva
-        '
-        Me.idpersonareserva.DataPropertyName = "idpersona"
-        Me.idpersonareserva.HeaderText = "idpersona"
-        Me.idpersonareserva.Name = "idpersonareserva"
-        Me.idpersonareserva.ReadOnly = True
-        Me.idpersonareserva.Visible = False
-        '
-        'idcategoriareserva
-        '
-        Me.idcategoriareserva.DataPropertyName = "idcategoria"
-        Me.idcategoriareserva.HeaderText = "idcategoriareserva"
-        Me.idcategoriareserva.Name = "idcategoriareserva"
-        Me.idcategoriareserva.ReadOnly = True
-        Me.idcategoriareserva.Visible = False
-        '
-        'idtiporeserva
-        '
-        Me.idtiporeserva.DataPropertyName = "idtipo"
-        Me.idtiporeserva.HeaderText = "idtipo"
-        Me.idtiporeserva.Name = "idtiporeserva"
-        Me.idtiporeserva.ReadOnly = True
-        Me.idtiporeserva.Visible = False
-        '
-        'idsucursalllegada
-        '
-        Me.idsucursalllegada.DataPropertyName = "idsucursalllegada"
-        Me.idsucursalllegada.HeaderText = "idsucursalllegada"
-        Me.idsucursalllegada.Name = "idsucursalllegada"
-        Me.idsucursalllegada.ReadOnly = True
-        Me.idsucursalllegada.Visible = False
-        '
-        'Panel1
-        '
-        Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.Silver
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.btnModificarReserva)
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.Label10)
-        Me.Panel1.Controls.Add(Me.Label77)
-        Me.Panel1.Controls.Add(Me.Label81)
-        Me.Panel1.Controls.Add(Me.Label83)
-        Me.Panel1.Controls.Add(Me.Label124)
-        Me.Panel1.Controls.Add(Me.Label125)
-        Me.Panel1.Controls.Add(Me.dtpFechaFinMReserva)
-        Me.Panel1.Controls.Add(Me.cbxCategoriaMReserva)
-        Me.Panel1.Controls.Add(Me.txtDocumMReserva)
-        Me.Panel1.Controls.Add(Me.cbxTipoMReserva)
-        Me.Panel1.Controls.Add(Me.cbxKilomMReserva)
-        Me.Panel1.Controls.Add(Me.Label33)
-        Me.Panel1.Controls.Add(Me.dtpFechaInicioMReserva)
-        Me.Panel1.Controls.Add(Me.Label128)
-        Me.Panel1.Controls.Add(Me.Label129)
-        Me.Panel1.Controls.Add(Me.cbxSucursalSalidaMReserva)
-        Me.Panel1.Controls.Add(Me.cbxSucursalLlegadaMReserva)
-        Me.Panel1.Controls.Add(Me.txtCostoMReserva)
-        Me.Panel1.Location = New System.Drawing.Point(662, 586)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(652, 216)
-        Me.Panel1.TabIndex = 37
-        '
-        'btnModificarReserva
-        '
-        Me.btnModificarReserva.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnModificarReserva.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnModificarReserva.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnModificarReserva.FlatAppearance.BorderSize = 0
-        Me.btnModificarReserva.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnModificarReserva.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnModificarReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificarReserva.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnModificarReserva.ForeColor = System.Drawing.Color.White
-        Me.btnModificarReserva.Location = New System.Drawing.Point(543, 174)
-        Me.btnModificarReserva.Name = "btnModificarReserva"
-        Me.btnModificarReserva.Size = New System.Drawing.Size(99, 31)
-        Me.btnModificarReserva.TabIndex = 18
-        Me.btnModificarReserva.Text = "Modificar"
-        Me.btnModificarReserva.UseVisualStyleBackColor = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(402, 101)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(64, 17)
-        Me.Label9.TabIndex = 31
-        Me.Label9.Text = "Fecha Fin"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(264, 101)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(80, 17)
-        Me.Label10.TabIndex = 30
-        Me.Label10.Text = "Fecha Inicio"
-
         '
         'categoriareserva
         '
@@ -6989,37 +6789,16 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
-        'dtpModifFechaInicioMant
+        'lbl162N
         '
-        Me.dtpModifFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
-        Me.dtpModifFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(260, 94)
-        Me.dtpModifFechaInicioMant.Name = "dtpModifFechaInicioMant"
-        Me.dtpModifFechaInicioMant.Size = New System.Drawing.Size(136, 20)
-        Me.dtpModifFechaInicioMant.TabIndex = 43
-        '
-        'Label111
-        '
-        Me.Label111.AutoSize = True
-        Me.Label111.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label111.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label111.Location = New System.Drawing.Point(257, 74)
-        Me.Label111.Name = "Label111"
-        Me.Label111.Size = New System.Drawing.Size(80, 17)
-        Me.Label111.TabIndex = 44
-        Me.Label111.Text = "Fecha inicio"
-
-        'Label162
-        '
-        Me.Label162.AutoSize = True
-        Me.Label162.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label162.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label162.Location = New System.Drawing.Point(9, 17)
-        Me.Label162.Name = "Label162"
-        Me.Label162.Size = New System.Drawing.Size(152, 22)
-        Me.Label162.TabIndex = 24
-        Me.Label162.Text = "Realizar Alquiler"
-
+        Me.lbl162N.AutoSize = True
+        Me.lbl162N.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl162N.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lbl162N.Location = New System.Drawing.Point(9, 17)
+        Me.lbl162N.Name = "lbl162N"
+        Me.lbl162N.Size = New System.Drawing.Size(152, 22)
+        Me.lbl162N.TabIndex = 24
+        Me.lbl162N.Text = "Realizar Alquiler"
         '
         'frmMainMenu
         '
@@ -7633,7 +7412,7 @@ Partial Class frmMainMenu
     Friend WithEvents cbxMaletasAVeh As ComboBox
     Friend WithEvents txtKilometrajeAVeh As TextBox
     Friend WithEvents numPasajerosAVeh As NumericUpDown
-    Friend WithEvents Label162 As Label
+    Friend WithEvents lbl162N As Label
     Friend WithEvents txtDeducibleAVeh As TextBox
     Friend WithEvents Label130 As Label
 

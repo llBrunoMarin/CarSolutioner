@@ -27,41 +27,45 @@ Partial Public Class frmMainMenu
             Dim nrochasisdt As New DataTable
             nrochasisdt = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'")
             Dim format As String = "yyyy-MM-dd HH:mm"
-            Dim sentencia As String
-
+            Dim verifnrochasis As String
             Dim nrochasisinsert As String
-            nrochasisinsert = nrochasisdt.Rows(0)(0).ToString()
+            If (nrochasisdt.Rows.Count > 0) Then
+                nrochasisinsert = nrochasisdt.Rows(0)(0).ToString()
 
-            sentencia = "SELECT * FROM mantenimiento WHERE nrochasis = '" + nrochasisinsert + "' AND ((fechafin BETWEEN '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio BETWEEN '" + dtpFiltrarFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFiltrarFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio < '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechafin > '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "'))"
+                Dim verifalquiler As New DataTable
+                verifalquiler = conexion.EjecutarSelect("SELECT * FROM reserva where nrochasis = '" + nrochasisinsert + "'")
+                verifnrochasis = "SELECT * FROM mantenimiento WHERE nrochasis = '" + nrochasisinsert + "' AND ((fechafin BETWEEN '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio BETWEEN '" + dtpFiltrarFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFiltrarFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio < '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechafin > '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "'))"
 
-            If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
 
-                If (nrochasisdt.Rows.Count <> 0) Then
 
-                    If dtpFechaInicioMant.Value.ToString(format) > dtpFechaFinMant.Value.ToString(format) Then
-                        MsgBox("No puede definir una fecha de inicio mayor a la fecha")
-                    ElseIf dtpFechaInicioMant.Value.ToString(format) < Date.Now.ToString(format) Then
-                        MsgBox("No puede ingresar una fecha de inicio menor a hoy")
-                    ElseIf dtpFechaFinMant.Value.ToString(format) < Date.Now.ToString(format) Then
-                        MsgBox("No puede ingresar una fehca de fin menor a hoy")
+
+                If Not (verifalquiler.Rows.Count <> 0) Then
+
+                    If (nrochasisdt.Rows.Count <> 0) Then
+
+                        If dtpFechaInicioMant.Value.ToString(format) > dtpFechaFinMant.Value.ToString(format) Then
+                            MsgBox("No puede definir una fecha de inicio mayor a la fecha de fin")
+                        Else
+
+                            If (conexion.EjecutarNonQuery("INSERT into mantenimiento VALUES ('" + cbxTipoMant.SelectedItem.ToString() + "','" + dtpFechaInicioMant.Value.ToString(format) + "', '" + dtpFechaFinMant.Value.ToString(format) + "', '" + nrochasisinsert + "')") = True) Then
+
+                                RecargarDatos(dgvMant)
+                                MsgBox("Mantenimiento ingresado")
+
+                            Else
+                                MsgBox("Mantenimiento ya existente")
+
+                            End If
+                        End If
 
                     Else
-
-                        If (conexion.EjecutarNonQuery("INSERT into mantenimiento VALUES ('" + cbxTipoMant.SelectedItem.ToString() + "','" + dtpFechaInicioMant.Value.ToString(format) + "', '" + dtpFechaFinMant.Value.ToString(format) + "', '" + nrochasisinsert + "')") = True) Then
-
-                            RecargarDatos(dgvMant)
-                            MsgBox("Mantenimiento ingresado")
-
-                        Else
-                            MsgBox("Mantenimiento ya existente")
-
-                        End If
+                        MsgBox("El vehículo se encuentra en mantenimiento")
                     End If
                 Else
-                    MsgBox("La matricula ingresada no pertenece a un vehículo existente")
+                    MsgBox("Existe un mantenimiento activo")
                 End If
             Else
-                MsgBox("Existe un mantenimiento activo")
+                MsgBox("Matricula no existe")
             End If
         Else
                 MsgBox("No pueden quedar campos vacíos")
@@ -109,10 +113,10 @@ Partial Public Class frmMainMenu
                 End If
             End If
         Next
-        If Not FaltaDato = True Then
 
+        If Not FaltaDato = True Then
             Dim nrochasisdt As New DataTable
-            nrochasisdt = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtMatriculaMant.Text.ToString + "'")
+            nrochasisdt = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtModifMatriculaMant.Text.ToString + "'")
             Dim nrochasisinsert As String
             nrochasisinsert = nrochasisdt.Rows(0)(0).ToString()
             Dim sentencia As String
@@ -123,11 +127,9 @@ Partial Public Class frmMainMenu
                 If Not (dtpModifFechaInicioMant.Value.ToString(format) = fechainicioant And dtpModifFechaFinMant.Value.ToString(format) = fechafinant And tipoant = cbxModifTipoMant.SelectedItem And txtModifMatriculaMant.Text = matriculaant) Then
 
                     If dtpModifFechaInicioMant.Value.ToString(format) > dtpModifFechaFinMant.Value.ToString(format) Then
-                        MsgBox("No puede definir una fecha de inicio mayor a la fecha")
-                    ElseIf dtpModifFechaInicioMant.Value.ToString(format) < Date.Now.ToString(format) Then
-                        MsgBox("No puede ingresar una fecha de inicio menor a hoy")
-                    ElseIf dtpModifFechaFinMant.Value.ToString(format) < Date.Now.ToString(format) Then
-                        MsgBox("No puede ingresar una fehca de fin menor a hoy")
+
+                        MsgBox("No puede definir una fecha de inicio mayor a la fecha de fin")
+
                     Else
 
                         If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET descripcion ='" + cbxModifTipoMant.SelectedItem + "', fechainicio = '" + dtpModifFechaInicioMant.Value.ToString(format) + "', fechafin = '" + dtpModifFechaFinMant.Value.ToString(format) + "' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "' ") = True) Then
@@ -213,7 +215,7 @@ Partial Public Class frmMainMenu
                 DirectCast(item, NumericUpDown).Value = Nothing
             End If
         Next
-
+        RecargarDatos(dgvMant)
     End Sub
 
     Private Sub VaciarModificarMantenimiento(sender As Object, e As EventArgs) Handles btnVaciarMant.Click

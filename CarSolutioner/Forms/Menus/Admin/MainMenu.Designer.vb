@@ -257,6 +257,7 @@ Partial Class frmMainMenu
         Me.txtNroChasisMVeh = New System.Windows.Forms.TextBox()
         Me.cbxTipoMVeh = New System.Windows.Forms.ComboBox()
         Me.cbxPuertasMVeh = New System.Windows.Forms.ComboBox()
+
         Me.cbxAutomaticoMVeh = New System.Windows.Forms.CheckBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.cbxMaletasMVeh = New System.Windows.Forms.ComboBox()
@@ -270,6 +271,7 @@ Partial Class frmMainMenu
         Me.cbxCategoriaMVeh = New System.Windows.Forms.ComboBox()
         Me.cbxMarcaMVeh = New System.Windows.Forms.ComboBox()
         Me.txtMatriculaMVeh = New System.Windows.Forms.TextBox()
+
         Me.chbxAireMVeh = New System.Windows.Forms.CheckBox()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Label92 = New System.Windows.Forms.Label()
@@ -345,12 +347,10 @@ Partial Class frmMainMenu
         Me.btnVaciarMant = New System.Windows.Forms.Button()
         Me.btnModifMant = New System.Windows.Forms.Button()
         Me.Label110 = New System.Windows.Forms.Label()
-        Me.Label111 = New System.Windows.Forms.Label()
         Me.Label116 = New System.Windows.Forms.Label()
         Me.Label117 = New System.Windows.Forms.Label()
         Me.dtpModifFechaFinMant = New System.Windows.Forms.DateTimePicker()
         Me.txtModifMatriculaMant = New System.Windows.Forms.TextBox()
-        Me.dtpModifFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.pnlFmant = New System.Windows.Forms.Panel()
         Me.lblBorraFiltroTipoManenimiento = New System.Windows.Forms.Label()
         Me.chbxFiltrarEstadoMant = New System.Windows.Forms.CheckBox()
@@ -591,9 +591,14 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+
+        Me.dtpModifFechaInicioMant = New System.Windows.Forms.DateTimePicker()
+        Me.Label111 = New System.Windows.Forms.Label()
+
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Label162 = New System.Windows.Forms.Label()
+
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -4020,17 +4025,17 @@ Partial Class frmMainMenu
         Me.pnlmmant.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlmmant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlmmant.Controls.Add(Me.Label111)
+        Me.pnlmmant.Controls.Add(Me.dtpModifFechaInicioMant)
         Me.pnlmmant.Controls.Add(Me.cbxModifTipoMant)
         Me.pnlmmant.Controls.Add(Me.Label112)
         Me.pnlmmant.Controls.Add(Me.btnVaciarMant)
         Me.pnlmmant.Controls.Add(Me.btnModifMant)
         Me.pnlmmant.Controls.Add(Me.Label110)
-        Me.pnlmmant.Controls.Add(Me.Label111)
         Me.pnlmmant.Controls.Add(Me.Label116)
         Me.pnlmmant.Controls.Add(Me.Label117)
         Me.pnlmmant.Controls.Add(Me.dtpModifFechaFinMant)
         Me.pnlmmant.Controls.Add(Me.txtModifMatriculaMant)
-        Me.pnlmmant.Controls.Add(Me.dtpModifFechaInicioMant)
         Me.pnlmmant.Location = New System.Drawing.Point(794, 432)
         Me.pnlmmant.Name = "pnlmmant"
         Me.pnlmmant.Size = New System.Drawing.Size(573, 198)
@@ -4098,22 +4103,11 @@ Partial Class frmMainMenu
         Me.Label110.AutoSize = True
         Me.Label110.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label110.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label110.Location = New System.Drawing.Point(385, 70)
+        Me.Label110.Location = New System.Drawing.Point(412, 73)
         Me.Label110.Name = "Label110"
-        Me.Label110.Size = New System.Drawing.Size(64, 17)
+        Me.Label110.Size = New System.Drawing.Size(62, 17)
         Me.Label110.TabIndex = 31
-        Me.Label110.Text = "Fecha Fin"
-        '
-        'Label111
-        '
-        Me.Label111.AutoSize = True
-        Me.Label111.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label111.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label111.Location = New System.Drawing.Point(253, 70)
-        Me.Label111.Name = "Label111"
-        Me.Label111.Size = New System.Drawing.Size(80, 17)
-        Me.Label111.TabIndex = 30
-        Me.Label111.Text = "Fecha Inicio"
+        Me.Label110.Text = "Fecha fin"
         '
         'Label116
         '
@@ -4141,7 +4135,7 @@ Partial Class frmMainMenu
         '
         Me.dtpModifFechaFinMant.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpModifFechaFinMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpModifFechaFinMant.Location = New System.Drawing.Point(382, 90)
+        Me.dtpModifFechaFinMant.Location = New System.Drawing.Point(415, 94)
         Me.dtpModifFechaFinMant.Name = "dtpModifFechaFinMant"
         Me.dtpModifFechaFinMant.Size = New System.Drawing.Size(136, 20)
         Me.dtpModifFechaFinMant.TabIndex = 20
@@ -4152,15 +4146,6 @@ Partial Class frmMainMenu
         Me.txtModifMatriculaMant.Name = "txtModifMatriculaMant"
         Me.txtModifMatriculaMant.Size = New System.Drawing.Size(100, 20)
         Me.txtModifMatriculaMant.TabIndex = 22
-        '
-        'dtpModifFechaInicioMant
-        '
-        Me.dtpModifFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
-        Me.dtpModifFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(251, 90)
-        Me.dtpModifFechaInicioMant.Name = "dtpModifFechaInicioMant"
-        Me.dtpModifFechaInicioMant.Size = New System.Drawing.Size(125, 20)
-        Me.dtpModifFechaInicioMant.TabIndex = 21
         '
         'pnlFmant
         '
@@ -4537,10 +4522,11 @@ Partial Class frmMainMenu
         Me.dtpFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFechaInicioMant.Location = New System.Drawing.Point(8, 155)
-        Me.dtpFechaInicioMant.MinDate = New Date(2017, 10, 12, 0, 0, 0, 0)
+        Me.dtpFechaInicioMant.MinDate = New Date(1900, 12, 31, 0, 0, 0, 0)
         Me.dtpFechaInicioMant.Name = "dtpFechaInicioMant"
         Me.dtpFechaInicioMant.Size = New System.Drawing.Size(141, 20)
         Me.dtpFechaInicioMant.TabIndex = 37
+        Me.dtpFechaInicioMant.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'Label134
         '
@@ -6788,6 +6774,26 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
+        'dtpModifFechaInicioMant
+        '
+        Me.dtpModifFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.dtpModifFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(260, 94)
+        Me.dtpModifFechaInicioMant.Name = "dtpModifFechaInicioMant"
+        Me.dtpModifFechaInicioMant.Size = New System.Drawing.Size(136, 20)
+        Me.dtpModifFechaInicioMant.TabIndex = 43
+        '
+        'Label111
+        '
+        Me.Label111.AutoSize = True
+        Me.Label111.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label111.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label111.Location = New System.Drawing.Point(257, 74)
+        Me.Label111.Name = "Label111"
+        Me.Label111.Size = New System.Drawing.Size(80, 17)
+        Me.Label111.TabIndex = 44
+        Me.Label111.Text = "Fecha inicio"
+
         'Label162
         '
         Me.Label162.AutoSize = True
@@ -6798,6 +6804,7 @@ Partial Class frmMainMenu
         Me.Label162.Size = New System.Drawing.Size(152, 22)
         Me.Label162.TabIndex = 24
         Me.Label162.Text = "Realizar Alquiler"
+
         '
         'frmMainMenu
         '
@@ -7059,12 +7066,10 @@ Partial Class frmMainMenu
     Friend WithEvents btnVaciarMant As Button
     Friend WithEvents btnModifMant As Button
     Friend WithEvents Label110 As Label
-    Friend WithEvents Label111 As Label
     Friend WithEvents Label116 As Label
     Friend WithEvents Label117 As Label
     Friend WithEvents dtpModifFechaFinMant As DateTimePicker
     Friend WithEvents txtModifMatriculaMant As TextBox
-    Friend WithEvents dtpModifFechaInicioMant As DateTimePicker
     Friend WithEvents pnlFmant As Panel
     Friend WithEvents Label118 As Label
     Friend WithEvents chbxFiltrarFechaMant As CheckBox
@@ -7464,5 +7469,22 @@ Partial Class frmMainMenu
     Friend WithEvents idcategoriareserva As DataGridViewTextBoxColumn
     Friend WithEvents idtiporeserva As DataGridViewTextBoxColumn
     Friend WithEvents idsucursalllegada As DataGridViewTextBoxColumn
+    Friend WithEvents chboxInactivasFReserva As CheckBox
+    Friend WithEvents chboxVerHoyFReserva As CheckBox
+    Friend WithEvents Label33 As Label
+    Friend WithEvents txtCostoMReserva As TextBox
+    Friend WithEvents TabControl2 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents matriculamant As DataGridViewTextBoxColumn
+    Friend WithEvents tipomant As DataGridViewTextBoxColumn
+    Friend WithEvents fechainiciomant As DataGridViewTextBoxColumn
+    Friend WithEvents fechafinmant As DataGridViewTextBoxColumn
+    Friend WithEvents nrochasismant As DataGridViewTextBoxColumn
+    Friend WithEvents fechainicio As DataGridViewTextBoxColumn
+    Friend WithEvents fechafin As DataGridViewTextBoxColumn
+    Friend WithEvents btnVaciarIngresoMant As Button
+    Friend WithEvents Label111 As Label
+    Friend WithEvents dtpModifFechaInicioMant As DateTimePicker
 
 End Class

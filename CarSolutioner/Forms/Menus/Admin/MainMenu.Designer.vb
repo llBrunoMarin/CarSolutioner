@@ -341,6 +341,8 @@ Partial Class frmMainMenu
         Me.tabReporteEmpleado = New System.Windows.Forms.TabPage()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
         Me.pnlmmant = New System.Windows.Forms.Panel()
+        Me.Label111 = New System.Windows.Forms.Label()
+        Me.dtpModifFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.cbxModifTipoMant = New System.Windows.Forms.ComboBox()
         Me.Label112 = New System.Windows.Forms.Label()
         Me.btnVaciarMant = New System.Windows.Forms.Button()
@@ -595,6 +597,8 @@ Partial Class frmMainMenu
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+
+        Me.lbl162N = New System.Windows.Forms.Label()
         Me.dtpModifFechaInicioMant = New System.Windows.Forms.DateTimePicker()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
@@ -4037,6 +4041,26 @@ Partial Class frmMainMenu
         Me.pnlmmant.Size = New System.Drawing.Size(573, 198)
         Me.pnlmmant.TabIndex = 36
         '
+        'Label111
+        '
+        Me.Label111.AutoSize = True
+        Me.Label111.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label111.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label111.Location = New System.Drawing.Point(257, 74)
+        Me.Label111.Name = "Label111"
+        Me.Label111.Size = New System.Drawing.Size(80, 17)
+        Me.Label111.TabIndex = 44
+        Me.Label111.Text = "Fecha inicio"
+        '
+        'dtpModifFechaInicioMant
+        '
+        Me.dtpModifFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.dtpModifFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(260, 94)
+        Me.dtpModifFechaInicioMant.Name = "dtpModifFechaInicioMant"
+        Me.dtpModifFechaInicioMant.Size = New System.Drawing.Size(136, 20)
+        Me.dtpModifFechaInicioMant.TabIndex = 43
+        '
         'cbxModifTipoMant
         '
         Me.cbxModifTipoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -6794,8 +6818,17 @@ Partial Class frmMainMenu
         Me.idpersonaE.ReadOnly = True
         Me.idpersonaE.Visible = False
         '
-        'dtpModifFechaInicioMant
+        'lbl162N
         '
+        Me.lbl162N.AutoSize = True
+        Me.lbl162N.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl162N.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lbl162N.Location = New System.Drawing.Point(9, 17)
+        Me.lbl162N.Name = "lbl162N"
+        Me.lbl162N.Size = New System.Drawing.Size(152, 22)
+        Me.lbl162N.TabIndex = 24
+        Me.lbl162N.Text = "Realizar Alquiler"
+
         Me.dtpModifFechaInicioMant.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpModifFechaInicioMant.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(273, 94)

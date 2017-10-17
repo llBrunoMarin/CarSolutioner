@@ -499,7 +499,7 @@
     Private Sub BtnEliminarTipo_Click(sender As Object, e As EventArgs) Handles BtnEliminarTipo.Click
 
         Dim idtipo As String = dgvTipos.CurrentRow.Cells("idtipo").Value.ToString()
-        Dim sentencia As String = "select v.nrochasis from vehiculo v, modelo mo where mo.idtipo=" + idtipo + " and v.idmodelo=mo.idmodelo and V.nrochasis Not IN (Select nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' OR fechafin >= '" + Date.Now.Today.ToString("yyyy-MM-dd HH:mm") + "'    )"
+        Dim sentencia As String = "select v.nrochasis from vehiculo v, modelo mo where mo.idtipo=" + idtipo + " and v.idmodelo=mo.idmodelo and V.nrochasis Not IN (Select nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' OR fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "'    )"
         If conexion.EjecutarSelect("SELECT idreserva from reserva where idtipo='" + idtipo + "' and estado=1").Rows.Count > 0 Or conexion.EjecutarSelect(sentencia).Rows.Count > 0 Then
             MsgBox("Existen Alquileres, Mantenimientos o Reservas relacionadas con este tipo.")
 

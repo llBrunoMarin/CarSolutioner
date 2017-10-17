@@ -92,7 +92,7 @@ Partial Public Class frmMainMenu
             Dim selectedRow As DataGridViewRow = dgvReservas.Rows(e.RowIndex)
 
             If selectedRow.Cells("idestadoreserva").Value = 1 Then
-                If selectedRow.Cells("fechareservainicio").Value < Date.Now Then
+                If selectedRow.Cells("fechareservainicio").Value < Date.Now.AddHours(2) Then
                     If ((selectedRow.Cells("fechareservainicio").Value >= Date.Now) Or ((selectedRow.Cells("fechareservainicio").Value >= Date.Now And selectedRow.Cells("fechareservainicio").Value <= ((Date.Now).AddHours(6))))) Then
 
                         ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
@@ -133,9 +133,8 @@ Partial Public Class frmMainMenu
                         End If
                     End If
                 Else
-                    AmaranthMessagebox("Solo puede alquilar reservas que sean para hoy.", "Error")
+                    AmaranthMessagebox("Solo puede alquilar reservas futuras con 2 horas de antelación como máximo.", "Error")
                 End If
-
 
             Else
                 AmaranthMessagebox("Solo puede alquilar reservas activas.", "Error")
@@ -248,7 +247,7 @@ Partial Public Class frmMainMenu
         Dim fechaActual As Date
         fechaActual = Date.Now
 
-        If Not ((dtpInicioARes.Value < fechaActual) Or (dtpFinARes.Value < fechaActual)) Then
+        If Not ((dtpInicioARes.Value < fechaActual.AddMinutes(10)) Or (dtpFinARes.Value < fechaActual.AddMinutes(10))) Then
 
             If Not dtpFinARes.Value <= dtpInicioARes.Value Then
                 If ((dtpFinARes.Value - dtpInicioARes.Value).Days >= 1) Then
@@ -292,7 +291,6 @@ Partial Public Class frmMainMenu
                 Else
                     AmaranthMessagebox("Las reservas tienen que ser de mínimo 24 horas.", "Error")
                 End If
-
             Else
                 AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error")
             End If

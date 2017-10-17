@@ -1,6 +1,7 @@
-﻿Public Class Descuento
+﻿Public Class Autorizacion
     Private Sub btnVerificar_Click(sender As Object, e As EventArgs) Handles btnVerificar.Click
-        If VerificarCodigo(txtDescuento.Text) Then
+
+        If VerificarCodigo(txtDescuento.Text) = True Then
             lbldataincorrect.Visible = False
             Me.DialogResult = vbYes
             Me.Dispose()
@@ -14,7 +15,6 @@
     End Sub
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrarDescuento.Click
-        Me.DialogResult = vbNo
         Me.Dispose()
     End Sub
 End Class

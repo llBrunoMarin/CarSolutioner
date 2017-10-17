@@ -49,14 +49,12 @@ Partial Class frmAlquilar
         Me.txtTipo = New System.Windows.Forms.TextBox()
         Me.txtCategoria = New System.Windows.Forms.TextBox()
         Me.txtSucursal = New System.Windows.Forms.TextBox()
-        Me.txtCliente = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.lblTitulo = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.btnAlquilar = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
@@ -71,7 +69,27 @@ Partial Class frmAlquilar
         Me.dtpFAinicio = New System.Windows.Forms.DateTimePicker()
         Me.dtpFRInicio = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.cbxSucLlegada = New System.Windows.Forms.ComboBox()
+        Me.gbxReserva = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gbxFecNacFCliente = New System.Windows.Forms.GroupBox()
+        Me.btnDescuentoCliente = New System.Windows.Forms.Button()
+        Me.lblDescuento = New System.Windows.Forms.Label()
+        Me.txtCostoTotalEsperado = New System.Windows.Forms.TextBox()
+        Me.lblCostoYRecargo = New System.Windows.Forms.Label()
+        Me.txtDescuentoCliente = New System.Windows.Forms.TextBox()
+        Me.lblCostoTotal = New System.Windows.Forms.Label()
+        Me.txtCostoEsperado = New System.Windows.Forms.TextBox()
+        Me.txtCantidadDias = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnDescuentoReserva = New System.Windows.Forms.Button()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.lblAdvertencia = New System.Windows.Forms.Label()
+        Me.cbxKilometraje = New System.Windows.Forms.ComboBox()
+        Me.numDescuentoReserva = New System.Windows.Forms.NumericUpDown()
         CType(Me.dgvAlquilar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,6 +97,10 @@ Partial Class frmAlquilar
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbxReserva.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.gbxFecNacFCliente.SuspendLayout()
+        CType(Me.numDescuentoReserva, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvAlquilar
@@ -92,7 +114,7 @@ Partial Class frmAlquilar
         Me.dgvAlquilar.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvAlquilar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvAlquilar.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.matricula, Me.marca, Me.modelo, Me.nrochasis, Me.anio, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.aireacondicionado, Me.esmanual, Me.deducible, Me.idcategoria, Me.idmodelo, Me.idsucursal, Me.estado, Me.idmarca, Me.tipo, Me.idtipo, Me.categoria, Me.sucursal})
-        Me.dgvAlquilar.Location = New System.Drawing.Point(12, 141)
+        Me.dgvAlquilar.Location = New System.Drawing.Point(12, 266)
         Me.dgvAlquilar.Name = "dgvAlquilar"
         Me.dgvAlquilar.ReadOnly = True
         Me.dgvAlquilar.RowHeadersVisible = False
@@ -266,53 +288,46 @@ Partial Class frmAlquilar
         'txtTipo
         '
         Me.txtTipo.Enabled = False
-        Me.txtTipo.Location = New System.Drawing.Point(12, 61)
+        Me.txtTipo.Location = New System.Drawing.Point(17, 173)
         Me.txtTipo.Name = "txtTipo"
-        Me.txtTipo.Size = New System.Drawing.Size(100, 20)
+        Me.txtTipo.Size = New System.Drawing.Size(131, 20)
         Me.txtTipo.TabIndex = 1
         '
         'txtCategoria
         '
         Me.txtCategoria.Enabled = False
-        Me.txtCategoria.Location = New System.Drawing.Point(118, 59)
+        Me.txtCategoria.Location = New System.Drawing.Point(17, 219)
         Me.txtCategoria.Name = "txtCategoria"
-        Me.txtCategoria.Size = New System.Drawing.Size(100, 20)
+        Me.txtCategoria.Size = New System.Drawing.Size(131, 20)
         Me.txtCategoria.TabIndex = 2
         '
         'txtSucursal
         '
         Me.txtSucursal.Enabled = False
-        Me.txtSucursal.Location = New System.Drawing.Point(224, 59)
+        Me.txtSucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtSucursal.Location = New System.Drawing.Point(23, 53)
         Me.txtSucursal.Name = "txtSucursal"
-        Me.txtSucursal.Size = New System.Drawing.Size(100, 20)
+        Me.txtSucursal.Size = New System.Drawing.Size(131, 20)
         Me.txtSucursal.TabIndex = 3
         '
-        'txtCliente
+        'lblTitulo
         '
-        Me.txtCliente.Enabled = False
-        Me.txtCliente.Location = New System.Drawing.Point(330, 59)
-        Me.txtCliente.Name = "txtCliente"
-        Me.txtCliente.Size = New System.Drawing.Size(187, 20)
-        Me.txtCliente.TabIndex = 4
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.Color.White
-        Me.Label16.Location = New System.Drawing.Point(8, 5)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(236, 22)
-        Me.Label16.TabIndex = 25
-        Me.Label16.Text = "Autos para esta reserva:"
+        Me.lblTitulo.AutoSize = True
+        Me.lblTitulo.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblTitulo.Font = New System.Drawing.Font("Century Gothic", 12.25!)
+        Me.lblTitulo.ForeColor = System.Drawing.Color.White
+        Me.lblTitulo.Location = New System.Drawing.Point(8, 5)
+        Me.lblTitulo.Name = "lblTitulo"
+        Me.lblTitulo.Size = New System.Drawing.Size(224, 21)
+        Me.lblTitulo.TabIndex = 25
+        Me.lblTitulo.Text = "Autos para la reserva de:"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(12, 41)
+        Me.Label10.Location = New System.Drawing.Point(14, 153)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(32, 17)
         Me.Label10.TabIndex = 31
@@ -351,7 +366,7 @@ Partial Class frmAlquilar
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(115, 39)
+        Me.Label1.Location = New System.Drawing.Point(14, 199)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 17)
         Me.Label1.TabIndex = 37
@@ -362,22 +377,11 @@ Partial Class frmAlquilar
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(224, 39)
+        Me.Label2.Location = New System.Drawing.Point(23, 33)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 17)
         Me.Label2.TabIndex = 38
         Me.Label2.Text = "Sucursal Actual"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(330, 39)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(102, 17)
-        Me.Label3.TabIndex = 39
-        Me.Label3.Text = "Nombre Cliente"
         '
         'btnAlquilar
         '
@@ -390,7 +394,7 @@ Partial Class frmAlquilar
         Me.btnAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAlquilar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlquilar.ForeColor = System.Drawing.Color.White
-        Me.btnAlquilar.Location = New System.Drawing.Point(948, 104)
+        Me.btnAlquilar.Location = New System.Drawing.Point(948, 190)
         Me.btnAlquilar.Name = "btnAlquilar"
         Me.btnAlquilar.Size = New System.Drawing.Size(99, 31)
         Me.btnAlquilar.TabIndex = 40
@@ -450,7 +454,7 @@ Partial Class frmAlquilar
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(12, 84)
+        Me.Label4.Location = New System.Drawing.Point(14, 33)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(131, 17)
         Me.Label4.TabIndex = 44
@@ -461,7 +465,7 @@ Partial Class frmAlquilar
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(560, 84)
+        Me.Label5.Location = New System.Drawing.Point(180, 33)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(115, 17)
         Me.Label5.TabIndex = 46
@@ -472,7 +476,7 @@ Partial Class frmAlquilar
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(224, 83)
+        Me.Label7.Location = New System.Drawing.Point(14, 33)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(128, 17)
         Me.Label7.TabIndex = 48
@@ -480,39 +484,42 @@ Partial Class frmAlquilar
         '
         'dtpFRfin
         '
-        Me.dtpFRfin.CustomFormat = ""
-        Me.dtpFRfin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFRfin.Location = New System.Drawing.Point(560, 104)
+        Me.dtpFRfin.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.dtpFRfin.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.dtpFRfin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFRfin.Location = New System.Drawing.Point(183, 53)
         Me.dtpFRfin.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFRfin.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFRfin.Name = "dtpFRfin"
-        Me.dtpFRfin.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFRfin.Size = New System.Drawing.Size(131, 20)
         Me.dtpFRfin.TabIndex = 53
         Me.dtpFRfin.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
         '
         'dtpFAinicio
         '
-        Me.dtpFAinicio.CustomFormat = ""
+        Me.dtpFAinicio.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFAinicio.Enabled = False
-        Me.dtpFAinicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFAinicio.Location = New System.Drawing.Point(227, 103)
+        Me.dtpFAinicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.dtpFAinicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFAinicio.Location = New System.Drawing.Point(17, 53)
         Me.dtpFAinicio.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFAinicio.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFAinicio.Name = "dtpFAinicio"
-        Me.dtpFAinicio.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFAinicio.Size = New System.Drawing.Size(131, 20)
         Me.dtpFAinicio.TabIndex = 52
         Me.dtpFAinicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
         '
         'dtpFRInicio
         '
-        Me.dtpFRInicio.CustomFormat = ""
+        Me.dtpFRInicio.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFRInicio.Enabled = False
-        Me.dtpFRInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFRInicio.Location = New System.Drawing.Point(12, 104)
+        Me.dtpFRInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.dtpFRInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFRInicio.Location = New System.Drawing.Point(17, 53)
         Me.dtpFRInicio.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
         Me.dtpFRInicio.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFRInicio.Name = "dtpFRInicio"
-        Me.dtpFRInicio.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFRInicio.Size = New System.Drawing.Size(131, 20)
         Me.dtpFRInicio.TabIndex = 58
         Me.dtpFRInicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
         '
@@ -521,45 +528,288 @@ Partial Class frmAlquilar
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(430, 83)
+        Me.Label8.Location = New System.Drawing.Point(170, 32)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(109, 17)
         Me.Label8.TabIndex = 57
         Me.Label8.Text = "Sucursal Llegada"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(172, 33)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(128, 17)
+        Me.Label6.TabIndex = 48
+        Me.Label6.Text = "Fecha Alquiler Inicio"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Enabled = False
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.TextBox1.Location = New System.Drawing.Point(175, 53)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(131, 20)
+        Me.TextBox1.TabIndex = 2
+        Me.TextBox1.Text = "Se establece al finalizar"
+        '
         'cbxSucLlegada
         '
+        Me.cbxSucLlegada.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.cbxSucLlegada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxSucLlegada.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.cbxSucLlegada.FormattingEnabled = True
         Me.cbxSucLlegada.Items.AddRange(New Object() {"Flying Cars", "Uruguay Motors", "Rentafrank", "Punta Motors"})
-        Me.cbxSucLlegada.Location = New System.Drawing.Point(433, 102)
+        Me.cbxSucLlegada.Location = New System.Drawing.Point(173, 52)
         Me.cbxSucLlegada.Name = "cbxSucLlegada"
-        Me.cbxSucLlegada.Size = New System.Drawing.Size(121, 21)
+        Me.cbxSucLlegada.Size = New System.Drawing.Size(131, 21)
         Me.cbxSucLlegada.TabIndex = 56
+        '
+        'gbxReserva
+        '
+        Me.gbxReserva.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.gbxReserva.Controls.Add(Me.Label5)
+        Me.gbxReserva.Controls.Add(Me.dtpFRInicio)
+        Me.gbxReserva.Controls.Add(Me.Label4)
+        Me.gbxReserva.Controls.Add(Me.dtpFRfin)
+        Me.gbxReserva.Font = New System.Drawing.Font("Century Gothic", 8.25!)
+        Me.gbxReserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.gbxReserva.Location = New System.Drawing.Point(12, 44)
+        Me.gbxReserva.Name = "gbxReserva"
+        Me.gbxReserva.Size = New System.Drawing.Size(330, 98)
+        Me.gbxReserva.TabIndex = 59
+        Me.gbxReserva.TabStop = False
+        Me.gbxReserva.Text = "Reserva"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox1.Controls.Add(Me.dtpFAinicio)
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.GroupBox1.Location = New System.Drawing.Point(365, 44)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(330, 98)
+        Me.GroupBox1.TabIndex = 60
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Alquiler"
+        '
+        'gbxFecNacFCliente
+        '
+        Me.gbxFecNacFCliente.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.gbxFecNacFCliente.Controls.Add(Me.Label2)
+        Me.gbxFecNacFCliente.Controls.Add(Me.cbxSucLlegada)
+        Me.gbxFecNacFCliente.Controls.Add(Me.txtSucursal)
+        Me.gbxFecNacFCliente.Controls.Add(Me.Label8)
+        Me.gbxFecNacFCliente.Font = New System.Drawing.Font("Century Gothic", 8.25!)
+        Me.gbxFecNacFCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(717, 44)
+        Me.gbxFecNacFCliente.Name = "gbxFecNacFCliente"
+        Me.gbxFecNacFCliente.Size = New System.Drawing.Size(330, 98)
+        Me.gbxFecNacFCliente.TabIndex = 62
+        Me.gbxFecNacFCliente.TabStop = False
+        Me.gbxFecNacFCliente.Text = "Fecha de Nacimiento"
+        '
+        'btnDescuentoCliente
+        '
+        Me.btnDescuentoCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnDescuentoCliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnDescuentoCliente.FlatAppearance.BorderSize = 0
+        Me.btnDescuentoCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnDescuentoCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnDescuentoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDescuentoCliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
+        Me.btnDescuentoCliente.ForeColor = System.Drawing.Color.White
+        Me.btnDescuentoCliente.Location = New System.Drawing.Point(651, 220)
+        Me.btnDescuentoCliente.Name = "btnDescuentoCliente"
+        Me.btnDescuentoCliente.Size = New System.Drawing.Size(18, 18)
+        Me.btnDescuentoCliente.TabIndex = 69
+        Me.btnDescuentoCliente.Text = "+"
+        Me.btnDescuentoCliente.UseCompatibleTextRendering = True
+        Me.btnDescuentoCliente.UseVisualStyleBackColor = False
+        '
+        'lblDescuento
+        '
+        Me.lblDescuento.AutoSize = True
+        Me.lblDescuento.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDescuento.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblDescuento.Location = New System.Drawing.Point(512, 199)
+        Me.lblDescuento.Name = "lblDescuento"
+        Me.lblDescuento.Size = New System.Drawing.Size(141, 17)
+        Me.lblDescuento.TabIndex = 66
+        Me.lblDescuento.Text = "Descuento del Cliente"
+        '
+        'txtCostoTotalEsperado
+        '
+        Me.txtCostoTotalEsperado.Enabled = False
+        Me.txtCostoTotalEsperado.Location = New System.Drawing.Point(767, 191)
+        Me.txtCostoTotalEsperado.Name = "txtCostoTotalEsperado"
+        Me.txtCostoTotalEsperado.Size = New System.Drawing.Size(121, 20)
+        Me.txtCostoTotalEsperado.TabIndex = 63
+        '
+        'lblCostoYRecargo
+        '
+        Me.lblCostoYRecargo.AutoSize = True
+        Me.lblCostoYRecargo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCostoYRecargo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblCostoYRecargo.Location = New System.Drawing.Point(512, 153)
+        Me.lblCostoYRecargo.Name = "lblCostoYRecargo"
+        Me.lblCostoYRecargo.Size = New System.Drawing.Size(106, 17)
+        Me.lblCostoYRecargo.TabIndex = 67
+        Me.lblCostoYRecargo.Text = "Costo esperado:"
+        '
+        'txtDescuentoCliente
+        '
+        Me.txtDescuentoCliente.Enabled = False
+        Me.txtDescuentoCliente.Location = New System.Drawing.Point(514, 219)
+        Me.txtDescuentoCliente.Name = "txtDescuentoCliente"
+        Me.txtDescuentoCliente.Size = New System.Drawing.Size(131, 20)
+        Me.txtDescuentoCliente.TabIndex = 64
+        '
+        'lblCostoTotal
+        '
+        Me.lblCostoTotal.AutoSize = True
+        Me.lblCostoTotal.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCostoTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblCostoTotal.Location = New System.Drawing.Point(789, 171)
+        Me.lblCostoTotal.Name = "lblCostoTotal"
+        Me.lblCostoTotal.Size = New System.Drawing.Size(75, 17)
+        Me.lblCostoTotal.TabIndex = 68
+        Me.lblCostoTotal.Text = "Costo Total"
+        '
+        'txtCostoEsperado
+        '
+        Me.txtCostoEsperado.Enabled = False
+        Me.txtCostoEsperado.Location = New System.Drawing.Point(514, 173)
+        Me.txtCostoEsperado.Name = "txtCostoEsperado"
+        Me.txtCostoEsperado.Size = New System.Drawing.Size(130, 20)
+        Me.txtCostoEsperado.TabIndex = 65
+        '
+        'txtCantidadDias
+        '
+        Me.txtCantidadDias.Enabled = False
+        Me.txtCantidadDias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtCantidadDias.Location = New System.Drawing.Point(154, 173)
+        Me.txtCantidadDias.Name = "txtCantidadDias"
+        Me.txtCantidadDias.Size = New System.Drawing.Size(131, 20)
+        Me.txtCantidadDias.TabIndex = 2
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(151, 153)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(110, 17)
+        Me.Label3.TabIndex = 37
+        Me.Label3.Text = "Cantidad de dias"
+        '
+        'btnDescuentoReserva
+        '
+        Me.btnDescuentoReserva.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnDescuentoReserva.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnDescuentoReserva.FlatAppearance.BorderSize = 0
+        Me.btnDescuentoReserva.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnDescuentoReserva.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnDescuentoReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDescuentoReserva.Font = New System.Drawing.Font("Century Gothic", 8.5!)
+        Me.btnDescuentoReserva.ForeColor = System.Drawing.Color.White
+        Me.btnDescuentoReserva.Location = New System.Drawing.Point(846, 216)
+        Me.btnDescuentoReserva.Name = "btnDescuentoReserva"
+        Me.btnDescuentoReserva.Size = New System.Drawing.Size(18, 18)
+        Me.btnDescuentoReserva.TabIndex = 69
+        Me.btnDescuentoReserva.Text = "+"
+        Me.btnDescuentoReserva.UseCompatibleTextRendering = True
+        Me.btnDescuentoReserva.UseVisualStyleBackColor = False
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 8.25!)
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label11.Location = New System.Drawing.Point(732, 238)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(205, 16)
+        Me.Label11.TabIndex = 68
+        Me.Label11.Text = "(Haga click para aplicar descuento)"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label12.Location = New System.Drawing.Point(151, 199)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(115, 17)
+        Me.Label12.TabIndex = 37
+        Me.Label12.Text = "Kilometros por día"
+        '
+        'lblAdvertencia
+        '
+        Me.lblAdvertencia.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblAdvertencia.Location = New System.Drawing.Point(300, 171)
+        Me.lblAdvertencia.Name = "lblAdvertencia"
+        Me.lblAdvertencia.Size = New System.Drawing.Size(195, 68)
+        Me.lblAdvertencia.TabIndex = 70
+        Me.lblAdvertencia.Text = "Esto quiere decir que el cliente podrá realizar un total de X kilómetros en total" &
+    " de toda la reserva."
+        '
+        'cbxKilometraje
+        '
+        Me.cbxKilometraje.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.cbxKilometraje.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxKilometraje.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.cbxKilometraje.FormattingEnabled = True
+        Me.cbxKilometraje.Items.AddRange(New Object() {"Flying Cars", "Uruguay Motors", "Rentafrank", "Punta Motors"})
+        Me.cbxKilometraje.Location = New System.Drawing.Point(154, 220)
+        Me.cbxKilometraje.Name = "cbxKilometraje"
+        Me.cbxKilometraje.Size = New System.Drawing.Size(131, 21)
+        Me.cbxKilometraje.TabIndex = 56
+        '
+        'numDescuentoReserva
+        '
+        Me.numDescuentoReserva.Enabled = False
+        Me.numDescuentoReserva.Location = New System.Drawing.Point(802, 215)
+        Me.numDescuentoReserva.Name = "numDescuentoReserva"
+        Me.numDescuentoReserva.Size = New System.Drawing.Size(40, 20)
+        Me.numDescuentoReserva.TabIndex = 71
         '
         'frmAlquilar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1059, 629)
-        Me.Controls.Add(Me.dtpFRInicio)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.cbxSucLlegada)
-        Me.Controls.Add(Me.dtpFRfin)
-        Me.Controls.Add(Me.dtpFAinicio)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.btnAlquilar)
+        Me.ClientSize = New System.Drawing.Size(1059, 754)
+        Me.Controls.Add(Me.numDescuentoReserva)
+        Me.Controls.Add(Me.lblAdvertencia)
+        Me.Controls.Add(Me.cbxKilometraje)
+        Me.Controls.Add(Me.btnDescuentoReserva)
+        Me.Controls.Add(Me.btnDescuentoCliente)
+        Me.Controls.Add(Me.lblDescuento)
+        Me.Controls.Add(Me.txtCantidadDias)
+        Me.Controls.Add(Me.txtCostoTotalEsperado)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblCostoYRecargo)
+        Me.Controls.Add(Me.txtDescuentoCliente)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.lblCostoTotal)
+        Me.Controls.Add(Me.txtCostoEsperado)
+        Me.Controls.Add(Me.gbxFecNacFCliente)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.gbxReserva)
+        Me.Controls.Add(Me.btnAlquilar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnCerrar)
-        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.mstMenuStrip)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.txtCliente)
-        Me.Controls.Add(Me.txtSucursal)
         Me.Controls.Add(Me.txtCategoria)
         Me.Controls.Add(Me.txtTipo)
         Me.Controls.Add(Me.dgvAlquilar)
@@ -574,6 +824,13 @@ Partial Class frmAlquilar
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbxReserva.ResumeLayout(False)
+        Me.gbxReserva.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.gbxFecNacFCliente.ResumeLayout(False)
+        Me.gbxFecNacFCliente.PerformLayout()
+        CType(Me.numDescuentoReserva, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -583,14 +840,12 @@ Partial Class frmAlquilar
     Friend WithEvents txtTipo As TextBox
     Friend WithEvents txtCategoria As TextBox
     Friend WithEvents txtSucursal As TextBox
-    Friend WithEvents txtCliente As TextBox
-    Friend WithEvents Label16 As Label
+    Friend WithEvents lblTitulo As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents mstMenuStrip As MenuStrip
     Friend WithEvents btnCerrar As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents btnAlquilar As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DataGridView2 As DataGridView
@@ -605,7 +860,6 @@ Partial Class frmAlquilar
     Friend WithEvents dtpFAinicio As DateTimePicker
     Friend WithEvents dtpFRInicio As DateTimePicker
     Friend WithEvents Label8 As Label
-    Friend WithEvents cbxSucLlegada As ComboBox
     Friend WithEvents matricula As DataGridViewTextBoxColumn
     Friend WithEvents marca As DataGridViewTextBoxColumn
     Friend WithEvents modelo As DataGridViewTextBoxColumn
@@ -627,4 +881,25 @@ Partial Class frmAlquilar
     Friend WithEvents idtipo As DataGridViewTextBoxColumn
     Friend WithEvents categoria As DataGridViewTextBoxColumn
     Friend WithEvents sucursal As DataGridViewTextBoxColumn
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents cbxSucLlegada As ComboBox
+    Friend WithEvents gbxReserva As GroupBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents gbxFecNacFCliente As GroupBox
+    Friend WithEvents btnDescuentoCliente As Button
+    Friend WithEvents lblDescuento As Label
+    Friend WithEvents txtCostoTotalEsperado As TextBox
+    Friend WithEvents lblCostoYRecargo As Label
+    Friend WithEvents txtDescuentoCliente As TextBox
+    Friend WithEvents lblCostoTotal As Label
+    Friend WithEvents txtCostoEsperado As TextBox
+    Friend WithEvents txtCantidadDias As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents btnDescuentoReserva As Button
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents lblAdvertencia As Label
+    Friend WithEvents cbxKilometraje As ComboBox
+    Friend WithEvents numDescuentoReserva As NumericUpDown
 End Class

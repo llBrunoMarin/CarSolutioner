@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Descuento
+Partial Class Autorizacion
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -26,11 +26,11 @@ Partial Class Descuento
         Me.lblTexto = New System.Windows.Forms.Label()
         Me.btnVerificar = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnCerrarDescuento = New System.Windows.Forms.Button()
         Me.btnCerrarMsgbox = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.lblTitulo = New System.Windows.Forms.Label()
         Me.lbldataincorrect = New System.Windows.Forms.Label()
-        Me.btnCerrarDescuento = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -45,11 +45,11 @@ Partial Class Descuento
         '
         Me.lblTexto.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTexto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblTexto.Location = New System.Drawing.Point(12, 41)
+        Me.lblTexto.Location = New System.Drawing.Point(7, 41)
         Me.lblTexto.Name = "lblTexto"
-        Me.lblTexto.Size = New System.Drawing.Size(260, 36)
+        Me.lblTexto.Size = New System.Drawing.Size(273, 36)
         Me.lblTexto.TabIndex = 1
-        Me.lblTexto.Text = "Ingrese el código de descuento"
+        Me.lblTexto.Text = "Ingrese el código de Autorización"
         '
         'btnVerificar
         '
@@ -81,6 +81,22 @@ Partial Class Descuento
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(285, 30)
         Me.Panel1.TabIndex = 56
+        '
+        'btnCerrarDescuento
+        '
+        Me.btnCerrarDescuento.BackColor = System.Drawing.Color.Transparent
+        Me.btnCerrarDescuento.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnCerrarDescuento.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrarDescuento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnCerrarDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrarDescuento.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCerrarDescuento.ForeColor = System.Drawing.Color.Cornsilk
+        Me.btnCerrarDescuento.Location = New System.Drawing.Point(249, -2)
+        Me.btnCerrarDescuento.Name = "btnCerrarDescuento"
+        Me.btnCerrarDescuento.Size = New System.Drawing.Size(36, 37)
+        Me.btnCerrarDescuento.TabIndex = 54
+        Me.btnCerrarDescuento.Text = "✕"
+        Me.btnCerrarDescuento.UseVisualStyleBackColor = False
         '
         'btnCerrarMsgbox
         '
@@ -138,23 +154,7 @@ Partial Class Descuento
         Me.lbldataincorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lbldataincorrect.Visible = False
         '
-        'btnCerrarDescuento
-        '
-        Me.btnCerrarDescuento.BackColor = System.Drawing.Color.Transparent
-        Me.btnCerrarDescuento.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCerrarDescuento.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrarDescuento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrarDescuento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCerrarDescuento.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCerrarDescuento.ForeColor = System.Drawing.Color.Cornsilk
-        Me.btnCerrarDescuento.Location = New System.Drawing.Point(249, -2)
-        Me.btnCerrarDescuento.Name = "btnCerrarDescuento"
-        Me.btnCerrarDescuento.Size = New System.Drawing.Size(36, 37)
-        Me.btnCerrarDescuento.TabIndex = 54
-        Me.btnCerrarDescuento.Text = "✕"
-        Me.btnCerrarDescuento.UseVisualStyleBackColor = False
-        '
-        'Descuento
+        'Autorizacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -166,7 +166,8 @@ Partial Class Descuento
         Me.Controls.Add(Me.lblTexto)
         Me.Controls.Add(Me.txtDescuento)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Descuento"
+        Me.Name = "Autorizacion"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Descuento"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

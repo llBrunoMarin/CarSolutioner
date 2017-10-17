@@ -93,7 +93,8 @@ Partial Public Class frmMainMenu
 
             If selectedRow.Cells("idestadoreserva").Value = 1 Then
                 If selectedRow.Cells("fechareservainicio").Value < Date.Now.AddHours(2) Then
-                    If ((selectedRow.Cells("fechareservainicio").Value >= Date.Now) Or ((selectedRow.Cells("fechareservainicio").Value >= Date.Now And selectedRow.Cells("fechareservainicio").Value <= ((Date.Now).AddHours(6))))) Then
+
+                    If (Date.Now.AddHours(-2) <= selectedRow.Cells("fechareservainicio").Value) AndAlso (selectedRow.Cells("fechareservainicio").Value <= Date.Now.AddHours(6)) Then
 
                         ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
                         ReservaSeleccionadaAlquiler.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
@@ -111,6 +112,7 @@ Partial Public Class frmMainMenu
                         frmAlquilar.ShowDialog()
 
                     Else
+
                         Dim Diferencia As Integer = Math.Truncate((Date.Now - Date.Parse(selectedRow.Cells("fechareservainicio").Value.ToString())).TotalHours)
 
 
@@ -129,6 +131,7 @@ Partial Public Class frmMainMenu
                             ReservaSeleccionadaAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalida").Value.ToString
                             ReservaSeleccionadaAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegada").Value.ToString
                             ReservaSeleccionadaAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleado").Value.ToString
+
                             frmAlquilar.ShowDialog()
                         End If
                     End If
@@ -247,7 +250,7 @@ Partial Public Class frmMainMenu
         Dim fechaActual As Date
         fechaActual = Date.Now
 
-        If Not ((dtpInicioARes.Value < fechaActual.AddMinutes(10)) Or (dtpFinARes.Value < fechaActual.AddMinutes(10))) Then
+        If Not ((dtpInicioARes.Value < fechaActual.AddMinutes(-10)) Or (dtpFinARes.Value < fechaActual)) Then
 
             If Not dtpFinARes.Value <= dtpInicioARes.Value Then
                 If ((dtpFinARes.Value - dtpInicioARes.Value).Days >= 1) Then

@@ -17,21 +17,42 @@
             CargarDatosComboBox(cbxSucLlegada, conexion.Sucursales, "nombre", "idsucursal")
             cbxSucLlegada.SelectedValue = ReservaSeleccionada.IdSucursalDestino
 
+            CargarDatosComboBox(cbxKilometraje, conexion.Kilometros, "km", "id")
+            cbxKilometraje.SelectedValue = ReservaSeleccionada.IdCantKM
+            cbxKilometraje.Enabled = False
+
             'estos llenan los datetime picker
             'TODO: LAS FECHAS DE ALQUILER NO SE DEBEN SETEAR ASÍ
             dtpFRInicio.Value = ReservaSeleccionada.FechaReservaInicio
             dtpFRfin.Value = ReservaSeleccionada.FechaReservaFin
-            dtpFAinicio.Value = Date.Now.ToShortDateString
+            dtpFRfin.MinDate = Date.Now.AddHours(24)
+            dtpFAinicio.Value = Date.Now.ToString("dd/MM/yyyy HH:mm")
 
-            txtCliente.Text = ReservaSeleccionada.NomCliente
+            lblTitulo.Text = "Autos para la reserva de: " + ReservaSeleccionada.NomCliente
             txtTipo.Text = conexion.Tipos.Select("idtipo =" + ReservaSeleccionada.IdTipo.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
             txtCategoria.Text = conexion.Categorias.Select("idcategoria =" + ReservaSeleccionada.IdCategoria.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
             txtSucursal.Text = conexion.Sucursales.Select("idsucursal =" + ReservaSeleccionada.IdSucursalPartida.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
+            txtCantidadDias.Text = (dtpFRfin.Value - dtpFAinicio.Value).Days.ToString
+            txtDescuentoCliente.Text = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
+            txtCostoEsperado.Text = ReservaSeleccionada.CostoTotal.ToString
 
         End If
 
     End Sub
 
+    Private Sub CalculoCosto(sender As Object, e As EventArgs) Handles dtpFRfin.ValueChanged, dtpFAinicio.ValueChanged
+        Select Case ReservaSeleccionada.IdCantKM
+            Case 1
+                lblAdvertencia.Text = "Esto quiere decir que el cliente podrá recorrer un total de " + (150 * (dtpFRfin.Value - dtpFAinicio.Value).Days).ToString + " kilómetros en total de toda la reserva."
+
+            Case 2
+                lblAdvertencia.Text = "Esto quiere decir que el cliente podrá recorrer un total de " + (300 * (dtpFRfin.Value - dtpFAinicio.Value).Days).ToString + " kilómetros en total de toda la reserva."
+
+            Case 3
+                lblAdvertencia.Text = "Esto quiere decir que el cliente podrá recorrer los kilómetros que quiera en toda la reserva."
+
+        End Select
+    End Sub
     'Doble click en el dgv alquilar, o click en el botón Alquilar
     Public Sub AlquilarAutoSeleccionado(sender As Object, e As EventArgs) Handles dgvAlquilar.CellMouseDoubleClick, btnAlquilar.Click
 
@@ -65,4 +86,23 @@
         Me.Dispose()
     End Sub
 
+
+    Private Function CargarDescuentoCliente(id As Integer) As String
+        Return conexion.EjecutarSelect("SELECT porcdescuento FROM Cliente WHERE idpersona = '" + id.ToString + "'").Rows(0)(0).ToString
+    End Function
+
+    Private Sub btnDescuentoCliente_Click(sender As Object, e As EventArgs) Handles btnDescuentoCliente.Click
+        If Autorizar() = vbYes Then
+            DescuentoPersonalCliente.ShowDialog()
+            txtDescuentoCliente.Text = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
+        Else
+
+        End If
+    End Sub
+
+    Private Sub btnDescuentoReserva_Click(sender As Object, e As EventArgs) Handles btnDescuentoReserva.Click
+        If Autorizar() = vbYes Then
+            numDescuentoReserva.Enabled = True
+        End If
+    End Sub
 End Class

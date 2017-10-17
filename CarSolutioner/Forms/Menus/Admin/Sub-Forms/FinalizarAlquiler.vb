@@ -4,7 +4,6 @@
     Private Sub FinalizarAlquiler_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblTitulo.Text = "Alquiler del vehículo: " + ReservaSeleccionada.Matricula + " a nombre de: " + ReservaSeleccionada.NomCliente + ""
         txtCantidadDias.Text = If((Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days = 0, 1, (Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days)
-        txtDescuentoCliente.Text = conexion.EjecutarSelect("SELECT porcdescuento FROM Cliente WHERE idpersona = '" + ReservaSeleccionada.IdCliente.ToString + "'").Rows(0)(0).ToString
         txtKMAutoAntes.Text = conexion.EjecutarSelect("SELECT kilometraje FROM Vehiculo WHERE nrochasis = '" + ReservaSeleccionada.NroChasis.ToString + "'").Rows(0)(0).ToString
     End Sub
 
@@ -57,13 +56,11 @@
         End Select
 
         Dim CostoTotal As Integer = ReservaSeleccionada.CostoTotal
-        Dim Descuento As Integer = 0
         Dim Recargo As Integer = 0
 
         txtCostoTotal.Text = CostoTotal
-        txtDescuento.Text = Descuento
         txtRecargo.Text = Recargo
-        txtCostoTotalTotal.Text = (CostoTotal + Descuento + Recargo).ToString
+        txtCostoTotalTotal.Text = (CostoTotal + Recargo).ToString
     End Sub
 
     Private Sub CompletarAlquiler(sender As Object, e As EventArgs) Handles btnAccept.Click
@@ -79,5 +76,11 @@
 
     Private Sub btnCerrarMsgbox_Click(sender As Object, e As EventArgs) Handles btnCerrarMsgbox.Click
         Me.Dispose()
+    End Sub
+
+    Private Sub btnAgregarDescuentoAlquiler_Click(sender As Object, e As EventArgs) Handles btnAgregarDescuentoAlquiler.Click
+        If Autorizar() = vbYes Then
+            txtRecargo.Enabled = True
+        End If
     End Sub
 End Class

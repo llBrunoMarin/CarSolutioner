@@ -2,7 +2,6 @@
 Imports iTextSharp.text.pdf
 Imports System.IO
 Imports System.Runtime.CompilerServices
-
 Imports System.Net
 
 Module Metodos
@@ -199,7 +198,13 @@ Module Metodos
         Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog()
         Return resultado
 
+    End Function
 
+    'Ventana de autorización
+    Public Function Autorizar() As DialogResult
+        Dim autorizacion As New Autorizacion
+        Dim resultado As DialogResult = autorizacion.ShowDialog()
+        Return resultado
     End Function
 
     'Verificar codigo de Descuento
@@ -211,12 +216,12 @@ Module Metodos
             'Si el largo del numero es exactamente 8
             If (codigo.Length = 8) Then
 
-                Dim dia As String = Date.Now.Day
+                Dim dia As String = DateTime.Today.Day
                 Dim minuto As String = DateTime.Now.ToString("mm")
-                Dim mes As String = Date.Now.Month
+                Dim mes As String = DateTime.Today.Month
                 Dim verificador As String = codigo.Substring(7, 1)
                 Dim cedula As String = codigo.Substring(0, 7)
-                Dim algoritmo() As Integer = {2, minuto.Substring(1, 1), mes.Substring(0, 1), dia.Substring(0, 1), 6, 3, 4}
+                Dim algoritmo() As Integer = {2, 2, mes.Substring(0, 1), dia.Substring(0, 1), 6, 3, 4}
                 Dim Operacion As String
                 Dim sumaVerificarCI As Integer
                 Dim valor As Integer
@@ -225,12 +230,6 @@ Module Metodos
 
                     For i = 0 To 6
                         'Multiplicar el caracter nro "i" de la cedula, por el carácter numero "i" del Algoritmo.
-                        ' MsgBox((CInt(cedula.Substring(i, 1))))
-                        'MsgBox(algoritmo(i))
-                        Console.WriteLine("ci")
-                        Console.WriteLine(CInt(cedula.Substring(i, 1)))
-                        Console.WriteLine("algoritmo")
-                        Console.WriteLine(algoritmo(i))
                         Operacion = (CInt(cedula.Substring(i, 1)) * algoritmo(i)).ToString
 
                         'MsgBox("operacion" + Operacion)
@@ -245,20 +244,18 @@ Module Metodos
                         End If
 
                     Next
-                    Console.WriteLine("sumaverifac")
-                    Console.WriteLine(sumaVerificarCI)
+
                     'MsgBox(sumaVerificarCI)
                     'Guardo el valor de SumaVerificarCI para usarlo más tarde.
                     valor = sumaVerificarCI
-
                     Do
                         'Encontrar el siguiente nro + grande que SumaverificarCI
                         If Not (sumaVerificarCI.ToString.Substring(1, 1) = "0") Then
                             sumaVerificarCI = sumaVerificarCI + 1
+
                         End If
 
                     Loop Until (sumaVerificarCI.ToString.Substring(1, 1) = "0")
-
                     If sumaVerificarCI - valor = verificador Then
 
                         Return True
@@ -277,11 +274,61 @@ Module Metodos
 
                 End Try
 
+            ElseIf (codigo.Length = 9) Then
+                Dim dia As String = DateTime.Today.Day
+                Dim minuto As String = DateTime.Now.ToString("mm")
+                Dim mes As String = DateTime.Today.Month
+                Dim verificador As String = codigo.Substring(7, 2)
+                Dim cedula As String = codigo.Substring(0, 7)
+                Dim algoritmo() As Integer = {2, 2, 2, dia.Substring(0, 1), 6, 3, 4}
+                Dim Operacion As String
+                Dim sumaVerificarCI As Integer
+                Dim valor As Integer
+
+                Try
+
+                    For i = 0 To 6
+                        'Multiplicar el caracter nro "i" de la cedula, por el carácter numero "i" del Algoritmo.
+                        Operacion = (CInt(cedula.Substring(i, 1)) * algoritmo(i)).ToString
+
+                        'MsgBox("operacion" + Operacion)
+                        'Si el resultado es de 2 cifras
+                        If Operacion.Length = 2 Then
+
+                            'Quedarse solo con la segunda.
+                            sumaVerificarCI += Operacion.Substring(1, 1)
+                        Else
+                            'Sino, simplemente ir sumando los resultados en "SumaVerificarCI".
+                            sumaVerificarCI += Operacion
+                        End If
+
+                    Next
+                    'Guardo el valor de SumaVerificarCI para usarlo más tarde.
+                    valor = sumaVerificarCI
+                    Do
+                        'Encontrar el siguiente nro + grande que SumaverificarCI
+                        If Not (sumaVerificarCI.ToString.Substring(1, 1) = "0") Then
+                            sumaVerificarCI = sumaVerificarCI + 1
+
+                        End If
+
+                    Loop Until (sumaVerificarCI.ToString.Substring(1, 1) = "0")
+                    If sumaVerificarCI - valor = verificador Then
+
+                        Return True
+                    Else
+                        MsgBox("Su codigo es inválido. Por favor verifique.")
+                        Return False
+                    End If
+                Catch ex As Exception
+
+                    MsgBox("Su codigo es inválido. Por favor verifique.")
+                    Return False
+                End Try
             Else
-                MsgBox("Ingrese un codigo de largo válido por favor.")
+                MsgBox("Largo Inválido")
                 Return False
             End If
-
         Else
             MsgBox("Limítese solo a numeros en los campos numéricos, por favor.")
             Return False
@@ -325,6 +372,7 @@ Module Metodos
         Return cantidad
     End Function
 
+    'Obtener fuente Century Gothic
     Public Function GetCentury() As iTextSharp.text.Font
         Dim fontName = "Century Gothic"
         If Not FontFactory.IsRegistered(fontName) Then
@@ -333,6 +381,7 @@ Module Metodos
         End If
         Return FontFactory.GetFont(fontName, BaseFont.IDENTITY_H, BaseFont.EMBEDDED)
     End Function
+
     'Genera un documento PDF
     Public Sub AñadirTablaPDF(doc As Document, dgv As DataGridView, textoencabezado As String)
 

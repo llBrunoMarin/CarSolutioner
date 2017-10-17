@@ -262,23 +262,5 @@ Public Class frmMainMenu
         CargarDatos()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        'Try
-        'Intentar generar el documento.
-        Dim doc As New Document(PageSize.A4.Rotate(), 10, 10, 10, 10)
-        'Path que guarda el reporte en el escritorio de windows (Desktop).
-        Dim filename As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\Reporteproductos.pdf"
-        Dim file As New FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.ReadWrite)
-        PdfWriter.GetInstance(doc, file)
-        doc.Open()
-        AñadirTablaPDF(doc, dgvClientes)
-        doc.Close()
-        'Process.Start(filename)
-        'Catch ex As Exception
-        'Si el intento es fallido, mostrar MsgBox.
-        ' MessageBox.Show("No se puede generar el documento PDF.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        'End Try
-    End Sub
-
 
 End Class

@@ -602,7 +602,7 @@ Partial Class frmMainMenu
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.Label115 = New System.Windows.Forms.Label()
+        Me.lblTituloReportesCliente2 = New System.Windows.Forms.Label()
         Me.dgvMasAlquileresRClientes = New System.Windows.Forms.DataGridView()
         Me.btnExportarMasAlquileresRClientes = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -6881,23 +6881,23 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel8.Controls.Add(Me.btnExportarMasAlquileresRClientes)
-        Me.Panel8.Controls.Add(Me.Label115)
+        Me.Panel8.Controls.Add(Me.lblTituloReportesCliente2)
         Me.Panel8.Controls.Add(Me.dgvMasAlquileresRClientes)
         Me.Panel8.Location = New System.Drawing.Point(671, 6)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(650, 778)
         Me.Panel8.TabIndex = 0
         '
-        'Label115
+        'lblTituloReportesCliente2
         '
-        Me.Label115.AutoSize = True
-        Me.Label115.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label115.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label115.Location = New System.Drawing.Point(139, 11)
-        Me.Label115.Name = "Label115"
-        Me.Label115.Size = New System.Drawing.Size(381, 22)
-        Me.Label115.TabIndex = 25
-        Me.Label115.Text = "Clientes con mayor número de alquileres"
+        Me.lblTituloReportesCliente2.AutoSize = True
+        Me.lblTituloReportesCliente2.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTituloReportesCliente2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblTituloReportesCliente2.Location = New System.Drawing.Point(139, 11)
+        Me.lblTituloReportesCliente2.Name = "lblTituloReportesCliente2"
+        Me.lblTituloReportesCliente2.Size = New System.Drawing.Size(381, 22)
+        Me.lblTituloReportesCliente2.TabIndex = 25
+        Me.lblTituloReportesCliente2.Text = "Clientes con mayor número de alquileres"
         '
         'dgvMasAlquileresRClientes
         '
@@ -7630,7 +7630,7 @@ Partial Class frmMainMenu
     Friend WithEvents Label111 As Label
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents Label115 As Label
+    Friend WithEvents lblTituloReportesCliente2 As Label
     Friend WithEvents dgvMasAlquileresRClientes As DataGridView
     Friend WithEvents btnExportarMasAlquileresRClientes As Button
     Friend WithEvents Button2 As Button

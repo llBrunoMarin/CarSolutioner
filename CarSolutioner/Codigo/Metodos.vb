@@ -325,8 +325,16 @@ Module Metodos
         Return cantidad
     End Function
 
+    Public Function GetCentury() As iTextSharp.text.Font
+        Dim fontName = "Century Gothic"
+        If Not FontFactory.IsRegistered(fontName) Then
+            Dim fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\fonts\GOTHIC.ttf"
+            FontFactory.Register(fontPath)
+        End If
+        Return FontFactory.GetFont(fontName, BaseFont.IDENTITY_H, BaseFont.EMBEDDED)
+    End Function
     'Genera un documento PDF
-    Public Sub AñadirTablaPDF(doc As Document, dgv As DataGridView)
+    Public Sub AñadirTablaPDF(doc As Document, dgv As DataGridView, textoencabezado As String)
 
         'Se crea un objeto PDFTable con el numero de columnas del DataGridView. 
 
@@ -337,11 +345,15 @@ Module Metodos
         PdfTable.DefaultCell.Padding = 3
         PdfTable.SetWidths(headerwidths)
         PdfTable.WidthPercentage = 100
-        PdfTable.DefaultCell.BorderWidth = 2
+        PdfTable.DefaultCell.BorderWidth = 1
+
+
         PdfTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER
 
+        Dim FuenteTitulo As New Font(GetCentury().BaseFont, 15.0F, FontStyle.Regular, New BaseColor(100, 38, 38))
         'Se crea el encabezado en el PDF (POR AHORA DESACTIVADO)
-        'Dim encabezado As New Paragraph("PRODUCTOS INFORMATICOS", New Font(Font, = "Tahoma", 20, Font.BOLD))
+        Dim encabezado As New Paragraph(textoencabezado, FuenteTitulo)
+        encabezado.Alignment = 1
 
         'Se crea el texto abajo del encabezado.
         'Dim texto As New Phrase("Reporte productos:" + Now.Date(), New Font(Font.Name = "Tahoma", 14, Font.BOLD))
@@ -349,18 +361,30 @@ Module Metodos
         'Se capturan los nombres de las columnas del DataGridView.
         For i As Integer = 0 To dgv.ColumnCount - 1
             If dgv.Columns(i).Visible = True Then
-                PdfTable.AddCell(dgv.Columns(i).HeaderText)
+
+                Dim century As New Font(GetCentury().BaseFont, 13.0F, FontStyle.Regular, BaseColor.WHITE)
+                Dim texto As New Phrase(dgv.Columns(i).HeaderText, century)
+                Dim cell As New PdfPCell(texto)
+                cell.BackgroundColor = BaseColor.DARK_GRAY
+                cell.HorizontalAlignment = 1 'CENTER
+                PdfTable.AddCell(cell)
+
             End If
         Next
 
         PdfTable.HeaderRows = 1
+
         PdfTable.DefaultCell.BorderWidth = 0.5
 
         'Se generan las columnas del DataGridView. 
         For i As Integer = 0 To dgv.RowCount - 1
             For j As Integer = 0 To dgv.ColumnCount - 1
                 If dgv.Columns(j).Visible = True Then
-                    PdfTable.AddCell(dgv(j, i).Value.ToString())
+
+                    Dim century As New Font(GetCentury().BaseFont, 12.0F, FontStyle.Regular, BaseColor.BLACK)
+                    Dim texto As New Phrase(dgv(j, i).Value.ToString(), century)
+                    Dim cell As New PdfPCell(texto)
+                    PdfTable.AddCell(cell)
 
                 End If
             Next
@@ -368,30 +392,15 @@ Module Metodos
         Next
 
         'Se agrega el PDFTable al documento.
+        doc.Add(encabezado)
+        doc.Add(New Chunk(" "))
         doc.Add(PdfTable)
 
 
 
     End Sub
 
-    Public Sub GuardarPDF(document As Document)
-
-        Dim dlg As New SaveFileDialog()
-        dlg.Filter = "PDF Files|*.pdf"
-        dlg.FilterIndex = 0
-
-        Dim fileName As String = String.Empty
-
-        If dlg.ShowDialog() = DialogResult.OK Then
-
-            fileName = dlg.FileName
-            PdfWriter.GetInstance(document, New FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
-
-        End If
-
-    End Sub
-
-    Public Sub CrearPDF(dgv As DataGridView)
+    Public Sub CrearPDF(dgv As DataGridView, textoencabezado As String)
 
         Dim doc As New Document(PageSize.A4.Rotate(), 10, 10, 10, 10)
         Dim fileName As String
@@ -403,7 +412,7 @@ Module Metodos
             fileName = dlg.FileName
             PdfWriter.GetInstance(doc, New FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
             doc.Open()
-            AñadirTablaPDF(doc, dgv)
+            AñadirTablaPDF(doc, dgv, textoencabezado)
             doc.Close()
         End If
 

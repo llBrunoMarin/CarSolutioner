@@ -350,8 +350,8 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub ExportarMasAlquileres(sender As Object, e As EventArgs) Handles btnExportarMasAlquileresRClientes.Click
-        CrearPDF(dgvMasAlquileresRClientes)
 
+        CrearPDF(dgvMasAlquileresRClientes, "Clientes con más Alquileres")
 
     End Sub
 

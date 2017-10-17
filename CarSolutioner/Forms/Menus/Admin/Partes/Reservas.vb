@@ -289,6 +289,8 @@ Partial Public Class frmMainMenu
                     Else
                         AmaranthMessagebox("Ese cliente no está registrado o está inactivo.", "Error")
                     End If
+                Else
+                    AmaranthMessagebox("Las reservas tienen que ser de mínimo 24 horas.", "Error")
                 End If
 
             Else

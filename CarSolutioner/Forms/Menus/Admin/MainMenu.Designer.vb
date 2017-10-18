@@ -151,7 +151,12 @@ Partial Class frmMainMenu
         Me.Label98 = New System.Windows.Forms.Label()
         Me.Label99 = New System.Windows.Forms.Label()
         Me.ReportesClientes = New System.Windows.Forms.TabPage()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.btnExportarMasAlquileresRClientes = New System.Windows.Forms.Button()
+        Me.lblTituloReportesCliente2 = New System.Windows.Forms.Label()
+        Me.dgvMasAlquileresRClientes = New System.Windows.Forms.DataGridView()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label111 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.tbpVehiculos = New System.Windows.Forms.TabPage()
@@ -601,11 +606,6 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.lblTituloReportesCliente2 = New System.Windows.Forms.Label()
-        Me.dgvMasAlquileresRClientes = New System.Windows.Forms.DataGridView()
-        Me.btnExportarMasAlquileresRClientes = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -623,6 +623,8 @@ Partial Class frmMainMenu
         Me.pnlAClientes.SuspendLayout()
         Me.gbxFecNacACliente.SuspendLayout()
         Me.ReportesClientes.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        CType(Me.dgvMasAlquileresRClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpVehiculos.SuspendLayout()
@@ -665,8 +667,6 @@ Partial Class frmMainMenu
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel8.SuspendLayout()
-        CType(Me.dgvMasAlquileresRClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -678,7 +678,7 @@ Partial Class frmMainMenu
         Me.mstMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mstMenuStrip.Name = "mstMenuStrip"
         Me.mstMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mstMenuStrip.Size = New System.Drawing.Size(1604, 30)
+        Me.mstMenuStrip.Size = New System.Drawing.Size(1378, 30)
         Me.mstMenuStrip.TabIndex = 1
         Me.mstMenuStrip.Text = "MenuStrip1"
         '
@@ -1938,6 +1938,65 @@ Partial Class frmMainMenu
         Me.ReportesClientes.TabIndex = 1
         Me.ReportesClientes.Text = "Reportes"
         '
+        'Panel8
+        '
+        Me.Panel8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel8.Controls.Add(Me.btnExportarMasAlquileresRClientes)
+        Me.Panel8.Controls.Add(Me.lblTituloReportesCliente2)
+        Me.Panel8.Controls.Add(Me.dgvMasAlquileresRClientes)
+        Me.Panel8.Location = New System.Drawing.Point(671, 6)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(650, 778)
+        Me.Panel8.TabIndex = 0
+        '
+        'btnExportarMasAlquileresRClientes
+        '
+        Me.btnExportarMasAlquileresRClientes.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportarMasAlquileresRClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnExportarMasAlquileresRClientes.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnExportarMasAlquileresRClientes.FlatAppearance.BorderSize = 0
+        Me.btnExportarMasAlquileresRClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnExportarMasAlquileresRClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnExportarMasAlquileresRClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExportarMasAlquileresRClientes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportarMasAlquileresRClientes.ForeColor = System.Drawing.Color.White
+        Me.btnExportarMasAlquileresRClientes.Location = New System.Drawing.Point(532, 428)
+        Me.btnExportarMasAlquileresRClientes.Name = "btnExportarMasAlquileresRClientes"
+        Me.btnExportarMasAlquileresRClientes.Size = New System.Drawing.Size(99, 31)
+        Me.btnExportarMasAlquileresRClientes.TabIndex = 26
+        Me.btnExportarMasAlquileresRClientes.Text = "Exportar"
+        Me.btnExportarMasAlquileresRClientes.UseVisualStyleBackColor = False
+        '
+        'lblTituloReportesCliente2
+        '
+        Me.lblTituloReportesCliente2.AutoSize = True
+        Me.lblTituloReportesCliente2.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTituloReportesCliente2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblTituloReportesCliente2.Location = New System.Drawing.Point(139, 11)
+        Me.lblTituloReportesCliente2.Name = "lblTituloReportesCliente2"
+        Me.lblTituloReportesCliente2.Size = New System.Drawing.Size(381, 22)
+        Me.lblTituloReportesCliente2.TabIndex = 25
+        Me.lblTituloReportesCliente2.Text = "Clientes con mayor número de alquileres"
+        '
+        'dgvMasAlquileresRClientes
+        '
+        Me.dgvMasAlquileresRClientes.AllowUserToAddRows = False
+        Me.dgvMasAlquileresRClientes.AllowUserToDeleteRows = False
+        Me.dgvMasAlquileresRClientes.AllowUserToResizeColumns = False
+        Me.dgvMasAlquileresRClientes.AllowUserToResizeRows = False
+        Me.dgvMasAlquileresRClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvMasAlquileresRClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvMasAlquileresRClientes.Location = New System.Drawing.Point(17, 49)
+        Me.dgvMasAlquileresRClientes.MultiSelect = False
+        Me.dgvMasAlquileresRClientes.Name = "dgvMasAlquileresRClientes"
+        Me.dgvMasAlquileresRClientes.ReadOnly = True
+        Me.dgvMasAlquileresRClientes.RowHeadersVisible = False
+        Me.dgvMasAlquileresRClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvMasAlquileresRClientes.Size = New System.Drawing.Size(614, 373)
+        Me.dgvMasAlquileresRClientes.TabIndex = 0
+        '
         'Panel7
         '
         Me.Panel7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -1950,6 +2009,24 @@ Partial Class frmMainMenu
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(650, 778)
         Me.Panel7.TabIndex = 0
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(531, 428)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(99, 31)
+        Me.Button2.TabIndex = 26
+        Me.Button2.Text = "Exportar"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Label111
         '
@@ -4094,9 +4171,9 @@ Partial Class frmMainMenu
         Me.llbFechaInicioMmant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.llbFechaInicioMmant.Location = New System.Drawing.Point(270, 74)
         Me.llbFechaInicioMmant.Name = "llbFechaInicioMmant"
-        Me.llbFechaInicioMmant.Size = New System.Drawing.Size(62, 17)
+        Me.llbFechaInicioMmant.Size = New System.Drawing.Size(80, 17)
         Me.llbFechaInicioMmant.TabIndex = 43
-        Me.llbFechaInicioMmant.Text = "Fecha fin"
+        Me.llbFechaInicioMmant.Text = "Fecha inicio"
         '
         'cbxModifTipoMant
         '
@@ -4251,8 +4328,6 @@ Partial Class frmMainMenu
         'chbxFiltrarEstadoMant
         '
         Me.chbxFiltrarEstadoMant.AutoSize = True
-        Me.chbxFiltrarEstadoMant.Checked = True
-        Me.chbxFiltrarEstadoMant.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chbxFiltrarEstadoMant.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chbxFiltrarEstadoMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.chbxFiltrarEstadoMant.Location = New System.Drawing.Point(13, 173)
@@ -6875,89 +6950,12 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'Panel8
-        '
-        Me.Panel8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel8.Controls.Add(Me.btnExportarMasAlquileresRClientes)
-        Me.Panel8.Controls.Add(Me.lblTituloReportesCliente2)
-        Me.Panel8.Controls.Add(Me.dgvMasAlquileresRClientes)
-        Me.Panel8.Location = New System.Drawing.Point(671, 6)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(650, 778)
-        Me.Panel8.TabIndex = 0
-        '
-        'lblTituloReportesCliente2
-        '
-        Me.lblTituloReportesCliente2.AutoSize = True
-        Me.lblTituloReportesCliente2.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTituloReportesCliente2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblTituloReportesCliente2.Location = New System.Drawing.Point(139, 11)
-        Me.lblTituloReportesCliente2.Name = "lblTituloReportesCliente2"
-        Me.lblTituloReportesCliente2.Size = New System.Drawing.Size(381, 22)
-        Me.lblTituloReportesCliente2.TabIndex = 25
-        Me.lblTituloReportesCliente2.Text = "Clientes con mayor número de alquileres"
-        '
-        'dgvMasAlquileresRClientes
-        '
-        Me.dgvMasAlquileresRClientes.AllowUserToAddRows = False
-        Me.dgvMasAlquileresRClientes.AllowUserToDeleteRows = False
-        Me.dgvMasAlquileresRClientes.AllowUserToResizeColumns = False
-        Me.dgvMasAlquileresRClientes.AllowUserToResizeRows = False
-        Me.dgvMasAlquileresRClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvMasAlquileresRClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvMasAlquileresRClientes.Location = New System.Drawing.Point(17, 49)
-        Me.dgvMasAlquileresRClientes.MultiSelect = False
-        Me.dgvMasAlquileresRClientes.Name = "dgvMasAlquileresRClientes"
-        Me.dgvMasAlquileresRClientes.ReadOnly = True
-        Me.dgvMasAlquileresRClientes.RowHeadersVisible = False
-        Me.dgvMasAlquileresRClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvMasAlquileresRClientes.Size = New System.Drawing.Size(614, 373)
-        Me.dgvMasAlquileresRClientes.TabIndex = 0
-        '
-        'btnExportarMasAlquileresRClientes
-        '
-        Me.btnExportarMasAlquileresRClientes.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExportarMasAlquileresRClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnExportarMasAlquileresRClientes.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnExportarMasAlquileresRClientes.FlatAppearance.BorderSize = 0
-        Me.btnExportarMasAlquileresRClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnExportarMasAlquileresRClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnExportarMasAlquileresRClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExportarMasAlquileresRClientes.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExportarMasAlquileresRClientes.ForeColor = System.Drawing.Color.White
-        Me.btnExportarMasAlquileresRClientes.Location = New System.Drawing.Point(532, 428)
-        Me.btnExportarMasAlquileresRClientes.Name = "btnExportarMasAlquileresRClientes"
-        Me.btnExportarMasAlquileresRClientes.Size = New System.Drawing.Size(99, 31)
-        Me.btnExportarMasAlquileresRClientes.TabIndex = 26
-        Me.btnExportarMasAlquileresRClientes.Text = "Exportar"
-        Me.btnExportarMasAlquileresRClientes.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(531, 428)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(99, 31)
-        Me.Button2.TabIndex = 26
-        Me.Button2.Text = "Exportar"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1604, 882)
+        Me.ClientSize = New System.Drawing.Size(1378, 780)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.btnMinimizar)
@@ -6967,7 +6965,7 @@ Partial Class frmMainMenu
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.mstMenuStrip
-        Me.MinimumSize = New System.Drawing.Size(1024, 768)
+        Me.MinimumSize = New System.Drawing.Size(1024, 726)
         Me.Name = "frmMainMenu"
         Me.Opacity = 0R
         Me.Text = " "
@@ -6995,6 +6993,9 @@ Partial Class frmMainMenu
         Me.pnlAClientes.PerformLayout()
         Me.gbxFecNacACliente.ResumeLayout(False)
         Me.ReportesClientes.ResumeLayout(False)
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
+        CType(Me.dgvMasAlquileresRClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -7057,9 +7058,6 @@ Partial Class frmMainMenu
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel8.ResumeLayout(False)
-        Me.Panel8.PerformLayout()
-        CType(Me.dgvMasAlquileresRClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -110,7 +110,7 @@ Partial Public Class frmMainMenu
                                                 cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text,
                                               txtNombreACliente.Text, txtApellidoACliente.Text,
                                               txtCorreoACliente.Text, FechaSeleccionada,
-                                              txtEmpresaACliente.Text, "0", "t", numeros.ToString)
+                                              txtEmpresaACliente.Text, numDescuentoACliente.Value.ToString, "t", numeros.ToString)
 
                     If cbxTipoDocumACliente.SelectedValue = 1 Then
 
@@ -128,14 +128,11 @@ Partial Public Class frmMainMenu
 
                     Else
 
-                        'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
+                        'Si el cliente se ingresa satisfactoriamente, recargar y desactivar descuento.
                         If conexion.EjecutarNonQuery(sentencia) Then
                             MsgBox("Cliente ingresado satisfactoriamente")
-
                             RecargarDatos(dgvClientes)
-                            Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
-
-
+                            numDescuentoACliente.Enabled = False
                         End If
 
                     End If
@@ -187,13 +184,14 @@ Partial Public Class frmMainMenu
                                                               nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', 
                                                               apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', 
                                                               fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "',
+                                                              porcdescuento = '" + numDescuentoMCliente.Value.ToString + "',
                                                               telefono ='" + numeros + "'
                                                               WHERE idpersona = " + IdPersona + "")
 
 
                 MsgBox("Persona modificada satisfactoriamente.")
                 RecargarDatos(dgvClientes)
-
+                numDescuentoMCliente.Enabled = False
             Else
                 MsgBox("Por favor, ingrese una fecha válida.")
             End If
@@ -256,6 +254,20 @@ Partial Public Class frmMainMenu
         End If
         lblAyudaTelefono.Visible = True
 
+    End Sub
+
+    Private Sub DescuentoAltaCliente(sender As Object, e As EventArgs) Handles btnDescuentoACliente.Click
+
+        If Autorizar() = vbYes Then
+            numDescuentoACliente.Enabled = True
+        End If
+
+    End Sub
+
+    Private Sub DescuentoModifCliente(sender As Object, e As EventArgs) Handles btnDescuentoMCliente.Click
+        If Autorizar() = vbYes Then
+            numDescuentoMCliente.Enabled = True
+        End If
     End Sub
 
     Private Sub VerTelefonos(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellContentClick
@@ -349,6 +361,9 @@ Partial Public Class frmMainMenu
 
     End Sub
 
+
+
+    'REPORTES
     Private Sub ExportarMasAlquileres(sender As Object, e As EventArgs) Handles btnExportarMasAlquileresRClientes.Click
 
         CrearPDF(dgvMasAlquileresRClientes, "Clientes con más Alquileres")

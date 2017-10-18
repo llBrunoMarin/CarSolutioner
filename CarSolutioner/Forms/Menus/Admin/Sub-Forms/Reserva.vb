@@ -35,7 +35,7 @@
 
         End Select
 
-        CostoAlqEstimado = (TarifaDiariaBase + TarifaDiariaKM) * ((dtpFin.Value - dtpInicio.Value).Days + 1)
+        CostoAlqEstimado = (TarifaDiariaBase + TarifaDiariaKM) * ((dtpFin.Value - dtpInicio.Value).Days)
         DescuentoCalc = (CostoAlqEstimado * ReservaSeleccionada.DescuentoCliente) / 100
         CostoTotalEstimado = CostoAlqEstimado - DescuentoCalc
 

@@ -51,6 +51,9 @@ Partial Class frmCambiosGenerales
         Me.btnaddtipodoc = New System.Windows.Forms.Button()
         Me.btnModificartipodoc = New System.Windows.Forms.Button()
         Me.dgvDocumentos = New System.Windows.Forms.DataGridView()
+        Me.nombretipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadotipodoc = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.btnestadotipodoc = New System.Windows.Forms.Button()
         Me.Label51 = New System.Windows.Forms.Label()
         Me.Label52 = New System.Windows.Forms.Label()
@@ -140,11 +143,9 @@ Partial Class frmCambiosGenerales
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label56 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-
         Me.Label60 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label50 = New System.Windows.Forms.Label()
-
         Me.Label49 = New System.Windows.Forms.Label()
         Me.cbxTipoModeloModificar = New System.Windows.Forms.ComboBox()
         Me.btnAddModelo = New System.Windows.Forms.Button()
@@ -213,11 +214,6 @@ Partial Class frmCambiosGenerales
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-
-        Me.nombretipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadotipodoc = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-
         Me.Panel1.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         Me.tbpDocumento.SuspendLayout()
@@ -542,6 +538,32 @@ Partial Class frmCambiosGenerales
         Me.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvDocumentos.Size = New System.Drawing.Size(422, 331)
         Me.dgvDocumentos.TabIndex = 93
+        '
+        'nombretipodoc
+        '
+        Me.nombretipodoc.DataPropertyName = "nombre"
+        Me.nombretipodoc.HeaderText = "Nombre"
+        Me.nombretipodoc.Name = "nombretipodoc"
+        Me.nombretipodoc.ReadOnly = True
+        '
+        'idtipodoc
+        '
+        Me.idtipodoc.DataPropertyName = "idtipodoc"
+        Me.idtipodoc.HeaderText = "idtipo"
+        Me.idtipodoc.Name = "idtipodoc"
+        Me.idtipodoc.ReadOnly = True
+        Me.idtipodoc.Visible = False
+        '
+        'estadotipodoc
+        '
+        Me.estadotipodoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.estadotipodoc.DataPropertyName = "estado"
+        Me.estadotipodoc.HeaderText = "Estado"
+        Me.estadotipodoc.Name = "estadotipodoc"
+        Me.estadotipodoc.ReadOnly = True
+        Me.estadotipodoc.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.estadotipodoc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.estadotipodoc.Width = 65
         '
         'btnestadotipodoc
         '
@@ -1565,7 +1587,7 @@ Partial Class frmCambiosGenerales
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(443, 564)
         Me.Panel3.TabIndex = 97
-        
+        '
         'Label60
         '
         Me.Label60.AutoSize = True
@@ -1598,7 +1620,7 @@ Partial Class frmCambiosGenerales
         Me.Label50.Size = New System.Drawing.Size(80, 20)
         Me.Label50.TabIndex = 96
         Me.Label50.Text = "Modificar"
-
+        '
         'Label49
         '
         Me.Label49.AutoSize = True
@@ -2389,34 +2411,6 @@ Partial Class frmCambiosGenerales
         Me.DataGridView3.Size = New System.Drawing.Size(187, 332)
         Me.DataGridView3.TabIndex = 43
         '
-
-        'nombretipodoc
-        '
-        Me.nombretipodoc.DataPropertyName = "nombre"
-        Me.nombretipodoc.HeaderText = "Nombre"
-        Me.nombretipodoc.Name = "nombretipodoc"
-        Me.nombretipodoc.ReadOnly = True
-        '
-        'idtipodoc
-        '
-        Me.idtipodoc.DataPropertyName = "idtipodoc"
-        Me.idtipodoc.HeaderText = "idtipo"
-        Me.idtipodoc.Name = "idtipodoc"
-        Me.idtipodoc.ReadOnly = True
-        Me.idtipodoc.Visible = False
-        '
-        'estadotipodoc
-        '
-        Me.estadotipodoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.estadotipodoc.DataPropertyName = "estado"
-        Me.estadotipodoc.HeaderText = "Estado"
-        Me.estadotipodoc.Name = "estadotipodoc"
-        Me.estadotipodoc.ReadOnly = True
-        Me.estadotipodoc.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.estadotipodoc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.estadotipodoc.Width = 65
-        '
-
         'frmCambiosGenerales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

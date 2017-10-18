@@ -216,7 +216,7 @@ Partial Public Class frmMainMenu
                 Dim IdKm As Integer = cbxKilomMReserva.SelectedValue
                 Dim FechaInicio As Date = dtpFechaInicioMReserva.Value
                 Dim FechaFin As Date = dtpFechaFinMReserva.Value
-                Dim CantidadDias As Integer = (FechaFin - FechaInicio).Days + 1
+                Dim CantidadDias As Integer = (FechaFin - FechaInicio).Days
 
                 Dim TarifaDiariaBase As Integer
                 Dim TarifaDiariaKM As Integer

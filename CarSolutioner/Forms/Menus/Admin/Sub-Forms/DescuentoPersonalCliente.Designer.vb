@@ -23,58 +23,39 @@ Partial Class DescuentoPersonalCliente
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlEncabezado = New System.Windows.Forms.Panel()
-        Me.lblTitulo = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.txtDescuento = New System.Windows.Forms.TextBox()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.lblTitulo2 = New System.Windows.Forms.Label()
         Me.lblDescuento = New System.Windows.Forms.Label()
         Me.btnAccept = New System.Windows.Forms.Button()
+        Me.numDescuento = New System.Windows.Forms.NumericUpDown()
         Me.pnlEncabezado.SuspendLayout()
+        CType(Me.numDescuento, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlEncabezado
         '
         Me.pnlEncabezado.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.pnlEncabezado.Controls.Add(Me.Button1)
-        Me.pnlEncabezado.Controls.Add(Me.lblTitulo)
+        Me.pnlEncabezado.Controls.Add(Me.btnSalir)
         Me.pnlEncabezado.Location = New System.Drawing.Point(-1, 0)
         Me.pnlEncabezado.Name = "pnlEncabezado"
         Me.pnlEncabezado.Size = New System.Drawing.Size(285, 30)
         Me.pnlEncabezado.TabIndex = 58
         '
-        'lblTitulo
+        'btnSalir
         '
-        Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitulo.ForeColor = System.Drawing.Color.White
-        Me.lblTitulo.Location = New System.Drawing.Point(3, 7)
-        Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(98, 17)
-        Me.lblTitulo.TabIndex = 35
-        Me.lblTitulo.Text = "Descuento de: "
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Cornsilk
-        Me.Button1.Location = New System.Drawing.Point(249, -2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(36, 37)
-        Me.Button1.TabIndex = 59
-        Me.Button1.Text = "✕"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'txtDescuento
-        '
-        Me.txtDescuento.Location = New System.Drawing.Point(85, 143)
-        Me.txtDescuento.Name = "txtDescuento"
-        Me.txtDescuento.Size = New System.Drawing.Size(100, 20)
-        Me.txtDescuento.TabIndex = 59
+        Me.btnSalir.BackColor = System.Drawing.Color.Transparent
+        Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.ForeColor = System.Drawing.Color.Cornsilk
+        Me.btnSalir.Location = New System.Drawing.Point(249, -2)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(36, 37)
+        Me.btnSalir.TabIndex = 59
+        Me.btnSalir.Text = "✕"
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'lblTitulo2
         '
@@ -117,32 +98,38 @@ Partial Class DescuentoPersonalCliente
         Me.btnAccept.Text = "Confirmar"
         Me.btnAccept.UseVisualStyleBackColor = False
         '
+        'numDescuento
+        '
+        Me.numDescuento.Location = New System.Drawing.Point(73, 143)
+        Me.numDescuento.Name = "numDescuento"
+        Me.numDescuento.Size = New System.Drawing.Size(120, 20)
+        Me.numDescuento.TabIndex = 63
+        '
         'DescuentoPersonalCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(283, 261)
+        Me.Controls.Add(Me.numDescuento)
         Me.Controls.Add(Me.btnAccept)
         Me.Controls.Add(Me.lblDescuento)
         Me.Controls.Add(Me.lblTitulo2)
-        Me.Controls.Add(Me.txtDescuento)
         Me.Controls.Add(Me.pnlEncabezado)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "DescuentoPersonalCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "DescuentoPersonalCliente"
         Me.pnlEncabezado.ResumeLayout(False)
-        Me.pnlEncabezado.PerformLayout()
+        CType(Me.numDescuento, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents pnlEncabezado As Panel
-    Friend WithEvents lblTitulo As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents txtDescuento As TextBox
+    Friend WithEvents btnSalir As Button
     Friend WithEvents lblTitulo2 As Label
     Friend WithEvents lblDescuento As Label
     Friend WithEvents btnAccept As Button
+    Friend WithEvents numDescuento As NumericUpDown
 End Class

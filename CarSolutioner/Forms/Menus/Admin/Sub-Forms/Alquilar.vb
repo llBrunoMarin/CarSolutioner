@@ -30,28 +30,56 @@
 
             lblTitulo.Text = "Autos para la reserva de: " + ReservaSeleccionada.NomCliente
             txtTipo.Text = conexion.Tipos.Select("idtipo =" + ReservaSeleccionada.IdTipo.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
-            txtCategoria.Text = conexion.Categorias.Select("idcategoria =" + ReservaSeleccionada.IdCategoria.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
+            txtCategoria.Text = conexion.Categorias.Select("idcategoria =" + ReservaSeleccionada.IdCategoria.ToString() + "").CopyToDataTable.Rows(0)(5).ToString()
             txtSucursal.Text = conexion.Sucursales.Select("idsucursal =" + ReservaSeleccionada.IdSucursalPartida.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
             txtCantidadDias.Text = (dtpFRfin.Value - dtpFAinicio.Value).Days.ToString
-            txtDescuentoCliente.Text = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
+            numDescuentoCliente.Value = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
             txtCostoEsperado.Text = ReservaSeleccionada.CostoTotal.ToString
 
         End If
 
     End Sub
 
-    Private Sub CalculoCosto(sender As Object, e As EventArgs) Handles dtpFRfin.ValueChanged, dtpFAinicio.ValueChanged
+    Private Sub CalculoCosto(sender As Object, e As EventArgs) Handles dtpFRfin.ValueChanged, dtpFAinicio.ValueChanged, numDescuentoCliente.ValueChanged, numDescuentoReserva.ValueChanged
+
+        Dim TarifaDiariaBase As Integer
+        Dim TarifaDiariaKM As Integer
+        Dim CostoReservaEstimado As Integer
+        Dim DescuentoCalcCliente As Integer
+        Dim DescuentoCalcReserva As Integer
+        Dim CostoTotal As Integer
+
         Select Case ReservaSeleccionada.IdCantKM
             Case 1
                 lblAdvertencia.Text = "Esto quiere decir que el cliente podrá recorrer un total de " + (150 * (dtpFRfin.Value - dtpFAinicio.Value).Days).ToString + " kilómetros en total de toda la reserva."
+                TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
+                TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(2).ToString)
 
             Case 2
                 lblAdvertencia.Text = "Esto quiere decir que el cliente podrá recorrer un total de " + (300 * (dtpFRfin.Value - dtpFAinicio.Value).Days).ToString + " kilómetros en total de toda la reserva."
-
+                TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
+                TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(3).ToString)
             Case 3
                 lblAdvertencia.Text = "Esto quiere decir que el cliente podrá recorrer los kilómetros que quiera en toda la reserva."
-
+                TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
+                TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(4).ToString)
         End Select
+
+
+        CostoReservaEstimado = (TarifaDiariaBase + TarifaDiariaKM) * ((dtpFRfin.Value - dtpFAinicio.Value).Days)
+        DescuentoCalcCliente = (CostoReservaEstimado * numDescuentoCliente.Value) / 100
+
+        CostoTotal = CostoReservaEstimado - DescuentoCalcCliente
+
+        DescuentoCalcReserva = (CostoTotal * numDescuentoReserva.Value) / 100
+        CostoTotal = CostoTotal - DescuentoCalcReserva
+
+        ReservaSeleccionada.CostoTotal = CostoTotal
+
+        txtCostoEsperado.Text = CostoReservaEstimado.ToString()
+        txtCostoTotalEsperado.Text = CostoTotal.ToString()
+        txtCantidadDias.Text = (dtpFRfin.Value - dtpFAinicio.Value).Days.ToString
+
     End Sub
     'Doble click en el dgv alquilar, o click en el botón Alquilar
     Public Sub AlquilarAutoSeleccionado(sender As Object, e As EventArgs) Handles dgvAlquilar.CellMouseDoubleClick, btnAlquilar.Click
@@ -87,14 +115,18 @@
     End Sub
 
 
-    Private Function CargarDescuentoCliente(id As Integer) As String
-        Return conexion.EjecutarSelect("SELECT porcdescuento FROM Cliente WHERE idpersona = '" + id.ToString + "'").Rows(0)(0).ToString
+    Private Function CargarDescuentoCliente(id As Integer) As Integer
+        Return CInt(conexion.EjecutarSelect("SELECT porcdescuento FROM Cliente WHERE idpersona = '" + id.ToString + "'").Rows(0)(0).ToString)
     End Function
 
     Private Sub btnDescuentoCliente_Click(sender As Object, e As EventArgs) Handles btnDescuentoCliente.Click
         If Autorizar() = vbYes Then
-            DescuentoPersonalCliente.ShowDialog()
-            txtDescuentoCliente.Text = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
+
+            Dim descuento As New DescuentoPersonalCliente(ReservaSeleccionada.IdCliente)
+            descuento.ShowDialog()
+            numDescuentoCliente.Enabled = True
+            numDescuentoCliente.Value = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
+            numDescuentoCliente.Enabled = False
         Else
 
         End If
@@ -103,6 +135,7 @@
     Private Sub btnDescuentoReserva_Click(sender As Object, e As EventArgs) Handles btnDescuentoReserva.Click
         If Autorizar() = vbYes Then
             numDescuentoReserva.Enabled = True
+            lblDescuentoReserva.Text = "(Haga click para aplicar descuento) " + vbNewLine + " Escriba un numero y presione Enter"
         End If
     End Sub
 End Class

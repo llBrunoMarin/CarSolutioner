@@ -499,10 +499,11 @@
     Private Sub BtnEliminarTipo_Click(sender As Object, e As EventArgs) Handles BtnEliminarTipo.Click
 
         Dim idtipo As String = dgvTipos.CurrentRow.Cells("idtipo").Value.ToString()
-        Dim sentencia As String = "select v.nrochasis from vehiculo v, modelo mo where mo.idtipo=" + idtipo + " and v.idmodelo=mo.idmodelo and V.nrochasis Not IN (Select nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' OR fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "'    )"
+        Dim sentencia As String = "select v.nrochasis from vehiculo v, modelo mo where mo.idtipo=" + idtipo + " and v.idmodelo=mo.idmodelo and V.nrochasis IN (Select nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "'    )"
         If conexion.EjecutarSelect("SELECT idreserva from reserva where idtipo='" + idtipo + "' and estado=1").Rows.Count > 0 Or conexion.EjecutarSelect(sentencia).Rows.Count > 0 Then
             MsgBox("Existen Alquileres, Mantenimientos o Reservas relacionadas con este tipo.")
-
+            MsgBox(conexion.EjecutarSelect("SELECT idreserva from reserva where idtipo='" + idtipo + "' and estado=1").Rows.Count.ToString)
+            MsgBox(conexion.EjecutarSelect(sentencia).Rows.Count.ToString)
         ElseIf dgvTipos.CurrentRow.Cells("estado").Value.ToString() = True Then
             Dim resultado As MsgBoxResult
             resultado = MsgBox("Los vehiculos de este tipo seran dados de baja, desea continuar?", MsgBoxStyle.YesNo)
@@ -552,42 +553,7 @@
         End If
     End Sub
 
-    Private Sub btnEstadoModelo_Click(sender As Object, e As EventArgs) Handles btnEstadoModelo.Click
-        Dim idmodelo As String = dgvModelos.CurrentRow.Cells("idmodelo").Value.ToString()
 
-
-
-
-
-        If dgvModelos.CurrentRow.Cells("EstadoModelo").Value.ToString = False Then
-            conexion.EjecutarNonQuery("Update modelo set estado='t' where idmodelo='" + idmodelo + "'")
-            MsgBox("El modelo " + dgvModelos.CurrentRow.Cells("modelo").Value.ToString + " de la marca" + dgvModelos.CurrentRow.Cells("Marca").Value.ToString + " se ha dado de alta.")
-            conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
-
-        ElseIf conexion.EjecutarSelect("SELECT IDRESERVA FROM RESERVA WHERE NROCHASIS IN (SELECT NROCHASIS FROM VEHICULO V, MODELO MO WHERE V.IDMODELO='" + idmodelo + "' ) and estado='1'").Rows.Count > 0 And conexion.EjecutarSelect("SELECT NROCHASIS FROM MANTENIMIENTO WHERE NROCHASIS IN( SELECT NROCHASIS FROM VEHICULO V, MODELO MO WHERE V.IDMODELO ='" + idmodelo + "')").Rows.Count > 0 Then         'agregar un and con el mantenimiento activo companieros niapalo toco fechas
-            MsgBox("No puedes cambiar el estado de este modelo porque esta siendo usado en otros registros activos.")
-        Else
-            Dim resultado As MsgBoxResult = MsgBox("Los vehiculos de este modelo seran dados de baja, desea continuar?", MsgBoxStyle.YesNo)
-
-            If resultado = MsgBoxResult.Yes And conexion.EjecutarSelect("SELECT IDMODELO FROM MODELO WHERE ESTADO='T'").Rows.Count > 1 Then
-                conexion.EjecutarNonQuery("UPDATE VEHICULO SET ESTADO='F' WHERE IDMODELO='" + idmodelo + "'", "Vehiculos")
-                conexion.EjecutarNonQuery("UPDATE  MODELO SET ESTADO='F' WHERE IDMODELO='" + idmodelo + "'", "Modelo")
-                conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
-                MsgBox("El modelo " + dgvModelos.CurrentRow.Cells("modelo").Value.ToString + " de la marca " + dgvModelos.CurrentRow.Cells("Marca").Value.ToString + " y sus respectivos Vehiculos han pasado a inactivos")
-            ElseIf resultado = MsgBoxResult.No Then
-            Else
-                MsgBox("No puede eliminar su ultimo modelo")
-
-            End If
-        End If
-
-
-
-
-
-
-
-    End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificarModelo.Click
         Dim idmodelo As String = dgvModelos.CurrentRow.Cells("idmodelo").Value.ToString()
@@ -742,7 +708,7 @@
 
     Private Sub btnEstadoMarca_Click(sender As Object, e As EventArgs) Handles btnEstadoMarca.Click
         Dim idmarca As String = dgvMarcas.CurrentRow.Cells("idmarca").Value.ToString()
-        If conexion.EjecutarSelect("select idreserva from reserva where nrochasis in (select nrochasis from vehiculo v, marca ma, modelo mo where v.idmodelo=mo.idmodelo and mo.idmarca=ma.idmarca and ma.idmarca=" + idmarca + ") and estado= 1 ").Rows.Count > 0 Or conexion.EjecutarSelect("select nrochasis from mantenimiento where nrochasis in(select nrochasis from vehiculo v, marca ma, modelo mo where ma.idmarca=mo.idmarca and v.idmodelo=mo.idmodelo and ma.idmarca='" + idmarca + "')").Rows.Count > 0 Then
+        If conexion.EjecutarSelect("select idreserva from reserva where nrochasis in (select nrochasis from vehiculo v, marca ma, modelo mo where v.idmodelo=mo.idmodelo and mo.idmarca=ma.idmarca and ma.idmarca=" + idmarca + ") and estado= 1 ").Rows.Count > 0 Or conexion.EjecutarSelect("select v.nrochasis from vehiculo v, marca ma, modelo mo where v.idmodelo=mo.idmodelo and mo.idmarca=ma.idmarca and ma.idmarca=" + idmarca + " and V.nrochasis IN (Select nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "'    )").Rows.Count > 0 Then
 
             MsgBox("Existen Alquileres, Mantenimientos o Reservas relacionadas con esta marca.")
 
@@ -864,5 +830,41 @@
 
         End If
     End Sub
+    Private Sub btnEstadoModelo_Click(sender As Object, e As EventArgs) Handles btnEstadoModelo.Click
+        Dim idmodelo As String = dgvModelos.CurrentRow.Cells("idmodelo").Value.ToString()
 
+
+        Dim sentencia2 As String = "select v.nrochasis from vehiculo v, modelo mo where mo.idmodelo=" + idmodelo + " and v.idmodelo=mo.idmodelo and V.nrochasis IN (Select nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "'    )"
+
+
+        If dgvModelos.CurrentRow.Cells("EstadoModelo").Value.ToString = False Then
+            conexion.EjecutarNonQuery("Update modelo set estado='t' where idmodelo='" + idmodelo + "'")
+            MsgBox("El modelo " + dgvModelos.CurrentRow.Cells("modelo").Value.ToString + " de la marca" + dgvModelos.CurrentRow.Cells("Marca").Value.ToString + " se ha dado de alta.")
+            conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
+
+        ElseIf conexion.EjecutarSelect("SELECT IDRESERVA FROM RESERVA WHERE NROCHASIS IN (SELECT NROCHASIS FROM VEHICULO V, MODELO MO WHERE V.IDMODELO='" + idmodelo + "' ) and estado='1'").Rows.Count > 0 Or conexion.EjecutarSelect(sentencia2).Rows.Count > 0 Then         'agregar un and con el mantenimiento activo companieros niapalo toco fechas
+            MsgBox("No puedes cambiar el estado de este modelo porque esta siendo usado en otros registros activos.")
+        Else
+            Dim resultado As MsgBoxResult = MsgBox("Los vehiculos de este modelo seran dados de baja, desea continuar?", MsgBoxStyle.YesNo)
+
+            If resultado = MsgBoxResult.Yes And conexion.EjecutarSelect("SELECT IDMODELO FROM MODELO WHERE ESTADO='T'").Rows.Count > 1 Then
+                conexion.EjecutarNonQuery("UPDATE VEHICULO SET ESTADO='F' WHERE IDMODELO='" + idmodelo + "'", "Vehiculos")
+                conexion.EjecutarNonQuery("UPDATE  MODELO SET ESTADO='F' WHERE IDMODELO='" + idmodelo + "'", "Modelo")
+
+                MsgBox("El modelo " + dgvModelos.CurrentRow.Cells("modelo").Value.ToString + " de la marca " + dgvModelos.CurrentRow.Cells("Marca").Value.ToString + " y sus respectivos Vehiculos han pasado a inactivos")
+                conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
+            ElseIf resultado = MsgBoxResult.No Then
+            Else
+                MsgBox("No puede eliminar su ultimo modelo")
+
+            End If
+        End If
+
+
+
+
+
+
+
+    End Sub
 End Class

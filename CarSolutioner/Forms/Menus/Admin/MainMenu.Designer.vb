@@ -334,6 +334,9 @@ Partial Class frmMainMenu
         Me.Label73 = New System.Windows.Forms.Label()
         Me.tabReporteEmpleado = New System.Windows.Forms.TabPage()
         Me.tbpMantenimiento = New System.Windows.Forms.TabPage()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.btnBajamant = New System.Windows.Forms.Button()
+        Me.Label137 = New System.Windows.Forms.Label()
         Me.pnlmmant = New System.Windows.Forms.Panel()
         Me.llbFechaInicioMmant = New System.Windows.Forms.Label()
         Me.cbxModifTipoMant = New System.Windows.Forms.ComboBox()
@@ -656,6 +659,7 @@ Partial Class frmMainMenu
         Me.pnlFemp.SuspendLayout()
         Me.pnlAEmp.SuspendLayout()
         Me.tbpMantenimiento.SuspendLayout()
+        Me.Panel9.SuspendLayout()
         Me.pnlmmant.SuspendLayout()
         Me.pnlFmant.SuspendLayout()
         CType(Me.dgvMant, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -4041,6 +4045,7 @@ Partial Class frmMainMenu
         'tbpMantenimiento
         '
         Me.tbpMantenimiento.BackColor = System.Drawing.Color.Silver
+        Me.tbpMantenimiento.Controls.Add(Me.Panel9)
         Me.tbpMantenimiento.Controls.Add(Me.pnlmmant)
         Me.tbpMantenimiento.Controls.Add(Me.pnlFmant)
         Me.tbpMantenimiento.Controls.Add(Me.dgvMant)
@@ -4050,6 +4055,47 @@ Partial Class frmMainMenu
         Me.tbpMantenimiento.Size = New System.Drawing.Size(1379, 862)
         Me.tbpMantenimiento.TabIndex = 5
         Me.tbpMantenimiento.Text = "Mantenimiento"
+        '
+        'Panel9
+        '
+        Me.Panel9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel9.Controls.Add(Me.btnBajamant)
+        Me.Panel9.Controls.Add(Me.Label137)
+        Me.Panel9.Location = New System.Drawing.Point(794, 637)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(573, 184)
+        Me.Panel9.TabIndex = 44
+        '
+        'btnBajamant
+        '
+        Me.btnBajamant.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBajamant.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnBajamant.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnBajamant.FlatAppearance.BorderSize = 0
+        Me.btnBajamant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnBajamant.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnBajamant.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBajamant.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBajamant.ForeColor = System.Drawing.Color.White
+        Me.btnBajamant.Location = New System.Drawing.Point(464, 145)
+        Me.btnBajamant.Name = "btnBajamant"
+        Me.btnBajamant.Size = New System.Drawing.Size(99, 31)
+        Me.btnBajamant.TabIndex = 18
+        Me.btnBajamant.Text = "Finalizar"
+        Me.btnBajamant.UseVisualStyleBackColor = False
+        '
+        'Label137
+        '
+        Me.Label137.AutoSize = True
+        Me.Label137.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label137.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label137.Location = New System.Drawing.Point(9, 17)
+        Me.Label137.Name = "Label137"
+        Me.Label137.Size = New System.Drawing.Size(224, 22)
+        Me.Label137.TabIndex = 24
+        Me.Label137.Text = "Finalizar Mantenimiento"
         '
         'pnlmmant
         '
@@ -4079,9 +4125,9 @@ Partial Class frmMainMenu
         Me.llbFechaInicioMmant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.llbFechaInicioMmant.Location = New System.Drawing.Point(270, 74)
         Me.llbFechaInicioMmant.Name = "llbFechaInicioMmant"
-        Me.llbFechaInicioMmant.Size = New System.Drawing.Size(62, 17)
+        Me.llbFechaInicioMmant.Size = New System.Drawing.Size(80, 17)
         Me.llbFechaInicioMmant.TabIndex = 43
-        Me.llbFechaInicioMmant.Text = "Fecha fin"
+        Me.llbFechaInicioMmant.Text = "Fecha Inicio"
         '
         'cbxModifTipoMant
         '
@@ -7148,6 +7194,8 @@ Partial Class frmMainMenu
         Me.pnlAEmp.ResumeLayout(False)
         Me.pnlAEmp.PerformLayout()
         Me.tbpMantenimiento.ResumeLayout(False)
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
         Me.pnlmmant.ResumeLayout(False)
         Me.pnlmmant.PerformLayout()
         Me.pnlFmant.ResumeLayout(False)
@@ -7742,6 +7790,11 @@ Partial Class frmMainMenu
     Friend WithEvents dgvMasAlquileresRClientes As DataGridView
     Friend WithEvents btnExportarMasAlquileresRClientes As Button
     Friend WithEvents Button2 As Button
+
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents btnBajamant As Button
+    Friend WithEvents Label137 As Label
+
     Friend WithEvents numDescuentoMCliente As NumericUpDown
     Friend WithEvents btnDescuentoMCliente As Button
     Friend WithEvents Label131 As Label
@@ -7765,4 +7818,5 @@ Partial Class frmMainMenu
     Friend WithEvents telefonos As DataGridViewButtonColumn
     Friend WithEvents numDescuentoFCliente As NumericUpDown
     Friend WithEvents Label132 As Label
+
 End Class

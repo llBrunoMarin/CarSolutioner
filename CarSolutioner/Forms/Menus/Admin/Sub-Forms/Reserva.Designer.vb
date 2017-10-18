@@ -41,7 +41,7 @@ Partial Class Reserva
         Me.txtKMElegidos = New System.Windows.Forms.TextBox()
         Me.txtCantidadDias = New System.Windows.Forms.TextBox()
         Me.txtDescuentoCliente = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblAdvertencia = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -127,7 +127,7 @@ Partial Class Reserva
         Me.Panel1.Controls.Add(Me.txtKMElegidos)
         Me.Panel1.Controls.Add(Me.txtCantidadDias)
         Me.Panel1.Controls.Add(Me.txtDescuentoCliente)
-        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.lblAdvertencia)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -277,15 +277,15 @@ Partial Class Reserva
         Me.txtDescuentoCliente.Size = New System.Drawing.Size(129, 20)
         Me.txtDescuentoCliente.TabIndex = 47
         '
-        'Label3
+        'lblAdvertencia
         '
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(34, 227)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(295, 64)
-        Me.Label3.TabIndex = 48
-        Me.Label3.Text = "Atención: Esto quiere decir que el cliente podrá hacer un máximo de X KM en total" &
+        Me.lblAdvertencia.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblAdvertencia.Location = New System.Drawing.Point(34, 227)
+        Me.lblAdvertencia.Name = "lblAdvertencia"
+        Me.lblAdvertencia.Size = New System.Drawing.Size(295, 64)
+        Me.lblAdvertencia.TabIndex = 48
+        Me.lblAdvertencia.Text = "Atención: Esto quiere decir que el cliente podrá hacer un máximo de X KM en total" &
     " en todo el alquiler."
         '
         'Label2
@@ -435,7 +435,7 @@ Partial Class Reserva
     Friend WithEvents txtKMElegidos As TextBox
     Friend WithEvents txtCantidadDias As TextBox
     Friend WithEvents txtDescuentoCliente As TextBox
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblAdvertencia As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label1 As Label

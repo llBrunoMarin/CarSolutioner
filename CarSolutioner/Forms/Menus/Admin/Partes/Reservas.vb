@@ -265,8 +265,7 @@ Partial Public Class frmMainMenu
                         Dim PorcDescuento As String = Persona.Rows(0)(2).ToString
 
                         'Si el cliente NO tiene reservas activas:
-                        '
-                        Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado != 3 AND ((fechareservafin > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservainicio < '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechareservainicio > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservafin < '" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechareservainicio < '" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservafin > '" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "'))"
+                        Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1 AND  ( ( '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' BETWEEN fechareservainicio AND fechareservafin )  OR ('" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "' BETWEEN fechareservainicio AND fechareservafin )  )"
                         If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
 
                             ReservaSeleccionadaReserva.IdCliente = IdPersona

@@ -66,6 +66,7 @@
     Private Sub CompletarAlquiler(sender As Object, e As EventArgs) Handles btnAccept.Click
         If Not txtKMAutoAhora.Text = "" Then
             conexion.EjecutarNonQuery("UPDATE Reserva SET fechaalquilerfin = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', estado = 2, costototal = '" + txtCostoTotalTotal.Text + "' WHERE idreserva = '" + ReservaSeleccionada.IdReserva.ToString + "'")
+            conexion.EjecutarNonQuery("UPDATE Vehiculo SET kilometraje = '" + txtKMAutoAhora.Text + "', idsucursal = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "'")
             frmMainMenu.CargarDatos()
             AmaranthMessagebox("Alquiler finalizado satisfactoriamente.", "Continuar")
             Me.Dispose()

@@ -35,7 +35,7 @@ Partial Class Login
         Me.lblmayus = New System.Windows.Forms.Label()
         Me.tmrTimer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblInvitado = New System.Windows.Forms.Label()
         Me.tmrLoading = New System.Windows.Forms.Timer(Me.components)
         Me.bgwLogin = New System.ComponentModel.BackgroundWorker()
         Me.lbldataincorrect = New System.Windows.Forms.Label()
@@ -173,17 +173,17 @@ Partial Class Login
         Me.Panel1.Size = New System.Drawing.Size(536, 30)
         Me.Panel1.TabIndex = 32
         '
-        'Label3
+        'lblInvitado
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(12, 357)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(128, 15)
-        Me.Label3.TabIndex = 33
-        Me.Label3.Text = "Ingresar como Invitado"
+        Me.lblInvitado.AutoSize = True
+        Me.lblInvitado.BackColor = System.Drawing.Color.Transparent
+        Me.lblInvitado.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInvitado.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblInvitado.Location = New System.Drawing.Point(12, 357)
+        Me.lblInvitado.Name = "lblInvitado"
+        Me.lblInvitado.Size = New System.Drawing.Size(128, 15)
+        Me.lblInvitado.TabIndex = 33
+        Me.lblInvitado.Text = "Ingresar como Invitado"
         '
         'tmrLoading
         '
@@ -248,7 +248,7 @@ Partial Class Login
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.lbldataincorrect)
         Me.Controls.Add(Me.pboxLoading)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.lblInvitado)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblmayus)
         Me.Controls.Add(Me.lblpass)
@@ -284,7 +284,7 @@ Partial Class Login
     Friend WithEvents lblmayus As Label
     Friend WithEvents tmrTimer As Timer
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblInvitado As Label
     Friend WithEvents pboxLoading As PictureBox
     Friend WithEvents tmrLoading As Timer
     Friend WithEvents bgwLogin As System.ComponentModel.BackgroundWorker

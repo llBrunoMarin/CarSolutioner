@@ -28,6 +28,7 @@ Public Class Login
         lblpass.Visible = False
         lbluser.Visible = False
         lbldataincorrect.Visible = False
+        lblInvitado.Visible = False
         PictureBox2.Visible = False
         Dim retraso As Integer
 
@@ -140,7 +141,7 @@ Public Class Login
     End Sub
 
 
-    Private Sub lblInvitado_Click(sender As Object, e As EventArgs) Handles Label3.Click
+    Private Sub lblInvitado_Click(sender As Object, e As EventArgs) Handles lblInvitado.Click
         'MainMenuInvitado.Show()
     End Sub
 

@@ -26,12 +26,16 @@
             Case 1
                 TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
                 TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(2).ToString)
+                lblAdvertencia.Text = "Atención: Esto quiere decir que el cliente podrá recorrer un máximo de " + (150 * ((dtpFin.Value - dtpInicio.Value).Days)).ToString + " KM en total en todo el alquiler."
             Case 2
                 TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
                 TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(3).ToString)
+                lblAdvertencia.Text = "Atención: Esto quiere decir que el cliente podrá recorrer un máximo de " + (300 * ((dtpFin.Value - dtpInicio.Value).Days)).ToString + " KM en total en todo el alquiler."
+
             Case 3
                 TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
                 TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(4).ToString)
+                lblAdvertencia.Text = "Atención: Esto quiere decir que el cliente podrá recorrer todos los KM que desee en todo el alquiler."
 
         End Select
 

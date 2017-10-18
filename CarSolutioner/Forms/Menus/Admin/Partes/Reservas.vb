@@ -298,7 +298,7 @@ Partial Public Class frmMainMenu
                 AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error")
             End If
         Else
-            AmaranthMessagebox("La fechas no puede ser menor a la de hoy", "Error")
+            AmaranthMessagebox("Las fechas no pueden ser menores a la de hoy", "Error")
         End If
     End Sub
 

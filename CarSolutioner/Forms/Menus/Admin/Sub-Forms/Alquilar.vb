@@ -9,7 +9,7 @@
         Dim sentencia As String = "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal From Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S Where V.idsucursal = '" + ReservaSeleccionada.IdSucursalPartida.ToString + "' AND V.idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "' AND Mo.idtipo = '" + ReservaSeleccionada.IdTipo.ToString + "' AND V.idcategoria = C.idcategoria And V.idmodelo = Mo.idmodelo And Mo.Idmarca = Ma.Idmarca And Mo.Idtipo = T.idtipo And V.idsucursal = S.idsucursal And V.estado = 't' And  V.nrochasis Not IN (Select nrochasis FROM Mantenimiento WHERE fechainicio >=  TO_DATE('" + ReservaSeleccionada.FechaReservaInicio.ToString("dd/MM/yyyy HH:mm") + "', '%d/%m/%Y %H:%M') OR fechafin <= TO_DATE('" + ReservaSeleccionada.FechaReservaFin.ToString("dd/MM/yyyy HH:mm") + "', '%d/%m/%Y %H:%M')    )"
         Dim AutosDisponibles As DataTable = conexion.EjecutarSelect(sentencia)
         If AutosDisponibles.Rows.Count = 0 Then
-            AmaranthMessagebox("No hay autos disponibles para hoy con esas características. Por favor, búsque los autos disponibles para hoy y modifique la reserva de manera acorde.", "Advertencia")
+            AmaranthMessagebox("No hay vehiculos disponibles para hoy con esas características. Por favor, búsque los disponibles para hoy y modifique la reserva de manera acorde.", "Advertencia")
             Me.Dispose()
         Else
             conexion.RellenarDataGridView(dgvAlquilar, "", AutosDisponibles)
@@ -28,7 +28,7 @@
             dtpFRfin.MinDate = Date.Now.AddHours(24)
             dtpFAinicio.Value = Date.Now.ToString("dd/MM/yyyy HH:mm")
 
-            lblTitulo.Text = "Autos para la reserva de: " + ReservaSeleccionada.NomCliente
+            lblTitulo.Text = "Vehiculos para la reserva de: " + ReservaSeleccionada.NomCliente
             txtTipo.Text = conexion.Tipos.Select("idtipo =" + ReservaSeleccionada.IdTipo.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()
             txtCategoria.Text = conexion.Categorias.Select("idcategoria =" + ReservaSeleccionada.IdCategoria.ToString() + "").CopyToDataTable.Rows(0)(5).ToString()
             txtSucursal.Text = conexion.Sucursales.Select("idsucursal =" + ReservaSeleccionada.IdSucursalPartida.ToString() + "").CopyToDataTable.Rows(0)(1).ToString()

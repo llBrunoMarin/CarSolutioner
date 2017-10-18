@@ -18,7 +18,7 @@
         Me.Dispose()
     End Sub
 
-    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtDescuento.TextChanged
+    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtDescuento.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then

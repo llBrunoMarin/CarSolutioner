@@ -603,7 +603,7 @@ Partial Class frmAlquilar
         Me.gbxFecNacFCliente.Size = New System.Drawing.Size(330, 98)
         Me.gbxFecNacFCliente.TabIndex = 62
         Me.gbxFecNacFCliente.TabStop = False
-        Me.gbxFecNacFCliente.Text = "Fecha de Nacimiento"
+        Me.gbxFecNacFCliente.Text = "Sucursales"
         '
         'btnDescuentoCliente
         '

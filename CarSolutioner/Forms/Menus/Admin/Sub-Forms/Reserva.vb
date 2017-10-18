@@ -56,4 +56,21 @@
         Me.Dispose()
 
     End Sub
+
+    Private Function CargarDescuentoCliente(id As Integer) As Integer
+        Return CInt(conexion.EjecutarSelect("SELECT porcdescuento FROM Cliente WHERE idpersona = '" + id.ToString + "'").Rows(0)(0).ToString)
+    End Function
+
+    Private Sub btnAgregarDescuentoCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarDescuentoCliente.Click
+        If Autorizar() = vbYes Then
+
+            Dim descuento As New DescuentoPersonalCliente(ReservaSeleccionada.IdCliente)
+            descuento.ShowDialog()
+            txtDescuentoCliente.Enabled = True
+            txtDescuentoCliente.Text = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
+            txtDescuentoCliente.Enabled = False
+        Else
+
+        End If
+    End Sub
 End Class

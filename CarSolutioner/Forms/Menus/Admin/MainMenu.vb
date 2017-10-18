@@ -221,7 +221,7 @@ Public Class frmMainMenu
 
             Case "dgvClientes"
                 dgvClientes.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvClientes, "SELECT DAY(fecnac) dia, Cliente.*, Doc.nombre tipodocumento, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE, Tipodocumento Doc WHERE Cliente.idtipodoc = Doc.idtipodoc")
+                conexion.RellenarDataGridView(dgvClientes, "SELECT DAY(fecnac) dia, cliente.idpersona, cliente.nombre, cliente.apellido, cliente.idtipodoc,  cliente.nrodocumento, cliente.email, cliente.fecnac, cliente.empresa, cliente.porcdescuento, cliente.estado, cliente.telefono, Doc.nombre tipodocumento, MONTH(fecnac) mes, YEAR(fecnac) anio FROM CLIENTE, Tipodocumento Doc WHERE Cliente.idtipodoc = Doc.idtipodoc")
                 dgvClientes.Columns("idpersona").Visible = False
 
             Case "dgvEmpleados"

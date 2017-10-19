@@ -92,8 +92,9 @@ Partial Public Class frmMainMenu
             Dim selectedRow As DataGridViewRow = dgvReservas.Rows(e.RowIndex)
 
             If selectedRow.Cells("idestadoreserva").Value = 1 Then
-                If selectedRow.Cells("fechareservainicio").Value < Date.Now Then
-                    If ((selectedRow.Cells("fechareservainicio").Value >= Date.Now) Or ((selectedRow.Cells("fechareservainicio").Value >= Date.Now And selectedRow.Cells("fechareservainicio").Value <= ((Date.Now).AddHours(6))))) Then
+                If selectedRow.Cells("fechareservainicio").Value < Date.Now.AddHours(2) Then
+
+                    If (Date.Now.AddHours(-2) <= selectedRow.Cells("fechareservainicio").Value) AndAlso (selectedRow.Cells("fechareservainicio").Value <= Date.Now.AddHours(6)) Then
 
                         ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
                         ReservaSeleccionadaAlquiler.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
@@ -111,6 +112,7 @@ Partial Public Class frmMainMenu
                         frmAlquilar.ShowDialog()
 
                     Else
+
                         Dim Diferencia As Integer = Math.Truncate((Date.Now - Date.Parse(selectedRow.Cells("fechareservainicio").Value.ToString())).TotalHours)
 
 
@@ -129,13 +131,13 @@ Partial Public Class frmMainMenu
                             ReservaSeleccionadaAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalida").Value.ToString
                             ReservaSeleccionadaAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegada").Value.ToString
                             ReservaSeleccionadaAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleado").Value.ToString
+
                             frmAlquilar.ShowDialog()
                         End If
                     End If
                 Else
-                    AmaranthMessagebox("Solo puede alquilar reservas que sean para hoy.", "Error")
+                    AmaranthMessagebox("Solo puede alquilar reservas futuras con 2 horas de antelación como máximo.", "Error")
                 End If
-
 
             Else
                 AmaranthMessagebox("Solo puede alquilar reservas activas.", "Error")
@@ -214,7 +216,7 @@ Partial Public Class frmMainMenu
                 Dim IdKm As Integer = cbxKilomMReserva.SelectedValue
                 Dim FechaInicio As Date = dtpFechaInicioMReserva.Value
                 Dim FechaFin As Date = dtpFechaFinMReserva.Value
-                Dim CantidadDias As Integer = (FechaFin - FechaInicio).Days + 1
+                Dim CantidadDias As Integer = (FechaFin - FechaInicio).Days
 
                 Dim TarifaDiariaBase As Integer
                 Dim TarifaDiariaKM As Integer
@@ -248,7 +250,7 @@ Partial Public Class frmMainMenu
         Dim fechaActual As Date
         fechaActual = Date.Now
 
-        If Not ((dtpInicioARes.Value < fechaActual) Or (dtpFinARes.Value < fechaActual)) Then
+        If Not ((dtpInicioARes.Value < fechaActual.AddMinutes(-10)) Or (dtpFinARes.Value < fechaActual)) Then
 
             If Not dtpFinARes.Value <= dtpInicioARes.Value Then
                 If ((dtpFinARes.Value - dtpInicioARes.Value).Days >= 1) Then
@@ -263,8 +265,7 @@ Partial Public Class frmMainMenu
                         Dim PorcDescuento As String = Persona.Rows(0)(2).ToString
 
                         'Si el cliente NO tiene reservas activas:
-                        '
-                        Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado != 3 AND ((fechareservafin > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservainicio < '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechareservainicio > '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservafin < '" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechareservainicio < '" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechareservafin > '" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "'))"
+                        Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1 AND  ( ( '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' BETWEEN fechareservainicio AND fechareservafin )  OR ('" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "' BETWEEN fechareservainicio AND fechareservafin )  )"
                         If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
 
                             ReservaSeleccionadaReserva.IdCliente = IdPersona
@@ -292,12 +293,11 @@ Partial Public Class frmMainMenu
                 Else
                     AmaranthMessagebox("Las reservas tienen que ser de mínimo 24 horas.", "Error")
                 End If
-
             Else
                 AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error")
             End If
         Else
-            AmaranthMessagebox("La fechas no puede ser menor a la de hoy", "Error")
+            AmaranthMessagebox("Las fechas no pueden ser menores a la de hoy", "Error")
         End If
     End Sub
 

@@ -26,16 +26,20 @@
             Case 1
                 TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
                 TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(2).ToString)
+                lblAdvertencia.Text = "Atención: Esto quiere decir que el cliente podrá recorrer un máximo de " + (150 * ((dtpFin.Value - dtpInicio.Value).Days)).ToString + " KM en total en todo el alquiler."
             Case 2
                 TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
                 TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(3).ToString)
+                lblAdvertencia.Text = "Atención: Esto quiere decir que el cliente podrá recorrer un máximo de " + (300 * ((dtpFin.Value - dtpInicio.Value).Days)).ToString + " KM en total en todo el alquiler."
+
             Case 3
                 TarifaDiariaBase = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(1).ToString)
                 TarifaDiariaKM = CInt(conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)(4).ToString)
+                lblAdvertencia.Text = "Atención: Esto quiere decir que el cliente podrá recorrer todos los KM que desee en todo el alquiler."
 
         End Select
 
-        CostoAlqEstimado = (TarifaDiariaBase + TarifaDiariaKM) * ((dtpFin.Value - dtpInicio.Value).Days + 1)
+        CostoAlqEstimado = (TarifaDiariaBase + TarifaDiariaKM) * ((dtpFin.Value - dtpInicio.Value).Days)
         DescuentoCalc = (CostoAlqEstimado * ReservaSeleccionada.DescuentoCliente) / 100
         CostoTotalEstimado = CostoAlqEstimado - DescuentoCalc
 
@@ -55,5 +59,22 @@
         AmaranthMessagebox("Reserva ingresada correctamente!", "Continuar")
         Me.Dispose()
 
+    End Sub
+
+    Private Function CargarDescuentoCliente(id As Integer) As Integer
+        Return CInt(conexion.EjecutarSelect("SELECT porcdescuento FROM Cliente WHERE idpersona = '" + id.ToString + "'").Rows(0)(0).ToString)
+    End Function
+
+    Private Sub btnAgregarDescuentoCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarDescuentoCliente.Click
+        If Autorizar() = vbYes Then
+
+            Dim descuento As New DescuentoPersonalCliente(ReservaSeleccionada.IdCliente)
+            descuento.ShowDialog()
+            txtDescuentoCliente.Enabled = True
+            txtDescuentoCliente.Text = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
+            txtDescuentoCliente.Enabled = False
+        Else
+
+        End If
     End Sub
 End Class

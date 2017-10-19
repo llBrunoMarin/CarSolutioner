@@ -179,10 +179,16 @@
       <DependentUpon>MainMenu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Descuento.Designer.vb">
-      <DependentUpon>Descuento.vb</DependentUpon>
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\Autorizacion.Designer.vb">
+      <DependentUpon>Autorizacion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Descuento.vb">
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\Autorizacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\DescuentoPersonalCliente.Designer.vb">
+      <DependentUpon>DescuentoPersonalCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\DescuentoPersonalCliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Menus\Admin\Sub-Forms\FinalizarAlquiler.Designer.vb">
@@ -243,8 +249,11 @@
     <EmbeddedResource Include="Forms\Menus\Admin\MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\Descuento.resx">
-      <DependentUpon>Descuento.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\Autorizacion.resx">
+      <DependentUpon>Autorizacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\DescuentoPersonalCliente.resx">
+      <DependentUpon>DescuentoPersonalCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\FinalizarAlquiler.resx">
       <DependentUpon>FinalizarAlquiler.vb</DependentUpon>
@@ -293,7 +302,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Resources\loadingsquare.gif" />
   </ItemGroup>
   <ItemGroup>

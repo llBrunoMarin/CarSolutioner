@@ -23,30 +23,34 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, cbxDiaNFCliente.SelectionChangeCommitted, cbxMesNFCliente.SelectionChangeCommitted, cbxAnioNFCliente.SelectionChangeCommitted, lblBorrarTipoDoc.Click
+    Private Sub BorrarTipoDocFClientes(sender As Object, e As EventArgs) Handles lblBorrarTipoDocFCliente.Click
+        cbxTipoDocumFCliente.SelectedItem = Nothing
+    End Sub
 
-        Try
-            Dim filtro As String
+    Private Sub FiltrosCliente(sender As Object, e As EventArgs) Handles txtDocumFClientes.TextChanged, txtNombreFClientes.TextChanged, txtApellidoFClientes.TextChanged, txtCorreoFClientes.TextChanged, txtEmpresaFClientes.TextChanged, cbxTipoDocumFCliente.SelectionChangeCommitted, chbxFechaFClientes.CheckStateChanged, cbxDiaNFCliente.SelectionChangeCommitted, cbxMesNFCliente.SelectionChangeCommitted, cbxAnioNFCliente.SelectionChangeCommitted, lblBorrarTipoDocFCliente.Click
 
-            If chbxFechaFClientes.Checked = True Then
+        'Try
+        Dim filtro As String
 
-                filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc") + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"),
-                                                            "nrodocumento", txtDocumFClientes.Text, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
+        If chbxFechaFClientes.Checked = True Then
 
-                dgvClientes.DataSource.Filter = filtro
+            filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc") + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"),
+                                                            "nrodocumento", txtDocumFClientes.Text, "nombre", txtNombreFClientes.Text, "apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "empresa", txtEmpresaFClientes.Text)
 
-            Else
+            dgvClientes.DataSource.Filter = filtro
 
-                filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc"),
-                                                            "nrodocumento", txtDocumFClientes.Text, "Nombre", txtNombreFClientes.Text, "Apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "Empresa", txtEmpresaFClientes.Text)
+        Else
 
-                dgvClientes.DataSource.Filter = filtro
+            filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc"),
+                                                            "nrodocumento", txtDocumFClientes.Text, "nombre", txtNombreFClientes.Text, "apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "empresa", txtEmpresaFClientes.Text)
 
-            End If
+            dgvClientes.DataSource.Filter = filtro
 
-        Catch ex As NullReferenceException
+        End If
 
-        End Try
+        'Catch ex As NullReferenceException
+
+        'End Try
 
     End Sub
 
@@ -57,7 +61,7 @@ Partial Public Class frmMainMenu
         Else
             txtEmpresaACliente.Enabled = False
             lblEmpresaACliente.Enabled = False
-            txtEmpresaACliente.Text = ""
+            txtEmpresaACliente.Text = "-"
         End If
     End Sub
 
@@ -110,7 +114,8 @@ Partial Public Class frmMainMenu
                                                 cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text,
                                               txtNombreACliente.Text, txtApellidoACliente.Text,
                                               txtCorreoACliente.Text, FechaSeleccionada,
-                                              txtEmpresaACliente.Text, "0", "t", numeros.ToString)
+                                              If(txtEmpresaACliente.Text = "", "-", txtEmpresaACliente.Text), numDescuentoACliente.Value.ToString, "t", numeros.ToString)
+
 
                     If cbxTipoDocumACliente.SelectedValue = 1 Then
 
@@ -128,14 +133,11 @@ Partial Public Class frmMainMenu
 
                     Else
 
-                        'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
+                        'Si el cliente se ingresa satisfactoriamente, recargar y desactivar descuento.
                         If conexion.EjecutarNonQuery(sentencia) Then
                             MsgBox("Cliente ingresado satisfactoriamente")
-
                             RecargarDatos(dgvClientes)
-                            Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
-
-
+                            numDescuentoACliente.Enabled = False
                         End If
 
                     End If
@@ -187,13 +189,14 @@ Partial Public Class frmMainMenu
                                                               nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', 
                                                               apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', 
                                                               fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "',
+                                                              porcdescuento = '" + numDescuentoMCliente.Value.ToString + "',
                                                               telefono ='" + numeros + "'
                                                               WHERE idpersona = " + IdPersona + "")
 
 
                 MsgBox("Persona modificada satisfactoriamente.")
                 RecargarDatos(dgvClientes)
-
+                numDescuentoMCliente.Enabled = False
             Else
                 MsgBox("Por favor, ingrese una fecha válida.")
             End If
@@ -256,6 +259,20 @@ Partial Public Class frmMainMenu
         End If
         lblAyudaTelefono.Visible = True
 
+    End Sub
+
+    Private Sub DescuentoAltaCliente(sender As Object, e As EventArgs) Handles btnDescuentoACliente.Click
+
+        If Autorizar() = vbYes Then
+            numDescuentoACliente.Enabled = True
+        End If
+
+    End Sub
+
+    Private Sub DescuentoModifCliente(sender As Object, e As EventArgs) Handles btnDescuentoMCliente.Click
+        If Autorizar() = vbYes Then
+            numDescuentoMCliente.Enabled = True
+        End If
     End Sub
 
     Private Sub VerTelefonos(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellContentClick
@@ -349,6 +366,9 @@ Partial Public Class frmMainMenu
 
     End Sub
 
+
+
+    'REPORTES
     Private Sub ExportarMasAlquileres(sender As Object, e As EventArgs) Handles btnExportarMasAlquileresRClientes.Click
 
         CrearPDF(dgvMasAlquileresRClientes, "Clientes con más Alquileres")

@@ -258,4 +258,26 @@ Partial Public Class frmMainMenu
             End If
         Next
     End Sub
+    Private Sub btnBajamant_Click(sender As Object, e As EventArgs) Handles btnBajamant.Click
+
+        Dim format As String = "yyyy-MM-dd HH:mm"
+        Dim nrochasismodif As String
+        nrochasismodif = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
+        Dim fechainicioant As String
+        fechainicioant = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToString(format)
+        Dim nrochasisant As String
+        nrochasisant = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
+        Dim tipoant As String
+        tipoant = dgvMant.CurrentRow.Cells("tipomant").Value.ToString()
+        Dim fechafinant As String
+        fechafinant = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToString(format)
+        Dim matriculaant As String
+        matriculaant = dgvMant.CurrentRow.Cells("matriculamant").Value.ToString()
+        Dim FaltaDato As Boolean = False
+
+        If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET  fechafin = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "' ") = True) Then
+            MsgBox("Modificación existosa")
+            RecargarDatos(dgvMant)
+        End If
+    End Sub
 End Class

@@ -1,6 +1,7 @@
-﻿Public Class Descuento
+﻿Public Class Autorizacion
     Private Sub btnVerificar_Click(sender As Object, e As EventArgs) Handles btnVerificar.Click
-        If VerificarCodigo(txtDescuento.Text) Then
+
+        If VerificarCodigo(txtDescuento.Text) = True Then
             lbldataincorrect.Visible = False
             Me.DialogResult = vbYes
             Me.Dispose()
@@ -14,7 +15,18 @@
     End Sub
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrarDescuento.Click
-        Me.DialogResult = vbNo
         Me.Dispose()
+    End Sub
+
+    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtDescuento.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsSeparator(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
     End Sub
 End Class

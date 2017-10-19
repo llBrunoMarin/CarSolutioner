@@ -117,41 +117,34 @@ Partial Public Class frmMainMenu
         If Not FaltaDato = True Then
             Dim nrochasisdt As New DataTable
             nrochasisdt = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtModifMatriculaMant.Text.ToString + "'")
-            If (nrochasisdt.Rows.Count > 0) Then
-                Dim nrochasisinsert As String
-                nrochasisinsert = nrochasisdt.Rows(0)(0).ToString()
-                Dim sentencia As String
-                sentencia = "SELECT * FROM mantenimiento WHERE nrochasis = '" + nrochasisinsert + "' AND ((fechafin BETWEEN '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio BETWEEN '" + dtpFiltrarFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFiltrarFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio < '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechafin > '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "'))"
+            Dim nrochasisinsert As String
+            nrochasisinsert = nrochasisdt.Rows(0)(0).ToString()
+            Dim sentencia As String
+            sentencia = "SELECT * FROM mantenimiento WHERE nrochasis = '" + nrochasisinsert + "' AND ((fechafin BETWEEN '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio BETWEEN '" + dtpFiltrarFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFiltrarFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio < '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechafin > '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "'))"
 
-                If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
+            If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
 
-                    If Not (dtpModifFechaInicioMant.Value.ToString(format) = fechainicioant And dtpModifFechaFinMant.Value.ToString(format) = fechafinant And tipoant = cbxModifTipoMant.SelectedItem And txtModifMatriculaMant.Text = matriculaant) Then
+                If Not (dtpModifFechaInicioMant.Value.ToString(format) = fechainicioant And dtpModifFechaFinMant.Value.ToString(format) = fechafinant And tipoant = cbxModifTipoMant.SelectedItem And txtModifMatriculaMant.Text = matriculaant) Then
 
-                        If dtpModifFechaInicioMant.Value.ToString(format) > dtpModifFechaFinMant.Value.ToString(format) Then
+                    If dtpModifFechaInicioMant.Value.ToString(format) > dtpModifFechaFinMant.Value.ToString(format) Then
 
-                            MsgBox("No puede definir una fecha de inicio mayor a la fecha de fin")
+                        MsgBox("No puede definir una fecha de inicio mayor a la fecha de fin")
 
-                        Else
-
-                            If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET descripcion ='" + cbxModifTipoMant.SelectedItem + "', fechainicio = '" + dtpModifFechaInicioMant.Value.ToString(format) + "', fechafin = '" + dtpModifFechaFinMant.Value.ToString(format) + "' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "' ") = True) Then
-                                MsgBox("Modificación existosa")
-                                RecargarDatos(dgvMant)
-                            Else
-                                MsgBox("Error desconocido")
-                            End If
-
-                        End If
                     Else
-                        MsgBox("No se han realizado cambios")
+
+                        If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET descripcion ='" + cbxModifTipoMant.SelectedItem + "', fechainicio = '" + dtpModifFechaInicioMant.Value.ToString(format) + "', fechafin = '" + dtpModifFechaFinMant.Value.ToString(format) + "' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "' ") = True) Then
+                            MsgBox("Modificación existosa")
+                            RecargarDatos(dgvMant)
+                        Else
+                            MsgBox("Mantenimiento ya existente")
+                        End If
+
                     End If
                 Else
-                    MsgBox("Existe un mantenimiento activo")
-
+                    MsgBox("No se han cambiado datos")
                 End If
-            Else
-                MsgBox("Matricula no existente")
-            End If
 
+            End If
         Else
             MsgBox("No pueden quedar campos vacios")
         End If

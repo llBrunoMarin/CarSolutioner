@@ -301,7 +301,7 @@ Partial Class frmCambiosGenerales
         Me.btnVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVehiculo.Font = New System.Drawing.Font("Century Gothic", 9.5!)
         Me.btnVehiculo.ForeColor = System.Drawing.Color.White
-        Me.btnVehiculo.Location = New System.Drawing.Point(-2, 41)
+        Me.btnVehiculo.Location = New System.Drawing.Point(0, 3)
         Me.btnVehiculo.Name = "btnVehiculo"
         Me.btnVehiculo.Size = New System.Drawing.Size(125, 34)
         Me.btnVehiculo.TabIndex = 40
@@ -318,7 +318,7 @@ Partial Class frmCambiosGenerales
         Me.btnDocumento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDocumento.Font = New System.Drawing.Font("Century Gothic", 9.5!)
         Me.btnDocumento.ForeColor = System.Drawing.Color.White
-        Me.btnDocumento.Location = New System.Drawing.Point(-2, 105)
+        Me.btnDocumento.Location = New System.Drawing.Point(-2, 111)
         Me.btnDocumento.Name = "btnDocumento"
         Me.btnDocumento.Size = New System.Drawing.Size(125, 34)
         Me.btnDocumento.TabIndex = 39
@@ -335,7 +335,7 @@ Partial Class frmCambiosGenerales
         Me.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCategorias.Font = New System.Drawing.Font("Century Gothic", 9.5!)
         Me.btnCategorias.ForeColor = System.Drawing.Color.White
-        Me.btnCategorias.Location = New System.Drawing.Point(-5, 73)
+        Me.btnCategorias.Location = New System.Drawing.Point(-5, 76)
         Me.btnCategorias.Name = "btnCategorias"
         Me.btnCategorias.Size = New System.Drawing.Size(130, 34)
         Me.btnCategorias.TabIndex = 38
@@ -352,7 +352,7 @@ Partial Class frmCambiosGenerales
         Me.btnSucursales.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSucursales.Font = New System.Drawing.Font("Century Gothic", 9.5!)
         Me.btnSucursales.ForeColor = System.Drawing.Color.White
-        Me.btnSucursales.Location = New System.Drawing.Point(-2, 1)
+        Me.btnSucursales.Location = New System.Drawing.Point(0, 40)
         Me.btnSucursales.Name = "btnSucursales"
         Me.btnSucursales.Size = New System.Drawing.Size(125, 34)
         Me.btnSucursales.TabIndex = 34

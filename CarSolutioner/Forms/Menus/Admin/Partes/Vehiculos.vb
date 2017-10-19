@@ -228,17 +228,26 @@ Partial Public Class frmMainMenu
             numPasajerosMVehiculo.Value = dgvVehiculos.CurrentRow.Cells("cantidaddepasajeros").Value.ToString()
             txtAnioMVeh.Text = dgvVehiculos.CurrentRow.Cells("aniov").Value.ToString()
             cbxPuertasMVeh.SelectedItem = dgvVehiculos.CurrentRow.Cells("cantidaddepuertas").Value.ToString()
-
             Dim chbxaireMvehI As Boolean = dgvVehiculos.CurrentRow.Cells("aireacondicionado").Value
             Dim chbxautomaticoMvehI As Boolean = dgvVehiculos.CurrentRow.Cells("esmanual").Value
-
-            chbxAireMVeh.Checked = chbxaireMvehI
-            cbxAutomaticoMVeh.Checked = chbxautomaticoMvehI
+            If (chbxaireMvehI = True And chbxautomaticoMvehI = True) Then
+                chbxAireMVeh.CheckState = 1
+                cbxAutomaticoMVeh.CheckState = 1
+            ElseIf (chbxaireMvehI = False And chbxautomaticoMvehI = True) Then
+                chbxAireMVeh.CheckState = 0
+                cbxAutomaticoMVeh.CheckState = 1
+            ElseIf (chbxaireMvehI = True And chbxautomaticoMvehI = False) Then
+                chbxAireMVeh.CheckState = 1
+                cbxAutomaticoMVeh.CheckState = 0
+            ElseIf (chbxaireMvehI = False And chbxautomaticoMvehI = False) Then
+                chbxAireMVeh.CheckState = 0
+                cbxAutomaticoMVeh.CheckState = 0
+            End If
 
         End If
     End Sub
 
-    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtDeducibleAVeh.KeyPress, txtKilometrajeAVeh.KeyPress, txtAnioAVeh.KeyPress, txtDeducibleMVeh.KeyPress, txtKilometrajeAVeh.KeyPress, txtAnioMVeh.KeyPress, txtKMFVeh.KeyPress, txtKMMVeh.KeyPress
+    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtDeducibleAVeh.KeyPress, txtKilometrajeAVeh.KeyPress, txtAnioAVeh.KeyPress, txtDeducibleMVeh.KeyPress, txtKilometrajeAVeh.KeyPress, txtAnioMVeh.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -298,19 +307,19 @@ Partial Public Class frmMainMenu
                         sentencia = "insert into vehiculo values('" + txtNroChasisAVeh.Text.ToString + "','" + txtMatriculaAVeh.Text.ToString + "','" + txtAnioAVeh.Text.ToString + "','" + txtKilometrajeAVeh.Text.ToString + "','" + aireAVeh + "','" + cbxPuertasAVeh.SelectedItem.ToString + "','" + cantpasajeros + "','" + cbxMaletasAVeh.SelectedItem.ToString + "','" + automaticoAVeh + "','" + txtDeducibleAVeh.Text.ToString + "','" + cbxCategoriaAVeh.SelectedValue.ToString + "','" + cbxModeloAVeh.SelectedValue.ToString + "','" + cbxSucursalAVeh.SelectedValue.ToString + "','t')"
                         conexion.EjecutarNonQuery(sentencia)
                         RecargarDatos(dgvVehiculos)
-                        AmaranthMessagebox("Vehiculo agregado correctamente", "Continuar")
+                        MsgBox("bien")
                     Else
-                        AmaranthMessagebox("Ya posee un vehiculo con el mismo número de chasis.", "Advertencia")
+                        MsgBox("Ya posee un vehiculo con el mismo numero de chasis.")
                     End If
                 Else
-                    AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error")
+                    MsgBox("Error en el año del vehiculo, no puede ser mayor al año actual.")
                 End If
 
             Else
-                AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error")
+                MsgBox("La cantidad de pasajeros no puede ser 0.")
             End If
         Else
-            AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia")
+            MsgBox("por favor, rellene todos los campos.")
         End If
     End Sub
 
@@ -338,6 +347,7 @@ Partial Public Class frmMainMenu
         Dim cantpasajeros As String
         Dim añoActual As String = Date.Now.Year
         Dim añoInsertar As Integer
+
 
         Dim matriculaI As String = dgvVehiculos.CurrentRow.Cells("matricula").Value.ToString()
         Dim categoriaI As String = dgvVehiculos.CurrentRow.Cells("idcategoriaveh").Value
@@ -369,7 +379,7 @@ Partial Public Class frmMainMenu
 
                 If Not (cantpasajeros = 0) Then
 
-                    If Not (añoInsertar > añoActual + 1) Then
+                    If Not (añoInsertar > añoActual) Then
 
                         Dim nrochasisrepetido As New DataTable
 
@@ -384,27 +394,28 @@ Partial Public Class frmMainMenu
                                     sentencia = "UPDATE vehiculo SET matricula = '" + txtMatriculaMVeh.Text + "', anio ='" + txtAnioMVeh.Text + "', kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "', cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "',cantidaddepasajeros='" + cantpasajeros + "', cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "', deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "', idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T' WHERE nrochasis = '" + txtNroChasisMVeh.Text.ToString + "'"
                                     conexion.EjecutarNonQuery(sentencia)
                                     RecargarDatos(dgvVehiculos)
-                                    AmaranthMessagebox("Modificado correctamente", "Continuar")
+                                    MsgBox("Modificado correctamente")
                                 Else
-                                    AmaranthMessagebox("No posee un vehiculo con ese numero de chasis.", "Continuar")
+                                    MsgBox("No posee un vehiculo con ese numero de chasis.")
                                 End If
                             Else
-                                AmaranthMessagebox("Este vehiculo se encuentra alquilado no puede modificarlo.", "Error")
+                                MsgBox("Este vehiculo se encuentra alquilado no puede modificarlo.")
                             End If
+
                         Else
-                            AmaranthMessagebox("No posee un vehiculo con este número de chasis", "Advertencia")
+                            MsgBox("No posee un vehiculo con este número de chasis")
                         End If
                     Else
-                        AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error")
+                        MsgBox("Error en el año del vehiculo, no puede ser mayor al año actual.")
                     End If
                 Else
-                    AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error")
+                    MsgBox("La cantidad de pasajeros no puede ser 0.")
                 End If
             Else
-                AmaranthMessagebox("Modifique algo por favor", "Advertencia")
+                MsgBox("Modifique algo por favor")
             End If
         Else
-            AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia")
+            MsgBox("por favor, rellene todos los campos.")
         End If
 
     End Sub
@@ -430,7 +441,7 @@ Partial Public Class frmMainMenu
             alquilerActivo = conexion.EjecutarSelect("SELECT nrochasis FROM reserva WHERE nrochasis = '" + nrochasisS + "'")
 
             Dim mantenimientoActivo As New DataTable
-            mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisS + "'")
+            mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM mantenimiento WHERE nrochasis = '" + nrochasisS + "'")
 
             If (mantenimientoActivo.Rows.Count = 0 And alquilerActivo.Rows.Count = 0) Then
 

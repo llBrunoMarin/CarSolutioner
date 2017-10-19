@@ -138,4 +138,5 @@
             lblDescuentoReserva.Text = "(Haga click para aplicar descuento) " + vbNewLine + " Escriba un numero y presione Enter"
         End If
     End Sub
+
 End Class

@@ -618,6 +618,7 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
+        Me.lblKilometrajeAVeh = New System.Windows.Forms.Label()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2208,7 +2209,7 @@ Partial Class frmMainMenu
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1332, 812)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.Text = "Vehículos"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'dgvVehiculos
@@ -2951,6 +2952,7 @@ Partial Class frmMainMenu
         Me.pnlAVehi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlAVehi.BackColor = System.Drawing.Color.Silver
         Me.pnlAVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlAVehi.Controls.Add(Me.lblKilometrajeAVeh)
         Me.pnlAVehi.Controls.Add(Me.txtKilometrajeAVeh)
         Me.pnlAVehi.Controls.Add(Me.numPasajerosAVeh)
         Me.pnlAVehi.Controls.Add(Me.txtDeducibleAVeh)
@@ -2987,7 +2989,7 @@ Partial Class frmMainMenu
         '
         'txtKilometrajeAVeh
         '
-        Me.txtKilometrajeAVeh.Location = New System.Drawing.Point(474, 75)
+        Me.txtKilometrajeAVeh.Location = New System.Drawing.Point(364, 75)
         Me.txtKilometrajeAVeh.Name = "txtKilometrajeAVeh"
         Me.txtKilometrajeAVeh.Size = New System.Drawing.Size(104, 20)
         Me.txtKilometrajeAVeh.TabIndex = 67
@@ -3001,7 +3003,7 @@ Partial Class frmMainMenu
         '
         'txtDeducibleAVeh
         '
-        Me.txtDeducibleAVeh.Location = New System.Drawing.Point(364, 75)
+        Me.txtDeducibleAVeh.Location = New System.Drawing.Point(473, 75)
         Me.txtDeducibleAVeh.Name = "txtDeducibleAVeh"
         Me.txtDeducibleAVeh.Size = New System.Drawing.Size(105, 20)
         Me.txtDeducibleAVeh.TabIndex = 65
@@ -3011,7 +3013,7 @@ Partial Class frmMainMenu
         Me.lblhelpVEH.AutoSize = True
         Me.lblhelpVEH.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblhelpVEH.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblhelpVEH.Location = New System.Drawing.Point(367, 54)
+        Me.lblhelpVEH.Location = New System.Drawing.Point(471, 53)
         Me.lblhelpVEH.Name = "lblhelpVEH"
         Me.lblhelpVEH.Size = New System.Drawing.Size(70, 17)
         Me.lblhelpVEH.TabIndex = 64
@@ -3631,7 +3633,7 @@ Partial Class frmMainMenu
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(1332, 812)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.Text = "Reportes Vehículos"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'tbpEmpleados
@@ -7118,6 +7120,17 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
+        'lblKilometrajeAVeh
+        '
+        Me.lblKilometrajeAVeh.AutoSize = True
+        Me.lblKilometrajeAVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblKilometrajeAVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblKilometrajeAVeh.Location = New System.Drawing.Point(361, 54)
+        Me.lblKilometrajeAVeh.Name = "lblKilometrajeAVeh"
+        Me.lblKilometrajeAVeh.Size = New System.Drawing.Size(76, 17)
+        Me.lblKilometrajeAVeh.TabIndex = 68
+        Me.lblKilometrajeAVeh.Text = "Kilometraje"
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -7817,4 +7830,5 @@ Partial Class frmMainMenu
     Friend WithEvents telefonos As DataGridViewButtonColumn
     Friend WithEvents numDescuentoFCliente As NumericUpDown
     Friend WithEvents Label132 As Label
+    Friend WithEvents lblKilometrajeAVeh As Label
 End Class

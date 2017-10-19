@@ -8,7 +8,7 @@ Partial Public Class frmMainMenu
 
     Private Sub CargasModelo(sender As ComboBox, e As EventArgs) Handles cbxMarcaAVeh.SelectedValueChanged, cbxMarcaFVeh.SelectedValueChanged, cbxMarcaMVeh.SelectedValueChanged
 
-        Dim ModelosYOtro As New DataTable
+        Dim Modelos As New DataTable
 
         Try
             If (Not (sender.SelectedValue Is Nothing)) Then
@@ -23,25 +23,20 @@ Partial Public Class frmMainMenu
                             Select Case sender.Name
                                 Case "cbxMarcaAVeh"
 
-                                    ModelosYOtro = conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable
-                                    ModelosYOtro.Rows.Add(0, 0, "Nuevo...", 0, True)
-                                    CargarDatosComboBox(cbxModeloAVeh, ModelosYOtro, "nombre", "idmodelo")
+                                    Modelos = conexion.Modelos.Select("idmarca = '" + cbxMarcaAVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable
+                                    CargarDatosComboBox(cbxModeloAVeh, Modelos, "nombre", "idmodelo")
                                     cbxModeloAVeh.Enabled = True
                                     cbxModeloAVeh.SelectedItem = Nothing
                                     cbxTipoAVeh.SelectedItem = Nothing
 
                                 Case "cbxMarcaFVeh"
-                                    ModelosYOtro = conexion.Modelos.Select("idmarca = '" + cbxMarcaFVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable
-                                    ModelosYOtro.Rows.Add(0, 0, "Nuevo...", 0, True)
                                     CargarDatosComboBox(cbxModeloFVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaFVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable, "nombre", "idmodelo")
                                     cbxModeloFVeh.Enabled = True
                                     cbxModeloFVeh.SelectedItem = Nothing
                                     cbxTipoFVeh.SelectedItem = Nothing
 
                                 Case "cbxMarcaMVeh"
-                                    ModelosYOtro = conexion.Modelos.Select("idmarca = '" + cbxMarcaMVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable
-                                    ModelosYOtro.Rows.Add(0, 0, "Nuevo...", 0, True)
-                                    CargarDatosComboBox(cbxModeloMVeh, ModelosYOtro, "nombre", "idmodelo")
+                                    CargarDatosComboBox(cbxModeloMVeh, conexion.Modelos.Select("idmarca = '" + cbxMarcaFVeh.SelectedValue.ToString + "' and estado = true").CopyToDataTable, "nombre", "idmodelo")
                                     cbxModeloMVeh.Enabled = True
                                     cbxModeloMVeh.SelectedItem = Nothing
                                     cbxTipoMVeh.SelectedItem = Nothing
@@ -287,21 +282,21 @@ Partial Public Class frmMainMenu
         Dim añoInsertar As Integer
 
         If Not (FaltaDato) Then
-            'Me quedo con solo el 1er digito para hacer el insert despues
-            automaticoAVeh = cbxAutomaticoAVeh.Checked.ToString.Substring(0, 1)
-            aireAVeh = chbxAireAVeh.Checked.ToString.Substring(0, 1)
+            If Not (txtDeducibleAVeh.Text = "" Or txtKilometrajeAVeh.Text = "" Or txtMatriculaAVeh.Text = "" Or txtAnioAVeh.Text = "") Then
+                'Me quedo con solo el 1er digito para hacer el insert despues
+                automaticoAVeh = cbxAutomaticoAVeh.Checked.ToString.Substring(0, 1)
+                aireAVeh = chbxAireAVeh.Checked.ToString.Substring(0, 1)
 
-            cantpasajeros = numPasajerosAVeh.Value.ToString
-            añoInsertar = txtAnioAVeh.Text
+                cantpasajeros = numPasajerosAVeh.Value.ToString
+                añoInsertar = txtAnioAVeh.Text
 
 
-            If Not (cantpasajeros = 0) Then
+                If Not (cantpasajeros = 0) Then
 
-                If Not (añoInsertar > añoActual) Then
+                    If Not (añoInsertar > añoActual) Then
 
-                    Dim nrochasisrepetido As New DataTable
-                    nrochasisrepetido = conexion.EjecutarSelect("select nrochasis from vehiculo where nrochasis = '" + txtNroChasisAVeh.Text.ToString + "'")
-                    If Not (txtDeducibleAVeh.Text = "" Or txtKilometrajeAVeh.Text = "" Or txtMatriculaAVeh.Text = "" Or txtAnioAVeh.Text = "") Then
+                        Dim nrochasisrepetido As New DataTable
+                        nrochasisrepetido = conexion.EjecutarSelect("select nrochasis from vehiculo where nrochasis = '" + txtNroChasisAVeh.Text.ToString + "'")
 
 
                         If Not (nrochasisrepetido.Rows.Count > 0) Then
@@ -313,15 +308,16 @@ Partial Public Class frmMainMenu
                         Else
                             MsgBox("Ya posee un vehiculo con el mismo numero de chasis.")
                         End If
-                    Else
-                        MsgBox("Faltan datos")
-                    End If
-                Else
-                    MsgBox("Error en el año del vehiculo, no puede ser mayor al año actual.")
-                End If
 
+                    Else
+                        MsgBox("Error en el año del vehiculo, no puede ser mayor al año actual.")
+                    End If
+
+                Else
+                    MsgBox("La cantidad de pasajeros no puede ser 0.")
+                End If
             Else
-                MsgBox("La cantidad de pasajeros no puede ser 0.")
+                MsgBox("Faltan datos")
             End If
         Else
             MsgBox("por favor, rellene todos los campos.")
@@ -374,53 +370,44 @@ Partial Public Class frmMainMenu
 
 
         If (FaltaDato) Then
-            'Me quedo con solo el 1er digito para hacer el insert despues
-            automaticoMVeh = cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1)
-            aireMVeh = chbxAireMVeh.Checked.ToString.Substring(0, 1)
-            cantpasajeros = numPasajerosMVehiculo.Value.ToString
-            añoInsertar = txtAnioMVeh.Text
+            If Not (txtDeducibleMVeh.Text = "" Or txtKMMVeh.Text = "" Or txtMatriculaMVeh.Text = "" Or txtAnioMVeh.Text = "") Then
+                'Me quedo con solo el 1er digito para hacer el insert despues
+                automaticoMVeh = cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1)
+                aireMVeh = chbxAireMVeh.Checked.ToString.Substring(0, 1)
+                cantpasajeros = numPasajerosMVehiculo.Value.ToString
+                añoInsertar = txtAnioMVeh.Text
 
-            If Not (txtMatriculaMVeh.Text = matriculaI And txtAnioMVeh.Text = anioI And txtKMMVeh.Text = kmvehI And aireMVeh = aireMvehI And cbxPuertasMVeh.SelectedItem.ToString = puertasI And cantpasajeros = nropasajerosI And cbxMaletasMVeh.SelectedItem.ToString = maletasI And automaticoMVeh = automaticoMvehI And txtDeducibleMVeh.Text.ToString = deducibleI And cbxCategoriaMVeh.SelectedValue.ToString = categoriaI And cbxModeloMVeh.SelectedValue.ToString = modeloI And cbxSucursalMVeh.SelectedValue.ToString = sucursalI And txtNroChasisMVeh.Text.ToString = nrochasisI) Then
+                If Not (txtMatriculaMVeh.Text = matriculaI And txtAnioMVeh.Text = anioI And txtKMMVeh.Text = kmvehI And aireMVeh = aireMvehI And cbxPuertasMVeh.SelectedItem.ToString = puertasI And cantpasajeros = nropasajerosI And cbxMaletasMVeh.SelectedItem.ToString = maletasI And automaticoMVeh = automaticoMvehI And txtDeducibleMVeh.Text.ToString = deducibleI And cbxCategoriaMVeh.SelectedValue.ToString = categoriaI And cbxModeloMVeh.SelectedValue.ToString = modeloI And cbxSucursalMVeh.SelectedValue.ToString = sucursalI And txtNroChasisMVeh.Text.ToString = nrochasisI) Then
 
-                If Not (cantpasajeros = 0) Then
+                    If Not (cantpasajeros = 0) Then
 
-                    If Not (añoInsertar > añoActual) Then
+                        If Not (añoInsertar > añoActual) Then
 
-                        Dim nrochasisrepetido As New DataTable
+                            Dim alquiladoO As New DataTable
+                            alquiladoO = conexion.EjecutarSelect("select idsucursal from vehiculo where nrochasis = '" + txtNroChasisMVeh.Text.ToString + "'")
 
-                        nrochasisrepetido = conexion.EjecutarSelect("select nrochasis,idsucursal from vehiculo where nrochasis = '" + txtNroChasisMVeh.Text.ToString + "'")
-                        If (nrochasisrepetido.Rows.Count <> 0) Then
-                            Dim nrochasisM As String = nrochasisrepetido.Rows(0)("nrochasis").ToString
-                            Dim sucursalM As String = nrochasisrepetido.Rows(0)("idsucursal").ToString
-                            If Not (txtDeducibleMVeh.Text = "" Or txtKMMVeh.Text = "" Or txtMatriculaMVeh.Text = "" Or txtAnioMVeh.Text = "") Then
-                                If Not (sucursalM = "") Then
-                                    If Not (nrochasisM = "") Then
-                                        Dim sentencia As String
-                                        sentencia = "UPDATE vehiculo SET matricula = '" + txtMatriculaMVeh.Text + "', anio ='" + txtAnioMVeh.Text + "', kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "', cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "',cantidaddepasajeros='" + cantpasajeros + "', cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "', deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "', idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T' WHERE nrochasis = '" + txtNroChasisMVeh.Text.ToString + "'"
-                                        conexion.EjecutarNonQuery(sentencia)
-                                        RecargarDatos(dgvVehiculos)
-                                        MsgBox("Modificado correctamente")
-                                    Else
-                                        MsgBox("No posee un vehiculo con ese numero de chasis.")
-                                    End If
-                                Else
-                                    MsgBox("Este vehiculo se encuentra alquilado no puede modificarlo.")
-                                End If
+                            If Not (alquiladoO.Rows.Count > 0) Then
+
+                                Dim sentencia As String
+                                sentencia = "UPDATE vehiculo SET matricula = '" + txtMatriculaMVeh.Text + "', anio ='" + txtAnioMVeh.Text + "', kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "', cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "',cantidaddepasajeros='" + cantpasajeros + "', cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "', deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "', idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T' WHERE nrochasis = '" + txtNroChasisMVeh.Text.ToString + "'"
+                                conexion.EjecutarNonQuery(sentencia)
+                                RecargarDatos(dgvVehiculos)
+                                MsgBox("Modificado correctamente")
+
                             Else
-                                MsgBox("error faltan datos")
+                                MsgBox("Este vehiculo se encuentra alquilado no puede modificarlo")
                             End If
-
                         Else
-                            MsgBox("No posee un vehiculo con este número de chasis")
+                            MsgBox("Error en el año del vehiculo, no puede ser mayor al año actual.")
                         End If
                     Else
-                        MsgBox("Error en el año del vehiculo, no puede ser mayor al año actual.")
+                        MsgBox("La cantidad de pasajeros no puede ser 0.")
                     End If
                 Else
-                    MsgBox("La cantidad de pasajeros no puede ser 0.")
+                    MsgBox("Modifique algo por favor")
                 End If
             Else
-                MsgBox("Modifique algo por favor")
+                MsgBox("error faltan datos")
             End If
         Else
             MsgBox("por favor, rellene todos los campos.")

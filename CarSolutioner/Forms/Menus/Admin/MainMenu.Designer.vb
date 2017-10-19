@@ -24,23 +24,24 @@ Partial Class frmMainMenu
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -103,12 +104,14 @@ Partial Class frmMainMenu
         Me.lblAyudaTelefono = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
+        Me.Label131 = New System.Windows.Forms.Label()
         Me.pnlBClientes = New System.Windows.Forms.Panel()
         Me.btnBajaCliente = New System.Windows.Forms.Button()
         Me.Label79 = New System.Windows.Forms.Label()
         Me.Label80 = New System.Windows.Forms.Label()
         Me.txtDocumentoBCliente = New System.Windows.Forms.TextBox()
         Me.pnlFClientes = New System.Windows.Forms.Panel()
+        Me.numDescuentoFCliente = New System.Windows.Forms.NumericUpDown()
         Me.Label107 = New System.Windows.Forms.Label()
         Me.lblBorrarTipoDocFCliente = New System.Windows.Forms.Label()
         Me.gbxFecNacFCliente = New System.Windows.Forms.GroupBox()
@@ -129,7 +132,9 @@ Partial Class frmMainMenu
         Me.txtDocumFClientes = New System.Windows.Forms.TextBox()
         Me.txtApellidoFClientes = New System.Windows.Forms.TextBox()
         Me.txtNombreFClientes = New System.Windows.Forms.TextBox()
+        Me.Label132 = New System.Windows.Forms.Label()
         Me.pnlAClientes = New System.Windows.Forms.Panel()
+        Me.numDescuentoACliente = New System.Windows.Forms.NumericUpDown()
         Me.gbxFecNacACliente = New System.Windows.Forms.GroupBox()
         Me.cbxAnioNACliente = New System.Windows.Forms.ComboBox()
         Me.cbxMesNACliente = New System.Windows.Forms.ComboBox()
@@ -143,6 +148,7 @@ Partial Class frmMainMenu
         Me.txtApellidoACliente = New System.Windows.Forms.TextBox()
         Me.txtNombreACliente = New System.Windows.Forms.TextBox()
         Me.txtDocumACliente = New System.Windows.Forms.TextBox()
+        Me.btnDescuentoACliente = New System.Windows.Forms.Button()
         Me.btnAgregarTelefonosACliente = New System.Windows.Forms.Button()
         Me.btnIngresarACliente = New System.Windows.Forms.Button()
         Me.Label93 = New System.Windows.Forms.Label()
@@ -150,6 +156,7 @@ Partial Class frmMainMenu
         Me.Label95 = New System.Windows.Forms.Label()
         Me.Label96 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label115 = New System.Windows.Forms.Label()
         Me.Label97 = New System.Windows.Forms.Label()
         Me.Label98 = New System.Windows.Forms.Label()
         Me.Label99 = New System.Windows.Forms.Label()
@@ -612,12 +619,6 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.btnDescuentoACliente = New System.Windows.Forms.Button()
-        Me.Label115 = New System.Windows.Forms.Label()
-        Me.numDescuentoACliente = New System.Windows.Forms.NumericUpDown()
-        Me.Label131 = New System.Windows.Forms.Label()
-        Me.Label132 = New System.Windows.Forms.Label()
-        Me.numDescuentoFCliente = New System.Windows.Forms.NumericUpDown()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -683,9 +684,6 @@ Partial Class frmMainMenu
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numDescuentoACliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numDescuentoMCliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numDescuentoFCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -2229,7 +2227,11 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.Name = "dgvVehiculos"
         Me.dgvVehiculos.ReadOnly = True
         Me.dgvVehiculos.RowHeadersVisible = False
-        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Empty
+        DataGridViewCellStyle3.NullValue = False
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvVehiculos.Size = New System.Drawing.Size(1332, 367)
         Me.dgvVehiculos.TabIndex = 37
@@ -3686,30 +3688,30 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvEmpleados.BackgroundColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvEmpleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrodocumentoEmpleado, Me.nombreEmpleado, Me.apellidoEmpleado, Me.emailEmpleado, Me.usuariosEmpleado, Me.tipoEmpleado, Me.sucursalesEmpleado, Me.idtipoEmpleado, Me.idsucursalEmpleado, Me.estadoEmpleado, Me.idpersonaEmpleado})
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEmpleados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvEmpleados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrodocumentoEmpleado, Me.nombreEmpleado, Me.apellidoEmpleado, Me.emailEmpleado, Me.usuariosEmpleado, Me.tipoEmpleado, Me.sucursalesEmpleado, Me.idtipoEmpleado, Me.idsucursalEmpleado, Me.estadoEmpleado, Me.idpersonaEmpleado})
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvEmpleados.Location = New System.Drawing.Point(7, 3)
         Me.dgvEmpleados.Name = "dgvEmpleados"
         Me.dgvEmpleados.ReadOnly = True
         Me.dgvEmpleados.RowHeadersVisible = False
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvEmpleados.Size = New System.Drawing.Size(743, 798)
         Me.dgvEmpleados.TabIndex = 10
@@ -4656,8 +4658,8 @@ Partial Class frmMainMenu
         Me.dgvMant.Name = "dgvMant"
         Me.dgvMant.ReadOnly = True
         Me.dgvMant.RowHeadersVisible = False
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvMant.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvMant.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvMant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvMant.Size = New System.Drawing.Size(754, 814)
         Me.dgvMant.TabIndex = 34
@@ -4680,8 +4682,8 @@ Partial Class frmMainMenu
         'fechainiciomant
         '
         Me.fechainiciomant.DataPropertyName = "fechainiciof"
-        DataGridViewCellStyle6.Format = "dd/MM/yyyy HH:mm"
-        Me.fechainiciomant.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle7.Format = "dd/MM/yyyy HH:mm"
+        Me.fechainiciomant.DefaultCellStyle = DataGridViewCellStyle7
         Me.fechainiciomant.HeaderText = "Fecha Inicio"
         Me.fechainiciomant.Name = "fechainiciomant"
         Me.fechainiciomant.ReadOnly = True
@@ -4689,8 +4691,8 @@ Partial Class frmMainMenu
         'fechafinmant
         '
         Me.fechafinmant.DataPropertyName = "fechafinf"
-        DataGridViewCellStyle7.Format = "dd/MM/yyyy HH:mm"
-        Me.fechafinmant.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle8.Format = "dd/MM/yyyy HH:mm"
+        Me.fechafinmant.DefaultCellStyle = DataGridViewCellStyle8
         Me.fechafinmant.HeaderText = "Fecha Fin"
         Me.fechafinmant.Name = "fechafinmant"
         Me.fechafinmant.ReadOnly = True
@@ -4926,8 +4928,8 @@ Partial Class frmMainMenu
         Me.dgvReservas.Name = "dgvReservas"
         Me.dgvReservas.ReadOnly = True
         Me.dgvReservas.RowHeadersVisible = False
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle13
         Me.dgvReservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReservas.Size = New System.Drawing.Size(1308, 355)
         Me.dgvReservas.TabIndex = 9
@@ -4951,9 +4953,9 @@ Partial Class frmMainMenu
         'fechareservainicio
         '
         Me.fechareservainicio.DataPropertyName = "fechareservainicio"
-        DataGridViewCellStyle9.Format = "g"
-        DataGridViewCellStyle9.NullValue = Nothing
-        Me.fechareservainicio.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle10.Format = "g"
+        DataGridViewCellStyle10.NullValue = Nothing
+        Me.fechareservainicio.DefaultCellStyle = DataGridViewCellStyle10
         Me.fechareservainicio.HeaderText = "Inicio"
         Me.fechareservainicio.Name = "fechareservainicio"
         Me.fechareservainicio.ReadOnly = True
@@ -4961,9 +4963,9 @@ Partial Class frmMainMenu
         'fechareservafin
         '
         Me.fechareservafin.DataPropertyName = "fechareservafin"
-        DataGridViewCellStyle10.Format = "g"
-        DataGridViewCellStyle10.NullValue = Nothing
-        Me.fechareservafin.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle11.Format = "g"
+        DataGridViewCellStyle11.NullValue = Nothing
+        Me.fechareservafin.DefaultCellStyle = DataGridViewCellStyle11
         Me.fechareservafin.HeaderText = "Fin"
         Me.fechareservafin.Name = "fechareservafin"
         Me.fechareservafin.ReadOnly = True
@@ -5028,9 +5030,9 @@ Partial Class frmMainMenu
         'fechatramite
         '
         Me.fechatramite.DataPropertyName = "fechatramite"
-        DataGridViewCellStyle11.Format = "g"
-        DataGridViewCellStyle11.NullValue = Nothing
-        Me.fechatramite.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle12.Format = "g"
+        DataGridViewCellStyle12.NullValue = Nothing
+        Me.fechatramite.DefaultCellStyle = DataGridViewCellStyle12
         Me.fechatramite.HeaderText = "Tramite"
         Me.fechatramite.Name = "fechatramite"
         Me.fechatramite.ReadOnly = True
@@ -6287,8 +6289,8 @@ Partial Class frmMainMenu
         Me.dgvAlquileres.Name = "dgvAlquileres"
         Me.dgvAlquileres.ReadOnly = True
         Me.dgvAlquileres.RowHeadersVisible = False
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle19
         Me.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvAlquileres.Size = New System.Drawing.Size(1308, 355)
         Me.dgvAlquileres.TabIndex = 10
@@ -6325,9 +6327,9 @@ Partial Class frmMainMenu
         'fechareservainicioalq
         '
         Me.fechareservainicioalq.DataPropertyName = "fechareservainicio"
-        DataGridViewCellStyle13.Format = "dd/MM/yyyy HH:mm"
-        DataGridViewCellStyle13.NullValue = Nothing
-        Me.fechareservainicioalq.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle14.Format = "dd/MM/yyyy HH:mm"
+        DataGridViewCellStyle14.NullValue = Nothing
+        Me.fechareservainicioalq.DefaultCellStyle = DataGridViewCellStyle14
         Me.fechareservainicioalq.HeaderText = "Inicio Reserva"
         Me.fechareservainicioalq.Name = "fechareservainicioalq"
         Me.fechareservainicioalq.ReadOnly = True
@@ -6335,9 +6337,9 @@ Partial Class frmMainMenu
         'fechaalquilerinicio
         '
         Me.fechaalquilerinicio.DataPropertyName = "fechaalquilerinicio"
-        DataGridViewCellStyle14.Format = "dd/MM/yyyy HH:mm"
-        DataGridViewCellStyle14.NullValue = Nothing
-        Me.fechaalquilerinicio.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle15.Format = "dd/MM/yyyy HH:mm"
+        DataGridViewCellStyle15.NullValue = Nothing
+        Me.fechaalquilerinicio.DefaultCellStyle = DataGridViewCellStyle15
         Me.fechaalquilerinicio.HeaderText = "Fecha Inicio"
         Me.fechaalquilerinicio.Name = "fechaalquilerinicio"
         Me.fechaalquilerinicio.ReadOnly = True
@@ -6345,9 +6347,9 @@ Partial Class frmMainMenu
         'fechaalquilerfin
         '
         Me.fechaalquilerfin.DataPropertyName = "fechaalquilerfin"
-        DataGridViewCellStyle15.Format = "dd/MM/yyyy HH:mm"
-        DataGridViewCellStyle15.NullValue = Nothing
-        Me.fechaalquilerfin.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle16.Format = "dd/MM/yyyy HH:mm"
+        DataGridViewCellStyle16.NullValue = Nothing
+        Me.fechaalquilerfin.DefaultCellStyle = DataGridViewCellStyle16
         Me.fechaalquilerfin.HeaderText = "Fecha Fin"
         Me.fechaalquilerfin.Name = "fechaalquilerfin"
         Me.fechaalquilerfin.ReadOnly = True
@@ -6355,9 +6357,9 @@ Partial Class frmMainMenu
         'fechareservafinalq
         '
         Me.fechareservafinalq.DataPropertyName = "fechareservafin"
-        DataGridViewCellStyle16.Format = "dd/MM/yyyy HH:mm"
-        DataGridViewCellStyle16.NullValue = Nothing
-        Me.fechareservafinalq.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle17.Format = "dd/MM/yyyy HH:mm"
+        DataGridViewCellStyle17.NullValue = Nothing
+        Me.fechareservafinalq.DefaultCellStyle = DataGridViewCellStyle17
         Me.fechareservafinalq.HeaderText = "Fin Reserva"
         Me.fechareservafinalq.Name = "fechareservafinalq"
         Me.fechareservafinalq.ReadOnly = True
@@ -6431,8 +6433,8 @@ Partial Class frmMainMenu
         'fechatramitealq
         '
         Me.fechatramitealq.DataPropertyName = "fechatramite"
-        DataGridViewCellStyle17.Format = "dd/MM/yyyy HH:mm"
-        Me.fechatramitealq.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle18.Format = "dd/MM/yyyy HH:mm"
+        Me.fechatramitealq.DefaultCellStyle = DataGridViewCellStyle18
         Me.fechatramitealq.HeaderText = "Fecha Tramite"
         Me.fechatramitealq.Name = "fechatramitealq"
         Me.fechatramitealq.ReadOnly = True
@@ -7121,217 +7123,6 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'btnDescuentoACliente
-        '
-        Me.btnDescuentoACliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnDescuentoACliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnDescuentoACliente.FlatAppearance.BorderSize = 0
-        Me.btnDescuentoACliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnDescuentoACliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnDescuentoACliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDescuentoACliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
-        Me.btnDescuentoACliente.ForeColor = System.Drawing.Color.White
-        Me.btnDescuentoACliente.Location = New System.Drawing.Point(507, 120)
-        Me.btnDescuentoACliente.Name = "btnDescuentoACliente"
-        Me.btnDescuentoACliente.Size = New System.Drawing.Size(18, 18)
-        Me.btnDescuentoACliente.TabIndex = 18
-        Me.btnDescuentoACliente.Text = "+"
-        Me.btnDescuentoACliente.UseCompatibleTextRendering = True
-        Me.btnDescuentoACliente.UseVisualStyleBackColor = False
-        '
-        'Label115
-        '
-        Me.Label115.AutoSize = True
-        Me.Label115.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label115.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label115.Location = New System.Drawing.Point(402, 99)
-        Me.Label115.Name = "Label115"
-        Me.Label115.Size = New System.Drawing.Size(94, 17)
-        Me.Label115.TabIndex = 25
-        Me.Label115.Text = "Descuento (%)"
-        '
-        'numDescuentoACliente
-        '
-        Me.numDescuentoACliente.Enabled = False
-        Me.numDescuentoACliente.Location = New System.Drawing.Point(404, 119)
-        Me.numDescuentoACliente.Name = "numDescuentoACliente"
-        Me.numDescuentoACliente.Size = New System.Drawing.Size(99, 20)
-        Me.numDescuentoACliente.TabIndex = 44
-        '
-        'Label131
-        '
-        Me.Label131.AutoSize = True
-        Me.Label131.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label131.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label131.Location = New System.Drawing.Point(12, 161)
-        Me.Label131.Name = "Label131"
-        Me.Label131.Size = New System.Drawing.Size(94, 17)
-        Me.Label131.TabIndex = 25
-        Me.Label131.Text = "Descuento (%)"
-        '
-        'btnDescuentoMCliente
-        '
-        Me.btnDescuentoMCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnDescuentoMCliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnDescuentoMCliente.FlatAppearance.BorderSize = 0
-        Me.btnDescuentoMCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnDescuentoMCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnDescuentoMCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDescuentoMCliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
-        Me.btnDescuentoMCliente.ForeColor = System.Drawing.Color.White
-        Me.btnDescuentoMCliente.Location = New System.Drawing.Point(120, 181)
-        Me.btnDescuentoMCliente.Name = "btnDescuentoMCliente"
-        Me.btnDescuentoMCliente.Size = New System.Drawing.Size(18, 18)
-        Me.btnDescuentoMCliente.TabIndex = 18
-        Me.btnDescuentoMCliente.Text = "+"
-        Me.btnDescuentoMCliente.UseCompatibleTextRendering = True
-        Me.btnDescuentoMCliente.UseVisualStyleBackColor = False
-        '
-        'numDescuentoMCliente
-        '
-        Me.numDescuentoMCliente.Enabled = False
-        Me.numDescuentoMCliente.Location = New System.Drawing.Point(14, 181)
-        Me.numDescuentoMCliente.Name = "numDescuentoMCliente"
-        Me.numDescuentoMCliente.Size = New System.Drawing.Size(103, 20)
-        Me.numDescuentoMCliente.TabIndex = 44
-        '
-        'tipodocumento
-        '
-        Me.tipodocumento.DataPropertyName = "tipodocumento"
-        Me.tipodocumento.HeaderText = "Tipo"
-        Me.tipodocumento.Name = "tipodocumento"
-        Me.tipodocumento.ReadOnly = True
-        '
-        'nrodocumento
-        '
-        Me.nrodocumento.DataPropertyName = "nrodocumento"
-        Me.nrodocumento.HeaderText = "Documento"
-        Me.nrodocumento.Name = "nrodocumento"
-        Me.nrodocumento.ReadOnly = True
-        '
-        'nombre
-        '
-        Me.nombre.DataPropertyName = "nombre"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        '
-        'idpersona
-        '
-        Me.idpersona.DataPropertyName = "idpersona"
-        Me.idpersona.HeaderText = "idpersona"
-        Me.idpersona.Name = "idpersona"
-        Me.idpersona.ReadOnly = True
-        Me.idpersona.Visible = False
-        '
-        'apellido
-        '
-        Me.apellido.DataPropertyName = "apellido"
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        '
-        'email
-        '
-        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.email.DataPropertyName = "email"
-        Me.email.HeaderText = "Correo"
-        Me.email.Name = "email"
-        Me.email.ReadOnly = True
-        Me.email.Width = 63
-        '
-        'fecnac
-        '
-        Me.fecnac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-        Me.fecnac.DataPropertyName = "fecnac"
-        Me.fecnac.HeaderText = "Nacimiento"
-        Me.fecnac.Name = "fecnac"
-        Me.fecnac.ReadOnly = True
-        Me.fecnac.Width = 5
-        '
-        'porcdescuento
-        '
-        Me.porcdescuento.DataPropertyName = "porcdescuento"
-        Me.porcdescuento.HeaderText = "Descuento"
-        Me.porcdescuento.Name = "porcdescuento"
-        Me.porcdescuento.ReadOnly = True
-        '
-        'empresa
-        '
-        Me.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.empresa.DataPropertyName = "empresa"
-        Me.empresa.HeaderText = "Empresa"
-        Me.empresa.Name = "empresa"
-        Me.empresa.ReadOnly = True
-        Me.empresa.Width = 73
-        '
-        'estado
-        '
-        Me.estado.DataPropertyName = "estado"
-        Me.estado.HeaderText = "estado"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        Me.estado.Visible = False
-        '
-        'dia
-        '
-        Me.dia.DataPropertyName = "dia"
-        Me.dia.HeaderText = "dia"
-        Me.dia.Name = "dia"
-        Me.dia.ReadOnly = True
-        Me.dia.Visible = False
-        '
-        'idtipodoc
-        '
-        Me.idtipodoc.DataPropertyName = "idtipodoc"
-        Me.idtipodoc.HeaderText = "idtipodoc"
-        Me.idtipodoc.Name = "idtipodoc"
-        Me.idtipodoc.ReadOnly = True
-        Me.idtipodoc.Visible = False
-        '
-        'mes
-        '
-        Me.mes.DataPropertyName = "mes"
-        Me.mes.HeaderText = "mes"
-        Me.mes.Name = "mes"
-        Me.mes.ReadOnly = True
-        Me.mes.Visible = False
-        '
-        'anio
-        '
-        Me.anio.DataPropertyName = "anio"
-        Me.anio.HeaderText = "anio"
-        Me.anio.Name = "anio"
-        Me.anio.ReadOnly = True
-        Me.anio.Visible = False
-        '
-        'telefonos
-        '
-        Me.telefonos.HeaderText = "Telefonos"
-        Me.telefonos.Name = "telefonos"
-        Me.telefonos.ReadOnly = True
-        Me.telefonos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.telefonos.Text = "Ver"
-        Me.telefonos.UseColumnTextForButtonValue = True
-        '
-        'Label132
-        '
-        Me.Label132.AutoSize = True
-        Me.Label132.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label132.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label132.Location = New System.Drawing.Point(12, 140)
-        Me.Label132.Name = "Label132"
-        Me.Label132.Size = New System.Drawing.Size(94, 17)
-        Me.Label132.TabIndex = 25
-        Me.Label132.Text = "Descuento (%)"
-        '
-        'numDescuentoFCliente
-        '
-        Me.numDescuentoFCliente.Location = New System.Drawing.Point(15, 162)
-        Me.numDescuentoFCliente.Name = "numDescuentoFCliente"
-        Me.numDescuentoFCliente.Size = New System.Drawing.Size(126, 20)
-        Me.numDescuentoFCliente.TabIndex = 44
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -7445,9 +7236,6 @@ Partial Class frmMainMenu
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numDescuentoACliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numDescuentoMCliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numDescuentoFCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -103,12 +103,14 @@ Partial Class frmMainMenu
         Me.lblAyudaTelefono = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
+        Me.Label131 = New System.Windows.Forms.Label()
         Me.pnlBClientes = New System.Windows.Forms.Panel()
         Me.btnBajaCliente = New System.Windows.Forms.Button()
         Me.Label79 = New System.Windows.Forms.Label()
         Me.Label80 = New System.Windows.Forms.Label()
         Me.txtDocumentoBCliente = New System.Windows.Forms.TextBox()
         Me.pnlFClientes = New System.Windows.Forms.Panel()
+        Me.numDescuentoFCliente = New System.Windows.Forms.NumericUpDown()
         Me.Label107 = New System.Windows.Forms.Label()
         Me.lblBorrarTipoDocFCliente = New System.Windows.Forms.Label()
         Me.gbxFecNacFCliente = New System.Windows.Forms.GroupBox()
@@ -129,7 +131,9 @@ Partial Class frmMainMenu
         Me.txtDocumFClientes = New System.Windows.Forms.TextBox()
         Me.txtApellidoFClientes = New System.Windows.Forms.TextBox()
         Me.txtNombreFClientes = New System.Windows.Forms.TextBox()
+        Me.Label132 = New System.Windows.Forms.Label()
         Me.pnlAClientes = New System.Windows.Forms.Panel()
+        Me.numDescuentoACliente = New System.Windows.Forms.NumericUpDown()
         Me.gbxFecNacACliente = New System.Windows.Forms.GroupBox()
         Me.cbxAnioNACliente = New System.Windows.Forms.ComboBox()
         Me.cbxMesNACliente = New System.Windows.Forms.ComboBox()
@@ -143,6 +147,7 @@ Partial Class frmMainMenu
         Me.txtApellidoACliente = New System.Windows.Forms.TextBox()
         Me.txtNombreACliente = New System.Windows.Forms.TextBox()
         Me.txtDocumACliente = New System.Windows.Forms.TextBox()
+        Me.btnDescuentoACliente = New System.Windows.Forms.Button()
         Me.btnAgregarTelefonosACliente = New System.Windows.Forms.Button()
         Me.btnIngresarACliente = New System.Windows.Forms.Button()
         Me.Label93 = New System.Windows.Forms.Label()
@@ -150,6 +155,7 @@ Partial Class frmMainMenu
         Me.Label95 = New System.Windows.Forms.Label()
         Me.Label96 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label115 = New System.Windows.Forms.Label()
         Me.Label97 = New System.Windows.Forms.Label()
         Me.Label98 = New System.Windows.Forms.Label()
         Me.Label99 = New System.Windows.Forms.Label()
@@ -612,12 +618,6 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.btnDescuentoACliente = New System.Windows.Forms.Button()
-        Me.Label115 = New System.Windows.Forms.Label()
-        Me.numDescuentoACliente = New System.Windows.Forms.NumericUpDown()
-        Me.Label131 = New System.Windows.Forms.Label()
-        Me.Label132 = New System.Windows.Forms.Label()
-        Me.numDescuentoFCliente = New System.Windows.Forms.NumericUpDown()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -683,9 +683,6 @@ Partial Class frmMainMenu
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numDescuentoACliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numDescuentoMCliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numDescuentoFCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mstMenuStrip
@@ -7121,217 +7118,6 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'btnDescuentoACliente
-        '
-        Me.btnDescuentoACliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnDescuentoACliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnDescuentoACliente.FlatAppearance.BorderSize = 0
-        Me.btnDescuentoACliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnDescuentoACliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnDescuentoACliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDescuentoACliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
-        Me.btnDescuentoACliente.ForeColor = System.Drawing.Color.White
-        Me.btnDescuentoACliente.Location = New System.Drawing.Point(507, 120)
-        Me.btnDescuentoACliente.Name = "btnDescuentoACliente"
-        Me.btnDescuentoACliente.Size = New System.Drawing.Size(18, 18)
-        Me.btnDescuentoACliente.TabIndex = 18
-        Me.btnDescuentoACliente.Text = "+"
-        Me.btnDescuentoACliente.UseCompatibleTextRendering = True
-        Me.btnDescuentoACliente.UseVisualStyleBackColor = False
-        '
-        'Label115
-        '
-        Me.Label115.AutoSize = True
-        Me.Label115.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label115.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label115.Location = New System.Drawing.Point(402, 99)
-        Me.Label115.Name = "Label115"
-        Me.Label115.Size = New System.Drawing.Size(94, 17)
-        Me.Label115.TabIndex = 25
-        Me.Label115.Text = "Descuento (%)"
-        '
-        'numDescuentoACliente
-        '
-        Me.numDescuentoACliente.Enabled = False
-        Me.numDescuentoACliente.Location = New System.Drawing.Point(404, 119)
-        Me.numDescuentoACliente.Name = "numDescuentoACliente"
-        Me.numDescuentoACliente.Size = New System.Drawing.Size(99, 20)
-        Me.numDescuentoACliente.TabIndex = 44
-        '
-        'Label131
-        '
-        Me.Label131.AutoSize = True
-        Me.Label131.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label131.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label131.Location = New System.Drawing.Point(12, 161)
-        Me.Label131.Name = "Label131"
-        Me.Label131.Size = New System.Drawing.Size(94, 17)
-        Me.Label131.TabIndex = 25
-        Me.Label131.Text = "Descuento (%)"
-        '
-        'btnDescuentoMCliente
-        '
-        Me.btnDescuentoMCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnDescuentoMCliente.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnDescuentoMCliente.FlatAppearance.BorderSize = 0
-        Me.btnDescuentoMCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnDescuentoMCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnDescuentoMCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDescuentoMCliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
-        Me.btnDescuentoMCliente.ForeColor = System.Drawing.Color.White
-        Me.btnDescuentoMCliente.Location = New System.Drawing.Point(120, 181)
-        Me.btnDescuentoMCliente.Name = "btnDescuentoMCliente"
-        Me.btnDescuentoMCliente.Size = New System.Drawing.Size(18, 18)
-        Me.btnDescuentoMCliente.TabIndex = 18
-        Me.btnDescuentoMCliente.Text = "+"
-        Me.btnDescuentoMCliente.UseCompatibleTextRendering = True
-        Me.btnDescuentoMCliente.UseVisualStyleBackColor = False
-        '
-        'numDescuentoMCliente
-        '
-        Me.numDescuentoMCliente.Enabled = False
-        Me.numDescuentoMCliente.Location = New System.Drawing.Point(14, 181)
-        Me.numDescuentoMCliente.Name = "numDescuentoMCliente"
-        Me.numDescuentoMCliente.Size = New System.Drawing.Size(103, 20)
-        Me.numDescuentoMCliente.TabIndex = 44
-        '
-        'tipodocumento
-        '
-        Me.tipodocumento.DataPropertyName = "tipodocumento"
-        Me.tipodocumento.HeaderText = "Tipo"
-        Me.tipodocumento.Name = "tipodocumento"
-        Me.tipodocumento.ReadOnly = True
-        '
-        'nrodocumento
-        '
-        Me.nrodocumento.DataPropertyName = "nrodocumento"
-        Me.nrodocumento.HeaderText = "Documento"
-        Me.nrodocumento.Name = "nrodocumento"
-        Me.nrodocumento.ReadOnly = True
-        '
-        'nombre
-        '
-        Me.nombre.DataPropertyName = "nombre"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        '
-        'idpersona
-        '
-        Me.idpersona.DataPropertyName = "idpersona"
-        Me.idpersona.HeaderText = "idpersona"
-        Me.idpersona.Name = "idpersona"
-        Me.idpersona.ReadOnly = True
-        Me.idpersona.Visible = False
-        '
-        'apellido
-        '
-        Me.apellido.DataPropertyName = "apellido"
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        '
-        'email
-        '
-        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.email.DataPropertyName = "email"
-        Me.email.HeaderText = "Correo"
-        Me.email.Name = "email"
-        Me.email.ReadOnly = True
-        Me.email.Width = 63
-        '
-        'fecnac
-        '
-        Me.fecnac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-        Me.fecnac.DataPropertyName = "fecnac"
-        Me.fecnac.HeaderText = "Nacimiento"
-        Me.fecnac.Name = "fecnac"
-        Me.fecnac.ReadOnly = True
-        Me.fecnac.Width = 5
-        '
-        'porcdescuento
-        '
-        Me.porcdescuento.DataPropertyName = "porcdescuento"
-        Me.porcdescuento.HeaderText = "Descuento"
-        Me.porcdescuento.Name = "porcdescuento"
-        Me.porcdescuento.ReadOnly = True
-        '
-        'empresa
-        '
-        Me.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.empresa.DataPropertyName = "empresa"
-        Me.empresa.HeaderText = "Empresa"
-        Me.empresa.Name = "empresa"
-        Me.empresa.ReadOnly = True
-        Me.empresa.Width = 73
-        '
-        'estado
-        '
-        Me.estado.DataPropertyName = "estado"
-        Me.estado.HeaderText = "estado"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        Me.estado.Visible = False
-        '
-        'dia
-        '
-        Me.dia.DataPropertyName = "dia"
-        Me.dia.HeaderText = "dia"
-        Me.dia.Name = "dia"
-        Me.dia.ReadOnly = True
-        Me.dia.Visible = False
-        '
-        'idtipodoc
-        '
-        Me.idtipodoc.DataPropertyName = "idtipodoc"
-        Me.idtipodoc.HeaderText = "idtipodoc"
-        Me.idtipodoc.Name = "idtipodoc"
-        Me.idtipodoc.ReadOnly = True
-        Me.idtipodoc.Visible = False
-        '
-        'mes
-        '
-        Me.mes.DataPropertyName = "mes"
-        Me.mes.HeaderText = "mes"
-        Me.mes.Name = "mes"
-        Me.mes.ReadOnly = True
-        Me.mes.Visible = False
-        '
-        'anio
-        '
-        Me.anio.DataPropertyName = "anio"
-        Me.anio.HeaderText = "anio"
-        Me.anio.Name = "anio"
-        Me.anio.ReadOnly = True
-        Me.anio.Visible = False
-        '
-        'telefonos
-        '
-        Me.telefonos.HeaderText = "Telefonos"
-        Me.telefonos.Name = "telefonos"
-        Me.telefonos.ReadOnly = True
-        Me.telefonos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.telefonos.Text = "Ver"
-        Me.telefonos.UseColumnTextForButtonValue = True
-        '
-        'Label132
-        '
-        Me.Label132.AutoSize = True
-        Me.Label132.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label132.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label132.Location = New System.Drawing.Point(12, 140)
-        Me.Label132.Name = "Label132"
-        Me.Label132.Size = New System.Drawing.Size(94, 17)
-        Me.Label132.TabIndex = 25
-        Me.Label132.Text = "Descuento (%)"
-        '
-        'numDescuentoFCliente
-        '
-        Me.numDescuentoFCliente.Location = New System.Drawing.Point(15, 162)
-        Me.numDescuentoFCliente.Name = "numDescuentoFCliente"
-        Me.numDescuentoFCliente.Size = New System.Drawing.Size(126, 20)
-        Me.numDescuentoFCliente.TabIndex = 44
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -7445,9 +7231,6 @@ Partial Class frmMainMenu
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numDescuentoACliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numDescuentoMCliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numDescuentoFCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

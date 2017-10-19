@@ -205,7 +205,7 @@ Public Class frmMainMenu
 
         cbxSucursalFempleados.SelectedItem = Nothing
         cbxTipoFempleados.SelectedItem = Nothing
-        chbxFiltrarEstadoMant.Checked = True
+        chbxFiltrarEstadoMant.Checked = False
 
         cbxKilomFRes.SelectedItem = Nothing
         chboxVerHoyFReserva.Checked = True

@@ -612,12 +612,14 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
+
         Me.btnDescuentoACliente = New System.Windows.Forms.Button()
         Me.Label115 = New System.Windows.Forms.Label()
         Me.numDescuentoACliente = New System.Windows.Forms.NumericUpDown()
         Me.Label131 = New System.Windows.Forms.Label()
         Me.Label132 = New System.Windows.Forms.Label()
         Me.numDescuentoFCliente = New System.Windows.Forms.NumericUpDown()
+
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -683,6 +685,7 @@ Partial Class frmMainMenu
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+
         CType(Me.numDescuentoACliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numDescuentoMCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numDescuentoFCliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -697,7 +700,7 @@ Partial Class frmMainMenu
         Me.mstMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mstMenuStrip.Name = "mstMenuStrip"
         Me.mstMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.mstMenuStrip.Size = New System.Drawing.Size(1604, 30)
+        Me.mstMenuStrip.Size = New System.Drawing.Size(1378, 30)
         Me.mstMenuStrip.TabIndex = 1
         Me.mstMenuStrip.Text = "MenuStrip1"
         '
@@ -4342,7 +4345,8 @@ Partial Class frmMainMenu
         Me.llbFechaInicioMmant.Name = "llbFechaInicioMmant"
         Me.llbFechaInicioMmant.Size = New System.Drawing.Size(80, 17)
         Me.llbFechaInicioMmant.TabIndex = 43
-        Me.llbFechaInicioMmant.Text = "Fecha Inicio"
+
+        Me.llbFechaInicioMmant.Text = "Fecha inicio"
         '
         'cbxModifTipoMant
         '
@@ -4497,8 +4501,6 @@ Partial Class frmMainMenu
         'chbxFiltrarEstadoMant
         '
         Me.chbxFiltrarEstadoMant.AutoSize = True
-        Me.chbxFiltrarEstadoMant.Checked = True
-        Me.chbxFiltrarEstadoMant.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chbxFiltrarEstadoMant.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chbxFiltrarEstadoMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.chbxFiltrarEstadoMant.Location = New System.Drawing.Point(13, 173)
@@ -7121,6 +7123,7 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
+
         'btnDescuentoACliente
         '
         Me.btnDescuentoACliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
@@ -7332,12 +7335,13 @@ Partial Class frmMainMenu
         Me.numDescuentoFCliente.Size = New System.Drawing.Size(126, 20)
         Me.numDescuentoFCliente.TabIndex = 44
         '
+
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1604, 882)
+        Me.ClientSize = New System.Drawing.Size(1378, 780)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.btnMinimizar)
@@ -7347,7 +7351,7 @@ Partial Class frmMainMenu
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.mstMenuStrip
-        Me.MinimumSize = New System.Drawing.Size(1024, 768)
+        Me.MinimumSize = New System.Drawing.Size(1024, 726)
         Me.Name = "frmMainMenu"
         Me.Opacity = 0R
         Me.Text = " "
@@ -7445,9 +7449,11 @@ Partial Class frmMainMenu
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+
         CType(Me.numDescuentoACliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numDescuentoMCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numDescuentoFCliente, System.ComponentModel.ISupportInitialize).EndInit()
+
         Me.ResumeLayout(False)
 
     End Sub

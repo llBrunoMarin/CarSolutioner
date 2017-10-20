@@ -58,6 +58,7 @@ Partial Public Class frmMainMenu
         If chbxEmpresaACliente.Checked = True Then
             txtEmpresaACliente.Enabled = True
             lblEmpresaACliente.Enabled = True
+            txtEmpresaACliente.Text = "-"
         Else
             txtEmpresaACliente.Enabled = False
             lblEmpresaACliente.Enabled = False

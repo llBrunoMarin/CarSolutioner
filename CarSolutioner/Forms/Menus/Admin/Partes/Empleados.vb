@@ -72,7 +72,6 @@ Partial Public Class frmMainMenu
 
                             MsgBox("Empleado insertado correctamente")
                             RecargarDatos(dgvEmpleados)
-
                         End If
                     Else
                         MsgBox("Error en el insert")
@@ -127,7 +126,6 @@ Partial Public Class frmMainMenu
 
         End If
     End Sub
-
 
     Private Sub ModificarEmpleado(sender As Object, e As EventArgs) Handles btnModificarEmpleado.Click
 
@@ -208,4 +206,8 @@ Partial Public Class frmMainMenu
 
 
     End Sub
+
+
+
+
 End Class

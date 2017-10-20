@@ -531,9 +531,9 @@ Partial Class frmAlquilar
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label6.Location = New System.Drawing.Point(172, 33)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(128, 17)
+        Me.Label6.Size = New System.Drawing.Size(112, 17)
         Me.Label6.TabIndex = 48
-        Me.Label6.Text = "Fecha Alquiler Inicio"
+        Me.Label6.Text = "Fecha Alquiler Fin"
         '
         'TextBox1
         '

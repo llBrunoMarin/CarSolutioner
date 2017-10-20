@@ -120,10 +120,8 @@ Public Class frmMainMenu
 
         'Cargas de ComboBox
         'MARCAS
-        Dim MarcasYOtro As DataTable = conexion.Marcas.Select("estado = true").CopyToDataTable
-        MarcasYOtro.Rows.Add(0, "Nueva...", True)
-        CargarDatosComboBox(cbxMarcaAVeh, MarcasYOtro, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaMVeh, MarcasYOtro, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre", "idmarca")
         CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre", "idmarca")
 
         'TIPOS

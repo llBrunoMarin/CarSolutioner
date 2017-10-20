@@ -160,24 +160,27 @@ Partial Public Class frmMainMenu
 
                 If chbxFiltrarFechaMant.Checked = True Then
 
-                    filtro = String.Format("{0} Like '%{1}%' and fechainiciof = '" + dtpFiltrarFechaInicioMant.Value.ToString(format) + "' and fechafinf = '" + dtpFiltrarFechaFinMant.Value.ToString(format) + "'", "matricula", (txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion"))
+                    filtro = String.Format("{0} Like '%{1}%' and ((fechainiciof <= '" + Date.Now.ToString(format) + "' and fechafinf >= '" + Date.Now.ToString(format) + "') OR (fechainiciof > '" + Date.Now.ToString(format) + "')) and fechainiciof >= '" + dtpFiltrarFechaInicioMant.Value.ToString(format) + "' and fechafinf <= '" + dtpFiltrarFechaFinMant.Value.ToString(format) + "'", "matricula", (txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion"))
 
                     dgvMant.DataSource.Filter = filtro
 
                 Else
 
-                    filtro = String.Format("{0} Like '%{1}%' AND (fechainiciof > '" + Date.Now.ToString(format) + "' and fechafinf > '" + Date.Now.ToString(format) + "') OR (fechainiciof < '" + Date.Now.ToString(format) + "' and fechafinf > '" + Date.Now.ToString(format) + "') ", "matricula", txtFiltrarMatriculaMant.Text) +
-                    TipoFiltro(cbxFiltrarTipoMant, "descripcion")
+                    filtro = String.Format("{0} Like '%{1}%' AND ((fechainiciof <= '" + Date.Now.ToString(format) + "' and fechafinf >= '" + Date.Now.ToString(format) + "') OR (fechainiciof > '" + Date.Now.ToString(format) + "')) ", "matricula", txtFiltrarMatriculaMant.Text) +
+                TipoFiltro(cbxFiltrarTipoMant, "descripcion")
 
                     dgvMant.DataSource.Filter = filtro
 
                 End If
+
             Else
+
                 If chbxFiltrarFechaMant.Checked = True Then
 
                     filtro = String.Format("{0} LIKE '%{1}%' and fechainiciof >= '" + dtpFiltrarFechaInicioMant.Value.ToString(format) + "' and fechafinf <= '" + dtpFiltrarFechaFinMant.Value.ToString(format) + "'",
                                            "matricula", txtFiltrarMatriculaMant.Text) + TipoFiltro(cbxFiltrarTipoMant, "descripcion")
                     dgvMant.DataSource.Filter = filtro
+
 
                 Else
 
@@ -187,9 +190,7 @@ Partial Public Class frmMainMenu
                     dgvMant.DataSource.Filter = filtro
 
                 End If
-
             End If
-
         Catch ex As NullReferenceException
 
         End Try

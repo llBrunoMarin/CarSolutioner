@@ -4,12 +4,14 @@
     Dim _IdCliente As Integer
     Dim _Matricula As String
     Dim _NroChasis As String
+    Dim _Deducible As Integer
     Dim _NomCliente As String
     Dim _FechaReservaInicio As Date
     Dim _FechaReservaFin As Date
     Dim _FechaAlquilerInicio As Date
     Dim _FechaTramite As Date
     Dim _IdCategoria As Integer
+    Dim _IdNuevaCategoria As Integer
     Dim _IdTipo As Integer
     Dim _IdSucursalPartida As Integer
     Dim _IdSucursalDestino As Integer
@@ -17,6 +19,7 @@
     Dim _IdCantKM As Integer
     Dim _CostoTotal As Integer
     Dim _DescuentoCliente As Integer
+    Dim _AutosDisponibles As DataTable
     Dim _DiasReservados As DateInterval
 
     Public Property IdReserva As Integer
@@ -178,6 +181,33 @@
         End Get
         Set(value As String)
             _NroChasis = value
+        End Set
+    End Property
+
+    Public Property Deducible As Integer
+        Get
+            Return _Deducible
+        End Get
+        Set(value As Integer)
+            _Deducible = value
+        End Set
+    End Property
+
+    Public Property AutosDisponibles As DataTable
+        Get
+            Return _AutosDisponibles
+        End Get
+        Set(value As DataTable)
+            _AutosDisponibles = value
+        End Set
+    End Property
+
+    Public Property IdNuevaCategoria As Integer
+        Get
+            Return _IdNuevaCategoria
+        End Get
+        Set(value As Integer)
+            _IdNuevaCategoria = value
         End Set
     End Property
 End Class

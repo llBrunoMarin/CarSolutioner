@@ -90,6 +90,11 @@ Partial Class frmAlquilar
         Me.numDescuentoReserva = New System.Windows.Forms.NumericUpDown()
         Me.numDescuentoCliente = New System.Windows.Forms.NumericUpDown()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtDeducible = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtCategoriaAntigua = New System.Windows.Forms.TextBox()
+        Me.lblCategoriaAntigua = New System.Windows.Forms.Label()
+        Me.chboxCobrarEstaCat = New System.Windows.Forms.CheckBox()
         CType(Me.dgvAlquilar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,7 +128,7 @@ Partial Class frmAlquilar
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvAlquilar.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvAlquilar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvAlquilar.Size = New System.Drawing.Size(1035, 476)
+        Me.dgvAlquilar.Size = New System.Drawing.Size(1111, 476)
         Me.dgvAlquilar.TabIndex = 0
         '
         'matricula
@@ -298,7 +303,7 @@ Partial Class frmAlquilar
         'txtCategoria
         '
         Me.txtCategoria.Enabled = False
-        Me.txtCategoria.Location = New System.Drawing.Point(17, 219)
+        Me.txtCategoria.Location = New System.Drawing.Point(17, 220)
         Me.txtCategoria.Name = "txtCategoria"
         Me.txtCategoria.Size = New System.Drawing.Size(131, 20)
         Me.txtCategoria.TabIndex = 2
@@ -331,9 +336,9 @@ Partial Class frmAlquilar
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(14, 153)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(32, 17)
+        Me.Label10.Size = New System.Drawing.Size(107, 17)
         Me.Label10.TabIndex = 31
-        Me.Label10.Text = "Tipo"
+        Me.Label10.Text = "Tipo de Vehiculo"
         '
         'btnCerrar
         '
@@ -344,7 +349,7 @@ Partial Class frmAlquilar
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCerrar.Location = New System.Drawing.Point(1026, 1)
+        Me.btnCerrar.Location = New System.Drawing.Point(1098, 1)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
         Me.btnCerrar.TabIndex = 36
@@ -358,9 +363,9 @@ Partial Class frmAlquilar
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(14, 199)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 17)
+        Me.Label1.Size = New System.Drawing.Size(125, 17)
         Me.Label1.TabIndex = 37
-        Me.Label1.Text = "Categoria"
+        Me.Label1.Text = "Categoria Vehiculo"
         '
         'Label2
         '
@@ -384,7 +389,7 @@ Partial Class frmAlquilar
         Me.btnAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAlquilar.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlquilar.ForeColor = System.Drawing.Color.White
-        Me.btnAlquilar.Location = New System.Drawing.Point(948, 190)
+        Me.btnAlquilar.Location = New System.Drawing.Point(986, 229)
         Me.btnAlquilar.Name = "btnAlquilar"
         Me.btnAlquilar.Size = New System.Drawing.Size(99, 31)
         Me.btnAlquilar.TabIndex = 40
@@ -479,11 +484,10 @@ Partial Class frmAlquilar
         Me.dtpFRfin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFRfin.Location = New System.Drawing.Point(183, 53)
         Me.dtpFRfin.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
-        Me.dtpFRfin.MinDate = New Date(1953, 12, 9, 0, 0, 0, 0)
         Me.dtpFRfin.Name = "dtpFRfin"
         Me.dtpFRfin.Size = New System.Drawing.Size(131, 20)
         Me.dtpFRfin.TabIndex = 53
-        Me.dtpFRfin.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
+        Me.dtpFRfin.Value = New Date(2017, 10, 20, 21, 49, 7, 0)
         '
         'dtpFAinicio
         '
@@ -497,7 +501,7 @@ Partial Class frmAlquilar
         Me.dtpFAinicio.Name = "dtpFAinicio"
         Me.dtpFAinicio.Size = New System.Drawing.Size(131, 20)
         Me.dtpFAinicio.TabIndex = 52
-        Me.dtpFAinicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
+        Me.dtpFAinicio.Value = New Date(2017, 10, 20, 21, 49, 15, 0)
         '
         'dtpFRInicio
         '
@@ -511,7 +515,7 @@ Partial Class frmAlquilar
         Me.dtpFRInicio.Name = "dtpFRInicio"
         Me.dtpFRInicio.Size = New System.Drawing.Size(131, 20)
         Me.dtpFRInicio.TabIndex = 58
-        Me.dtpFRInicio.Value = New Date(2000, 5, 3, 0, 0, 0, 0)
+        Me.dtpFRInicio.Value = New Date(2017, 10, 20, 21, 49, 11, 0)
         '
         'Label8
         '
@@ -582,7 +586,7 @@ Partial Class frmAlquilar
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.GroupBox1.Location = New System.Drawing.Point(365, 44)
+        Me.GroupBox1.Location = New System.Drawing.Point(406, 44)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(330, 98)
         Me.GroupBox1.TabIndex = 60
@@ -598,7 +602,7 @@ Partial Class frmAlquilar
         Me.gbxFecNacFCliente.Controls.Add(Me.Label8)
         Me.gbxFecNacFCliente.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.gbxFecNacFCliente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(717, 44)
+        Me.gbxFecNacFCliente.Location = New System.Drawing.Point(793, 44)
         Me.gbxFecNacFCliente.Name = "gbxFecNacFCliente"
         Me.gbxFecNacFCliente.Size = New System.Drawing.Size(330, 98)
         Me.gbxFecNacFCliente.TabIndex = 62
@@ -615,7 +619,7 @@ Partial Class frmAlquilar
         Me.btnDescuentoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDescuentoCliente.Font = New System.Drawing.Font("Century Gothic", 8.5!)
         Me.btnDescuentoCliente.ForeColor = System.Drawing.Color.White
-        Me.btnDescuentoCliente.Location = New System.Drawing.Point(651, 220)
+        Me.btnDescuentoCliente.Location = New System.Drawing.Point(767, 221)
         Me.btnDescuentoCliente.Name = "btnDescuentoCliente"
         Me.btnDescuentoCliente.Size = New System.Drawing.Size(18, 18)
         Me.btnDescuentoCliente.TabIndex = 69
@@ -628,7 +632,7 @@ Partial Class frmAlquilar
         Me.lblDescuento.AutoSize = True
         Me.lblDescuento.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDescuento.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblDescuento.Location = New System.Drawing.Point(512, 199)
+        Me.lblDescuento.Location = New System.Drawing.Point(630, 197)
         Me.lblDescuento.Name = "lblDescuento"
         Me.lblDescuento.Size = New System.Drawing.Size(141, 17)
         Me.lblDescuento.TabIndex = 66
@@ -637,7 +641,7 @@ Partial Class frmAlquilar
         'txtCostoTotalEsperado
         '
         Me.txtCostoTotalEsperado.Enabled = False
-        Me.txtCostoTotalEsperado.Location = New System.Drawing.Point(761, 173)
+        Me.txtCostoTotalEsperado.Location = New System.Drawing.Point(804, 173)
         Me.txtCostoTotalEsperado.Name = "txtCostoTotalEsperado"
         Me.txtCostoTotalEsperado.Size = New System.Drawing.Size(121, 20)
         Me.txtCostoTotalEsperado.TabIndex = 63
@@ -647,7 +651,7 @@ Partial Class frmAlquilar
         Me.lblCostoYRecargo.AutoSize = True
         Me.lblCostoYRecargo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCostoYRecargo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblCostoYRecargo.Location = New System.Drawing.Point(512, 153)
+        Me.lblCostoYRecargo.Location = New System.Drawing.Point(630, 153)
         Me.lblCostoYRecargo.Name = "lblCostoYRecargo"
         Me.lblCostoYRecargo.Size = New System.Drawing.Size(106, 17)
         Me.lblCostoYRecargo.TabIndex = 67
@@ -658,7 +662,7 @@ Partial Class frmAlquilar
         Me.lblCostoTotal.AutoSize = True
         Me.lblCostoTotal.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCostoTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblCostoTotal.Location = New System.Drawing.Point(783, 153)
+        Me.lblCostoTotal.Location = New System.Drawing.Point(801, 153)
         Me.lblCostoTotal.Name = "lblCostoTotal"
         Me.lblCostoTotal.Size = New System.Drawing.Size(75, 17)
         Me.lblCostoTotal.TabIndex = 68
@@ -667,7 +671,7 @@ Partial Class frmAlquilar
         'txtCostoEsperado
         '
         Me.txtCostoEsperado.Enabled = False
-        Me.txtCostoEsperado.Location = New System.Drawing.Point(514, 173)
+        Me.txtCostoEsperado.Location = New System.Drawing.Point(633, 173)
         Me.txtCostoEsperado.Name = "txtCostoEsperado"
         Me.txtCostoEsperado.Size = New System.Drawing.Size(130, 20)
         Me.txtCostoEsperado.TabIndex = 65
@@ -702,7 +706,7 @@ Partial Class frmAlquilar
         Me.btnDescuentoReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDescuentoReserva.Font = New System.Drawing.Font("Century Gothic", 8.5!)
         Me.btnDescuentoReserva.ForeColor = System.Drawing.Color.White
-        Me.btnDescuentoReserva.Location = New System.Drawing.Point(840, 198)
+        Me.btnDescuentoReserva.Location = New System.Drawing.Point(974, 174)
         Me.btnDescuentoReserva.Name = "btnDescuentoReserva"
         Me.btnDescuentoReserva.Size = New System.Drawing.Size(18, 18)
         Me.btnDescuentoReserva.TabIndex = 69
@@ -712,13 +716,14 @@ Partial Class frmAlquilar
         '
         'lblDescuentoReserva
         '
+        Me.lblDescuentoReserva.AutoSize = True
         Me.lblDescuentoReserva.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.lblDescuentoReserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblDescuentoReserva.Location = New System.Drawing.Point(726, 221)
+        Me.lblDescuentoReserva.Location = New System.Drawing.Point(926, 155)
         Me.lblDescuentoReserva.Name = "lblDescuentoReserva"
-        Me.lblDescuentoReserva.Size = New System.Drawing.Size(205, 38)
+        Me.lblDescuentoReserva.Size = New System.Drawing.Size(66, 16)
         Me.lblDescuentoReserva.TabIndex = 68
-        Me.lblDescuentoReserva.Text = "(Haga click para aplicar descuento)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblDescuentoReserva.Text = "Descuento"
         Me.lblDescuentoReserva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label12
@@ -726,7 +731,7 @@ Partial Class frmAlquilar
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(151, 199)
+        Me.Label12.Location = New System.Drawing.Point(151, 200)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(115, 17)
         Me.Label12.TabIndex = 37
@@ -736,9 +741,9 @@ Partial Class frmAlquilar
         '
         Me.lblAdvertencia.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblAdvertencia.Location = New System.Drawing.Point(300, 171)
+        Me.lblAdvertencia.Location = New System.Drawing.Point(291, 219)
         Me.lblAdvertencia.Name = "lblAdvertencia"
-        Me.lblAdvertencia.Size = New System.Drawing.Size(195, 68)
+        Me.lblAdvertencia.Size = New System.Drawing.Size(336, 31)
         Me.lblAdvertencia.TabIndex = 70
         Me.lblAdvertencia.Text = "Esto quiere decir que el cliente podrá realizar un total de X kilómetros en total" &
     " de toda la reserva."
@@ -750,7 +755,7 @@ Partial Class frmAlquilar
         Me.cbxKilometraje.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.cbxKilometraje.FormattingEnabled = True
         Me.cbxKilometraje.Items.AddRange(New Object() {"Flying Cars", "Uruguay Motors", "Rentafrank", "Punta Motors"})
-        Me.cbxKilometraje.Location = New System.Drawing.Point(154, 220)
+        Me.cbxKilometraje.Location = New System.Drawing.Point(154, 219)
         Me.cbxKilometraje.Name = "cbxKilometraje"
         Me.cbxKilometraje.Size = New System.Drawing.Size(131, 21)
         Me.cbxKilometraje.TabIndex = 56
@@ -758,7 +763,7 @@ Partial Class frmAlquilar
         'numDescuentoReserva
         '
         Me.numDescuentoReserva.Enabled = False
-        Me.numDescuentoReserva.Location = New System.Drawing.Point(796, 197)
+        Me.numDescuentoReserva.Location = New System.Drawing.Point(931, 173)
         Me.numDescuentoReserva.Name = "numDescuentoReserva"
         Me.numDescuentoReserva.Size = New System.Drawing.Size(40, 20)
         Me.numDescuentoReserva.TabIndex = 71
@@ -766,7 +771,7 @@ Partial Class frmAlquilar
         'numDescuentoCliente
         '
         Me.numDescuentoCliente.Enabled = False
-        Me.numDescuentoCliente.Location = New System.Drawing.Point(515, 221)
+        Me.numDescuentoCliente.Location = New System.Drawing.Point(633, 220)
         Me.numDescuentoCliente.Name = "numDescuentoCliente"
         Me.numDescuentoCliente.Size = New System.Drawing.Size(129, 20)
         Me.numDescuentoCliente.TabIndex = 71
@@ -778,14 +783,65 @@ Partial Class frmAlquilar
         Me.Panel1.Controls.Add(Me.btnCerrar)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1064, 30)
+        Me.Panel1.Size = New System.Drawing.Size(1136, 30)
         Me.Panel1.TabIndex = 72
+        '
+        'txtDeducible
+        '
+        Me.txtDeducible.Enabled = False
+        Me.txtDeducible.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.txtDeducible.Location = New System.Drawing.Point(804, 220)
+        Me.txtDeducible.Name = "txtDeducible"
+        Me.txtDeducible.Size = New System.Drawing.Size(121, 20)
+        Me.txtDeducible.TabIndex = 2
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label9.Location = New System.Drawing.Point(801, 200)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(70, 17)
+        Me.Label9.TabIndex = 37
+        Me.Label9.Text = "Deducible"
+        '
+        'txtCategoriaAntigua
+        '
+        Me.txtCategoriaAntigua.Enabled = False
+        Me.txtCategoriaAntigua.Location = New System.Drawing.Point(309, 173)
+        Me.txtCategoriaAntigua.Name = "txtCategoriaAntigua"
+        Me.txtCategoriaAntigua.Size = New System.Drawing.Size(131, 20)
+        Me.txtCategoriaAntigua.TabIndex = 1
+        '
+        'lblCategoriaAntigua
+        '
+        Me.lblCategoriaAntigua.AutoSize = True
+        Me.lblCategoriaAntigua.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCategoriaAntigua.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblCategoriaAntigua.Location = New System.Drawing.Point(309, 153)
+        Me.lblCategoriaAntigua.Name = "lblCategoriaAntigua"
+        Me.lblCategoriaAntigua.Size = New System.Drawing.Size(136, 17)
+        Me.lblCategoriaAntigua.TabIndex = 37
+        Me.lblCategoriaAntigua.Text = "Categoria Reservada"
+        '
+        'chboxCobrarEstaCat
+        '
+        Me.chboxCobrarEstaCat.AutoCheck = False
+        Me.chboxCobrarEstaCat.Font = New System.Drawing.Font("Century Gothic", 7.25!)
+        Me.chboxCobrarEstaCat.Location = New System.Drawing.Point(446, 174)
+        Me.chboxCobrarEstaCat.Name = "chboxCobrarEstaCat"
+        Me.chboxCobrarEstaCat.Size = New System.Drawing.Size(163, 20)
+        Me.chboxCobrarEstaCat.TabIndex = 73
+        Me.chboxCobrarEstaCat.Text = "Cobrar con esta Categoria"
+        Me.chboxCobrarEstaCat.UseVisualStyleBackColor = True
         '
         'frmAlquilar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1059, 754)
+        Me.ClientSize = New System.Drawing.Size(1135, 754)
+        Me.Controls.Add(Me.chboxCobrarEstaCat)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.numDescuentoCliente)
         Me.Controls.Add(Me.numDescuentoReserva)
@@ -794,9 +850,12 @@ Partial Class frmAlquilar
         Me.Controls.Add(Me.btnDescuentoReserva)
         Me.Controls.Add(Me.btnDescuentoCliente)
         Me.Controls.Add(Me.lblDescuento)
+        Me.Controls.Add(Me.txtDeducible)
         Me.Controls.Add(Me.txtCantidadDias)
         Me.Controls.Add(Me.txtCostoTotalEsperado)
         Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.lblCategoriaAntigua)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblCostoYRecargo)
         Me.Controls.Add(Me.lblDescuentoReserva)
@@ -809,6 +868,7 @@ Partial Class frmAlquilar
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.txtCategoria)
+        Me.Controls.Add(Me.txtCategoriaAntigua)
         Me.Controls.Add(Me.txtTipo)
         Me.Controls.Add(Me.dgvAlquilar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -903,4 +963,9 @@ Partial Class frmAlquilar
     Friend WithEvents numDescuentoReserva As NumericUpDown
     Friend WithEvents numDescuentoCliente As NumericUpDown
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents txtDeducible As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtCategoriaAntigua As TextBox
+    Friend WithEvents lblCategoriaAntigua As Label
+    Friend WithEvents chboxCobrarEstaCat As CheckBox
 End Class

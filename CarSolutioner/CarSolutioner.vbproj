@@ -197,6 +197,12 @@
     <Compile Include="Forms\Menus\Admin\Sub-Forms\FinalizarAlquiler.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\ModificarReserva.Designer.vb">
+      <DependentUpon>ModificarReserva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menus\Admin\Sub-Forms\ModificarReserva.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Reconectar.Designer.vb">
       <DependentUpon>Reconectar.vb</DependentUpon>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\FinalizarAlquiler.resx">
       <DependentUpon>FinalizarAlquiler.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\ModificarReserva.resx">
+      <DependentUpon>ModificarReserva.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reconectar.resx">
       <DependentUpon>Reconectar.vb</DependentUpon>

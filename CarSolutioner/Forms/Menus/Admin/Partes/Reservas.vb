@@ -92,53 +92,56 @@ Partial Public Class frmMainMenu
             Dim selectedRow As DataGridViewRow = dgvReservas.Rows(e.RowIndex)
 
             If selectedRow.Cells("idestadoreserva").Value = 1 Then
-                If selectedRow.Cells("fechareservainicio").Value < Date.Now.AddHours(2) Then
 
+                ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
+                ReservaSeleccionadaAlquiler.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
+                ReservaSeleccionadaAlquiler.FechaReservaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
+                ReservaSeleccionadaAlquiler.FechaReservaFin = selectedRow.Cells("fechareservafin").Value.ToString
+                ReservaSeleccionadaAlquiler.IdCantKM = selectedRow.Cells("idcantidadkm").Value.ToString
+                ReservaSeleccionadaAlquiler.CostoTotal = selectedRow.Cells("costototalres").Value.ToString
+                ReservaSeleccionadaAlquiler.FechaTramite = selectedRow.Cells("fechatramite").Value.ToString
+                ReservaSeleccionadaAlquiler.NomCliente = selectedRow.Cells("nombreapellido").Value.ToString
+                ReservaSeleccionadaAlquiler.IdCategoria = selectedRow.Cells("idcategoriareserva").Value.ToString
+                ReservaSeleccionadaAlquiler.IdTipo = selectedRow.Cells("idtiporeserva").Value.ToString
+                ReservaSeleccionadaAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalida").Value.ToString
+                ReservaSeleccionadaAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegada").Value.ToString
+                ReservaSeleccionadaAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleado").Value.ToString
+
+                Dim Disponibles As New DataTable
+                Disponibles = conexion.EjecutarSelect("SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal From Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S Where V.idsucursal = '" + ReservaSeleccionadaAlquiler.IdSucursalPartida.ToString + "' AND V.idcategoria = '" + ReservaSeleccionadaAlquiler.IdCategoria.ToString + "' AND Mo.idtipo = '" + ReservaSeleccionadaAlquiler.IdTipo.ToString + "' AND V.idcategoria = C.idcategoria And V.idmodelo = Mo.idmodelo And Mo.Idmarca = Ma.Idmarca And Mo.Idtipo = T.idtipo And V.idsucursal = S.idsucursal And V.estado = 't' And  V.nrochasis Not IN (Select nrochasis FROM Mantenimiento WHERE (TO_DATE('" + Date.Now.ToString("dd/MM/yyyy HH:mm") + "', '%d/%m/%Y %H:%M') BETWEEN fechainicio AND fechafin ))")
+                ReservaSeleccionadaAlquiler.AutosDisponibles = Disponibles
+
+                If selectedRow.Cells("fechareservainicio").Value < Date.Now.AddHours(2) Then
                     If (Date.Now.AddHours(-2) <= selectedRow.Cells("fechareservainicio").Value) AndAlso (selectedRow.Cells("fechareservainicio").Value <= Date.Now.AddHours(6)) Then
 
-                        ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
-                        ReservaSeleccionadaAlquiler.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
-                        ReservaSeleccionadaAlquiler.FechaReservaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
-                        ReservaSeleccionadaAlquiler.FechaReservaFin = selectedRow.Cells("fechareservafin").Value.ToString
-                        ReservaSeleccionadaAlquiler.IdCantKM = selectedRow.Cells("idcantidadkm").Value.ToString
-                        ReservaSeleccionadaAlquiler.CostoTotal = selectedRow.Cells("costototalres").Value.ToString
-                        ReservaSeleccionadaAlquiler.FechaTramite = selectedRow.Cells("fechatramite").Value.ToString
-                        ReservaSeleccionadaAlquiler.NomCliente = selectedRow.Cells("nombreapellido").Value.ToString
-                        ReservaSeleccionadaAlquiler.IdCategoria = selectedRow.Cells("idcategoriareserva").Value.ToString
-                        ReservaSeleccionadaAlquiler.IdTipo = selectedRow.Cells("idtiporeserva").Value.ToString
-                        ReservaSeleccionadaAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalida").Value.ToString
-                        ReservaSeleccionadaAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegada").Value.ToString
-                        ReservaSeleccionadaAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleado").Value.ToString
-                        frmAlquilar.ShowDialog()
+                        If Disponibles.Rows.Count <> 0 Then
+
+                            Dim AlquilarReserva As New frmAlquilar(ReservaSeleccionadaAlquiler.AutosDisponibles, frmAlquilar.VistaAlquilar.Normal, ReservaSeleccionadaAlquiler)
+                            AlquilarReserva.ShowDialog()
+                        Else
+                            frmModificarReserva.ShowDialog()
+                        End If
 
                     Else
 
                         Dim Diferencia As Integer = Math.Truncate((Date.Now - Date.Parse(selectedRow.Cells("fechareservainicio").Value.ToString())).TotalHours)
-
-
                         Dim resultado As DialogResult = AmaranthMessagebox("Esta reserva era para hace más de " + Diferencia.ToString + " horas atrás. ¿Está seguro que quiere realizar el Alquiler?", "Si/No")
-                        If resultado = vbYes Then
-                            ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
-                            ReservaSeleccionadaAlquiler.IdCliente = selectedRow.Cells("idpersonareserva").Value.ToString
-                            ReservaSeleccionadaAlquiler.FechaReservaInicio = selectedRow.Cells("fechareservainicio").Value.ToString
-                            ReservaSeleccionadaAlquiler.FechaReservaFin = selectedRow.Cells("fechareservafin").Value.ToString
-                            ReservaSeleccionadaAlquiler.IdCantKM = selectedRow.Cells("idcantidadkm").Value.ToString
-                            ReservaSeleccionadaAlquiler.CostoTotal = selectedRow.Cells("costototalres").Value.ToString
-                            ReservaSeleccionadaAlquiler.FechaTramite = selectedRow.Cells("fechatramite").Value.ToString
-                            ReservaSeleccionadaAlquiler.NomCliente = selectedRow.Cells("nombreapellido").Value.ToString
-                            ReservaSeleccionadaAlquiler.IdCategoria = selectedRow.Cells("idcategoriareserva").Value.ToString
-                            ReservaSeleccionadaAlquiler.IdTipo = selectedRow.Cells("idtiporeserva").Value.ToString
-                            ReservaSeleccionadaAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalida").Value.ToString
-                            ReservaSeleccionadaAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegada").Value.ToString
-                            ReservaSeleccionadaAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleado").Value.ToString
 
-                            frmAlquilar.ShowDialog()
+                        If resultado = vbYes Then
+
+                            If Disponibles.Rows.Count <> 0 Then
+
+                                Dim AlquilarReserva As New frmAlquilar(ReservaSeleccionadaAlquiler.AutosDisponibles, frmAlquilar.VistaAlquilar.Normal, ReservaSeleccionadaAlquiler)
+                                AlquilarReserva.ShowDialog()
+                            Else
+                                frmModificarReserva.ShowDialog()
+                            End If
+
                         End If
                     End If
                 Else
                     AmaranthMessagebox("Solo puede alquilar reservas futuras con 2 horas de antelación como máximo.", "Error")
                 End If
-
             Else
                 AmaranthMessagebox("Solo puede alquilar reservas activas.", "Error")
             End If

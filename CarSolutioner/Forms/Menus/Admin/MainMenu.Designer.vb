@@ -433,7 +433,7 @@ Partial Class frmMainMenu
         Me.idcategoriareserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idtiporeserva = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalllegada = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlMres = New System.Windows.Forms.Panel()
         Me.btnModificarReserva = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -671,7 +671,7 @@ Partial Class frmMainMenu
         Me.tabRes_Alq.SuspendLayout()
         Me.Reservas.SuspendLayout()
         CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
+        Me.pnlMres.SuspendLayout()
         Me.pnlNuevaReserva.SuspendLayout()
         Me.pnlBRes.SuspendLayout()
         Me.pnlFReserva.SuspendLayout()
@@ -4891,7 +4891,7 @@ Partial Class frmMainMenu
         '
         Me.Reservas.BackColor = System.Drawing.Color.Silver
         Me.Reservas.Controls.Add(Me.dgvReservas)
-        Me.Reservas.Controls.Add(Me.Panel1)
+        Me.Reservas.Controls.Add(Me.pnlMres)
         Me.Reservas.Controls.Add(Me.pnlNuevaReserva)
         Me.Reservas.Controls.Add(Me.pnlBRes)
         Me.Reservas.Controls.Add(Me.pnlFReserva)
@@ -5099,35 +5099,35 @@ Partial Class frmMainMenu
         Me.idsucursalllegada.ReadOnly = True
         Me.idsucursalllegada.Visible = False
         '
-        'Panel1
+        'pnlMres
         '
-        Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.Silver
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.btnModificarReserva)
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.Label10)
-        Me.Panel1.Controls.Add(Me.Label77)
-        Me.Panel1.Controls.Add(Me.Label81)
-        Me.Panel1.Controls.Add(Me.Label83)
-        Me.Panel1.Controls.Add(Me.Label124)
-        Me.Panel1.Controls.Add(Me.Label125)
-        Me.Panel1.Controls.Add(Me.dtpFechaFinMReserva)
-        Me.Panel1.Controls.Add(Me.cbxCategoriaMReserva)
-        Me.Panel1.Controls.Add(Me.txtDocumMReserva)
-        Me.Panel1.Controls.Add(Me.cbxTipoMReserva)
-        Me.Panel1.Controls.Add(Me.cbxKilomMReserva)
-        Me.Panel1.Controls.Add(Me.Label33)
-        Me.Panel1.Controls.Add(Me.dtpFechaInicioMReserva)
-        Me.Panel1.Controls.Add(Me.Label128)
-        Me.Panel1.Controls.Add(Me.Label129)
-        Me.Panel1.Controls.Add(Me.cbxSucursalSalidaMReserva)
-        Me.Panel1.Controls.Add(Me.cbxSucursalLlegadaMReserva)
-        Me.Panel1.Controls.Add(Me.txtCostoMReserva)
-        Me.Panel1.Location = New System.Drawing.Point(662, 586)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(652, 216)
-        Me.Panel1.TabIndex = 37
+        Me.pnlMres.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlMres.BackColor = System.Drawing.Color.Silver
+        Me.pnlMres.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlMres.Controls.Add(Me.btnModificarReserva)
+        Me.pnlMres.Controls.Add(Me.Label9)
+        Me.pnlMres.Controls.Add(Me.Label10)
+        Me.pnlMres.Controls.Add(Me.Label77)
+        Me.pnlMres.Controls.Add(Me.Label81)
+        Me.pnlMres.Controls.Add(Me.Label83)
+        Me.pnlMres.Controls.Add(Me.Label124)
+        Me.pnlMres.Controls.Add(Me.Label125)
+        Me.pnlMres.Controls.Add(Me.dtpFechaFinMReserva)
+        Me.pnlMres.Controls.Add(Me.cbxCategoriaMReserva)
+        Me.pnlMres.Controls.Add(Me.txtDocumMReserva)
+        Me.pnlMres.Controls.Add(Me.cbxTipoMReserva)
+        Me.pnlMres.Controls.Add(Me.cbxKilomMReserva)
+        Me.pnlMres.Controls.Add(Me.Label33)
+        Me.pnlMres.Controls.Add(Me.dtpFechaInicioMReserva)
+        Me.pnlMres.Controls.Add(Me.Label128)
+        Me.pnlMres.Controls.Add(Me.Label129)
+        Me.pnlMres.Controls.Add(Me.cbxSucursalSalidaMReserva)
+        Me.pnlMres.Controls.Add(Me.cbxSucursalLlegadaMReserva)
+        Me.pnlMres.Controls.Add(Me.txtCostoMReserva)
+        Me.pnlMres.Location = New System.Drawing.Point(662, 586)
+        Me.pnlMres.Name = "pnlMres"
+        Me.pnlMres.Size = New System.Drawing.Size(652, 216)
+        Me.pnlMres.TabIndex = 37
         '
         'btnModificarReserva
         '
@@ -5282,6 +5282,7 @@ Partial Class frmMainMenu
         Me.dtpFechaInicioMReserva.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFechaInicioMReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFechaInicioMReserva.Location = New System.Drawing.Point(267, 123)
+        Me.dtpFechaInicioMReserva.MinDate = New Date(1768, 12, 26, 0, 0, 0, 0)
         Me.dtpFechaInicioMReserva.Name = "dtpFechaInicioMReserva"
         Me.dtpFechaInicioMReserva.Size = New System.Drawing.Size(129, 20)
         Me.dtpFechaInicioMReserva.TabIndex = 21
@@ -5475,6 +5476,7 @@ Partial Class frmMainMenu
         Me.dtpFinARes.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFinARes.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFinARes.Location = New System.Drawing.Point(420, 123)
+        Me.dtpFinARes.MinDate = New Date(2017, 10, 20, 0, 0, 0, 0)
         Me.dtpFinARes.Name = "dtpFinARes"
         Me.dtpFinARes.Size = New System.Drawing.Size(130, 20)
         Me.dtpFinARes.TabIndex = 32
@@ -5517,6 +5519,7 @@ Partial Class frmMainMenu
         Me.dtpInicioARes.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpInicioARes.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpInicioARes.Location = New System.Drawing.Point(284, 123)
+        Me.dtpInicioARes.MinDate = New Date(2017, 10, 20, 0, 0, 0, 0)
         Me.dtpInicioARes.Name = "dtpInicioARes"
         Me.dtpInicioARes.Size = New System.Drawing.Size(130, 20)
         Me.dtpInicioARes.TabIndex = 21
@@ -7226,8 +7229,8 @@ Partial Class frmMainMenu
         Me.tabRes_Alq.ResumeLayout(False)
         Me.Reservas.ResumeLayout(False)
         CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.pnlMres.ResumeLayout(False)
+        Me.pnlMres.PerformLayout()
         Me.pnlNuevaReserva.ResumeLayout(False)
         Me.pnlNuevaReserva.PerformLayout()
         Me.pnlBRes.ResumeLayout(False)
@@ -7625,7 +7628,7 @@ Partial Class frmMainMenu
     Friend WithEvents lblBorrarCategoriaFReserva As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents pnlMres As Panel
     Friend WithEvents btnModificarReserva As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label

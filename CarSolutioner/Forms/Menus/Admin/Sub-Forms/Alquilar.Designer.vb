@@ -484,6 +484,8 @@ Partial Class frmAlquilar
         Me.dtpFRfin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFRfin.Location = New System.Drawing.Point(183, 53)
         Me.dtpFRfin.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
+
+        Me.dtpFRfin.Value = New Date(2017, 10, 20, 0, 0, 0, 0)
         Me.dtpFRfin.Name = "dtpFRfin"
         Me.dtpFRfin.Size = New System.Drawing.Size(131, 20)
         Me.dtpFRfin.TabIndex = 53

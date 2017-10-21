@@ -160,51 +160,77 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub ModificarCliente(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
-
-        Dim IdPersona As String = dgvClientes.CurrentRow.Cells("idpersona").Value.ToString()
-        Dim FechaSeleccionada As String = cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text
-
-        If Not cbxTelefonosMCliente.Items.Count = 0 Then
-
-            If (IsDate(FechaSeleccionada)) Then
-
-                Dim TelefonosPersona As New DataTable
-                TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + "")
-                Dim ListaTelefonos As New List(Of String)
-
-                'Agrega cada item del combobox a la Lista
-                For Each item In cbxTelefonosMCliente.Items
-                    ListaTelefonos.Add(item.ToString)
-                Next
-                Dim numeros As String = ""
-                'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
-                For Each Telefono In ListaTelefonos.Distinct()
-                    If (numeros = "") Then
-                        numeros += Telefono
-                    Else
-                        numeros += "," + Telefono
+        Dim FaltaDato As Boolean = False
+        For Each ctrl As Control In pnlMClientes.Controls
+            If TypeOf (ctrl) Is TextBox Then
+                If ctrl.Text = "" Then
+                    If Not ((ctrl.Name = "txtEmpresaMCliente") Or (ctrl.Name = "txtCorreoMCliente")) Then
+                        FaltaDato = True
                     End If
-                Next
 
-                conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ",
-                                                              nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', 
-                                                              apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', 
-                                                              fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "',
-                                                              porcdescuento = '" + numDescuentoMCliente.Value.ToString + "',
-                                                              telefono ='" + numeros + "'
-                                                              WHERE idpersona = " + IdPersona + "")
+                End If
 
-
-                MsgBox("Persona modificada satisfactoriamente.")
-                RecargarDatos(dgvClientes)
-                numDescuentoMCliente.Enabled = False
             Else
-                MsgBox("Por favor, ingrese una fecha válida.")
+                If TypeOf (ctrl) Is ComboBox Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                        FaltaDato = True
+                    End If
+                End If
+            End If
+        Next
+
+        If Not (FaltaDato) Then
+
+
+            Dim IdPersona As String = dgvClientes.CurrentRow.Cells("idpersona").Value.ToString()
+            Dim FechaSeleccionada As String = cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text
+
+
+            If Not cbxTelefonosMCliente.Items.Count = 0 Then
+
+                If (IsDate(FechaSeleccionada)) Then
+
+                    Dim TelefonosPersona As New DataTable
+                    TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + "")
+                    Dim ListaTelefonos As New List(Of String)
+
+                    'Agrega cada item del combobox a la Lista
+                    For Each item In cbxTelefonosMCliente.Items
+                        ListaTelefonos.Add(item.ToString)
+                    Next
+                    Dim numeros As String = ""
+                    'Por cada item DISTINTO en la lista de telefonos (para evitar duplicados)
+                    For Each Telefono In ListaTelefonos.Distinct()
+                        If (numeros = "") Then
+                            numeros += Telefono
+                        Else
+                            numeros += "," + Telefono
+                        End If
+                    Next
+
+                    'TODO: ver como mejorar este if, pq si borran la ci y la agregan de nuevo cambia el id. Ahora funciona bien.
+                    If (cbxTipoDocumMCliente.SelectedValue = 1) Then
+                        If (Metodos.VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
+                            conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                            MsgBox("Persona modificada satisfactoriamente.")
+                            RecargarDatos(dgvClientes)
+                            numDescuentoMCliente.Enabled = False
+                        End If
+                    Else
+                        conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                        MsgBox("Persona modificada satisfactoriamente.")
+                        RecargarDatos(dgvClientes)
+                        numDescuentoMCliente.Enabled = False
+                    End If
+                Else
+                    MsgBox("Por favor, ingrese una fecha válida.")
+                End If
+            Else
+                MsgBox("Debe cargar los teléfonos de la persona antes de modificar sus datos.")
             End If
         Else
-            MsgBox("Debe cargar los teléfonos de la persona antes de modificar sus datos.")
+            AmaranthMessagebox("Rellene todos los campos obligatorios (*)", "Advertencia")
         End If
-
     End Sub
 
     Private Sub BajaCliente(sender As Object, e As EventArgs) Handles btnBajaCliente.Click
@@ -216,30 +242,34 @@ Partial Public Class frmMainMenu
         Dim Persona As New DataTable
         Persona = conexion.EjecutarSelect("SELECT idpersona, estado FROM cliente where nrodocumento = '" + txtDocumentoBCliente.Text + "'")
 
-        'Si el cliente existe
-        If (Persona.Rows.Count <> 0) Then
-            Dim IdPersona As String = Persona.Rows(0)("idpersona").ToString()
+        If Not (txtDocumentoBCliente.Text = "") Then
 
-            Dim ReservasActivasPersona As DataTable = conexion.EjecutarSelect("SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1")
+            'Si el cliente existe
+            If (Persona.Rows.Count <> 0) Then
+                Dim IdPersona As String = Persona.Rows(0)("idpersona").ToString()
 
-            If (ReservasActivasPersona.Rows.Count <> 0) Then
-                Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
-                Dim NuevoEstado As Boolean = Not EstadoActual
-                If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
-                    RecargarDatos(dgvClientes)
-                    MsgBox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                Dim ReservasActivasPersona As DataTable = conexion.EjecutarSelect("SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1")
+
+                If (ReservasActivasPersona.Rows.Count <> 0) Then
+                    Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
+                    Dim NuevoEstado As Boolean = Not EstadoActual
+                    If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
+                        RecargarDatos(dgvClientes)
+                        MsgBox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                    Else
+                        MsgBox("Hubo un error. Por favor, verifique que pueda eliminar ese cliente.")
+                    End If
                 Else
-                    MsgBox("Hubo un error. Por favor, verifique que pueda eliminar ese cliente.")
+                    AmaranthMessagebox("No puede desactivar un cliente que tiene reservas activas.", "Error")
                 End If
+
             Else
-                AmaranthMessagebox("No puede desactivar un cliente que tiene reservas activas.", "Error")
+                MsgBox("Ese cliente no existe. Por favor, verifique.")
+
             End If
-
         Else
-            MsgBox("Ese cliente no existe. Por favor, verifique.")
-
+            AmaranthMessagebox("Ingrese un número de documento.", "Advertencia")
         End If
-
     End Sub
 
     Private Sub RellenarDatosCliente(sender As Object, e As EventArgs) Handles dgvClientes.SelectionChanged
@@ -255,6 +285,8 @@ Partial Public Class frmMainMenu
             cbxDiaNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("dia").Value.ToString()
             cbxMesNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("mes").Value.ToString()
             cbxAnioNMCliente.SelectedItem = dgvClientes.CurrentRow.Cells("anio").Value.ToString()
+            txtDocumentoBCliente.Text = dgvClientes.CurrentRow.Cells("nrodocumento").Value.ToString()
+            numDescuentoMCliente.Value = dgvClientes.CurrentRow.Cells("porcdescuento").Value
             cbxTelefonosMCliente.DataSource = Nothing
 
         End If

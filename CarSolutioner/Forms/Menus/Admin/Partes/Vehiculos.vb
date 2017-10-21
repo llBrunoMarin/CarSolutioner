@@ -356,69 +356,41 @@ Partial Public Class frmMainMenu
 
         Try
 
-
-
-            If (FaltaDato) Then
+            If Not (FaltaDato) Then
                 If Not (txtNroChasisMVeh.Text = "" Or txtDeducibleMVeh.Text = "" Or txtKMMVeh.Text = "" Or txtMatriculaMVeh.Text = "" Or txtAnioMVeh.Text = "") Then
                     'Me quedo con solo el 1er digito para hacer el insert despues
                     automaticoMVeh = cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1)
                     aireMVeh = chbxAireMVeh.Checked.ToString.Substring(0, 1)
                     cantpasajeros = numPasajerosMVehiculo.Value.ToString
                     añoInsertar = txtAnioMVeh.Text
-                    '15
-                    If Not (txtMatriculaMVeh.Text = matriculaI And
-                            txtAnioMVeh.Text = anioI And
-                            txtKMMVeh.Text = kmvehI And
-                            chbxAireMVeh.Checked.ToString.Substring(0, 1) = aireMvehI And
-                            cbxPuertasMVeh.SelectedItem.ToString = puertasI And
-                            cantpasajeros = nropasajerosI And
-                            cbxMaletasMVeh.SelectedItem = maletasI And
-                            cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1) = automaticoMvehI And
-                            txtDeducibleMVeh.Text.ToString = deducibleI And
-                            cbxCategoriaMVeh.SelectedValue.ToString = categoriaI And
-                            cbxModeloMVeh.SelectedValue.ToString = modeloI And
-                            cbxSucursalMVeh.SelectedValue.ToString = sucursalI And
-                            txtNroChasisMVeh.Text.ToString = nrochasisI And
-                            cbxTipoMVeh.SelectedValue.ToString = tipoI And
-                            cbxMarcaMVeh.SelectedValue.ToString = marcaI) Then
+
+                    If Not (txtMatriculaMVeh.Text = matriculaI And txtAnioMVeh.Text = anioI And txtKMMVeh.Text = kmvehI And chbxAireMVeh.Checked.ToString.Substring(0, 1) = aireMvehI And cbxPuertasMVeh.SelectedItem.ToString = puertasI And cantpasajeros = nropasajerosI And cbxMaletasMVeh.SelectedItem = maletasI And cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1) = automaticoMvehI And txtDeducibleMVeh.Text.ToString = deducibleI And cbxCategoriaMVeh.SelectedValue.ToString = categoriaI And cbxModeloMVeh.SelectedValue.ToString = modeloI And cbxSucursalMVeh.SelectedValue.ToString = sucursalI And txtNroChasisMVeh.Text.ToString = nrochasisI And cbxTipoMVeh.SelectedValue.ToString = tipoI And cbxMarcaMVeh.SelectedValue.ToString = marcaI) Then
 
                         If Not (cantpasajeros = 0) Then
 
                             If Not (añoInsertar > añoActual + 1) Then
-                                MsgBox(nrochasisI)
-                                Dim alquiladoO As New DataTable
-                                alquiladoO = conexion.EjecutarSelect("select nrochasis from vehiculo where nrochasis = '" + nrochasisI + "' and idsucursal is null ")
+                                'TODO: No controla si el mantenimiento esta activo.
+                                'Dim mantenimientoActivo As New DataTable
+                                'mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisI + "'")
 
-                                'Dim alquiladoOS As String = alquiladoO.Rows(0)("nrochasis").ToString()
-
-                                Dim mantenimientoActivo As New DataTable
-                                mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisI + "'")
-
+                                'MsgBox(mantenimientoActivo.ToString)
                                 ' Dim mantenimientoActivoS As String = mantenimientoActivo.Rows(0)("nrochasis").ToString()
+                                Dim nrochasisRepetido As New DataTable
+                                nrochasisRepetido = conexion.EjecutarSelect("SELECT nrochasis from vehiculo WHERE nrochasis= '" + txtNroChasisMVeh.Text.ToString + "'")
 
-                                If (alquiladoO.Rows.Count = 0 Or mantenimientoActivo.Rows.Count = 0) Then
 
-                                    Dim sentencia As String
-                                    sentencia = "UPDATE vehiculo SET nrochasis='" + txtNroChasisMVeh.Text.ToString + "',
-                                             matricula = '" + txtMatriculaMVeh.Text + "', anio ='" + txtAnioMVeh.Text + "', 
-                                             kilometraje ='" + txtKMMVeh.Text + "',
-                                             aireacondicionado ='" + aireMVeh + "', 
-                                             cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "',
-                                             cantidaddepasajeros='" + cantpasajeros + "', 
-                                             cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "',
-                                             esmanual='" + automaticoMVeh + "', 
-                                             deducible ='" + txtDeducibleMVeh.Text.ToString + "',
-                                             idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "',
-                                             idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "', 
-                                             idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "',
-                                             estado ='T' WHERE nrochasis = '" + nrochasisI + "'"
-                                    conexion.EjecutarNonQuery(sentencia)
-                                    RecargarDatos(dgvVehiculos)
-                                    AmaranthMessagebox("Modificado correctamente", "Continuar")
+                                ' If (mantenimientoActivo.Rows.Count <> 0) Then
 
-                                Else
-                                    AmaranthMessagebox("Este vehiculo se encuentra alquilado no puede modificarlo.", "Error")
-                                End If
+                                Dim sentencia As String
+                                sentencia = "UPDATE vehiculo SET nrochasis='" + txtNroChasisMVeh.Text.ToString + "', matricula = '" + txtMatriculaMVeh.Text + "', anio ='" + txtAnioMVeh.Text + "',  kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "',  cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "', cantidaddepasajeros='" + cantpasajeros + "',  cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "',  deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "',  idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T' WHERE nrochasis = '" + nrochasisI + "'"
+                                conexion.EjecutarNonQuery(sentencia)
+                                RecargarDatos(dgvVehiculos)
+                                AmaranthMessagebox("Modificado correctamente", "Continuar")
+
+
+                                'Else
+                                'AmaranthMessagebox("Este vehiculo se encuentra en mantenimiento no puede modificarlo.", "Error")
+                                'End If
 
                             Else
                                 AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error")
@@ -433,10 +405,12 @@ Partial Public Class frmMainMenu
                     AmaranthMessagebox("Por favor, rellene todos los campos", "Advertencia")
                 End If
             Else
-                AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia")
+                    AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia")
             End If
-        Catch ex As System.NullReferenceException
-
+        Catch ex As Exception
+            If (ex.Message.Contains("Referencia a objeto no establecida como instancia de un objeto.")) Then
+                AmaranthMessagebox("Este vehiculo se encuentra alquilado, no puede modificarlo", "Error")
+            End If
         End Try
     End Sub
 
@@ -447,9 +421,9 @@ Partial Public Class frmMainMenu
         Valores.Add(False, "Inactivo")
 
         Dim matriculaDT As New DataTable
-        matriculaDT = conexion.EjecutarSelect("SELECT matricula, estado FROM vehiculo WHERE matricula='" + txtMatriculaBVeh.Text.ToString + "'")
+        matriculaDT = conexion.EjecutarSelect("Select matricula, estado FROM vehiculo WHERE matricula='" + txtMatriculaBVeh.Text.ToString + "'")
 
-        If (matriculaDT.Rows.Count <> 0) Then
+                If (matriculaDT.Rows.Count <> 0) Then
 
             Dim nrochasis As New DataTable
             nrochasis = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula = '" + txtMatriculaBVeh.Text.ToString + "'")

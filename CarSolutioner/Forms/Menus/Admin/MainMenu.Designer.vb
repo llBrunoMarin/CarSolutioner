@@ -56,7 +56,9 @@ Partial Class frmMainMenu
         Me.btnMantenimiento = New System.Windows.Forms.Button()
         Me.btnEmpleados = New System.Windows.Forms.Button()
         Me.btnVehiculos = New System.Windows.Forms.Button()
+        Me.pcboxloading = New System.Windows.Forms.PictureBox()
         Me.btnClientes = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.tbcTabControl = New System.Windows.Forms.TabControl()
         Me.tbpClientes = New System.Windows.Forms.TabPage()
         Me.tabClientes = New System.Windows.Forms.TabControl()
@@ -602,6 +604,7 @@ Partial Class frmMainMenu
         Me.btnVaciarFAlquiler = New System.Windows.Forms.Button()
         Me.Label147 = New System.Windows.Forms.Label()
         Me.tbpMenuPrincipal = New System.Windows.Forms.TabPage()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -617,11 +620,10 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.pcboxloading = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
+        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbcTabControl.SuspendLayout()
         Me.tbpClientes.SuspendLayout()
         Me.tabClientes.SuspendLayout()
@@ -682,8 +684,6 @@ Partial Class frmMainMenu
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
-        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -838,6 +838,17 @@ Partial Class frmMainMenu
         Me.btnVehiculos.Text = "VEHÍCULOS"
         Me.btnVehiculos.UseVisualStyleBackColor = False
         '
+        'pcboxloading
+        '
+        Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
+        Me.pcboxloading.Location = New System.Drawing.Point(36, 46)
+        Me.pcboxloading.Name = "pcboxloading"
+        Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
+        Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pcboxloading.TabIndex = 34
+        Me.pcboxloading.TabStop = False
+        Me.pcboxloading.Visible = False
+        '
         'btnClientes
         '
         Me.btnClientes.BackColor = System.Drawing.Color.Transparent
@@ -854,6 +865,16 @@ Partial Class frmMainMenu
         Me.btnClientes.TabIndex = 0
         Me.btnClientes.Text = "CLIENTES/USUARIOS"
         Me.btnClientes.UseVisualStyleBackColor = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
+        Me.PictureBox2.Location = New System.Drawing.Point(36, 46)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 35
+        Me.PictureBox2.TabStop = False
         '
         'tbcTabControl
         '
@@ -1246,9 +1267,9 @@ Partial Class frmMainMenu
         Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label24.Location = New System.Drawing.Point(402, 52)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(58, 17)
+        Me.Label24.Size = New System.Drawing.Size(64, 17)
         Me.Label24.TabIndex = 52
-        Me.Label24.Text = "Apellido"
+        Me.Label24.Text = "Apellido*"
         '
         'btnDescuentoMCliente
         '
@@ -1275,10 +1296,10 @@ Partial Class frmMainMenu
         Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label25.Location = New System.Drawing.Point(272, 52)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(56, 17)
+        Me.Label25.Size = New System.Drawing.Size(62, 17)
         Me.Label25.TabIndex = 51
         Me.Label25.Tag = ""
-        Me.Label25.Text = "Nombre"
+        Me.Label25.Text = "Nombre*"
         '
         'Label28
         '
@@ -1287,9 +1308,9 @@ Partial Class frmMainMenu
         Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label28.Location = New System.Drawing.Point(11, 50)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(106, 17)
+        Me.Label28.Size = New System.Drawing.Size(112, 17)
         Me.Label28.TabIndex = 49
-        Me.Label28.Text = "Tipo Documento"
+        Me.Label28.Text = "Tipo Documento*"
         '
         'Label100
         '
@@ -1298,9 +1319,9 @@ Partial Class frmMainMenu
         Me.Label100.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label100.Location = New System.Drawing.Point(141, 50)
         Me.Label100.Name = "Label100"
-        Me.Label100.Size = New System.Drawing.Size(103, 17)
+        Me.Label100.Size = New System.Drawing.Size(109, 17)
         Me.Label100.TabIndex = 44
-        Me.Label100.Text = "Nro Documento"
+        Me.Label100.Text = "Nro Documento*"
         '
         'txtDocumMCliente
         '
@@ -2434,7 +2455,7 @@ Partial Class frmMainMenu
         Me.btnBajaBVeh.Name = "btnBajaBVeh"
         Me.btnBajaBVeh.Size = New System.Drawing.Size(99, 31)
         Me.btnBajaBVeh.TabIndex = 18
-        Me.btnBajaBVeh.Text = "Baja"
+        Me.btnBajaBVeh.Text = "Actualizar"
         Me.btnBajaBVeh.UseVisualStyleBackColor = False
         '
         'Label31
@@ -2455,9 +2476,9 @@ Partial Class frmMainMenu
         Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label32.Location = New System.Drawing.Point(9, 17)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(206, 22)
+        Me.Label32.Size = New System.Drawing.Size(273, 22)
         Me.Label32.TabIndex = 24
-        Me.Label32.Text = "Dar de baja Vehiculo"
+        Me.Label32.Text = "Cambiar estado delVehiculo"
         '
         'txtMatriculaBVeh
         '
@@ -6982,6 +7003,16 @@ Partial Class frmMainMenu
         Me.tbpMenuPrincipal.TabIndex = 4
         Me.tbpMenuPrincipal.Text = "MenuPrincipal"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.CoypyRight
+        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
         'emailE
         '
         Me.emailE.DataPropertyName = "email"
@@ -7107,37 +7138,6 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'pcboxloading
-        '
-        Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
-        Me.pcboxloading.Location = New System.Drawing.Point(36, 46)
-        Me.pcboxloading.Name = "pcboxloading"
-        Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
-        Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pcboxloading.TabIndex = 34
-        Me.pcboxloading.TabStop = False
-        Me.pcboxloading.Visible = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
-        Me.PictureBox2.Location = New System.Drawing.Point(36, 46)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 35
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.CoypyRight
-        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -7162,6 +7162,8 @@ Partial Class frmMainMenu
         Me.mstMenuStrip.ResumeLayout(False)
         Me.mstMenuStrip.PerformLayout()
         Me.pnlSidebar.ResumeLayout(False)
+        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbcTabControl.ResumeLayout(False)
         Me.tbpClientes.ResumeLayout(False)
         Me.tabClientes.ResumeLayout(False)
@@ -7248,8 +7250,6 @@ Partial Class frmMainMenu
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
-        CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

@@ -5,6 +5,7 @@ End Class
 
 'MANTENIMIENTO
 Partial Public Class frmMainMenu
+
     Private Sub btnIngresarMant_Click(sender As Object, e As EventArgs) Handles btnIngresarMant.Click
 
         Dim FaltaDato As Boolean = False
@@ -42,7 +43,7 @@ Partial Public Class frmMainMenu
 
                 If Not (verifestadoveh.Rows.Count <> 0) Then
                     If Not (verifalquiler.Rows.Count <> 0) Then
-                        If not (verifnrochasis.Rows.Count <> 0) Then
+                        If Not (verifnrochasis.Rows.Count <> 0) Then
                             If dtpFechaInicioMant.Value.ToString(format) > dtpFechaFinMant.Value.ToString(format) Then
                                 MsgBox("No puede definir una fecha de inicio mayor a la fecha de fin")
                             Else
@@ -67,10 +68,10 @@ Partial Public Class frmMainMenu
                     MsgBox("El vehículo está inactivo")
                 End If
             Else
-                    MsgBox("Matricula no existe")
+                MsgBox("Matricula no existe")
             End If
         Else
-                MsgBox("No pueden quedar campos vacíos")
+            MsgBox("No pueden quedar campos vacíos")
         End If
     End Sub
 
@@ -217,6 +218,9 @@ Partial Public Class frmMainMenu
                 DirectCast(item, NumericUpDown).Value = Nothing
             End If
         Next
+        dtpFiltrarFechaInicioMant.Value = Date.Now
+        dtpFiltrarFechaFinMant.Value = Date.Now
+        chbxFiltrarFechaMant.Checked = False
         RecargarDatos(dgvMant)
     End Sub
 
@@ -252,6 +256,8 @@ Partial Public Class frmMainMenu
                 DirectCast(item, NumericUpDown).Value = Nothing
             End If
         Next
+        dtpFechaInicioMant.Value = Date.Now
+        dtpFechaFinMant.Value = Date.Now
     End Sub
     Private Sub btnBajamant_Click(sender As Object, e As EventArgs) Handles btnBajamant.Click
 

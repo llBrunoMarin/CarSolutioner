@@ -111,19 +111,22 @@ Partial Public Class frmMainMenu
                                                                FROM empleado,cliente 
                                                                WHERE cliente.idpersona = empleado.idpersona
                                                                AND nrodocumento = '" & txtNroDocEempleado.Text & "'")
+        If Not (txtNroDocEempleado.Text = "") Then
+            If (idpersonaUsuarioEmpA.Rows.Count <> 0) Then
+                Dim IdPersona As String = idpersonaUsuarioEmpA.Rows(0)("idpersona").ToString()
+                Dim EstadoActual As Boolean = idpersonaUsuarioEmpA.Rows(0)("estado")
+                Dim NuevoEstado As Boolean = Not EstadoActual
+                If (conexion.EjecutarNonQuery("UPDATE empleado SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
 
-        If (idpersonaUsuarioEmpA.Rows.Count <> 0) Then
-            Dim IdPersona As String = idpersonaUsuarioEmpA.Rows(0)("idpersona").ToString()
-            Dim EstadoActual As Boolean = idpersonaUsuarioEmpA.Rows(0)("estado")
-            Dim NuevoEstado As Boolean = Not EstadoActual
-            If (conexion.EjecutarNonQuery("UPDATE empleado SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
+                    MsgBox("Empleado pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                    RecargarDatos(dgvEmpleados)
+                End If
+            Else
+                MsgBox("Ese cliente no existe. Por favor, verifique.")
 
-                MsgBox("Empleado pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
-                RecargarDatos(dgvEmpleados)
             End If
         Else
-            MsgBox("Ese cliente no existe. Por favor, verifique.")
-
+            AmaranthMessagebox("Ingrese un número de documento", "Advertencia")
         End If
     End Sub
 

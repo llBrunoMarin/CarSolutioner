@@ -6,7 +6,6 @@ Imports System.IO
 Public Class NoDesignerClientes
 End Class
 
-
 'CLIENTES
 Partial Public Class frmMainMenu
 
@@ -58,7 +57,7 @@ Partial Public Class frmMainMenu
         If chbxEmpresaACliente.Checked = True Then
             txtEmpresaACliente.Enabled = True
             lblEmpresaACliente.Enabled = True
-            txtEmpresaACliente.Text = "-"
+            txtEmpresaACliente.Text = ""
         Else
             txtEmpresaACliente.Enabled = False
             lblEmpresaACliente.Enabled = False
@@ -168,6 +167,14 @@ Partial Public Class frmMainMenu
                         FaltaDato = True
                     End If
 
+        Dim FaltaDato As Boolean = False
+        For Each ctrl As Control In pnlMClientes.Controls
+            If TypeOf (ctrl) Is TextBox Then
+                If ctrl.Text = "" Then
+                    If Not ((ctrl.Name = "txtEmpresaMCliente") Or (ctrl.Name = "txtCorreoMCliente")) Then
+                        FaltaDato = True
+                    End If
+
                 End If
 
             Else
@@ -181,10 +188,8 @@ Partial Public Class frmMainMenu
 
         If Not (FaltaDato) Then
 
-
             Dim IdPersona As String = dgvClientes.CurrentRow.Cells("idpersona").Value.ToString()
             Dim FechaSeleccionada As String = cbxDiaNMCliente.Text + "/" + cbxMesNMCliente.Text + "/" + cbxAnioNMCliente.Text
-
 
             If Not cbxTelefonosMCliente.Items.Count = 0 Then
 
@@ -192,8 +197,8 @@ Partial Public Class frmMainMenu
 
                     Dim TelefonosPersona As New DataTable
                     TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + "")
-                    Dim ListaTelefonos As New List(Of String)
 
+                    Dim ListaTelefonos As New List(Of String)
                     'Agrega cada item del combobox a la Lista
                     For Each item In cbxTelefonosMCliente.Items
                         ListaTelefonos.Add(item.ToString)
@@ -208,23 +213,42 @@ Partial Public Class frmMainMenu
                         End If
                     Next
 
-                    'TODO: ver como mejorar este if, pq si borran la ci y la agregan de nuevo cambia el id. Ahora funciona bien.
-                    If (cbxTipoDocumMCliente.SelectedValue = 1) Then
-                        If (Metodos.VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
-                            conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                    Dim telefonoM As String = TelefonosPersona.Rows(0)("telefono").ToString()
+                    Dim idtipodocm As String = dgvClientes.CurrentRow.Cells("idtipodoc").Value.ToString()
+                    Dim nrodocM As String = dgvClientes.CurrentRow.Cells("nrodocumento").Value.ToString()
+                    Dim nombreM As String = dgvClientes.CurrentRow.Cells("nombre").Value.ToString
+                    Dim apellidoM As String = dgvClientes.CurrentRow.Cells("apellido").Value.ToString()
+                    Dim emailM As String = dgvClientes.CurrentRow.Cells("email").Value.ToString()
+                    Dim empresaM As String = dgvClientes.CurrentRow.Cells("empresa").Value.ToString()
+                    Dim descuentoM As String = dgvClientes.CurrentRow.Cells("porcdescuento").Value
+                    Dim diaM As String = dgvClientes.CurrentRow.Cells("dia").Value.ToString()
+                    Dim mesM As String = dgvClientes.CurrentRow.Cells("mes").Value.ToString()
+                    Dim anioM As String = dgvClientes.CurrentRow.Cells("anio").Value.ToString()
+                    Dim FechaModificar As String = diaM + "/" + mesM + "/" + anioM
+
+                    If (cbxTipoDocumMCliente.SelectedValue = idtipodocm And txtDocumMCliente.Text.ToString = nrodocM And txtNombreMCliente.Text.ToString = nombreM And txtApellidoMCliente.Text.ToString = apellidoM And txtCorreoMCliente.Text.ToString = apellidoM And txtEmpresaMCliente.Text.ToString = empresaM And numDescuentoMCliente.Value.ToString = descuentoM And FechaSeleccionada = FechaModificar And telefonoM = numeros) Then
+
+                        'TODO: ver como mejorar este if, pq si borran la ci y la agregan de nuevo cambia el id. Ahora funciona bien.
+                        If (cbxTipoDocumMCliente.SelectedValue = 1) Then
+                            If (Metodos.VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
+                                conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                                MsgBox("Persona modificada satisfactoriamente.")
+                                RecargarDatos(dgvClientes)
+                                numDescuentoMCliente.Enabled = False
+                            End If
+                        Else
+                            conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
                             MsgBox("Persona modificada satisfactoriamente.")
                             RecargarDatos(dgvClientes)
                             numDescuentoMCliente.Enabled = False
                         End If
                     Else
-                        conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
-                        MsgBox("Persona modificada satisfactoriamente.")
-                        RecargarDatos(dgvClientes)
-                        numDescuentoMCliente.Enabled = False
+                        AmaranthMessagebox("Modifique algo por favor.", "Advertencia")
                     End If
                 Else
                     MsgBox("Por favor, ingrese una fecha válida.")
                 End If
+
             Else
                 MsgBox("Debe cargar los teléfonos de la persona antes de modificar sus datos.")
             End If
@@ -238,6 +262,8 @@ Partial Public Class frmMainMenu
         Dim Valores As New Dictionary(Of Boolean, String)
         Valores.Add(True, "Activo")
         Valores.Add(False, "Inactivo")
+        Dim nrochasis As String
+        Dim idreserva As String
 
         Dim Persona As New DataTable
         Persona = conexion.EjecutarSelect("SELECT idpersona, estado FROM cliente where nrodocumento = '" + txtDocumentoBCliente.Text + "'")
@@ -248,23 +274,40 @@ Partial Public Class frmMainMenu
             If (Persona.Rows.Count <> 0) Then
                 Dim IdPersona As String = Persona.Rows(0)("idpersona").ToString()
 
-                Dim ReservasActivasPersona As DataTable = conexion.EjecutarSelect("SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1")
-
-                If (ReservasActivasPersona.Rows.Count <> 0) Then
-                    Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
-                    Dim NuevoEstado As Boolean = Not EstadoActual
-                    If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
-                        RecargarDatos(dgvClientes)
-                        MsgBox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
-                    Else
-                        MsgBox("Hubo un error. Por favor, verifique que pueda eliminar ese cliente.")
-                    End If
-                Else
-                    AmaranthMessagebox("No puede desactivar un cliente que tiene reservas activas.", "Error")
+                Dim alquileresActivos As New DataTable
+                Dim sentencia As String = "SELECT nrochasis FROM reserva WHERE idpersona = '" + IdPersona + "' AND estado = '1'"
+                alquileresActivos = conexion.EjecutarSelect(sentencia)
+                If Not (alquileresActivos.Rows.Count = 0) Then
+                    nrochasis = alquileresActivos.Rows(0)("nrochasis").ToString
                 End If
 
-            Else
-                MsgBox("Ese cliente no existe. Por favor, verifique.")
+                If (nrochasis = "") Then
+
+                    Dim ReservasActivasPersona As DataTable
+                    Dim sentencia2 As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1"
+                    ReservasActivasPersona = conexion.EjecutarSelect(sentencia2)
+                    If Not (ReservasActivasPersona.Rows.Count = 0) Then
+                        idreserva = ReservasActivasPersona.Rows(0)("idreserva").ToString
+                    End If
+
+                    If (idreserva = "") Then
+                        Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
+                        Dim NuevoEstado As Boolean = Not EstadoActual
+                        If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
+                            RecargarDatos(dgvClientes)
+                            MsgBox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                        Else
+                            MsgBox("Hubo un error. Por favor, verifique que pueda eliminar ese cliente.")
+                        End If
+                    Else
+                        AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene reservas activas.", "Error")
+                    End If
+                Else
+                    AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene un alquiler activo.", "Error")
+                    End If
+
+                Else
+                    MsgBox("Ese cliente no existe. Por favor, verifique.")
 
             End If
         Else
@@ -398,8 +441,6 @@ Partial Public Class frmMainMenu
         chbxFechaFClientes.Checked = Not chbxFechaFClientes.Checked
 
     End Sub
-
-
 
     'REPORTES
     Private Sub ExportarMasAlquileres(sender As Object, e As EventArgs) Handles btnExportarMasAlquileresRClientes.Click

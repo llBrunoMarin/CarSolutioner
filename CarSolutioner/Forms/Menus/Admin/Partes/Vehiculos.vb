@@ -194,7 +194,10 @@ Partial Public Class frmMainMenu
     Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxCategoriaFVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxTipoFVeh.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectionChangeCommitted, lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click
 
         Dim Filtro As String
+        'TODO: filtrar por deducible, color, kilometraje
+        'Siguen sin funcionar los cbx de aire y automatico
         Filtro = "nrochasis LIKE '%" + txtNroChasisFVeh.Text + "%' AND matricula LIKE '%" + txtMatriculaFVeh.Text + "%'" + TipoFiltro(cbxAireFVeh, "aire") + TipoFiltro(cbxAutomaticoFVeh, "automatico") + TipoFiltro(cbxMaletasFVeh, "cantidaddemaletas") + TipoFiltro(cbxPuertasFVeh, "cantidaddepuertas") + TipoFiltro(numPasajerosFVeh, "cantidaddepasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxTipoFVeh, "idtipo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
+
         dgvVehiculos.DataSource.Filter = Filtro
 
     End Sub
@@ -381,6 +384,7 @@ Partial Public Class frmMainMenu
 
                                 ' If (mantenimientoActivo.Rows.Count <> 0) Then
 
+
                                 Dim sentencia As String
                                 sentencia = "UPDATE vehiculo SET nrochasis='" + txtNroChasisMVeh.Text.ToString + "', matricula = '" + txtMatriculaMVeh.Text + "', anio ='" + txtAnioMVeh.Text + "',  kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "',  cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "', cantidaddepasajeros='" + cantpasajeros + "',  cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "',  deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "',  idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T' WHERE nrochasis = '" + nrochasisI + "'"
                                 conexion.EjecutarNonQuery(sentencia)
@@ -420,43 +424,48 @@ Partial Public Class frmMainMenu
         Valores.Add(True, "Activo")
         Valores.Add(False, "Inactivo")
 
-        Dim matriculaDT As New DataTable
-        matriculaDT = conexion.EjecutarSelect("Select matricula, estado FROM vehiculo WHERE matricula='" + txtMatriculaBVeh.Text.ToString + "'")
+        If Not (txtMatriculaBVeh.Text.ToString = "") Then
 
-                If (matriculaDT.Rows.Count <> 0) Then
+            Dim matriculaDT As New DataTable
+            matriculaDT = conexion.EjecutarSelect("Select matricula, estado FROM vehiculo WHERE matricula='" + txtMatriculaBVeh.Text.ToString + "'")
 
-            Dim nrochasis As New DataTable
-            nrochasis = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula = '" + txtMatriculaBVeh.Text.ToString + "'")
+            If (matriculaDT.Rows.Count <> 0) Then
 
-            Dim nrochasisS As String
-            nrochasisS = nrochasis.Rows(0)("nrochasis").ToString()
+                Dim nrochasis As New DataTable
+                nrochasis = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula = '" + txtMatriculaBVeh.Text.ToString + "'")
 
-            Dim alquilerActivo As New DataTable
-            alquilerActivo = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE nrochasis = '" + nrochasisS + "' and idsucursal is null")
+                Dim nrochasisS As String
+                nrochasisS = nrochasis.Rows(0)("nrochasis").ToString()
 
-            Dim mantenimientoActivo As New DataTable
-            mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisS + "'")
+                Dim alquilerActivo As New DataTable
+                alquilerActivo = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE nrochasis = '" + nrochasisS + "' and idsucursal is null")
 
-            If (mantenimientoActivo.Rows.Count = 0 And alquilerActivo.Rows.Count = 0) Then
+                Dim mantenimientoActivo As New DataTable
+                mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisS + "'")
 
-                If (AmaranthMessagebox("Seguro que quiere dar de baja este vehiculo?", "Si/No") = vbYes) Then
+                If (mantenimientoActivo.Rows.Count = 0 And alquilerActivo.Rows.Count = 0) Then
 
-                    Dim matriculaI As String = matriculaDT.Rows(0)("matricula").ToString()
-                    Dim EstadoActual As Boolean = matriculaDT.Rows(0)("estado")
-                    Dim NuevoEstado As Boolean = Not EstadoActual
-                    Dim sentencia As String
-                    sentencia = "UPDATE vehiculo SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE matricula = '" + matriculaI.ToString + "'"
-                    If (conexion.EjecutarNonQuery(sentencia)) Then
+                    If (AmaranthMessagebox("Seguro que quiere dar de baja este vehiculo?", "Si/No") = vbYes) Then
 
-                        MsgBox("Vehiculo pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
-                        RecargarDatos(dgvVehiculos)
+                        Dim matriculaI As String = matriculaDT.Rows(0)("matricula").ToString()
+                        Dim EstadoActual As Boolean = matriculaDT.Rows(0)("estado")
+                        Dim NuevoEstado As Boolean = Not EstadoActual
+                        Dim sentencia As String
+                        sentencia = "UPDATE vehiculo SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE matricula = '" + matriculaI.ToString + "'"
+                        If (conexion.EjecutarNonQuery(sentencia)) Then
+
+                            MsgBox("Vehiculo pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                            RecargarDatos(dgvVehiculos)
+                        End If
                     End If
+                Else
+                    AmaranthMessagebox("No es posible dar de baja este vehiculo debido a que tiene un alquiler o mantenimiento activo", "Advertencia")
                 End If
             Else
-                AmaranthMessagebox("No es posible dar de baja este vehiculo debido a que tiene un alquiler o mantenimiento activo", "Advertencia")
+                AmaranthMessagebox("No existe esa matricula", "Error")
             End If
         Else
-            AmaranthMessagebox("No existe esa matricula", "Error")
+            AmaranthMessagebox("Ingrese una matricula", "Advertencia")
         End If
     End Sub
 

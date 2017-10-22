@@ -314,8 +314,8 @@
         End Try
 
     End Sub
-    Private Declare Function GetTickCount Lib "kernel32" () As Integer
 
+    Private Declare Function GetTickCount Lib "kernel32" () As Integer
 
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
@@ -358,6 +358,5 @@
         End Try
 
     End Function
-
 
 End Class

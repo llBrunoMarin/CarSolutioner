@@ -9,9 +9,11 @@ Partial Public Class frmMainMenu
     Private Sub BorrarTipoEmpleado(sender As Object, e As EventArgs) Handles lblBorrarTipoFEmpleado.Click
         cbxTipoFempleados.SelectedItem = Nothing
     End Sub
+
     Private Sub BorrarSucEmpleado(sender As Object, e As EventArgs) Handles lblBorrarSucursalFEmpleado.Click
         cbxSucursalFempleados.SelectedItem = Nothing
     End Sub
+
     Private Sub FiltrosEmpleados(sender As Object, e As EventArgs) Handles txtNroDocFempleado.TextChanged, cbxSucursalFempleados.SelectionChangeCommitted, cbxTipoFempleados.SelectionChangeCommitted, txtNombreFempleado.TextChanged, txtApellidoFempleado.TextChanged, lblBorrarTipoFEmpleado.Click, lblBorrarSucursalFEmpleado.Click
 
         Dim filtro As String
@@ -62,25 +64,32 @@ Partial Public Class frmMainMenu
                 Dim idpersonaRepetido As New DataTable
                 idpersonaRepetido = conexion.EjecutarSelect("SELECT idpersona FROM empleado where idpersona = '" + idPersonaInsertar.Rows(0)(0).ToString + "'")
 
-                If Not (idpersonaRepetido.Rows.Count <> 0) Then
+                Dim NombreUsuarioEmpA As String = dgvEmpleados.CurrentRow.Cells("usuariosEmpleado").Value.ToString()
 
-                    Dim IdPersona As String = idPersonaInsertar.Rows(0)("idpersona").ToString()
+                If Not (NombreUsuarioEmpA = txtNombreUsuarioCempleado.Text) Then
 
-                    If (conexion.EjecutarNonQuery("INSERT INTO empleado VALUES ('" + IdPersona + "','" + cbxTipoCempleados.SelectedValue.ToString + "','" + txtNombreUsuarioCempleado.Text.ToString + "','t')") = True) Then
+                    If Not (idpersonaRepetido.Rows.Count <> 0) Then
 
-                        If (conexion.EjecutarNonQuery("INSERT INTO trabaja VALUES ('" + txtNombreUsuarioCempleado.Text + "','" + cbxSucursalCempleados.SelectedValue.ToString + "','" + fechActual.ToString + "',NULL)") = True) Then
+                        Dim IdPersona As String = idPersonaInsertar.Rows(0)("idpersona").ToString()
 
-                            MsgBox("Empleado insertado correctamente")
-                            RecargarDatos(dgvEmpleados)
+                        If (conexion.EjecutarNonQuery("INSERT INTO empleado VALUES ('" + IdPersona + "','" + cbxTipoCempleados.SelectedValue.ToString + "','" + txtNombreUsuarioCempleado.Text.ToString + "','t')") = True) Then
+
+                            If (conexion.EjecutarNonQuery("INSERT INTO trabaja VALUES ('" + txtNombreUsuarioCempleado.Text + "','" + cbxSucursalCempleados.SelectedValue.ToString + "','" + fechActual.ToString + "',NULL)") = True) Then
+
+                                MsgBox("Empleado insertado correctamente")
+                                RecargarDatos(dgvEmpleados)
+                            End If
+                        Else
+                            MsgBox("Error en el insert")
                         End If
                     Else
-                        MsgBox("Error en el insert")
+                        MsgBox("Este empleado ya existe")
                     End If
                 Else
-                    MsgBox("Este empleado ya existe")
+                    AmaranthMessagebox("Ya existe un empleado con este nombre de usuario", "Advertencia")
                 End If
             Else
-                MsgBox("Ese cliente no existe por favor verifique")
+                    MsgBox("Ese cliente no existe por favor verifique")
             End If
         Else
             MsgBox("Por favor, rellene todos los campos.")
@@ -210,7 +219,18 @@ Partial Public Class frmMainMenu
 
     End Sub
 
+    Private Sub VaciarDatos(sender As Object, e As EventArgs) Handles btnVaciarFEmpleado.Click
 
+        For Each item In pnlFemp.Controls
+            If TypeOf item Is TextBox Then
+                item.text = ""
+            End If
 
+            If TypeOf item Is ComboBox Then
+                item.SelectedItem = Nothing
+            End If
+        Next
+
+    End Sub
 
 End Class

@@ -49,7 +49,7 @@ Partial Class Autorizacion
         Me.lblTexto.Name = "lblTexto"
         Me.lblTexto.Size = New System.Drawing.Size(273, 36)
         Me.lblTexto.TabIndex = 1
-        Me.lblTexto.Text = "Ingrese el código de Autorización"
+        Me.lblTexto.Text = "Ingrese el código de autorización"
         '
         'btnVerificar
         '
@@ -150,7 +150,7 @@ Partial Class Autorizacion
         Me.lbldataincorrect.Name = "lbldataincorrect"
         Me.lbldataincorrect.Size = New System.Drawing.Size(285, 15)
         Me.lbldataincorrect.TabIndex = 57
-        Me.lbldataincorrect.Text = "Código no válido. Intente nuevamente"
+        Me.lbldataincorrect.Text = "Código inválido. Intente nuevamente"
         Me.lbldataincorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lbldataincorrect.Visible = False
         '

@@ -164,7 +164,7 @@ Partial Class frmModificarReserva
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(69, 17)
         Me.Label12.TabIndex = 65
-        Me.Label12.Text = "Categoria"
+        Me.Label12.Text = "Categoría"
         '
         'Label1
         '

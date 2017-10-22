@@ -66,6 +66,21 @@ Partial Class frmMainMenu
         Me.tabClientes = New System.Windows.Forms.TabControl()
         Me.Clientes = New System.Windows.Forms.TabPage()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
+        Me.tipodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersona = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecnac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.porcdescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.dia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.mes = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.telefonos = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.pnlMClientes = New System.Windows.Forms.Panel()
         Me.numDescuentoMCliente = New System.Windows.Forms.NumericUpDown()
         Me.gbxFecNacMCliente = New System.Windows.Forms.GroupBox()
@@ -609,21 +624,6 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.tipodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersona = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecnac = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.porcdescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.dia = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.mes = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.telefonos = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -717,8 +717,8 @@ Partial Class frmMainMenu
         '
         Me.ImprmirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListadoActualToolStripMenuItem, Me.GuardarToolStripMenuItem1})
         Me.ImprmirToolStripMenuItem.Name = "ImprmirToolStripMenuItem"
-        Me.ImprmirToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
-        Me.ImprmirToolStripMenuItem.Text = "Listado Actual"
+        Me.ImprmirToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ImprmirToolStripMenuItem.Text = "Listado actual"
         '
         'ListadoActualToolStripMenuItem
         '
@@ -744,7 +744,7 @@ Partial Class frmMainMenu
         'AparienciaToolStripMenuItem
         '
         Me.AparienciaToolStripMenuItem.Name = "AparienciaToolStripMenuItem"
-        Me.AparienciaToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.AparienciaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AparienciaToolStripMenuItem.Text = "Apariencia"
         '
         'tsItemHerramientas
@@ -759,8 +759,8 @@ Partial Class frmMainMenu
         'tsitemCambiosGenerales
         '
         Me.tsitemCambiosGenerales.Name = "tsitemCambiosGenerales"
-        Me.tsitemCambiosGenerales.Size = New System.Drawing.Size(192, 22)
-        Me.tsitemCambiosGenerales.Text = "Cambios Generales"
+        Me.tsitemCambiosGenerales.Size = New System.Drawing.Size(190, 22)
+        Me.tsitemCambiosGenerales.Text = "Cambios generales"
         '
         'pnlSidebar
         '
@@ -977,6 +977,125 @@ Partial Class frmMainMenu
         Me.dgvClientes.Size = New System.Drawing.Size(739, 787)
         Me.dgvClientes.TabIndex = 39
         '
+        'tipodocumento
+        '
+        Me.tipodocumento.DataPropertyName = "tipodocumento"
+        Me.tipodocumento.HeaderText = "Tipo"
+        Me.tipodocumento.Name = "tipodocumento"
+        Me.tipodocumento.ReadOnly = True
+        '
+        'nrodocumento
+        '
+        Me.nrodocumento.DataPropertyName = "nrodocumento"
+        Me.nrodocumento.HeaderText = "Documento"
+        Me.nrodocumento.Name = "nrodocumento"
+        Me.nrodocumento.ReadOnly = True
+        '
+        'nombre
+        '
+        Me.nombre.DataPropertyName = "nombre"
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        '
+        'idpersona
+        '
+        Me.idpersona.DataPropertyName = "idpersona"
+        Me.idpersona.HeaderText = "idpersona"
+        Me.idpersona.Name = "idpersona"
+        Me.idpersona.ReadOnly = True
+        Me.idpersona.Visible = False
+        '
+        'apellido
+        '
+        Me.apellido.DataPropertyName = "apellido"
+        Me.apellido.HeaderText = "Apellido"
+        Me.apellido.Name = "apellido"
+        Me.apellido.ReadOnly = True
+        '
+        'email
+        '
+        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.email.DataPropertyName = "email"
+        Me.email.HeaderText = "Correo"
+        Me.email.Name = "email"
+        Me.email.ReadOnly = True
+        Me.email.Width = 63
+        '
+        'fecnac
+        '
+        Me.fecnac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+        Me.fecnac.DataPropertyName = "fecnac"
+        Me.fecnac.HeaderText = "Nacimiento"
+        Me.fecnac.Name = "fecnac"
+        Me.fecnac.ReadOnly = True
+        Me.fecnac.Width = 5
+        '
+        'porcdescuento
+        '
+        Me.porcdescuento.DataPropertyName = "porcdescuento"
+        Me.porcdescuento.HeaderText = "Descuento (%)"
+        Me.porcdescuento.Name = "porcdescuento"
+        Me.porcdescuento.ReadOnly = True
+        '
+        'empresa
+        '
+        Me.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.empresa.DataPropertyName = "empresa"
+        Me.empresa.HeaderText = "Empresa"
+        Me.empresa.Name = "empresa"
+        Me.empresa.ReadOnly = True
+        Me.empresa.Width = 73
+        '
+        'estado
+        '
+        Me.estado.DataPropertyName = "estado"
+        Me.estado.HeaderText = "estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        Me.estado.Visible = False
+        '
+        'dia
+        '
+        Me.dia.DataPropertyName = "dia"
+        Me.dia.HeaderText = "dia"
+        Me.dia.Name = "dia"
+        Me.dia.ReadOnly = True
+        Me.dia.Visible = False
+        '
+        'idtipodoc
+        '
+        Me.idtipodoc.DataPropertyName = "idtipodoc"
+        Me.idtipodoc.HeaderText = "idtipodoc"
+        Me.idtipodoc.Name = "idtipodoc"
+        Me.idtipodoc.ReadOnly = True
+        Me.idtipodoc.Visible = False
+        '
+        'mes
+        '
+        Me.mes.DataPropertyName = "mes"
+        Me.mes.HeaderText = "mes"
+        Me.mes.Name = "mes"
+        Me.mes.ReadOnly = True
+        Me.mes.Visible = False
+        '
+        'anio
+        '
+        Me.anio.DataPropertyName = "anio"
+        Me.anio.HeaderText = "anio"
+        Me.anio.Name = "anio"
+        Me.anio.ReadOnly = True
+        Me.anio.Visible = False
+        '
+        'telefonos
+        '
+        Me.telefonos.HeaderText = "Telefonos"
+        Me.telefonos.Name = "telefonos"
+        Me.telefonos.ReadOnly = True
+        Me.telefonos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.telefonos.Text = "Ver"
+        Me.telefonos.UseColumnTextForButtonValue = True
+        '
         'pnlMClientes
         '
         Me.pnlMClientes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
@@ -1031,7 +1150,7 @@ Partial Class frmMainMenu
         Me.gbxFecNacMCliente.Size = New System.Drawing.Size(163, 51)
         Me.gbxFecNacMCliente.TabIndex = 44
         Me.gbxFecNacMCliente.TabStop = False
-        Me.gbxFecNacMCliente.Text = "Fecha de Nacimiento"
+        Me.gbxFecNacMCliente.Text = "Fecha de nacimiento"
         '
         'cbxAnioNMCliente
         '
@@ -1094,7 +1213,7 @@ Partial Class frmMainMenu
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label21.Location = New System.Drawing.Point(273, 102)
+        Me.Label21.Location = New System.Drawing.Point(278, 102)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(58, 17)
         Me.Label21.TabIndex = 61
@@ -1134,7 +1253,7 @@ Partial Class frmMainMenu
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label23.Location = New System.Drawing.Point(12, 102)
+        Me.Label23.Location = New System.Drawing.Point(17, 102)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(49, 17)
         Me.Label23.TabIndex = 53
@@ -1163,7 +1282,7 @@ Partial Class frmMainMenu
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label24.Location = New System.Drawing.Point(402, 52)
+        Me.Label24.Location = New System.Drawing.Point(407, 52)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(64, 17)
         Me.Label24.TabIndex = 52
@@ -1192,7 +1311,7 @@ Partial Class frmMainMenu
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label25.Location = New System.Drawing.Point(272, 52)
+        Me.Label25.Location = New System.Drawing.Point(277, 52)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(62, 17)
         Me.Label25.TabIndex = 51
@@ -1204,11 +1323,11 @@ Partial Class frmMainMenu
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(11, 50)
+        Me.Label28.Location = New System.Drawing.Point(17, 50)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(112, 17)
+        Me.Label28.Size = New System.Drawing.Size(111, 17)
         Me.Label28.TabIndex = 49
-        Me.Label28.Text = "Tipo Documento*"
+        Me.Label28.Text = "Tipo documento*"
         '
         'Label100
         '
@@ -1217,9 +1336,9 @@ Partial Class frmMainMenu
         Me.Label100.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label100.Location = New System.Drawing.Point(141, 50)
         Me.Label100.Name = "Label100"
-        Me.Label100.Size = New System.Drawing.Size(109, 17)
+        Me.Label100.Size = New System.Drawing.Size(130, 17)
         Me.Label100.TabIndex = 44
-        Me.Label100.Text = "Nro Documento*"
+        Me.Label100.Text = "Nro. de documento*"
         '
         'txtDocumMCliente
         '
@@ -1261,7 +1380,7 @@ Partial Class frmMainMenu
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label19.Location = New System.Drawing.Point(143, 101)
+        Me.Label19.Location = New System.Drawing.Point(148, 101)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(78, 17)
         Me.Label19.TabIndex = 25
@@ -1283,7 +1402,7 @@ Partial Class frmMainMenu
         Me.Label131.AutoSize = True
         Me.Label131.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label131.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label131.Location = New System.Drawing.Point(12, 161)
+        Me.Label131.Location = New System.Drawing.Point(16, 161)
         Me.Label131.Name = "Label131"
         Me.Label131.Size = New System.Drawing.Size(94, 17)
         Me.Label131.TabIndex = 25
@@ -1327,11 +1446,11 @@ Partial Class frmMainMenu
         Me.Label79.AutoSize = True
         Me.Label79.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label79.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label79.Location = New System.Drawing.Point(9, 58)
+        Me.Label79.Location = New System.Drawing.Point(14, 58)
         Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(103, 17)
+        Me.Label79.Size = New System.Drawing.Size(124, 17)
         Me.Label79.TabIndex = 25
-        Me.Label79.Text = "Nro Documento"
+        Me.Label79.Text = "Nro. de documento"
         '
         'Label80
         '
@@ -1395,9 +1514,9 @@ Partial Class frmMainMenu
         Me.Label107.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label107.Location = New System.Drawing.Point(11, 48)
         Me.Label107.Name = "Label107"
-        Me.Label107.Size = New System.Drawing.Size(106, 17)
+        Me.Label107.Size = New System.Drawing.Size(105, 17)
         Me.Label107.TabIndex = 45
-        Me.Label107.Text = "Tipo Documento"
+        Me.Label107.Text = "Tipo documento"
         '
         'lblBorrarTipoDocFCliente
         '
@@ -1424,7 +1543,7 @@ Partial Class frmMainMenu
         Me.gbxFecNacFCliente.Size = New System.Drawing.Size(163, 51)
         Me.gbxFecNacFCliente.TabIndex = 42
         Me.gbxFecNacFCliente.TabStop = False
-        Me.gbxFecNacFCliente.Text = "Fecha de Nacimiento"
+        Me.gbxFecNacFCliente.Text = "Fecha de nacimiento"
         '
         'cbxAnioNFCliente
         '
@@ -1471,9 +1590,9 @@ Partial Class frmMainMenu
         Me.chbxFechaFClientes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.chbxFechaFClientes.Location = New System.Drawing.Point(282, 153)
         Me.chbxFechaFClientes.Name = "chbxFechaFClientes"
-        Me.chbxFechaFClientes.Size = New System.Drawing.Size(91, 20)
+        Me.chbxFechaFClientes.Size = New System.Drawing.Size(89, 20)
         Me.chbxFechaFClientes.TabIndex = 41
-        Me.chbxFechaFClientes.Text = "Filtrar Fecha"
+        Me.chbxFechaFClientes.Text = "Filtrar fecha"
         Me.chbxFechaFClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxFechaFClientes.UseVisualStyleBackColor = True
         '
@@ -1544,11 +1663,11 @@ Partial Class frmMainMenu
         Me.Label89.AutoSize = True
         Me.Label89.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label89.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label89.Location = New System.Drawing.Point(142, 48)
+        Me.Label89.Location = New System.Drawing.Point(146, 48)
         Me.Label89.Name = "Label89"
-        Me.Label89.Size = New System.Drawing.Size(103, 17)
+        Me.Label89.Size = New System.Drawing.Size(121, 17)
         Me.Label89.TabIndex = 25
-        Me.Label89.Text = "Nro Documento"
+        Me.Label89.Text = "Nro de documento"
         '
         'Label90
         '
@@ -1568,9 +1687,9 @@ Partial Class frmMainMenu
         Me.Label91.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label91.Location = New System.Drawing.Point(9, 17)
         Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(209, 22)
+        Me.Label91.Size = New System.Drawing.Size(144, 22)
         Me.Label91.TabIndex = 24
-        Me.Label91.Text = "Búsqueda de Clientes"
+        Me.Label91.Text = "Buscar clientes"
         '
         'txtEmpresaFClientes
         '
@@ -1674,7 +1793,7 @@ Partial Class frmMainMenu
         Me.gbxFecNacACliente.Size = New System.Drawing.Size(163, 51)
         Me.gbxFecNacACliente.TabIndex = 43
         Me.gbxFecNacACliente.TabStop = False
-        Me.gbxFecNacACliente.Text = "Fecha de Nacimiento *"
+        Me.gbxFecNacACliente.Text = "Fecha de nacimiento *"
         '
         'cbxAnioNACliente
         '
@@ -1890,9 +2009,9 @@ Partial Class frmMainMenu
         Me.Label96.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label96.Location = New System.Drawing.Point(141, 47)
         Me.Label96.Name = "Label96"
-        Me.Label96.Size = New System.Drawing.Size(112, 17)
+        Me.Label96.Size = New System.Drawing.Size(111, 17)
         Me.Label96.TabIndex = 26
-        Me.Label96.Text = "Nro Documento *"
+        Me.Label96.Text = "Nro documento *"
         '
         'Label22
         '
@@ -1935,9 +2054,9 @@ Partial Class frmMainMenu
         Me.Label98.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label98.Location = New System.Drawing.Point(11, 47)
         Me.Label98.Name = "Label98"
-        Me.Label98.Size = New System.Drawing.Size(115, 17)
+        Me.Label98.Size = New System.Drawing.Size(114, 17)
         Me.Label98.TabIndex = 25
-        Me.Label98.Text = "Tipo Documento *"
+        Me.Label98.Text = "Tipo documento *"
         '
         'Label99
         '
@@ -1946,9 +2065,9 @@ Partial Class frmMainMenu
         Me.Label99.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label99.Location = New System.Drawing.Point(9, 17)
         Me.Label99.Name = "Label99"
-        Me.Label99.Size = New System.Drawing.Size(142, 22)
+        Me.Label99.Size = New System.Drawing.Size(139, 22)
         Me.Label99.TabIndex = 24
-        Me.Label99.Text = "Nuevo Cliente"
+        Me.Label99.Text = "Nuevo cliente"
         '
         'ReportesClientes
         '
@@ -2361,11 +2480,11 @@ Partial Class frmMainMenu
         Me.Label31.AutoSize = True
         Me.Label31.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label31.Location = New System.Drawing.Point(10, 54)
+        Me.Label31.Location = New System.Drawing.Point(17, 55)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(65, 17)
         Me.Label31.TabIndex = 25
-        Me.Label31.Text = "Matricula"
+        Me.Label31.Text = "Matrícula"
         '
         'Label32
         '
@@ -2374,9 +2493,9 @@ Partial Class frmMainMenu
         Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label32.Location = New System.Drawing.Point(9, 17)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(278, 22)
+        Me.Label32.Size = New System.Drawing.Size(276, 22)
         Me.Label32.TabIndex = 24
-        Me.Label32.Text = "Cambiar estado del Vehiculo"
+        Me.Label32.Text = "Cambiar estado del vehículo"
         '
         'txtMatriculaBVeh
         '
@@ -2442,7 +2561,7 @@ Partial Class frmMainMenu
         Me.lblColorFveh.AutoSize = True
         Me.lblColorFveh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblColorFveh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblColorFveh.Location = New System.Drawing.Point(469, 52)
+        Me.lblColorFveh.Location = New System.Drawing.Point(475, 52)
         Me.lblColorFveh.Name = "lblColorFveh"
         Me.lblColorFveh.Size = New System.Drawing.Size(40, 17)
         Me.lblColorFveh.TabIndex = 65
@@ -2517,9 +2636,9 @@ Partial Class frmMainMenu
         Me.Label105.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label105.Location = New System.Drawing.Point(449, 2)
         Me.Label105.Name = "Label105"
-        Me.Label105.Size = New System.Drawing.Size(114, 16)
+        Me.Label105.Size = New System.Drawing.Size(115, 16)
         Me.Label105.TabIndex = 28
-        Me.Label105.Text = "Aire Acondicionado"
+        Me.Label105.Text = "Aire acondicionado"
         '
         'txtDeducibleFVeh
         '
@@ -2537,7 +2656,7 @@ Partial Class frmMainMenu
         Me.Label104.Name = "Label104"
         Me.Label104.Size = New System.Drawing.Size(71, 16)
         Me.Label104.TabIndex = 28
-        Me.Label104.Text = "Automatico"
+        Me.Label104.Text = "Automático"
         '
         'txtKMFVeh
         '
@@ -2566,7 +2685,7 @@ Partial Class frmMainMenu
         Me.Label106.Name = "Label106"
         Me.Label106.Size = New System.Drawing.Size(65, 17)
         Me.Label106.TabIndex = 57
-        Me.Label106.Text = "Matricula"
+        Me.Label106.Text = "Matrícula"
         '
         'Label48
         '
@@ -2584,7 +2703,7 @@ Partial Class frmMainMenu
         Me.lblParamIgnore.AutoSize = True
         Me.lblParamIgnore.Font = New System.Drawing.Font("Century Gothic", 8.25!)
         Me.lblParamIgnore.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblParamIgnore.Location = New System.Drawing.Point(222, 182)
+        Me.lblParamIgnore.Location = New System.Drawing.Point(235, 182)
         Me.lblParamIgnore.Name = "lblParamIgnore"
         Me.lblParamIgnore.Size = New System.Drawing.Size(149, 16)
         Me.lblParamIgnore.TabIndex = 29
@@ -2595,7 +2714,7 @@ Partial Class frmMainMenu
         Me.Label47.AutoSize = True
         Me.Label47.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label47.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label47.Location = New System.Drawing.Point(234, 142)
+        Me.Label47.Location = New System.Drawing.Point(238, 142)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(64, 17)
         Me.Label47.TabIndex = 29
@@ -2613,7 +2732,7 @@ Partial Class frmMainMenu
         Me.Label45.AutoSize = True
         Me.Label45.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label45.Location = New System.Drawing.Point(121, 142)
+        Me.Label45.Location = New System.Drawing.Point(127, 142)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(56, 17)
         Me.Label45.TabIndex = 41
@@ -2634,11 +2753,11 @@ Partial Class frmMainMenu
         Me.Label64.AutoSize = True
         Me.Label64.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label64.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label64.Location = New System.Drawing.Point(10, 54)
+        Me.Label64.Location = New System.Drawing.Point(16, 54)
         Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(69, 17)
+        Me.Label64.Size = New System.Drawing.Size(90, 17)
         Me.Label64.TabIndex = 52
-        Me.Label64.Text = "Nro Chasis"
+        Me.Label64.Text = "Nro. de chasis"
         '
         'Label113
         '
@@ -2656,7 +2775,7 @@ Partial Class frmMainMenu
         Me.Label62.AutoSize = True
         Me.Label62.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label62.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label62.Location = New System.Drawing.Point(19, 142)
+        Me.Label62.Location = New System.Drawing.Point(19, 143)
         Me.Label62.Name = "Label62"
         Me.Label62.Size = New System.Drawing.Size(32, 17)
         Me.Label62.TabIndex = 39
@@ -2709,7 +2828,7 @@ Partial Class frmMainMenu
         Me.Label61.Name = "Label61"
         Me.Label61.Size = New System.Drawing.Size(69, 17)
         Me.Label61.TabIndex = 37
-        Me.Label61.Text = "Categoria"
+        Me.Label61.Text = "Categoría"
         '
         'cbxModeloFVeh
         '
@@ -2734,7 +2853,7 @@ Partial Class frmMainMenu
         Me.Label50.AutoSize = True
         Me.Label50.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label50.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label50.Location = New System.Drawing.Point(234, 104)
+        Me.Label50.Location = New System.Drawing.Point(238, 99)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(54, 17)
         Me.Label50.TabIndex = 26
@@ -2773,7 +2892,7 @@ Partial Class frmMainMenu
         Me.lblBorrarPuertasFVeh.AutoSize = True
         Me.lblBorrarPuertasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarPuertasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarPuertasFVeh.Location = New System.Drawing.Point(446, 148)
+        Me.lblBorrarPuertasFVeh.Location = New System.Drawing.Point(446, 147)
         Me.lblBorrarPuertasFVeh.Name = "lblBorrarPuertasFVeh"
         Me.lblBorrarPuertasFVeh.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarPuertasFVeh.TabIndex = 25
@@ -2784,7 +2903,7 @@ Partial Class frmMainMenu
         Me.lblBorrarMaletasFVeh.AutoSize = True
         Me.lblBorrarMaletasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarMaletasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarMaletasFVeh.Location = New System.Drawing.Point(206, 148)
+        Me.lblBorrarMaletasFVeh.Location = New System.Drawing.Point(206, 147)
         Me.lblBorrarMaletasFVeh.Name = "lblBorrarMaletasFVeh"
         Me.lblBorrarMaletasFVeh.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarMaletasFVeh.TabIndex = 25
@@ -2795,7 +2914,7 @@ Partial Class frmMainMenu
         Me.lblBorrarTipoFVeh.AutoSize = True
         Me.lblBorrarTipoFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarTipoFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarTipoFVeh.Location = New System.Drawing.Point(446, 104)
+        Me.lblBorrarTipoFVeh.Location = New System.Drawing.Point(446, 103)
         Me.lblBorrarTipoFVeh.Name = "lblBorrarTipoFVeh"
         Me.lblBorrarTipoFVeh.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarTipoFVeh.TabIndex = 25
@@ -2806,7 +2925,7 @@ Partial Class frmMainMenu
         Me.lblBorrarSucursalFVeh.AutoSize = True
         Me.lblBorrarSucursalFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarSucursalFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarSucursalFVeh.Location = New System.Drawing.Point(557, 104)
+        Me.lblBorrarSucursalFVeh.Location = New System.Drawing.Point(557, 103)
         Me.lblBorrarSucursalFVeh.Name = "lblBorrarSucursalFVeh"
         Me.lblBorrarSucursalFVeh.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarSucursalFVeh.TabIndex = 25
@@ -2828,7 +2947,7 @@ Partial Class frmMainMenu
         Me.lblBorrarCategoriaFVeh.AutoSize = True
         Me.lblBorrarCategoriaFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarCategoriaFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarCategoriaFVeh.Location = New System.Drawing.Point(97, 104)
+        Me.lblBorrarCategoriaFVeh.Location = New System.Drawing.Point(97, 103)
         Me.lblBorrarCategoriaFVeh.Name = "lblBorrarCategoriaFVeh"
         Me.lblBorrarCategoriaFVeh.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarCategoriaFVeh.TabIndex = 25
@@ -2839,7 +2958,7 @@ Partial Class frmMainMenu
         Me.lblBorrarMarcaFVeh.AutoSize = True
         Me.lblBorrarMarcaFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBorrarMarcaFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarMarcaFVeh.Location = New System.Drawing.Point(208, 104)
+        Me.lblBorrarMarcaFVeh.Location = New System.Drawing.Point(208, 103)
         Me.lblBorrarMarcaFVeh.Name = "lblBorrarMarcaFVeh"
         Me.lblBorrarMarcaFVeh.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarMarcaFVeh.TabIndex = 25
@@ -2850,7 +2969,7 @@ Partial Class frmMainMenu
         Me.Label51.AutoSize = True
         Me.Label51.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label51.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label51.Location = New System.Drawing.Point(121, 98)
+        Me.Label51.Location = New System.Drawing.Point(127, 98)
         Me.Label51.Name = "Label51"
         Me.Label51.Size = New System.Drawing.Size(47, 17)
         Me.Label51.TabIndex = 25
@@ -2863,9 +2982,9 @@ Partial Class frmMainMenu
         Me.Label52.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label52.Location = New System.Drawing.Point(9, 17)
         Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(226, 22)
+        Me.Label52.Size = New System.Drawing.Size(162, 22)
         Me.Label52.TabIndex = 24
-        Me.Label52.Text = "Búsqueda de Vehículos"
+        Me.Label52.Text = "Buscar vehículos"
         '
         'pnlAVehi
         '
@@ -2912,7 +3031,7 @@ Partial Class frmMainMenu
         Me.lblKilometrajeAVeh.AutoSize = True
         Me.lblKilometrajeAVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblKilometrajeAVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblKilometrajeAVeh.Location = New System.Drawing.Point(361, 54)
+        Me.lblKilometrajeAVeh.Location = New System.Drawing.Point(366, 55)
         Me.lblKilometrajeAVeh.Name = "lblKilometrajeAVeh"
         Me.lblKilometrajeAVeh.Size = New System.Drawing.Size(76, 17)
         Me.lblKilometrajeAVeh.TabIndex = 68
@@ -2944,7 +3063,7 @@ Partial Class frmMainMenu
         Me.lblhelpVEH.AutoSize = True
         Me.lblhelpVEH.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblhelpVEH.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblhelpVEH.Location = New System.Drawing.Point(471, 53)
+        Me.lblhelpVEH.Location = New System.Drawing.Point(476, 55)
         Me.lblhelpVEH.Name = "lblhelpVEH"
         Me.lblhelpVEH.Size = New System.Drawing.Size(70, 17)
         Me.lblhelpVEH.TabIndex = 64
@@ -2959,7 +3078,7 @@ Partial Class frmMainMenu
         Me.lblBorrarEstadoFVeh.Name = "lblBorrarEstadoFVeh"
         Me.lblBorrarEstadoFVeh.Size = New System.Drawing.Size(78, 17)
         Me.lblBorrarEstadoFVeh.TabIndex = 64
-        Me.lblBorrarEstadoFVeh.Text = "Categoria *"
+        Me.lblBorrarEstadoFVeh.Text = "Categoría *"
         '
         'cbxTipoAVeh
         '
@@ -3002,9 +3121,9 @@ Partial Class frmMainMenu
         Me.cbxAutomaticoAVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.cbxAutomaticoAVeh.Location = New System.Drawing.Point(506, 21)
         Me.cbxAutomaticoAVeh.Name = "cbxAutomaticoAVeh"
-        Me.cbxAutomaticoAVeh.Size = New System.Drawing.Size(145, 20)
+        Me.cbxAutomaticoAVeh.Size = New System.Drawing.Size(146, 20)
         Me.cbxAutomaticoAVeh.TabIndex = 62
-        Me.cbxAutomaticoAVeh.Text = "Cambios Automáticos"
+        Me.cbxAutomaticoAVeh.Text = "Cambios automáticos"
         Me.cbxAutomaticoAVeh.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cbxAutomaticoAVeh.UseVisualStyleBackColor = True
         '
@@ -3013,7 +3132,7 @@ Partial Class frmMainMenu
         Me.Label46.AutoSize = True
         Me.Label46.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label46.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label46.Location = New System.Drawing.Point(124, 141)
+        Me.Label46.Location = New System.Drawing.Point(127, 142)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(65, 17)
         Me.Label46.TabIndex = 61
@@ -3034,7 +3153,7 @@ Partial Class frmMainMenu
         Me.Label84.AutoSize = True
         Me.Label84.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label84.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label84.Location = New System.Drawing.Point(361, 98)
+        Me.Label84.Location = New System.Drawing.Point(367, 98)
         Me.Label84.Name = "Label84"
         Me.Label84.Size = New System.Drawing.Size(41, 17)
         Me.Label84.TabIndex = 41
@@ -3045,7 +3164,7 @@ Partial Class frmMainMenu
         Me.Label53.AutoSize = True
         Me.Label53.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label53.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label53.Location = New System.Drawing.Point(19, 141)
+        Me.Label53.Location = New System.Drawing.Point(17, 143)
         Me.Label53.Name = "Label53"
         Me.Label53.Size = New System.Drawing.Size(41, 17)
         Me.Label53.TabIndex = 59
@@ -3067,7 +3186,7 @@ Partial Class frmMainMenu
         Me.Label54.Name = "Label54"
         Me.Label54.Size = New System.Drawing.Size(74, 17)
         Me.Label54.TabIndex = 57
-        Me.Label54.Text = "Matricula *"
+        Me.Label54.Text = "Matrícula *"
         '
         'cbxCategoriaAVeh
         '
@@ -3101,9 +3220,9 @@ Partial Class frmMainMenu
         Me.chbxAireAVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.chbxAireAVeh.Location = New System.Drawing.Point(370, 21)
         Me.chbxAireAVeh.Name = "chbxAireAVeh"
-        Me.chbxAireAVeh.Size = New System.Drawing.Size(133, 20)
+        Me.chbxAireAVeh.Size = New System.Drawing.Size(134, 20)
         Me.chbxAireAVeh.TabIndex = 53
-        Me.chbxAireAVeh.Text = "Aire Acondicionado"
+        Me.chbxAireAVeh.Text = "Aire acondicionado"
         Me.chbxAireAVeh.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxAireAVeh.UseVisualStyleBackColor = True
         '
@@ -3114,16 +3233,16 @@ Partial Class frmMainMenu
         Me.Label55.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label55.Location = New System.Drawing.Point(17, 55)
         Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(78, 17)
+        Me.Label55.Size = New System.Drawing.Size(99, 17)
         Me.Label55.TabIndex = 52
-        Me.Label55.Text = "Nro Chasis *"
+        Me.Label55.Text = "Nro. de chasis *"
         '
         'Label56
         '
         Me.Label56.AutoSize = True
         Me.Label56.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label56.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label56.Location = New System.Drawing.Point(235, 141)
+        Me.Label56.Location = New System.Drawing.Point(239, 144)
         Me.Label56.Name = "Label56"
         Me.Label56.Size = New System.Drawing.Size(73, 17)
         Me.Label56.TabIndex = 51
@@ -3134,7 +3253,7 @@ Partial Class frmMainMenu
         Me.Label57.AutoSize = True
         Me.Label57.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label57.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label57.Location = New System.Drawing.Point(361, 141)
+        Me.Label57.Location = New System.Drawing.Point(367, 141)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(61, 17)
         Me.Label57.TabIndex = 50
@@ -3145,7 +3264,7 @@ Partial Class frmMainMenu
         Me.Label58.AutoSize = True
         Me.Label58.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label58.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label58.Location = New System.Drawing.Point(471, 97)
+        Me.Label58.Location = New System.Drawing.Point(477, 98)
         Me.Label58.Name = "Label58"
         Me.Label58.Size = New System.Drawing.Size(66, 17)
         Me.Label58.TabIndex = 49
@@ -3156,7 +3275,7 @@ Partial Class frmMainMenu
         Me.Label59.AutoSize = True
         Me.Label59.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label59.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label59.Location = New System.Drawing.Point(235, 97)
+        Me.Label59.Location = New System.Drawing.Point(240, 98)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(63, 17)
         Me.Label59.TabIndex = 48
@@ -3167,7 +3286,7 @@ Partial Class frmMainMenu
         Me.Label63.AutoSize = True
         Me.Label63.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label63.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label63.Location = New System.Drawing.Point(124, 97)
+        Me.Label63.Location = New System.Drawing.Point(127, 98)
         Me.Label63.Name = "Label63"
         Me.Label63.Size = New System.Drawing.Size(56, 17)
         Me.Label63.TabIndex = 47
@@ -3208,9 +3327,9 @@ Partial Class frmMainMenu
         Me.Label60.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label60.Location = New System.Drawing.Point(9, 17)
         Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(231, 22)
+        Me.Label60.Size = New System.Drawing.Size(234, 22)
         Me.Label60.TabIndex = 24
-        Me.Label60.Text = "Ingreso Nuevo Vehiculo"
+        Me.Label60.Text = "Ingresar nuevo vehículo"
         '
         'pnlMVehi
         '
@@ -3264,11 +3383,11 @@ Partial Class frmMainMenu
         Me.Label101.AutoSize = True
         Me.Label101.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label101.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label101.Location = New System.Drawing.Point(10, 54)
+        Me.Label101.Location = New System.Drawing.Point(16, 56)
         Me.Label101.Name = "Label101"
-        Me.Label101.Size = New System.Drawing.Size(69, 17)
+        Me.Label101.Size = New System.Drawing.Size(90, 17)
         Me.Label101.TabIndex = 65
-        Me.Label101.Text = "Nro Chasis"
+        Me.Label101.Text = "Nro. de chasis"
         '
         'txtNroChasisMVeh
         '
@@ -3314,7 +3433,7 @@ Partial Class frmMainMenu
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label29.Location = New System.Drawing.Point(125, 142)
+        Me.Label29.Location = New System.Drawing.Point(131, 142)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(56, 17)
         Me.Label29.TabIndex = 61
@@ -3335,7 +3454,7 @@ Partial Class frmMainMenu
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label30.Location = New System.Drawing.Point(19, 142)
+        Me.Label30.Location = New System.Drawing.Point(17, 143)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(32, 17)
         Me.Label30.TabIndex = 59
@@ -3367,7 +3486,7 @@ Partial Class frmMainMenu
         Me.Label114.AutoSize = True
         Me.Label114.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label114.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label114.Location = New System.Drawing.Point(364, 141)
+        Me.Label114.Location = New System.Drawing.Point(365, 141)
         Me.Label114.Name = "Label114"
         Me.Label114.Size = New System.Drawing.Size(52, 17)
         Me.Label114.TabIndex = 41
@@ -3378,7 +3497,7 @@ Partial Class frmMainMenu
         Me.Label44.AutoSize = True
         Me.Label44.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label44.Location = New System.Drawing.Point(364, 98)
+        Me.Label44.Location = New System.Drawing.Point(365, 98)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(32, 17)
         Me.Label44.TabIndex = 41
@@ -3389,11 +3508,11 @@ Partial Class frmMainMenu
         Me.Label35.AutoSize = True
         Me.Label35.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label35.Location = New System.Drawing.Point(14, 98)
+        Me.Label35.Location = New System.Drawing.Point(18, 98)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(69, 17)
         Me.Label35.TabIndex = 57
-        Me.Label35.Text = "Categoria"
+        Me.Label35.Text = "Categoría"
         '
         'cbxCategoriaMVeh
         '
@@ -3442,14 +3561,14 @@ Partial Class frmMainMenu
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(65, 17)
         Me.Label36.TabIndex = 52
-        Me.Label36.Text = "Matricula"
+        Me.Label36.Text = "Matrícula"
         '
         'Label92
         '
         Me.Label92.AutoSize = True
         Me.Label92.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label92.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label92.Location = New System.Drawing.Point(469, 54)
+        Me.Label92.Location = New System.Drawing.Point(472, 54)
         Me.Label92.Name = "Label92"
         Me.Label92.Size = New System.Drawing.Size(70, 17)
         Me.Label92.TabIndex = 50
@@ -3460,7 +3579,7 @@ Partial Class frmMainMenu
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(364, 54)
+        Me.Label27.Location = New System.Drawing.Point(362, 54)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(76, 17)
         Me.Label27.TabIndex = 50
@@ -3471,7 +3590,7 @@ Partial Class frmMainMenu
         Me.Label38.AutoSize = True
         Me.Label38.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label38.Location = New System.Drawing.Point(234, 142)
+        Me.Label38.Location = New System.Drawing.Point(240, 143)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(64, 17)
         Me.Label38.TabIndex = 50
@@ -3482,7 +3601,7 @@ Partial Class frmMainMenu
         Me.Label39.AutoSize = True
         Me.Label39.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label39.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label39.Location = New System.Drawing.Point(469, 97)
+        Me.Label39.Location = New System.Drawing.Point(474, 97)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(57, 17)
         Me.Label39.TabIndex = 49
@@ -3493,7 +3612,7 @@ Partial Class frmMainMenu
         Me.Label40.AutoSize = True
         Me.Label40.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label40.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label40.Location = New System.Drawing.Point(234, 98)
+        Me.Label40.Location = New System.Drawing.Point(238, 98)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(54, 17)
         Me.Label40.TabIndex = 48
@@ -3504,7 +3623,7 @@ Partial Class frmMainMenu
         Me.Label41.AutoSize = True
         Me.Label41.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label41.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label41.Location = New System.Drawing.Point(122, 98)
+        Me.Label41.Location = New System.Drawing.Point(128, 98)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(47, 17)
         Me.Label41.TabIndex = 47
@@ -3746,7 +3865,7 @@ Partial Class frmMainMenu
         Me.Label65.AutoSize = True
         Me.Label65.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label65.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label65.Location = New System.Drawing.Point(303, 70)
+        Me.Label65.Location = New System.Drawing.Point(309, 70)
         Me.Label65.Name = "Label65"
         Me.Label65.Size = New System.Drawing.Size(57, 17)
         Me.Label65.TabIndex = 33
@@ -3757,7 +3876,7 @@ Partial Class frmMainMenu
         Me.Label74.AutoSize = True
         Me.Label74.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label74.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label74.Location = New System.Drawing.Point(176, 70)
+        Me.Label74.Location = New System.Drawing.Point(182, 70)
         Me.Label74.Name = "Label74"
         Me.Label74.Size = New System.Drawing.Size(32, 17)
         Me.Label74.TabIndex = 32
@@ -3808,7 +3927,7 @@ Partial Class frmMainMenu
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(165, 22)
         Me.Label78.TabIndex = 24
-        Me.Label78.Text = "Modificar Usuario"
+        Me.Label78.Text = "Modificar usuario"
         '
         'pnlBEmp
         '
@@ -3849,9 +3968,9 @@ Partial Class frmMainMenu
         Me.Label75.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label75.Location = New System.Drawing.Point(238, 78)
         Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(103, 17)
+        Me.Label75.Size = New System.Drawing.Size(124, 17)
         Me.Label75.TabIndex = 25
-        Me.Label75.Text = "Nro Documento"
+        Me.Label75.Text = "Nro. de documento"
         '
         'Label76
         '
@@ -3868,7 +3987,7 @@ Partial Class frmMainMenu
         '
         Me.txtNroDocEempleado.Location = New System.Drawing.Point(241, 98)
         Me.txtNroDocEempleado.Name = "txtNroDocEempleado"
-        Me.txtNroDocEempleado.Size = New System.Drawing.Size(100, 20)
+        Me.txtNroDocEempleado.Size = New System.Drawing.Size(119, 20)
         Me.txtNroDocEempleado.TabIndex = 22
         '
         'pnlFemp
@@ -4009,11 +4128,11 @@ Partial Class frmMainMenu
         Me.Label71.AutoSize = True
         Me.Label71.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label71.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label71.Location = New System.Drawing.Point(14, 54)
+        Me.Label71.Location = New System.Drawing.Point(15, 54)
         Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(103, 17)
+        Me.Label71.Size = New System.Drawing.Size(124, 17)
         Me.Label71.TabIndex = 25
-        Me.Label71.Text = "Nro Documento"
+        Me.Label71.Text = "Nro. de documento"
         '
         'Label72
         '
@@ -4022,9 +4141,9 @@ Partial Class frmMainMenu
         Me.Label72.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label72.Location = New System.Drawing.Point(9, 9)
         Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(240, 22)
+        Me.Label72.Size = New System.Drawing.Size(178, 22)
         Me.Label72.TabIndex = 24
-        Me.Label72.Text = "Búsqueda de empleados"
+        Me.Label72.Text = "Buscar empleados"
         '
         'cbxTipoFempleados
         '
@@ -4100,11 +4219,11 @@ Partial Class frmMainMenu
         Me.Label82.AutoSize = True
         Me.Label82.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label82.Location = New System.Drawing.Point(418, 46)
+        Me.Label82.Location = New System.Drawing.Point(423, 49)
         Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(101, 17)
+        Me.Label82.Size = New System.Drawing.Size(120, 17)
         Me.Label82.TabIndex = 34
-        Me.Label82.Text = "Nombre usuario"
+        Me.Label82.Text = "Nombre de usuario"
         '
         'cbxSucursalCempleados
         '
@@ -4138,7 +4257,7 @@ Partial Class frmMainMenu
         Me.Label66.AutoSize = True
         Me.Label66.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label66.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label66.Location = New System.Drawing.Point(284, 46)
+        Me.Label66.Location = New System.Drawing.Point(290, 47)
         Me.Label66.Name = "Label66"
         Me.Label66.Size = New System.Drawing.Size(57, 17)
         Me.Label66.TabIndex = 27
@@ -4149,7 +4268,7 @@ Partial Class frmMainMenu
         Me.Label67.AutoSize = True
         Me.Label67.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label67.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label67.Location = New System.Drawing.Point(142, 46)
+        Me.Label67.Location = New System.Drawing.Point(148, 46)
         Me.Label67.Name = "Label67"
         Me.Label67.Size = New System.Drawing.Size(32, 17)
         Me.Label67.TabIndex = 26
@@ -4162,9 +4281,9 @@ Partial Class frmMainMenu
         Me.Label68.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label68.Location = New System.Drawing.Point(10, 46)
         Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(103, 17)
+        Me.Label68.Size = New System.Drawing.Size(124, 17)
         Me.Label68.TabIndex = 25
-        Me.Label68.Text = "Nro Documento"
+        Me.Label68.Text = "Nro. de documento"
         '
         'Label73
         '
@@ -4175,7 +4294,7 @@ Partial Class frmMainMenu
         Me.Label73.Name = "Label73"
         Me.Label73.Size = New System.Drawing.Size(132, 22)
         Me.Label73.TabIndex = 24
-        Me.Label73.Text = "Crear Usuario"
+        Me.Label73.Text = "Crear usuario"
         '
         'tabReporteEmpleado
         '
@@ -4238,9 +4357,9 @@ Partial Class frmMainMenu
         Me.Label137.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label137.Location = New System.Drawing.Point(9, 17)
         Me.Label137.Name = "Label137"
-        Me.Label137.Size = New System.Drawing.Size(224, 22)
+        Me.Label137.Size = New System.Drawing.Size(352, 22)
         Me.Label137.TabIndex = 24
-        Me.Label137.Text = "Finalizar Mantenimiento"
+        Me.Label137.Text = "Finalizar mantenimiento seleccionado"
         '
         'pnlmmant
         '
@@ -4270,9 +4389,9 @@ Partial Class frmMainMenu
         Me.llbFechaInicioMmant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.llbFechaInicioMmant.Location = New System.Drawing.Point(270, 74)
         Me.llbFechaInicioMmant.Name = "llbFechaInicioMmant"
-        Me.llbFechaInicioMmant.Size = New System.Drawing.Size(80, 17)
+        Me.llbFechaInicioMmant.Size = New System.Drawing.Size(99, 17)
         Me.llbFechaInicioMmant.TabIndex = 43
-        Me.llbFechaInicioMmant.Text = "Fecha Inicio"
+        Me.llbFechaInicioMmant.Text = "Fecha de inicio"
         '
         'cbxModifTipoMant
         '
@@ -4289,7 +4408,7 @@ Partial Class frmMainMenu
         Me.Label112.AutoSize = True
         Me.Label112.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label112.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label112.Location = New System.Drawing.Point(128, 73)
+        Me.Label112.Location = New System.Drawing.Point(135, 74)
         Me.Label112.Name = "Label112"
         Me.Label112.Size = New System.Drawing.Size(32, 17)
         Me.Label112.TabIndex = 41
@@ -4338,9 +4457,9 @@ Partial Class frmMainMenu
         Me.Label110.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label110.Location = New System.Drawing.Point(412, 73)
         Me.Label110.Name = "Label110"
-        Me.Label110.Size = New System.Drawing.Size(62, 17)
+        Me.Label110.Size = New System.Drawing.Size(81, 17)
         Me.Label110.TabIndex = 31
-        Me.Label110.Text = "Fecha fin"
+        Me.Label110.Text = "Fecha de fin"
         '
         'Label116
         '
@@ -4351,7 +4470,7 @@ Partial Class frmMainMenu
         Me.Label116.Name = "Label116"
         Me.Label116.Size = New System.Drawing.Size(65, 17)
         Me.Label116.TabIndex = 25
-        Me.Label116.Text = "Matricula"
+        Me.Label116.Text = "Matrícula"
         '
         'Label117
         '
@@ -4360,9 +4479,9 @@ Partial Class frmMainMenu
         Me.Label117.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label117.Location = New System.Drawing.Point(9, 17)
         Me.Label117.Name = "Label117"
-        Me.Label117.Size = New System.Drawing.Size(387, 22)
+        Me.Label117.Size = New System.Drawing.Size(367, 22)
         Me.Label117.TabIndex = 24
-        Me.Label117.Text = "Modificar el mantenimiento seleccionado"
+        Me.Label117.Text = "Modificar mantenimiento seleccionado"
         '
         'dtpModifFechaInicioMant
         '
@@ -4465,9 +4584,9 @@ Partial Class frmMainMenu
         Me.chbxFiltrarFechaMant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.chbxFiltrarFechaMant.Location = New System.Drawing.Point(305, 65)
         Me.chbxFiltrarFechaMant.Name = "chbxFiltrarFechaMant"
-        Me.chbxFiltrarFechaMant.Size = New System.Drawing.Size(91, 20)
+        Me.chbxFiltrarFechaMant.Size = New System.Drawing.Size(114, 20)
         Me.chbxFiltrarFechaMant.TabIndex = 33
-        Me.chbxFiltrarFechaMant.Text = "Filtrar Fecha"
+        Me.chbxFiltrarFechaMant.Text = "Filtrar por fechas"
         Me.chbxFiltrarFechaMant.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxFiltrarFechaMant.UseVisualStyleBackColor = True
         '
@@ -4496,9 +4615,9 @@ Partial Class frmMainMenu
         Me.Label120.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label120.Location = New System.Drawing.Point(154, 45)
         Me.Label120.Name = "Label120"
-        Me.Label120.Size = New System.Drawing.Size(64, 17)
+        Me.Label120.Size = New System.Drawing.Size(81, 17)
         Me.Label120.TabIndex = 31
-        Me.Label120.Text = "Fecha Fin"
+        Me.Label120.Text = "Fecha de fin"
         '
         'Label121
         '
@@ -4507,16 +4626,16 @@ Partial Class frmMainMenu
         Me.Label121.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label121.Location = New System.Drawing.Point(10, 47)
         Me.Label121.Name = "Label121"
-        Me.Label121.Size = New System.Drawing.Size(80, 17)
+        Me.Label121.Size = New System.Drawing.Size(99, 17)
         Me.Label121.TabIndex = 30
-        Me.Label121.Text = "Fecha Inicio"
+        Me.Label121.Text = "Fecha de inicio"
         '
         'Label122
         '
         Me.Label122.AutoSize = True
         Me.Label122.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label122.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label122.Location = New System.Drawing.Point(128, 112)
+        Me.Label122.Location = New System.Drawing.Point(135, 112)
         Me.Label122.Name = "Label122"
         Me.Label122.Size = New System.Drawing.Size(32, 17)
         Me.Label122.TabIndex = 29
@@ -4527,11 +4646,11 @@ Partial Class frmMainMenu
         Me.Label126.AutoSize = True
         Me.Label126.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label126.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label126.Location = New System.Drawing.Point(10, 112)
+        Me.Label126.Location = New System.Drawing.Point(16, 114)
         Me.Label126.Name = "Label126"
         Me.Label126.Size = New System.Drawing.Size(65, 17)
         Me.Label126.TabIndex = 25
-        Me.Label126.Text = "Matricula"
+        Me.Label126.Text = "Matrícula"
         '
         'Label127
         '
@@ -4715,11 +4834,11 @@ Partial Class frmMainMenu
         Me.Label119.AutoSize = True
         Me.Label119.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label119.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label119.Location = New System.Drawing.Point(163, 135)
+        Me.Label119.Location = New System.Drawing.Point(159, 135)
         Me.Label119.Name = "Label119"
-        Me.Label119.Size = New System.Drawing.Size(64, 17)
+        Me.Label119.Size = New System.Drawing.Size(81, 17)
         Me.Label119.TabIndex = 39
-        Me.Label119.Text = "Fecha Fin"
+        Me.Label119.Text = "Fecha de fin"
         '
         'btnIngresarMant
         '
@@ -4744,11 +4863,11 @@ Partial Class frmMainMenu
         Me.Label123.AutoSize = True
         Me.Label123.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label123.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label123.Location = New System.Drawing.Point(11, 135)
+        Me.Label123.Location = New System.Drawing.Point(6, 136)
         Me.Label123.Name = "Label123"
-        Me.Label123.Size = New System.Drawing.Size(80, 17)
+        Me.Label123.Size = New System.Drawing.Size(99, 17)
         Me.Label123.TabIndex = 38
-        Me.Label123.Text = "Fecha Inicio"
+        Me.Label123.Text = "Fecha de inicio"
         '
         'dtpFechaFinMant
         '
@@ -4775,11 +4894,11 @@ Partial Class frmMainMenu
         Me.Label134.AutoSize = True
         Me.Label134.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label134.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label134.Location = New System.Drawing.Point(11, 66)
+        Me.Label134.Location = New System.Drawing.Point(7, 66)
         Me.Label134.Name = "Label134"
         Me.Label134.Size = New System.Drawing.Size(65, 17)
         Me.Label134.TabIndex = 25
-        Me.Label134.Text = "Matricula"
+        Me.Label134.Text = "Matrícula"
         '
         'Label135
         '
@@ -4788,9 +4907,9 @@ Partial Class frmMainMenu
         Me.Label135.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label135.Location = New System.Drawing.Point(9, 17)
         Me.Label135.Name = "Label135"
-        Me.Label135.Size = New System.Drawing.Size(221, 22)
+        Me.Label135.Size = New System.Drawing.Size(228, 22)
         Me.Label135.TabIndex = 24
-        Me.Label135.Text = "Ingreso Mantenimiento"
+        Me.Label135.Text = "Ingresar mantenimiento"
         '
         'txtMatriculaMant
         '
@@ -5089,22 +5208,22 @@ Partial Class frmMainMenu
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(402, 101)
+        Me.Label9.Location = New System.Drawing.Point(405, 104)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(64, 17)
+        Me.Label9.Size = New System.Drawing.Size(81, 17)
         Me.Label9.TabIndex = 31
-        Me.Label9.Text = "Fecha Fin"
+        Me.Label9.Text = "Fecha de fin"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(264, 101)
+        Me.Label10.Location = New System.Drawing.Point(269, 103)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(80, 17)
+        Me.Label10.Size = New System.Drawing.Size(99, 17)
         Me.Label10.TabIndex = 30
-        Me.Label10.Text = "Fecha Inicio"
+        Me.Label10.Text = "Fecha de inicio"
         '
         'Label77
         '
@@ -5133,11 +5252,11 @@ Partial Class frmMainMenu
         Me.Label83.AutoSize = True
         Me.Label83.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label83.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label83.Location = New System.Drawing.Point(136, 51)
+        Me.Label83.Location = New System.Drawing.Point(141, 51)
         Me.Label83.Name = "Label83"
         Me.Label83.Size = New System.Drawing.Size(69, 17)
         Me.Label83.TabIndex = 26
-        Me.Label83.Text = "Categoria"
+        Me.Label83.Text = "Categoría"
         '
         'Label124
         '
@@ -5146,9 +5265,9 @@ Partial Class frmMainMenu
         Me.Label124.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label124.Location = New System.Drawing.Point(10, 51)
         Me.Label124.Name = "Label124"
-        Me.Label124.Size = New System.Drawing.Size(103, 17)
+        Me.Label124.Size = New System.Drawing.Size(124, 17)
         Me.Label124.TabIndex = 25
-        Me.Label124.Text = "Nro Documento"
+        Me.Label124.Text = "Nro. de documento"
         '
         'Label125
         '
@@ -5157,9 +5276,9 @@ Partial Class frmMainMenu
         Me.Label125.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label125.Location = New System.Drawing.Point(9, 17)
         Me.Label125.Name = "Label125"
-        Me.Label125.Size = New System.Drawing.Size(175, 22)
+        Me.Label125.Size = New System.Drawing.Size(169, 22)
         Me.Label125.TabIndex = 24
-        Me.Label125.Text = "Modificar Reserva"
+        Me.Label125.Text = "Modificar reserva"
         '
         'dtpFechaFinMReserva
         '
@@ -5208,11 +5327,11 @@ Partial Class frmMainMenu
         Me.Label33.AutoSize = True
         Me.Label33.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label33.Location = New System.Drawing.Point(516, 50)
+        Me.Label33.Location = New System.Drawing.Point(521, 50)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(75, 17)
         Me.Label33.TabIndex = 29
-        Me.Label33.Text = "Costo Total"
+        Me.Label33.Text = "Costo total"
         '
         'dtpFechaInicioMReserva
         '
@@ -5230,20 +5349,20 @@ Partial Class frmMainMenu
         Me.Label128.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label128.Location = New System.Drawing.Point(136, 101)
         Me.Label128.Name = "Label128"
-        Me.Label128.Size = New System.Drawing.Size(105, 17)
+        Me.Label128.Size = New System.Drawing.Size(104, 17)
         Me.Label128.TabIndex = 28
-        Me.Label128.Text = "Sucursal Destino"
+        Me.Label128.Text = "Sucursal destino"
         '
         'Label129
         '
         Me.Label129.AutoSize = True
         Me.Label129.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label129.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label129.Location = New System.Drawing.Point(9, 101)
+        Me.Label129.Location = New System.Drawing.Point(12, 103)
         Me.Label129.Name = "Label129"
-        Me.Label129.Size = New System.Drawing.Size(103, 17)
+        Me.Label129.Size = New System.Drawing.Size(104, 17)
         Me.Label129.TabIndex = 27
-        Me.Label129.Text = "Sucursal Partida"
+        Me.Label129.Text = "Sucursal partida"
         '
         'cbxSucursalSalidaMReserva
         '
@@ -5326,9 +5445,9 @@ Partial Class frmMainMenu
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(417, 103)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(64, 17)
+        Me.Label8.Size = New System.Drawing.Size(81, 17)
         Me.Label8.TabIndex = 31
-        Me.Label8.Text = "Fecha Fin"
+        Me.Label8.Text = "Fecha de fin"
         '
         'Label7
         '
@@ -5337,16 +5456,16 @@ Partial Class frmMainMenu
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label7.Location = New System.Drawing.Point(281, 103)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(80, 17)
+        Me.Label7.Size = New System.Drawing.Size(99, 17)
         Me.Label7.TabIndex = 30
-        Me.Label7.Text = "Fecha Inicio"
+        Me.Label7.Text = "Fecha de inicio"
         '
         'Label161
         '
         Me.Label161.AutoSize = True
         Me.Label161.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label161.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label161.Location = New System.Drawing.Point(383, 1)
+        Me.Label161.Location = New System.Drawing.Point(386, 0)
         Me.Label161.Name = "Label161"
         Me.Label161.Size = New System.Drawing.Size(265, 32)
         Me.Label161.TabIndex = 29
@@ -5368,7 +5487,7 @@ Partial Class frmMainMenu
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label20.Location = New System.Drawing.Point(281, 50)
+        Me.Label20.Location = New System.Drawing.Point(287, 50)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(32, 17)
         Me.Label20.TabIndex = 26
@@ -5379,11 +5498,11 @@ Partial Class frmMainMenu
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(145, 50)
+        Me.Label3.Location = New System.Drawing.Point(150, 50)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(69, 17)
         Me.Label3.TabIndex = 26
-        Me.Label3.Text = "Categoria"
+        Me.Label3.Text = "Categoría"
         '
         'Label2
         '
@@ -5392,9 +5511,9 @@ Partial Class frmMainMenu
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(10, 51)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(103, 17)
+        Me.Label2.Size = New System.Drawing.Size(124, 17)
         Me.Label2.TabIndex = 25
-        Me.Label2.Text = "Nro Documento"
+        Me.Label2.Text = "Nro. de documento"
         '
         'Label1
         '
@@ -5403,9 +5522,9 @@ Partial Class frmMainMenu
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(9, 17)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 22)
+        Me.Label1.Size = New System.Drawing.Size(148, 22)
         Me.Label1.TabIndex = 24
-        Me.Label1.Text = "Nueva Reserva"
+        Me.Label1.Text = "Nueva reserva"
         '
         'dtpFinARes
         '
@@ -5465,22 +5584,22 @@ Partial Class frmMainMenu
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(145, 101)
+        Me.Label5.Location = New System.Drawing.Point(151, 103)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(105, 17)
+        Me.Label5.Size = New System.Drawing.Size(104, 17)
         Me.Label5.TabIndex = 28
-        Me.Label5.Text = "Sucursal Destino"
+        Me.Label5.Text = "Sucursal destino"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(9, 101)
+        Me.Label4.Location = New System.Drawing.Point(13, 103)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(103, 17)
+        Me.Label4.Size = New System.Drawing.Size(104, 17)
         Me.Label4.TabIndex = 27
-        Me.Label4.Text = "Sucursal Partida"
+        Me.Label4.Text = "Sucursal partida"
         '
         'cbxSucSalidaARes
         '
@@ -5518,7 +5637,7 @@ Partial Class frmMainMenu
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(9, 55)
+        Me.Label18.Location = New System.Drawing.Point(10, 185)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(381, 17)
         Me.Label18.TabIndex = 25
@@ -5658,9 +5777,9 @@ Partial Class frmMainMenu
         Me.chboxFechaTramiteFReserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.chboxFechaTramiteFReserva.Location = New System.Drawing.Point(140, 169)
         Me.chboxFechaTramiteFReserva.Name = "chboxFechaTramiteFReserva"
-        Me.chboxFechaTramiteFReserva.Size = New System.Drawing.Size(162, 20)
+        Me.chboxFechaTramiteFReserva.Size = New System.Drawing.Size(159, 20)
         Me.chboxFechaTramiteFReserva.TabIndex = 33
-        Me.chboxFechaTramiteFReserva.Text = "Buscar por Fecha Tramite"
+        Me.chboxFechaTramiteFReserva.Text = "Buscar por fecha trámite"
         Me.chboxFechaTramiteFReserva.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chboxFechaTramiteFReserva.UseVisualStyleBackColor = True
         '
@@ -5695,7 +5814,7 @@ Partial Class frmMainMenu
         Me.chboxFechaFRes.AutoSize = True
         Me.chboxFechaFRes.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chboxFechaFRes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.chboxFechaFRes.Location = New System.Drawing.Point(318, 146)
+        Me.chboxFechaFRes.Location = New System.Drawing.Point(325, 146)
         Me.chboxFechaFRes.Name = "chboxFechaFRes"
         Me.chboxFechaFRes.Size = New System.Drawing.Size(110, 20)
         Me.chboxFechaFRes.TabIndex = 33
@@ -5726,7 +5845,7 @@ Partial Class frmMainMenu
         Me.Label103.AutoSize = True
         Me.Label103.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label103.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label103.Location = New System.Drawing.Point(264, 52)
+        Me.Label103.Location = New System.Drawing.Point(270, 51)
         Me.Label103.Name = "Label103"
         Me.Label103.Size = New System.Drawing.Size(32, 17)
         Me.Label103.TabIndex = 26
@@ -5764,9 +5883,9 @@ Partial Class frmMainMenu
         Me.lblFechaTramite.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.lblFechaTramite.Location = New System.Drawing.Point(10, 149)
         Me.lblFechaTramite.Name = "lblFechaTramite"
-        Me.lblFechaTramite.Size = New System.Drawing.Size(92, 17)
+        Me.lblFechaTramite.Size = New System.Drawing.Size(111, 17)
         Me.lblFechaTramite.TabIndex = 30
-        Me.lblFechaTramite.Text = "Fecha Tramite"
+        Me.lblFechaTramite.Text = "Fecha de trámite"
         '
         'Label102
         '
@@ -5775,16 +5894,16 @@ Partial Class frmMainMenu
         Me.Label102.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label102.Location = New System.Drawing.Point(518, 104)
         Me.Label102.Name = "Label102"
-        Me.Label102.Size = New System.Drawing.Size(114, 17)
+        Me.Label102.Size = New System.Drawing.Size(113, 17)
         Me.Label102.TabIndex = 29
-        Me.Label102.Text = "Usuario Vendedor"
+        Me.Label102.Text = "Usuario vendedor"
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label17.Location = New System.Drawing.Point(518, 51)
+        Me.Label17.Location = New System.Drawing.Point(519, 51)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(75, 17)
         Me.Label17.TabIndex = 29
@@ -5795,7 +5914,7 @@ Partial Class frmMainMenu
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(391, 51)
+        Me.Label11.Location = New System.Drawing.Point(397, 51)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(76, 17)
         Me.Label11.TabIndex = 29
@@ -5808,9 +5927,9 @@ Partial Class frmMainMenu
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label12.Location = New System.Drawing.Point(137, 100)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(105, 17)
+        Me.Label12.Size = New System.Drawing.Size(104, 17)
         Me.Label12.TabIndex = 28
-        Me.Label12.Text = "Sucursal Destino"
+        Me.Label12.Text = "Sucursal destino"
         '
         'Label13
         '
@@ -5819,20 +5938,20 @@ Partial Class frmMainMenu
         Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label13.Location = New System.Drawing.Point(10, 100)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(103, 17)
+        Me.Label13.Size = New System.Drawing.Size(104, 17)
         Me.Label13.TabIndex = 27
-        Me.Label13.Text = "Sucursal Partida"
+        Me.Label13.Text = "Sucursal partida"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(137, 52)
+        Me.Label14.Location = New System.Drawing.Point(143, 52)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(69, 17)
         Me.Label14.TabIndex = 26
-        Me.Label14.Text = "Categoria"
+        Me.Label14.Text = "Categoría"
         '
         'Label15
         '
@@ -5841,9 +5960,9 @@ Partial Class frmMainMenu
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label15.Location = New System.Drawing.Point(10, 52)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(103, 17)
+        Me.Label15.Size = New System.Drawing.Size(124, 17)
         Me.Label15.TabIndex = 25
-        Me.Label15.Text = "Nro Documento"
+        Me.Label15.Text = "Nro. de documento"
         '
         'cbxTipoFRes
         '
@@ -5861,9 +5980,9 @@ Partial Class frmMainMenu
         Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label16.Location = New System.Drawing.Point(9, 17)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(220, 22)
+        Me.Label16.Size = New System.Drawing.Size(152, 22)
         Me.Label16.TabIndex = 24
-        Me.Label16.Text = "Búsqueda de Reservas"
+        Me.Label16.Text = "Buscar reservas"
         '
         'dtpHastaFReserva
         '
@@ -6019,22 +6138,22 @@ Partial Class frmMainMenu
         Me.Label151.AutoSize = True
         Me.Label151.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label151.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label151.Location = New System.Drawing.Point(402, 101)
+        Me.Label151.Location = New System.Drawing.Point(405, 104)
         Me.Label151.Name = "Label151"
-        Me.Label151.Size = New System.Drawing.Size(64, 17)
+        Me.Label151.Size = New System.Drawing.Size(81, 17)
         Me.Label151.TabIndex = 31
-        Me.Label151.Text = "Fecha Fin"
+        Me.Label151.Text = "Fecha de fin"
         '
         'Label152
         '
         Me.Label152.AutoSize = True
         Me.Label152.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label152.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label152.Location = New System.Drawing.Point(264, 101)
+        Me.Label152.Location = New System.Drawing.Point(268, 103)
         Me.Label152.Name = "Label152"
-        Me.Label152.Size = New System.Drawing.Size(80, 17)
+        Me.Label152.Size = New System.Drawing.Size(99, 17)
         Me.Label152.TabIndex = 30
-        Me.Label152.Text = "Fecha Inicio"
+        Me.Label152.Text = "Fecha de inicio"
         '
         'Label153
         '
@@ -6067,7 +6186,7 @@ Partial Class frmMainMenu
         Me.Label155.Name = "Label155"
         Me.Label155.Size = New System.Drawing.Size(69, 17)
         Me.Label155.TabIndex = 26
-        Me.Label155.Text = "Categoria"
+        Me.Label155.Text = "Categoría"
         '
         'Label156
         '
@@ -6076,9 +6195,9 @@ Partial Class frmMainMenu
         Me.Label156.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label156.Location = New System.Drawing.Point(10, 51)
         Me.Label156.Name = "Label156"
-        Me.Label156.Size = New System.Drawing.Size(103, 17)
+        Me.Label156.Size = New System.Drawing.Size(124, 17)
         Me.Label156.TabIndex = 25
-        Me.Label156.Text = "Nro Documento"
+        Me.Label156.Text = "Nro. de documento"
         '
         'Label157
         '
@@ -6087,9 +6206,9 @@ Partial Class frmMainMenu
         Me.Label157.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label157.Location = New System.Drawing.Point(9, 17)
         Me.Label157.Name = "Label157"
-        Me.Label157.Size = New System.Drawing.Size(167, 22)
+        Me.Label157.Size = New System.Drawing.Size(313, 22)
         Me.Label157.TabIndex = 24
-        Me.Label157.Text = "Modificar Alquiler"
+        Me.Label157.Text = "Modificar el alquiler seleccionado"
         '
         'dtpFechaFinMAlquiler
         '
@@ -6158,22 +6277,22 @@ Partial Class frmMainMenu
         Me.Label159.AutoSize = True
         Me.Label159.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label159.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label159.Location = New System.Drawing.Point(136, 101)
+        Me.Label159.Location = New System.Drawing.Point(142, 103)
         Me.Label159.Name = "Label159"
-        Me.Label159.Size = New System.Drawing.Size(105, 17)
+        Me.Label159.Size = New System.Drawing.Size(104, 17)
         Me.Label159.TabIndex = 28
-        Me.Label159.Text = "Sucursal Destino"
+        Me.Label159.Text = "Sucursal destino"
         '
         'Label160
         '
         Me.Label160.AutoSize = True
         Me.Label160.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label160.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label160.Location = New System.Drawing.Point(9, 101)
+        Me.Label160.Location = New System.Drawing.Point(14, 103)
         Me.Label160.Name = "Label160"
-        Me.Label160.Size = New System.Drawing.Size(103, 17)
+        Me.Label160.Size = New System.Drawing.Size(104, 17)
         Me.Label160.TabIndex = 27
-        Me.Label160.Text = "Sucursal Partida"
+        Me.Label160.Text = "Sucursal partida"
         '
         'cbxPartidaMAlquileres
         '
@@ -6445,7 +6564,7 @@ Partial Class frmMainMenu
         Me.Label130.Size = New System.Drawing.Size(571, 34)
         Me.Label130.TabIndex = 25
         Me.Label130.Text = "En el apartado de Reservas, haga doble click en la reserva sobre la que quiere re" &
-    "alizar un Alquiler." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+    "alizar un alquiler." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'lblhelpVEh160
         '
@@ -6465,9 +6584,9 @@ Partial Class frmMainMenu
         Me.Label163.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label163.Location = New System.Drawing.Point(9, 17)
         Me.Label163.Name = "Label163"
-        Me.Label163.Size = New System.Drawing.Size(152, 22)
+        Me.Label163.Size = New System.Drawing.Size(150, 22)
         Me.Label163.TabIndex = 24
-        Me.Label163.Text = "Realizar Alquiler"
+        Me.Label163.Text = "Realizar alquiler"
         '
         'Panel2
         '
@@ -6506,9 +6625,9 @@ Partial Class frmMainMenu
         Me.Label136.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label136.Location = New System.Drawing.Point(9, 23)
         Me.Label136.Name = "Label136"
-        Me.Label136.Size = New System.Drawing.Size(152, 22)
+        Me.Label136.Size = New System.Drawing.Size(150, 22)
         Me.Label136.TabIndex = 24
-        Me.Label136.Text = "Finalizar Alquiler"
+        Me.Label136.Text = "Finalizar alquiler"
         '
         'Panel3
         '
@@ -6615,9 +6734,9 @@ Partial Class frmMainMenu
         Me.chbxFechaTramiteFAlquileres.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.chbxFechaTramiteFAlquileres.Location = New System.Drawing.Point(138, 173)
         Me.chbxFechaTramiteFAlquileres.Name = "chbxFechaTramiteFAlquileres"
-        Me.chbxFechaTramiteFAlquileres.Size = New System.Drawing.Size(162, 20)
+        Me.chbxFechaTramiteFAlquileres.Size = New System.Drawing.Size(179, 20)
         Me.chbxFechaTramiteFAlquileres.TabIndex = 60
-        Me.chbxFechaTramiteFAlquileres.Text = "Buscar por Fecha Tramite"
+        Me.chbxFechaTramiteFAlquileres.Text = "Buscar por Fecha de trámite"
         Me.chbxFechaTramiteFAlquileres.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxFechaTramiteFAlquileres.UseVisualStyleBackColor = True
         '
@@ -6703,9 +6822,9 @@ Partial Class frmMainMenu
         Me.Label142.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label142.Location = New System.Drawing.Point(8, 153)
         Me.Label142.Name = "Label142"
-        Me.Label142.Size = New System.Drawing.Size(92, 17)
+        Me.Label142.Size = New System.Drawing.Size(111, 17)
         Me.Label142.TabIndex = 54
-        Me.Label142.Text = "Fecha Tramite"
+        Me.Label142.Text = "Fecha de trámite"
         '
         'Label143
         '
@@ -6714,9 +6833,9 @@ Partial Class frmMainMenu
         Me.Label143.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label143.Location = New System.Drawing.Point(516, 108)
         Me.Label143.Name = "Label143"
-        Me.Label143.Size = New System.Drawing.Size(114, 17)
+        Me.Label143.Size = New System.Drawing.Size(113, 17)
         Me.Label143.TabIndex = 52
-        Me.Label143.Text = "Usuario Vendedor"
+        Me.Label143.Text = "Usuario vendedor"
         '
         'Label144
         '
@@ -6727,7 +6846,7 @@ Partial Class frmMainMenu
         Me.Label144.Name = "Label144"
         Me.Label144.Size = New System.Drawing.Size(75, 17)
         Me.Label144.TabIndex = 53
-        Me.Label144.Text = "Costo Total"
+        Me.Label144.Text = "Costo total"
         '
         'Label145
         '
@@ -6745,22 +6864,22 @@ Partial Class frmMainMenu
         Me.Label146.AutoSize = True
         Me.Label146.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label146.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label146.Location = New System.Drawing.Point(135, 104)
+        Me.Label146.Location = New System.Drawing.Point(135, 108)
         Me.Label146.Name = "Label146"
-        Me.Label146.Size = New System.Drawing.Size(105, 17)
+        Me.Label146.Size = New System.Drawing.Size(104, 17)
         Me.Label146.TabIndex = 50
-        Me.Label146.Text = "Sucursal Destino"
+        Me.Label146.Text = "Sucursal destino"
         '
         'Label148
         '
         Me.Label148.AutoSize = True
         Me.Label148.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label148.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label148.Location = New System.Drawing.Point(8, 104)
+        Me.Label148.Location = New System.Drawing.Point(8, 108)
         Me.Label148.Name = "Label148"
-        Me.Label148.Size = New System.Drawing.Size(103, 17)
+        Me.Label148.Size = New System.Drawing.Size(104, 17)
         Me.Label148.TabIndex = 49
-        Me.Label148.Text = "Sucursal Partida"
+        Me.Label148.Text = "Sucursal partida"
         '
         'Label149
         '
@@ -6771,7 +6890,7 @@ Partial Class frmMainMenu
         Me.Label149.Name = "Label149"
         Me.Label149.Size = New System.Drawing.Size(69, 17)
         Me.Label149.TabIndex = 48
-        Me.Label149.Text = "Categoria"
+        Me.Label149.Text = "Categoría"
         '
         'Label150
         '
@@ -6780,9 +6899,9 @@ Partial Class frmMainMenu
         Me.Label150.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label150.Location = New System.Drawing.Point(8, 56)
         Me.Label150.Name = "Label150"
-        Me.Label150.Size = New System.Drawing.Size(103, 17)
+        Me.Label150.Size = New System.Drawing.Size(124, 17)
         Me.Label150.TabIndex = 46
-        Me.Label150.Text = "Nro Documento"
+        Me.Label150.Text = "Nro. de documento"
         '
         'cbxTipoFAlquileres
         '
@@ -6904,9 +7023,9 @@ Partial Class frmMainMenu
         Me.Label147.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label147.Location = New System.Drawing.Point(9, 17)
         Me.Label147.Name = "Label147"
-        Me.Label147.Size = New System.Drawing.Size(224, 22)
+        Me.Label147.Size = New System.Drawing.Size(160, 22)
         Me.Label147.TabIndex = 24
-        Me.Label147.Text = "Búsqueda de Alquileres"
+        Me.Label147.Text = "Buscar alquileres"
         '
         'tbpMenuPrincipal
         '
@@ -7052,125 +7171,6 @@ Partial Class frmMainMenu
         Me.lbl162N.Size = New System.Drawing.Size(152, 22)
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
-        '
-        'tipodocumento
-        '
-        Me.tipodocumento.DataPropertyName = "tipodocumento"
-        Me.tipodocumento.HeaderText = "Tipo"
-        Me.tipodocumento.Name = "tipodocumento"
-        Me.tipodocumento.ReadOnly = True
-        '
-        'nrodocumento
-        '
-        Me.nrodocumento.DataPropertyName = "nrodocumento"
-        Me.nrodocumento.HeaderText = "Documento"
-        Me.nrodocumento.Name = "nrodocumento"
-        Me.nrodocumento.ReadOnly = True
-        '
-        'nombre
-        '
-        Me.nombre.DataPropertyName = "nombre"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        '
-        'idpersona
-        '
-        Me.idpersona.DataPropertyName = "idpersona"
-        Me.idpersona.HeaderText = "idpersona"
-        Me.idpersona.Name = "idpersona"
-        Me.idpersona.ReadOnly = True
-        Me.idpersona.Visible = False
-        '
-        'apellido
-        '
-        Me.apellido.DataPropertyName = "apellido"
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        '
-        'email
-        '
-        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.email.DataPropertyName = "email"
-        Me.email.HeaderText = "Correo"
-        Me.email.Name = "email"
-        Me.email.ReadOnly = True
-        Me.email.Width = 63
-        '
-        'fecnac
-        '
-        Me.fecnac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-        Me.fecnac.DataPropertyName = "fecnac"
-        Me.fecnac.HeaderText = "Nacimiento"
-        Me.fecnac.Name = "fecnac"
-        Me.fecnac.ReadOnly = True
-        Me.fecnac.Width = 5
-        '
-        'porcdescuento
-        '
-        Me.porcdescuento.DataPropertyName = "porcdescuento"
-        Me.porcdescuento.HeaderText = "Descuento (%)"
-        Me.porcdescuento.Name = "porcdescuento"
-        Me.porcdescuento.ReadOnly = True
-        '
-        'empresa
-        '
-        Me.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.empresa.DataPropertyName = "empresa"
-        Me.empresa.HeaderText = "Empresa"
-        Me.empresa.Name = "empresa"
-        Me.empresa.ReadOnly = True
-        Me.empresa.Width = 73
-        '
-        'estado
-        '
-        Me.estado.DataPropertyName = "estado"
-        Me.estado.HeaderText = "estado"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        Me.estado.Visible = False
-        '
-        'dia
-        '
-        Me.dia.DataPropertyName = "dia"
-        Me.dia.HeaderText = "dia"
-        Me.dia.Name = "dia"
-        Me.dia.ReadOnly = True
-        Me.dia.Visible = False
-        '
-        'idtipodoc
-        '
-        Me.idtipodoc.DataPropertyName = "idtipodoc"
-        Me.idtipodoc.HeaderText = "idtipodoc"
-        Me.idtipodoc.Name = "idtipodoc"
-        Me.idtipodoc.ReadOnly = True
-        Me.idtipodoc.Visible = False
-        '
-        'mes
-        '
-        Me.mes.DataPropertyName = "mes"
-        Me.mes.HeaderText = "mes"
-        Me.mes.Name = "mes"
-        Me.mes.ReadOnly = True
-        Me.mes.Visible = False
-        '
-        'anio
-        '
-        Me.anio.DataPropertyName = "anio"
-        Me.anio.HeaderText = "anio"
-        Me.anio.Name = "anio"
-        Me.anio.ReadOnly = True
-        Me.anio.Visible = False
-        '
-        'telefonos
-        '
-        Me.telefonos.HeaderText = "Telefonos"
-        Me.telefonos.Name = "telefonos"
-        Me.telefonos.ReadOnly = True
-        Me.telefonos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.telefonos.Text = "Ver"
-        Me.telefonos.UseColumnTextForButtonValue = True
         '
         'frmMainMenu
         '

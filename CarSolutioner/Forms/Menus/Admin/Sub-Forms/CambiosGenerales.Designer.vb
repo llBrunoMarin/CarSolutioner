@@ -305,7 +305,7 @@ Partial Class frmCambiosGenerales
         Me.btnVehiculo.Name = "btnVehiculo"
         Me.btnVehiculo.Size = New System.Drawing.Size(125, 34)
         Me.btnVehiculo.TabIndex = 40
-        Me.btnVehiculo.Text = "Vehiculo"
+        Me.btnVehiculo.Text = "Vehículos"
         Me.btnVehiculo.UseVisualStyleBackColor = False
         '
         'btnDocumento
@@ -339,7 +339,7 @@ Partial Class frmCambiosGenerales
         Me.btnCategorias.Name = "btnCategorias"
         Me.btnCategorias.Size = New System.Drawing.Size(130, 34)
         Me.btnCategorias.TabIndex = 38
-        Me.btnCategorias.Text = "Categorias"
+        Me.btnCategorias.Text = "Categorías"
         Me.btnCategorias.UseVisualStyleBackColor = False
         '
         'btnSucursales
@@ -691,9 +691,9 @@ Partial Class frmCambiosGenerales
         Me.inactivascategorias.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.inactivascategorias.Location = New System.Drawing.Point(7, 5)
         Me.inactivascategorias.Name = "inactivascategorias"
-        Me.inactivascategorias.Size = New System.Drawing.Size(121, 20)
+        Me.inactivascategorias.Size = New System.Drawing.Size(120, 20)
         Me.inactivascategorias.TabIndex = 77
-        Me.inactivascategorias.Text = "Mostrar Inactivas"
+        Me.inactivascategorias.Text = "Mostrar inactivas"
         Me.inactivascategorias.UseVisualStyleBackColor = True
         '
         'dgvCategorias
@@ -827,7 +827,7 @@ Partial Class frmCambiosGenerales
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(83, 17)
         Me.Label8.TabIndex = 54
-        Me.Label8.Text = "300 km/Dia *"
+        Me.Label8.Text = "300 km/Día *"
         '
         'Label9
         '
@@ -838,7 +838,7 @@ Partial Class frmCambiosGenerales
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(83, 17)
         Me.Label9.TabIndex = 55
-        Me.Label9.Text = "150 km/Dia *"
+        Me.Label9.Text = "150 km/Día *"
         '
         'btncatadd
         '
@@ -921,11 +921,11 @@ Partial Class frmCambiosGenerales
         Me.Label38.AutoSize = True
         Me.Label38.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label38.Location = New System.Drawing.Point(4, 14)
+        Me.Label38.Location = New System.Drawing.Point(13, 10)
         Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(193, 17)
+        Me.Label38.Size = New System.Drawing.Size(145, 17)
         Me.Label38.TabIndex = 70
-        Me.Label38.Text = "Desactivacion de Categoria"
+        Me.Label38.Text = "Desactivar categoría"
         '
         'lblcatmod
         '
@@ -934,9 +934,9 @@ Partial Class frmCambiosGenerales
         Me.lblcatmod.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.lblcatmod.Location = New System.Drawing.Point(110, 72)
         Me.lblcatmod.Name = "lblcatmod"
-        Me.lblcatmod.Size = New System.Drawing.Size(74, 16)
+        Me.lblcatmod.Size = New System.Drawing.Size(73, 16)
         Me.lblcatmod.TabIndex = 74
-        Me.lblcatmod.Text = "Categoria"
+        Me.lblcatmod.Text = "Categoría"
         '
         'Label40
         '
@@ -1051,7 +1051,7 @@ Partial Class frmCambiosGenerales
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(83, 17)
         Me.Label27.TabIndex = 78
-        Me.Label27.Text = "150 km/Dia *"
+        Me.Label27.Text = "150 km/Día *"
         '
         'txtTarifa300ModCat
         '
@@ -1069,7 +1069,7 @@ Partial Class frmCambiosGenerales
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(83, 17)
         Me.Label25.TabIndex = 77
-        Me.Label25.Text = "300 km/Dia *"
+        Me.Label25.Text = "300 km/Día *"
         '
         'txtTarifaBaseModCat
         '
@@ -1110,9 +1110,9 @@ Partial Class frmCambiosGenerales
         Me.chboxsucinactivas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.chboxsucinactivas.Location = New System.Drawing.Point(10, 6)
         Me.chboxsucinactivas.Name = "chboxsucinactivas"
-        Me.chboxsucinactivas.Size = New System.Drawing.Size(121, 20)
+        Me.chboxsucinactivas.Size = New System.Drawing.Size(120, 20)
         Me.chboxsucinactivas.TabIndex = 76
-        Me.chboxsucinactivas.Text = "Mostrar Inactivas"
+        Me.chboxsucinactivas.Text = "Mostrar inactivas"
         Me.chboxsucinactivas.UseVisualStyleBackColor = True
         '
         'dgvSucursales
@@ -1174,7 +1174,7 @@ Partial Class frmCambiosGenerales
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(75, 17)
         Me.Label34.TabIndex = 70
-        Me.Label34.Text = "Direccion *"
+        Me.Label34.Text = "Dirección *"
         '
         'Label121
         '
@@ -1235,7 +1235,7 @@ Partial Class frmCambiosGenerales
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(78, 17)
         Me.Label1.TabIndex = 53
-        Me.Label1.Text = "Telefono 1 *"
+        Me.Label1.Text = "Teléfono 1 *"
         '
         'Label2
         '
@@ -1257,7 +1257,7 @@ Partial Class frmCambiosGenerales
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(69, 17)
         Me.Label3.TabIndex = 55
-        Me.Label3.Text = "Telefono 2"
+        Me.Label3.Text = "Teléfono 2"
         '
         'btnAddSuc
         '
@@ -1328,7 +1328,7 @@ Partial Class frmCambiosGenerales
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(69, 17)
         Me.Label36.TabIndex = 72
-        Me.Label36.Text = "Telefono 2"
+        Me.Label36.Text = "Teléfono 2"
         '
         'btnmodsuc
         '
@@ -1390,9 +1390,9 @@ Partial Class frmCambiosGenerales
         Me.Label31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label31.Location = New System.Drawing.Point(4, 14)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(171, 17)
+        Me.Label31.Size = New System.Drawing.Size(170, 17)
         Me.Label31.TabIndex = 70
-        Me.Label31.Text = "Movimiento de Vehiculos"
+        Me.Label31.Text = "Movimiento de vehículos"
         '
         'lblsucmov
         '
@@ -1442,7 +1442,7 @@ Partial Class frmCambiosGenerales
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(8, 7)
+        Me.Label12.Location = New System.Drawing.Point(8, 6)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(83, 21)
         Me.Label12.TabIndex = 68
@@ -1485,7 +1485,7 @@ Partial Class frmCambiosGenerales
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(68, 17)
         Me.Label16.TabIndex = 53
-        Me.Label16.Text = "Telefono *"
+        Me.Label16.Text = "Teléfono *"
         '
         'Label18
         '
@@ -1507,7 +1507,7 @@ Partial Class frmCambiosGenerales
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(75, 17)
         Me.Label19.TabIndex = 55
-        Me.Label19.Text = "Direccion *"
+        Me.Label19.Text = "Dirección *"
         '
         'tbcTabControl
         '

@@ -336,9 +336,9 @@ Partial Class frmAlquilar
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(14, 153)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(107, 17)
+        Me.Label10.Size = New System.Drawing.Size(106, 17)
         Me.Label10.TabIndex = 31
-        Me.Label10.Text = "Tipo de Vehiculo"
+        Me.Label10.Text = "Tipo de vehículo"
         '
         'btnCerrar
         '
@@ -361,11 +361,11 @@ Partial Class frmAlquilar
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(14, 199)
+        Me.Label1.Location = New System.Drawing.Point(9, 200)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(125, 17)
+        Me.Label1.Size = New System.Drawing.Size(146, 17)
         Me.Label1.TabIndex = 37
-        Me.Label1.Text = "Categoria Vehiculo"
+        Me.Label1.Text = "Categoría del vehículo"
         '
         'Label2
         '
@@ -374,9 +374,9 @@ Partial Class frmAlquilar
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(23, 33)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(100, 17)
+        Me.Label2.Size = New System.Drawing.Size(99, 17)
         Me.Label2.TabIndex = 38
-        Me.Label2.Text = "Sucursal Actual"
+        Me.Label2.Text = "Sucursal actual"
         '
         'btnAlquilar
         '
@@ -451,9 +451,9 @@ Partial Class frmAlquilar
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(14, 33)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(131, 17)
+        Me.Label4.Size = New System.Drawing.Size(99, 17)
         Me.Label4.TabIndex = 44
-        Me.Label4.Text = "Fecha Reserva Inicio"
+        Me.Label4.Text = "Fecha de inicio"
         '
         'Label5
         '
@@ -462,9 +462,9 @@ Partial Class frmAlquilar
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(180, 33)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(115, 17)
+        Me.Label5.Size = New System.Drawing.Size(81, 17)
         Me.Label5.TabIndex = 46
-        Me.Label5.Text = "Fecha Reserva Fin"
+        Me.Label5.Text = "Fecha de fin"
         '
         'Label7
         '
@@ -473,9 +473,9 @@ Partial Class frmAlquilar
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label7.Location = New System.Drawing.Point(14, 33)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(128, 17)
+        Me.Label7.Size = New System.Drawing.Size(99, 17)
         Me.Label7.TabIndex = 48
-        Me.Label7.Text = "Fecha Alquiler Inicio"
+        Me.Label7.Text = "Fecha de inicio"
         '
         'dtpFRfin
         '
@@ -524,20 +524,20 @@ Partial Class frmAlquilar
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(170, 32)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(109, 17)
+        Me.Label8.Size = New System.Drawing.Size(106, 17)
         Me.Label8.TabIndex = 57
-        Me.Label8.Text = "Sucursal Llegada"
+        Me.Label8.Text = "Sucursal llegada"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(172, 33)
+        Me.Label6.Location = New System.Drawing.Point(178, 33)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(112, 17)
+        Me.Label6.Size = New System.Drawing.Size(81, 17)
         Me.Label6.TabIndex = 48
-        Me.Label6.Text = "Fecha Alquiler Fin"
+        Me.Label6.Text = "Fecha de fin"
         '
         'TextBox1
         '
@@ -634,9 +634,9 @@ Partial Class frmAlquilar
         Me.lblDescuento.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.lblDescuento.Location = New System.Drawing.Point(630, 197)
         Me.lblDescuento.Name = "lblDescuento"
-        Me.lblDescuento.Size = New System.Drawing.Size(141, 17)
+        Me.lblDescuento.Size = New System.Drawing.Size(140, 17)
         Me.lblDescuento.TabIndex = 66
-        Me.lblDescuento.Text = "Descuento del Cliente"
+        Me.lblDescuento.Text = "Descuento del cliente"
         '
         'txtCostoTotalEsperado
         '
@@ -666,7 +666,7 @@ Partial Class frmAlquilar
         Me.lblCostoTotal.Name = "lblCostoTotal"
         Me.lblCostoTotal.Size = New System.Drawing.Size(75, 17)
         Me.lblCostoTotal.TabIndex = 68
-        Me.lblCostoTotal.Text = "Costo Total"
+        Me.lblCostoTotal.Text = "Costo total"
         '
         'txtCostoEsperado
         '
@@ -694,7 +694,7 @@ Partial Class frmAlquilar
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(110, 17)
         Me.Label3.TabIndex = 37
-        Me.Label3.Text = "Cantidad de dias"
+        Me.Label3.Text = "Cantidad de días"
         '
         'btnDescuentoReserva
         '
@@ -731,7 +731,7 @@ Partial Class frmAlquilar
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label12.Location = New System.Drawing.Point(151, 200)
+        Me.Label12.Location = New System.Drawing.Point(158, 200)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(115, 17)
         Me.Label12.TabIndex = 37
@@ -743,10 +743,9 @@ Partial Class frmAlquilar
         Me.lblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.lblAdvertencia.Location = New System.Drawing.Point(291, 219)
         Me.lblAdvertencia.Name = "lblAdvertencia"
-        Me.lblAdvertencia.Size = New System.Drawing.Size(336, 31)
+        Me.lblAdvertencia.Size = New System.Drawing.Size(336, 41)
         Me.lblAdvertencia.TabIndex = 70
-        Me.lblAdvertencia.Text = "Esto quiere decir que el cliente podrá realizar un total de X kilómetros en total" &
-    " de toda la reserva."
+        Me.lblAdvertencia.Text = "El cliente podrá realizar un total de X kilómetros en total de toda la reserva."
         '
         'cbxKilometraje
         '
@@ -821,9 +820,9 @@ Partial Class frmAlquilar
         Me.lblCategoriaAntigua.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.lblCategoriaAntigua.Location = New System.Drawing.Point(309, 153)
         Me.lblCategoriaAntigua.Name = "lblCategoriaAntigua"
-        Me.lblCategoriaAntigua.Size = New System.Drawing.Size(136, 17)
+        Me.lblCategoriaAntigua.Size = New System.Drawing.Size(133, 17)
         Me.lblCategoriaAntigua.TabIndex = 37
-        Me.lblCategoriaAntigua.Text = "Categoria Reservada"
+        Me.lblCategoriaAntigua.Text = "Categoría reservada"
         '
         'chboxCobrarEstaCat
         '
@@ -833,7 +832,7 @@ Partial Class frmAlquilar
         Me.chboxCobrarEstaCat.Name = "chboxCobrarEstaCat"
         Me.chboxCobrarEstaCat.Size = New System.Drawing.Size(163, 20)
         Me.chboxCobrarEstaCat.TabIndex = 73
-        Me.chboxCobrarEstaCat.Text = "Cobrar con esta Categoria"
+        Me.chboxCobrarEstaCat.Text = "Cobrar con esta categoria"
         Me.chboxCobrarEstaCat.UseVisualStyleBackColor = True
         '
         'frmAlquilar

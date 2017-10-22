@@ -204,16 +204,22 @@ Module Metodos
     Public Function AmaranthMessagebox(Texto As String, Tipo As String) As DialogResult
 
         Dim AmaranthMsgbox As New AmaranthMsgbox(Texto, Tipo)
-        Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog()
-        Return resultado
+        Using AmaranthMsgbox
+            Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog()
+            Return resultado
+        End Using
+
 
     End Function
 
     'Ventana de autorización
-    Public Function Autorizar() As DialogResult
+    Public Function Autorizar(parent As IWin32Window) As DialogResult
         Dim autorizacion As New Autorizacion
-        Dim resultado As DialogResult = autorizacion.ShowDialog()
-        Return resultado
+
+        Using autorizacion
+            Dim resultado As DialogResult = autorizacion.ShowDialog(parent)
+            Return resultado
+        End Using
     End Function
 
     'Verificar codigo de Descuento

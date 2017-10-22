@@ -46,6 +46,8 @@ Partial Class frmMainMenu
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprmirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListadoActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AparienciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsItemHerramientas = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,21 +66,6 @@ Partial Class frmMainMenu
         Me.tabClientes = New System.Windows.Forms.TabControl()
         Me.Clientes = New System.Windows.Forms.TabPage()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
-        Me.tipodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersona = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fecnac = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.porcdescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.dia = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.mes = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.telefonos = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.pnlMClientes = New System.Windows.Forms.Panel()
         Me.numDescuentoMCliente = New System.Windows.Forms.NumericUpDown()
         Me.gbxFecNacMCliente = New System.Windows.Forms.GroupBox()
@@ -200,6 +187,8 @@ Partial Class frmMainMenu
         Me.Label32 = New System.Windows.Forms.Label()
         Me.txtMatriculaBVeh = New System.Windows.Forms.TextBox()
         Me.pnlFVehi = New System.Windows.Forms.Panel()
+        Me.lblColorFveh = New System.Windows.Forms.Label()
+        Me.txtColorFVeh = New System.Windows.Forms.TextBox()
         Me.numPasajerosFVeh = New System.Windows.Forms.NumericUpDown()
         Me.cbxTipoFVeh = New System.Windows.Forms.ComboBox()
         Me.txtMatriculaFVeh = New System.Windows.Forms.TextBox()
@@ -620,10 +609,21 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.txtColorFVeh = New System.Windows.Forms.TextBox()
-        Me.lblColorFveh = New System.Windows.Forms.Label()
-        Me.ListadoActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GuardarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tipodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nrodocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idpersona = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fecnac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.porcdescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.dia = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipodoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.mes = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.anio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.telefonos = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -720,6 +720,18 @@ Partial Class frmMainMenu
         Me.ImprmirToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.ImprmirToolStripMenuItem.Text = "Listado Actual"
         '
+        'ListadoActualToolStripMenuItem
+        '
+        Me.ListadoActualToolStripMenuItem.Name = "ListadoActualToolStripMenuItem"
+        Me.ListadoActualToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.ListadoActualToolStripMenuItem.Text = "Imprimir"
+        '
+        'GuardarToolStripMenuItem1
+        '
+        Me.GuardarToolStripMenuItem1.Name = "GuardarToolStripMenuItem1"
+        Me.GuardarToolStripMenuItem1.Size = New System.Drawing.Size(188, 22)
+        Me.GuardarToolStripMenuItem1.Text = "Guardar como PDF"
+        '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AparienciaToolStripMenuItem})
@@ -732,7 +744,7 @@ Partial Class frmMainMenu
         'AparienciaToolStripMenuItem
         '
         Me.AparienciaToolStripMenuItem.Name = "AparienciaToolStripMenuItem"
-        Me.AparienciaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AparienciaToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.AparienciaToolStripMenuItem.Text = "Apariencia"
         '
         'tsItemHerramientas
@@ -964,125 +976,6 @@ Partial Class frmMainMenu
         Me.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvClientes.Size = New System.Drawing.Size(739, 787)
         Me.dgvClientes.TabIndex = 39
-        '
-        'tipodocumento
-        '
-        Me.tipodocumento.DataPropertyName = "tipodocumento"
-        Me.tipodocumento.HeaderText = "Tipo"
-        Me.tipodocumento.Name = "tipodocumento"
-        Me.tipodocumento.ReadOnly = True
-        '
-        'nrodocumento
-        '
-        Me.nrodocumento.DataPropertyName = "nrodocumento"
-        Me.nrodocumento.HeaderText = "Documento"
-        Me.nrodocumento.Name = "nrodocumento"
-        Me.nrodocumento.ReadOnly = True
-        '
-        'nombre
-        '
-        Me.nombre.DataPropertyName = "nombre"
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        '
-        'idpersona
-        '
-        Me.idpersona.DataPropertyName = "idpersona"
-        Me.idpersona.HeaderText = "idpersona"
-        Me.idpersona.Name = "idpersona"
-        Me.idpersona.ReadOnly = True
-        Me.idpersona.Visible = False
-        '
-        'apellido
-        '
-        Me.apellido.DataPropertyName = "apellido"
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        Me.apellido.ReadOnly = True
-        '
-        'email
-        '
-        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.email.DataPropertyName = "email"
-        Me.email.HeaderText = "Correo"
-        Me.email.Name = "email"
-        Me.email.ReadOnly = True
-        Me.email.Width = 63
-        '
-        'fecnac
-        '
-        Me.fecnac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
-        Me.fecnac.DataPropertyName = "fecnac"
-        Me.fecnac.HeaderText = "Nacimiento"
-        Me.fecnac.Name = "fecnac"
-        Me.fecnac.ReadOnly = True
-        Me.fecnac.Width = 5
-        '
-        'porcdescuento
-        '
-        Me.porcdescuento.DataPropertyName = "porcdescuento"
-        Me.porcdescuento.HeaderText = "Descuento"
-        Me.porcdescuento.Name = "porcdescuento"
-        Me.porcdescuento.ReadOnly = True
-        '
-        'empresa
-        '
-        Me.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.empresa.DataPropertyName = "empresa"
-        Me.empresa.HeaderText = "Empresa"
-        Me.empresa.Name = "empresa"
-        Me.empresa.ReadOnly = True
-        Me.empresa.Width = 73
-        '
-        'estado
-        '
-        Me.estado.DataPropertyName = "estado"
-        Me.estado.HeaderText = "estado"
-        Me.estado.Name = "estado"
-        Me.estado.ReadOnly = True
-        Me.estado.Visible = False
-        '
-        'dia
-        '
-        Me.dia.DataPropertyName = "dia"
-        Me.dia.HeaderText = "dia"
-        Me.dia.Name = "dia"
-        Me.dia.ReadOnly = True
-        Me.dia.Visible = False
-        '
-        'idtipodoc
-        '
-        Me.idtipodoc.DataPropertyName = "idtipodoc"
-        Me.idtipodoc.HeaderText = "idtipodoc"
-        Me.idtipodoc.Name = "idtipodoc"
-        Me.idtipodoc.ReadOnly = True
-        Me.idtipodoc.Visible = False
-        '
-        'mes
-        '
-        Me.mes.DataPropertyName = "mes"
-        Me.mes.HeaderText = "mes"
-        Me.mes.Name = "mes"
-        Me.mes.ReadOnly = True
-        Me.mes.Visible = False
-        '
-        'anio
-        '
-        Me.anio.DataPropertyName = "anio"
-        Me.anio.HeaderText = "anio"
-        Me.anio.Name = "anio"
-        Me.anio.ReadOnly = True
-        Me.anio.Visible = False
-        '
-        'telefonos
-        '
-        Me.telefonos.HeaderText = "Telefonos"
-        Me.telefonos.Name = "telefonos"
-        Me.telefonos.ReadOnly = True
-        Me.telefonos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.telefonos.Text = "Ver"
-        Me.telefonos.UseColumnTextForButtonValue = True
         '
         'pnlMClientes
         '
@@ -2543,6 +2436,24 @@ Partial Class frmMainMenu
         Me.pnlFVehi.Name = "pnlFVehi"
         Me.pnlFVehi.Size = New System.Drawing.Size(661, 216)
         Me.pnlFVehi.TabIndex = 36
+        '
+        'lblColorFveh
+        '
+        Me.lblColorFveh.AutoSize = True
+        Me.lblColorFveh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblColorFveh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblColorFveh.Location = New System.Drawing.Point(469, 52)
+        Me.lblColorFveh.Name = "lblColorFveh"
+        Me.lblColorFveh.Size = New System.Drawing.Size(40, 17)
+        Me.lblColorFveh.TabIndex = 65
+        Me.lblColorFveh.Text = "Color"
+        '
+        'txtColorFVeh
+        '
+        Me.txtColorFVeh.Location = New System.Drawing.Point(472, 72)
+        Me.txtColorFVeh.Name = "txtColorFVeh"
+        Me.txtColorFVeh.Size = New System.Drawing.Size(104, 20)
+        Me.txtColorFVeh.TabIndex = 64
         '
         'numPasajerosFVeh
         '
@@ -5308,7 +5219,6 @@ Partial Class frmMainMenu
         Me.dtpFechaInicioMReserva.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.dtpFechaInicioMReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFechaInicioMReserva.Location = New System.Drawing.Point(267, 123)
-        Me.dtpFechaInicioMReserva.MinDate = New Date(1768, 12, 26, 0, 0, 0, 0)
         Me.dtpFechaInicioMReserva.Name = "dtpFechaInicioMReserva"
         Me.dtpFechaInicioMReserva.Size = New System.Drawing.Size(129, 20)
         Me.dtpFechaInicioMReserva.TabIndex = 21
@@ -7143,37 +7053,124 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-
-        'txtColorFVeh
+        'tipodocumento
         '
-        Me.txtColorFVeh.Location = New System.Drawing.Point(472, 72)
-        Me.txtColorFVeh.Name = "txtColorFVeh"
-        Me.txtColorFVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtColorFVeh.TabIndex = 64
+        Me.tipodocumento.DataPropertyName = "tipodocumento"
+        Me.tipodocumento.HeaderText = "Tipo"
+        Me.tipodocumento.Name = "tipodocumento"
+        Me.tipodocumento.ReadOnly = True
         '
-        'lblColorFveh
+        'nrodocumento
         '
-        Me.lblColorFveh.AutoSize = True
-        Me.lblColorFveh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblColorFveh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblColorFveh.Location = New System.Drawing.Point(469, 52)
-        Me.lblColorFveh.Name = "lblColorFveh"
-        Me.lblColorFveh.Size = New System.Drawing.Size(40, 17)
-        Me.lblColorFveh.TabIndex = 65
-        Me.lblColorFveh.Text = "Color"
-
-        'ListadoActualToolStripMenuItem
+        Me.nrodocumento.DataPropertyName = "nrodocumento"
+        Me.nrodocumento.HeaderText = "Documento"
+        Me.nrodocumento.Name = "nrodocumento"
+        Me.nrodocumento.ReadOnly = True
         '
-        Me.ListadoActualToolStripMenuItem.Name = "ListadoActualToolStripMenuItem"
-        Me.ListadoActualToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
-        Me.ListadoActualToolStripMenuItem.Text = "Imprimir"
+        'nombre
         '
-        'GuardarToolStripMenuItem1
+        Me.nombre.DataPropertyName = "nombre"
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
         '
-        Me.GuardarToolStripMenuItem1.Name = "GuardarToolStripMenuItem1"
-        Me.GuardarToolStripMenuItem1.Size = New System.Drawing.Size(188, 22)
-        Me.GuardarToolStripMenuItem1.Text = "Guardar como PDF"
-
+        'idpersona
+        '
+        Me.idpersona.DataPropertyName = "idpersona"
+        Me.idpersona.HeaderText = "idpersona"
+        Me.idpersona.Name = "idpersona"
+        Me.idpersona.ReadOnly = True
+        Me.idpersona.Visible = False
+        '
+        'apellido
+        '
+        Me.apellido.DataPropertyName = "apellido"
+        Me.apellido.HeaderText = "Apellido"
+        Me.apellido.Name = "apellido"
+        Me.apellido.ReadOnly = True
+        '
+        'email
+        '
+        Me.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.email.DataPropertyName = "email"
+        Me.email.HeaderText = "Correo"
+        Me.email.Name = "email"
+        Me.email.ReadOnly = True
+        Me.email.Width = 63
+        '
+        'fecnac
+        '
+        Me.fecnac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+        Me.fecnac.DataPropertyName = "fecnac"
+        Me.fecnac.HeaderText = "Nacimiento"
+        Me.fecnac.Name = "fecnac"
+        Me.fecnac.ReadOnly = True
+        Me.fecnac.Width = 5
+        '
+        'porcdescuento
+        '
+        Me.porcdescuento.DataPropertyName = "porcdescuento"
+        Me.porcdescuento.HeaderText = "Descuento (%)"
+        Me.porcdescuento.Name = "porcdescuento"
+        Me.porcdescuento.ReadOnly = True
+        '
+        'empresa
+        '
+        Me.empresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.empresa.DataPropertyName = "empresa"
+        Me.empresa.HeaderText = "Empresa"
+        Me.empresa.Name = "empresa"
+        Me.empresa.ReadOnly = True
+        Me.empresa.Width = 73
+        '
+        'estado
+        '
+        Me.estado.DataPropertyName = "estado"
+        Me.estado.HeaderText = "estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        Me.estado.Visible = False
+        '
+        'dia
+        '
+        Me.dia.DataPropertyName = "dia"
+        Me.dia.HeaderText = "dia"
+        Me.dia.Name = "dia"
+        Me.dia.ReadOnly = True
+        Me.dia.Visible = False
+        '
+        'idtipodoc
+        '
+        Me.idtipodoc.DataPropertyName = "idtipodoc"
+        Me.idtipodoc.HeaderText = "idtipodoc"
+        Me.idtipodoc.Name = "idtipodoc"
+        Me.idtipodoc.ReadOnly = True
+        Me.idtipodoc.Visible = False
+        '
+        'mes
+        '
+        Me.mes.DataPropertyName = "mes"
+        Me.mes.HeaderText = "mes"
+        Me.mes.Name = "mes"
+        Me.mes.ReadOnly = True
+        Me.mes.Visible = False
+        '
+        'anio
+        '
+        Me.anio.DataPropertyName = "anio"
+        Me.anio.HeaderText = "anio"
+        Me.anio.Name = "anio"
+        Me.anio.ReadOnly = True
+        Me.anio.Visible = False
+        '
+        'telefonos
+        '
+        Me.telefonos.HeaderText = "Telefonos"
+        Me.telefonos.Name = "telefonos"
+        Me.telefonos.ReadOnly = True
+        Me.telefonos.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.telefonos.Text = "Ver"
+        Me.telefonos.UseColumnTextForButtonValue = True
         '
         'frmMainMenu
         '
@@ -7857,6 +7854,13 @@ Partial Class frmMainMenu
     Friend WithEvents numDescuentoACliente As NumericUpDown
     Friend WithEvents btnDescuentoACliente As Button
     Friend WithEvents Label115 As Label
+    Friend WithEvents numDescuentoFCliente As NumericUpDown
+    Friend WithEvents Label132 As Label
+    Friend WithEvents lblKilometrajeAVeh As Label
+    Friend WithEvents lblColorFveh As Label
+    Friend WithEvents txtColorFVeh As TextBox
+    Friend WithEvents ListadoActualToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GuardarToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents tipodocumento As DataGridViewTextBoxColumn
     Friend WithEvents nrodocumento As DataGridViewTextBoxColumn
     Friend WithEvents nombre As DataGridViewTextBoxColumn
@@ -7872,12 +7876,4 @@ Partial Class frmMainMenu
     Friend WithEvents mes As DataGridViewTextBoxColumn
     Friend WithEvents anio As DataGridViewTextBoxColumn
     Friend WithEvents telefonos As DataGridViewButtonColumn
-    Friend WithEvents numDescuentoFCliente As NumericUpDown
-    Friend WithEvents Label132 As Label
-    Friend WithEvents lblKilometrajeAVeh As Label
-    Friend WithEvents lblColorFveh As Label
-    Friend WithEvents txtColorFVeh As TextBox
-    Friend WithEvents ListadoActualToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GuardarToolStripMenuItem1 As ToolStripMenuItem
-
 End Class

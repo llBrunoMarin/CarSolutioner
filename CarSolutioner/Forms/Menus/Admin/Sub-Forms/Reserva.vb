@@ -66,7 +66,7 @@
     End Function
 
     Private Sub btnAgregarDescuentoCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarDescuentoCliente.Click
-        If Autorizar() = vbYes Then
+        If Autorizar(Me) = vbYes Then
 
             Dim descuento As New DescuentoPersonalCliente(ReservaSeleccionada.IdCliente)
             descuento.ShowDialog()

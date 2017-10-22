@@ -105,9 +105,9 @@ Partial Class frmTelefonosCliente
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.Cornsilk
-        Me.btnCerrar.Location = New System.Drawing.Point(361, 0)
+        Me.btnCerrar.Location = New System.Drawing.Point(355, -5)
         Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
+        Me.btnCerrar.Size = New System.Drawing.Size(42, 45)
         Me.btnCerrar.TabIndex = 29
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False

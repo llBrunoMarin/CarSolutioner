@@ -29,6 +29,7 @@ Public Class Login
         lbluser.Visible = False
         lbldataincorrect.Visible = False
         lblInvitado.Visible = False
+        lblmayus.Visible = False
         PictureBox2.Visible = False
         Dim retraso As Integer
 
@@ -44,16 +45,11 @@ Public Class Login
     'Hacer operaciones de LOGIN, establece el Tipo de Usuario una vez que termina. Si termina con un error, establece el tipo de usuario según el error.
     Private Sub bgwLogin_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwLogin.DoWork
 
-
-
         conexion.Usuario = txtUsuario.Text
-            conexion.Contraseña = txtContraseña.Text
+        conexion.Contraseña = txtContraseña.Text
 
-            conexion.Conectar(conexion.Usuario, conexion.Contraseña)
-            conexion.Cerrar()
-
-
-
+        conexion.Conectar(conexion.Usuario, conexion.Contraseña)
+        conexion.Cerrar()
 
     End Sub
 
@@ -72,6 +68,7 @@ Public Class Login
 
                         Case 1
                             frmMainMenu.Show()
+                            Me.Hide()
 
                         Case 2
                             Me.Hide()
@@ -139,7 +136,6 @@ Public Class Login
         End Select
 
     End Sub
-
 
     Private Sub lblInvitado_Click(sender As Object, e As EventArgs) Handles lblInvitado.Click
         'MainMenuInvitado.Show()

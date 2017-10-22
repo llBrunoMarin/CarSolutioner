@@ -10,6 +10,8 @@
     Private Sub frmModificarReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarDatosComboBox(cbxTipo, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
         CargarDatosComboBox(cbxCategoria, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+        ReservaSeleccionada.IdNuevaCategoria = cbxCategoria.SelectedValue
+        ReservaSeleccionada.IdTipo = cbxTipo.SelectedValue
     End Sub
 
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
@@ -22,6 +24,8 @@
             Dim AlquilarReserva As New frmAlquilar(Disponibles, frmAlquilar.VistaAlquilar.Editado, ReservaSeleccionada)
             AlquilarReserva.ShowDialog(frmMainMenu)
             Me.Dispose()
+        Else
+            AmaranthMessagebox("No hay vehículos disponibles con estas características. Por favor, intente nuevamente.", "Error")
         End If
 
     End Sub
@@ -30,6 +34,5 @@
         ReservaSeleccionada.IdNuevaCategoria = cbxCategoria.SelectedValue
         ReservaSeleccionada.IdTipo = cbxTipo.SelectedValue
     End Sub
-
 
 End Class

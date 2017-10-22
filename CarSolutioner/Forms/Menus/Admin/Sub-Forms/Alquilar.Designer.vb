@@ -349,7 +349,7 @@ Partial Class frmAlquilar
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCerrar.Location = New System.Drawing.Point(1098, 1)
+        Me.btnCerrar.Location = New System.Drawing.Point(1104, 0)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
         Me.btnCerrar.TabIndex = 36
@@ -484,8 +484,6 @@ Partial Class frmAlquilar
         Me.dtpFRfin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFRfin.Location = New System.Drawing.Point(183, 53)
         Me.dtpFRfin.MaxDate = New Date(2200, 1, 30, 0, 0, 0, 0)
-
-        Me.dtpFRfin.Value = New Date(2017, 10, 20, 0, 0, 0, 0)
         Me.dtpFRfin.Name = "dtpFRfin"
         Me.dtpFRfin.Size = New System.Drawing.Size(131, 20)
         Me.dtpFRfin.TabIndex = 53

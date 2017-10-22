@@ -80,7 +80,7 @@
     End Sub
 
     Private Sub btnAgregarDescuentoAlquiler_Click(sender As Object, e As EventArgs) Handles btnAgregarDescuentoAlquiler.Click
-        If Autorizar() = vbYes Then
+        If Autorizar(Me) = vbYes Then
             txtRecargo.Enabled = True
         End If
     End Sub

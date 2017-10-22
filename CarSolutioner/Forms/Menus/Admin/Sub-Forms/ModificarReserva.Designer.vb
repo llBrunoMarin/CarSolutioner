@@ -68,7 +68,7 @@ Partial Class frmModificarReserva
         Me.btnCerrarMsgbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrarMsgbox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrarMsgbox.ForeColor = System.Drawing.Color.Cornsilk
-        Me.btnCerrarMsgbox.Location = New System.Drawing.Point(399, 0)
+        Me.btnCerrarMsgbox.Location = New System.Drawing.Point(399, -3)
         Me.btnCerrarMsgbox.Name = "btnCerrarMsgbox"
         Me.btnCerrarMsgbox.Size = New System.Drawing.Size(36, 37)
         Me.btnCerrarMsgbox.TabIndex = 53

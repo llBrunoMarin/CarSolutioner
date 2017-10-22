@@ -29,7 +29,6 @@ Public Class frmMainMenu
         cbxTipoAVeh.SelectedItem = Nothing
         cbxTipoFRes.SelectedItem = Nothing
 
-
         cbxMarcaFVeh.SelectedItem = Nothing
         cbxMarcaAVeh.SelectedItem = Nothing
 
@@ -54,8 +53,7 @@ Public Class frmMainMenu
         dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()
         dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
 
-        dtpFechaInicioMReserva.MinDate = Date.Now
-        dtpFechaFinMReserva.MinDate = dtpFechaInicioMReserva.Value
+
     End Sub
 
     Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnVehiculos.Click, btnReservas.Click, btnMantenimiento.Click, btnEmpleados.Click, btnClientes.Click
@@ -232,26 +230,27 @@ Public Class frmMainMenu
             Case "dgvEmpleados"
                 dgvEmpleados.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.idpersona, Cliente.nrodocumento, Cliente.nombre, Cliente.apellido, Cliente.email, empleado.estado, empleado.usuario, empleado.tipo idtipo, sucursal.idsucursal, sucursal.nombre sucursales, CASE WHEN empleado.tipo = 1 THEN ""Director General"" WHEN empleado.tipo = 2 THEN ""Gerente"" WHEN empleado.tipo = 3 THEN ""Jefe de Personal"" WHEN empleado.tipo = 4 THEN ""Empleado"" ELSE NULL END tipo FROM EMPLEADO, CLIENTE, TRABAJA, SUCURSAL WHERE Cliente.idpersona = Empleado.idpersona AND trabaja.usuarioempleado = empleado.usuario AND trabaja.idsucursal = sucursal.idsucursal AND trabaja.fechafin is null AND Empleado.estado = 't'")
-                Dim FILTRAR As String
-                FILTRAR = txtNombreFempleado.Text
+                Dim AuxiliarFiltro As String
+                AuxiliarFiltro = txtNombreFempleado.Text
                 txtNombreFempleado.Text = ""
-                txtNombreFempleado.Text = FILTRAR
+                txtNombreFempleado.Text = AuxiliarFiltro
 
             Case "dgvVehiculos"
                 dgvVehiculos.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal UNION SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, 'En la calle' Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T WHERE V.idsucursal is null AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo ")
-                'Dim FILTRAR As String
-                'FILTRAR = txt.Text
-                'txtNombreFempleado.Text = ""
-                'txtNombreFempleado.Text = FILTRAR
+                'Para que se vuelva a aplicar el filtro
+                Dim AuxiliarFiltro As String
+                AuxiliarFiltro = txtNroChasisFVeh.Text
+                txtNroChasisFVeh.Text = ""
+                txtNombreFempleado.Text = AuxiliarFiltro
 
             Case "dgvReservas"
                 dgvReservas.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.fechareservafin, TO_CHAR(r.fechareservainicio, '%d/%m/%Y') fechareservainiciof, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria,R.costototal, R.fechatramite, R.estado idestado, R.idpersona, R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkmtext, CASE WHEN R.estado = 1 THEN ""Activa"" WHEN R.estado = 2 THEN ""Inactiva"" WHEN R.estado = 3 THEN ""Anulada"" ELSE NULL END estado, R.cantidadkm idcantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada AND R.nrochasis IS NULL ORDER BY fechareservainicio")
                 dgvReservas.Columns("fechareservainicio").ValueType = GetType(Date)
                 dgvReservas.Columns("fechareservafin").ValueType = GetType(Date)
-                'chboxFechaFRes.Checked = Not chboxFechaFRes.Checked
-                'chboxFechaFRes.Checked = Not chboxFechaFRes.Checked
+                chboxFechaFRes.Checked = Not chboxFechaFRes.Checked
+                chboxFechaFRes.Checked = Not chboxFechaFRes.Checked
 
             Case "dgvAlquileres"
                 dgvAlquileres.AutoGenerateColumns = False
@@ -260,11 +259,14 @@ Public Class frmMainMenu
 
             Case "dgvMant"
                 conexion.RellenarDataGridView(dgvMant, "SELECT m.*, m.fechainicio fechainiciof, m.fechafin fechafinf, v.matricula FROM mantenimiento m, vehiculo v WHERE v.nrochasis = m.nrochasis ")
+                chbxFiltrarEstadoMant.Checked = Not chbxFiltrarEstadoMant.Checked
+                chbxFiltrarEstadoMant.Checked = Not chbxFiltrarEstadoMant.Checked
 
+                'REPORTES
             Case "dgvMasAlquileresRClientes"
                 conexion.RellenarDataGridView(dgvMasAlquileresRClientes, "SELECT C.apellido  , c.nombre, c.email, 0 Alquileres FROM Cliente c group by apellido, nombre,email UNION SELECT c.apellido , c.nombre, c.email, count(r.nrochasis) Alquileres from cliente c, vehiculo v, reserva r where c.idpersona = r.idpersona and r.nrochasis=v.nrochasis group by apellido, nombre,email order by alquileres desc")
-            Case Else
 
+            Case Else
                 conexion.RellenarDataGridView(dgv, sentencia)
 
         End Select

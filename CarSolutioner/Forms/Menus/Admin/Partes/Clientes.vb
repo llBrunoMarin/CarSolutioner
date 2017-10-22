@@ -33,8 +33,8 @@ Partial Public Class frmMainMenu
 
         If chbxFechaFClientes.Checked = True Then
 
-            filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc") + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"),
-                                                            "nrodocumento", txtDocumFClientes.Text, "nombre", txtNombreFClientes.Text, "apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "empresa", txtEmpresaFClientes.Text)
+            filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%' AND {10} = {11}" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc") + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"),
+                                                            "nrodocumento", txtDocumFClientes.Text, "nombre", txtNombreFClientes.Text, "apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "empresa", txtEmpresaFClientes.Text, "porcdescuento", numDescuentoFCliente.Value.ToString)
 
             dgvClientes.DataSource.Filter = filtro
 
@@ -333,14 +333,14 @@ Partial Public Class frmMainMenu
 
     Private Sub DescuentoAltaCliente(sender As Object, e As EventArgs) Handles btnDescuentoACliente.Click
 
-        If Autorizar() = vbYes Then
+        If Autorizar(Me) = vbYes Then
             numDescuentoACliente.Enabled = True
         End If
 
     End Sub
 
     Private Sub DescuentoModifCliente(sender As Object, e As EventArgs) Handles btnDescuentoMCliente.Click
-        If Autorizar() = vbYes Then
+        If Autorizar(Me) = vbYes Then
             numDescuentoMCliente.Enabled = True
         End If
     End Sub

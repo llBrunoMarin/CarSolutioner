@@ -25,6 +25,7 @@
                 lblCategoriaAntigua.Visible = False
                 txtCategoriaAntigua.Visible = False
                 chboxCobrarEstaCat.Visible = False
+                ReservaSeleccionada.IdNuevaCategoria = ReservaSeleccionada.IdCategoria
 
             Case VistaAlquilar.Editado
                 Me.Vista = VistaAlquilar.Editado
@@ -196,7 +197,7 @@
     End Function
 
     Private Sub btnDescuentoCliente_Click(sender As Object, e As EventArgs) Handles btnDescuentoCliente.Click
-        If Autorizar() = vbYes Then
+        If Autorizar(Me) = vbYes Then
 
             Dim descuento As New DescuentoPersonalCliente(ReservaSeleccionada.IdCliente)
             descuento.ShowDialog()
@@ -209,14 +210,15 @@
     End Sub
 
     Private Sub btnDescuentoReserva_Click(sender As Object, e As EventArgs) Handles btnDescuentoReserva.Click
-        If Autorizar() = vbYes Then
+        If Autorizar(Me) = vbYes Then
             numDescuentoReserva.Enabled = True
             lblDescuentoReserva.Text = "(Haga click para aplicar descuento) " + vbNewLine + " Escriba un numero y presione Enter"
         End If
     End Sub
 
     Private Sub chboxCobrarEstaCat_CheckedChanged(sender As Object, e As EventArgs) Handles chboxCobrarEstaCat.Click
-        If Autorizar() = vbYes Then
+
+        If Autorizar(Me) = vbYes Then
             chboxCobrarEstaCat.Checked = True
         Else
             chboxCobrarEstaCat.Checked = False

@@ -117,9 +117,13 @@ Partial Public Class frmMainMenu
                         If Disponibles.Rows.Count <> 0 Then
 
                             Dim AlquilarReserva As New frmAlquilar(ReservaSeleccionadaAlquiler.AutosDisponibles, frmAlquilar.VistaAlquilar.Normal, ReservaSeleccionadaAlquiler)
-                            AlquilarReserva.ShowDialog()
+                            Using AlquilarReserva
+                                AlquilarReserva.ShowDialog(Me)
+                            End Using
                         Else
-                            frmModificarReserva.ShowDialog()
+                            Using frmModificarReserva
+                                frmModificarReserva.ShowDialog(Me)
+                            End Using
                         End If
 
                     Else
@@ -132,9 +136,13 @@ Partial Public Class frmMainMenu
                             If Disponibles.Rows.Count <> 0 Then
 
                                 Dim AlquilarReserva As New frmAlquilar(ReservaSeleccionadaAlquiler.AutosDisponibles, frmAlquilar.VistaAlquilar.Normal, ReservaSeleccionadaAlquiler)
-                                AlquilarReserva.ShowDialog()
+                                Using AlquilarReserva
+                                    AlquilarReserva.ShowDialog(Me)
+                                End Using
                             Else
-                                frmModificarReserva.ShowDialog()
+                                Using frmModificarReserva
+                                    frmModificarReserva.ShowDialog(Me)
+                                End Using
                             End If
 
                         End If

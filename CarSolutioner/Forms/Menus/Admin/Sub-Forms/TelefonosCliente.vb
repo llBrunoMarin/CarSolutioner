@@ -19,7 +19,7 @@
 
         Select Case ModoVista
             Case "Ver"
-                dgvTelefonos.Size = New Size(260, 237)
+                dgvTelefonos.Size = New Size(366, 288)
                 dgvTelefonos.ReadOnly = True
                 btnAgregar.Visible = False
                 btnModificar.Visible = False
@@ -32,7 +32,7 @@
                 lblNombrePersona.Visible = False
                 dgvTelefonos.AutoGenerateColumns = False
                 dgvTelefonos.ReadOnly = False
-                dgvTelefonos.Size = New Size(167, 131)
+                dgvTelefonos.Size = New Size(254, 131)
 
                 For Each item In ListaTelefonos
                     dgvTelefonos.Rows.Add(item)
@@ -44,7 +44,7 @@
                 lblNombrePersona.Visible = False
                 dgvTelefonos.AutoGenerateColumns = False
                 dgvTelefonos.ReadOnly = False
-                dgvTelefonos.Size = New Size(167, 131)
+                dgvTelefonos.Size = New Size(254, 131)
 
                 For Each item In ListaTelefonos
                     dgvTelefonos.Rows.Add(item)

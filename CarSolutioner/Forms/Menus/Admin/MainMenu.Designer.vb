@@ -620,6 +620,8 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
+        Me.ListadoActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -711,9 +713,10 @@ Partial Class frmMainMenu
         '
         'ImprmirToolStripMenuItem
         '
+        Me.ImprmirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListadoActualToolStripMenuItem, Me.GuardarToolStripMenuItem1})
         Me.ImprmirToolStripMenuItem.Name = "ImprmirToolStripMenuItem"
-        Me.ImprmirToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
-        Me.ImprmirToolStripMenuItem.Text = "Imprimir..."
+        Me.ImprmirToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.ImprmirToolStripMenuItem.Text = "Listado Actual"
         '
         'EditarToolStripMenuItem
         '
@@ -727,7 +730,7 @@ Partial Class frmMainMenu
         'AparienciaToolStripMenuItem
         '
         Me.AparienciaToolStripMenuItem.Name = "AparienciaToolStripMenuItem"
-        Me.AparienciaToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.AparienciaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AparienciaToolStripMenuItem.Text = "Apariencia"
         '
         'tsItemHerramientas
@@ -2200,6 +2203,7 @@ Partial Class frmMainMenu
         '
         'TabPage1
         '
+        Me.TabPage1.BackColor = System.Drawing.Color.Silver
         Me.TabPage1.Controls.Add(Me.dgvVehiculos)
         Me.TabPage1.Controls.Add(Me.pnlBajaVeh)
         Me.TabPage1.Controls.Add(Me.pnlFVehi)
@@ -2211,7 +2215,6 @@ Partial Class frmMainMenu
         Me.TabPage1.Size = New System.Drawing.Size(1332, 812)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Vehículos"
-        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'dgvVehiculos
         '
@@ -2476,9 +2479,9 @@ Partial Class frmMainMenu
         Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label32.Location = New System.Drawing.Point(9, 17)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(273, 22)
+        Me.Label32.Size = New System.Drawing.Size(278, 22)
         Me.Label32.TabIndex = 24
-        Me.Label32.Text = "Cambiar estado delVehiculo"
+        Me.Label32.Text = "Cambiar estado del Vehiculo"
         '
         'txtMatriculaBVeh
         '
@@ -2532,9 +2535,9 @@ Partial Class frmMainMenu
         Me.pnlFVehi.Controls.Add(Me.lblBorrarMarcaFVeh)
         Me.pnlFVehi.Controls.Add(Me.Label51)
         Me.pnlFVehi.Controls.Add(Me.Label52)
-        Me.pnlFVehi.Location = New System.Drawing.Point(1, 370)
+        Me.pnlFVehi.Location = New System.Drawing.Point(4, 371)
         Me.pnlFVehi.Name = "pnlFVehi"
-        Me.pnlFVehi.Size = New System.Drawing.Size(657, 216)
+        Me.pnlFVehi.Size = New System.Drawing.Size(661, 216)
         Me.pnlFVehi.TabIndex = 36
         '
         'numPasajerosFVeh
@@ -2845,7 +2848,7 @@ Partial Class frmMainMenu
         Me.btnVaciarFVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVaciarFVeh.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVaciarFVeh.ForeColor = System.Drawing.Color.White
-        Me.btnVaciarFVeh.Location = New System.Drawing.Point(548, 175)
+        Me.btnVaciarFVeh.Location = New System.Drawing.Point(552, 175)
         Me.btnVaciarFVeh.Name = "btnVaciarFVeh"
         Me.btnVaciarFVeh.Size = New System.Drawing.Size(99, 31)
         Me.btnVaciarFVeh.TabIndex = 32
@@ -3331,9 +3334,9 @@ Partial Class frmMainMenu
         Me.pnlMVehi.Controls.Add(Me.cbxSucursalMVeh)
         Me.pnlMVehi.Controls.Add(Me.btnModificarVeh)
         Me.pnlMVehi.Controls.Add(Me.Label43)
-        Me.pnlMVehi.Location = New System.Drawing.Point(1, 593)
+        Me.pnlMVehi.Location = New System.Drawing.Point(4, 593)
         Me.pnlMVehi.Name = "pnlMVehi"
-        Me.pnlMVehi.Size = New System.Drawing.Size(657, 216)
+        Me.pnlMVehi.Size = New System.Drawing.Size(661, 216)
         Me.pnlMVehi.TabIndex = 35
         '
         'numPasajerosMVehiculo
@@ -3623,7 +3626,7 @@ Partial Class frmMainMenu
         Me.btnModificarVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificarVeh.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificarVeh.ForeColor = System.Drawing.Color.White
-        Me.btnModificarVeh.Location = New System.Drawing.Point(548, 174)
+        Me.btnModificarVeh.Location = New System.Drawing.Point(552, 174)
         Me.btnModificarVeh.Name = "btnModificarVeh"
         Me.btnModificarVeh.Size = New System.Drawing.Size(99, 31)
         Me.btnModificarVeh.TabIndex = 18
@@ -3648,7 +3651,7 @@ Partial Class frmMainMenu
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(1332, 812)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Reportes Vehículos"
+        Me.TabPage2.Text = "Reportes de Vehículos"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'tbpEmpleados
@@ -7138,6 +7141,18 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
+        'ListadoActualToolStripMenuItem
+        '
+        Me.ListadoActualToolStripMenuItem.Name = "ListadoActualToolStripMenuItem"
+        Me.ListadoActualToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.ListadoActualToolStripMenuItem.Text = "Imprimir"
+        '
+        'GuardarToolStripMenuItem1
+        '
+        Me.GuardarToolStripMenuItem1.Name = "GuardarToolStripMenuItem1"
+        Me.GuardarToolStripMenuItem1.Size = New System.Drawing.Size(188, 22)
+        Me.GuardarToolStripMenuItem1.Text = "Guardar como PDF"
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -7838,4 +7853,6 @@ Partial Class frmMainMenu
     Friend WithEvents numDescuentoFCliente As NumericUpDown
     Friend WithEvents Label132 As Label
     Friend WithEvents lblKilometrajeAVeh As Label
+    Friend WithEvents ListadoActualToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GuardarToolStripMenuItem1 As ToolStripMenuItem
 End Class

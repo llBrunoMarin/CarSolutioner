@@ -19,6 +19,43 @@ Public Class frmMainMenu
         'Hacemos toda la carga de datos
         CargarDatos()
 
+        cbxTipoDocumFCliente.SelectedItem = Nothing
+
+        cbxCategoriaFRes.SelectedItem = Nothing
+        cbxCategoriaFVeh.SelectedItem = Nothing
+        cbxCategoriaAVeh.SelectedItem = Nothing
+
+        cbxTipoFVeh.SelectedItem = Nothing
+        cbxTipoAVeh.SelectedItem = Nothing
+        cbxTipoFRes.SelectedItem = Nothing
+
+
+        cbxMarcaFVeh.SelectedItem = Nothing
+        cbxMarcaAVeh.SelectedItem = Nothing
+
+        cbxModeloAVeh.SelectedItem = Nothing
+        cbxModeloFVeh.SelectedItem = Nothing
+
+        cbxSucLlegFRes.SelectedItem = Nothing
+        cbxSucSalFres.SelectedItem = Nothing
+        cbxSucursalAVeh.SelectedItem = Nothing
+        cbxSucursalFVeh.SelectedItem = Nothing
+
+        cbxAnioNACliente.SelectedItem = Nothing
+        cbxAnioNFCliente.SelectedItem = Nothing
+
+        cbxSucursalFempleados.SelectedItem = Nothing
+        cbxTipoFempleados.SelectedItem = Nothing
+        chbxFiltrarEstadoMant.Checked = True
+
+        cbxKilomFRes.SelectedItem = Nothing
+        chboxVerHoyFReserva.Checked = True
+
+        dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()
+        dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
+
+        dtpFechaInicioMReserva.MinDate = Date.Now
+        dtpFechaFinMReserva.MinDate = dtpFechaInicioMReserva.Value
     End Sub
 
     Private Sub Sidebar_Click(sender As Object, e As EventArgs) Handles btnVehiculos.Click, btnReservas.Click, btnMantenimiento.Click, btnEmpleados.Click, btnClientes.Click
@@ -175,38 +212,6 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxKilomFRes, conexion.Kilometros, "km", "id")
         CargarDatosComboBox(cbxKmARes, conexion.Kilometros, "km", "id")
         CargarDatosComboBox(cbxKilomMReserva, conexion.Kilometros, "km", "id")
-
-        'cbxTipoDocumFCliente.SelectedItem = Nothing
-
-        'cbxCategoriaFRes.SelectedItem = Nothing
-        'cbxCategoriaFVeh.SelectedItem = Nothing
-        'cbxCategoriaAVeh.SelectedItem = Nothing
-
-        'cbxTipoFVeh.SelectedItem = Nothing
-        'cbxTipoAVeh.SelectedItem = Nothing
-        'cbxTipoFRes.SelectedItem = Nothing
-
-
-        'cbxMarcaFVeh.SelectedItem = Nothing
-        'cbxMarcaAVeh.SelectedItem = Nothing
-
-        'cbxModeloAVeh.SelectedItem = Nothing
-        'cbxModeloFVeh.SelectedItem = Nothing
-
-        'cbxSucLlegFRes.SelectedItem = Nothing
-        'cbxSucSalFres.SelectedItem = Nothing
-        'cbxSucursalAVeh.SelectedItem = Nothing
-        'cbxSucursalFVeh.SelectedItem = Nothing
-
-        'cbxAnioNACliente.SelectedItem = Nothing
-        'cbxAnioNFCliente.SelectedItem = Nothing
-
-        'cbxSucursalFempleados.SelectedItem = Nothing
-        'cbxTipoFempleados.SelectedItem = Nothing
-        'chbxFiltrarEstadoMant.Checked = True
-
-        'cbxKilomFRes.SelectedItem = Nothing
-        'chboxVerHoyFReserva.Checked = True
         Me.Opacity = 100
 
         Login.Hide()

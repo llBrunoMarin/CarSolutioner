@@ -11,6 +11,15 @@ Module Metodos
         arr(arr.Length - 1) = item
     End Sub
 
+    <Extension()>
+    Public Function Round(dt As DateTime) As DateTime
+
+        Dim t As DateTime
+        t = dt.AddMinutes((60 - dt.Minute) Mod 10)
+        Return t
+
+    End Function
+
     Public Declare Function GetTickCount Lib "kernel32" () As Integer
     Public conexion As New ConnectionBD
     Public bgwCargar As New ComponentModel.BackgroundWorker
@@ -467,5 +476,7 @@ Module Metodos
 
 
     End Sub
+
+
 End Module
 

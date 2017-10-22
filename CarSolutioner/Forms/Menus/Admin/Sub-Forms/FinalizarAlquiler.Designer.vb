@@ -53,9 +53,9 @@ Partial Class FinalizarAlquiler
         Me.Label150.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label150.Location = New System.Drawing.Point(4, 67)
         Me.Label150.Name = "Label150"
-        Me.Label150.Size = New System.Drawing.Size(227, 17)
+        Me.Label150.Size = New System.Drawing.Size(226, 17)
         Me.Label150.TabIndex = 48
-        Me.Label150.Text = "KM del vehiculo al finalizar el Alquiler"
+        Me.Label150.Text = "KM del vehiculo al finalizar el alquiler"
         '
         'txtKMAutoAhora
         '
@@ -79,9 +79,9 @@ Partial Class FinalizarAlquiler
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(6, 127)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(201, 17)
+        Me.Label1.Size = New System.Drawing.Size(200, 17)
         Me.Label1.TabIndex = 48
-        Me.Label1.Text = "Cantidad de días de ese Alquiler"
+        Me.Label1.Text = "Cantidad de días de ese alquiler"
         '
         'txtCostoTotal
         '
@@ -100,7 +100,7 @@ Partial Class FinalizarAlquiler
         Me.lblCostoTotal.Name = "lblCostoTotal"
         Me.lblCostoTotal.Size = New System.Drawing.Size(75, 17)
         Me.lblCostoTotal.TabIndex = 48
-        Me.lblCostoTotal.Text = "Costo Total"
+        Me.lblCostoTotal.Text = "Costo total"
         '
         'btnAccept
         '
@@ -128,9 +128,9 @@ Partial Class FinalizarAlquiler
         Me.lblCostoYRecargo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.lblCostoYRecargo.Location = New System.Drawing.Point(275, 45)
         Me.lblCostoYRecargo.Name = "lblCostoYRecargo"
-        Me.lblCostoYRecargo.Size = New System.Drawing.Size(91, 17)
+        Me.lblCostoYRecargo.Size = New System.Drawing.Size(90, 17)
         Me.lblCostoYRecargo.TabIndex = 48
-        Me.lblCostoYRecargo.Text = "Costo Alquiler"
+        Me.lblCostoYRecargo.Text = "Costo alquiler"
         '
         'Panel1
         '
@@ -154,9 +154,9 @@ Partial Class FinalizarAlquiler
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(4, 10)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(209, 17)
+        Me.Label3.Size = New System.Drawing.Size(208, 17)
         Me.Label3.TabIndex = 48
-        Me.Label3.Text = "KM del vehiculo antes del Alquiler"
+        Me.Label3.Text = "KM del vehiculo antes del alquiler"
         '
         'txtKMAutoAntes
         '

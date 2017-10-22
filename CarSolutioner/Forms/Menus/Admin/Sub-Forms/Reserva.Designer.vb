@@ -181,9 +181,9 @@ Partial Class Reserva
         Me.lblFechaInicioReserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.lblFechaInicioReserva.Location = New System.Drawing.Point(8, 18)
         Me.lblFechaInicioReserva.Name = "lblFechaInicioReserva"
-        Me.lblFechaInicioReserva.Size = New System.Drawing.Size(83, 17)
+        Me.lblFechaInicioReserva.Size = New System.Drawing.Size(102, 17)
         Me.lblFechaInicioReserva.TabIndex = 48
-        Me.lblFechaInicioReserva.Text = "Fecha Inicio:"
+        Me.lblFechaInicioReserva.Text = "Fecha de inicio:"
         '
         'Label10
         '
@@ -192,9 +192,9 @@ Partial Class Reserva
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(8, 68)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(67, 17)
+        Me.Label10.Size = New System.Drawing.Size(84, 17)
         Me.Label10.TabIndex = 48
-        Me.Label10.Text = "Fecha Fin:"
+        Me.Label10.Text = "Fecha de fin:"
         '
         'Label9
         '
@@ -203,9 +203,9 @@ Partial Class Reserva
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label9.Location = New System.Drawing.Point(8, 118)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(106, 17)
+        Me.Label9.Size = New System.Drawing.Size(107, 17)
         Me.Label9.TabIndex = 48
-        Me.Label9.Text = "Sucursal Partida:"
+        Me.Label9.Text = "Sucursal partida:"
         '
         'txtSucursalPartida
         '
@@ -222,9 +222,9 @@ Partial Class Reserva
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(8, 168)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(108, 17)
+        Me.Label8.Size = New System.Drawing.Size(107, 17)
         Me.Label8.TabIndex = 48
-        Me.Label8.Text = "Sucursal Destino:"
+        Me.Label8.Text = "Sucursal destino:"
         '
         'txtSucursalDestino
         '
@@ -295,9 +295,9 @@ Partial Class Reserva
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(173, 168)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(217, 17)
+        Me.Label2.Size = New System.Drawing.Size(216, 17)
         Me.Label2.TabIndex = 48
-        Me.Label2.Text = "Descuento preferencial del Cliente"
+        Me.Label2.Text = "Descuento preferencial del cliente"
         '
         'Label4
         '
@@ -336,9 +336,9 @@ Partial Class Reserva
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(470, 53)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(153, 17)
+        Me.Label5.Size = New System.Drawing.Size(174, 17)
         Me.Label5.TabIndex = 48
-        Me.Label5.Text = "Costo Alquiler estimado:"
+        Me.Label5.Text = "Costo estimado del alquiler:"
         '
         'txtDescuento
         '

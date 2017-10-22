@@ -159,15 +159,9 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub ModificarCliente(sender As Object, e As EventArgs) Handles btnModificarCliente.Click
-        Dim FaltaDato As Boolean = False
-        For Each ctrl As Control In pnlMClientes.Controls
-            If TypeOf (ctrl) Is TextBox Then
-                If ctrl.Text = "" Then
-                    If Not ((ctrl.Name = "txtEmpresaMCliente") Or (ctrl.Name = "txtCorreoMCliente")) Then
-                        FaltaDato = True
-                    End If
 
         Dim FaltaDato As Boolean = False
+
         For Each ctrl As Control In pnlMClientes.Controls
             If TypeOf (ctrl) Is TextBox Then
                 If ctrl.Text = "" Then

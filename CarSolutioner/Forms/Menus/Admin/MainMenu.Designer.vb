@@ -25,7 +25,6 @@ Partial Class frmMainMenu
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -42,6 +41,7 @@ Partial Class frmMainMenu
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainMenu))
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,27 +175,6 @@ Partial Class frmMainMenu
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.dgvVehiculos = New System.Windows.Forms.DataGridView()
-        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcategoriaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmodeloveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipoveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadov = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.pnlBajaVeh = New System.Windows.Forms.Panel()
         Me.btnBajaBVeh = New System.Windows.Forms.Button()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -624,6 +603,32 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
+        Me.txtColorMVeh = New System.Windows.Forms.TextBox()
+        Me.lblColorMveh = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label133 = New System.Windows.Forms.Label()
+        Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aniov = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.kilometraje = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepuertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddepasajeros = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidaddemaletas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.deducible = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.aireacondicionado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.esmanual = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.sucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcategoriaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmodeloveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idtipoveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idsucursalveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estadov = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.colorvehdgv = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -744,7 +749,7 @@ Partial Class frmMainMenu
         'AparienciaToolStripMenuItem
         '
         Me.AparienciaToolStripMenuItem.Name = "AparienciaToolStripMenuItem"
-        Me.AparienciaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AparienciaToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.AparienciaToolStripMenuItem.Text = "Apariencia"
         '
         'tsItemHerramientas
@@ -1135,7 +1140,7 @@ Partial Class frmMainMenu
         Me.numDescuentoMCliente.Location = New System.Drawing.Point(14, 181)
         Me.numDescuentoMCliente.Name = "numDescuentoMCliente"
         Me.numDescuentoMCliente.Size = New System.Drawing.Size(103, 20)
-        Me.numDescuentoMCliente.TabIndex = 44
+        Me.numDescuentoMCliente.TabIndex = 7
         '
         'gbxFecNacMCliente
         '
@@ -1162,7 +1167,7 @@ Partial Class frmMainMenu
         Me.cbxAnioNMCliente.Location = New System.Drawing.Point(104, 22)
         Me.cbxAnioNMCliente.Name = "cbxAnioNMCliente"
         Me.cbxAnioNMCliente.Size = New System.Drawing.Size(53, 21)
-        Me.cbxAnioNMCliente.TabIndex = 38
+        Me.cbxAnioNMCliente.TabIndex = 2
         '
         'cbxMesNMCliente
         '
@@ -1175,7 +1180,7 @@ Partial Class frmMainMenu
         Me.cbxMesNMCliente.Location = New System.Drawing.Point(55, 22)
         Me.cbxMesNMCliente.Name = "cbxMesNMCliente"
         Me.cbxMesNMCliente.Size = New System.Drawing.Size(43, 21)
-        Me.cbxMesNMCliente.TabIndex = 38
+        Me.cbxMesNMCliente.TabIndex = 1
         '
         'cbxDiaNMCliente
         '
@@ -1188,7 +1193,7 @@ Partial Class frmMainMenu
         Me.cbxDiaNMCliente.Location = New System.Drawing.Point(6, 22)
         Me.cbxDiaNMCliente.Name = "cbxDiaNMCliente"
         Me.cbxDiaNMCliente.Size = New System.Drawing.Size(43, 21)
-        Me.cbxDiaNMCliente.TabIndex = 39
+        Me.cbxDiaNMCliente.TabIndex = 0
         '
         'cbxTelefonosMCliente
         '
@@ -1197,7 +1202,7 @@ Partial Class frmMainMenu
         Me.cbxTelefonosMCliente.Location = New System.Drawing.Point(145, 121)
         Me.cbxTelefonosMCliente.Name = "cbxTelefonosMCliente"
         Me.cbxTelefonosMCliente.Size = New System.Drawing.Size(101, 21)
-        Me.cbxTelefonosMCliente.TabIndex = 42
+        Me.cbxTelefonosMCliente.TabIndex = 5
         '
         'cbxTipoDocumMCliente
         '
@@ -1206,7 +1211,7 @@ Partial Class frmMainMenu
         Me.cbxTipoDocumMCliente.Location = New System.Drawing.Point(14, 71)
         Me.cbxTipoDocumMCliente.Name = "cbxTipoDocumMCliente"
         Me.cbxTipoDocumMCliente.Size = New System.Drawing.Size(124, 21)
-        Me.cbxTipoDocumMCliente.TabIndex = 62
+        Me.cbxTipoDocumMCliente.TabIndex = 0
         '
         'Label21
         '
@@ -1225,28 +1230,28 @@ Partial Class frmMainMenu
         Me.txtEmpresaMCliente.Location = New System.Drawing.Point(275, 121)
         Me.txtEmpresaMCliente.Name = "txtEmpresaMCliente"
         Me.txtEmpresaMCliente.Size = New System.Drawing.Size(124, 20)
-        Me.txtEmpresaMCliente.TabIndex = 60
+        Me.txtEmpresaMCliente.TabIndex = 6
         '
         'txtCorreoMCliente
         '
         Me.txtCorreoMCliente.Location = New System.Drawing.Point(14, 122)
         Me.txtCorreoMCliente.Name = "txtCorreoMCliente"
         Me.txtCorreoMCliente.Size = New System.Drawing.Size(126, 20)
-        Me.txtCorreoMCliente.TabIndex = 58
+        Me.txtCorreoMCliente.TabIndex = 4
         '
         'txtApellidoMCliente
         '
         Me.txtApellidoMCliente.Location = New System.Drawing.Point(405, 72)
         Me.txtApellidoMCliente.Name = "txtApellidoMCliente"
         Me.txtApellidoMCliente.Size = New System.Drawing.Size(125, 20)
-        Me.txtApellidoMCliente.TabIndex = 57
+        Me.txtApellidoMCliente.TabIndex = 3
         '
         'txtNombreMCliente
         '
         Me.txtNombreMCliente.Location = New System.Drawing.Point(275, 72)
         Me.txtNombreMCliente.Name = "txtNombreMCliente"
         Me.txtNombreMCliente.Size = New System.Drawing.Size(125, 20)
-        Me.txtNombreMCliente.TabIndex = 56
+        Me.txtNombreMCliente.TabIndex = 2
         '
         'Label23
         '
@@ -1301,7 +1306,7 @@ Partial Class frmMainMenu
         Me.btnDescuentoMCliente.Location = New System.Drawing.Point(120, 181)
         Me.btnDescuentoMCliente.Name = "btnDescuentoMCliente"
         Me.btnDescuentoMCliente.Size = New System.Drawing.Size(18, 18)
-        Me.btnDescuentoMCliente.TabIndex = 18
+        Me.btnDescuentoMCliente.TabIndex = 8
         Me.btnDescuentoMCliente.Text = "+"
         Me.btnDescuentoMCliente.UseCompatibleTextRendering = True
         Me.btnDescuentoMCliente.UseVisualStyleBackColor = False
@@ -1345,7 +1350,7 @@ Partial Class frmMainMenu
         Me.txtDocumMCliente.Location = New System.Drawing.Point(144, 72)
         Me.txtDocumMCliente.Name = "txtDocumMCliente"
         Me.txtDocumMCliente.Size = New System.Drawing.Size(125, 20)
-        Me.txtDocumMCliente.TabIndex = 43
+        Me.txtDocumMCliente.TabIndex = 1
         '
         'btnModificarCliente
         '
@@ -1361,7 +1366,7 @@ Partial Class frmMainMenu
         Me.btnModificarCliente.Location = New System.Drawing.Point(469, 170)
         Me.btnModificarCliente.Name = "btnModificarCliente"
         Me.btnModificarCliente.Size = New System.Drawing.Size(99, 31)
-        Me.btnModificarCliente.TabIndex = 18
+        Me.btnModificarCliente.TabIndex = 9
         Me.btnModificarCliente.Text = "Modificar"
         Me.btnModificarCliente.UseVisualStyleBackColor = False
         '
@@ -1437,7 +1442,7 @@ Partial Class frmMainMenu
         Me.btnBajaCliente.Location = New System.Drawing.Point(469, 126)
         Me.btnBajaCliente.Name = "btnBajaCliente"
         Me.btnBajaCliente.Size = New System.Drawing.Size(99, 31)
-        Me.btnBajaCliente.TabIndex = 18
+        Me.btnBajaCliente.TabIndex = 1
         Me.btnBajaCliente.Text = "Actualizar"
         Me.btnBajaCliente.UseVisualStyleBackColor = False
         '
@@ -1468,7 +1473,7 @@ Partial Class frmMainMenu
         Me.txtDocumentoBCliente.Location = New System.Drawing.Point(12, 78)
         Me.txtDocumentoBCliente.Name = "txtDocumentoBCliente"
         Me.txtDocumentoBCliente.Size = New System.Drawing.Size(127, 20)
-        Me.txtDocumentoBCliente.TabIndex = 22
+        Me.txtDocumentoBCliente.TabIndex = 0
         '
         'pnlFClientes
         '
@@ -1505,7 +1510,7 @@ Partial Class frmMainMenu
         Me.numDescuentoFCliente.Location = New System.Drawing.Point(15, 162)
         Me.numDescuentoFCliente.Name = "numDescuentoFCliente"
         Me.numDescuentoFCliente.Size = New System.Drawing.Size(126, 20)
-        Me.numDescuentoFCliente.TabIndex = 44
+        Me.numDescuentoFCliente.TabIndex = 6
         '
         'Label107
         '
@@ -1555,7 +1560,7 @@ Partial Class frmMainMenu
         Me.cbxAnioNFCliente.Location = New System.Drawing.Point(104, 22)
         Me.cbxAnioNFCliente.Name = "cbxAnioNFCliente"
         Me.cbxAnioNFCliente.Size = New System.Drawing.Size(53, 21)
-        Me.cbxAnioNFCliente.TabIndex = 38
+        Me.cbxAnioNFCliente.TabIndex = 2
         '
         'cbxMesNFCliente
         '
@@ -1568,7 +1573,7 @@ Partial Class frmMainMenu
         Me.cbxMesNFCliente.Location = New System.Drawing.Point(55, 22)
         Me.cbxMesNFCliente.Name = "cbxMesNFCliente"
         Me.cbxMesNFCliente.Size = New System.Drawing.Size(43, 21)
-        Me.cbxMesNFCliente.TabIndex = 38
+        Me.cbxMesNFCliente.TabIndex = 1
         '
         'cbxDiaNFCliente
         '
@@ -1581,7 +1586,7 @@ Partial Class frmMainMenu
         Me.cbxDiaNFCliente.Location = New System.Drawing.Point(6, 22)
         Me.cbxDiaNFCliente.Name = "cbxDiaNFCliente"
         Me.cbxDiaNFCliente.Size = New System.Drawing.Size(43, 21)
-        Me.cbxDiaNFCliente.TabIndex = 39
+        Me.cbxDiaNFCliente.TabIndex = 0
         '
         'chbxFechaFClientes
         '
@@ -1591,7 +1596,7 @@ Partial Class frmMainMenu
         Me.chbxFechaFClientes.Location = New System.Drawing.Point(282, 153)
         Me.chbxFechaFClientes.Name = "chbxFechaFClientes"
         Me.chbxFechaFClientes.Size = New System.Drawing.Size(89, 20)
-        Me.chbxFechaFClientes.TabIndex = 41
+        Me.chbxFechaFClientes.TabIndex = 7
         Me.chbxFechaFClientes.Text = "Filtrar fecha"
         Me.chbxFechaFClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxFechaFClientes.UseVisualStyleBackColor = True
@@ -1610,7 +1615,7 @@ Partial Class frmMainMenu
         Me.btnVaciarFClientes.Location = New System.Drawing.Point(469, 158)
         Me.btnVaciarFClientes.Name = "btnVaciarFClientes"
         Me.btnVaciarFClientes.Size = New System.Drawing.Size(99, 31)
-        Me.btnVaciarFClientes.TabIndex = 32
+        Me.btnVaciarFClientes.TabIndex = 8
         Me.btnVaciarFClientes.Text = "Vaciar"
         Me.btnVaciarFClientes.UseVisualStyleBackColor = False
         '
@@ -1623,7 +1628,7 @@ Partial Class frmMainMenu
         Me.cbxTipoDocumFCliente.Location = New System.Drawing.Point(12, 68)
         Me.cbxTipoDocumFCliente.Name = "cbxTipoDocumFCliente"
         Me.cbxTipoDocumFCliente.Size = New System.Drawing.Size(126, 21)
-        Me.cbxTipoDocumFCliente.TabIndex = 36
+        Me.cbxTipoDocumFCliente.TabIndex = 0
         '
         'Label86
         '
@@ -1696,35 +1701,35 @@ Partial Class frmMainMenu
         Me.txtEmpresaFClientes.Location = New System.Drawing.Point(14, 117)
         Me.txtEmpresaFClientes.Name = "txtEmpresaFClientes"
         Me.txtEmpresaFClientes.Size = New System.Drawing.Size(125, 20)
-        Me.txtEmpresaFClientes.TabIndex = 22
+        Me.txtEmpresaFClientes.TabIndex = 4
         '
         'txtCorreoFClientes
         '
         Me.txtCorreoFClientes.Location = New System.Drawing.Point(145, 117)
         Me.txtCorreoFClientes.Name = "txtCorreoFClientes"
         Me.txtCorreoFClientes.Size = New System.Drawing.Size(124, 20)
-        Me.txtCorreoFClientes.TabIndex = 22
+        Me.txtCorreoFClientes.TabIndex = 5
         '
         'txtDocumFClientes
         '
         Me.txtDocumFClientes.Location = New System.Drawing.Point(144, 68)
         Me.txtDocumFClientes.Name = "txtDocumFClientes"
         Me.txtDocumFClientes.Size = New System.Drawing.Size(125, 20)
-        Me.txtDocumFClientes.TabIndex = 22
+        Me.txtDocumFClientes.TabIndex = 1
         '
         'txtApellidoFClientes
         '
         Me.txtApellidoFClientes.Location = New System.Drawing.Point(405, 68)
         Me.txtApellidoFClientes.Name = "txtApellidoFClientes"
         Me.txtApellidoFClientes.Size = New System.Drawing.Size(124, 20)
-        Me.txtApellidoFClientes.TabIndex = 22
+        Me.txtApellidoFClientes.TabIndex = 3
         '
         'txtNombreFClientes
         '
         Me.txtNombreFClientes.Location = New System.Drawing.Point(275, 68)
         Me.txtNombreFClientes.Name = "txtNombreFClientes"
         Me.txtNombreFClientes.Size = New System.Drawing.Size(124, 20)
-        Me.txtNombreFClientes.TabIndex = 22
+        Me.txtNombreFClientes.TabIndex = 2
         '
         'Label132
         '
@@ -1778,7 +1783,7 @@ Partial Class frmMainMenu
         Me.numDescuentoACliente.Location = New System.Drawing.Point(404, 119)
         Me.numDescuentoACliente.Name = "numDescuentoACliente"
         Me.numDescuentoACliente.Size = New System.Drawing.Size(99, 20)
-        Me.numDescuentoACliente.TabIndex = 44
+        Me.numDescuentoACliente.TabIndex = 7
         '
         'gbxFecNacACliente
         '
@@ -1805,7 +1810,7 @@ Partial Class frmMainMenu
         Me.cbxAnioNACliente.Location = New System.Drawing.Point(104, 22)
         Me.cbxAnioNACliente.Name = "cbxAnioNACliente"
         Me.cbxAnioNACliente.Size = New System.Drawing.Size(53, 21)
-        Me.cbxAnioNACliente.TabIndex = 38
+        Me.cbxAnioNACliente.TabIndex = 2
         '
         'cbxMesNACliente
         '
@@ -1818,7 +1823,7 @@ Partial Class frmMainMenu
         Me.cbxMesNACliente.Location = New System.Drawing.Point(55, 22)
         Me.cbxMesNACliente.Name = "cbxMesNACliente"
         Me.cbxMesNACliente.Size = New System.Drawing.Size(43, 21)
-        Me.cbxMesNACliente.TabIndex = 38
+        Me.cbxMesNACliente.TabIndex = 1
         '
         'cbxDiaNACliente
         '
@@ -1831,7 +1836,7 @@ Partial Class frmMainMenu
         Me.cbxDiaNACliente.Location = New System.Drawing.Point(6, 22)
         Me.cbxDiaNACliente.Name = "cbxDiaNACliente"
         Me.cbxDiaNACliente.Size = New System.Drawing.Size(43, 21)
-        Me.cbxDiaNACliente.TabIndex = 39
+        Me.cbxDiaNACliente.TabIndex = 0
         '
         'cbxTelefonosACliente
         '
@@ -1840,7 +1845,7 @@ Partial Class frmMainMenu
         Me.cbxTelefonosACliente.Location = New System.Drawing.Point(145, 118)
         Me.cbxTelefonosACliente.Name = "cbxTelefonosACliente"
         Me.cbxTelefonosACliente.Size = New System.Drawing.Size(101, 21)
-        Me.cbxTelefonosACliente.TabIndex = 42
+        Me.cbxTelefonosACliente.TabIndex = 5
         '
         'cbxTipoDocumACliente
         '
@@ -1849,7 +1854,7 @@ Partial Class frmMainMenu
         Me.cbxTipoDocumACliente.Location = New System.Drawing.Point(14, 67)
         Me.cbxTipoDocumACliente.Name = "cbxTipoDocumACliente"
         Me.cbxTipoDocumACliente.Size = New System.Drawing.Size(124, 21)
-        Me.cbxTipoDocumACliente.TabIndex = 42
+        Me.cbxTipoDocumACliente.TabIndex = 0
         '
         'chbxEmpresaACliente
         '
@@ -1859,7 +1864,7 @@ Partial Class frmMainMenu
         Me.chbxEmpresaACliente.Location = New System.Drawing.Point(261, 145)
         Me.chbxEmpresaACliente.Name = "chbxEmpresaACliente"
         Me.chbxEmpresaACliente.Size = New System.Drawing.Size(144, 20)
-        Me.chbxEmpresaACliente.TabIndex = 41
+        Me.chbxEmpresaACliente.TabIndex = 8
         Me.chbxEmpresaACliente.Text = "Pertenece a empresa"
         Me.chbxEmpresaACliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxEmpresaACliente.UseVisualStyleBackColor = True
@@ -1883,7 +1888,7 @@ Partial Class frmMainMenu
         Me.txtEmpresaACliente.Location = New System.Drawing.Point(275, 119)
         Me.txtEmpresaACliente.Name = "txtEmpresaACliente"
         Me.txtEmpresaACliente.Size = New System.Drawing.Size(124, 20)
-        Me.txtEmpresaACliente.TabIndex = 37
+        Me.txtEmpresaACliente.TabIndex = 6
         Me.txtEmpresaACliente.Text = "-"
         '
         'txtCorreoACliente
@@ -1891,28 +1896,28 @@ Partial Class frmMainMenu
         Me.txtCorreoACliente.Location = New System.Drawing.Point(15, 119)
         Me.txtCorreoACliente.Name = "txtCorreoACliente"
         Me.txtCorreoACliente.Size = New System.Drawing.Size(124, 20)
-        Me.txtCorreoACliente.TabIndex = 35
+        Me.txtCorreoACliente.TabIndex = 4
         '
         'txtApellidoACliente
         '
         Me.txtApellidoACliente.Location = New System.Drawing.Point(405, 68)
         Me.txtApellidoACliente.Name = "txtApellidoACliente"
         Me.txtApellidoACliente.Size = New System.Drawing.Size(124, 20)
-        Me.txtApellidoACliente.TabIndex = 33
+        Me.txtApellidoACliente.TabIndex = 3
         '
         'txtNombreACliente
         '
         Me.txtNombreACliente.Location = New System.Drawing.Point(275, 68)
         Me.txtNombreACliente.Name = "txtNombreACliente"
         Me.txtNombreACliente.Size = New System.Drawing.Size(124, 20)
-        Me.txtNombreACliente.TabIndex = 32
+        Me.txtNombreACliente.TabIndex = 2
         '
         'txtDocumACliente
         '
         Me.txtDocumACliente.Location = New System.Drawing.Point(144, 68)
         Me.txtDocumACliente.Name = "txtDocumACliente"
         Me.txtDocumACliente.Size = New System.Drawing.Size(125, 20)
-        Me.txtDocumACliente.TabIndex = 31
+        Me.txtDocumACliente.TabIndex = 1
         '
         'btnDescuentoACliente
         '
@@ -1964,7 +1969,7 @@ Partial Class frmMainMenu
         Me.btnIngresarACliente.Location = New System.Drawing.Point(469, 159)
         Me.btnIngresarACliente.Name = "btnIngresarACliente"
         Me.btnIngresarACliente.Size = New System.Drawing.Size(99, 31)
-        Me.btnIngresarACliente.TabIndex = 18
+        Me.btnIngresarACliente.TabIndex = 9
         Me.btnIngresarACliente.Text = "Ingresar"
         Me.btnIngresarACliente.UseVisualStyleBackColor = False
         '
@@ -2239,7 +2244,7 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.dgvVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvVehiculos.BackgroundColor = System.Drawing.SystemColors.Window
-        Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoriaveh, Me.idmodeloveh, Me.idtipoveh, Me.idsucursalveh, Me.idmarcaveh, Me.estadov})
+        Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoriaveh, Me.idmodeloveh, Me.idtipoveh, Me.idsucursalveh, Me.idmarcaveh, Me.estadov, Me.colorvehdgv})
         Me.dgvVehiculos.Location = New System.Drawing.Point(0, 0)
         Me.dgvVehiculos.MultiSelect = False
         Me.dgvVehiculos.Name = "dgvVehiculos"
@@ -2252,196 +2257,6 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvVehiculos.Size = New System.Drawing.Size(1332, 367)
         Me.dgvVehiculos.TabIndex = 37
-        '
-        'nrochasis
-        '
-        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.nrochasis.DataPropertyName = "nrochasis"
-        Me.nrochasis.HeaderText = "Nro Chasis"
-        Me.nrochasis.Name = "nrochasis"
-        Me.nrochasis.ReadOnly = True
-        Me.nrochasis.Width = 83
-        '
-        'matricula
-        '
-        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.matricula.DataPropertyName = "matricula"
-        Me.matricula.HeaderText = "Matrícula"
-        Me.matricula.Name = "matricula"
-        Me.matricula.ReadOnly = True
-        Me.matricula.Width = 77
-        '
-        'marca
-        '
-        Me.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.marca.DataPropertyName = "marca"
-        Me.marca.HeaderText = "Marca"
-        Me.marca.Name = "marca"
-        Me.marca.ReadOnly = True
-        Me.marca.Width = 62
-        '
-        'Modelo
-        '
-        Me.Modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Modelo.DataPropertyName = "modelo"
-        Me.Modelo.HeaderText = "Modelo"
-        Me.Modelo.Name = "Modelo"
-        Me.Modelo.ReadOnly = True
-        Me.Modelo.Width = 67
-        '
-        'tipo
-        '
-        Me.tipo.DataPropertyName = "tipo"
-        Me.tipo.HeaderText = "Tipo"
-        Me.tipo.Name = "tipo"
-        Me.tipo.ReadOnly = True
-        '
-        'categoria
-        '
-        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.categoria.DataPropertyName = "categoria"
-        Me.categoria.HeaderText = "Categoria"
-        Me.categoria.Name = "categoria"
-        Me.categoria.ReadOnly = True
-        Me.categoria.Width = 77
-        '
-        'aniov
-        '
-        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.aniov.DataPropertyName = "anio"
-        Me.aniov.HeaderText = "Año"
-        Me.aniov.Name = "aniov"
-        Me.aniov.ReadOnly = True
-        Me.aniov.Width = 51
-        '
-        'kilometraje
-        '
-        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.kilometraje.DataPropertyName = "kilometraje"
-        Me.kilometraje.HeaderText = "KM"
-        Me.kilometraje.Name = "kilometraje"
-        Me.kilometraje.ReadOnly = True
-        Me.kilometraje.Width = 48
-        '
-        'cantidaddepuertas
-        '
-        Me.cantidaddepuertas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
-        Me.cantidaddepuertas.HeaderText = "Puertas"
-        Me.cantidaddepuertas.Name = "cantidaddepuertas"
-        Me.cantidaddepuertas.ReadOnly = True
-        Me.cantidaddepuertas.Width = 68
-        '
-        'cantidaddepasajeros
-        '
-        Me.cantidaddepasajeros.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
-        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
-        Me.cantidaddepasajeros.ReadOnly = True
-        Me.cantidaddepasajeros.Width = 78
-        '
-        'cantidaddemaletas
-        '
-        Me.cantidaddemaletas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
-        Me.cantidaddemaletas.HeaderText = "Maletas"
-        Me.cantidaddemaletas.Name = "cantidaddemaletas"
-        Me.cantidaddemaletas.ReadOnly = True
-        Me.cantidaddemaletas.Width = 69
-        '
-        'deducible
-        '
-        Me.deducible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.deducible.DataPropertyName = "deducible"
-        Me.deducible.HeaderText = "Deducible"
-        Me.deducible.Name = "deducible"
-        Me.deducible.ReadOnly = True
-        Me.deducible.Width = 80
-        '
-        'aireacondicionado
-        '
-        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
-        Me.aireacondicionado.HeaderText = "Aire"
-        Me.aireacondicionado.Name = "aireacondicionado"
-        Me.aireacondicionado.ReadOnly = True
-        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.aireacondicionado.Width = 50
-        '
-        'esmanual
-        '
-        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.esmanual.DataPropertyName = "esmanual"
-        Me.esmanual.HeaderText = "Manual"
-        Me.esmanual.Name = "esmanual"
-        Me.esmanual.ReadOnly = True
-        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.esmanual.Width = 67
-        '
-        'sucursal
-        '
-        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.sucursal.DataPropertyName = "sucursal"
-        Me.sucursal.HeaderText = "Sucursal"
-        Me.sucursal.Name = "sucursal"
-        Me.sucursal.ReadOnly = True
-        Me.sucursal.Width = 73
-        '
-        'idcategoriaveh
-        '
-        Me.idcategoriaveh.DataPropertyName = "idcategoria"
-        Me.idcategoriaveh.HeaderText = "idcategoria"
-        Me.idcategoriaveh.Name = "idcategoriaveh"
-        Me.idcategoriaveh.ReadOnly = True
-        Me.idcategoriaveh.Visible = False
-        '
-        'idmodeloveh
-        '
-        Me.idmodeloveh.DataPropertyName = "idmodelo"
-        Me.idmodeloveh.HeaderText = "idmodelo"
-        Me.idmodeloveh.Name = "idmodeloveh"
-        Me.idmodeloveh.ReadOnly = True
-        Me.idmodeloveh.Visible = False
-        '
-        'idtipoveh
-        '
-        Me.idtipoveh.DataPropertyName = "idtipo"
-        Me.idtipoveh.HeaderText = "idtipo"
-        Me.idtipoveh.Name = "idtipoveh"
-        Me.idtipoveh.ReadOnly = True
-        Me.idtipoveh.Visible = False
-        '
-        'idsucursalveh
-        '
-        Me.idsucursalveh.DataPropertyName = "idsucursal"
-        Me.idsucursalveh.HeaderText = "idsucursal"
-        Me.idsucursalveh.Name = "idsucursalveh"
-        Me.idsucursalveh.ReadOnly = True
-        Me.idsucursalveh.Visible = False
-        '
-        'idmarcaveh
-        '
-        Me.idmarcaveh.DataPropertyName = "idmarca"
-        Me.idmarcaveh.HeaderText = "idmarca"
-        Me.idmarcaveh.Name = "idmarcaveh"
-        Me.idmarcaveh.ReadOnly = True
-        Me.idmarcaveh.Visible = False
-        '
-        'estadov
-        '
-        Me.estadov.DataPropertyName = "estado"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle2.NullValue = False
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.estadov.DefaultCellStyle = DataGridViewCellStyle2
-        Me.estadov.HeaderText = "Estado"
-        Me.estadov.Name = "estadov"
-        Me.estadov.ReadOnly = True
-        Me.estadov.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.estadov.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'pnlBajaVeh
         '
@@ -2471,7 +2286,7 @@ Partial Class frmMainMenu
         Me.btnBajaBVeh.Location = New System.Drawing.Point(552, 174)
         Me.btnBajaBVeh.Name = "btnBajaBVeh"
         Me.btnBajaBVeh.Size = New System.Drawing.Size(99, 31)
-        Me.btnBajaBVeh.TabIndex = 18
+        Me.btnBajaBVeh.TabIndex = 1
         Me.btnBajaBVeh.Text = "Actualizar"
         Me.btnBajaBVeh.UseVisualStyleBackColor = False
         '
@@ -2502,7 +2317,7 @@ Partial Class frmMainMenu
         Me.txtMatriculaBVeh.Location = New System.Drawing.Point(14, 74)
         Me.txtMatriculaBVeh.Name = "txtMatriculaBVeh"
         Me.txtMatriculaBVeh.Size = New System.Drawing.Size(121, 20)
-        Me.txtMatriculaBVeh.TabIndex = 22
+        Me.txtMatriculaBVeh.TabIndex = 0
         '
         'pnlFVehi
         '
@@ -2572,14 +2387,14 @@ Partial Class frmMainMenu
         Me.txtColorFVeh.Location = New System.Drawing.Point(472, 72)
         Me.txtColorFVeh.Name = "txtColorFVeh"
         Me.txtColorFVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtColorFVeh.TabIndex = 64
+        Me.txtColorFVeh.TabIndex = 6
         '
         'numPasajerosFVeh
         '
         Me.numPasajerosFVeh.Location = New System.Drawing.Point(235, 162)
         Me.numPasajerosFVeh.Name = "numPasajerosFVeh"
         Me.numPasajerosFVeh.Size = New System.Drawing.Size(121, 20)
-        Me.numPasajerosFVeh.TabIndex = 45
+        Me.numPasajerosFVeh.TabIndex = 14
         '
         'cbxTipoFVeh
         '
@@ -2588,14 +2403,14 @@ Partial Class frmMainMenu
         Me.cbxTipoFVeh.Location = New System.Drawing.Point(362, 118)
         Me.cbxTipoFVeh.Name = "cbxTipoFVeh"
         Me.cbxTipoFVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxTipoFVeh.TabIndex = 43
+        Me.cbxTipoFVeh.TabIndex = 10
         '
         'txtMatriculaFVeh
         '
         Me.txtMatriculaFVeh.Location = New System.Drawing.Point(125, 74)
         Me.txtMatriculaFVeh.Name = "txtMatriculaFVeh"
         Me.txtMatriculaFVeh.Size = New System.Drawing.Size(103, 20)
-        Me.txtMatriculaFVeh.TabIndex = 63
+        Me.txtMatriculaFVeh.TabIndex = 3
         '
         'cbxAireFVeh
         '
@@ -2606,7 +2421,7 @@ Partial Class frmMainMenu
         Me.cbxAireFVeh.Location = New System.Drawing.Point(516, 21)
         Me.cbxAireFVeh.Name = "cbxAireFVeh"
         Me.cbxAireFVeh.Size = New System.Drawing.Size(40, 21)
-        Me.cbxAireFVeh.TabIndex = 19
+        Me.cbxAireFVeh.TabIndex = 0
         '
         'cbxAutomaticoFVeh
         '
@@ -2617,7 +2432,7 @@ Partial Class frmMainMenu
         Me.cbxAutomaticoFVeh.Location = New System.Drawing.Point(607, 21)
         Me.cbxAutomaticoFVeh.Name = "cbxAutomaticoFVeh"
         Me.cbxAutomaticoFVeh.Size = New System.Drawing.Size(40, 21)
-        Me.cbxAutomaticoFVeh.TabIndex = 19
+        Me.cbxAutomaticoFVeh.TabIndex = 1
         '
         'cbxPuertasFVeh
         '
@@ -2627,7 +2442,7 @@ Partial Class frmMainMenu
         Me.cbxPuertasFVeh.Location = New System.Drawing.Point(362, 162)
         Me.cbxPuertasFVeh.Name = "cbxPuertasFVeh"
         Me.cbxPuertasFVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxPuertasFVeh.TabIndex = 19
+        Me.cbxPuertasFVeh.TabIndex = 15
         '
         'Label105
         '
@@ -2645,7 +2460,7 @@ Partial Class frmMainMenu
         Me.txtDeducibleFVeh.Location = New System.Drawing.Point(362, 73)
         Me.txtDeducibleFVeh.Name = "txtDeducibleFVeh"
         Me.txtDeducibleFVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtDeducibleFVeh.TabIndex = 58
+        Me.txtDeducibleFVeh.TabIndex = 5
         '
         'Label104
         '
@@ -2663,7 +2478,7 @@ Partial Class frmMainMenu
         Me.txtKMFVeh.Location = New System.Drawing.Point(234, 73)
         Me.txtKMFVeh.Name = "txtKMFVeh"
         Me.txtKMFVeh.Size = New System.Drawing.Size(119, 20)
-        Me.txtKMFVeh.TabIndex = 58
+        Me.txtKMFVeh.TabIndex = 4
         '
         'Label26
         '
@@ -2725,7 +2540,7 @@ Partial Class frmMainMenu
         Me.txtNroChasisFVeh.Location = New System.Drawing.Point(14, 74)
         Me.txtNroChasisFVeh.Name = "txtNroChasisFVeh"
         Me.txtNroChasisFVeh.Size = New System.Drawing.Size(103, 20)
-        Me.txtNroChasisFVeh.TabIndex = 54
+        Me.txtNroChasisFVeh.TabIndex = 2
         '
         'Label45
         '
@@ -2746,7 +2561,7 @@ Partial Class frmMainMenu
         Me.cbxMaletasFVeh.Location = New System.Drawing.Point(124, 162)
         Me.cbxMaletasFVeh.Name = "cbxMaletasFVeh"
         Me.cbxMaletasFVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxMaletasFVeh.TabIndex = 40
+        Me.cbxMaletasFVeh.TabIndex = 13
         '
         'Label64
         '
@@ -2786,7 +2601,7 @@ Partial Class frmMainMenu
         Me.txtAnioFVeh.Location = New System.Drawing.Point(14, 162)
         Me.txtAnioFVeh.Name = "txtAnioFVeh"
         Me.txtAnioFVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtAnioFVeh.TabIndex = 38
+        Me.txtAnioFVeh.TabIndex = 12
         '
         'Label109
         '
@@ -2817,7 +2632,7 @@ Partial Class frmMainMenu
         Me.cbxSucursalFVeh.Location = New System.Drawing.Point(472, 118)
         Me.cbxSucursalFVeh.Name = "cbxSucursalFVeh"
         Me.cbxSucursalFVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxSucursalFVeh.TabIndex = 17
+        Me.cbxSucursalFVeh.TabIndex = 11
         '
         'Label61
         '
@@ -2837,7 +2652,7 @@ Partial Class frmMainMenu
         Me.cbxModeloFVeh.Location = New System.Drawing.Point(235, 118)
         Me.cbxModeloFVeh.Name = "cbxModeloFVeh"
         Me.cbxModeloFVeh.Size = New System.Drawing.Size(121, 21)
-        Me.cbxModeloFVeh.TabIndex = 23
+        Me.cbxModeloFVeh.TabIndex = 9
         '
         'cbxCategoriaFVeh
         '
@@ -2846,7 +2661,7 @@ Partial Class frmMainMenu
         Me.cbxCategoriaFVeh.Location = New System.Drawing.Point(14, 118)
         Me.cbxCategoriaFVeh.Name = "cbxCategoriaFVeh"
         Me.cbxCategoriaFVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxCategoriaFVeh.TabIndex = 36
+        Me.cbxCategoriaFVeh.TabIndex = 7
         '
         'Label50
         '
@@ -2867,7 +2682,7 @@ Partial Class frmMainMenu
         Me.cbxMarcaFVeh.Location = New System.Drawing.Point(124, 118)
         Me.cbxMarcaFVeh.Name = "cbxMarcaFVeh"
         Me.cbxMarcaFVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxMarcaFVeh.TabIndex = 35
+        Me.cbxMarcaFVeh.TabIndex = 8
         '
         'btnVaciarFVeh
         '
@@ -2883,7 +2698,7 @@ Partial Class frmMainMenu
         Me.btnVaciarFVeh.Location = New System.Drawing.Point(552, 175)
         Me.btnVaciarFVeh.Name = "btnVaciarFVeh"
         Me.btnVaciarFVeh.Size = New System.Drawing.Size(99, 31)
-        Me.btnVaciarFVeh.TabIndex = 32
+        Me.btnVaciarFVeh.TabIndex = 16
         Me.btnVaciarFVeh.Text = "Vaciar"
         Me.btnVaciarFVeh.UseVisualStyleBackColor = False
         '
@@ -2991,6 +2806,8 @@ Partial Class frmMainMenu
         Me.pnlAVehi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlAVehi.BackColor = System.Drawing.Color.Silver
         Me.pnlAVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlAVehi.Controls.Add(Me.Label133)
+        Me.pnlAVehi.Controls.Add(Me.TextBox1)
         Me.pnlAVehi.Controls.Add(Me.lblKilometrajeAVeh)
         Me.pnlAVehi.Controls.Add(Me.txtKilometrajeAVeh)
         Me.pnlAVehi.Controls.Add(Me.numPasajerosAVeh)
@@ -3031,7 +2848,7 @@ Partial Class frmMainMenu
         Me.lblKilometrajeAVeh.AutoSize = True
         Me.lblKilometrajeAVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblKilometrajeAVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblKilometrajeAVeh.Location = New System.Drawing.Point(366, 55)
+        Me.lblKilometrajeAVeh.Location = New System.Drawing.Point(240, 55)
         Me.lblKilometrajeAVeh.Name = "lblKilometrajeAVeh"
         Me.lblKilometrajeAVeh.Size = New System.Drawing.Size(76, 17)
         Me.lblKilometrajeAVeh.TabIndex = 68
@@ -3039,31 +2856,31 @@ Partial Class frmMainMenu
         '
         'txtKilometrajeAVeh
         '
-        Me.txtKilometrajeAVeh.Location = New System.Drawing.Point(364, 75)
+        Me.txtKilometrajeAVeh.Location = New System.Drawing.Point(237, 75)
         Me.txtKilometrajeAVeh.Name = "txtKilometrajeAVeh"
-        Me.txtKilometrajeAVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtKilometrajeAVeh.TabIndex = 67
+        Me.txtKilometrajeAVeh.Size = New System.Drawing.Size(117, 20)
+        Me.txtKilometrajeAVeh.TabIndex = 4
         '
         'numPasajerosAVeh
         '
         Me.numPasajerosAVeh.Location = New System.Drawing.Point(237, 163)
         Me.numPasajerosAVeh.Name = "numPasajerosAVeh"
         Me.numPasajerosAVeh.Size = New System.Drawing.Size(121, 20)
-        Me.numPasajerosAVeh.TabIndex = 64
+        Me.numPasajerosAVeh.TabIndex = 14
         '
         'txtDeducibleAVeh
         '
-        Me.txtDeducibleAVeh.Location = New System.Drawing.Point(473, 75)
+        Me.txtDeducibleAVeh.Location = New System.Drawing.Point(364, 75)
         Me.txtDeducibleAVeh.Name = "txtDeducibleAVeh"
-        Me.txtDeducibleAVeh.Size = New System.Drawing.Size(105, 20)
-        Me.txtDeducibleAVeh.TabIndex = 65
+        Me.txtDeducibleAVeh.Size = New System.Drawing.Size(104, 20)
+        Me.txtDeducibleAVeh.TabIndex = 5
         '
         'lblhelpVEH
         '
         Me.lblhelpVEH.AutoSize = True
         Me.lblhelpVEH.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblhelpVEH.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblhelpVEH.Location = New System.Drawing.Point(476, 55)
+        Me.lblhelpVEH.Location = New System.Drawing.Point(361, 55)
         Me.lblhelpVEH.Name = "lblhelpVEH"
         Me.lblhelpVEH.Size = New System.Drawing.Size(70, 17)
         Me.lblhelpVEH.TabIndex = 64
@@ -3087,14 +2904,14 @@ Partial Class frmMainMenu
         Me.cbxTipoAVeh.Location = New System.Drawing.Point(364, 117)
         Me.cbxTipoAVeh.Name = "cbxTipoAVeh"
         Me.cbxTipoAVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxTipoAVeh.TabIndex = 43
+        Me.cbxTipoAVeh.TabIndex = 10
         '
         'txtMatriculaAVeh
         '
-        Me.txtMatriculaAVeh.Location = New System.Drawing.Point(232, 75)
+        Me.txtMatriculaAVeh.Location = New System.Drawing.Point(124, 75)
         Me.txtMatriculaAVeh.Name = "txtMatriculaAVeh"
-        Me.txtMatriculaAVeh.Size = New System.Drawing.Size(121, 20)
-        Me.txtMatriculaAVeh.TabIndex = 63
+        Me.txtMatriculaAVeh.Size = New System.Drawing.Size(105, 20)
+        Me.txtMatriculaAVeh.TabIndex = 3
         '
         'btnAltaAVeh
         '
@@ -3110,7 +2927,7 @@ Partial Class frmMainMenu
         Me.btnAltaAVeh.Location = New System.Drawing.Point(554, 178)
         Me.btnAltaAVeh.Name = "btnAltaAVeh"
         Me.btnAltaAVeh.Size = New System.Drawing.Size(99, 31)
-        Me.btnAltaAVeh.TabIndex = 43
+        Me.btnAltaAVeh.TabIndex = 16
         Me.btnAltaAVeh.Text = "Alta"
         Me.btnAltaAVeh.UseVisualStyleBackColor = False
         '
@@ -3122,7 +2939,7 @@ Partial Class frmMainMenu
         Me.cbxAutomaticoAVeh.Location = New System.Drawing.Point(506, 21)
         Me.cbxAutomaticoAVeh.Name = "cbxAutomaticoAVeh"
         Me.cbxAutomaticoAVeh.Size = New System.Drawing.Size(146, 20)
-        Me.cbxAutomaticoAVeh.TabIndex = 62
+        Me.cbxAutomaticoAVeh.TabIndex = 1
         Me.cbxAutomaticoAVeh.Text = "Cambios automáticos"
         Me.cbxAutomaticoAVeh.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cbxAutomaticoAVeh.UseVisualStyleBackColor = True
@@ -3146,7 +2963,7 @@ Partial Class frmMainMenu
         Me.cbxMaletasAVeh.Location = New System.Drawing.Point(124, 161)
         Me.cbxMaletasAVeh.Name = "cbxMaletasAVeh"
         Me.cbxMaletasAVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxMaletasAVeh.TabIndex = 60
+        Me.cbxMaletasAVeh.TabIndex = 13
         '
         'Label84
         '
@@ -3175,14 +2992,14 @@ Partial Class frmMainMenu
         Me.txtAnioAVeh.Location = New System.Drawing.Point(14, 161)
         Me.txtAnioAVeh.Name = "txtAnioAVeh"
         Me.txtAnioAVeh.Size = New System.Drawing.Size(103, 20)
-        Me.txtAnioAVeh.TabIndex = 58
+        Me.txtAnioAVeh.TabIndex = 12
         '
         'Label54
         '
         Me.Label54.AutoSize = True
         Me.Label54.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label54.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label54.Location = New System.Drawing.Point(229, 54)
+        Me.Label54.Location = New System.Drawing.Point(127, 55)
         Me.Label54.Name = "Label54"
         Me.Label54.Size = New System.Drawing.Size(74, 17)
         Me.Label54.TabIndex = 57
@@ -3195,7 +3012,7 @@ Partial Class frmMainMenu
         Me.cbxCategoriaAVeh.Location = New System.Drawing.Point(14, 118)
         Me.cbxCategoriaAVeh.Name = "cbxCategoriaAVeh"
         Me.cbxCategoriaAVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxCategoriaAVeh.TabIndex = 56
+        Me.cbxCategoriaAVeh.TabIndex = 7
         '
         'cbxMarcaAVeh
         '
@@ -3204,14 +3021,14 @@ Partial Class frmMainMenu
         Me.cbxMarcaAVeh.Location = New System.Drawing.Point(124, 118)
         Me.cbxMarcaAVeh.Name = "cbxMarcaAVeh"
         Me.cbxMarcaAVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxMarcaAVeh.TabIndex = 55
+        Me.cbxMarcaAVeh.TabIndex = 8
         '
         'txtNroChasisAVeh
         '
         Me.txtNroChasisAVeh.Location = New System.Drawing.Point(14, 75)
         Me.txtNroChasisAVeh.Name = "txtNroChasisAVeh"
-        Me.txtNroChasisAVeh.Size = New System.Drawing.Size(212, 20)
-        Me.txtNroChasisAVeh.TabIndex = 54
+        Me.txtNroChasisAVeh.Size = New System.Drawing.Size(105, 20)
+        Me.txtNroChasisAVeh.TabIndex = 2
         '
         'chbxAireAVeh
         '
@@ -3221,7 +3038,7 @@ Partial Class frmMainMenu
         Me.chbxAireAVeh.Location = New System.Drawing.Point(370, 21)
         Me.chbxAireAVeh.Name = "chbxAireAVeh"
         Me.chbxAireAVeh.Size = New System.Drawing.Size(134, 20)
-        Me.chbxAireAVeh.TabIndex = 53
+        Me.chbxAireAVeh.TabIndex = 0
         Me.chbxAireAVeh.Text = "Aire acondicionado"
         Me.chbxAireAVeh.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxAireAVeh.UseVisualStyleBackColor = True
@@ -3299,7 +3116,7 @@ Partial Class frmMainMenu
         Me.cbxModeloAVeh.Location = New System.Drawing.Point(237, 118)
         Me.cbxModeloAVeh.Name = "cbxModeloAVeh"
         Me.cbxModeloAVeh.Size = New System.Drawing.Size(117, 21)
-        Me.cbxModeloAVeh.TabIndex = 46
+        Me.cbxModeloAVeh.TabIndex = 9
         '
         'cbxSucursalAVeh
         '
@@ -3308,7 +3125,7 @@ Partial Class frmMainMenu
         Me.cbxSucursalAVeh.Location = New System.Drawing.Point(474, 118)
         Me.cbxSucursalAVeh.Name = "cbxSucursalAVeh"
         Me.cbxSucursalAVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxSucursalAVeh.TabIndex = 44
+        Me.cbxSucursalAVeh.TabIndex = 11
         '
         'cbxPuertasAVeh
         '
@@ -3318,7 +3135,7 @@ Partial Class frmMainMenu
         Me.cbxPuertasAVeh.Location = New System.Drawing.Point(364, 160)
         Me.cbxPuertasAVeh.Name = "cbxPuertasAVeh"
         Me.cbxPuertasAVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxPuertasAVeh.TabIndex = 45
+        Me.cbxPuertasAVeh.TabIndex = 15
         '
         'Label60
         '
@@ -3336,6 +3153,8 @@ Partial Class frmMainMenu
         Me.pnlMVehi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlMVehi.BackColor = System.Drawing.Color.Silver
         Me.pnlMVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlMVehi.Controls.Add(Me.lblColorMveh)
+        Me.pnlMVehi.Controls.Add(Me.txtColorMVeh)
         Me.pnlMVehi.Controls.Add(Me.numPasajerosMVehiculo)
         Me.pnlMVehi.Controls.Add(Me.Label101)
         Me.pnlMVehi.Controls.Add(Me.txtNroChasisMVeh)
@@ -3376,7 +3195,7 @@ Partial Class frmMainMenu
         Me.numPasajerosMVehiculo.Location = New System.Drawing.Point(237, 163)
         Me.numPasajerosMVehiculo.Name = "numPasajerosMVehiculo"
         Me.numPasajerosMVehiculo.Size = New System.Drawing.Size(119, 20)
-        Me.numPasajerosMVehiculo.TabIndex = 13
+        Me.numPasajerosMVehiculo.TabIndex = 14
         '
         'Label101
         '
@@ -3393,7 +3212,7 @@ Partial Class frmMainMenu
         '
         Me.txtNroChasisMVeh.Location = New System.Drawing.Point(14, 75)
         Me.txtNroChasisMVeh.Name = "txtNroChasisMVeh"
-        Me.txtNroChasisMVeh.Size = New System.Drawing.Size(214, 20)
+        Me.txtNroChasisMVeh.Size = New System.Drawing.Size(103, 20)
         Me.txtNroChasisMVeh.TabIndex = 2
         '
         'cbxTipoMVeh
@@ -3403,7 +3222,7 @@ Partial Class frmMainMenu
         Me.cbxTipoMVeh.Location = New System.Drawing.Point(362, 117)
         Me.cbxTipoMVeh.Name = "cbxTipoMVeh"
         Me.cbxTipoMVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxTipoMVeh.TabIndex = 9
+        Me.cbxTipoMVeh.TabIndex = 10
         '
         'cbxPuertasMVeh
         '
@@ -3413,7 +3232,7 @@ Partial Class frmMainMenu
         Me.cbxPuertasMVeh.Location = New System.Drawing.Point(362, 161)
         Me.cbxPuertasMVeh.Name = "cbxPuertasMVeh"
         Me.cbxPuertasMVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxPuertasMVeh.TabIndex = 14
+        Me.cbxPuertasMVeh.TabIndex = 15
         '
         'cbxAutomaticoMVeh
         '
@@ -3447,7 +3266,7 @@ Partial Class frmMainMenu
         Me.cbxMaletasMVeh.Location = New System.Drawing.Point(128, 162)
         Me.cbxMaletasMVeh.Name = "cbxMaletasMVeh"
         Me.cbxMaletasMVeh.Size = New System.Drawing.Size(101, 21)
-        Me.cbxMaletasMVeh.TabIndex = 12
+        Me.cbxMaletasMVeh.TabIndex = 13
         '
         'Label30
         '
@@ -3462,16 +3281,16 @@ Partial Class frmMainMenu
         '
         'txtDeducibleMVeh
         '
-        Me.txtDeducibleMVeh.Location = New System.Drawing.Point(469, 74)
+        Me.txtDeducibleMVeh.Location = New System.Drawing.Point(362, 74)
         Me.txtDeducibleMVeh.Name = "txtDeducibleMVeh"
-        Me.txtDeducibleMVeh.Size = New System.Drawing.Size(108, 20)
+        Me.txtDeducibleMVeh.Size = New System.Drawing.Size(104, 20)
         Me.txtDeducibleMVeh.TabIndex = 5
         '
         'txtKMMVeh
         '
-        Me.txtKMMVeh.Location = New System.Drawing.Point(359, 74)
+        Me.txtKMMVeh.Location = New System.Drawing.Point(235, 75)
         Me.txtKMMVeh.Name = "txtKMMVeh"
-        Me.txtKMMVeh.Size = New System.Drawing.Size(104, 20)
+        Me.txtKMMVeh.Size = New System.Drawing.Size(118, 20)
         Me.txtKMMVeh.TabIndex = 4
         '
         'txtAnioMVeh
@@ -3479,7 +3298,7 @@ Partial Class frmMainMenu
         Me.txtAnioMVeh.Location = New System.Drawing.Point(14, 162)
         Me.txtAnioMVeh.Name = "txtAnioMVeh"
         Me.txtAnioMVeh.Size = New System.Drawing.Size(105, 20)
-        Me.txtAnioMVeh.TabIndex = 11
+        Me.txtAnioMVeh.TabIndex = 12
         '
         'Label114
         '
@@ -3521,7 +3340,7 @@ Partial Class frmMainMenu
         Me.cbxCategoriaMVeh.Location = New System.Drawing.Point(14, 118)
         Me.cbxCategoriaMVeh.Name = "cbxCategoriaMVeh"
         Me.cbxCategoriaMVeh.Size = New System.Drawing.Size(103, 21)
-        Me.cbxCategoriaMVeh.TabIndex = 6
+        Me.cbxCategoriaMVeh.TabIndex = 7
         '
         'cbxMarcaMVeh
         '
@@ -3530,13 +3349,13 @@ Partial Class frmMainMenu
         Me.cbxMarcaMVeh.Location = New System.Drawing.Point(125, 117)
         Me.cbxMarcaMVeh.Name = "cbxMarcaMVeh"
         Me.cbxMarcaMVeh.Size = New System.Drawing.Size(103, 21)
-        Me.cbxMarcaMVeh.TabIndex = 7
+        Me.cbxMarcaMVeh.TabIndex = 8
         '
         'txtMatriculaMVeh
         '
-        Me.txtMatriculaMVeh.Location = New System.Drawing.Point(234, 74)
+        Me.txtMatriculaMVeh.Location = New System.Drawing.Point(125, 75)
         Me.txtMatriculaMVeh.Name = "txtMatriculaMVeh"
-        Me.txtMatriculaMVeh.Size = New System.Drawing.Size(119, 20)
+        Me.txtMatriculaMVeh.Size = New System.Drawing.Size(104, 20)
         Me.txtMatriculaMVeh.TabIndex = 3
         '
         'chbxAireMVeh
@@ -3557,7 +3376,7 @@ Partial Class frmMainMenu
         Me.Label36.AutoSize = True
         Me.Label36.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label36.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label36.Location = New System.Drawing.Point(232, 54)
+        Me.Label36.Location = New System.Drawing.Point(125, 54)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(65, 17)
         Me.Label36.TabIndex = 52
@@ -3568,7 +3387,7 @@ Partial Class frmMainMenu
         Me.Label92.AutoSize = True
         Me.Label92.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label92.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label92.Location = New System.Drawing.Point(472, 54)
+        Me.Label92.Location = New System.Drawing.Point(359, 54)
         Me.Label92.Name = "Label92"
         Me.Label92.Size = New System.Drawing.Size(70, 17)
         Me.Label92.TabIndex = 50
@@ -3579,7 +3398,7 @@ Partial Class frmMainMenu
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(362, 54)
+        Me.Label27.Location = New System.Drawing.Point(232, 54)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(76, 17)
         Me.Label27.TabIndex = 50
@@ -3636,7 +3455,7 @@ Partial Class frmMainMenu
         Me.cbxModeloMVeh.Location = New System.Drawing.Point(235, 118)
         Me.cbxModeloMVeh.Name = "cbxModeloMVeh"
         Me.cbxModeloMVeh.Size = New System.Drawing.Size(121, 21)
-        Me.cbxModeloMVeh.TabIndex = 8
+        Me.cbxModeloMVeh.TabIndex = 9
         '
         'cbxSucursalMVeh
         '
@@ -3645,7 +3464,7 @@ Partial Class frmMainMenu
         Me.cbxSucursalMVeh.Location = New System.Drawing.Point(472, 117)
         Me.cbxSucursalMVeh.Name = "cbxSucursalMVeh"
         Me.cbxSucursalMVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxSucursalMVeh.TabIndex = 10
+        Me.cbxSucursalMVeh.TabIndex = 11
         '
         'btnModificarVeh
         '
@@ -3661,7 +3480,7 @@ Partial Class frmMainMenu
         Me.btnModificarVeh.Location = New System.Drawing.Point(552, 174)
         Me.btnModificarVeh.Name = "btnModificarVeh"
         Me.btnModificarVeh.Size = New System.Drawing.Size(99, 31)
-        Me.btnModificarVeh.TabIndex = 18
+        Me.btnModificarVeh.TabIndex = 16
         Me.btnModificarVeh.Text = "Modificar"
         Me.btnModificarVeh.UseVisualStyleBackColor = False
         '
@@ -3730,6 +3549,7 @@ Partial Class frmMainMenu
         '
         Me.dgvEmpleados.AllowUserToAddRows = False
         Me.dgvEmpleados.AllowUserToDeleteRows = False
+        Me.dgvEmpleados.AllowUserToResizeColumns = False
         Me.dgvEmpleados.AllowUserToResizeRows = False
         Me.dgvEmpleados.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -3754,6 +3574,7 @@ Partial Class frmMainMenu
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvEmpleados.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvEmpleados.Location = New System.Drawing.Point(7, 3)
+        Me.dgvEmpleados.MultiSelect = False
         Me.dgvEmpleados.Name = "dgvEmpleados"
         Me.dgvEmpleados.ReadOnly = True
         Me.dgvEmpleados.RowHeadersVisible = False
@@ -3889,7 +3710,7 @@ Partial Class frmMainMenu
         Me.cbxTipoMempleados.Location = New System.Drawing.Point(179, 89)
         Me.cbxTipoMempleados.Name = "cbxTipoMempleados"
         Me.cbxTipoMempleados.Size = New System.Drawing.Size(121, 21)
-        Me.cbxTipoMempleados.TabIndex = 30
+        Me.cbxTipoMempleados.TabIndex = 0
         '
         'cbxSucursalMempleados
         '
@@ -3898,7 +3719,7 @@ Partial Class frmMainMenu
         Me.cbxSucursalMempleados.Location = New System.Drawing.Point(306, 89)
         Me.cbxSucursalMempleados.Name = "cbxSucursalMempleados"
         Me.cbxSucursalMempleados.Size = New System.Drawing.Size(121, 21)
-        Me.cbxSucursalMempleados.TabIndex = 28
+        Me.cbxSucursalMempleados.TabIndex = 1
         '
         'btnModificarEmpleado
         '
@@ -3914,7 +3735,7 @@ Partial Class frmMainMenu
         Me.btnModificarEmpleado.Location = New System.Drawing.Point(466, 148)
         Me.btnModificarEmpleado.Name = "btnModificarEmpleado"
         Me.btnModificarEmpleado.Size = New System.Drawing.Size(99, 31)
-        Me.btnModificarEmpleado.TabIndex = 18
+        Me.btnModificarEmpleado.TabIndex = 2
         Me.btnModificarEmpleado.Text = "Modificar"
         Me.btnModificarEmpleado.UseVisualStyleBackColor = False
         '
@@ -3957,7 +3778,7 @@ Partial Class frmMainMenu
         Me.btnEstadoEmpleado.Location = New System.Drawing.Point(466, 148)
         Me.btnEstadoEmpleado.Name = "btnEstadoEmpleado"
         Me.btnEstadoEmpleado.Size = New System.Drawing.Size(99, 31)
-        Me.btnEstadoEmpleado.TabIndex = 18
+        Me.btnEstadoEmpleado.TabIndex = 1
         Me.btnEstadoEmpleado.Text = "Actualizar"
         Me.btnEstadoEmpleado.UseVisualStyleBackColor = False
         '
@@ -3988,7 +3809,7 @@ Partial Class frmMainMenu
         Me.txtNroDocEempleado.Location = New System.Drawing.Point(241, 98)
         Me.txtNroDocEempleado.Name = "txtNroDocEempleado"
         Me.txtNroDocEempleado.Size = New System.Drawing.Size(119, 20)
-        Me.txtNroDocEempleado.TabIndex = 22
+        Me.txtNroDocEempleado.TabIndex = 0
         '
         'pnlFemp
         '
@@ -4064,14 +3885,14 @@ Partial Class frmMainMenu
         Me.txtApellidoFempleado.Location = New System.Drawing.Point(306, 74)
         Me.txtApellidoFempleado.Name = "txtApellidoFempleado"
         Me.txtApellidoFempleado.Size = New System.Drawing.Size(125, 20)
-        Me.txtApellidoFempleado.TabIndex = 35
+        Me.txtApellidoFempleado.TabIndex = 2
         '
         'txtNombreFempleado
         '
         Me.txtNombreFempleado.Location = New System.Drawing.Point(164, 74)
         Me.txtNombreFempleado.Name = "txtNombreFempleado"
         Me.txtNombreFempleado.Size = New System.Drawing.Size(125, 20)
-        Me.txtNombreFempleado.TabIndex = 34
+        Me.txtNombreFempleado.TabIndex = 1
         '
         'btnVaciarFEmpleado
         '
@@ -4087,7 +3908,7 @@ Partial Class frmMainMenu
         Me.btnVaciarFEmpleado.Location = New System.Drawing.Point(466, 149)
         Me.btnVaciarFEmpleado.Name = "btnVaciarFEmpleado"
         Me.btnVaciarFEmpleado.Size = New System.Drawing.Size(99, 31)
-        Me.btnVaciarFEmpleado.TabIndex = 32
+        Me.btnVaciarFEmpleado.TabIndex = 5
         Me.btnVaciarFEmpleado.Text = "Vaciar"
         Me.btnVaciarFEmpleado.UseVisualStyleBackColor = False
         '
@@ -4152,14 +3973,14 @@ Partial Class frmMainMenu
         Me.cbxTipoFempleados.Location = New System.Drawing.Point(19, 122)
         Me.cbxTipoFempleados.Name = "cbxTipoFempleados"
         Me.cbxTipoFempleados.Size = New System.Drawing.Size(126, 21)
-        Me.cbxTipoFempleados.TabIndex = 23
+        Me.cbxTipoFempleados.TabIndex = 3
         '
         'txtNroDocFempleado
         '
         Me.txtNroDocFempleado.Location = New System.Drawing.Point(17, 74)
         Me.txtNroDocFempleado.Name = "txtNroDocFempleado"
         Me.txtNroDocFempleado.Size = New System.Drawing.Size(125, 20)
-        Me.txtNroDocFempleado.TabIndex = 22
+        Me.txtNroDocFempleado.TabIndex = 0
         '
         'cbxSucursalFempleados
         '
@@ -4168,7 +3989,7 @@ Partial Class frmMainMenu
         Me.cbxSucursalFempleados.Location = New System.Drawing.Point(164, 122)
         Me.cbxSucursalFempleados.Name = "cbxSucursalFempleados"
         Me.cbxSucursalFempleados.Size = New System.Drawing.Size(121, 21)
-        Me.cbxSucursalFempleados.TabIndex = 17
+        Me.cbxSucursalFempleados.TabIndex = 4
         '
         'pnlAEmp
         '
@@ -4196,7 +4017,7 @@ Partial Class frmMainMenu
         Me.txtNombreUsuarioCempleado.Location = New System.Drawing.Point(421, 68)
         Me.txtNombreUsuarioCempleado.Name = "txtNombreUsuarioCempleado"
         Me.txtNombreUsuarioCempleado.Size = New System.Drawing.Size(125, 20)
-        Me.txtNombreUsuarioCempleado.TabIndex = 37
+        Me.txtNombreUsuarioCempleado.TabIndex = 3
         '
         'cbxTipoCempleados
         '
@@ -4205,14 +4026,14 @@ Partial Class frmMainMenu
         Me.cbxTipoCempleados.Location = New System.Drawing.Point(145, 66)
         Me.cbxTipoCempleados.Name = "cbxTipoCempleados"
         Me.cbxTipoCempleados.Size = New System.Drawing.Size(126, 21)
-        Me.cbxTipoCempleados.TabIndex = 36
+        Me.cbxTipoCempleados.TabIndex = 1
         '
         'txtNroDocumentoCempleado
         '
         Me.txtNroDocumentoCempleado.Location = New System.Drawing.Point(13, 65)
         Me.txtNroDocumentoCempleado.Name = "txtNroDocumentoCempleado"
         Me.txtNroDocumentoCempleado.Size = New System.Drawing.Size(125, 20)
-        Me.txtNroDocumentoCempleado.TabIndex = 35
+        Me.txtNroDocumentoCempleado.TabIndex = 0
         '
         'Label82
         '
@@ -4232,7 +4053,7 @@ Partial Class frmMainMenu
         Me.cbxSucursalCempleados.Location = New System.Drawing.Point(287, 67)
         Me.cbxSucursalCempleados.Name = "cbxSucursalCempleados"
         Me.cbxSucursalCempleados.Size = New System.Drawing.Size(121, 21)
-        Me.cbxSucursalCempleados.TabIndex = 34
+        Me.cbxSucursalCempleados.TabIndex = 2
         '
         'btnAltaEmpleado
         '
@@ -4248,7 +4069,7 @@ Partial Class frmMainMenu
         Me.btnAltaEmpleado.Location = New System.Drawing.Point(466, 148)
         Me.btnAltaEmpleado.Name = "btnAltaEmpleado"
         Me.btnAltaEmpleado.Size = New System.Drawing.Size(99, 31)
-        Me.btnAltaEmpleado.TabIndex = 32
+        Me.btnAltaEmpleado.TabIndex = 4
         Me.btnAltaEmpleado.Text = "Crear"
         Me.btnAltaEmpleado.UseVisualStyleBackColor = False
         '
@@ -4346,7 +4167,7 @@ Partial Class frmMainMenu
         Me.btnBajamant.Location = New System.Drawing.Point(464, 145)
         Me.btnBajamant.Name = "btnBajamant"
         Me.btnBajamant.Size = New System.Drawing.Size(99, 31)
-        Me.btnBajamant.TabIndex = 18
+        Me.btnBajamant.TabIndex = 0
         Me.btnBajamant.Text = "Finalizar"
         Me.btnBajamant.UseVisualStyleBackColor = False
         '
@@ -4401,7 +4222,7 @@ Partial Class frmMainMenu
         Me.cbxModifTipoMant.Location = New System.Drawing.Point(124, 93)
         Me.cbxModifTipoMant.Name = "cbxModifTipoMant"
         Me.cbxModifTipoMant.Size = New System.Drawing.Size(121, 21)
-        Me.cbxModifTipoMant.TabIndex = 42
+        Me.cbxModifTipoMant.TabIndex = 1
         '
         'Label112
         '
@@ -4428,7 +4249,7 @@ Partial Class frmMainMenu
         Me.btnVaciarMant.Location = New System.Drawing.Point(359, 159)
         Me.btnVaciarMant.Name = "btnVaciarMant"
         Me.btnVaciarMant.Size = New System.Drawing.Size(99, 31)
-        Me.btnVaciarMant.TabIndex = 34
+        Me.btnVaciarMant.TabIndex = 4
         Me.btnVaciarMant.Text = "Vaciar"
         Me.btnVaciarMant.UseVisualStyleBackColor = False
         '
@@ -4446,7 +4267,7 @@ Partial Class frmMainMenu
         Me.btnModifMant.Location = New System.Drawing.Point(464, 159)
         Me.btnModifMant.Name = "btnModifMant"
         Me.btnModifMant.Size = New System.Drawing.Size(99, 31)
-        Me.btnModifMant.TabIndex = 18
+        Me.btnModifMant.TabIndex = 5
         Me.btnModifMant.Text = "Modificar"
         Me.btnModifMant.UseVisualStyleBackColor = False
         '
@@ -4490,7 +4311,7 @@ Partial Class frmMainMenu
         Me.dtpModifFechaInicioMant.Location = New System.Drawing.Point(273, 94)
         Me.dtpModifFechaInicioMant.Name = "dtpModifFechaInicioMant"
         Me.dtpModifFechaInicioMant.Size = New System.Drawing.Size(136, 20)
-        Me.dtpModifFechaInicioMant.TabIndex = 20
+        Me.dtpModifFechaInicioMant.TabIndex = 2
         '
         'dtpModifFechaFinMant
         '
@@ -4499,14 +4320,14 @@ Partial Class frmMainMenu
         Me.dtpModifFechaFinMant.Location = New System.Drawing.Point(415, 94)
         Me.dtpModifFechaFinMant.Name = "dtpModifFechaFinMant"
         Me.dtpModifFechaFinMant.Size = New System.Drawing.Size(136, 20)
-        Me.dtpModifFechaFinMant.TabIndex = 20
+        Me.dtpModifFechaFinMant.TabIndex = 3
         '
         'txtModifMatriculaMant
         '
         Me.txtModifMatriculaMant.Location = New System.Drawing.Point(13, 94)
         Me.txtModifMatriculaMant.Name = "txtModifMatriculaMant"
         Me.txtModifMatriculaMant.Size = New System.Drawing.Size(100, 20)
-        Me.txtModifMatriculaMant.TabIndex = 22
+        Me.txtModifMatriculaMant.TabIndex = 0
         '
         'pnlFmant
         '
@@ -4553,7 +4374,7 @@ Partial Class frmMainMenu
         Me.chbxFiltrarEstadoMant.Location = New System.Drawing.Point(13, 173)
         Me.chbxFiltrarEstadoMant.Name = "chbxFiltrarEstadoMant"
         Me.chbxFiltrarEstadoMant.Size = New System.Drawing.Size(154, 20)
-        Me.chbxFiltrarEstadoMant.TabIndex = 37
+        Me.chbxFiltrarEstadoMant.TabIndex = 5
         Me.chbxFiltrarEstadoMant.Text = "Mostrar solo pendientes"
         Me.chbxFiltrarEstadoMant.UseVisualStyleBackColor = True
         '
@@ -4565,7 +4386,7 @@ Partial Class frmMainMenu
         Me.cbxFiltrarTipoMant.Location = New System.Drawing.Point(131, 132)
         Me.cbxFiltrarTipoMant.Name = "cbxFiltrarTipoMant"
         Me.cbxFiltrarTipoMant.Size = New System.Drawing.Size(121, 21)
-        Me.cbxFiltrarTipoMant.TabIndex = 36
+        Me.cbxFiltrarTipoMant.TabIndex = 4
         '
         'Label118
         '
@@ -4575,7 +4396,7 @@ Partial Class frmMainMenu
         Me.Label118.Location = New System.Drawing.Point(10, 64)
         Me.Label118.Name = "Label118"
         Me.Label118.Size = New System.Drawing.Size(0, 17)
-        Me.Label118.TabIndex = 35
+        Me.Label118.TabIndex = 0
         '
         'chbxFiltrarFechaMant
         '
@@ -4585,7 +4406,7 @@ Partial Class frmMainMenu
         Me.chbxFiltrarFechaMant.Location = New System.Drawing.Point(305, 65)
         Me.chbxFiltrarFechaMant.Name = "chbxFiltrarFechaMant"
         Me.chbxFiltrarFechaMant.Size = New System.Drawing.Size(114, 20)
-        Me.chbxFiltrarFechaMant.TabIndex = 33
+        Me.chbxFiltrarFechaMant.TabIndex = 2
         Me.chbxFiltrarFechaMant.Text = "Filtrar por fechas"
         Me.chbxFiltrarFechaMant.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxFiltrarFechaMant.UseVisualStyleBackColor = True
@@ -4604,7 +4425,7 @@ Partial Class frmMainMenu
         Me.btnVaciarFiltradoMant.Location = New System.Drawing.Point(464, 162)
         Me.btnVaciarFiltradoMant.Name = "btnVaciarFiltradoMant"
         Me.btnVaciarFiltradoMant.Size = New System.Drawing.Size(99, 31)
-        Me.btnVaciarFiltradoMant.TabIndex = 32
+        Me.btnVaciarFiltradoMant.TabIndex = 6
         Me.btnVaciarFiltradoMant.Text = "Vaciar"
         Me.btnVaciarFiltradoMant.UseVisualStyleBackColor = False
         '
@@ -4670,14 +4491,14 @@ Partial Class frmMainMenu
         Me.dtpFiltrarFechaFinMant.Location = New System.Drawing.Point(157, 65)
         Me.dtpFiltrarFechaFinMant.Name = "dtpFiltrarFechaFinMant"
         Me.dtpFiltrarFechaFinMant.Size = New System.Drawing.Size(136, 20)
-        Me.dtpFiltrarFechaFinMant.TabIndex = 20
+        Me.dtpFiltrarFechaFinMant.TabIndex = 1
         '
         'txtFiltrarMatriculaMant
         '
         Me.txtFiltrarMatriculaMant.Location = New System.Drawing.Point(13, 133)
         Me.txtFiltrarMatriculaMant.Name = "txtFiltrarMatriculaMant"
         Me.txtFiltrarMatriculaMant.Size = New System.Drawing.Size(100, 20)
-        Me.txtFiltrarMatriculaMant.TabIndex = 22
+        Me.txtFiltrarMatriculaMant.TabIndex = 3
         '
         'dtpFiltrarFechaInicioMant
         '
@@ -4804,7 +4625,7 @@ Partial Class frmMainMenu
         Me.btnVaciarIngresoMant.Location = New System.Drawing.Point(350, 168)
         Me.btnVaciarIngresoMant.Name = "btnVaciarIngresoMant"
         Me.btnVaciarIngresoMant.Size = New System.Drawing.Size(99, 31)
-        Me.btnVaciarIngresoMant.TabIndex = 43
+        Me.btnVaciarIngresoMant.TabIndex = 4
         Me.btnVaciarIngresoMant.Text = "Vaciar"
         Me.btnVaciarIngresoMant.UseVisualStyleBackColor = False
         '
@@ -4827,7 +4648,7 @@ Partial Class frmMainMenu
         Me.cbxTipoMant.Location = New System.Drawing.Point(157, 85)
         Me.cbxTipoMant.Name = "cbxTipoMant"
         Me.cbxTipoMant.Size = New System.Drawing.Size(121, 21)
-        Me.cbxTipoMant.TabIndex = 37
+        Me.cbxTipoMant.TabIndex = 1
         '
         'Label119
         '
@@ -4854,7 +4675,7 @@ Partial Class frmMainMenu
         Me.btnIngresarMant.Location = New System.Drawing.Point(464, 168)
         Me.btnIngresarMant.Name = "btnIngresarMant"
         Me.btnIngresarMant.Size = New System.Drawing.Size(99, 31)
-        Me.btnIngresarMant.TabIndex = 18
+        Me.btnIngresarMant.TabIndex = 5
         Me.btnIngresarMant.Text = "Ingresar"
         Me.btnIngresarMant.UseVisualStyleBackColor = False
         '
@@ -4876,7 +4697,7 @@ Partial Class frmMainMenu
         Me.dtpFechaFinMant.Location = New System.Drawing.Point(160, 155)
         Me.dtpFechaFinMant.Name = "dtpFechaFinMant"
         Me.dtpFechaFinMant.Size = New System.Drawing.Size(141, 20)
-        Me.dtpFechaFinMant.TabIndex = 36
+        Me.dtpFechaFinMant.TabIndex = 3
         '
         'dtpFechaInicioMant
         '
@@ -4886,7 +4707,7 @@ Partial Class frmMainMenu
         Me.dtpFechaInicioMant.MinDate = New Date(1900, 12, 31, 0, 0, 0, 0)
         Me.dtpFechaInicioMant.Name = "dtpFechaInicioMant"
         Me.dtpFechaInicioMant.Size = New System.Drawing.Size(141, 20)
-        Me.dtpFechaInicioMant.TabIndex = 37
+        Me.dtpFechaInicioMant.TabIndex = 2
         Me.dtpFechaInicioMant.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'Label134
@@ -4916,7 +4737,7 @@ Partial Class frmMainMenu
         Me.txtMatriculaMant.Location = New System.Drawing.Point(8, 85)
         Me.txtMatriculaMant.Name = "txtMatriculaMant"
         Me.txtMatriculaMant.Size = New System.Drawing.Size(100, 20)
-        Me.txtMatriculaMant.TabIndex = 22
+        Me.txtMatriculaMant.TabIndex = 0
         '
         'tbpReservas
         '
@@ -5199,7 +5020,7 @@ Partial Class frmMainMenu
         Me.btnModificarReserva.Location = New System.Drawing.Point(543, 174)
         Me.btnModificarReserva.Name = "btnModificarReserva"
         Me.btnModificarReserva.Size = New System.Drawing.Size(99, 31)
-        Me.btnModificarReserva.TabIndex = 18
+        Me.btnModificarReserva.TabIndex = 9
         Me.btnModificarReserva.Text = "Modificar"
         Me.btnModificarReserva.UseVisualStyleBackColor = False
         '
@@ -5287,7 +5108,7 @@ Partial Class frmMainMenu
         Me.dtpFechaFinMReserva.Location = New System.Drawing.Point(402, 124)
         Me.dtpFechaFinMReserva.Name = "dtpFechaFinMReserva"
         Me.dtpFechaFinMReserva.Size = New System.Drawing.Size(129, 20)
-        Me.dtpFechaFinMReserva.TabIndex = 20
+        Me.dtpFechaFinMReserva.TabIndex = 8
         '
         'cbxCategoriaMReserva
         '
@@ -5295,14 +5116,14 @@ Partial Class frmMainMenu
         Me.cbxCategoriaMReserva.Location = New System.Drawing.Point(139, 71)
         Me.cbxCategoriaMReserva.Name = "cbxCategoriaMReserva"
         Me.cbxCategoriaMReserva.Size = New System.Drawing.Size(121, 21)
-        Me.cbxCategoriaMReserva.TabIndex = 23
+        Me.cbxCategoriaMReserva.TabIndex = 1
         '
         'txtDocumMReserva
         '
         Me.txtDocumMReserva.Location = New System.Drawing.Point(12, 70)
         Me.txtDocumMReserva.Name = "txtDocumMReserva"
         Me.txtDocumMReserva.Size = New System.Drawing.Size(121, 20)
-        Me.txtDocumMReserva.TabIndex = 22
+        Me.txtDocumMReserva.TabIndex = 0
         '
         'cbxTipoMReserva
         '
@@ -5311,7 +5132,7 @@ Partial Class frmMainMenu
         Me.cbxTipoMReserva.Location = New System.Drawing.Point(266, 71)
         Me.cbxTipoMReserva.Name = "cbxTipoMReserva"
         Me.cbxTipoMReserva.Size = New System.Drawing.Size(121, 21)
-        Me.cbxTipoMReserva.TabIndex = 16
+        Me.cbxTipoMReserva.TabIndex = 2
         '
         'cbxKilomMReserva
         '
@@ -5320,7 +5141,7 @@ Partial Class frmMainMenu
         Me.cbxKilomMReserva.Location = New System.Drawing.Point(393, 70)
         Me.cbxKilomMReserva.Name = "cbxKilomMReserva"
         Me.cbxKilomMReserva.Size = New System.Drawing.Size(121, 21)
-        Me.cbxKilomMReserva.TabIndex = 16
+        Me.cbxKilomMReserva.TabIndex = 3
         '
         'Label33
         '
@@ -5340,7 +5161,7 @@ Partial Class frmMainMenu
         Me.dtpFechaInicioMReserva.Location = New System.Drawing.Point(267, 123)
         Me.dtpFechaInicioMReserva.Name = "dtpFechaInicioMReserva"
         Me.dtpFechaInicioMReserva.Size = New System.Drawing.Size(129, 20)
-        Me.dtpFechaInicioMReserva.TabIndex = 21
+        Me.dtpFechaInicioMReserva.TabIndex = 7
         '
         'Label128
         '
@@ -5371,7 +5192,7 @@ Partial Class frmMainMenu
         Me.cbxSucursalSalidaMReserva.Location = New System.Drawing.Point(12, 123)
         Me.cbxSucursalSalidaMReserva.Name = "cbxSucursalSalidaMReserva"
         Me.cbxSucursalSalidaMReserva.Size = New System.Drawing.Size(121, 21)
-        Me.cbxSucursalSalidaMReserva.TabIndex = 17
+        Me.cbxSucursalSalidaMReserva.TabIndex = 5
         '
         'cbxSucursalLlegadaMReserva
         '
@@ -5380,7 +5201,7 @@ Partial Class frmMainMenu
         Me.cbxSucursalLlegadaMReserva.Location = New System.Drawing.Point(140, 123)
         Me.cbxSucursalLlegadaMReserva.Name = "cbxSucursalLlegadaMReserva"
         Me.cbxSucursalLlegadaMReserva.Size = New System.Drawing.Size(121, 21)
-        Me.cbxSucursalLlegadaMReserva.TabIndex = 19
+        Me.cbxSucursalLlegadaMReserva.TabIndex = 6
         '
         'txtCostoMReserva
         '
@@ -5388,7 +5209,7 @@ Partial Class frmMainMenu
         Me.txtCostoMReserva.Location = New System.Drawing.Point(519, 70)
         Me.txtCostoMReserva.Name = "txtCostoMReserva"
         Me.txtCostoMReserva.Size = New System.Drawing.Size(121, 20)
-        Me.txtCostoMReserva.TabIndex = 22
+        Me.txtCostoMReserva.TabIndex = 4
         Me.txtCostoMReserva.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'pnlNuevaReserva
@@ -5434,7 +5255,7 @@ Partial Class frmMainMenu
         Me.btnReservarARes.Location = New System.Drawing.Point(543, 174)
         Me.btnReservarARes.Name = "btnReservarARes"
         Me.btnReservarARes.Size = New System.Drawing.Size(99, 31)
-        Me.btnReservarARes.TabIndex = 18
+        Me.btnReservarARes.TabIndex = 8
         Me.btnReservarARes.Text = "Reservar"
         Me.btnReservarARes.UseVisualStyleBackColor = False
         '
@@ -5534,7 +5355,7 @@ Partial Class frmMainMenu
         Me.dtpFinARes.MinDate = New Date(2017, 10, 20, 0, 0, 0, 0)
         Me.dtpFinARes.Name = "dtpFinARes"
         Me.dtpFinARes.Size = New System.Drawing.Size(130, 20)
-        Me.dtpFinARes.TabIndex = 32
+        Me.dtpFinARes.TabIndex = 7
         '
         'cbxCategoriaARes
         '
@@ -5542,14 +5363,14 @@ Partial Class frmMainMenu
         Me.cbxCategoriaARes.Location = New System.Drawing.Point(148, 70)
         Me.cbxCategoriaARes.Name = "cbxCategoriaARes"
         Me.cbxCategoriaARes.Size = New System.Drawing.Size(130, 21)
-        Me.cbxCategoriaARes.TabIndex = 23
+        Me.cbxCategoriaARes.TabIndex = 1
         '
         'txtDocumARes
         '
         Me.txtDocumARes.Location = New System.Drawing.Point(12, 71)
         Me.txtDocumARes.Name = "txtDocumARes"
         Me.txtDocumARes.Size = New System.Drawing.Size(130, 20)
-        Me.txtDocumARes.TabIndex = 22
+        Me.txtDocumARes.TabIndex = 0
         '
         'cbxTipoAReserva
         '
@@ -5558,7 +5379,7 @@ Partial Class frmMainMenu
         Me.cbxTipoAReserva.Location = New System.Drawing.Point(284, 70)
         Me.cbxTipoAReserva.Name = "cbxTipoAReserva"
         Me.cbxTipoAReserva.Size = New System.Drawing.Size(130, 21)
-        Me.cbxTipoAReserva.TabIndex = 16
+        Me.cbxTipoAReserva.TabIndex = 2
         '
         'cbxKmARes
         '
@@ -5567,7 +5388,7 @@ Partial Class frmMainMenu
         Me.cbxKmARes.Location = New System.Drawing.Point(420, 70)
         Me.cbxKmARes.Name = "cbxKmARes"
         Me.cbxKmARes.Size = New System.Drawing.Size(130, 21)
-        Me.cbxKmARes.TabIndex = 16
+        Me.cbxKmARes.TabIndex = 3
         '
         'dtpInicioARes
         '
@@ -5577,7 +5398,7 @@ Partial Class frmMainMenu
         Me.dtpInicioARes.MinDate = New Date(2017, 10, 20, 0, 0, 0, 0)
         Me.dtpInicioARes.Name = "dtpInicioARes"
         Me.dtpInicioARes.Size = New System.Drawing.Size(130, 20)
-        Me.dtpInicioARes.TabIndex = 21
+        Me.dtpInicioARes.TabIndex = 6
         '
         'Label5
         '
@@ -5608,7 +5429,7 @@ Partial Class frmMainMenu
         Me.cbxSucSalidaARes.Location = New System.Drawing.Point(12, 123)
         Me.cbxSucSalidaARes.Name = "cbxSucSalidaARes"
         Me.cbxSucSalidaARes.Size = New System.Drawing.Size(130, 21)
-        Me.cbxSucSalidaARes.TabIndex = 17
+        Me.cbxSucSalidaARes.TabIndex = 4
         '
         'cbxSucLlegadaARes
         '
@@ -5617,7 +5438,7 @@ Partial Class frmMainMenu
         Me.cbxSucLlegadaARes.Location = New System.Drawing.Point(148, 123)
         Me.cbxSucLlegadaARes.Name = "cbxSucLlegadaARes"
         Me.cbxSucLlegadaARes.Size = New System.Drawing.Size(130, 21)
-        Me.cbxSucLlegadaARes.TabIndex = 19
+        Me.cbxSucLlegadaARes.TabIndex = 5
         '
         'pnlBRes
         '
@@ -5657,7 +5478,7 @@ Partial Class frmMainMenu
         Me.btnBajaBRes.Location = New System.Drawing.Point(540, 171)
         Me.btnBajaBRes.Name = "btnBajaBRes"
         Me.btnBajaBRes.Size = New System.Drawing.Size(99, 31)
-        Me.btnBajaBRes.TabIndex = 18
+        Me.btnBajaBRes.TabIndex = 0
         Me.btnBajaBRes.Text = "Anular"
         Me.btnBajaBRes.UseVisualStyleBackColor = False
         '
@@ -5791,7 +5612,7 @@ Partial Class frmMainMenu
         Me.chboxInactivasFReserva.Location = New System.Drawing.Point(469, 18)
         Me.chboxInactivasFReserva.Name = "chboxInactivasFReserva"
         Me.chboxInactivasFReserva.Size = New System.Drawing.Size(173, 20)
-        Me.chboxInactivasFReserva.TabIndex = 33
+        Me.chboxInactivasFReserva.TabIndex = 1
         Me.chboxInactivasFReserva.Text = "Ver inactivas y/o anuladas"
         Me.chboxInactivasFReserva.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chboxInactivasFReserva.UseVisualStyleBackColor = True
@@ -5804,7 +5625,7 @@ Partial Class frmMainMenu
         Me.chboxVerHoyFReserva.Location = New System.Drawing.Point(279, 19)
         Me.chboxVerHoyFReserva.Name = "chboxVerHoyFReserva"
         Me.chboxVerHoyFReserva.Size = New System.Drawing.Size(184, 20)
-        Me.chboxVerHoyFReserva.TabIndex = 33
+        Me.chboxVerHoyFReserva.TabIndex = 0
         Me.chboxVerHoyFReserva.Text = "Ver solo las reservas para hoy"
         Me.chboxVerHoyFReserva.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chboxVerHoyFReserva.UseVisualStyleBackColor = True
@@ -5836,7 +5657,7 @@ Partial Class frmMainMenu
         Me.btnVaciarFRes.Location = New System.Drawing.Point(541, 175)
         Me.btnVaciarFRes.Name = "btnVaciarFRes"
         Me.btnVaciarFRes.Size = New System.Drawing.Size(99, 31)
-        Me.btnVaciarFRes.TabIndex = 32
+        Me.btnVaciarFRes.TabIndex = 13
         Me.btnVaciarFRes.Text = "Vaciar"
         Me.btnVaciarFRes.UseVisualStyleBackColor = False
         '
@@ -5971,7 +5792,7 @@ Partial Class frmMainMenu
         Me.cbxTipoFRes.Location = New System.Drawing.Point(267, 70)
         Me.cbxTipoFRes.Name = "cbxTipoFRes"
         Me.cbxTipoFRes.Size = New System.Drawing.Size(121, 21)
-        Me.cbxTipoFRes.TabIndex = 16
+        Me.cbxTipoFRes.TabIndex = 4
         '
         'Label16
         '
@@ -5992,7 +5813,7 @@ Partial Class frmMainMenu
         Me.dtpHastaFReserva.Location = New System.Drawing.Point(394, 124)
         Me.dtpHastaFReserva.Name = "dtpHastaFReserva"
         Me.dtpHastaFReserva.Size = New System.Drawing.Size(121, 20)
-        Me.dtpHastaFReserva.TabIndex = 20
+        Me.dtpHastaFReserva.TabIndex = 10
         '
         'cbxCategoriaFRes
         '
@@ -6001,28 +5822,28 @@ Partial Class frmMainMenu
         Me.cbxCategoriaFRes.Location = New System.Drawing.Point(140, 70)
         Me.cbxCategoriaFRes.Name = "cbxCategoriaFRes"
         Me.cbxCategoriaFRes.Size = New System.Drawing.Size(121, 21)
-        Me.cbxCategoriaFRes.TabIndex = 23
+        Me.cbxCategoriaFRes.TabIndex = 3
         '
         'txtUsuarioFReserva
         '
         Me.txtUsuarioFReserva.Location = New System.Drawing.Point(521, 124)
         Me.txtUsuarioFReserva.Name = "txtUsuarioFReserva"
         Me.txtUsuarioFReserva.Size = New System.Drawing.Size(121, 20)
-        Me.txtUsuarioFReserva.TabIndex = 22
+        Me.txtUsuarioFReserva.TabIndex = 11
         '
         'txtCostoTotalFReserva
         '
         Me.txtCostoTotalFReserva.Location = New System.Drawing.Point(521, 71)
         Me.txtCostoTotalFReserva.Name = "txtCostoTotalFReserva"
         Me.txtCostoTotalFReserva.Size = New System.Drawing.Size(121, 20)
-        Me.txtCostoTotalFReserva.TabIndex = 22
+        Me.txtCostoTotalFReserva.TabIndex = 6
         '
         'txtDocumFRes
         '
         Me.txtDocumFRes.Location = New System.Drawing.Point(13, 71)
         Me.txtDocumFRes.Name = "txtDocumFRes"
         Me.txtDocumFRes.Size = New System.Drawing.Size(121, 20)
-        Me.txtDocumFRes.TabIndex = 22
+        Me.txtDocumFRes.TabIndex = 2
         '
         'cbxKilomFRes
         '
@@ -6031,7 +5852,7 @@ Partial Class frmMainMenu
         Me.cbxKilomFRes.Location = New System.Drawing.Point(394, 70)
         Me.cbxKilomFRes.Name = "cbxKilomFRes"
         Me.cbxKilomFRes.Size = New System.Drawing.Size(121, 21)
-        Me.cbxKilomFRes.TabIndex = 16
+        Me.cbxKilomFRes.TabIndex = 5
         '
         'dtpFechaTramiteFReserva
         '
@@ -6040,7 +5861,7 @@ Partial Class frmMainMenu
         Me.dtpFechaTramiteFReserva.Location = New System.Drawing.Point(13, 169)
         Me.dtpFechaTramiteFReserva.Name = "dtpFechaTramiteFReserva"
         Me.dtpFechaTramiteFReserva.Size = New System.Drawing.Size(121, 20)
-        Me.dtpFechaTramiteFReserva.TabIndex = 21
+        Me.dtpFechaTramiteFReserva.TabIndex = 12
         '
         'dtpDesdeFReserva
         '
@@ -6050,7 +5871,7 @@ Partial Class frmMainMenu
         Me.dtpDesdeFReserva.Location = New System.Drawing.Point(267, 124)
         Me.dtpDesdeFReserva.Name = "dtpDesdeFReserva"
         Me.dtpDesdeFReserva.Size = New System.Drawing.Size(121, 20)
-        Me.dtpDesdeFReserva.TabIndex = 21
+        Me.dtpDesdeFReserva.TabIndex = 9
         '
         'cbxSucSalFres
         '
@@ -6059,7 +5880,7 @@ Partial Class frmMainMenu
         Me.cbxSucSalFres.Location = New System.Drawing.Point(13, 123)
         Me.cbxSucSalFres.Name = "cbxSucSalFres"
         Me.cbxSucSalFres.Size = New System.Drawing.Size(121, 21)
-        Me.cbxSucSalFres.TabIndex = 17
+        Me.cbxSucSalFres.TabIndex = 7
         '
         'cbxSucLlegFRes
         '
@@ -6068,7 +5889,7 @@ Partial Class frmMainMenu
         Me.cbxSucLlegFRes.Location = New System.Drawing.Point(140, 123)
         Me.cbxSucLlegFRes.Name = "cbxSucLlegFRes"
         Me.cbxSucLlegFRes.Size = New System.Drawing.Size(121, 21)
-        Me.cbxSucLlegFRes.TabIndex = 19
+        Me.cbxSucLlegFRes.TabIndex = 8
         '
         'Alquileres
         '
@@ -7172,6 +6993,239 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
+        'txtColorMVeh
+        '
+        Me.txtColorMVeh.Location = New System.Drawing.Point(472, 74)
+        Me.txtColorMVeh.Name = "txtColorMVeh"
+        Me.txtColorMVeh.Size = New System.Drawing.Size(104, 20)
+        Me.txtColorMVeh.TabIndex = 6
+        '
+        'lblColorMveh
+        '
+        Me.lblColorMveh.AutoSize = True
+        Me.lblColorMveh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblColorMveh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblColorMveh.Location = New System.Drawing.Point(469, 54)
+        Me.lblColorMveh.Name = "lblColorMveh"
+        Me.lblColorMveh.Size = New System.Drawing.Size(40, 17)
+        Me.lblColorMveh.TabIndex = 66
+        Me.lblColorMveh.Text = "Color"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(474, 73)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(104, 20)
+        Me.TextBox1.TabIndex = 6
+        '
+        'Label133
+        '
+        Me.Label133.AutoSize = True
+        Me.Label133.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label133.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label133.Location = New System.Drawing.Point(471, 55)
+        Me.Label133.Name = "Label133"
+        Me.Label133.Size = New System.Drawing.Size(40, 17)
+        Me.Label133.TabIndex = 66
+        Me.Label133.Text = "Color"
+        '
+        'nrochasis
+        '
+        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.nrochasis.DataPropertyName = "nrochasis"
+        Me.nrochasis.HeaderText = "Nro Chasis"
+        Me.nrochasis.Name = "nrochasis"
+        Me.nrochasis.ReadOnly = True
+        Me.nrochasis.Width = 83
+        '
+        'matricula
+        '
+        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.matricula.DataPropertyName = "matricula"
+        Me.matricula.HeaderText = "Matrícula"
+        Me.matricula.Name = "matricula"
+        Me.matricula.ReadOnly = True
+        Me.matricula.Width = 77
+        '
+        'marca
+        '
+        Me.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.marca.DataPropertyName = "marca"
+        Me.marca.HeaderText = "Marca"
+        Me.marca.Name = "marca"
+        Me.marca.ReadOnly = True
+        Me.marca.Width = 62
+        '
+        'Modelo
+        '
+        Me.Modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Modelo.DataPropertyName = "modelo"
+        Me.Modelo.HeaderText = "Modelo"
+        Me.Modelo.Name = "Modelo"
+        Me.Modelo.ReadOnly = True
+        Me.Modelo.Width = 67
+        '
+        'tipo
+        '
+        Me.tipo.DataPropertyName = "tipo"
+        Me.tipo.HeaderText = "Tipo"
+        Me.tipo.Name = "tipo"
+        Me.tipo.ReadOnly = True
+        '
+        'categoria
+        '
+        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.categoria.DataPropertyName = "categoria"
+        Me.categoria.HeaderText = "Categoria"
+        Me.categoria.Name = "categoria"
+        Me.categoria.ReadOnly = True
+        Me.categoria.Width = 77
+        '
+        'aniov
+        '
+        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.aniov.DataPropertyName = "anio"
+        Me.aniov.HeaderText = "Año"
+        Me.aniov.Name = "aniov"
+        Me.aniov.ReadOnly = True
+        Me.aniov.Width = 51
+        '
+        'kilometraje
+        '
+        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.kilometraje.DataPropertyName = "kilometraje"
+        Me.kilometraje.HeaderText = "KM"
+        Me.kilometraje.Name = "kilometraje"
+        Me.kilometraje.ReadOnly = True
+        Me.kilometraje.Width = 48
+        '
+        'cantidaddepuertas
+        '
+        Me.cantidaddepuertas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
+        Me.cantidaddepuertas.HeaderText = "Puertas"
+        Me.cantidaddepuertas.Name = "cantidaddepuertas"
+        Me.cantidaddepuertas.ReadOnly = True
+        Me.cantidaddepuertas.Width = 68
+        '
+        'cantidaddepasajeros
+        '
+        Me.cantidaddepasajeros.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.HeaderText = "Pasajeros"
+        Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
+        Me.cantidaddepasajeros.ReadOnly = True
+        Me.cantidaddepasajeros.Width = 78
+        '
+        'cantidaddemaletas
+        '
+        Me.cantidaddemaletas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
+        Me.cantidaddemaletas.HeaderText = "Maletas"
+        Me.cantidaddemaletas.Name = "cantidaddemaletas"
+        Me.cantidaddemaletas.ReadOnly = True
+        Me.cantidaddemaletas.Width = 69
+        '
+        'deducible
+        '
+        Me.deducible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.deducible.DataPropertyName = "deducible"
+        Me.deducible.HeaderText = "Deducible"
+        Me.deducible.Name = "deducible"
+        Me.deducible.ReadOnly = True
+        Me.deducible.Width = 80
+        '
+        'aireacondicionado
+        '
+        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.aireacondicionado.DataPropertyName = "aireacondicionado"
+        Me.aireacondicionado.HeaderText = "Aire"
+        Me.aireacondicionado.Name = "aireacondicionado"
+        Me.aireacondicionado.ReadOnly = True
+        Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.aireacondicionado.Width = 50
+        '
+        'esmanual
+        '
+        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.esmanual.DataPropertyName = "esmanual"
+        Me.esmanual.HeaderText = "Manual"
+        Me.esmanual.Name = "esmanual"
+        Me.esmanual.ReadOnly = True
+        Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.esmanual.Width = 67
+        '
+        'sucursal
+        '
+        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.sucursal.DataPropertyName = "sucursal"
+        Me.sucursal.HeaderText = "Sucursal"
+        Me.sucursal.Name = "sucursal"
+        Me.sucursal.ReadOnly = True
+        Me.sucursal.Width = 73
+        '
+        'idcategoriaveh
+        '
+        Me.idcategoriaveh.DataPropertyName = "idcategoria"
+        Me.idcategoriaveh.HeaderText = "idcategoria"
+        Me.idcategoriaveh.Name = "idcategoriaveh"
+        Me.idcategoriaveh.ReadOnly = True
+        Me.idcategoriaveh.Visible = False
+        '
+        'idmodeloveh
+        '
+        Me.idmodeloveh.DataPropertyName = "idmodelo"
+        Me.idmodeloveh.HeaderText = "idmodelo"
+        Me.idmodeloveh.Name = "idmodeloveh"
+        Me.idmodeloveh.ReadOnly = True
+        Me.idmodeloveh.Visible = False
+        '
+        'idtipoveh
+        '
+        Me.idtipoveh.DataPropertyName = "idtipo"
+        Me.idtipoveh.HeaderText = "idtipo"
+        Me.idtipoveh.Name = "idtipoveh"
+        Me.idtipoveh.ReadOnly = True
+        Me.idtipoveh.Visible = False
+        '
+        'idsucursalveh
+        '
+        Me.idsucursalveh.DataPropertyName = "idsucursal"
+        Me.idsucursalveh.HeaderText = "idsucursal"
+        Me.idsucursalveh.Name = "idsucursalveh"
+        Me.idsucursalveh.ReadOnly = True
+        Me.idsucursalveh.Visible = False
+        '
+        'idmarcaveh
+        '
+        Me.idmarcaveh.DataPropertyName = "idmarca"
+        Me.idmarcaveh.HeaderText = "idmarca"
+        Me.idmarcaveh.Name = "idmarcaveh"
+        Me.idmarcaveh.ReadOnly = True
+        Me.idmarcaveh.Visible = False
+        '
+        'estadov
+        '
+        Me.estadov.DataPropertyName = "estado"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.NullValue = False
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.estadov.DefaultCellStyle = DataGridViewCellStyle2
+        Me.estadov.HeaderText = "Estado"
+        Me.estadov.Name = "estadov"
+        Me.estadov.ReadOnly = True
+        Me.estadov.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.estadov.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'colorvehdgv
+        '
+        Me.colorvehdgv.DataPropertyName = "color"
+        Me.colorvehdgv.HeaderText = "Color"
+        Me.colorvehdgv.Name = "colorvehdgv"
+        Me.colorvehdgv.ReadOnly = True
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -7700,27 +7754,6 @@ Partial Class frmMainMenu
     Friend WithEvents fechainicio As DataGridViewTextBoxColumn
     Friend WithEvents fechafin As DataGridViewTextBoxColumn
     Friend WithEvents btnVaciarIngresoMant As Button
-    Friend WithEvents nrochasis As DataGridViewTextBoxColumn
-    Friend WithEvents matricula As DataGridViewTextBoxColumn
-    Friend WithEvents marca As DataGridViewTextBoxColumn
-    Friend WithEvents Modelo As DataGridViewTextBoxColumn
-    Friend WithEvents tipo As DataGridViewTextBoxColumn
-    Friend WithEvents categoria As DataGridViewTextBoxColumn
-    Friend WithEvents aniov As DataGridViewTextBoxColumn
-    Friend WithEvents kilometraje As DataGridViewTextBoxColumn
-    Friend WithEvents cantidaddepuertas As DataGridViewTextBoxColumn
-    Friend WithEvents cantidaddepasajeros As DataGridViewTextBoxColumn
-    Friend WithEvents cantidaddemaletas As DataGridViewTextBoxColumn
-    Friend WithEvents deducible As DataGridViewTextBoxColumn
-    Friend WithEvents aireacondicionado As DataGridViewCheckBoxColumn
-    Friend WithEvents esmanual As DataGridViewCheckBoxColumn
-    Friend WithEvents sucursal As DataGridViewTextBoxColumn
-    Friend WithEvents idcategoriaveh As DataGridViewTextBoxColumn
-    Friend WithEvents idmodeloveh As DataGridViewTextBoxColumn
-    Friend WithEvents idtipoveh As DataGridViewTextBoxColumn
-    Friend WithEvents idsucursalveh As DataGridViewTextBoxColumn
-    Friend WithEvents idmarcaveh As DataGridViewTextBoxColumn
-    Friend WithEvents estadov As DataGridViewCheckBoxColumn
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents Panel4 As Panel
     Friend WithEvents btnModificarAlquiler As Button
@@ -7876,4 +7909,30 @@ Partial Class frmMainMenu
     Friend WithEvents mes As DataGridViewTextBoxColumn
     Friend WithEvents anio As DataGridViewTextBoxColumn
     Friend WithEvents telefonos As DataGridViewButtonColumn
+    Friend WithEvents Label133 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents lblColorMveh As Label
+    Friend WithEvents txtColorMVeh As TextBox
+    Friend WithEvents nrochasis As DataGridViewTextBoxColumn
+    Friend WithEvents matricula As DataGridViewTextBoxColumn
+    Friend WithEvents marca As DataGridViewTextBoxColumn
+    Friend WithEvents Modelo As DataGridViewTextBoxColumn
+    Friend WithEvents tipo As DataGridViewTextBoxColumn
+    Friend WithEvents categoria As DataGridViewTextBoxColumn
+    Friend WithEvents aniov As DataGridViewTextBoxColumn
+    Friend WithEvents kilometraje As DataGridViewTextBoxColumn
+    Friend WithEvents cantidaddepuertas As DataGridViewTextBoxColumn
+    Friend WithEvents cantidaddepasajeros As DataGridViewTextBoxColumn
+    Friend WithEvents cantidaddemaletas As DataGridViewTextBoxColumn
+    Friend WithEvents deducible As DataGridViewTextBoxColumn
+    Friend WithEvents aireacondicionado As DataGridViewCheckBoxColumn
+    Friend WithEvents esmanual As DataGridViewCheckBoxColumn
+    Friend WithEvents sucursal As DataGridViewTextBoxColumn
+    Friend WithEvents idcategoriaveh As DataGridViewTextBoxColumn
+    Friend WithEvents idmodeloveh As DataGridViewTextBoxColumn
+    Friend WithEvents idtipoveh As DataGridViewTextBoxColumn
+    Friend WithEvents idsucursalveh As DataGridViewTextBoxColumn
+    Friend WithEvents idmarcaveh As DataGridViewTextBoxColumn
+    Friend WithEvents estadov As DataGridViewCheckBoxColumn
+    Friend WithEvents colorvehdgv As DataGridViewTextBoxColumn
 End Class

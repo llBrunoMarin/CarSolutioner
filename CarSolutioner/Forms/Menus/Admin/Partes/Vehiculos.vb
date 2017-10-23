@@ -218,14 +218,17 @@ Partial Public Class frmMainMenu
             If dgvVehiculos.CurrentRow.Cells("idsucursalveh").Value.ToString = "" Then
                 cbxSucursalMVeh.Enabled = False
                 cbxSucursalMVeh.SelectedItem = Nothing
+                pnlMVehi.Enabled = False
             Else
                 cbxSucursalMVeh.SelectedValue = dgvVehiculos.CurrentRow.Cells("idsucursalveh").Value.ToString()
                 cbxSucursalMVeh.Enabled = True
+                pnlMVehi.Enabled = True
             End If
             cbxMaletasMVeh.SelectedItem = dgvVehiculos.CurrentRow.Cells("cantidaddemaletas").Value.ToString()
             numPasajerosMVehiculo.Value = dgvVehiculos.CurrentRow.Cells("cantidaddepasajeros").Value.ToString()
             txtAnioMVeh.Text = dgvVehiculos.CurrentRow.Cells("aniov").Value.ToString()
             cbxPuertasMVeh.SelectedItem = dgvVehiculos.CurrentRow.Cells("cantidaddepuertas").Value.ToString()
+            txtColorMVeh.Text = dgvVehiculos.CurrentRow.Cells("colorvehdgv").Value.ToString()
             Dim chbxaireMvehI As Boolean = dgvVehiculos.CurrentRow.Cells("aireacondicionado").Value
             Dim chbxautomaticoMvehI As Boolean = dgvVehiculos.CurrentRow.Cells("esmanual").Value
             chbxAireMVeh.Checked = chbxaireMvehI
@@ -325,7 +328,7 @@ Partial Public Class frmMainMenu
                 End If
             Else
                 If TypeOf (ctrl) Is ComboBox Then
-                    If DirectCast(ctrl, ComboBox).SelectedValue Is Nothing Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Or DirectCast(ctrl, ComboBox).SelectedValue Is Nothing Then
                         FaltaDato = True
                     End If
                 End If
@@ -359,58 +362,58 @@ Partial Public Class frmMainMenu
 
         Try
 
-            If Not (FaltaDato) Then
-                If Not (txtNroChasisMVeh.Text = "" Or txtDeducibleMVeh.Text = "" Or txtKMMVeh.Text = "" Or txtMatriculaMVeh.Text = "" Or txtAnioMVeh.Text = "") Then
-                    'Me quedo con solo el 1er digito para hacer el insert despues
-                    automaticoMVeh = cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1)
-                    aireMVeh = chbxAireMVeh.Checked.ToString.Substring(0, 1)
-                    cantpasajeros = numPasajerosMVehiculo.Value.ToString
-                    añoInsertar = txtAnioMVeh.Text
+            'If (FaltaDato) Then
+            'If Not (txtNroChasisMVeh.Text = "" Or txtDeducibleMVeh.Text = "" Or txtKMMVeh.Text = "" Or txtMatriculaMVeh.Text = "" Or txtAnioMVeh.Text = "" Or
+            '    cbxCategoriaMVeh.SelectedItem Is Nothing Or cbxMarcaMVeh.SelectedItem Is Nothing Or cbxMaletasMVeh.SelectedItem Is Nothing Or
+            '    cbxModeloMVeh.SelectedItem Is Nothing Or cbxTipoMVeh.SelectedItem Is Nothing Or cbxSucursalMVeh.SelectedItem Is Nothing Or
+            '    txtAnioMVeh.Text = "" Or cbxMarcaMVeh.SelectedItem Is Nothing Or cbxPuertasMVeh.SelectedItem Is Nothing) Then
 
-                    If Not (txtMatriculaMVeh.Text = matriculaI And txtAnioMVeh.Text = anioI And txtKMMVeh.Text = kmvehI And chbxAireMVeh.Checked.ToString.Substring(0, 1) = aireMvehI And cbxPuertasMVeh.SelectedItem.ToString = puertasI And cantpasajeros = nropasajerosI And cbxMaletasMVeh.SelectedItem = maletasI And cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1) = automaticoMvehI And txtDeducibleMVeh.Text.ToString = deducibleI And cbxCategoriaMVeh.SelectedValue.ToString = categoriaI And cbxModeloMVeh.SelectedValue.ToString = modeloI And cbxSucursalMVeh.SelectedValue.ToString = sucursalI And txtNroChasisMVeh.Text.ToString = nrochasisI And cbxTipoMVeh.SelectedValue.ToString = tipoI And cbxMarcaMVeh.SelectedValue.ToString = marcaI) Then
+            'Me quedo con solo el 1er digito para hacer el insert despues
+            automaticoMVeh = cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1)
+                aireMVeh = chbxAireMVeh.Checked.ToString.Substring(0, 1)
+                cantpasajeros = numPasajerosMVehiculo.Value.ToString
+                añoInsertar = txtAnioMVeh.Text
 
-                        If Not (cantpasajeros = 0) Then
+                If Not (txtMatriculaMVeh.Text = matriculaI And txtAnioMVeh.Text = anioI And txtKMMVeh.Text = kmvehI And chbxAireMVeh.Checked.ToString.Substring(0, 1) = aireMvehI And cbxPuertasMVeh.SelectedItem.ToString = puertasI And cantpasajeros = nropasajerosI And cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1) = automaticoMvehI And txtDeducibleMVeh.Text.ToString = deducibleI And cbxCategoriaMVeh.SelectedValue.ToString = categoriaI And cbxModeloMVeh.SelectedValue.ToString = modeloI And cbxSucursalMVeh.SelectedValue.ToString = sucursalI And txtNroChasisMVeh.Text.ToString = nrochasisI And cbxTipoMVeh.SelectedValue.ToString = tipoI And cbxMarcaMVeh.SelectedValue.ToString = marcaI) Then
 
-                            If Not (añoInsertar > añoActual + 1) Then
-                                'TODO: No controla si el mantenimiento esta activo.
-                                'Dim mantenimientoActivo As New DataTable
-                                'mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisI + "'")
+                    If Not (cantpasajeros = 0) Then
 
-                                'MsgBox(mantenimientoActivo.ToString)
-                                ' Dim mantenimientoActivoS As String = mantenimientoActivo.Rows(0)("nrochasis").ToString()
-                                Dim nrochasisRepetido As New DataTable
-                                nrochasisRepetido = conexion.EjecutarSelect("SELECT nrochasis from vehiculo WHERE nrochasis= '" + txtNroChasisMVeh.Text.ToString + "'")
+                        If Not (añoInsertar > añoActual + 1) Then
 
+                            'TODO: No controla si el mantenimiento esta activo.
+                            Dim mantenimientoActivo As New DataTable
+                            mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisI + "'")
 
-                                ' If (mantenimientoActivo.Rows.Count <> 0) Then
+                            'MsgBox(mantenimientoActivo.ToString)
+                            ' Dim mantenimientoActivoS As String = mantenimientoActivo.Rows(0)("nrochasis").ToString()
 
+                            If (mantenimientoActivo.Rows.Count = 0) Then
 
                                 Dim sentencia As String
-                                sentencia = "UPDATE vehiculo SET nrochasis='" + txtNroChasisMVeh.Text.ToString + "', matricula = '" + txtMatriculaMVeh.Text + "', anio ='" + txtAnioMVeh.Text + "',  kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "',  cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "', cantidaddepasajeros='" + cantpasajeros + "',  cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "',  deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "',  idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T' WHERE nrochasis = '" + nrochasisI + "'"
+                                sentencia = "UPDATE vehiculo SET matricula = '" + txtMatriculaMVeh.Text.ToString.ToUpper + "', anio ='" + txtAnioMVeh.Text + "',  kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "',  cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "', cantidaddepasajeros='" + cantpasajeros + "',  cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "',  deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "',  idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T', color = '" + txtColorMVeh.Text.ToString + "' WHERE nrochasis = '" + nrochasisI + "'"
                                 conexion.EjecutarNonQuery(sentencia)
                                 RecargarDatos(dgvVehiculos)
                                 AmaranthMessagebox("Modificado correctamente", "Continuar")
 
-
-                                'Else
-                                'AmaranthMessagebox("Este vehiculo se encuentra en mantenimiento no puede modificarlo.", "Error")
-                                'End If
-
                             Else
-                                AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error")
+                                AmaranthMessagebox("Este vehiculo se encuentra en mantenimiento no puede modificarlo.", "Error")
                             End If
+
                         Else
-                            AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error")
+                            AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error")
                         End If
                     Else
-                        AmaranthMessagebox("Modifique algo por favor", "Advertencia")
+                        AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error")
                     End If
                 Else
-                    AmaranthMessagebox("Por favor, rellene todos los campos", "Advertencia")
+                    AmaranthMessagebox("Modifique algo por favor", "Advertencia")
                 End If
-            Else
-                    AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia")
-            End If
+            'Else
+            '    AmaranthMessagebox("Por favor, rellene todos los campos", "Advertencia")
+            'End If
+            'Else
+            '    AmaranthMessagebox("Por favor, rellene todos los campos", "Advertencia")
+            'End If
         Catch ex As Exception
             If (ex.Message.Contains("Referencia a objeto no establecida como instancia de un objeto.")) Then
                 AmaranthMessagebox("Este vehiculo se encuentra alquilado, no puede modificarlo", "Error")

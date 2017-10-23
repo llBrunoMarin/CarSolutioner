@@ -14,15 +14,25 @@ Partial Public Class frmMainMenu
         cbxSucursalFempleados.SelectedItem = Nothing
     End Sub
 
-    Private Sub FiltrosEmpleados(sender As Object, e As EventArgs) Handles txtNroDocFempleado.TextChanged, cbxSucursalFempleados.SelectionChangeCommitted, cbxTipoFempleados.SelectionChangeCommitted, txtNombreFempleado.TextChanged, txtApellidoFempleado.TextChanged, lblBorrarTipoFEmpleado.Click, lblBorrarSucursalFEmpleado.Click
+    Private Sub VaciarDatos(sender As Object, e As EventArgs) Handles btnVaciarFEmpleado.Click
+
+        For Each item In pnlFemp.Controls
+            If TypeOf item Is TextBox Then
+                item.text = ""
+            End If
+
+            If TypeOf item Is ComboBox Then
+                item.SelectedItem = Nothing
+            End If
+        Next
+
+    End Sub
+
+    Private Sub FiltrosEmpleados(sender As Object, e As EventArgs) Handles txtNroDocFempleado.TextChanged, cbxSucursalFempleados.SelectionChangeCommitted, cbxTipoFempleados.SelectionChangeCommitted, txtNombreFempleado.TextChanged, txtApellidoFempleado.TextChanged, lblBorrarTipoFEmpleado.Click, lblBorrarSucursalFEmpleado.Click, btnVaciarFEmpleado.Click
 
         Dim filtro As String
 
-        filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'",
-                                           "nrodocumento", txtNroDocFempleado.Text,
-                                           "nombre", txtNombreFempleado.Text,
-                                           "apellido", txtApellidoFempleado.Text) + TipoFiltro(cbxTipoFempleados, "idtipo") +
-                                                                                    TipoFiltro(cbxSucursalFempleados, "idsucursal")
+        filtro = String.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%'", "nrodocumento", txtNroDocFempleado.Text, "nombre", txtNombreFempleado.Text, "apellido", txtApellidoFempleado.Text) + TipoFiltro(cbxTipoFempleados, "idtipo") + TipoFiltro(cbxSucursalFempleados, "idsucursal")
 
         dgvEmpleados.DataSource.Filter = filtro
 
@@ -219,18 +229,6 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub VaciarDatos(sender As Object, e As EventArgs) Handles btnVaciarFEmpleado.Click
 
-        For Each item In pnlFemp.Controls
-            If TypeOf item Is TextBox Then
-                item.text = ""
-            End If
-
-            If TypeOf item Is ComboBox Then
-                item.SelectedItem = Nothing
-            End If
-        Next
-
-    End Sub
 
 End Class

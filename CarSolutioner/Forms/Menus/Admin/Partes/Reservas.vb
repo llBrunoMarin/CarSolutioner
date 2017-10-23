@@ -221,12 +221,12 @@ Partial Public Class frmMainMenu
                 dtpFechaInicioMReserva.Value = dgvReservas.CurrentRow.Cells("fechareservainicio").Value.ToString()
 
             End If
-            Dim hola As String = dgvReservas.CurrentRow.Cells("estadoreserva").Value.ToString()
-            Dim holaI As Integer = dgvReservas.CurrentRow.Cells("idestadoreserva").Value
-            If (hola = "Inactiva") Then
+            Dim estadoReserva As String = dgvReservas.CurrentRow.Cells("estadoreserva").Value.ToString()
+            Dim estadoReserva2 As Integer = dgvReservas.CurrentRow.Cells("idestadoreserva").Value
+            If (estadoReserva = "Inactiva") Then
                 pnlMres.Enabled = False
                 pnlBRes.Enabled = False
-            ElseIf (holaI = 3) Then
+            ElseIf (estadoReserva2 = 3) Then
                 pnlMres.Enabled = False
                 pnlBRes.Enabled = False
             Else

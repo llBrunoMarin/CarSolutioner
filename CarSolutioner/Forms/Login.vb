@@ -138,7 +138,10 @@ Public Class Login
     End Sub
 
     Private Sub lblInvitado_Click(sender As Object, e As EventArgs) Handles lblInvitado.Click
-        'MainMenuInvitado.Show()
+        conexion.Usuario = "masteras"
+        conexion.Contraseña = "Ma5t3rxd"
+        frmMainMenuInvitado.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
@@ -157,10 +160,6 @@ Public Class Login
         Else
             lblmayus.Visible = False
         End If
-
-    End Sub
-
-    Private Sub pboxLoading_Click(sender As Object, e As EventArgs) Handles pboxLoading.Click
 
     End Sub
 

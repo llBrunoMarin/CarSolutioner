@@ -30,7 +30,7 @@ Module Metodos
             Case "frmMainMenu"
                 frmMainMenu.CargarDatos()
             Case "frmMainMenuInvitado"
-
+                frmMainMenuInvitado.CargarDatos()
 
         End Select
     End Sub
@@ -41,7 +41,7 @@ Module Metodos
                 frmMainMenu.RecargarDatos(dgv)
 
             Case "frmMainMenuInvitado"
-
+                frmMainMenuInvitado.RecargarDatos(dgv)
 
         End Select
     End Sub

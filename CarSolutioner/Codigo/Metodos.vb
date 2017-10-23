@@ -167,7 +167,12 @@ Module Metodos
                     If Not (cbx.DataSource Is Nothing) Then
                         Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue.ToString + ""
                     Else
+                        'If (TypeOf (cbx.SelectedValue) Is String) Then
+
                         Return " AND " + columna + " = '" + DirectCast(ctrl, ComboBox).SelectedItem.ToString + "'"
+                        ' Else
+                        'Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedItem.ToString + ""
+                        'End If
                     End If
                 Else
                     Return ""

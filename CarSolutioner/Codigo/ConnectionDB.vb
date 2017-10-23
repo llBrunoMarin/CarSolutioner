@@ -22,6 +22,7 @@
     Dim _Documentos As DataTable
     Dim _Kilometros As New DataTable
     Dim _TipoEmpleados As New DataTable
+    Dim _MarcasConModelo As New DataTable
 
     Dim _Años As New List(Of String)
 
@@ -156,6 +157,15 @@
         End Get
         Set(value As DataTable)
             _Kilometros = value
+        End Set
+    End Property
+
+    Public Property MarcasConModelo As DataTable
+        Get
+            Return _MarcasConModelo
+        End Get
+        Set(value As DataTable)
+            _MarcasConModelo = value
         End Set
     End Property
 

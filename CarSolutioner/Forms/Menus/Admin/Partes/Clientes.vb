@@ -220,7 +220,7 @@ Partial Public Class frmMainMenu
                     Dim anioM As String = dgvClientes.CurrentRow.Cells("anio").Value.ToString()
                     Dim FechaModificar As String = diaM + "/" + mesM + "/" + anioM
 
-                    If (cbxTipoDocumMCliente.SelectedValue = idtipodocm And txtDocumMCliente.Text.ToString = nrodocM And txtNombreMCliente.Text.ToString = nombreM And txtApellidoMCliente.Text.ToString = apellidoM And txtCorreoMCliente.Text.ToString = apellidoM And txtEmpresaMCliente.Text.ToString = empresaM And numDescuentoMCliente.Value.ToString = descuentoM And FechaSeleccionada = FechaModificar And telefonoM = numeros) Then
+                    If Not (cbxTipoDocumMCliente.SelectedValue = idtipodocm And txtDocumMCliente.Text.ToString = nrodocM And txtNombreMCliente.Text.ToString = nombreM And txtApellidoMCliente.Text.ToString = apellidoM And txtCorreoMCliente.Text.ToString = emailM And txtEmpresaMCliente.Text.ToString = empresaM And numDescuentoMCliente.Value.ToString = descuentoM And FechaSeleccionada = FechaModificar And telefonoM = numeros) Then
 
                         'TODO: ver como mejorar este if, pq si borran la ci y la agregan de nuevo cambia el id. Ahora funciona bien.
                         If (cbxTipoDocumMCliente.SelectedValue = 1) Then

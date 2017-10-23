@@ -50,6 +50,9 @@ Public Class frmMainMenu
         cbxKilomFRes.SelectedItem = Nothing
         chboxVerHoyFReserva.Checked = True
 
+        cbxAireFVeh.SelectedItem = Nothing
+        cbxManualFVeh.SelectedItem = Nothing
+
         dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()
         dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
 
@@ -138,7 +141,8 @@ Public Class frmMainMenu
 
         'Cargas Tablas
         conexion.Modelos = conexion.EjecutarSelect("SELECT * from modelo")
-        conexion.Marcas = conexion.EjecutarSelect("SELECT * from marca")
+        conexion.Marcas = conexion.EjecutarSelect("SELECT * from Marca")
+        conexion.MarcasConModelo = conexion.EjecutarSelect("SELECT DISTINCT Ma.* FROM Marca Ma, Modelo Mo WHERE Mo.idmarca = Ma.idmarca")
         conexion.Categorias = conexion.EjecutarSelect("SELECT * from categoria")
         conexion.Tipos = conexion.EjecutarSelect("SELECT * from tipo")
         conexion.Sucursales = conexion.EjecutarSelect("SELECT * from sucursal")
@@ -155,9 +159,9 @@ Public Class frmMainMenu
 
         'Cargas de ComboBox
         'MARCAS
-        CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaAVeh, conexion.MarcasConModelo, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaMVeh, conexion.MarcasConModelo, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaFVeh, conexion.MarcasConModelo, "nombre", "idmarca")
 
         'TIPOS
         CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
@@ -211,6 +215,16 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxKmARes, conexion.Kilometros, "km", "id")
         CargarDatosComboBox(cbxKilomMReserva, conexion.Kilometros, "km", "id")
         Me.Opacity = 100
+
+        'Comboboxes de Si y No
+        Dim SiNo As New DataTable
+        SiNo.Columns.Add("text", GetType(String))
+        SiNo.Columns.Add("value", GetType(Boolean))
+        SiNo.Rows.Add("Si", True)
+        SiNo.Rows.Add("No", False)
+
+        CargarDatosComboBox(cbxAireFVeh, SiNo, "text", "value")
+        CargarDatosComboBox(cbxManualFVeh, SiNo, "text", "value")
 
         Login.Hide()
     End Sub

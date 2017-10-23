@@ -157,7 +157,7 @@
     <Compile Include="Forms\Menus\Admin\Partes\Mantenimiento.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Clientes.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Empleados.vb" />
-    <Compile Include="Forms\Menus\Admin\Partes\ReservaSeleccionada.vb" />
+    <Compile Include="Forms\Menus\ReservaSeleccionada.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Reservas.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Vehiculos.vb" />
     <Compile Include="Forms\Menus\Admin\Sub-Forms\CambiosGenerales.Designer.vb">

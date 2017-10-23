@@ -1,5 +1,14 @@
 ﻿Public Class frmModificarReserva
-    Dim ReservaSeleccionada As ReservaSeleccionada = frmMainMenu.ReservaSeleccionadaAlquiler
+    Dim ReservaSeleccionada As ReservaSeleccionada
+
+    Public Sub New(reserva As ReservaSeleccionada)
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Me.ReservaSeleccionada = reserva
+    End Sub
     Private Sub btnCerrarMsgbox_Click(sender As Object, e As EventArgs) Handles btnCerrarMsgbox.Click
 
         Me.DialogResult = vbNo
@@ -22,7 +31,7 @@
         If Disponibles.Rows.Count <> 0 Then
             Me.DialogResult = vbYes
             Dim AlquilarReserva As New frmAlquilar(Disponibles, frmAlquilar.VistaAlquilar.Editado, ReservaSeleccionada)
-            AlquilarReserva.ShowDialog(frmMainMenu)
+            AlquilarReserva.ShowDialog()
             Me.Dispose()
         Else
             AmaranthMessagebox("No hay vehículos disponibles con estas características. Por favor, intente nuevamente.", "Error")

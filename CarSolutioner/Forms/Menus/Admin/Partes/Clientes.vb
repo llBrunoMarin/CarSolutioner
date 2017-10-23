@@ -256,8 +256,8 @@ Partial Public Class frmMainMenu
         Dim Valores As New Dictionary(Of Boolean, String)
         Valores.Add(True, "Activo")
         Valores.Add(False, "Inactivo")
-        Dim nrochasis As String
-        Dim idreserva As String
+        Dim nrochasis As String = ""
+        Dim idreserva As String = ""
 
         Dim Persona As New DataTable
         Persona = conexion.EjecutarSelect("SELECT idpersona, estado FROM cliente where nrodocumento = '" + txtDocumentoBCliente.Text + "'")
@@ -352,9 +352,12 @@ Partial Public Class frmMainMenu
             'Obtiene el ID de la persona seleccionada.
             Dim IdPersona As String = DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("idpersona").Value.ToString
             Dim NombrePersona As String = DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("nombre").Value.ToString + " " + DirectCast(sender, DataGridView).Rows(e.RowIndex).Cells("apellido").Value.ToString
+            'Combobox que no se usa para nada pero lo requier el metodo
+            Dim combo As New ComboBox
+            combo.Visible = False
 
             'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView
-            Dim VerTelefonos As New frmTelefonosCliente("Ver", NombrePersona)
+            Dim VerTelefonos As New frmTelefonosCliente("Ver", NombrePersona, combo)
 
             Dim telefonosPersona As New DataTable
             telefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + " ")
@@ -403,7 +406,7 @@ Partial Public Class frmMainMenu
 
         End If
 
-        Dim ModificarTelefonos As New frmTelefonosCliente("Modificar", NombrePersona, ListaTelefonos)
+        Dim ModificarTelefonos As New frmTelefonosCliente("Modificar", NombrePersona, cbxTelefonosMCliente, ListaTelefonos)
 
         If lblAyudaTelefono.Visible = True Then
             lblAyudaTelefono.Visible = False
@@ -421,7 +424,7 @@ Partial Public Class frmMainMenu
             ListaTelefonos.Add(item.ToString)
         Next
 
-        Dim AgregarTelefonos As New frmTelefonosCliente("Agregar", "", ListaTelefonos)
+        Dim AgregarTelefonos As New frmTelefonosCliente("Agregar", "", cbxTelefonosACliente, ListaTelefonos)
         AgregarTelefonos.ShowDialog()
 
     End Sub

@@ -1,5 +1,14 @@
 ﻿Public Class Reserva
-    Dim ReservaSeleccionada As ReservaSeleccionada = frmMainMenu.ReservaSeleccionadaReserva
+    Dim ReservaSeleccionada As ReservaSeleccionada
+
+    Public Sub New(reserva As ReservaSeleccionada)
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Me.ReservaSeleccionada = reserva
+    End Sub
 
 
     Private Sub Reserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -55,7 +64,7 @@
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
 
         conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.IdCantKM.ToString + "', '" + ReservaSeleccionada.CostoTotal.ToString + "', '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', 1, NULL, '" + ReservaSeleccionada.IdCliente.ToString + "', '" + ReservaSeleccionada.IdCategoria.ToString + "', '" + ReservaSeleccionada.IdTipo.ToString + "', '" + ReservaSeleccionada.IdSucursalPartida.ToString + "', '" + ReservaSeleccionada.IdSucursalDestino.ToString + "', '" + conexion.Usuario + "'  )")
-        frmMainMenu.RecargarDatos(frmMainMenu.dgvReservas)
+        RecargarDatosEspecificos(frmMainMenu, frmMainMenu.dgvReservas)
         AmaranthMessagebox("Reserva ingresada correctamente!", "Continuar")
         Me.Dispose()
 

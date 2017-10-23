@@ -24,19 +24,52 @@ Module Metodos
     Public conexion As New ConnectionBD
     Public bgwCargar As New ComponentModel.BackgroundWorker
 
+
+    Public Sub CargarTodosDatos(form As Form)
+        Select Case form.Name
+            Case "frmMainMenu"
+                frmMainMenu.CargarDatos()
+            Case "frmMainMenuInvitado"
+
+
+        End Select
+    End Sub
+
+    Public Sub RecargarDatosEspecificos(form As Form, dgv As DataGridView)
+        Select Case form.Name
+            Case "frmMainMenu"
+                frmMainMenu.RecargarDatos(dgv)
+
+            Case "frmMainMenuInvitado"
+
+
+        End Select
+    End Sub
+
     'Cargando
-    Public Sub Cargando(milisegundos As Integer)
+    Public Sub Cargando(milisegundos As Integer, form As Form)
 
         Dim retraso As Integer
-
         retraso = milisegundos + GetTickCount
 
-        While retraso >= GetTickCount
-            Application.DoEvents()
-            frmMainMenu.pcboxloading.Visible = True
-        End While
+        Select Case form.Name
+            Case "frmMainMenu"
+                While retraso >= GetTickCount
+                    Application.DoEvents()
+                    frmMainMenu.pcboxloading.Visible = True
+                End While
+                frmMainMenu.pcboxloading.Visible = False
 
-        frmMainMenu.pcboxloading.Visible = False
+            Case "frmMainMenuInvitado"
+                'While retraso >= GetTickCount
+                '    Application.DoEvents()
+                '    frmMainMenu.pcboxloading.Visible = True
+                'End While
+                'frmMainMenu.pcboxloading.Visible = False
+
+        End Select
+
+
     End Sub
 
     'Verifica una cédula que entra como parámetro

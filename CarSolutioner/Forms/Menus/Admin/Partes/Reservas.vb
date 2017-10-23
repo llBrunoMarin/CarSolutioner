@@ -121,8 +121,9 @@ Partial Public Class frmMainMenu
                                 AlquilarReserva.ShowDialog(Me)
                             End Using
                         Else
-                            Using frmModificarReserva
-                                frmModificarReserva.ShowDialog(Me)
+                            Dim ModificarReserva As New frmModificarReserva(ReservaSeleccionadaAlquiler)
+                            Using ModificarReserva
+                                ModificarReserva.ShowDialog(Me)
                             End Using
                         End If
 
@@ -140,8 +141,9 @@ Partial Public Class frmMainMenu
                                     AlquilarReserva.ShowDialog(Me)
                                 End Using
                             Else
-                                Using frmModificarReserva
-                                    frmModificarReserva.ShowDialog(Me)
+                                Dim ModificarReserva As New frmModificarReserva(ReservaSeleccionadaAlquiler)
+                                Using ModificarReserva
+                                    ModificarReserva.ShowDialog(Me)
                                 End Using
                             End If
 
@@ -287,36 +289,37 @@ Partial Public Class frmMainMenu
                 If Not dtpFinARes.Value <= dtpInicioARes.Value Then
                     If ((dtpFinARes.Value - dtpInicioARes.Value).Days >= 1) Then
 
-                        Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona, nombre || ' ' || apellido nombreapellido, porcdescuento FROM Cliente WHERE nrodocumento = '" + txtDocumARes.Text + "' AND estado = 't'")
+                    Dim Persona As DataTable = conexion.EjecutarSelect("SELECT idpersona, nombre || ' ' || apellido nombreapellido, porcdescuento FROM Cliente WHERE nrodocumento = '" + txtDocumARes.Text + "' AND estado = 't'")
 
-                        'Si la persona existe
-                        If Persona.Rows.Count <> 0 Then
+                    'Si la persona existe
+                    If Persona.Rows.Count <> 0 Then
 
-                            Dim IdPersona As String = Persona.Rows(0)(0).ToString
-                            Dim NombreApellido As String = Persona.Rows(0)(1).ToString
-                            Dim PorcDescuento As String = Persona.Rows(0)(2).ToString
+                        Dim IdPersona As String = Persona.Rows(0)(0).ToString
+                        Dim NombreApellido As String = Persona.Rows(0)(1).ToString
+                        Dim PorcDescuento As String = Persona.Rows(0)(2).ToString
 
-                            'Si el cliente NO tiene reservas activas:
-                            Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1 AND  ( ( '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' BETWEEN fechareservainicio AND fechareservafin )  OR ('" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "' BETWEEN fechareservainicio AND fechareservafin )  )"
-                            If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
+                        'Si el cliente NO tiene reservas activas:
+                        Dim sentencia As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1 AND  ( ( '" + dtpInicioARes.Value.ToString("yyyy-MM-dd HH:mm") + "' BETWEEN fechareservainicio AND fechareservafin )  OR ('" + dtpFinARes.Value.ToString("yyyy-MM-dd HH:mm") + "' BETWEEN fechareservainicio AND fechareservafin )  )"
+                        If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
 
-                                ReservaSeleccionadaReserva.IdCliente = IdPersona
-                                ReservaSeleccionadaReserva.FechaReservaInicio = dtpInicioARes.Value
-                                ReservaSeleccionadaReserva.FechaReservaFin = dtpFinARes.Value
-                                ReservaSeleccionadaReserva.IdCantKM = cbxKmARes.SelectedValue
-                                ReservaSeleccionadaReserva.FechaTramite = Date.Now
-                                ReservaSeleccionadaReserva.NomCliente = NombreApellido
-                                ReservaSeleccionadaReserva.IdCategoria = cbxCategoriaARes.SelectedValue
-                                ReservaSeleccionadaReserva.IdTipo = cbxTipoAReserva.SelectedValue
-                                ReservaSeleccionadaReserva.IdSucursalPartida = cbxSucSalidaARes.SelectedValue
-                                ReservaSeleccionadaReserva.IdSucursalDestino = cbxSucLlegadaARes.SelectedValue
-                                ReservaSeleccionadaReserva.UsuarioEmpleado = conexion.Usuario
-                                ReservaSeleccionadaReserva.DescuentoCliente = PorcDescuento
+                            ReservaSeleccionadaReserva.IdCliente = IdPersona
+                            ReservaSeleccionadaReserva.FechaReservaInicio = dtpInicioARes.Value
+                            ReservaSeleccionadaReserva.FechaReservaFin = dtpFinARes.Value
+                            ReservaSeleccionadaReserva.IdCantKM = cbxKmARes.SelectedValue
+                            ReservaSeleccionadaReserva.FechaTramite = Date.Now
+                            ReservaSeleccionadaReserva.NomCliente = NombreApellido
+                            ReservaSeleccionadaReserva.IdCategoria = cbxCategoriaARes.SelectedValue
+                            ReservaSeleccionadaReserva.IdTipo = cbxTipoAReserva.SelectedValue
+                            ReservaSeleccionadaReserva.IdSucursalPartida = cbxSucSalidaARes.SelectedValue
+                            ReservaSeleccionadaReserva.IdSucursalDestino = cbxSucLlegadaARes.SelectedValue
+                            ReservaSeleccionadaReserva.UsuarioEmpleado = conexion.Usuario
+                            ReservaSeleccionadaReserva.DescuentoCliente = PorcDescuento
 
-                                Reserva.ShowDialog()
+                            Dim reserva As New Reserva(ReservaSeleccionadaReserva)
+                            reserva.ShowDialog()
 
-                            Else
-                                AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")
+                        Else
+                            AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")
                             End If
 
                         Else

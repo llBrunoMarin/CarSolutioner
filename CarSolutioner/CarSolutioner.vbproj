@@ -148,10 +148,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Menus\Admin\Partes\Alquileres.vb" />
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Alquilar.Designer.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\Alquilar.Designer.vb">
       <DependentUpon>Alquilar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Alquilar.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\Alquilar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Menus\Admin\Partes\Mantenimiento.vb" />
@@ -160,10 +160,10 @@
     <Compile Include="Forms\Menus\ReservaSeleccionada.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Reservas.vb" />
     <Compile Include="Forms\Menus\Admin\Partes\Vehiculos.vb" />
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\CambiosGenerales.Designer.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\CambiosGenerales.Designer.vb">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\CambiosGenerales.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\CambiosGenerales.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login.Designer.vb">
@@ -179,28 +179,28 @@
       <DependentUpon>MainMenu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Autorizacion.Designer.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\Autorizacion.Designer.vb">
       <DependentUpon>Autorizacion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Autorizacion.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\Autorizacion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\DescuentoPersonalCliente.Designer.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\DescuentoPersonalCliente.Designer.vb">
       <DependentUpon>DescuentoPersonalCliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\DescuentoPersonalCliente.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\DescuentoPersonalCliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\FinalizarAlquiler.Designer.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\FinalizarAlquiler.Designer.vb">
       <DependentUpon>FinalizarAlquiler.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\FinalizarAlquiler.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\FinalizarAlquiler.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\ModificarReserva.Designer.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\ModificarReserva.Designer.vb">
       <DependentUpon>ModificarReserva.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\ModificarReserva.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\ModificarReserva.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Reconectar.Designer.vb">
@@ -209,16 +209,16 @@
     <Compile Include="Forms\Reconectar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Reserva.Designer.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\Reserva.Designer.vb">
       <DependentUpon>Reserva.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\Reserva.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\Reserva.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\TelefonosCliente.Designer.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\TelefonosCliente.Designer.vb">
       <DependentUpon>TelefonosCliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Menus\Admin\Sub-Forms\TelefonosCliente.vb">
+    <Compile Include="Forms\Menus\Sub-Forms\TelefonosCliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -242,11 +242,11 @@
     <EmbeddedResource Include="Forms\AmaranthMsgbox.resx">
       <DependentUpon>AmaranthMsgbox.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\Alquilar.resx">
+    <EmbeddedResource Include="Forms\Menus\Sub-Forms\Alquilar.resx">
       <DependentUpon>Alquilar.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\CambiosGenerales.resx">
+    <EmbeddedResource Include="Forms\Menus\Sub-Forms\CambiosGenerales.resx">
       <DependentUpon>CambiosGenerales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
@@ -255,25 +255,25 @@
     <EmbeddedResource Include="Forms\Menus\Admin\MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\Autorizacion.resx">
+    <EmbeddedResource Include="Forms\Menus\Sub-Forms\Autorizacion.resx">
       <DependentUpon>Autorizacion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\DescuentoPersonalCliente.resx">
+    <EmbeddedResource Include="Forms\Menus\Sub-Forms\DescuentoPersonalCliente.resx">
       <DependentUpon>DescuentoPersonalCliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\FinalizarAlquiler.resx">
+    <EmbeddedResource Include="Forms\Menus\Sub-Forms\FinalizarAlquiler.resx">
       <DependentUpon>FinalizarAlquiler.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\ModificarReserva.resx">
+    <EmbeddedResource Include="Forms\Menus\Sub-Forms\ModificarReserva.resx">
       <DependentUpon>ModificarReserva.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reconectar.resx">
       <DependentUpon>Reconectar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\Reserva.resx">
+    <EmbeddedResource Include="Forms\Menus\Sub-Forms\Reserva.resx">
       <DependentUpon>Reserva.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Menus\Admin\Sub-Forms\TelefonosCliente.resx">
+    <EmbeddedResource Include="Forms\Menus\Sub-Forms\TelefonosCliente.resx">
       <DependentUpon>TelefonosCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

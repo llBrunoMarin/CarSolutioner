@@ -1,13 +1,7 @@
 ﻿Public Class frmTelefonosCliente
 
-    Public Sub New()
-
-        ' This call is required by the designer.
-        InitializeComponent()
-
-    End Sub
-
-    Public Sub New(ModoVista As String, Nombre As String, Optional ListaTelefonos As List(Of String) = Nothing)
+    Dim ComboBoxTelefonos As ComboBox
+    Public Sub New(ModoVista As String, Nombre As String, combo As ComboBox, Optional ListaTelefonos As List(Of String) = Nothing)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -38,6 +32,8 @@
                     dgvTelefonos.Rows.Add(item)
                 Next
 
+                Me.ComboBoxTelefonos = combo
+
             Case "Modificar"
                 btnAgregar.Visible = False
                 btnModificar.Visible = True
@@ -49,6 +45,8 @@
                 For Each item In ListaTelefonos
                     dgvTelefonos.Rows.Add(item)
                 Next
+
+                Me.ComboBoxTelefonos = combo
 
             Case Else
 
@@ -81,7 +79,7 @@
 
         Next
 
-        frmMainMenu.cbxTelefonosACliente.DataSource = ListaTelefonos
+        ComboBoxTelefonos.DataSource = ListaTelefonos
 
         Me.Dispose()
 
@@ -110,7 +108,7 @@
 
         Next
 
-        frmMainMenu.cbxTelefonosMCliente.DataSource = ListaTelefonos
+        ComboBoxTelefonos.DataSource = ListaTelefonos
 
         Me.Dispose()
     End Sub

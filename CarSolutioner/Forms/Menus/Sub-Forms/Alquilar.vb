@@ -180,7 +180,7 @@
             conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = NULL WHERE nrochasis='" + NroChasis + "'")
             MsgBox("Alquiler Ingresado")
             Me.Dispose()
-            frmMainMenu.CargarDatos()
+            CargarTodosDatos(frmMainMenu)
 
 
         End If

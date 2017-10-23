@@ -44,7 +44,8 @@ Partial Public Class frmMainMenu
         ReservaSeleccionadaFinalizarAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegadaalq").Value.ToString
         ReservaSeleccionadaFinalizarAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleadoalq").Value.ToString
 
-        FinalizarAlquiler.Show()
+        Dim TerminarAlquiler As New FinalizarAlquiler(ReservaSeleccionadaFinalizarAlquiler)
+        TerminarAlquiler.ShowDialog()
 
         'If selectedRow.Cells("idestadoreserva").Value = 1 Then
         '    If selectedRow.Cells("fechareservainicio").Value < Date.Now Then

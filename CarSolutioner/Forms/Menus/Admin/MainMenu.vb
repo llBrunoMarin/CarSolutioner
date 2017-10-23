@@ -17,7 +17,7 @@ Public Class frmMainMenu
         btnReservas.PerformClick()
 
         'Hacemos toda la carga de datos
-        CargarDatos()
+        CargarTodosDatos(Me)
 
         cbxTipoDocumFCliente.SelectedItem = Nothing
 
@@ -100,7 +100,7 @@ Public Class frmMainMenu
 
     Private Sub tsitemCambiosGenerales_Click(sender As Object, e As EventArgs) Handles tsitemCambiosGenerales.Click
 
-        Cargando(500)
+        Cargando(500, Me)
 
         frmCambiosGenerales.ShowDialog()
 
@@ -274,7 +274,7 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        CargarDatos()
+        CargarTodosDatos(Me)
     End Sub
 
 

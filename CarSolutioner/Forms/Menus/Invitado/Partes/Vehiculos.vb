@@ -102,7 +102,7 @@ Partial Public Class frmMainMenuInvitado
 
     End Sub
 
-    Private Sub VaciarFiltrosVehiculo(sender As Object, e As EventArgs) Handles lblBorrarCategoriaFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click
+    Private Sub VaciarFiltrosVehiculo(sender As Object, e As EventArgs) Handles lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarSucursalFVeh.Click
         Select Case sender.Name
 
             Case "lblBorrarMarcaFVeh"
@@ -127,19 +127,12 @@ Partial Public Class frmMainMenuInvitado
 
 
             Case "lblBorrarCategoriaFVeh"
-                If Not cbxCategoriaFVeh.SelectedItem Is Nothing Then
-                    cbxCategoriaFVeh.SelectedItem = Nothing
-                End If
 
             Case "lblBorrarMaletasFVeh"
                 If Not cbxMaletasFVeh.SelectedItem Is Nothing Then
                     cbxMaletasFVeh.SelectedItem = Nothing
                 End If
 
-            Case "lblBorrarPuertasFVeh"
-                If Not cbxPuertasFVeh.SelectedItem Is Nothing Then
-                    cbxPuertasFVeh.SelectedItem = Nothing
-                End If
             Case "lblBorrarSucursalFVeh"
                 If Not cbxSucursalFVeh.SelectedItem Is Nothing Then
                     cbxSucursalFVeh.SelectedItem = Nothing
@@ -158,12 +151,12 @@ Partial Public Class frmMainMenuInvitado
 
     End Sub
 
-    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles cbxCategoriaFVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectionChangeCommitted, lblBorrarCategoriaFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, chbxFiltro.CheckedChanged, btnVaciarFVeh.Click
+    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarSucursalFVeh.Click, chbxFiltro.CheckedChanged, btnVaciarFVeh.Click
 
         Dim Filtro As String
         'TODO: filtrar por deducible, color, kilometraje
         'Siguen sin funcionar los cbx de aire y automatico
-        Filtro = "nrochasis like '%%'" + TipoFiltro(cbxMaletasFVeh, "cantidaddemaletas") + TipoFiltro(cbxPuertasFVeh, "cantidaddepuertas") + TipoFiltro(numPasajerosFVeh, "cantidaddepasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
+        Filtro = "nrochasis like '%%'" + TipoFiltro(cbxMaletasFVeh, "cantidaddemaletas") + TipoFiltro(numPasajerosFVeh, "cantidaddepasajeros") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
 
         dgvVehiculos.DataSource.Filter = Filtro
 

@@ -22,7 +22,7 @@ Public Class frmMainMenuInvitado
         cbxTipoDocumFCliente.SelectedItem = Nothing
 
         cbxCategoriaFRes.SelectedItem = Nothing
-        cbxCategoriaFVeh.SelectedItem = Nothing
+
 
 
         cbxTipoFRes.SelectedItem = Nothing
@@ -158,7 +158,7 @@ Public Class frmMainMenuInvitado
         CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre", "idcategoria")
 
         CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre", "idcategoria")
+
 
 
         'Los modelos se cargan en el apartado "Vehiculos".
@@ -258,7 +258,7 @@ Public Class frmMainMenuInvitado
         btnVehiculos.Text = "Vehicles"
         lblSearchVehicles.Text = "Search Vehicles"
         lblLanguage.Text = "Select Language"
-        lblcat.Text = "Category"
+
         lblmarca.Text = "Brand"
         lblmodelo.Text = "Model"
 
@@ -286,7 +286,7 @@ Public Class frmMainMenuInvitado
         btnVehiculos.Text = "Fahrzeuge"
         lblSearchVehicles.Text = "Fahrzeugsuche"
         lblLanguage.Text = "Sprache auswählen"
-        lblcat.Text = "Kategorie"
+
         lblmarca.Text = "Marke"
         lblmodelo.Text = "Model"
 
@@ -312,7 +312,7 @@ Public Class frmMainMenuInvitado
         btnVehiculos.Text = "Vehiculos"
         lblSearchVehicles.Text = "Busqueda de Vehiculos"
         lblLanguage.Text = "Seleccione Idioma"
-        lblcat.Text = "Categoria"
+
         lblmarca.Text = "Marca"
         lblmodelo.Text = "Modelo"
 
@@ -338,7 +338,7 @@ Public Class frmMainMenuInvitado
         btnVehiculos.Text = "Veículos"
         lblSearchVehicles.Text = "Pesquisa de veículos"
         lblLanguage.Text = "Selecione idioma"
-        lblcat.Text = "Categoria"
+
         lblmarca.Text = "Marca"
         lblmodelo.Text = "Modelo"
 
@@ -364,7 +364,7 @@ Public Class frmMainMenuInvitado
         btnVehiculos.Text = "汽车"
         lblSearchVehicles.Text = "车辆搜索"
         lblLanguage.Text = "选择语言"
-        lblcat.Text = "类别"
+
         lblmarca.Text = "标记"
         lblmodelo.Text = "模型"
 
@@ -390,7 +390,7 @@ Public Class frmMainMenuInvitado
         btnVehiculos.Text = "乗り物"
         lblSearchVehicles.Text = "車両検索"
         lblLanguage.Text = "言語を選択"
-        lblcat.Text = "カテゴリー"
+
         lblmarca.Text = "ブランド"
         lblmodelo.Text = "モデル"
 
@@ -416,7 +416,7 @@ Public Class frmMainMenuInvitado
         btnVehiculos.Text = "Veicoli"
         lblSearchVehicles.Text = "Ricerca del veicolo"
         lblLanguage.Text = "Seleziona lingua"
-        lblcat.Text = "Categoria"
+
         lblmarca.Text = "Contrassegno"
         lblmodelo.Text = "Modello"
 
@@ -442,7 +442,7 @@ Public Class frmMainMenuInvitado
         btnVehiculos.Text = "Véhicules"
         lblSearchVehicles.Text = "Recherche de véhicule"
         lblLanguage.Text = "Sélectionnez la langue"
-        lblcat.Text = "Catégorie"
+
         lblmarca.Text = "Marque"
         lblmodelo.Text = "Modèle"
 
@@ -468,7 +468,7 @@ Public Class frmMainMenuInvitado
         btnVehiculos.Text = "транспортные средства"
         lblSearchVehicles.Text = "Поиск автомобиля"
         lblLanguage.Text = "Выбрать язык"
-        lblcat.Text = "категория"
+
         lblmarca.Text = "знак"
         lblmodelo.Text = "модель"
 

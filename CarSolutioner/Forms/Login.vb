@@ -60,11 +60,11 @@ Public Class Login
             Case "Opened"
 
                 'Conseguimos el Tipo de Usuario de la persona conectada:
-                Dim tipousuario As New DataTable
-                tipousuario = conexion.EjecutarSelect("SELECT tipo from empleado where usuario = '" & conexion.Usuario & "' ;")
+                conexion.TipoUsuario = conexion.EjecutarSelect("SELECT tipo from empleado where usuario = '" & conexion.Usuario & "' ;").Rows(0)(0)
+                conexion.IdSucursalUsuario = conexion.EjecutarSelect("SELECT idsucursal FROM Trabaja WHERE usuarioempleado = '" + conexion.Usuario + "' AND fechafin IS NULL").Rows(0)(0)
 
                 Try
-                    Select Case tipousuario.Rows(0).Item(0)
+                    Select Case conexion.TipoUsuario
 
                         Case 1
                             frmMainMenu.Show()

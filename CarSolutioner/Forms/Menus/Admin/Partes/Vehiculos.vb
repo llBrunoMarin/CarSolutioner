@@ -71,9 +71,8 @@ Partial Public Class frmMainMenu
             If (Not (sender.SelectedValue.ToString = "System.Data.DataRowView")) Then
 
                 'Si el valor seleccionado del modelo NO es "Otro"
-                If Not (sender.SelectedIndex = sender.FindString("Nuevo...")) Then
 
-                    Dim idmodeloselect As String = sender.SelectedValue
+                Dim idmodeloselect As String = sender.SelectedValue
                     Dim idtipo As String = conexion.Modelos.Select("idmodelo = " + idmodeloselect + "").CopyToDataTable.Rows(0).Field(Of Integer)("idtipo")
 
                     Select Case sender.Name
@@ -88,11 +87,7 @@ Partial Public Class frmMainMenu
                             cbxTipoMVeh.SelectedValue = idtipo
                             cbxTipoMVeh.Enabled = False
                     End Select
-                Else
-                    frmCambiosGenerales.Show()
-                    frmCambiosGenerales.btnVehiculo.PerformClick()
                 End If
-            End If
         Else
 
             Select Case sender.Name
@@ -207,7 +202,9 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvVehiculos.CurrentRow) Then
             CargarDatosComboBox(cbxModeloMVeh, conexion.Modelos.Select("idmarca = '" + dgvVehiculos.CurrentRow.Cells("idmarcaveh").Value.ToString() + "'").CopyToDataTable, "nombre", "idmodelo")
+            txtNroChasisMVeh.Enabled = True
             txtNroChasisMVeh.Text = dgvVehiculos.CurrentRow.Cells("nrochasis").Value.ToString()
+            txtNroChasisMVeh.Enabled = False
             txtMatriculaMVeh.Text = dgvVehiculos.CurrentRow.Cells("matricula").Value.ToString()
             txtMatriculaBVeh.Text = dgvVehiculos.CurrentRow.Cells("matricula").Value.ToString()
             txtKMMVeh.Text = dgvVehiculos.CurrentRow.Cells("kilometraje").Value.ToString()
@@ -473,7 +470,7 @@ Partial Public Class frmMainMenu
         End If
     End Sub
 
-    Private Sub antiSQLInjection(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMatriculaFVeh.KeyPress
+    Private Sub antiSQLInjection(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles txtMatriculaFVeh.KeyPress
         e.Handled = Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsNumber(e.KeyChar)
     End Sub
 

@@ -317,6 +317,8 @@ Partial Public Class frmMainMenu
 
                             Dim reserva As New Reserva(ReservaSeleccionadaReserva)
                             reserva.ShowDialog()
+                            dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()
+                            dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
 
                         Else
                             AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")

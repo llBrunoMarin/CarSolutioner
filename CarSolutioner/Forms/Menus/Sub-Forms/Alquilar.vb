@@ -65,6 +65,7 @@
         txtCantidadDias.Text = (dtpFRfin.Value - dtpFAinicio.Value).Days.ToString
         numDescuentoCliente.Value = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
         txtCostoEsperado.Text = ReservaSeleccionada.CostoTotal.ToString
+        txtDeducible.Text = ReservaSeleccionada.DeducibleVehiculo.ToString
 
     End Sub
 
@@ -158,6 +159,11 @@
         txtCantidadDias.Text = (dtpFRfin.Value - dtpFAinicio.Value).Days.ToString
 
     End Sub
+
+    Private Sub Deducibe(sender As Object, e As EventArgs) Handles dgvAlquilar.SelectionChanged
+        txtDeducible.Text = dgvAlquilar.CurrentRow.Cells("deducible").Value.ToString
+    End Sub
+
     'Doble click en el dgv alquilar, o click en el botón Alquilar
     Public Sub AlquilarAutoSeleccionado(sender As Object, e As EventArgs) Handles dgvAlquilar.CellMouseDoubleClick, btnAlquilar.Click
 
@@ -212,7 +218,7 @@
     Private Sub btnDescuentoReserva_Click(sender As Object, e As EventArgs) Handles btnDescuentoReserva.Click
         If Autorizar(Me) = vbYes Then
             numDescuentoReserva.Enabled = True
-            lblDescuentoReserva.Text = "(Haga click para aplicar descuento) " + vbNewLine + " Escriba un numero y presione Enter"
+            lblValorEnter.Visible = True
         End If
     End Sub
 

@@ -46,6 +46,24 @@ Module Metodos
         End Select
     End Sub
 
+    Public Sub VaciarPanel(panel As Panel)
+        For Each item In panel.Controls
+
+            If TypeOf item Is TextBox Then
+                item.text = ""
+            End If
+
+            If TypeOf item Is ComboBox Then
+                item.SelectedItem = Nothing
+            End If
+
+            If TypeOf item Is NumericUpDown Then
+                DirectCast(item, NumericUpDown).Value = Nothing
+            End If
+        Next
+    End Sub
+
+
     'Cargando
     Public Sub Cargando(milisegundos As Integer, form As Form)
 

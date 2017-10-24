@@ -42,6 +42,8 @@ Partial Class FinalizarAlquiler
         Me.lblRecargo = New System.Windows.Forms.Label()
         Me.txtCostoTotalTotal = New System.Windows.Forms.TextBox()
         Me.btnAgregarDescuentoAlquiler = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtDeducible = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -86,7 +88,7 @@ Partial Class FinalizarAlquiler
         'txtCostoTotal
         '
         Me.txtCostoTotal.Enabled = False
-        Me.txtCostoTotal.Location = New System.Drawing.Point(276, 65)
+        Me.txtCostoTotal.Location = New System.Drawing.Point(276, 69)
         Me.txtCostoTotal.Name = "txtCostoTotal"
         Me.txtCostoTotal.Size = New System.Drawing.Size(121, 20)
         Me.txtCostoTotal.TabIndex = 47
@@ -96,7 +98,7 @@ Partial Class FinalizarAlquiler
         Me.lblCostoTotal.AutoSize = True
         Me.lblCostoTotal.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCostoTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblCostoTotal.Location = New System.Drawing.Point(275, 172)
+        Me.lblCostoTotal.Location = New System.Drawing.Point(275, 147)
         Me.lblCostoTotal.Name = "lblCostoTotal"
         Me.lblCostoTotal.Size = New System.Drawing.Size(75, 17)
         Me.lblCostoTotal.TabIndex = 48
@@ -114,7 +116,7 @@ Partial Class FinalizarAlquiler
         Me.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAccept.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAccept.ForeColor = System.Drawing.Color.White
-        Me.btnAccept.Location = New System.Drawing.Point(294, 253)
+        Me.btnAccept.Location = New System.Drawing.Point(289, 269)
         Me.btnAccept.Name = "btnAccept"
         Me.btnAccept.Size = New System.Drawing.Size(91, 30)
         Me.btnAccept.TabIndex = 55
@@ -235,7 +237,7 @@ Partial Class FinalizarAlquiler
         'txtRecargo
         '
         Me.txtRecargo.Enabled = False
-        Me.txtRecargo.Location = New System.Drawing.Point(276, 122)
+        Me.txtRecargo.Location = New System.Drawing.Point(276, 120)
         Me.txtRecargo.Name = "txtRecargo"
         Me.txtRecargo.Size = New System.Drawing.Size(121, 20)
         Me.txtRecargo.TabIndex = 47
@@ -246,7 +248,7 @@ Partial Class FinalizarAlquiler
         Me.lblRecargo.Enabled = False
         Me.lblRecargo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRecargo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblRecargo.Location = New System.Drawing.Point(273, 102)
+        Me.lblRecargo.Location = New System.Drawing.Point(273, 96)
         Me.lblRecargo.Name = "lblRecargo"
         Me.lblRecargo.Size = New System.Drawing.Size(59, 17)
         Me.lblRecargo.TabIndex = 48
@@ -255,7 +257,7 @@ Partial Class FinalizarAlquiler
         'txtCostoTotalTotal
         '
         Me.txtCostoTotalTotal.Enabled = False
-        Me.txtCostoTotalTotal.Location = New System.Drawing.Point(278, 192)
+        Me.txtCostoTotalTotal.Location = New System.Drawing.Point(278, 171)
         Me.txtCostoTotalTotal.Name = "txtCostoTotalTotal"
         Me.txtCostoTotalTotal.Size = New System.Drawing.Size(121, 20)
         Me.txtCostoTotalTotal.TabIndex = 47
@@ -270,13 +272,32 @@ Partial Class FinalizarAlquiler
         Me.btnAgregarDescuentoAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarDescuentoAlquiler.Font = New System.Drawing.Font("Century Gothic", 8.5!)
         Me.btnAgregarDescuentoAlquiler.ForeColor = System.Drawing.Color.White
-        Me.btnAgregarDescuentoAlquiler.Location = New System.Drawing.Point(403, 123)
+        Me.btnAgregarDescuentoAlquiler.Location = New System.Drawing.Point(403, 121)
         Me.btnAgregarDescuentoAlquiler.Name = "btnAgregarDescuentoAlquiler"
         Me.btnAgregarDescuentoAlquiler.Size = New System.Drawing.Size(18, 18)
         Me.btnAgregarDescuentoAlquiler.TabIndex = 49
         Me.btnAgregarDescuentoAlquiler.Text = "+"
         Me.btnAgregarDescuentoAlquiler.UseCompatibleTextRendering = True
         Me.btnAgregarDescuentoAlquiler.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(275, 198)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(70, 17)
+        Me.Label2.TabIndex = 48
+        Me.Label2.Text = "Deducible"
+        '
+        'txtDeducible
+        '
+        Me.txtDeducible.Enabled = False
+        Me.txtDeducible.Location = New System.Drawing.Point(278, 222)
+        Me.txtDeducible.Name = "txtDeducible"
+        Me.txtDeducible.Size = New System.Drawing.Size(121, 20)
+        Me.txtDeducible.TabIndex = 47
         '
         'FinalizarAlquiler
         '
@@ -288,9 +309,11 @@ Partial Class FinalizarAlquiler
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnAccept)
         Me.Controls.Add(Me.lblRecargo)
+        Me.Controls.Add(Me.txtDeducible)
         Me.Controls.Add(Me.txtCostoTotalTotal)
         Me.Controls.Add(Me.txtRecargo)
         Me.Controls.Add(Me.lblCostoYRecargo)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblCostoTotal)
         Me.Controls.Add(Me.txtCostoTotal)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -326,4 +349,6 @@ Partial Class FinalizarAlquiler
     Friend WithEvents Label3 As Label
     Friend WithEvents txtKMAutoAntes As TextBox
     Friend WithEvents btnAgregarDescuentoAlquiler As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtDeducible As TextBox
 End Class

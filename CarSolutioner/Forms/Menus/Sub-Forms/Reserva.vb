@@ -24,6 +24,12 @@
         txtKMElegidos.Text = conexion.Kilometros.Select("id = '" + ReservaSeleccionada.IdCantKM.ToString + "'").CopyToDataTable.Rows(0)("km").ToString
         txtDescuentoCliente.Text = ReservaSeleccionada.DescuentoCliente.ToString
 
+
+        CalcularCosto()
+
+    End Sub
+
+    Private Sub CalcularCosto()
         'Valores Seleccionados
         Dim TarifaDiariaBase As Integer
         Dim TarifaDiariaKM As Integer
@@ -57,15 +63,13 @@
         txtCostoAlqEstimado.Text = CostoAlqEstimado.ToString()
         txtDescuento.Text = DescuentoCalc.ToString()
         txtCostoTotalEstimado.Text = CostoTotalEstimado.ToString()
-
-
     End Sub
-
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
 
         conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.IdCantKM.ToString + "', '" + ReservaSeleccionada.CostoTotal.ToString + "', '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', 1, NULL, '" + ReservaSeleccionada.IdCliente.ToString + "', '" + ReservaSeleccionada.IdCategoria.ToString + "', '" + ReservaSeleccionada.IdTipo.ToString + "', '" + ReservaSeleccionada.IdSucursalPartida.ToString + "', '" + ReservaSeleccionada.IdSucursalDestino.ToString + "', '" + conexion.Usuario + "'  )")
         RecargarDatosEspecificos(frmMainMenu, frmMainMenu.dgvReservas)
-        AmaranthMessagebox("Reserva ingresada correctamente!", "Continuar")
+
+        AmaranthMessagebox("Reserva ingresada correctamente", "Continuar")
         Me.Dispose()
 
     End Sub
@@ -82,6 +86,8 @@
             txtDescuentoCliente.Enabled = True
             txtDescuentoCliente.Text = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
             txtDescuentoCliente.Enabled = False
+            ReservaSeleccionada.DescuentoCliente = txtDescuentoCliente.Text
+            CalcularCosto()
         Else
 
         End If

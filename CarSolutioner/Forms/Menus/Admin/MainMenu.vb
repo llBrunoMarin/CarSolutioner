@@ -164,6 +164,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxMarcaMVeh, conexion.MarcasConModelo, "nombre", "idmarca")
         CargarDatosComboBox(cbxMarcaFVeh, conexion.MarcasConModelo, "nombre", "idmarca")
 
+
         'TIPOS
         CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
@@ -200,6 +201,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxSucursalMempleados, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalLlegadaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalSalidaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxDestinoMAlquileres, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
 
         'DOCUMENTOS
         CargarDatosComboBox(cbxTipoDocumFCliente, conexion.Documentos, "nombre", "idtipodoc")
@@ -215,6 +217,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxKilomFRes, conexion.Kilometros, "km", "id")
         CargarDatosComboBox(cbxKmARes, conexion.Kilometros, "km", "id")
         CargarDatosComboBox(cbxKilomMReserva, conexion.Kilometros, "km", "id")
+        CargarDatosComboBox(cbxKilomMAlquileres, conexion.Kilometros, "km", "id")
         Me.Opacity = 100
 
         'Comboboxes de Si y No

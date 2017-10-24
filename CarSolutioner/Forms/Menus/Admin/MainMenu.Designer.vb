@@ -556,25 +556,13 @@ Partial Class frmMainMenu
         Me.Alquileres = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnModificarAlquiler = New System.Windows.Forms.Button()
-        Me.Label151 = New System.Windows.Forms.Label()
-        Me.Label152 = New System.Windows.Forms.Label()
         Me.Label153 = New System.Windows.Forms.Label()
-        Me.Label154 = New System.Windows.Forms.Label()
-        Me.Label155 = New System.Windows.Forms.Label()
         Me.Label156 = New System.Windows.Forms.Label()
         Me.Label157 = New System.Windows.Forms.Label()
-        Me.dtpFechaFinMAlquiler = New System.Windows.Forms.DateTimePicker()
-        Me.cbxCategoriaMAlquileres = New System.Windows.Forms.ComboBox()
         Me.txtDocumentoMAlquileres = New System.Windows.Forms.TextBox()
-        Me.cbxTipoMAlquileres = New System.Windows.Forms.ComboBox()
         Me.cbxKilomMAlquileres = New System.Windows.Forms.ComboBox()
-        Me.Label158 = New System.Windows.Forms.Label()
-        Me.dtpFechaInicioMAlquiler = New System.Windows.Forms.DateTimePicker()
         Me.Label159 = New System.Windows.Forms.Label()
-        Me.Label160 = New System.Windows.Forms.Label()
-        Me.cbxPartidaMAlquileres = New System.Windows.Forms.ComboBox()
         Me.cbxDestinoMAlquileres = New System.Windows.Forms.ComboBox()
-        Me.txtCostoMAlquileres = New System.Windows.Forms.TextBox()
         Me.dgvAlquileres = New System.Windows.Forms.DataGridView()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label130 = New System.Windows.Forms.Label()
@@ -633,6 +621,10 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
+        Me.Label158 = New System.Windows.Forms.Label()
+        Me.txtCostoMAlquileres = New System.Windows.Forms.TextBox()
+        Me.lblnombreCMalq = New System.Windows.Forms.Label()
+        Me.txtNombreMAlq = New System.Windows.Forms.TextBox()
         Me.matriculaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nrodocumalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombreapellidoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -6458,24 +6450,16 @@ Partial Class frmMainMenu
         Me.Panel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel4.BackColor = System.Drawing.Color.Silver
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel4.Controls.Add(Me.lblnombreCMalq)
+        Me.Panel4.Controls.Add(Me.txtNombreMAlq)
         Me.Panel4.Controls.Add(Me.btnModificarAlquiler)
-        Me.Panel4.Controls.Add(Me.Label151)
-        Me.Panel4.Controls.Add(Me.Label152)
         Me.Panel4.Controls.Add(Me.Label153)
-        Me.Panel4.Controls.Add(Me.Label154)
-        Me.Panel4.Controls.Add(Me.Label155)
         Me.Panel4.Controls.Add(Me.Label156)
         Me.Panel4.Controls.Add(Me.Label157)
-        Me.Panel4.Controls.Add(Me.dtpFechaFinMAlquiler)
-        Me.Panel4.Controls.Add(Me.cbxCategoriaMAlquileres)
         Me.Panel4.Controls.Add(Me.txtDocumentoMAlquileres)
-        Me.Panel4.Controls.Add(Me.cbxTipoMAlquileres)
         Me.Panel4.Controls.Add(Me.cbxKilomMAlquileres)
         Me.Panel4.Controls.Add(Me.Label158)
-        Me.Panel4.Controls.Add(Me.dtpFechaInicioMAlquiler)
         Me.Panel4.Controls.Add(Me.Label159)
-        Me.Panel4.Controls.Add(Me.Label160)
-        Me.Panel4.Controls.Add(Me.cbxPartidaMAlquileres)
         Me.Panel4.Controls.Add(Me.cbxDestinoMAlquileres)
         Me.Panel4.Controls.Add(Me.txtCostoMAlquileres)
         Me.Panel4.Location = New System.Drawing.Point(6, 589)
@@ -6501,67 +6485,23 @@ Partial Class frmMainMenu
         Me.btnModificarAlquiler.Text = "Modificar"
         Me.btnModificarAlquiler.UseVisualStyleBackColor = False
         '
-        'Label151
-        '
-        Me.Label151.AutoSize = True
-        Me.Label151.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label151.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label151.Location = New System.Drawing.Point(405, 104)
-        Me.Label151.Name = "Label151"
-        Me.Label151.Size = New System.Drawing.Size(81, 17)
-        Me.Label151.TabIndex = 31
-        Me.Label151.Text = "Fecha de fin"
-        '
-        'Label152
-        '
-        Me.Label152.AutoSize = True
-        Me.Label152.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label152.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label152.Location = New System.Drawing.Point(268, 103)
-        Me.Label152.Name = "Label152"
-        Me.Label152.Size = New System.Drawing.Size(99, 17)
-        Me.Label152.TabIndex = 30
-        Me.Label152.Text = "Fecha de inicio"
-        '
         'Label153
         '
         Me.Label153.AutoSize = True
         Me.Label153.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label153.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label153.Location = New System.Drawing.Point(399, 50)
+        Me.Label153.Location = New System.Drawing.Point(306, 107)
         Me.Label153.Name = "Label153"
         Me.Label153.Size = New System.Drawing.Size(76, 17)
         Me.Label153.TabIndex = 29
         Me.Label153.Text = "Kilometraje"
-        '
-        'Label154
-        '
-        Me.Label154.AutoSize = True
-        Me.Label154.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label154.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label154.Location = New System.Drawing.Point(263, 51)
-        Me.Label154.Name = "Label154"
-        Me.Label154.Size = New System.Drawing.Size(32, 17)
-        Me.Label154.TabIndex = 26
-        Me.Label154.Text = "Tipo"
-        '
-        'Label155
-        '
-        Me.Label155.AutoSize = True
-        Me.Label155.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label155.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label155.Location = New System.Drawing.Point(136, 51)
-        Me.Label155.Name = "Label155"
-        Me.Label155.Size = New System.Drawing.Size(69, 17)
-        Me.Label155.TabIndex = 26
-        Me.Label155.Text = "Categoría"
         '
         'Label156
         '
         Me.Label156.AutoSize = True
         Me.Label156.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label156.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label156.Location = New System.Drawing.Point(10, 51)
+        Me.Label156.Location = New System.Drawing.Point(19, 107)
         Me.Label156.Name = "Label156"
         Me.Label156.Size = New System.Drawing.Size(124, 17)
         Me.Label156.TabIndex = 25
@@ -6578,116 +6518,42 @@ Partial Class frmMainMenu
         Me.Label157.TabIndex = 24
         Me.Label157.Text = "Modificar el alquiler seleccionado"
         '
-        'dtpFechaFinMAlquiler
-        '
-        Me.dtpFechaFinMAlquiler.CustomFormat = "dd/MM/yyyy HH:mm"
-        Me.dtpFechaFinMAlquiler.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFechaFinMAlquiler.Location = New System.Drawing.Point(402, 124)
-        Me.dtpFechaFinMAlquiler.Name = "dtpFechaFinMAlquiler"
-        Me.dtpFechaFinMAlquiler.Size = New System.Drawing.Size(129, 20)
-        Me.dtpFechaFinMAlquiler.TabIndex = 20
-        '
-        'cbxCategoriaMAlquileres
-        '
-        Me.cbxCategoriaMAlquileres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxCategoriaMAlquileres.Location = New System.Drawing.Point(139, 71)
-        Me.cbxCategoriaMAlquileres.Name = "cbxCategoriaMAlquileres"
-        Me.cbxCategoriaMAlquileres.Size = New System.Drawing.Size(121, 21)
-        Me.cbxCategoriaMAlquileres.TabIndex = 23
-        '
         'txtDocumentoMAlquileres
         '
-        Me.txtDocumentoMAlquileres.Location = New System.Drawing.Point(12, 70)
+        Me.txtDocumentoMAlquileres.Enabled = False
+        Me.txtDocumentoMAlquileres.Location = New System.Drawing.Point(22, 128)
         Me.txtDocumentoMAlquileres.Name = "txtDocumentoMAlquileres"
         Me.txtDocumentoMAlquileres.Size = New System.Drawing.Size(121, 20)
         Me.txtDocumentoMAlquileres.TabIndex = 22
-        '
-        'cbxTipoMAlquileres
-        '
-        Me.cbxTipoMAlquileres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxTipoMAlquileres.FormattingEnabled = True
-        Me.cbxTipoMAlquileres.Location = New System.Drawing.Point(266, 71)
-        Me.cbxTipoMAlquileres.Name = "cbxTipoMAlquileres"
-        Me.cbxTipoMAlquileres.Size = New System.Drawing.Size(121, 21)
-        Me.cbxTipoMAlquileres.TabIndex = 16
         '
         'cbxKilomMAlquileres
         '
         Me.cbxKilomMAlquileres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxKilomMAlquileres.FormattingEnabled = True
-        Me.cbxKilomMAlquileres.Location = New System.Drawing.Point(393, 70)
+        Me.cbxKilomMAlquileres.Location = New System.Drawing.Point(290, 127)
         Me.cbxKilomMAlquileres.Name = "cbxKilomMAlquileres"
         Me.cbxKilomMAlquileres.Size = New System.Drawing.Size(121, 21)
         Me.cbxKilomMAlquileres.TabIndex = 16
-        '
-        'Label158
-        '
-        Me.Label158.AutoSize = True
-        Me.Label158.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label158.Location = New System.Drawing.Point(516, 50)
-        Me.Label158.Name = "Label158"
-        Me.Label158.Size = New System.Drawing.Size(75, 17)
-        Me.Label158.TabIndex = 29
-        Me.Label158.Text = "Costo Total"
-        '
-        'dtpFechaInicioMAlquiler
-        '
-        Me.dtpFechaInicioMAlquiler.CustomFormat = "dd/MM/yyyy HH:mm"
-        Me.dtpFechaInicioMAlquiler.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFechaInicioMAlquiler.Location = New System.Drawing.Point(267, 123)
-        Me.dtpFechaInicioMAlquiler.Name = "dtpFechaInicioMAlquiler"
-        Me.dtpFechaInicioMAlquiler.Size = New System.Drawing.Size(129, 20)
-        Me.dtpFechaInicioMAlquiler.TabIndex = 21
         '
         'Label159
         '
         Me.Label159.AutoSize = True
         Me.Label159.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label159.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label159.Location = New System.Drawing.Point(142, 103)
+        Me.Label159.Location = New System.Drawing.Point(162, 107)
         Me.Label159.Name = "Label159"
         Me.Label159.Size = New System.Drawing.Size(104, 17)
         Me.Label159.TabIndex = 28
         Me.Label159.Text = "Sucursal destino"
         '
-        'Label160
-        '
-        Me.Label160.AutoSize = True
-        Me.Label160.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label160.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label160.Location = New System.Drawing.Point(14, 103)
-        Me.Label160.Name = "Label160"
-        Me.Label160.Size = New System.Drawing.Size(104, 17)
-        Me.Label160.TabIndex = 27
-        Me.Label160.Text = "Sucursal partida"
-        '
-        'cbxPartidaMAlquileres
-        '
-        Me.cbxPartidaMAlquileres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxPartidaMAlquileres.FormattingEnabled = True
-        Me.cbxPartidaMAlquileres.Location = New System.Drawing.Point(12, 123)
-        Me.cbxPartidaMAlquileres.Name = "cbxPartidaMAlquileres"
-        Me.cbxPartidaMAlquileres.Size = New System.Drawing.Size(121, 21)
-        Me.cbxPartidaMAlquileres.TabIndex = 17
-        '
         'cbxDestinoMAlquileres
         '
         Me.cbxDestinoMAlquileres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxDestinoMAlquileres.FormattingEnabled = True
-        Me.cbxDestinoMAlquileres.Location = New System.Drawing.Point(140, 123)
+        Me.cbxDestinoMAlquileres.Location = New System.Drawing.Point(156, 127)
         Me.cbxDestinoMAlquileres.Name = "cbxDestinoMAlquileres"
         Me.cbxDestinoMAlquileres.Size = New System.Drawing.Size(121, 21)
         Me.cbxDestinoMAlquileres.TabIndex = 19
-        '
-        'txtCostoMAlquileres
-        '
-        Me.txtCostoMAlquileres.Enabled = False
-        Me.txtCostoMAlquileres.Location = New System.Drawing.Point(519, 70)
-        Me.txtCostoMAlquileres.Name = "txtCostoMAlquileres"
-        Me.txtCostoMAlquileres.Size = New System.Drawing.Size(121, 20)
-        Me.txtCostoMAlquileres.TabIndex = 22
-        Me.txtCostoMAlquileres.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'dgvAlquileres
         '
@@ -7328,6 +7194,45 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
+        'Label158
+        '
+        Me.Label158.AutoSize = True
+        Me.Label158.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label158.Location = New System.Drawing.Point(425, 107)
+        Me.Label158.Name = "Label158"
+        Me.Label158.Size = New System.Drawing.Size(75, 17)
+        Me.Label158.TabIndex = 29
+        Me.Label158.Text = "Costo Total"
+        '
+        'txtCostoMAlquileres
+        '
+        Me.txtCostoMAlquileres.Enabled = False
+        Me.txtCostoMAlquileres.Location = New System.Drawing.Point(424, 128)
+        Me.txtCostoMAlquileres.Name = "txtCostoMAlquileres"
+        Me.txtCostoMAlquileres.Size = New System.Drawing.Size(121, 20)
+        Me.txtCostoMAlquileres.TabIndex = 22
+        Me.txtCostoMAlquileres.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'lblnombreCMalq
+        '
+        Me.lblnombreCMalq.AutoSize = True
+        Me.lblnombreCMalq.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnombreCMalq.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblnombreCMalq.Location = New System.Drawing.Point(19, 63)
+        Me.lblnombreCMalq.Name = "lblnombreCMalq"
+        Me.lblnombreCMalq.Size = New System.Drawing.Size(56, 17)
+        Me.lblnombreCMalq.TabIndex = 31
+        Me.lblnombreCMalq.Text = "Nombre"
+        '
+        'txtNombreMAlq
+        '
+        Me.txtNombreMAlq.Enabled = False
+        Me.txtNombreMAlq.Location = New System.Drawing.Point(22, 84)
+        Me.txtNombreMAlq.Name = "txtNombreMAlq"
+        Me.txtNombreMAlq.Size = New System.Drawing.Size(182, 20)
+        Me.txtNombreMAlq.TabIndex = 30
+        '
         'matriculaalq
         '
         Me.matriculaalq.DataPropertyName = "matricula"
@@ -7348,6 +7253,8 @@ Partial Class frmMainMenu
         Me.nombreapellidoalq.HeaderText = "Nombre"
         Me.nombreapellidoalq.Name = "nombreapellidoalq"
         Me.nombreapellidoalq.ReadOnly = True
+        Me.nombreapellidoalq.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.nombreapellidoalq.Visible = False
         '
         'idreservaalquiler
         '
@@ -8068,25 +7975,13 @@ Partial Class frmMainMenu
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents Panel4 As Panel
     Friend WithEvents btnModificarAlquiler As Button
-    Friend WithEvents Label151 As Label
-    Friend WithEvents Label152 As Label
     Friend WithEvents Label153 As Label
-    Friend WithEvents Label154 As Label
-    Friend WithEvents Label155 As Label
     Friend WithEvents Label156 As Label
     Friend WithEvents Label157 As Label
-    Friend WithEvents dtpFechaFinMAlquiler As DateTimePicker
-    Friend WithEvents cbxCategoriaMAlquileres As ComboBox
     Friend WithEvents txtDocumentoMAlquileres As TextBox
-    Friend WithEvents cbxTipoMAlquileres As ComboBox
     Friend WithEvents cbxKilomMAlquileres As ComboBox
-    Friend WithEvents Label158 As Label
-    Friend WithEvents dtpFechaInicioMAlquiler As DateTimePicker
     Friend WithEvents Label159 As Label
-    Friend WithEvents Label160 As Label
-    Friend WithEvents cbxPartidaMAlquileres As ComboBox
     Friend WithEvents cbxDestinoMAlquileres As ComboBox
-    Friend WithEvents txtCostoMAlquileres As TextBox
     Friend WithEvents lblBorrarDestinoFAlquileres As Label
     Friend WithEvents lblBorrarPartidaFAlquileres As Label
     Friend WithEvents lblBorrarKilomFAlquileres As Label
@@ -8248,6 +8143,10 @@ Partial Class frmMainMenu
     Friend WithEvents colordisponibles As DataGridViewTextBoxColumn
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label165 As Label
+    Friend WithEvents Label158 As Label
+    Friend WithEvents txtCostoMAlquileres As TextBox
+    Friend WithEvents lblnombreCMalq As Label
+    Friend WithEvents txtNombreMAlq As TextBox
     Friend WithEvents matriculaalq As DataGridViewTextBoxColumn
     Friend WithEvents nrodocumalq As DataGridViewTextBoxColumn
     Friend WithEvents nombreapellidoalq As DataGridViewTextBoxColumn

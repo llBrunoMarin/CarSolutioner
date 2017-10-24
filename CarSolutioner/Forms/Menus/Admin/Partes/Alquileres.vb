@@ -94,4 +94,29 @@ Partial Public Class frmMainMenu
 
         Return ""
     End Function
+
+    Private Sub CargarDatosAlquiler(sender As Object, e As EventArgs) Handles dgvAlquileres.SelectionChanged
+
+        If Not IsNothing(dgvAlquileres.CurrentRow) Then
+
+            txtDocumentoMAlquileres.Text = dgvAlquileres.CurrentRow.Cells("nrodocumalq").Value.ToString()
+            cbxKilomMAlquileres.SelectedValue = dgvAlquileres.CurrentRow.Cells("cantidadkmalq").Value.ToString
+            txtCostoMAlquileres.Text = dgvAlquileres.CurrentRow.Cells("costototalalq").Value.ToString
+            cbxDestinoMAlquileres.SelectedValue = dgvAlquileres.CurrentRow.Cells("idsucursalllegadaalq").Value.ToString()
+            txtNombreMAlq.Text = dgvAlquileres.CurrentRow.Cells("nombreapellidoalq").Value.ToString()
+
+        End If
+    End Sub
+
+    Private Sub ModificarAlquiler(sender As Object, e As EventArgs) Handles btnModificarAlquiler.Click
+
+
+
+
+
+
+
+    End Sub
+
+
 End Class

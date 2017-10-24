@@ -214,6 +214,8 @@ Partial Class frmCambiosGenerales
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.txtKmExcedido = New System.Windows.Forms.TextBox()
+        Me.lblkmexce = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         Me.tbpDocumento.SuspendLayout()
@@ -722,6 +724,8 @@ Partial Class frmCambiosGenerales
         Me.pnlcatcambios.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlcatcambios.BackColor = System.Drawing.Color.Silver
+        Me.pnlcatcambios.Controls.Add(Me.lblkmexce)
+        Me.pnlcatcambios.Controls.Add(Me.txtKmExcedido)
         Me.pnlcatcambios.Controls.Add(Me.txttarifalibrecatadd)
         Me.pnlcatcambios.Controls.Add(Me.Label26)
         Me.pnlcatcambios.Controls.Add(Me.Label4)
@@ -2411,6 +2415,24 @@ Partial Class frmCambiosGenerales
         Me.DataGridView3.Size = New System.Drawing.Size(187, 332)
         Me.DataGridView3.TabIndex = 43
         '
+        'txtKmExcedido
+        '
+        Me.txtKmExcedido.Location = New System.Drawing.Point(118, 111)
+        Me.txtKmExcedido.Name = "txtKmExcedido"
+        Me.txtKmExcedido.Size = New System.Drawing.Size(96, 20)
+        Me.txtKmExcedido.TabIndex = 71
+        '
+        'lblkmexce
+        '
+        Me.lblkmexce.AutoSize = True
+        Me.lblkmexce.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblkmexce.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblkmexce.Location = New System.Drawing.Point(119, 91)
+        Me.lblkmexce.Name = "lblkmexce"
+        Me.lblkmexce.Size = New System.Drawing.Size(68, 17)
+        Me.lblkmexce.TabIndex = 72
+        Me.lblkmexce.Text = "km/Libre *"
+        '
         'frmCambiosGenerales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2658,5 +2680,6 @@ Partial Class frmCambiosGenerales
     Friend WithEvents nombretipodoc As DataGridViewTextBoxColumn
     Friend WithEvents idtipodoc As DataGridViewTextBoxColumn
     Friend WithEvents estadotipodoc As DataGridViewCheckBoxColumn
-
+    Friend WithEvents lblkmexce As Label
+    Friend WithEvents txtKmExcedido As TextBox
 End Class

@@ -98,23 +98,38 @@ Partial Public Class frmMainMenu
     Private Sub CargarDatosAlquiler(sender As Object, e As EventArgs) Handles dgvAlquileres.SelectionChanged
 
         If Not IsNothing(dgvAlquileres.CurrentRow) Then
-
+            Dim estadoAlquiler As String = dgvAlquileres.CurrentRow.Cells("estadoalq").Value.ToString()
+            If (estadoAlquiler = "Inactiva" Or estadoAlquiler = "Anulada ") Then
+                pnlMAlq.Enabled = False
+                pnlFinAlq.Enabled = False
+            Else
+                pnlMAlq.Enabled = True
+                pnlFinAlq.Enabled = True
+            End If
             txtDocumentoMAlquileres.Text = dgvAlquileres.CurrentRow.Cells("nrodocumalq").Value.ToString()
-            cbxKilomMAlquileres.SelectedValue = dgvAlquileres.CurrentRow.Cells("cantidadkmalq").Value.ToString
             txtCostoMAlquileres.Text = dgvAlquileres.CurrentRow.Cells("costototalalq").Value.ToString
-            cbxDestinoMAlquileres.SelectedValue = dgvAlquileres.CurrentRow.Cells("idsucursalllegadaalq").Value.ToString()
             txtNombreMAlq.Text = dgvAlquileres.CurrentRow.Cells("nombreapellidoalq").Value.ToString()
+            cbxKilomMAlquileres.SelectedValue = dgvAlquileres.CurrentRow.Cells("cantidadkmalq").Value.ToString
+            cbxDestinoMAlquileres.SelectedValue = dgvAlquileres.CurrentRow.Cells("idsucursalllegadaalq").Value.ToString()
 
         End If
     End Sub
 
     Private Sub ModificarAlquiler(sender As Object, e As EventArgs) Handles btnModificarAlquiler.Click
 
+        Dim kilometrajeI As String = dgvAlquileres.CurrentRow.Cells("cantidadkmalq").Value.ToString
+        Dim sucursalDestinoI As String = dgvAlquileres.CurrentRow.Cells("idsucursalllegadaalq").Value.ToString()
+        Dim idreservaI As String = dgvAlquileres.CurrentRow.Cells("idreservaalquiler").Value.ToString()
 
+        If Not (cbxKilomMAlquileres.SelectedValue.ToString = kilometrajeI And cbxDestinoMAlquileres.SelectedValue.ToString = sucursalDestinoI) Then
 
+            conexion.EjecutarNonQuery("UPDATE reserva SET  cantidadkm = " + cbxKilomMAlquileres.SelectedValue.ToString + ",  idsucursalllegada = '" + cbxDestinoMAlquileres.SelectedValue.ToString + "' WHERE idreserva = " + idreservaI + " ")
+            AmaranthMessagebox("Alquiler modificado correctamente", "Continuar")
+            RecargarDatos(dgvAlquileres)
 
-
-
+        Else
+            AmaranthMessagebox("Modifique algo", "Advertencia")
+        End If
 
     End Sub
 

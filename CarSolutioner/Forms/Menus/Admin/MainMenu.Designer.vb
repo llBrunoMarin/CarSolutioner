@@ -554,7 +554,7 @@ Partial Class frmMainMenu
         Me.cbxSucSalFres = New System.Windows.Forms.ComboBox()
         Me.cbxSucLlegFRes = New System.Windows.Forms.ComboBox()
         Me.Alquileres = New System.Windows.Forms.TabPage()
-        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.pnlMAlq = New System.Windows.Forms.Panel()
         Me.btnModificarAlquiler = New System.Windows.Forms.Button()
         Me.Label153 = New System.Windows.Forms.Label()
         Me.Label156 = New System.Windows.Forms.Label()
@@ -568,7 +568,7 @@ Partial Class frmMainMenu
         Me.Label130 = New System.Windows.Forms.Label()
         Me.lblhelpVEh160 = New System.Windows.Forms.Label()
         Me.Label163 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.pnlFinAlq = New System.Windows.Forms.Panel()
         Me.btnFinalizarAlquiler = New System.Windows.Forms.Button()
         Me.Label136 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -712,10 +712,10 @@ Partial Class frmMainMenu
         Me.pnlBRes.SuspendLayout()
         Me.pnlFReserva.SuspendLayout()
         Me.Alquileres.SuspendLayout()
-        Me.Panel4.SuspendLayout()
+        Me.pnlMAlq.SuspendLayout()
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        Me.pnlFinAlq.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -6433,10 +6433,10 @@ Partial Class frmMainMenu
         'Alquileres
         '
         Me.Alquileres.BackColor = System.Drawing.Color.Silver
-        Me.Alquileres.Controls.Add(Me.Panel4)
+        Me.Alquileres.Controls.Add(Me.pnlMAlq)
         Me.Alquileres.Controls.Add(Me.dgvAlquileres)
         Me.Alquileres.Controls.Add(Me.Panel5)
-        Me.Alquileres.Controls.Add(Me.Panel2)
+        Me.Alquileres.Controls.Add(Me.pnlFinAlq)
         Me.Alquileres.Controls.Add(Me.Panel3)
         Me.Alquileres.Location = New System.Drawing.Point(4, 22)
         Me.Alquileres.Name = "Alquileres"
@@ -6445,27 +6445,28 @@ Partial Class frmMainMenu
         Me.Alquileres.TabIndex = 1
         Me.Alquileres.Text = "Alquileres"
         '
-        'Panel4
+        'pnlMAlq
         '
-        Me.Panel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Panel4.BackColor = System.Drawing.Color.Silver
-        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel4.Controls.Add(Me.lblnombreCMalq)
-        Me.Panel4.Controls.Add(Me.txtNombreMAlq)
-        Me.Panel4.Controls.Add(Me.btnModificarAlquiler)
-        Me.Panel4.Controls.Add(Me.Label153)
-        Me.Panel4.Controls.Add(Me.Label156)
-        Me.Panel4.Controls.Add(Me.Label157)
-        Me.Panel4.Controls.Add(Me.txtDocumentoMAlquileres)
-        Me.Panel4.Controls.Add(Me.cbxKilomMAlquileres)
-        Me.Panel4.Controls.Add(Me.Label158)
-        Me.Panel4.Controls.Add(Me.Label159)
-        Me.Panel4.Controls.Add(Me.cbxDestinoMAlquileres)
-        Me.Panel4.Controls.Add(Me.txtCostoMAlquileres)
-        Me.Panel4.Location = New System.Drawing.Point(6, 589)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(652, 216)
-        Me.Panel4.TabIndex = 43
+        Me.pnlMAlq.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.pnlMAlq.BackColor = System.Drawing.Color.Silver
+        Me.pnlMAlq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlMAlq.Controls.Add(Me.lblnombreCMalq)
+        Me.pnlMAlq.Controls.Add(Me.txtNombreMAlq)
+        Me.pnlMAlq.Controls.Add(Me.btnModificarAlquiler)
+        Me.pnlMAlq.Controls.Add(Me.Label153)
+        Me.pnlMAlq.Controls.Add(Me.Label156)
+        Me.pnlMAlq.Controls.Add(Me.Label157)
+        Me.pnlMAlq.Controls.Add(Me.txtDocumentoMAlquileres)
+        Me.pnlMAlq.Controls.Add(Me.cbxKilomMAlquileres)
+        Me.pnlMAlq.Controls.Add(Me.Label158)
+        Me.pnlMAlq.Controls.Add(Me.Label159)
+        Me.pnlMAlq.Controls.Add(Me.cbxDestinoMAlquileres)
+        Me.pnlMAlq.Controls.Add(Me.txtCostoMAlquileres)
+        Me.pnlMAlq.Location = New System.Drawing.Point(6, 589)
+        Me.pnlMAlq.Name = "pnlMAlq"
+        Me.pnlMAlq.Size = New System.Drawing.Size(652, 216)
+        Me.pnlMAlq.TabIndex = 43
+
         '
         'btnModificarAlquiler
         '
@@ -6624,17 +6625,17 @@ Partial Class frmMainMenu
         Me.Label163.TabIndex = 24
         Me.Label163.Text = "Realizar alquiler"
         '
-        'Panel2
+        'pnlFinAlq
         '
-        Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel2.BackColor = System.Drawing.Color.Silver
-        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.btnFinalizarAlquiler)
-        Me.Panel2.Controls.Add(Me.Label136)
-        Me.Panel2.Location = New System.Drawing.Point(664, 589)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(650, 216)
-        Me.Panel2.TabIndex = 42
+        Me.pnlFinAlq.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlFinAlq.BackColor = System.Drawing.Color.Silver
+        Me.pnlFinAlq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlFinAlq.Controls.Add(Me.btnFinalizarAlquiler)
+        Me.pnlFinAlq.Controls.Add(Me.Label136)
+        Me.pnlFinAlq.Location = New System.Drawing.Point(664, 589)
+        Me.pnlFinAlq.Name = "pnlFinAlq"
+        Me.pnlFinAlq.Size = New System.Drawing.Size(650, 216)
+        Me.pnlFinAlq.TabIndex = 42
         '
         'btnFinalizarAlquiler
         '
@@ -7546,13 +7547,13 @@ Partial Class frmMainMenu
         Me.pnlFReserva.ResumeLayout(False)
         Me.pnlFReserva.PerformLayout()
         Me.Alquileres.ResumeLayout(False)
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
+        Me.pnlMAlq.ResumeLayout(False)
+        Me.pnlMAlq.PerformLayout()
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        Me.pnlFinAlq.ResumeLayout(False)
+        Me.pnlFinAlq.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
@@ -7836,7 +7837,7 @@ Partial Class frmMainMenu
     Friend WithEvents dtpDesdeFReserva As DateTimePicker
     Friend WithEvents cbxSucSalFres As ComboBox
     Friend WithEvents cbxSucLlegFRes As ComboBox
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents pnlFinAlq As Panel
     Friend WithEvents btnFinalizarAlquiler As Button
     Friend WithEvents Label136 As Label
     Friend WithEvents Panel3 As Panel
@@ -7973,7 +7974,7 @@ Partial Class frmMainMenu
     Friend WithEvents fechafin As DataGridViewTextBoxColumn
     Friend WithEvents btnVaciarIngresoMant As Button
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents pnlMAlq As Panel
     Friend WithEvents btnModificarAlquiler As Button
     Friend WithEvents Label153 As Label
     Friend WithEvents Label156 As Label

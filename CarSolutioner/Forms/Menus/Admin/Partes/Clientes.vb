@@ -107,53 +107,47 @@ Partial Public Class frmMainMenu
                             numeros += "," + Telefono
                         End If
                     Next
+                    Dim nrodocRepetido As New DataTable
+                    nrodocRepetido = conexion.EjecutarSelect("SELECT nrodocumento,idtipodoc FROM cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "' and idtipodoc = '" + cbxTipoDocumACliente.SelectedValue.ToString + "'")
 
-                    Dim sentencia As String
-                    sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, porcdescuento, estado, telefono) VALUES 
-                                                ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')",
-                                                cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text,
-                                              txtNombreACliente.Text, txtApellidoACliente.Text,
-                                              txtCorreoACliente.Text, FechaSeleccionada,
-                                              If(txtEmpresaACliente.Text = "", "-", txtEmpresaACliente.Text), numDescuentoACliente.Value.ToString, "t", numeros.ToString)
+                    If Not nrodocRepetido.Rows.Count > 0 Then
+                        Dim sentencia As String
+                        sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, porcdescuento, estado, telefono) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, FechaSeleccionada, If(txtEmpresaACliente.Text = "", "-", txtEmpresaACliente.Text), numDescuentoACliente.Value.ToString, "t", numeros.ToString)
 
-
-                    If cbxTipoDocumACliente.SelectedValue = 1 Then
-
-                        'Si la cédula es válida
-                        If VerificarCI(txtDocumACliente.Text) Then
-
-                            'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
-                            If conexion.EjecutarNonQuery(sentencia) Then
-                                MsgBox("Cliente ingresado satisfactoriamente")
-                                RecargarDatos(dgvClientes)
-                                Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
+                        If cbxTipoDocumACliente.SelectedValue = 1 Then
+                            'Si la cédula es válida
+                            If VerificarCI(txtDocumACliente.Text) Then
+                                'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
+                                If conexion.EjecutarNonQuery(sentencia) Then
+                                    AmaranthMessagebox("Cliente ingresado satisfactoriamente", "Continuar")
+                                    RecargarDatos(dgvClientes)
+                                    Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
+                                End If
                             End If
+                        Else
 
+                            'Si el cliente se ingresa satisfactoriamente, recargar y desactivar descuento.
+                            If conexion.EjecutarNonQuery(sentencia) Then
+                                AmaranthMessagebox("Cliente ingresado satisfactoriamente", "Continuar")
+                                RecargarDatos(dgvClientes)
+                                numDescuentoACliente.Enabled = False
+                            End If
                         End If
-
                     Else
-
-                        'Si el cliente se ingresa satisfactoriamente, recargar y desactivar descuento.
-                        If conexion.EjecutarNonQuery(sentencia) Then
-                            MsgBox("Cliente ingresado satisfactoriamente")
-                            RecargarDatos(dgvClientes)
-                            numDescuentoACliente.Enabled = False
-                        End If
-
+                        AmaranthMessagebox("Ya existe un cliente con el mismo número y tipo de documento, por favor modifique", "Error")
                     End If
                 Else
                     AmaranthMessagebox("Solo puede registrar clientes mayores a 18 años.", "Advertencia")
                 End If
 
-
             Else
                 'Si la fecha seleccionada no es una fecha válida, mostramos un mensaje de error y salimos del Sub.
-                MsgBox("Por favor, seleccione una fecha válida.")
+                AmaranthMessagebox("Por favor, seleccione una fecha válida.", "Advertencia")
 
             End If
         Else
             'Si falta rellenar algún dato necesario:
-            MsgBox("Por favor, rellene todos los campos obligatorios.")
+            AmaranthMessagebox("Por favor, rellene todos los campos obligatorios.", "Advertencia")
         End If
 
     End Sub
@@ -222,22 +216,30 @@ Partial Public Class frmMainMenu
 
                     If Not (cbxTipoDocumMCliente.SelectedValue = idtipodocm And txtDocumMCliente.Text.ToString = nrodocM And txtNombreMCliente.Text.ToString = nombreM And txtApellidoMCliente.Text.ToString = apellidoM And txtCorreoMCliente.Text.ToString = emailM And txtEmpresaMCliente.Text.ToString = empresaM And numDescuentoMCliente.Value.ToString = descuentoM And FechaSeleccionada = FechaModificar And telefonoM = numeros) Then
 
-                        'TODO: ver como mejorar este if, pq si borran la ci y la agregan de nuevo cambia el id. Ahora funciona bien.
-                        If (cbxTipoDocumMCliente.SelectedValue = 1) Then
-                            If (Metodos.VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
-                                conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                        Dim nrodocRepetido As New DataTable
+                        nrodocRepetido = conexion.EjecutarSelect("SELECT nrodocumento,idtipodoc FROM cliente WHERE nrodocumento = '" + txtDocumMCliente.Text + "' and idtipodoc = '" + cbxTipoDocumMCliente.SelectedValue.ToString + "'")
+
+                        If Not nrodocRepetido.Rows.Count > 0 Then
+
+                            If (cbxTipoDocumMCliente.SelectedValue = 1) Then
+                                If (VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
+                                    conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                                    MsgBox("Persona modificada satisfactoriamente.")
+                                    RecargarDatos(dgvClientes)
+                                    numDescuentoMCliente.Enabled = False
+                                End If
+                            Else
+                                conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
                                 MsgBox("Persona modificada satisfactoriamente.")
                                 RecargarDatos(dgvClientes)
                                 numDescuentoMCliente.Enabled = False
                             End If
+
                         Else
-                            conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
-                            MsgBox("Persona modificada satisfactoriamente.")
-                            RecargarDatos(dgvClientes)
-                            numDescuentoMCliente.Enabled = False
+                            AmaranthMessagebox("Ya existe un cliente con el mismo número y tipo de documento, por favor modifique", "Error")
                         End If
                     Else
-                        AmaranthMessagebox("Modifique algo por favor.", "Advertencia")
+                            AmaranthMessagebox("Modifique algo por favor.", "Advertencia")
                     End If
                 Else
                     MsgBox("Por favor, ingrese una fecha válida.")

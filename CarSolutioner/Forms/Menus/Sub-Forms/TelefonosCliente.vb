@@ -37,10 +37,11 @@
             Case "Modificar"
                 btnAgregar.Visible = False
                 btnModificar.Visible = True
-                lblNombrePersona.Visible = False
+                lblNombrePersona.Visible = True
                 dgvTelefonos.AutoGenerateColumns = False
                 dgvTelefonos.ReadOnly = False
                 dgvTelefonos.Size = New Size(254, 131)
+                btnCerrar.Visible = False
 
                 For Each item In ListaTelefonos
                     dgvTelefonos.Rows.Add(item)

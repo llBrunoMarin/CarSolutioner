@@ -10,9 +10,13 @@ Partial Public Class frmMainMenu
         If chbxFiltrarFechaMant.Checked Then
             dtpFiltrarFechaFinMant.Enabled = True
             dtpFiltrarFechaInicioMant.Enabled = True
+            lblFechaFinFiltradoMant.Enabled = True
+            lblFechaInicioFiltradoMant.Enabled = True
         Else
             dtpFiltrarFechaFinMant.Enabled = False
             dtpFiltrarFechaInicioMant.Enabled = False
+            lblFechaFinFiltradoMant.Enabled = False
+            lblFechaInicioFiltradoMant.Enabled = False
         End If
     End Sub
 

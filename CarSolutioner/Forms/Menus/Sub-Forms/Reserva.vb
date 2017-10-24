@@ -1,15 +1,21 @@
 ﻿Public Class Reserva
     Dim ReservaSeleccionada As ReservaSeleccionada
+    Public Enum Tipo
+        Agregar
+        Modificar
+    End Enum
 
-    Public Sub New(reserva As ReservaSeleccionada)
+    Dim AltaModif As Tipo
+    Public Sub New(reserva As ReservaSeleccionada, tipo As Reserva.Tipo)
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         Me.ReservaSeleccionada = reserva
-    End Sub
+        Me.AltaModif = tipo
 
+    End Sub
 
     Private Sub Reserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -19,7 +25,6 @@
         txtSucursalPartida.Text = conexion.Sucursales.Select("idsucursal = '" + ReservaSeleccionada.IdSucursalPartida.ToString + "'").CopyToDataTable.Rows(0)("nombre").ToString
         txtSucursalDestino.Text = conexion.Sucursales.Select("idsucursal = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "'").CopyToDataTable.Rows(0)("nombre").ToString
         txtCategoriaElegida.Text = conexion.Categorias.Select("idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "'").CopyToDataTable.Rows(0)("nombre").ToString
-        'FIJARSE SI HACEMOS O NO EL +1
         txtCantidadDias.Text = (dtpFin.Value - dtpInicio.Value).Days
         txtKMElegidos.Text = conexion.Kilometros.Select("id = '" + ReservaSeleccionada.IdCantKM.ToString + "'").CopyToDataTable.Rows(0)("km").ToString
         txtDescuentoCliente.Text = ReservaSeleccionada.DescuentoCliente.ToString
@@ -63,13 +68,20 @@
         txtCostoAlqEstimado.Text = CostoAlqEstimado.ToString()
         txtDescuento.Text = DescuentoCalc.ToString()
         txtCostoTotalEstimado.Text = CostoTotalEstimado.ToString()
+
     End Sub
+
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
 
-        conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.IdCantKM.ToString + "', '" + ReservaSeleccionada.CostoTotal.ToString + "', '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', 1, NULL, '" + ReservaSeleccionada.IdCliente.ToString + "', '" + ReservaSeleccionada.IdCategoria.ToString + "', '" + ReservaSeleccionada.IdTipo.ToString + "', '" + ReservaSeleccionada.IdSucursalPartida.ToString + "', '" + ReservaSeleccionada.IdSucursalDestino.ToString + "', '" + conexion.Usuario + "'  )")
-        RecargarDatosEspecificos(frmMainMenu, frmMainMenu.dgvReservas)
+        If Me.AltaModif = Tipo.Agregar Then
+            conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.IdCantKM.ToString + "', '" + ReservaSeleccionada.CostoTotal.ToString + "', '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', 1, NULL, '" + ReservaSeleccionada.IdCliente.ToString + "', '" + ReservaSeleccionada.IdCategoria.ToString + "', '" + ReservaSeleccionada.IdTipo.ToString + "', '" + ReservaSeleccionada.IdSucursalPartida.ToString + "', '" + ReservaSeleccionada.IdSucursalDestino.ToString + "', '" + conexion.Usuario + "'  )")
+            AmaranthMessagebox("Reserva ingresada correctamente", "Continuar")
+        Else
+            conexion.EjecutarNonQuery("UPDATE RESERVA SET fechaalquilerinicio = NULL, fechaalquilerfin = NULL, fechareservainicio = '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd HH:mm") + "', fechareservafin = '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd HH:mm") + "', cantidadkm = '" + ReservaSeleccionada.IdCantKM.ToString + "', costototal = '" + ReservaSeleccionada.CostoTotal.ToString + "', estado = '1', nrochasis = NULL, idpersona = '" + ReservaSeleccionada.IdCliente.ToString + "', idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "', idtipo = '" + ReservaSeleccionada.IdTipo.ToString + "', idsucursalsalida = '" + ReservaSeleccionada.IdSucursalPartida.ToString + "',  idsucursalllegada = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "' WHERE idreserva = '" + ReservaSeleccionada.IdReserva.ToString + "'")
+            AmaranthMessagebox("Reserva modificada correctamente", "Continuar")
+        End If
 
-        AmaranthMessagebox("Reserva ingresada correctamente", "Continuar")
+        RecargarDatosEspecificos(Me.Owner, "dgvReservas")
         Me.Dispose()
 
     End Sub

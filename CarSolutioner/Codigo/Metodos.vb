@@ -35,13 +35,35 @@ Module Metodos
         End Select
     End Sub
 
-    Public Sub RecargarDatosEspecificos(form As Form, dgv As DataGridView)
+
+    Dim _list As New List(Of Control)
+    Public Sub GetChilds(container As Control)
+        For Each child As Control In container.Controls
+            _list.Add(child)
+            If (child.HasChildren) Then
+                GetChilds(child)
+            End If
+        Next
+    End Sub
+
+
+
+    Public Sub RecargarDatosEspecificos(form As Form, dgv As String)
+        Dim GridView As New DataGridView
+
+        GetChilds(form)
+        For Each cntrl As Control In _list
+            If TypeOf (cntrl) Is DataGridView And cntrl.Name = dgv Then
+                GridView = cntrl
+            End If
+        Next
+
         Select Case form.Name
             Case "frmMainMenu"
-                frmMainMenu.RecargarDatos(dgv)
+                frmMainMenu.RecargarDatos(GridView)
 
             Case "frmMainMenuInvitado"
-                frmMainMenuInvitado.RecargarDatos(dgv)
+                frmMainMenuInvitado.RecargarDatos(GridView)
 
         End Select
     End Sub
@@ -260,10 +282,10 @@ Module Metodos
     Public Function AmaranthMessagebox(Texto As String, Tipo As String) As DialogResult
 
         Dim AmaranthMsgbox As New AmaranthMsgbox(Texto, Tipo)
-        Using AmaranthMsgbox
-            Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog()
+
+        Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog()
             Return resultado
-        End Using
+
 
 
     End Function

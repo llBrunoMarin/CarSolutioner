@@ -315,8 +315,8 @@ Partial Public Class frmMainMenuInvitado
                             ReservaSeleccionadaReserva.UsuarioEmpleado = conexion.Usuario
                             ReservaSeleccionadaReserva.DescuentoCliente = PorcDescuento
 
-                            Dim reserva As New Reserva(ReservaSeleccionadaReserva)
-                            reserva.ShowDialog()
+                            Dim reserva As New Reserva(ReservaSeleccionadaReserva, Reserva.Tipo.Agregar)
+                            reserva.ShowDialog(Me)
 
                         Else
                             AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")

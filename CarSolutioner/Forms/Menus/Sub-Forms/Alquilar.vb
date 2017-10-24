@@ -37,6 +37,7 @@
 
         End Select
     End Sub
+
     'Agregar resalquiler fin para cambiar con la q este en el form, por si la quiere cambiar 
     Private Sub Alquilar_Activated(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -184,9 +185,10 @@
             'Actualiza la Reserva para que sea un ALQUILER, con NroChasis = al seleccionado, fechaalquilerinicio = hoy, fechareservafin = seleccionada (en caso que el cliente cambie su fecha reserva fin)
             conexion.EjecutarNonQuery("UPDATE Reserva SET nrochasis = '" + NroChasis + "', idsucursalllegada = '" + cbxSucLlegada.SelectedValue.ToString + "', fechaalquilerinicio = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', fechareservafin = '" + dtpFRfin.Value.ToString("yyyy-MM-dd HH:mm") + "' WHERE idreserva = " + ReservaSeleccionada.IdReserva.ToString + " ")
             conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = NULL WHERE nrochasis='" + NroChasis + "'")
-            MsgBox("Alquiler Ingresado")
+            AmaranthMessagebox("Alquiler Ingresado", "Continuar")
+            CargarTodosDatos(Me.Owner)
             Me.Dispose()
-            CargarTodosDatos(frmMainMenu)
+
 
 
         End If

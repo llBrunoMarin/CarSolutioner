@@ -53,6 +53,11 @@ Public Class frmMainMenu
         cbxAireFVeh.SelectedItem = Nothing
         cbxManualFVeh.SelectedItem = Nothing
 
+
+        dtpFiltrarFechaInicioMant.Enabled = False
+        dtpFiltrarFechaFinMant.Enabled = False
+
+
         dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()
         dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
 
@@ -248,16 +253,13 @@ Public Class frmMainMenu
             Case "dgvEmpleados"
                 dgvEmpleados.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvEmpleados, "SELECT Cliente.idpersona, Cliente.nrodocumento, Cliente.nombre, Cliente.apellido, Cliente.email, empleado.estado, empleado.usuario, empleado.tipo idtipo, sucursal.idsucursal, sucursal.nombre sucursales, CASE WHEN empleado.tipo = 1 THEN ""Director General"" WHEN empleado.tipo = 2 THEN ""Gerente"" WHEN empleado.tipo = 3 THEN ""Jefe de Personal"" WHEN empleado.tipo = 4 THEN ""Empleado"" ELSE NULL END tipo FROM EMPLEADO, CLIENTE, TRABAJA, SUCURSAL WHERE Cliente.idpersona = Empleado.idpersona AND trabaja.usuarioempleado = empleado.usuario AND trabaja.idsucursal = sucursal.idsucursal AND trabaja.fechafin is null AND Empleado.estado = 't'")
-                Dim AuxiliarFiltro As String
-                AuxiliarFiltro = txtNombreFempleado.Text
-                txtNombreFempleado.Text = ""
-                txtNombreFempleado.Text = AuxiliarFiltro
+                chbxFiltroEmpleados.Checked = Not chbxFiltroEmpleados.Checked
 
             Case "dgvVehiculos"
                 dgvVehiculos.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal UNION SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, 'En la calle' Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T WHERE V.idsucursal is null AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo ")
                 'Para que se vuelva a aplicar el filtro
-
+                chbxFiltroVehiculos.Checked = Not chbxFiltroVehiculos.Checked
 
             Case "dgvReservas"
                 dgvReservas.AutoGenerateColumns = False

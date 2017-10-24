@@ -47,7 +47,10 @@ Partial Public Class frmMainMenu
             ReservaSeleccionadaFinalizarAlquiler.DeducibleVehiculo = selectedRow.Cells("deduciblealq").Value
 
             Dim TerminarAlquiler As New FinalizarAlquiler(ReservaSeleccionadaFinalizarAlquiler)
-            TerminarAlquiler.ShowDialog()
+            Using TerminarAlquiler
+                TerminarAlquiler.ShowDialog()
+
+            End Using
         Else
             AmaranthMessagebox("Solo pueden finalizar alquileres que esten activos.", "Error")
         End If

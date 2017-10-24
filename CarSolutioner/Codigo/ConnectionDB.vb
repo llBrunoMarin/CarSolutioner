@@ -191,6 +191,7 @@
         Try
 
             If cx.State = ConnectionState.Closed Then
+
                 cx.ConnectionTimeout = 2
 
                 'SERVIDOR UTU

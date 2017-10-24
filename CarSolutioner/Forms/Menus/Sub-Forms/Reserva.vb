@@ -1,5 +1,14 @@
 ﻿Public Class Reserva
-    Dim ReservaSeleccionada As ReservaSeleccionada = frmMainMenu.ReservaSeleccionadaReserva
+    Dim ReservaSeleccionada As ReservaSeleccionada
+
+    Public Sub New(reserva As ReservaSeleccionada)
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Me.ReservaSeleccionada = reserva
+    End Sub
 
 
     Private Sub Reserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -15,6 +24,12 @@
         txtKMElegidos.Text = conexion.Kilometros.Select("id = '" + ReservaSeleccionada.IdCantKM.ToString + "'").CopyToDataTable.Rows(0)("km").ToString
         txtDescuentoCliente.Text = ReservaSeleccionada.DescuentoCliente.ToString
 
+
+        CalcularCosto()
+
+    End Sub
+
+    Private Sub CalcularCosto()
         'Valores Seleccionados
         Dim TarifaDiariaBase As Integer
         Dim TarifaDiariaKM As Integer
@@ -48,15 +63,13 @@
         txtCostoAlqEstimado.Text = CostoAlqEstimado.ToString()
         txtDescuento.Text = DescuentoCalc.ToString()
         txtCostoTotalEstimado.Text = CostoTotalEstimado.ToString()
-
-
     End Sub
-
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
 
         conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.IdCantKM.ToString + "', '" + ReservaSeleccionada.CostoTotal.ToString + "', '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', 1, NULL, '" + ReservaSeleccionada.IdCliente.ToString + "', '" + ReservaSeleccionada.IdCategoria.ToString + "', '" + ReservaSeleccionada.IdTipo.ToString + "', '" + ReservaSeleccionada.IdSucursalPartida.ToString + "', '" + ReservaSeleccionada.IdSucursalDestino.ToString + "', '" + conexion.Usuario + "'  )")
-        frmMainMenu.CargarDatos()
-        AmaranthMessagebox("Reserva ingresada correctamente!", "Continuar")
+        RecargarDatosEspecificos(frmMainMenu, frmMainMenu.dgvReservas)
+
+        AmaranthMessagebox("Reserva ingresada correctamente", "Continuar")
         Me.Dispose()
 
     End Sub
@@ -66,13 +79,15 @@
     End Function
 
     Private Sub btnAgregarDescuentoCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarDescuentoCliente.Click
-        If Autorizar() = vbYes Then
+        If Autorizar(Me) = vbYes Then
 
             Dim descuento As New DescuentoPersonalCliente(ReservaSeleccionada.IdCliente)
             descuento.ShowDialog()
             txtDescuentoCliente.Enabled = True
             txtDescuentoCliente.Text = CargarDescuentoCliente(ReservaSeleccionada.IdCliente)
             txtDescuentoCliente.Enabled = False
+            ReservaSeleccionada.DescuentoCliente = txtDescuentoCliente.Text
+            CalcularCosto()
         Else
 
         End If

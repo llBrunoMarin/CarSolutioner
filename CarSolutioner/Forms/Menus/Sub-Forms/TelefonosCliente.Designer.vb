@@ -56,7 +56,7 @@ Partial Class frmTelefonosCliente
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvTelefonos.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvTelefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvTelefonos.Size = New System.Drawing.Size(163, 131)
+        Me.dgvTelefonos.Size = New System.Drawing.Size(254, 131)
         Me.dgvTelefonos.TabIndex = 0
         '
         'telefono
@@ -69,9 +69,9 @@ Partial Class frmTelefonosCliente
         'lblAyuda
         '
         Me.lblAyuda.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.lblAyuda.Location = New System.Drawing.Point(8, 187)
+        Me.lblAyuda.Location = New System.Drawing.Point(8, 191)
         Me.lblAyuda.Name = "lblAyuda"
-        Me.lblAyuda.Size = New System.Drawing.Size(263, 147)
+        Me.lblAyuda.Size = New System.Drawing.Size(369, 145)
         Me.lblAyuda.TabIndex = 2
         Me.lblAyuda.Text = resources.GetString("lblAyuda.Text")
         '
@@ -83,7 +83,7 @@ Partial Class frmTelefonosCliente
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(284, 30)
+        Me.Panel1.Size = New System.Drawing.Size(393, 30)
         Me.Panel1.TabIndex = 33
         '
         'lblNombrePersona
@@ -105,9 +105,9 @@ Partial Class frmTelefonosCliente
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.Cornsilk
-        Me.btnCerrar.Location = New System.Drawing.Point(251, 0)
+        Me.btnCerrar.Location = New System.Drawing.Point(355, -5)
         Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
+        Me.btnCerrar.Size = New System.Drawing.Size(42, 45)
         Me.btnCerrar.TabIndex = 29
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False
@@ -123,7 +123,7 @@ Partial Class frmTelefonosCliente
         Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregar.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregar.ForeColor = System.Drawing.Color.White
-        Me.btnAgregar.Location = New System.Drawing.Point(181, 59)
+        Me.btnAgregar.Location = New System.Drawing.Point(279, 58)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(91, 30)
         Me.btnAgregar.TabIndex = 50
@@ -133,7 +133,7 @@ Partial Class frmTelefonosCliente
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Panel7.Location = New System.Drawing.Point(278, 26)
+        Me.Panel7.Location = New System.Drawing.Point(383, 28)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(10, 323)
         Me.Panel7.TabIndex = 40
@@ -151,7 +151,7 @@ Partial Class frmTelefonosCliente
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Panel3.Location = New System.Drawing.Point(1, 339)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(283, 10)
+        Me.Panel3.Size = New System.Drawing.Size(392, 10)
         Me.Panel3.TabIndex = 51
         '
         'btnModificar
@@ -165,7 +165,7 @@ Partial Class frmTelefonosCliente
         Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificar.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.White
-        Me.btnModificar.Location = New System.Drawing.Point(181, 104)
+        Me.btnModificar.Location = New System.Drawing.Point(279, 104)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(91, 30)
         Me.btnModificar.TabIndex = 50
@@ -177,7 +177,7 @@ Partial Class frmTelefonosCliente
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(284, 349)
+        Me.ClientSize = New System.Drawing.Size(393, 349)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnModificar)

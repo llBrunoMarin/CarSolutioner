@@ -1,13 +1,7 @@
 ﻿Public Class frmTelefonosCliente
 
-    Public Sub New()
-
-        ' This call is required by the designer.
-        InitializeComponent()
-
-    End Sub
-
-    Public Sub New(ModoVista As String, Nombre As String, Optional ListaTelefonos As List(Of String) = Nothing)
+    Dim ComboBoxTelefonos As ComboBox
+    Public Sub New(ModoVista As String, Nombre As String, combo As ComboBox, Optional ListaTelefonos As List(Of String) = Nothing)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -19,7 +13,7 @@
 
         Select Case ModoVista
             Case "Ver"
-                dgvTelefonos.Size = New Size(260, 237)
+                dgvTelefonos.Size = New Size(366, 288)
                 dgvTelefonos.ReadOnly = True
                 btnAgregar.Visible = False
                 btnModificar.Visible = False
@@ -32,11 +26,13 @@
                 lblNombrePersona.Visible = False
                 dgvTelefonos.AutoGenerateColumns = False
                 dgvTelefonos.ReadOnly = False
-                dgvTelefonos.Size = New Size(167, 131)
+                dgvTelefonos.Size = New Size(254, 131)
 
                 For Each item In ListaTelefonos
                     dgvTelefonos.Rows.Add(item)
                 Next
+
+                Me.ComboBoxTelefonos = combo
 
             Case "Modificar"
                 btnAgregar.Visible = False
@@ -44,11 +40,13 @@
                 lblNombrePersona.Visible = False
                 dgvTelefonos.AutoGenerateColumns = False
                 dgvTelefonos.ReadOnly = False
-                dgvTelefonos.Size = New Size(167, 131)
+                dgvTelefonos.Size = New Size(254, 131)
 
                 For Each item In ListaTelefonos
                     dgvTelefonos.Rows.Add(item)
                 Next
+
+                Me.ComboBoxTelefonos = combo
 
             Case Else
 
@@ -81,7 +79,7 @@
 
         Next
 
-        frmMainMenu.cbxTelefonosACliente.DataSource = ListaTelefonos
+        ComboBoxTelefonos.DataSource = ListaTelefonos
 
         Me.Dispose()
 
@@ -110,7 +108,7 @@
 
         Next
 
-        frmMainMenu.cbxTelefonosMCliente.DataSource = ListaTelefonos
+        ComboBoxTelefonos.DataSource = ListaTelefonos
 
         Me.Dispose()
     End Sub

@@ -1,20 +1,10 @@
 ﻿'Ignorar, es para que no abra un Designer.
 <System.ComponentModel.DesignerCategory("")>
-Public Class NoDesignerMantenimiento
+Public Class NoDesignerMantenimientoInvitado
 End Class
 
 'MANTENIMIENTO
-Partial Public Class frmMainMenu
-
-    Private Sub OcultarDTP(sender As Object, e As EventArgs) Handles chbxFiltrarFechaMant.CheckedChanged
-        If chbxFiltrarFechaMant.Checked Then
-            dtpFiltrarFechaFinMant.Enabled = True
-            dtpFiltrarFechaInicioMant.Enabled = True
-        Else
-            dtpFiltrarFechaFinMant.Enabled = False
-            dtpFiltrarFechaInicioMant.Enabled = False
-        End If
-    End Sub
+Partial Public Class frmMainMenuInvitado
 
     Private Sub btnIngresarMant_Click(sender As Object, e As EventArgs) Handles btnIngresarMant.Click
 
@@ -228,31 +218,30 @@ Partial Public Class frmMainMenu
                 DirectCast(item, NumericUpDown).Value = Nothing
             End If
         Next
-        dtpFiltrarFechaInicioMant.Value = Date.Now.Round()
-        dtpFiltrarFechaFinMant.Value = Date.Now.Round().AddHours(1)
+        dtpFiltrarFechaInicioMant.Value = Date.Now
+        dtpFiltrarFechaFinMant.Value = Date.Now
         chbxFiltrarFechaMant.Checked = False
         RecargarDatos(dgvMant)
     End Sub
 
-    'Private Sub VaciarModificarMantenimiento(sender As Object, e As EventArgs) Handles btnVaciarMant.Click
-    '    For Each item In pnlmmant.Controls
+    Private Sub VaciarModificarMantenimiento(sender As Object, e As EventArgs) Handles btnVaciarMant.Click
+        For Each item In pnlmmant.Controls
 
-    '        If TypeOf item Is TextBox Then
-    '            item.text = ""
-    '        End If
+            If TypeOf item Is TextBox Then
+                item.text = ""
+            End If
 
-    '        If TypeOf item Is ComboBox Then
-    '            item.SelectedItem = Nothing
-    '        End If
+            If TypeOf item Is ComboBox Then
+                item.SelectedItem = Nothing
+            End If
 
-    '        If TypeOf item Is NumericUpDown Then
-    '            DirectCast(item, NumericUpDown).Value = Nothing
-    '        End If
-    '    Next
-    'End Sub
+            If TypeOf item Is NumericUpDown Then
+                DirectCast(item, NumericUpDown).Value = Nothing
+            End If
+        Next
+    End Sub
 
     Private Sub btnVaciarIngresoMant_Click(sender As Object, e As EventArgs) Handles btnVaciarIngresoMant.Click
-
         For Each item In pnlAmant.Controls
 
             If TypeOf item Is TextBox Then
@@ -267,12 +256,9 @@ Partial Public Class frmMainMenu
                 DirectCast(item, NumericUpDown).Value = Nothing
             End If
         Next
-
-        dtpFechaInicioMant.Value = Date.Now.Round
-        dtpFechaFinMant.Value = Date.Now.Round().AddMinutes(30)
-
+        dtpFechaInicioMant.Value = Date.Now
+        dtpFechaFinMant.Value = Date.Now
     End Sub
-
     Private Sub btnBajamant_Click(sender As Object, e As EventArgs) Handles btnBajamant.Click
 
         Dim format As String = "yyyy-MM-dd HH:mm"
@@ -295,5 +281,4 @@ Partial Public Class frmMainMenu
             RecargarDatos(dgvMant)
         End If
     End Sub
-
 End Class

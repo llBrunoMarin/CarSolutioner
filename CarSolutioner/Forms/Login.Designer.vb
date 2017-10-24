@@ -123,9 +123,9 @@ Partial Class Login
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.Cornsilk
-        Me.btnCerrar.Location = New System.Drawing.Point(504, -1)
+        Me.btnCerrar.Location = New System.Drawing.Point(500, -10)
         Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
+        Me.btnCerrar.Size = New System.Drawing.Size(43, 49)
         Me.btnCerrar.TabIndex = 90
         Me.btnCerrar.Text = "✕"
         Me.btnCerrar.UseVisualStyleBackColor = False
@@ -138,7 +138,7 @@ Partial Class Login
         Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMinimizar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMinimizar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnMinimizar.Location = New System.Drawing.Point(471, -1)
+        Me.btnMinimizar.Location = New System.Drawing.Point(472, 0)
         Me.btnMinimizar.Name = "btnMinimizar"
         Me.btnMinimizar.Size = New System.Drawing.Size(32, 30)
         Me.btnMinimizar.TabIndex = 30
@@ -263,7 +263,7 @@ Partial Class Login
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "sh"
+        Me.Text = "Car Solutioner: Login"
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pboxLoading, System.ComponentModel.ISupportInitialize).EndInit()

@@ -2,7 +2,7 @@
 Imports iTextSharp.text.pdf
 Imports System.IO
 'MenuPrincipal (DISEÑO)
-Public Class frmMainMenu
+Public Class frmMainMenuInvitado
 
 
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -49,9 +49,6 @@ Public Class frmMainMenu
 
         cbxKilomFRes.SelectedItem = Nothing
         chboxVerHoyFReserva.Checked = True
-
-        cbxAireFVeh.SelectedItem = Nothing
-        cbxManualFVeh.SelectedItem = Nothing
 
         dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()
         dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
@@ -105,7 +102,7 @@ Public Class frmMainMenu
 
         Cargando(500, Me)
 
-        frmCambiosGenerales.ShowDialog(Me)
+        frmCambiosGenerales.ShowDialog()
 
     End Sub
 
@@ -141,8 +138,7 @@ Public Class frmMainMenu
 
         'Cargas Tablas
         conexion.Modelos = conexion.EjecutarSelect("SELECT * from modelo")
-        conexion.Marcas = conexion.EjecutarSelect("SELECT * from Marca")
-        conexion.MarcasConModelo = conexion.EjecutarSelect("SELECT DISTINCT Ma.* FROM Marca Ma, Modelo Mo WHERE Mo.idmarca = Ma.idmarca")
+        conexion.Marcas = conexion.EjecutarSelect("SELECT * from marca")
         conexion.Categorias = conexion.EjecutarSelect("SELECT * from categoria")
         conexion.Tipos = conexion.EjecutarSelect("SELECT * from tipo")
         conexion.Sucursales = conexion.EjecutarSelect("SELECT * from sucursal")
@@ -156,13 +152,12 @@ Public Class frmMainMenu
         RecargarDatos(dgvEmpleados)
         RecargarDatos(dgvMant)
         RecargarDatos(dgvMasAlquileresRClientes)
-        RecargarDatos(dgvVehiculosDisponibles)
 
         'Cargas de ComboBox
         'MARCAS
-        CargarDatosComboBox(cbxMarcaAVeh, conexion.MarcasConModelo, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaMVeh, conexion.MarcasConModelo, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaFVeh, conexion.MarcasConModelo, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre", "idmarca")
+        CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre", "idmarca")
 
         'TIPOS
         CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
@@ -217,16 +212,6 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxKilomMReserva, conexion.Kilometros, "km", "id")
         Me.Opacity = 100
 
-        'Comboboxes de Si y No
-        Dim SiNo As New DataTable
-        SiNo.Columns.Add("text", GetType(String))
-        SiNo.Columns.Add("value", GetType(Boolean))
-        SiNo.Rows.Add("Si", True)
-        SiNo.Rows.Add("No", False)
-
-        CargarDatosComboBox(cbxAireFVeh, SiNo, "text", "value")
-        CargarDatosComboBox(cbxManualFVeh, SiNo, "text", "value")
-
         Login.Hide()
     End Sub
 
@@ -269,7 +254,7 @@ Public Class frmMainMenu
 
             Case "dgvAlquileres"
                 dgvAlquileres.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio, CASE WHEN R.fechaalquilerfin IS NULL Then ""En proceso"" ELSE TO_CHAR(R.fechaalquilerfin, '%Y-%m-%d %H:%M') END fechaalquilerfin, R.fechareservainicio, R.fechareservafin, R.cantidadkm idcantidadkm, V.deducible, R.costototal, R.fechatramite, R.estado idestado, R.nrochasis, V.matricula, Cl.nombre ||"" ""|| Cl.apellido nombreapellido, Cl.nrodocumento, ca.idcategoria, Ca.nombre categoria, T.idtipo, T.nombre tipo, SS.nombre sucsalida, SS.idsucursal idsucsalida, SL.nombre sucllegada, SL.idsucursal idsucllegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkmtext, CASE WHEN R.estado = 1 THEN ""Activa"" WHEN R.estado = 2 THEN ""Inactiva"" WHEN R.estado = 3 THEN ""Anulada"" ELSE NULL END estadotext FROM Reserva R, Vehiculo V, Cliente Cl, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY nombreapellido")
+                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio, R.fechaalquilerfin, R.fechareservainicio, R.fechareservafin, R.cantidadkm idcantidadkm, V.deducible, R.costototal, R.fechatramite, R.estado idestado, R.nrochasis, V.matricula, Cl.nombre ||"" ""|| Cl.apellido nombreapellido, Cl.nrodocumento, ca.idcategoria, Ca.nombre categoria, T.idtipo, T.nombre tipo, SS.nombre sucsalida, SS.idsucursal idsucsalida, SL.nombre sucllegada, SL.idsucursal idsucllegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkmtext, CASE WHEN R.estado = 1 THEN ""Activa"" WHEN R.estado = 2 THEN ""Inactiva"" WHEN R.estado = 3 THEN ""Anulada"" ELSE NULL END estadotext FROM Reserva R, Vehiculo V, Cliente Cl, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY nombreapellido")
 
 
             Case "dgvMant"
@@ -281,8 +266,6 @@ Public Class frmMainMenu
             Case "dgvMasAlquileresRClientes"
                 conexion.RellenarDataGridView(dgvMasAlquileresRClientes, "SELECT C.apellido  , c.nombre, c.email, 0 Alquileres FROM Cliente c group by apellido, nombre,email UNION SELECT c.apellido , c.nombre, c.email, count(r.nrochasis) Alquileres from cliente c, vehiculo v, reserva r where c.idpersona = r.idpersona and r.nrochasis=v.nrochasis group by apellido, nombre,email order by alquileres desc")
 
-                Case "dgvVehiculosDisponibles"
-                conexion.RellenarDataGridView(dgvVehiculosDisponibles, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal UNION SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, 'En la calle' Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T WHERE V.idsucursal is null AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND idsucursal = '" + conexion.IdSucursalUsuario.ToString + "' AND nrochasis NOT IN (SELECT nrochasis FROM Reserva R WHERE fechaalquilerfin IS NOT NULL) AND nrochasis NOT IN (SELECT nrochasis FROM mantenimiento WHERE TODAY BETWEEN fechainicio AND fechafin)")
             Case Else
                 conexion.RellenarDataGridView(dgv, sentencia)
 

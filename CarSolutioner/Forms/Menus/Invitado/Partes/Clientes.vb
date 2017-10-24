@@ -3,11 +3,11 @@ Imports iTextSharp.text.pdf
 Imports System.IO
 'Ignorar, es para que no abra un Designer.
 <System.ComponentModel.DesignerCategory("")>
-Public Class NoDesignerClientes
+Public Class NoDesignerClientesInvitado
 End Class
 
 'CLIENTES
-Partial Public Class frmMainMenu
+Partial Public Class frmMainMenuInvitado
 
     Private Sub chboxFechaFClientes_CheckedChanged(sender As Object, e As EventArgs) Handles chbxFechaFClientes.CheckedChanged
 

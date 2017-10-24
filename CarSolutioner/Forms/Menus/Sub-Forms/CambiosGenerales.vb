@@ -307,12 +307,12 @@
 
     Private Sub cboxsucursalmov_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboxsucursalmov.Click
 
-        Cargando(500)
+        Cargando(500, Me.Owner)
         CargarDatosComboBox(cboxsucursalmov, conexion.EjecutarSelect("SELECT * FROM sucursal where idsucursal != " + idsucursalmod + "  and estado = 't'"), "nombre", "idsucursal")
     End Sub
     Private Sub cbxcatmov_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxcatmov.Click
 
-        Cargando(500)
+        Cargando(500, Me.Owner)
         CargarDatosComboBox(cbxcatmov, conexion.EjecutarSelect("SELECT * FROM categoria where idcategoria != " + idcategoria + "  and estado = 't'"), "nombre", "idcategoria")
     End Sub
     Private Sub categoriamod(sender As Object, e As EventArgs) Handles dgvCategorias.SelectionChanged

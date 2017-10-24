@@ -1,10 +1,19 @@
 ﻿Public Class FinalizarAlquiler
-    Dim ReservaSeleccionada As ReservaSeleccionada = frmMainMenu.ReservaSeleccionadaFinalizarAlquiler
+    Public Sub New(reserva As ReservaSeleccionada)
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Me.ReservaSeleccionada = reserva
+    End Sub
+    Dim ReservaSeleccionada As ReservaSeleccionada
 
     Private Sub FinalizarAlquiler_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblTitulo.Text = "Alquiler del vehículo: " + ReservaSeleccionada.Matricula + " a nombre de: " + ReservaSeleccionada.NomCliente + ""
         txtCantidadDias.Text = If((Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days = 0, 1, (Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days)
         txtKMAutoAntes.Text = conexion.EjecutarSelect("SELECT kilometraje FROM Vehiculo WHERE nrochasis = '" + ReservaSeleccionada.NroChasis.ToString + "'").Rows(0)(0).ToString
+        txtDeducible.Text = ReservaSeleccionada.DeducibleVehiculo
     End Sub
 
     Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtKMAutoAhora.KeyPress, txtRecargo.KeyPress
@@ -66,8 +75,8 @@
     Private Sub CompletarAlquiler(sender As Object, e As EventArgs) Handles btnAccept.Click
         If Not txtKMAutoAhora.Text = "" Then
             conexion.EjecutarNonQuery("UPDATE Reserva SET fechaalquilerfin = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', estado = 2, costototal = '" + txtCostoTotalTotal.Text + "' WHERE idreserva = '" + ReservaSeleccionada.IdReserva.ToString + "'")
-            conexion.EjecutarNonQuery("UPDATE Vehiculo SET kilometraje = '" + txtKMAutoAhora.Text + "', idsucursal = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "' AND nrochasis = '" + ReservaSeleccionada.NroChasis.ToString + "'")
-            frmMainMenu.CargarDatos()
+            conexion.EjecutarNonQuery("UPDATE Vehiculo SET kilometraje = '" + txtKMAutoAhora.Text + "', idsucursal = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "' WHERE nrochasis = '" + ReservaSeleccionada.NroChasis.ToString + "'")
+            CargarTodosDatos(frmMainMenu)
             AmaranthMessagebox("Alquiler finalizado satisfactoriamente.", "Continuar")
             Me.Dispose()
         Else
@@ -80,7 +89,7 @@
     End Sub
 
     Private Sub btnAgregarDescuentoAlquiler_Click(sender As Object, e As EventArgs) Handles btnAgregarDescuentoAlquiler.Click
-        If Autorizar() = vbYes Then
+        If Autorizar(Me) = vbYes Then
             txtRecargo.Enabled = True
         End If
     End Sub

@@ -121,11 +121,11 @@
     <value>True</value>
   </metadata>
   <data name="lblAyuda.Text" xml:space="preserve">
-    <value>Para ingresar un nuevo teléfono comienze a escribirlo y al finalizar presione Enter.
+    <value>Para ingresar un nuevo teléfono: Comience a escribirlo y al finalizar presione Enter.
 
-Para modificar un teléfono haga click en el y luego doble click para poder editarlo.
+Para modificar un teléfono: Haga click en el y luego doble click para poder editarlo.
 
-Para borrar un teléfono, haga click en él y presione la tecla SUPR.</value>
+Para borrar un teléfono: Haga click en él y presione la tecla SUPR.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

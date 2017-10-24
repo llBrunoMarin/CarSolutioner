@@ -66,7 +66,7 @@ Partial Class Reconectar
         Me.lblreconnect.Name = "lblreconnect"
         Me.lblreconnect.Size = New System.Drawing.Size(272, 38)
         Me.lblreconnect.TabIndex = 37
-        Me.lblreconnect.Text = "Se ha perdido la conexion."
+        Me.lblreconnect.Text = "Se ha perdido la conexión"
         Me.lblreconnect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnCerrar

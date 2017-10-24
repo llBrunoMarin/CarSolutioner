@@ -11,6 +11,7 @@
     Dim _Usuario As String = Nothing
     Dim _Contraseña As String = Nothing
     Dim _TipoUsuario As String = Nothing
+    Dim _IdSucursalUsuario As Integer = Nothing
     Dim _ConnectionStatus As String = Nothing
 
 
@@ -22,15 +23,18 @@
     Dim _Documentos As DataTable
     Dim _Kilometros As New DataTable
     Dim _TipoEmpleados As New DataTable
+    Dim _MarcasConModelo As New DataTable
 
     Dim _Años As New List(Of String)
 
     'El constructor de la clase. El código de aquí se ejecutará cada vez que se cree una instancia de esta clase. Es como el "load" pero de la clase, no es de ningun formulario.
     Public Sub New()
-        Dim añosaux As Integer = 1900
-        While añosaux <= CInt(Date.Now.Year)
+        Dim añosaux As Integer = CInt(Date.Now.Year)
+
+        While añosaux >= 1900
+
             Años.Add(añosaux.ToString)
-            añosaux = añosaux + 1
+            añosaux = añosaux - 1
         End While
 
         timer.Interval = 10000
@@ -157,6 +161,24 @@
         End Set
     End Property
 
+    Public Property MarcasConModelo As DataTable
+        Get
+            Return _MarcasConModelo
+        End Get
+        Set(value As DataTable)
+            _MarcasConModelo = value
+        End Set
+    End Property
+
+    Public Property IdSucursalUsuario As Integer
+        Get
+            Return _IdSucursalUsuario
+        End Get
+        Set(value As Integer)
+            _IdSucursalUsuario = value
+        End Set
+    End Property
+
 
 
     'TODO: Programar excepciones de tal manera que muestre mensaje correspondiente
@@ -172,11 +194,11 @@
                 cx.ConnectionTimeout = 2
 
                 'SERVIDOR UTU
-                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
 
                 'SERVIDOR VICTOR
-                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
 
                 'SERVIDOR VICTOR 32 BITS
@@ -312,8 +334,8 @@
         End Try
 
     End Sub
-    Private Declare Function GetTickCount Lib "kernel32" () As Integer
 
+    Private Declare Function GetTickCount Lib "kernel32" () As Integer
 
     'Ejecuta una sentencia de tipo "NonQuery", es decir, que no "devuelve" "nada" (ejemplo INSERT, UPDATE, etc).
     'En realidad, devuelve el nro de filas afectadas; o un -1.
@@ -356,6 +378,5 @@
         End Try
 
     End Function
-
 
 End Class

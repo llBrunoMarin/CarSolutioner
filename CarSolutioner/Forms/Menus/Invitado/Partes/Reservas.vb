@@ -1,10 +1,10 @@
 ﻿'Ignorar, es para que no abra un Designer.
 <System.ComponentModel.DesignerCategory("")>
-Public Class NoDesignerReservas
+Public Class NoDesignerReservasInvitado
 End Class
 
 
-Partial Public Class frmMainMenu
+Partial Public Class frmMainMenuInvitado
 
     Dim Semaforo As String = "Verde"
 
@@ -317,8 +317,6 @@ Partial Public Class frmMainMenu
 
                             Dim reserva As New Reserva(ReservaSeleccionadaReserva)
                             reserva.ShowDialog()
-                            dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()
-                            dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
 
                         Else
                             AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")
@@ -440,10 +438,10 @@ Partial Public Class frmMainMenu
                 Else
                     Return ""
                 End If
-            Case Else
-                Return ""
+
         End Select
 
+        Return ""
     End Function
 
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AmaranthMsgbox
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class AmaranthMsgbox
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AmaranthMsgbox))
         Me.lblTexto = New System.Windows.Forms.Label()
@@ -46,12 +46,11 @@ Partial Class AmaranthMsgbox
         '
         Me.lblTexto.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTexto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblTexto.Location = New System.Drawing.Point(92, 61)
+        Me.lblTexto.Location = New System.Drawing.Point(105, 49)
         Me.lblTexto.Name = "lblTexto"
-        Me.lblTexto.Size = New System.Drawing.Size(293, 113)
+        Me.lblTexto.Size = New System.Drawing.Size(273, 91)
         Me.lblTexto.TabIndex = 0
-        Me.lblTexto.Text = "No hay autos disponibles para hoy con esas características. Por favor, búsque los" &
-    " autos disponibles para hoy y modifique la reserva de manera acorde."
+        Me.lblTexto.Text = "Error: Este es un texto de ejemplo para un error." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Por favor verifique."
         '
         'btnSi
         '
@@ -64,7 +63,7 @@ Partial Class AmaranthMsgbox
         Me.btnSi.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSi.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSi.ForeColor = System.Drawing.Color.White
-        Me.btnSi.Location = New System.Drawing.Point(94, 177)
+        Me.btnSi.Location = New System.Drawing.Point(84, 165)
         Me.btnSi.Name = "btnSi"
         Me.btnSi.Size = New System.Drawing.Size(91, 30)
         Me.btnSi.TabIndex = 50
@@ -83,7 +82,7 @@ Partial Class AmaranthMsgbox
         Me.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNo.ForeColor = System.Drawing.Color.White
-        Me.btnNo.Location = New System.Drawing.Point(226, 177)
+        Me.btnNo.Location = New System.Drawing.Point(216, 165)
         Me.btnNo.Name = "btnNo"
         Me.btnNo.Size = New System.Drawing.Size(91, 30)
         Me.btnNo.TabIndex = 51
@@ -98,7 +97,7 @@ Partial Class AmaranthMsgbox
         Me.Panel1.Controls.Add(Me.lblTitulo)
         Me.Panel1.Location = New System.Drawing.Point(0, -1)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(394, 30)
+        Me.Panel1.Size = New System.Drawing.Size(424, 30)
         Me.Panel1.TabIndex = 52
         '
         'btnCerrarMsgbox
@@ -110,7 +109,7 @@ Partial Class AmaranthMsgbox
         Me.btnCerrarMsgbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrarMsgbox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrarMsgbox.ForeColor = System.Drawing.Color.Cornsilk
-        Me.btnCerrarMsgbox.Location = New System.Drawing.Point(358, -2)
+        Me.btnCerrarMsgbox.Location = New System.Drawing.Point(354, -2)
         Me.btnCerrarMsgbox.Name = "btnCerrarMsgbox"
         Me.btnCerrarMsgbox.Size = New System.Drawing.Size(36, 37)
         Me.btnCerrarMsgbox.TabIndex = 53
@@ -156,7 +155,7 @@ Partial Class AmaranthMsgbox
         Me.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAccept.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAccept.ForeColor = System.Drawing.Color.White
-        Me.btnAccept.Location = New System.Drawing.Point(160, 177)
+        Me.btnAccept.Location = New System.Drawing.Point(150, 165)
         Me.btnAccept.Name = "btnAccept"
         Me.btnAccept.Size = New System.Drawing.Size(91, 30)
         Me.btnAccept.TabIndex = 54
@@ -166,7 +165,7 @@ Partial Class AmaranthMsgbox
         'pbxPregunta
         '
         Me.pbxPregunta.Image = Global.CarSolutioner.My.Resources.Resources.preg
-        Me.pbxPregunta.Location = New System.Drawing.Point(0, 61)
+        Me.pbxPregunta.Location = New System.Drawing.Point(0, 49)
         Me.pbxPregunta.Name = "pbxPregunta"
         Me.pbxPregunta.Size = New System.Drawing.Size(108, 79)
         Me.pbxPregunta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -176,7 +175,7 @@ Partial Class AmaranthMsgbox
         'pbxAdvertencia
         '
         Me.pbxAdvertencia.Image = Global.CarSolutioner.My.Resources.Resources.adv
-        Me.pbxAdvertencia.Location = New System.Drawing.Point(0, 61)
+        Me.pbxAdvertencia.Location = New System.Drawing.Point(0, 49)
         Me.pbxAdvertencia.Name = "pbxAdvertencia"
         Me.pbxAdvertencia.Size = New System.Drawing.Size(108, 79)
         Me.pbxAdvertencia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -186,7 +185,7 @@ Partial Class AmaranthMsgbox
         'pbxContinuar
         '
         Me.pbxContinuar.Image = Global.CarSolutioner.My.Resources.Resources.ok
-        Me.pbxContinuar.Location = New System.Drawing.Point(0, 61)
+        Me.pbxContinuar.Location = New System.Drawing.Point(0, 49)
         Me.pbxContinuar.Name = "pbxContinuar"
         Me.pbxContinuar.Size = New System.Drawing.Size(108, 79)
         Me.pbxContinuar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -196,7 +195,7 @@ Partial Class AmaranthMsgbox
         'pbxError
         '
         Me.pbxError.Image = Global.CarSolutioner.My.Resources.Resources.error1
-        Me.pbxError.Location = New System.Drawing.Point(0, 61)
+        Me.pbxError.Location = New System.Drawing.Point(0, 49)
         Me.pbxError.Name = "pbxError"
         Me.pbxError.Size = New System.Drawing.Size(108, 79)
         Me.pbxError.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -211,7 +210,7 @@ Partial Class AmaranthMsgbox
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.CancelButton = Me.btnNo
-        Me.ClientSize = New System.Drawing.Size(393, 221)
+        Me.ClientSize = New System.Drawing.Size(390, 221)
         Me.Controls.Add(Me.btnAccept)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnNo)

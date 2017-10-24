@@ -1,10 +1,10 @@
 ﻿'Ignorar, es para que no abra un Designer.
 <System.ComponentModel.DesignerCategory("")>
-Public Class NoDesignerEmpleados
+Public Class NoDesignerEmpleadosInvitado
 End Class
 
 'EMPLEADOS
-Partial Public Class frmMainMenu
+Partial Public Class frmMainMenuInvitado
 
     Private Sub BorrarTipoEmpleado(sender As Object, e As EventArgs) Handles lblBorrarTipoFEmpleado.Click
         cbxTipoFempleados.SelectedItem = Nothing

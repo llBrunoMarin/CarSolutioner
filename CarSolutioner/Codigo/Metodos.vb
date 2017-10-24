@@ -11,23 +11,83 @@ Module Metodos
         arr(arr.Length - 1) = item
     End Sub
 
+    <Extension()>
+    Public Function Round(dt As DateTime) As DateTime
+
+        Dim t As DateTime
+        t = dt.AddMinutes((60 - dt.Minute) Mod 10)
+        Return t
+
+    End Function
+
     Public Declare Function GetTickCount Lib "kernel32" () As Integer
     Public conexion As New ConnectionBD
     Public bgwCargar As New ComponentModel.BackgroundWorker
 
+
+    Public Sub CargarTodosDatos(form As Form)
+        Select Case form.Name
+            Case "frmMainMenu"
+                frmMainMenu.CargarDatos()
+            Case "frmMainMenuInvitado"
+                frmMainMenuInvitado.CargarDatos()
+
+        End Select
+    End Sub
+
+    Public Sub RecargarDatosEspecificos(form As Form, dgv As DataGridView)
+        Select Case form.Name
+            Case "frmMainMenu"
+                frmMainMenu.RecargarDatos(dgv)
+
+            Case "frmMainMenuInvitado"
+                frmMainMenuInvitado.RecargarDatos(dgv)
+
+        End Select
+    End Sub
+
+    Public Sub VaciarPanel(panel As Panel)
+        For Each item In panel.Controls
+
+            If TypeOf item Is TextBox Then
+                item.text = ""
+            End If
+
+            If TypeOf item Is ComboBox Then
+                item.SelectedItem = Nothing
+            End If
+
+            If TypeOf item Is NumericUpDown Then
+                DirectCast(item, NumericUpDown).Value = Nothing
+            End If
+        Next
+    End Sub
+
+
     'Cargando
-    Public Sub Cargando(milisegundos As Integer)
+    Public Sub Cargando(milisegundos As Integer, form As Form)
 
         Dim retraso As Integer
-
         retraso = milisegundos + GetTickCount
 
-        While retraso >= GetTickCount
-            Application.DoEvents()
-            frmMainMenu.pcboxloading.Visible = True
-        End While
+        Select Case form.Name
+            Case "frmMainMenu"
+                While retraso >= GetTickCount
+                    Application.DoEvents()
+                    frmMainMenu.pcboxloading.Visible = True
+                End While
+                frmMainMenu.pcboxloading.Visible = False
 
-        frmMainMenu.pcboxloading.Visible = False
+            Case "frmMainMenuInvitado"
+                'While retraso >= GetTickCount
+                '    Application.DoEvents()
+                '    frmMainMenu.pcboxloading.Visible = True
+                'End While
+                'frmMainMenu.pcboxloading.Visible = False
+
+        End Select
+
+
     End Sub
 
     'Verifica una cédula que entra como parámetro
@@ -125,7 +185,12 @@ Module Metodos
                     If Not (cbx.DataSource Is Nothing) Then
                         Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue.ToString + ""
                     Else
+                        'If (TypeOf (cbx.SelectedValue) Is String) Then
+
                         Return " AND " + columna + " = '" + DirectCast(ctrl, ComboBox).SelectedItem.ToString + "'"
+                        ' Else
+                        'Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedItem.ToString + ""
+                        'End If
                     End If
                 Else
                     Return ""
@@ -195,16 +260,22 @@ Module Metodos
     Public Function AmaranthMessagebox(Texto As String, Tipo As String) As DialogResult
 
         Dim AmaranthMsgbox As New AmaranthMsgbox(Texto, Tipo)
-        Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog()
-        Return resultado
+        Using AmaranthMsgbox
+            Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog()
+            Return resultado
+        End Using
+
 
     End Function
 
     'Ventana de autorización
-    Public Function Autorizar() As DialogResult
+    Public Function Autorizar(parent As IWin32Window) As DialogResult
         Dim autorizacion As New Autorizacion
-        Dim resultado As DialogResult = autorizacion.ShowDialog()
-        Return resultado
+
+        Using autorizacion
+            Dim resultado As DialogResult = autorizacion.ShowDialog(parent)
+            Return resultado
+        End Using
     End Function
 
     'Verificar codigo de Descuento
@@ -467,5 +538,7 @@ Module Metodos
 
 
     End Sub
+
+
 End Module
 

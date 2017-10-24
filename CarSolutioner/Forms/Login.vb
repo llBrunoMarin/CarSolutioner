@@ -29,6 +29,7 @@ Public Class Login
         lbluser.Visible = False
         lbldataincorrect.Visible = False
         lblInvitado.Visible = False
+        lblmayus.Visible = False
         PictureBox2.Visible = False
         Dim retraso As Integer
 
@@ -44,16 +45,11 @@ Public Class Login
     'Hacer operaciones de LOGIN, establece el Tipo de Usuario una vez que termina. Si termina con un error, establece el tipo de usuario según el error.
     Private Sub bgwLogin_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwLogin.DoWork
 
-
-
         conexion.Usuario = txtUsuario.Text
-            conexion.Contraseña = txtContraseña.Text
+        conexion.Contraseña = txtContraseña.Text
 
-            conexion.Conectar(conexion.Usuario, conexion.Contraseña)
-            conexion.Cerrar()
-
-
-
+        conexion.Conectar(conexion.Usuario, conexion.Contraseña)
+        conexion.Cerrar()
 
     End Sub
 
@@ -64,14 +60,15 @@ Public Class Login
             Case "Opened"
 
                 'Conseguimos el Tipo de Usuario de la persona conectada:
-                Dim tipousuario As New DataTable
-                tipousuario = conexion.EjecutarSelect("SELECT tipo from empleado where usuario = '" & conexion.Usuario & "' ;")
+                conexion.TipoUsuario = conexion.EjecutarSelect("SELECT tipo from empleado where usuario = '" & conexion.Usuario & "' ;").Rows(0)(0)
+                conexion.IdSucursalUsuario = conexion.EjecutarSelect("SELECT idsucursal FROM Trabaja WHERE usuarioempleado = '" + conexion.Usuario + "' AND fechafin IS NULL").Rows(0)(0)
 
                 Try
-                    Select Case tipousuario.Rows(0).Item(0)
+                    Select Case conexion.TipoUsuario
 
                         Case 1
                             frmMainMenu.Show()
+                            Me.Hide()
 
                         Case 2
                             Me.Hide()
@@ -140,9 +137,11 @@ Public Class Login
 
     End Sub
 
-
     Private Sub lblInvitado_Click(sender As Object, e As EventArgs) Handles lblInvitado.Click
-        'MainMenuInvitado.Show()
+        conexion.Usuario = "masteras"
+        conexion.Contraseña = "Ma5t3rxd"
+        frmMainMenuInvitado.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
@@ -161,10 +160,6 @@ Public Class Login
         Else
             lblmayus.Visible = False
         End If
-
-    End Sub
-
-    Private Sub pboxLoading_Click(sender As Object, e As EventArgs) Handles pboxLoading.Click
 
     End Sub
 

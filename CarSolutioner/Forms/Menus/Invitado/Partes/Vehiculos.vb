@@ -1,10 +1,10 @@
 ﻿'Ignorar, es para que no abra un Designer.
 <System.ComponentModel.DesignerCategory("")>
-Public Class NoDesignerVehiculos
+Public Class NoDesignerVehiculosInvitado
 End Class
 
 'VEHICULOS
-Partial Public Class frmMainMenu
+Partial Public Class frmMainMenuInvitado
 
     Private Sub CargasModelo(sender As ComboBox, e As EventArgs) Handles cbxMarcaAVeh.SelectedValueChanged, cbxMarcaFVeh.SelectedValueChanged, cbxMarcaMVeh.SelectedValueChanged
 
@@ -71,8 +71,9 @@ Partial Public Class frmMainMenu
             If (Not (sender.SelectedValue.ToString = "System.Data.DataRowView")) Then
 
                 'Si el valor seleccionado del modelo NO es "Otro"
+                If Not (sender.SelectedIndex = sender.FindString("Nuevo...")) Then
 
-                Dim idmodeloselect As String = sender.SelectedValue
+                    Dim idmodeloselect As String = sender.SelectedValue
                     Dim idtipo As String = conexion.Modelos.Select("idmodelo = " + idmodeloselect + "").CopyToDataTable.Rows(0).Field(Of Integer)("idtipo")
 
                     Select Case sender.Name
@@ -87,7 +88,11 @@ Partial Public Class frmMainMenu
                             cbxTipoMVeh.SelectedValue = idtipo
                             cbxTipoMVeh.Enabled = False
                     End Select
+                Else
+                    frmCambiosGenerales.Show()
+                    frmCambiosGenerales.btnVehiculo.PerformClick()
                 End If
+            End If
         Else
 
             Select Case sender.Name
@@ -186,15 +191,14 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxCategoriaFVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxTipoFVeh.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectionChangeCommitted, lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click, cbxAireFVeh.SelectionChangeCommitted, cbxManualFVeh.SelectionChangeCommitted
+    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxCategoriaFVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxTipoFVeh.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectionChangeCommitted, lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click
 
         Dim Filtro As String
         'TODO: filtrar por deducible, color, kilometraje
         'Siguen sin funcionar los cbx de aire y automatico
-        Filtro = "nrochasis LIKE '%" + txtNroChasisFVeh.Text + "%' AND matricula LIKE '%" + txtMatriculaFVeh.Text + "%'" + TipoFiltro(cbxAireFVeh, "aireacondicionado") + TipoFiltro(cbxManualFVeh, "esmanual") + TipoFiltro(cbxMaletasFVeh, "cantidaddemaletas") + TipoFiltro(cbxPuertasFVeh, "cantidaddepuertas") + TipoFiltro(numPasajerosFVeh, "cantidaddepasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxTipoFVeh, "idtipo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
+        Filtro = "nrochasis LIKE '%" + txtNroChasisFVeh.Text + "%' AND matricula LIKE '%" + txtMatriculaFVeh.Text + "%'" + TipoFiltro(cbxAireFVeh, "aire") + TipoFiltro(cbxAutomaticoFVeh, "automatico") + TipoFiltro(cbxMaletasFVeh, "cantidaddemaletas") + TipoFiltro(cbxPuertasFVeh, "cantidaddepuertas") + TipoFiltro(numPasajerosFVeh, "cantidaddepasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxTipoFVeh, "idtipo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
 
         dgvVehiculos.DataSource.Filter = Filtro
-        dgvVehiculos.Focus()
 
     End Sub
 
@@ -202,9 +206,7 @@ Partial Public Class frmMainMenu
 
         If Not IsNothing(dgvVehiculos.CurrentRow) Then
             CargarDatosComboBox(cbxModeloMVeh, conexion.Modelos.Select("idmarca = '" + dgvVehiculos.CurrentRow.Cells("idmarcaveh").Value.ToString() + "'").CopyToDataTable, "nombre", "idmodelo")
-            txtNroChasisMVeh.Enabled = True
             txtNroChasisMVeh.Text = dgvVehiculos.CurrentRow.Cells("nrochasis").Value.ToString()
-            txtNroChasisMVeh.Enabled = False
             txtMatriculaMVeh.Text = dgvVehiculos.CurrentRow.Cells("matricula").Value.ToString()
             txtMatriculaBVeh.Text = dgvVehiculos.CurrentRow.Cells("matricula").Value.ToString()
             txtKMMVeh.Text = dgvVehiculos.CurrentRow.Cells("kilometraje").Value.ToString()
@@ -230,7 +232,7 @@ Partial Public Class frmMainMenu
             Dim chbxaireMvehI As Boolean = dgvVehiculos.CurrentRow.Cells("aireacondicionado").Value
             Dim chbxautomaticoMvehI As Boolean = dgvVehiculos.CurrentRow.Cells("esmanual").Value
             chbxAireMVeh.Checked = chbxaireMvehI
-            cbxManualMVeh.Checked = chbxautomaticoMvehI
+            cbxAutomaticoMVeh.Checked = chbxautomaticoMvehI
         End If
     End Sub
 
@@ -276,7 +278,7 @@ Partial Public Class frmMainMenu
         If Not (FaltaDato) Then
             If Not (txtDeducibleAVeh.Text = "" Or txtKilometrajeAVeh.Text = "" Or txtMatriculaAVeh.Text = "" Or txtAnioAVeh.Text = "") Then
                 'Me quedo con solo el 1er digito para hacer el insert despues
-                automaticoAVeh = cbxManualesAVeh.Checked.ToString.Substring(0, 1)
+                automaticoAVeh = cbxAutomaticoAVeh.Checked.ToString.Substring(0, 1)
                 aireAVeh = chbxAireAVeh.Checked.ToString.Substring(0, 1)
 
                 cantpasajeros = numPasajerosAVeh.Value.ToString
@@ -367,12 +369,12 @@ Partial Public Class frmMainMenu
             '    txtAnioMVeh.Text = "" Or cbxMarcaMVeh.SelectedItem Is Nothing Or cbxPuertasMVeh.SelectedItem Is Nothing) Then
 
             'Me quedo con solo el 1er digito para hacer el insert despues
-            automaticoMVeh = cbxManualMVeh.Checked.ToString.Substring(0, 1)
+            automaticoMVeh = cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1)
             aireMVeh = chbxAireMVeh.Checked.ToString.Substring(0, 1)
             cantpasajeros = numPasajerosMVehiculo.Value.ToString
             añoInsertar = txtAnioMVeh.Text
 
-            If Not (txtMatriculaMVeh.Text = matriculaI And txtAnioMVeh.Text = anioI And txtKMMVeh.Text = kmvehI And chbxAireMVeh.Checked.ToString.Substring(0, 1) = aireMvehI And cbxPuertasMVeh.SelectedItem.ToString = puertasI And cantpasajeros = nropasajerosI And cbxManualMVeh.Checked.ToString.Substring(0, 1) = automaticoMvehI And txtDeducibleMVeh.Text.ToString = deducibleI And cbxCategoriaMVeh.SelectedValue.ToString = categoriaI And cbxModeloMVeh.SelectedValue.ToString = modeloI And cbxSucursalMVeh.SelectedValue.ToString = sucursalI And txtNroChasisMVeh.Text.ToString = nrochasisI And cbxTipoMVeh.SelectedValue.ToString = tipoI And cbxMarcaMVeh.SelectedValue.ToString = marcaI) Then
+            If Not (txtMatriculaMVeh.Text = matriculaI And txtAnioMVeh.Text = anioI And txtKMMVeh.Text = kmvehI And chbxAireMVeh.Checked.ToString.Substring(0, 1) = aireMvehI And cbxPuertasMVeh.SelectedItem.ToString = puertasI And cantpasajeros = nropasajerosI And cbxAutomaticoMVeh.Checked.ToString.Substring(0, 1) = automaticoMvehI And txtDeducibleMVeh.Text.ToString = deducibleI And cbxCategoriaMVeh.SelectedValue.ToString = categoriaI And cbxModeloMVeh.SelectedValue.ToString = modeloI And cbxSucursalMVeh.SelectedValue.ToString = sucursalI And txtNroChasisMVeh.Text.ToString = nrochasisI And cbxTipoMVeh.SelectedValue.ToString = tipoI And cbxMarcaMVeh.SelectedValue.ToString = marcaI) Then
 
                 If Not (cantpasajeros = 0) Then
 
@@ -405,7 +407,7 @@ Partial Public Class frmMainMenu
                 End If
             Else
                 AmaranthMessagebox("Modifique algo por favor", "Advertencia")
-                End If
+            End If
             'Else
             '    AmaranthMessagebox("Por favor, rellene todos los campos", "Advertencia")
             'End If
@@ -470,7 +472,7 @@ Partial Public Class frmMainMenu
         End If
     End Sub
 
-    Private Sub antiSQLInjection(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles txtMatriculaFVeh.KeyPress
+    Private Sub antiSQLInjection(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtMatriculaFVeh.KeyPress
         e.Handled = Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsNumber(e.KeyChar)
     End Sub
 

@@ -12,8 +12,8 @@ Partial Public Class frmMainMenu
 
         Try
             Dim filtrado As String
-            filtrado = ""
-            'filtrado = "nrodocumento LIKE '" + txtDocumFRes.Text.ToString + "%' AND Convert(costototal, System.String) LIKE '%" + txtCostoTotalFReserva.Text.ToString + "%' AND usuarioempleado LIKE '%" + txtUsuarioFReserva.Text + "%'" + TipoFiltroReserva(chboxFechaFRes) + TipoFiltroReserva(chboxFechaTramiteFReserva) + TipoFiltroReserva(chboxInactivasFReserva) + TipoFiltroReserva(chboxVerHoyFReserva) + TipoFiltro(cbxCategoriaFRes, "idcategoria") + TipoFiltro(cbxTipoFRes, "idtipo") + TipoFiltro(cbxSucLlegFRes, "idsucursalllegada") + TipoFiltro(cbxSucSalFres, "idsucursalsalida") + TipoFiltro(cbxKilomFRes, "idcantidadkm")
+
+            'filtrado = "nrodocumento LIKE '" + txtDocumentoFAlquileres.Text.ToString + "%' AND Convert(costototal, System.String) LIKE '%" + txtCostoFAlquileres.Text.ToString + "%' AND usuarioempleado LIKE '%" + txtUsuarioFAlquileres.Text + "%'" + TipoFiltroAlquiler(chbxFiltrarFechaFAlquileres) + TipoFiltroAlquiler(chbxFechaTramiteFAlquileres) + TipoFiltroAlquiler(chboxAlquileresProceso) + TipoFiltro(cbxCategoriaFAlquiler, "idcategoria") + TipoFiltro(cbxTipoFAlquileres, "idtipo") + TipoFiltro(cbxSucursalDestinoFAlquileres, "idsucursalllegada") + TipoFiltro(cbxSucursalPartidaFAlquileres, "idsucursalsalida") + TipoFiltro(cbxKilometrajeFAlquileres, "idcantidadkm")
 
             dgvAlquileres.DataSource.Filter = filtrado
 
@@ -49,10 +49,49 @@ Partial Public Class frmMainMenu
             Dim TerminarAlquiler As New FinalizarAlquiler(ReservaSeleccionadaFinalizarAlquiler)
             TerminarAlquiler.ShowDialog()
         Else
-            AmaranthMessagebox("Solo puede finalizar alquileres activos.", "Error")
+            AmaranthMessagebox("Solo pueden finalizar alquileres que esten activos.", "Error")
         End If
 
 
     End Sub
 
+    Private Function TipoFiltroAlquiler(chbx As CheckBox) As String
+        Select Case chbx.Name
+            Case "chboxAlquileresProceso"
+                If chboxAlquileresProceso.Checked = True Then
+                    Return " And fechaalquilerinicio >= '" + dtpDesdeFReserva.Value.ToString("dd/MM/yyyy HH:mm") + "' AND fechaalquilerfin = 'En proceso'"
+                Else
+                    Return ""
+                End If
+            Case "chboxAlquileresProceso"
+                If chboxAlquileresProceso.Checked = True Then
+                    Return " And fechaalquilerinicio >= '" + dtpDesdeFReserva.Value.ToString("dd/MM/yyyy HH:mm") + "' AND fechaalquilerfin = 'En proceso'"
+                Else
+                    Return ""
+                End If
+            Case "chbxFechaTramiteFAlquileres"
+                If chbxFechaTramiteFAlquileres.Checked = True Then
+                    Return " AND fechatramite = '" + dtpFechaTramiteFReserva.Value.ToString("dd/MM/yyyy HH:mm") + "'"
+                Else
+                    Return ""
+                End If
+
+            Case "chboxInactivasFReserva"
+                If chboxInactivasFReserva.Checked = True Then
+                    Return ""
+                Else
+                    Return " AND idestado = 1"
+                End If
+
+            Case "chboxVerHoyFReserva"
+                If chboxVerHoyFReserva.Checked = True Then
+                    Return " AND fechareservainiciof = '" + Date.Now.ToString("dd/MM/yyyy") + "'"
+                Else
+                    Return ""
+                End If
+
+        End Select
+
+        Return ""
+    End Function
 End Class

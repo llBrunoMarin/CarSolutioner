@@ -440,10 +440,10 @@ Partial Public Class frmMainMenu
                 Else
                     Return ""
                 End If
-
+            Case Else
+                Return ""
         End Select
 
-        Return ""
     End Function
 
 End Class

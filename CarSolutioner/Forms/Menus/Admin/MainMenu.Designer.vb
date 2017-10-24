@@ -590,8 +590,7 @@ Partial Class frmMainMenu
         Me.lblBorrarTipoFAlquileres = New System.Windows.Forms.Label()
         Me.lblBorrarCategoriaFAlquileres = New System.Windows.Forms.Label()
         Me.chbxFechaTramiteFAlquileres = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.chboxAlquileresProceso = New System.Windows.Forms.CheckBox()
         Me.chbxFiltrarFechaFAlquileres = New System.Windows.Forms.CheckBox()
         Me.Label139 = New System.Windows.Forms.Label()
         Me.Label140 = New System.Windows.Forms.Label()
@@ -634,10 +633,10 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.idreservaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.matriculaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nrodocumalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombreapellidoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idreservaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fechareservainicioalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fechaalquilerinicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fechaalquilerfin = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -6701,7 +6700,7 @@ Partial Class frmMainMenu
         Me.dgvAlquileres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvAlquileres.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvAlquileres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAlquileres.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idreservaalquiler, Me.matriculaalq, Me.nrodocumalq, Me.nombreapellidoalq, Me.fechareservainicioalq, Me.fechaalquilerinicio, Me.fechaalquilerfin, Me.fechareservafinalq, Me.cantidadkmalq, Me.cantidadkmtextalq, Me.categoriaalq, Me.tipoalq, Me.costototalalq, Me.sucursalsalidaalq, Me.sucursaldestinoalq, Me.idsucursalsalidaalq, Me.idsucursalllegadaalq, Me.fechatramitealq, Me.usuarioempleadoalq, Me.deduciblealq, Me.estadoalq, Me.idestado, Me.idpersonaalquiler, Me.idcategoriaalq, Me.idtipoalq, Me.nrochasisalq})
+        Me.dgvAlquileres.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.matriculaalq, Me.nrodocumalq, Me.nombreapellidoalq, Me.idreservaalquiler, Me.fechareservainicioalq, Me.fechaalquilerinicio, Me.fechaalquilerfin, Me.fechareservafinalq, Me.cantidadkmalq, Me.cantidadkmtextalq, Me.categoriaalq, Me.tipoalq, Me.costototalalq, Me.sucursalsalidaalq, Me.sucursaldestinoalq, Me.idsucursalsalidaalq, Me.idsucursalllegadaalq, Me.fechatramitealq, Me.usuarioempleadoalq, Me.deduciblealq, Me.estadoalq, Me.idestado, Me.idpersonaalquiler, Me.idcategoriaalq, Me.idtipoalq, Me.nrochasisalq})
         Me.dgvAlquileres.Location = New System.Drawing.Point(6, 3)
         Me.dgvAlquileres.MultiSelect = False
         Me.dgvAlquileres.Name = "dgvAlquileres"
@@ -6811,8 +6810,7 @@ Partial Class frmMainMenu
         Me.Panel3.Controls.Add(Me.lblBorrarTipoFAlquileres)
         Me.Panel3.Controls.Add(Me.lblBorrarCategoriaFAlquileres)
         Me.Panel3.Controls.Add(Me.chbxFechaTramiteFAlquileres)
-        Me.Panel3.Controls.Add(Me.CheckBox2)
-        Me.Panel3.Controls.Add(Me.CheckBox3)
+        Me.Panel3.Controls.Add(Me.chboxAlquileresProceso)
         Me.Panel3.Controls.Add(Me.chbxFiltrarFechaFAlquileres)
         Me.Panel3.Controls.Add(Me.Label139)
         Me.Panel3.Controls.Add(Me.Label140)
@@ -6911,31 +6909,18 @@ Partial Class frmMainMenu
         Me.chbxFechaTramiteFAlquileres.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chbxFechaTramiteFAlquileres.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'chboxAlquileresProceso
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CheckBox2.Location = New System.Drawing.Point(467, 22)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(171, 20)
-        Me.CheckBox2.TabIndex = 59
-        Me.CheckBox2.Text = "Ver inactivos y/o anulados"
-        Me.CheckBox2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CheckBox3.Location = New System.Drawing.Point(277, 23)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(183, 20)
-        Me.CheckBox3.TabIndex = 58
-        Me.CheckBox3.Text = "Ver solo alquileres en proceso" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.CheckBox3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.chboxAlquileresProceso.AutoSize = True
+        Me.chboxAlquileresProceso.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chboxAlquileresProceso.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.chboxAlquileresProceso.Location = New System.Drawing.Point(446, 17)
+        Me.chboxAlquileresProceso.Name = "chboxAlquileresProceso"
+        Me.chboxAlquileresProceso.Size = New System.Drawing.Size(183, 20)
+        Me.chboxAlquileresProceso.TabIndex = 58
+        Me.chboxAlquileresProceso.Text = "Ver solo alquileres en proceso" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.chboxAlquileresProceso.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chboxAlquileresProceso.UseVisualStyleBackColor = True
         '
         'chbxFiltrarFechaFAlquileres
         '
@@ -7343,14 +7328,6 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'idreservaalquiler
-        '
-        Me.idreservaalquiler.DataPropertyName = "idreserva"
-        Me.idreservaalquiler.HeaderText = "idreservaalquiler"
-        Me.idreservaalquiler.Name = "idreservaalquiler"
-        Me.idreservaalquiler.ReadOnly = True
-        Me.idreservaalquiler.Visible = False
-        '
         'matriculaalq
         '
         Me.matriculaalq.DataPropertyName = "matricula"
@@ -7371,6 +7348,14 @@ Partial Class frmMainMenu
         Me.nombreapellidoalq.HeaderText = "Nombre"
         Me.nombreapellidoalq.Name = "nombreapellidoalq"
         Me.nombreapellidoalq.ReadOnly = True
+        '
+        'idreservaalquiler
+        '
+        Me.idreservaalquiler.DataPropertyName = "idreserva"
+        Me.idreservaalquiler.HeaderText = "idreservaalquiler"
+        Me.idreservaalquiler.Name = "idreservaalquiler"
+        Me.idreservaalquiler.ReadOnly = True
+        Me.idreservaalquiler.Visible = False
         '
         'fechareservainicioalq
         '
@@ -8108,8 +8093,7 @@ Partial Class frmMainMenu
     Friend WithEvents lblBorrarTipoFAlquileres As Label
     Friend WithEvents lblBorrarCategoriaFAlquileres As Label
     Friend WithEvents chbxFechaTramiteFAlquileres As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents chboxAlquileresProceso As CheckBox
     Friend WithEvents chbxFiltrarFechaFAlquileres As CheckBox
     Friend WithEvents Label139 As Label
     Friend WithEvents Label140 As Label
@@ -8264,10 +8248,10 @@ Partial Class frmMainMenu
     Friend WithEvents colordisponibles As DataGridViewTextBoxColumn
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label165 As Label
-    Friend WithEvents idreservaalquiler As DataGridViewTextBoxColumn
     Friend WithEvents matriculaalq As DataGridViewTextBoxColumn
     Friend WithEvents nrodocumalq As DataGridViewTextBoxColumn
     Friend WithEvents nombreapellidoalq As DataGridViewTextBoxColumn
+    Friend WithEvents idreservaalquiler As DataGridViewTextBoxColumn
     Friend WithEvents fechareservainicioalq As DataGridViewTextBoxColumn
     Friend WithEvents fechaalquilerinicio As DataGridViewTextBoxColumn
     Friend WithEvents fechaalquilerfin As DataGridViewTextBoxColumn

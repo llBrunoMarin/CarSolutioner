@@ -8,13 +8,13 @@ Public Class frmMainMenuInvitado
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'Le cambiamos el renderer al MenuStrip (cuestiones de diseño)
-        CambiarRenderMenuStrip(mstMenuStrip)
+
 
         'Asignamos el tamaño de las tabs a 1 para ocultarlas.
         tbcTabControl.ItemSize = New Size(0, 1)
 
-        '"Clickeamos" el botón Reservas (para que sea el botón presionado por defecto)
-        btnReservas.PerformClick()
+        '"Clickeamos" el botón Vehiculos (para que sea el botón presionado por defecto)
+        btnVehiculos.PerformClick()
 
         'Hacemos toda la carga de datos
         CargarTodosDatos(Me)
@@ -23,21 +23,19 @@ Public Class frmMainMenuInvitado
 
         cbxCategoriaFRes.SelectedItem = Nothing
         cbxCategoriaFVeh.SelectedItem = Nothing
-        cbxCategoriaAVeh.SelectedItem = Nothing
 
-        cbxTipoFVeh.SelectedItem = Nothing
-        cbxTipoAVeh.SelectedItem = Nothing
+
         cbxTipoFRes.SelectedItem = Nothing
 
         cbxMarcaFVeh.SelectedItem = Nothing
-        cbxMarcaAVeh.SelectedItem = Nothing
 
-        cbxModeloAVeh.SelectedItem = Nothing
+
+
         cbxModeloFVeh.SelectedItem = Nothing
 
         cbxSucLlegFRes.SelectedItem = Nothing
         cbxSucSalFres.SelectedItem = Nothing
-        cbxSucursalAVeh.SelectedItem = Nothing
+
         cbxSucursalFVeh.SelectedItem = Nothing
 
         cbxAnioNACliente.SelectedItem = Nothing
@@ -60,39 +58,24 @@ Public Class frmMainMenuInvitado
 
         ResetColors()
 
-        Select Case sender.Name
 
-            Case "btnMantenimiento"
-                SetTabAndColors(btnMantenimiento, tbpMantenimiento, Color.Silver)
 
-            Case "btnReservas"
-                SetTabAndColors(btnReservas, tbpReservas, Color.Silver)
-
-            Case "btnClientes"
-                SetTabAndColors(btnClientes, tbpClientes, Color.Silver)
-
-            Case "btnVehiculos"
-                SetTabAndColors(btnVehiculos, tbpVehiculos, Color.Silver)
-
-            Case "btnEmpleados"
-                SetTabAndColors(btnEmpleados, tbpEmpleados, Color.Silver)
-
-            Case "pbxVehiculo"
-                tbcTabControl.SelectedTab = tbpMenuPrincipal
+        tbcTabControl.SelectedTab = tbpVehiculos
                 tbpMenuPrincipal.BackColor = Color.Silver
 
-        End Select
+
+
 
     End Sub
 
-    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
+    Private Sub btnCerrar_Click(sender As Object, e As EventArgs)
 
         Login.Dispose()
         Me.Dispose()
 
     End Sub
 
-    Private Sub btnMinimizar_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
+    Private Sub btnMinimizar_Click(sender As Object, e As EventArgs)
 
         Me.WindowState = FormWindowState.Minimized
 
@@ -155,14 +138,12 @@ Public Class frmMainMenuInvitado
 
         'Cargas de ComboBox
         'MARCAS
-        CargarDatosComboBox(cbxMarcaAVeh, conexion.Marcas, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaMVeh, conexion.Marcas, "nombre", "idmarca")
+
         CargarDatosComboBox(cbxMarcaFVeh, conexion.Marcas, "nombre", "idmarca")
 
         'TIPOS
-        CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+
+
         CargarDatosComboBox(cbxTipoFRes, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
@@ -175,17 +156,16 @@ Public Class frmMainMenuInvitado
         'CATEGORIAS
         CargarDatosComboBox(cbxCategoriaMReserva, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+
         CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaMVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+
 
         'Los modelos se cargan en el apartado "Vehiculos".
 
         'SUCURSALES
         CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalAVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalMVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+
         CargarDatosComboBox(cbxSucSalFres, conexion.Sucursales, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucLlegFRes, conexion.Sucursales, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucSalidaARes, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
@@ -239,10 +219,7 @@ Public Class frmMainMenuInvitado
                 dgvVehiculos.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal UNION SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, 'En la calle' Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T WHERE V.idsucursal is null AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND nrochasis NOT IN (SELECT nrochasis FROM Reserva R WHERE fechaalquilerfin IS NOT NULL) AND nrochasis NOT IN (SELECT nrochasis FROM mantenimiento WHERE TODAY BETWEEN fechainicio AND fechafin)")
                 'Para que se vuelva a aplicar el filtro
-                Dim AuxiliarFiltro As String
-                AuxiliarFiltro = txtNroChasisFVeh.Text
-                txtNroChasisFVeh.Text = ""
-                txtNombreFempleado.Text = AuxiliarFiltro
+                chbxFiltro.Checked = Not chbxFiltro.Checked
 
             Case "dgvReservas"
                 dgvReservas.AutoGenerateColumns = False
@@ -277,5 +254,57 @@ Public Class frmMainMenuInvitado
         CargarTodosDatos(Me)
     End Sub
 
+    Private Sub pbcEngland_Click(sender As Object, e As EventArgs) Handles pbcEngland.Click
+        btnVehiculos.Text = "Vehicles"
+        lblSearchVehicles.Text = "Search Vehicles"
+        lblLanguage.Text = "Select Language"
+        lblcat.Text = "Category"
+        lblmarca.Text = "Brand"
+        lblmodelo.Text = "Model"
 
+        lblsucursal.Text = "Office"
+        lblaño.Text = "Year"
+        lblmaletas.Text = "Suit Cases"
+        lblpasajeros.Text = "Passengers"
+        lblParamIgnore.Text = "0 Will ignore this field"
+
+        dgvVehiculos.Columns("matricula").HeaderText = "Plate"
+        dgvVehiculos.Columns("marca").HeaderText = "Brand"
+        dgvVehiculos.Columns("categoria").HeaderText = "Category"
+        dgvVehiculos.Columns("Modelo").HeaderText = "Model"
+        dgvVehiculos.Columns("esmanual").HeaderText = "Manual"
+        dgvVehiculos.Columns("aireacondicionado").HeaderText = "Air"
+        dgvVehiculos.Columns("sucursal").HeaderText = "Office"
+        dgvVehiculos.Columns("aniov").HeaderText = "Year"
+        dgvVehiculos.Columns("cantidaddemaletas").HeaderText = "Suit Cases"
+        dgvVehiculos.Columns("cantidaddepasajeros").HeaderText = "Passengers"
+
+
+    End Sub
+
+    Private Sub PbcGermany_Click(sender As Object, e As EventArgs) Handles PbcGermany.Click
+        btnVehiculos.Text = "Vehicles"
+        lblSearchVehicles.Text = "Search Vehicles"
+        lblLanguage.Text = "Select Language"
+        lblcat.Text = "Category"
+        lblmarca.Text = "Brand"
+        lblmodelo.Text = "Model"
+
+        lblsucursal.Text = "Office"
+        lblaño.Text = "Year"
+        lblmaletas.Text = "Suit Cases"
+        lblpasajeros.Text = "Passengers"
+        lblParamIgnore.Text = "0 Will ignore this field"
+
+        dgvVehiculos.Columns("matricula").HeaderText = "Plate"
+        dgvVehiculos.Columns("marca").HeaderText = "Brand"
+        dgvVehiculos.Columns("categoria").HeaderText = "Category"
+        dgvVehiculos.Columns("Modelo").HeaderText = "Model"
+        dgvVehiculos.Columns("esmanual").HeaderText = "Manual"
+        dgvVehiculos.Columns("aireacondicionado").HeaderText = "Air"
+        dgvVehiculos.Columns("sucursal").HeaderText = "Office"
+        dgvVehiculos.Columns("aniov").HeaderText = "Year"
+        dgvVehiculos.Columns("cantidaddemaletas").HeaderText = "Suit Cases"
+        dgvVehiculos.Columns("cantidaddepasajeros").HeaderText = "Passengers"
+    End Sub
 End Class

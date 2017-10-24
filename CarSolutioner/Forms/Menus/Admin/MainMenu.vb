@@ -254,10 +254,7 @@ Public Class frmMainMenu
                 dgvVehiculos.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvVehiculos, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal UNION SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, 'En la calle' Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T WHERE V.idsucursal is null AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo ")
                 'Para que se vuelva a aplicar el filtro
-                Dim AuxiliarFiltro As String
-                AuxiliarFiltro = txtNroChasisFVeh.Text
-                txtNroChasisFVeh.Text = ""
-                txtNombreFempleado.Text = AuxiliarFiltro
+
 
             Case "dgvReservas"
                 dgvReservas.AutoGenerateColumns = False

@@ -419,5 +419,23 @@
   <ItemGroup>
     <None Include="Resources\icons8-Spain-48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Brazil-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-China-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Japan-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Italy-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-France-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Russian Federation-48.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

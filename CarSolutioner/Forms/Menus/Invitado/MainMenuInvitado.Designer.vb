@@ -462,9 +462,6 @@ Partial Class frmMainMenuInvitado
         Me.nombreE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nrodocumentoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sucursalesE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnCerrar = New System.Windows.Forms.Button()
-        Me.btnMinimizar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.apellidoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.usuarioE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -473,52 +470,49 @@ Partial Class frmMainMenuInvitado
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.pnlFVehi = New System.Windows.Forms.Panel()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.lblBorrarMarcaFVeh = New System.Windows.Forms.Label()
-        Me.lblBorrarCategoriaFVeh = New System.Windows.Forms.Label()
-        Me.lblBorrarModeloFVeh = New System.Windows.Forms.Label()
-        Me.lblBorrarSucursalFVeh = New System.Windows.Forms.Label()
-        Me.lblBorrarTipoFVeh = New System.Windows.Forms.Label()
-        Me.lblBorrarMaletasFVeh = New System.Windows.Forms.Label()
-        Me.lblBorrarPuertasFVeh = New System.Windows.Forms.Label()
-        Me.btnVaciarFVeh = New System.Windows.Forms.Button()
-        Me.cbxMarcaFVeh = New System.Windows.Forms.ComboBox()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.cbxCategoriaFVeh = New System.Windows.Forms.ComboBox()
-        Me.cbxModeloFVeh = New System.Windows.Forms.ComboBox()
-        Me.Label61 = New System.Windows.Forms.Label()
-        Me.cbxSucursalFVeh = New System.Windows.Forms.ComboBox()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label109 = New System.Windows.Forms.Label()
-        Me.txtAnioFVeh = New System.Windows.Forms.TextBox()
-        Me.Label62 = New System.Windows.Forms.Label()
-        Me.Label113 = New System.Windows.Forms.Label()
-        Me.Label64 = New System.Windows.Forms.Label()
-        Me.cbxMaletasFVeh = New System.Windows.Forms.ComboBox()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.txtNroChasisFVeh = New System.Windows.Forms.TextBox()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.lblParamIgnore = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.Label106 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.txtKMFVeh = New System.Windows.Forms.TextBox()
-        Me.Label104 = New System.Windows.Forms.Label()
-        Me.txtDeducibleFVeh = New System.Windows.Forms.TextBox()
-        Me.Label105 = New System.Windows.Forms.Label()
-        Me.cbxPuertasFVeh = New System.Windows.Forms.ComboBox()
-        Me.cbxAutomaticoFVeh = New System.Windows.Forms.ComboBox()
-        Me.cbxAireFVeh = New System.Windows.Forms.ComboBox()
-        Me.txtMatriculaFVeh = New System.Windows.Forms.TextBox()
-        Me.cbxTipoFVeh = New System.Windows.Forms.ComboBox()
-        Me.numPasajerosFVeh = New System.Windows.Forms.NumericUpDown()
-        Me.txtColorFVeh = New System.Windows.Forms.TextBox()
-        Me.lblColorFveh = New System.Windows.Forms.Label()
+        Me.lblLanguage = New System.Windows.Forms.Label()
+        Me.PbcRussia = New System.Windows.Forms.PictureBox()
+        Me.PbcFrance = New System.Windows.Forms.PictureBox()
+        Me.PbcItaly = New System.Windows.Forms.PictureBox()
+        Me.PbcJapan = New System.Windows.Forms.PictureBox()
+        Me.PbcChina = New System.Windows.Forms.PictureBox()
+        Me.PbcBrasil = New System.Windows.Forms.PictureBox()
+        Me.PbcSpain = New System.Windows.Forms.PictureBox()
+        Me.PbcGermany = New System.Windows.Forms.PictureBox()
+        Me.pbcEngland = New System.Windows.Forms.PictureBox()
+        Me.pcboxloading = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.dgvVehiculos = New System.Windows.Forms.DataGridView()
-        Me.TabControl2 = New System.Windows.Forms.TabControl()
+        Me.pnlFVehi = New System.Windows.Forms.Panel()
+        Me.chbxFiltro = New System.Windows.Forms.CheckBox()
+        Me.numPasajerosFVeh = New System.Windows.Forms.NumericUpDown()
+        Me.cbxPuertasFVeh = New System.Windows.Forms.ComboBox()
+        Me.lblpuertas = New System.Windows.Forms.Label()
+        Me.lblParamIgnore = New System.Windows.Forms.Label()
+        Me.lblpasajeros = New System.Windows.Forms.Label()
+        Me.lblmaletas = New System.Windows.Forms.Label()
+        Me.cbxMaletasFVeh = New System.Windows.Forms.ComboBox()
+        Me.lblaño = New System.Windows.Forms.Label()
+        Me.txtAnioFVeh = New System.Windows.Forms.TextBox()
+        Me.lblsucursal = New System.Windows.Forms.Label()
+        Me.cbxSucursalFVeh = New System.Windows.Forms.ComboBox()
+        Me.lblcat = New System.Windows.Forms.Label()
+        Me.cbxModeloFVeh = New System.Windows.Forms.ComboBox()
+        Me.cbxCategoriaFVeh = New System.Windows.Forms.ComboBox()
+        Me.lblmodelo = New System.Windows.Forms.Label()
+        Me.cbxMarcaFVeh = New System.Windows.Forms.ComboBox()
+        Me.btnVaciarFVeh = New System.Windows.Forms.Button()
+        Me.lblBorrarPuertasFVeh = New System.Windows.Forms.Label()
+        Me.lblBorrarMaletasFVeh = New System.Windows.Forms.Label()
+        Me.lblBorrarSucursalFVeh = New System.Windows.Forms.Label()
+        Me.lblBorrarModeloFVeh = New System.Windows.Forms.Label()
+        Me.lblBorrarCategoriaFVeh = New System.Windows.Forms.Label()
+        Me.lblBorrarMarcaFVeh = New System.Windows.Forms.Label()
+        Me.lblmarca = New System.Windows.Forms.Label()
+        Me.lblSearchVehicles = New System.Windows.Forms.Label()
         Me.nrochasis = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.matricula = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -541,14 +535,6 @@ Partial Class frmMainMenuInvitado
         Me.idmarcaveh = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.estadov = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.colorvehdgv = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.pcboxloading = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.pnlSidebar.SuspendLayout()
         Me.tbcTabControl.SuspendLayout()
         Me.tbpClientes.SuspendLayout()
@@ -600,18 +586,22 @@ Partial Class frmMainMenuInvitado
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.tbpMenuPrincipal.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.pnlFVehi.SuspendLayout()
-        CType(Me.numPasajerosFVeh, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvVehiculos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabControl2.SuspendLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PbcRussia, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PbcFrance, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PbcItaly, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PbcJapan, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PbcChina, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PbcBrasil, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PbcSpain, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PbcGermany, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbcEngland, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        CType(Me.dgvVehiculos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlFVehi.SuspendLayout()
+        CType(Me.numPasajerosFVeh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlSidebar
@@ -619,11 +609,16 @@ Partial Class frmMainMenuInvitado
         Me.pnlSidebar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.pnlSidebar.Controls.Add(Me.PictureBox6)
-        Me.pnlSidebar.Controls.Add(Me.PictureBox5)
-        Me.pnlSidebar.Controls.Add(Me.PictureBox4)
-        Me.pnlSidebar.Controls.Add(Me.PictureBox3)
-        Me.pnlSidebar.Controls.Add(Me.Label27)
+        Me.pnlSidebar.Controls.Add(Me.PbcRussia)
+        Me.pnlSidebar.Controls.Add(Me.PbcFrance)
+        Me.pnlSidebar.Controls.Add(Me.PbcItaly)
+        Me.pnlSidebar.Controls.Add(Me.PbcJapan)
+        Me.pnlSidebar.Controls.Add(Me.PbcChina)
+        Me.pnlSidebar.Controls.Add(Me.PbcBrasil)
+        Me.pnlSidebar.Controls.Add(Me.PbcSpain)
+        Me.pnlSidebar.Controls.Add(Me.PbcGermany)
+        Me.pnlSidebar.Controls.Add(Me.pbcEngland)
+        Me.pnlSidebar.Controls.Add(Me.lblLanguage)
         Me.pnlSidebar.Controls.Add(Me.Panel6)
         Me.pnlSidebar.Controls.Add(Me.btnVehiculos)
         Me.pnlSidebar.Controls.Add(Me.pcboxloading)
@@ -642,15 +637,15 @@ Partial Class frmMainMenuInvitado
         '
         'btnVehiculos
         '
-        Me.btnVehiculos.BackColor = System.Drawing.Color.Transparent
+        Me.btnVehiculos.BackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.btnVehiculos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnVehiculos.FlatAppearance.BorderSize = 0
         Me.btnVehiculos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnVehiculos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.btnVehiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVehiculos.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVehiculos.ForeColor = System.Drawing.Color.White
-        Me.btnVehiculos.Location = New System.Drawing.Point(-3, 196)
+        Me.btnVehiculos.ForeColor = System.Drawing.Color.Transparent
+        Me.btnVehiculos.Location = New System.Drawing.Point(0, 203)
         Me.btnVehiculos.Name = "btnVehiculos"
         Me.btnVehiculos.Size = New System.Drawing.Size(260, 65)
         Me.btnVehiculos.TabIndex = 0
@@ -1957,7 +1952,8 @@ Partial Class frmMainMenuInvitado
         'tbpVehiculos
         '
         Me.tbpVehiculos.BackColor = System.Drawing.Color.Silver
-        Me.tbpVehiculos.Controls.Add(Me.TabControl2)
+        Me.tbpVehiculos.Controls.Add(Me.dgvVehiculos)
+        Me.tbpVehiculos.Controls.Add(Me.pnlFVehi)
         Me.tbpVehiculos.Location = New System.Drawing.Point(4, 25)
         Me.tbpVehiculos.Margin = New System.Windows.Forms.Padding(0)
         Me.tbpVehiculos.Name = "tbpVehiculos"
@@ -5347,54 +5343,6 @@ Partial Class frmMainMenuInvitado
         Me.sucursalesE.Name = "sucursalesE"
         Me.sucursalesE.ReadOnly = True
         '
-        'btnCerrar
-        '
-        Me.btnCerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCerrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCerrar.Location = New System.Drawing.Point(1572, 0)
-        Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
-        Me.btnCerrar.TabIndex = 35
-        Me.btnCerrar.Text = "✕"
-        Me.btnCerrar.UseVisualStyleBackColor = False
-        '
-        'btnMinimizar
-        '
-        Me.btnMinimizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMinimizar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMinimizar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnMinimizar.Location = New System.Drawing.Point(1534, 0)
-        Me.btnMinimizar.Name = "btnMinimizar"
-        Me.btnMinimizar.Size = New System.Drawing.Size(32, 30)
-        Me.btnMinimizar.TabIndex = 35
-        Me.btnMinimizar.Text = "—"
-        Me.btnMinimizar.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(1496, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(32, 30)
-        Me.Button1.TabIndex = 35
-        Me.Button1.Text = "↺"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'apellidoE
         '
         Me.apellidoE.DataPropertyName = "apellido"
@@ -5444,168 +5392,382 @@ Partial Class frmMainMenuInvitado
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'TabPage1
+        'lblLanguage
         '
-        Me.TabPage1.BackColor = System.Drawing.Color.Silver
-        Me.TabPage1.Controls.Add(Me.dgvVehiculos)
-        Me.TabPage1.Controls.Add(Me.pnlFVehi)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1332, 812)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Vehículos"
+        Me.lblLanguage.AutoSize = True
+        Me.lblLanguage.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLanguage.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblLanguage.Location = New System.Drawing.Point(45, 302)
+        Me.lblLanguage.Name = "lblLanguage"
+        Me.lblLanguage.Size = New System.Drawing.Size(177, 22)
+        Me.lblLanguage.TabIndex = 36
+        Me.lblLanguage.Text = "Seleccione Idioma"
+        '
+        'PbcRussia
+        '
+        Me.PbcRussia.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Russian_Federation_48
+        Me.PbcRussia.Location = New System.Drawing.Point(174, 475)
+        Me.PbcRussia.Name = "PbcRussia"
+        Me.PbcRussia.Size = New System.Drawing.Size(48, 47)
+        Me.PbcRussia.TabIndex = 45
+        Me.PbcRussia.TabStop = False
+        '
+        'PbcFrance
+        '
+        Me.PbcFrance.Image = Global.CarSolutioner.My.Resources.Resources.icons8_France_48
+        Me.PbcFrance.Location = New System.Drawing.Point(104, 475)
+        Me.PbcFrance.Name = "PbcFrance"
+        Me.PbcFrance.Size = New System.Drawing.Size(48, 47)
+        Me.PbcFrance.TabIndex = 44
+        Me.PbcFrance.TabStop = False
+        '
+        'PbcItaly
+        '
+        Me.PbcItaly.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Italy_48
+        Me.PbcItaly.Location = New System.Drawing.Point(36, 475)
+        Me.PbcItaly.Name = "PbcItaly"
+        Me.PbcItaly.Size = New System.Drawing.Size(48, 47)
+        Me.PbcItaly.TabIndex = 43
+        Me.PbcItaly.TabStop = False
+        '
+        'PbcJapan
+        '
+        Me.PbcJapan.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Japan_48
+        Me.PbcJapan.Location = New System.Drawing.Point(174, 410)
+        Me.PbcJapan.Name = "PbcJapan"
+        Me.PbcJapan.Size = New System.Drawing.Size(48, 47)
+        Me.PbcJapan.TabIndex = 42
+        Me.PbcJapan.TabStop = False
+        '
+        'PbcChina
+        '
+        Me.PbcChina.Image = Global.CarSolutioner.My.Resources.Resources.icons8_China_48
+        Me.PbcChina.Location = New System.Drawing.Point(104, 410)
+        Me.PbcChina.Name = "PbcChina"
+        Me.PbcChina.Size = New System.Drawing.Size(48, 47)
+        Me.PbcChina.TabIndex = 41
+        Me.PbcChina.TabStop = False
+        '
+        'PbcBrasil
+        '
+        Me.PbcBrasil.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Brazil_48
+        Me.PbcBrasil.Location = New System.Drawing.Point(36, 410)
+        Me.PbcBrasil.Name = "PbcBrasil"
+        Me.PbcBrasil.Size = New System.Drawing.Size(48, 47)
+        Me.PbcBrasil.TabIndex = 40
+        Me.PbcBrasil.TabStop = False
+        '
+        'PbcSpain
+        '
+        Me.PbcSpain.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Spain_48
+        Me.PbcSpain.Location = New System.Drawing.Point(174, 339)
+        Me.PbcSpain.Name = "PbcSpain"
+        Me.PbcSpain.Size = New System.Drawing.Size(48, 47)
+        Me.PbcSpain.TabIndex = 39
+        Me.PbcSpain.TabStop = False
+        '
+        'PbcGermany
+        '
+        Me.PbcGermany.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Germany_48
+        Me.PbcGermany.Location = New System.Drawing.Point(104, 339)
+        Me.PbcGermany.Name = "PbcGermany"
+        Me.PbcGermany.Size = New System.Drawing.Size(48, 47)
+        Me.PbcGermany.TabIndex = 38
+        Me.PbcGermany.TabStop = False
+        '
+        'pbcEngland
+        '
+        Me.pbcEngland.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Great_Britain_48
+        Me.pbcEngland.Location = New System.Drawing.Point(36, 339)
+        Me.pbcEngland.Name = "pbcEngland"
+        Me.pbcEngland.Size = New System.Drawing.Size(48, 47)
+        Me.pbcEngland.TabIndex = 37
+        Me.pbcEngland.TabStop = False
+        '
+        'pcboxloading
+        '
+        Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
+        Me.pcboxloading.Location = New System.Drawing.Point(36, 46)
+        Me.pcboxloading.Name = "pcboxloading"
+        Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
+        Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pcboxloading.TabIndex = 34
+        Me.pcboxloading.TabStop = False
+        Me.pcboxloading.Visible = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
+        Me.PictureBox2.Location = New System.Drawing.Point(36, 46)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 35
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.CoypyRight
+        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Location = New System.Drawing.Point(-64, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1672, 30)
+        Me.Panel1.TabIndex = 46
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Transparent
+        Me.Button1.Location = New System.Drawing.Point(1637, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(32, 30)
+        Me.Button1.TabIndex = 35
+        Me.Button1.Text = "↺"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'dgvVehiculos
+        '
+        Me.dgvVehiculos.AllowUserToAddRows = False
+        Me.dgvVehiculos.AllowUserToDeleteRows = False
+        Me.dgvVehiculos.AllowUserToResizeColumns = False
+        Me.dgvVehiculos.AllowUserToResizeRows = False
+        Me.dgvVehiculos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.dgvVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvVehiculos.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoriaveh, Me.idmodeloveh, Me.idtipoveh, Me.idsucursalveh, Me.idmarcaveh, Me.estadov, Me.colorvehdgv})
+        Me.dgvVehiculos.Location = New System.Drawing.Point(32, 32)
+        Me.dgvVehiculos.MultiSelect = False
+        Me.dgvVehiculos.Name = "dgvVehiculos"
+        Me.dgvVehiculos.ReadOnly = True
+        Me.dgvVehiculos.RowHeadersVisible = False
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.NullValue = False
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvVehiculos.Size = New System.Drawing.Size(1335, 577)
+        Me.dgvVehiculos.TabIndex = 39
         '
         'pnlFVehi
         '
         Me.pnlFVehi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlFVehi.BackColor = System.Drawing.Color.Silver
         Me.pnlFVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlFVehi.Controls.Add(Me.lblColorFveh)
-        Me.pnlFVehi.Controls.Add(Me.txtColorFVeh)
+        Me.pnlFVehi.Controls.Add(Me.chbxFiltro)
         Me.pnlFVehi.Controls.Add(Me.numPasajerosFVeh)
-        Me.pnlFVehi.Controls.Add(Me.cbxTipoFVeh)
-        Me.pnlFVehi.Controls.Add(Me.txtMatriculaFVeh)
-        Me.pnlFVehi.Controls.Add(Me.cbxAireFVeh)
-        Me.pnlFVehi.Controls.Add(Me.cbxAutomaticoFVeh)
         Me.pnlFVehi.Controls.Add(Me.cbxPuertasFVeh)
-        Me.pnlFVehi.Controls.Add(Me.Label105)
-        Me.pnlFVehi.Controls.Add(Me.txtDeducibleFVeh)
-        Me.pnlFVehi.Controls.Add(Me.Label104)
-        Me.pnlFVehi.Controls.Add(Me.txtKMFVeh)
-        Me.pnlFVehi.Controls.Add(Me.Label26)
-        Me.pnlFVehi.Controls.Add(Me.Label106)
-        Me.pnlFVehi.Controls.Add(Me.Label48)
+        Me.pnlFVehi.Controls.Add(Me.lblpuertas)
         Me.pnlFVehi.Controls.Add(Me.lblParamIgnore)
-        Me.pnlFVehi.Controls.Add(Me.Label47)
-        Me.pnlFVehi.Controls.Add(Me.txtNroChasisFVeh)
-        Me.pnlFVehi.Controls.Add(Me.Label45)
+        Me.pnlFVehi.Controls.Add(Me.lblpasajeros)
+        Me.pnlFVehi.Controls.Add(Me.lblmaletas)
         Me.pnlFVehi.Controls.Add(Me.cbxMaletasFVeh)
-        Me.pnlFVehi.Controls.Add(Me.Label64)
-        Me.pnlFVehi.Controls.Add(Me.Label113)
-        Me.pnlFVehi.Controls.Add(Me.Label62)
+        Me.pnlFVehi.Controls.Add(Me.lblaño)
         Me.pnlFVehi.Controls.Add(Me.txtAnioFVeh)
-        Me.pnlFVehi.Controls.Add(Me.Label109)
-        Me.pnlFVehi.Controls.Add(Me.Label49)
+        Me.pnlFVehi.Controls.Add(Me.lblsucursal)
         Me.pnlFVehi.Controls.Add(Me.cbxSucursalFVeh)
-        Me.pnlFVehi.Controls.Add(Me.Label61)
+        Me.pnlFVehi.Controls.Add(Me.lblcat)
         Me.pnlFVehi.Controls.Add(Me.cbxModeloFVeh)
         Me.pnlFVehi.Controls.Add(Me.cbxCategoriaFVeh)
-        Me.pnlFVehi.Controls.Add(Me.Label50)
+        Me.pnlFVehi.Controls.Add(Me.lblmodelo)
         Me.pnlFVehi.Controls.Add(Me.cbxMarcaFVeh)
         Me.pnlFVehi.Controls.Add(Me.btnVaciarFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarPuertasFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarMaletasFVeh)
-        Me.pnlFVehi.Controls.Add(Me.lblBorrarTipoFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarSucursalFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarModeloFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarCategoriaFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarMarcaFVeh)
-        Me.pnlFVehi.Controls.Add(Me.Label51)
-        Me.pnlFVehi.Controls.Add(Me.Label52)
-        Me.pnlFVehi.Location = New System.Drawing.Point(6, 583)
+        Me.pnlFVehi.Controls.Add(Me.lblmarca)
+        Me.pnlFVehi.Controls.Add(Me.lblSearchVehicles)
+        Me.pnlFVehi.Location = New System.Drawing.Point(29, 615)
         Me.pnlFVehi.Name = "pnlFVehi"
-        Me.pnlFVehi.Size = New System.Drawing.Size(1320, 216)
-        Me.pnlFVehi.TabIndex = 36
+        Me.pnlFVehi.Size = New System.Drawing.Size(1338, 216)
+        Me.pnlFVehi.TabIndex = 38
         '
-        'Label52
+        'chbxFiltro
         '
-        Me.Label52.AutoSize = True
-        Me.Label52.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label52.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label52.Location = New System.Drawing.Point(9, 17)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(162, 22)
-        Me.Label52.TabIndex = 24
-        Me.Label52.Text = "Buscar vehículos"
+        Me.chbxFiltro.AutoSize = True
+        Me.chbxFiltro.Location = New System.Drawing.Point(49, 143)
+        Me.chbxFiltro.Name = "chbxFiltro"
+        Me.chbxFiltro.Size = New System.Drawing.Size(81, 17)
+        Me.chbxFiltro.TabIndex = 66
+        Me.chbxFiltro.Text = "CheckBox1"
+        Me.chbxFiltro.UseVisualStyleBackColor = True
+        Me.chbxFiltro.Visible = False
         '
-        'Label51
+        'numPasajerosFVeh
         '
-        Me.Label51.AutoSize = True
-        Me.Label51.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label51.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label51.Location = New System.Drawing.Point(126, 53)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(47, 17)
-        Me.Label51.TabIndex = 25
-        Me.Label51.Text = "Marca"
+        Me.numPasajerosFVeh.Location = New System.Drawing.Point(710, 73)
+        Me.numPasajerosFVeh.Name = "numPasajerosFVeh"
+        Me.numPasajerosFVeh.Size = New System.Drawing.Size(121, 20)
+        Me.numPasajerosFVeh.TabIndex = 14
         '
-        'lblBorrarMarcaFVeh
+        'cbxPuertasFVeh
         '
-        Me.lblBorrarMarcaFVeh.AutoSize = True
-        Me.lblBorrarMarcaFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorrarMarcaFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarMarcaFVeh.Location = New System.Drawing.Point(207, 58)
-        Me.lblBorrarMarcaFVeh.Name = "lblBorrarMarcaFVeh"
-        Me.lblBorrarMarcaFVeh.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorrarMarcaFVeh.TabIndex = 25
-        Me.lblBorrarMarcaFVeh.Text = "←"
+        Me.cbxPuertasFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxPuertasFVeh.FormattingEnabled = True
+        Me.cbxPuertasFVeh.Items.AddRange(New Object() {"2", "3", "4", "5"})
+        Me.cbxPuertasFVeh.Location = New System.Drawing.Point(837, 73)
+        Me.cbxPuertasFVeh.Name = "cbxPuertasFVeh"
+        Me.cbxPuertasFVeh.Size = New System.Drawing.Size(104, 21)
+        Me.cbxPuertasFVeh.TabIndex = 15
         '
-        'lblBorrarCategoriaFVeh
+        'lblpuertas
         '
-        Me.lblBorrarCategoriaFVeh.AutoSize = True
-        Me.lblBorrarCategoriaFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorrarCategoriaFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarCategoriaFVeh.Location = New System.Drawing.Point(96, 58)
-        Me.lblBorrarCategoriaFVeh.Name = "lblBorrarCategoriaFVeh"
-        Me.lblBorrarCategoriaFVeh.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorrarCategoriaFVeh.TabIndex = 25
-        Me.lblBorrarCategoriaFVeh.Text = "←"
+        Me.lblpuertas.AutoSize = True
+        Me.lblpuertas.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpuertas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblpuertas.Location = New System.Drawing.Point(839, 53)
+        Me.lblpuertas.Name = "lblpuertas"
+        Me.lblpuertas.Size = New System.Drawing.Size(52, 17)
+        Me.lblpuertas.TabIndex = 28
+        Me.lblpuertas.Text = "Puertas"
         '
-        'lblBorrarModeloFVeh
+        'lblParamIgnore
         '
-        Me.lblBorrarModeloFVeh.AutoSize = True
-        Me.lblBorrarModeloFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorrarModeloFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarModeloFVeh.Location = New System.Drawing.Point(337, 59)
-        Me.lblBorrarModeloFVeh.Name = "lblBorrarModeloFVeh"
-        Me.lblBorrarModeloFVeh.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorrarModeloFVeh.TabIndex = 25
-        Me.lblBorrarModeloFVeh.Text = "←"
+        Me.lblParamIgnore.AutoSize = True
+        Me.lblParamIgnore.Font = New System.Drawing.Font("Century Gothic", 8.25!)
+        Me.lblParamIgnore.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblParamIgnore.Location = New System.Drawing.Point(707, 97)
+        Me.lblParamIgnore.Name = "lblParamIgnore"
+        Me.lblParamIgnore.Size = New System.Drawing.Size(149, 16)
+        Me.lblParamIgnore.TabIndex = 29
+        Me.lblParamIgnore.Text = "0 Ignorará este parámetro"
         '
-        'lblBorrarSucursalFVeh
+        'lblpasajeros
         '
-        Me.lblBorrarSucursalFVeh.AutoSize = True
-        Me.lblBorrarSucursalFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorrarSucursalFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarSucursalFVeh.Location = New System.Drawing.Point(556, 58)
-        Me.lblBorrarSucursalFVeh.Name = "lblBorrarSucursalFVeh"
-        Me.lblBorrarSucursalFVeh.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorrarSucursalFVeh.TabIndex = 25
-        Me.lblBorrarSucursalFVeh.Text = "←"
+        Me.lblpasajeros.AutoSize = True
+        Me.lblpasajeros.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpasajeros.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblpasajeros.Location = New System.Drawing.Point(713, 53)
+        Me.lblpasajeros.Name = "lblpasajeros"
+        Me.lblpasajeros.Size = New System.Drawing.Size(64, 17)
+        Me.lblpasajeros.TabIndex = 29
+        Me.lblpasajeros.Text = "Pasajeros"
         '
-        'lblBorrarTipoFVeh
+        'lblmaletas
         '
-        Me.lblBorrarTipoFVeh.AutoSize = True
-        Me.lblBorrarTipoFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorrarTipoFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarTipoFVeh.Location = New System.Drawing.Point(445, 58)
-        Me.lblBorrarTipoFVeh.Name = "lblBorrarTipoFVeh"
-        Me.lblBorrarTipoFVeh.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorrarTipoFVeh.TabIndex = 25
-        Me.lblBorrarTipoFVeh.Text = "←"
+        Me.lblmaletas.AutoSize = True
+        Me.lblmaletas.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmaletas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblmaletas.Location = New System.Drawing.Point(602, 53)
+        Me.lblmaletas.Name = "lblmaletas"
+        Me.lblmaletas.Size = New System.Drawing.Size(56, 17)
+        Me.lblmaletas.TabIndex = 41
+        Me.lblmaletas.Text = "Maletas"
         '
-        'lblBorrarMaletasFVeh
+        'cbxMaletasFVeh
         '
-        Me.lblBorrarMaletasFVeh.AutoSize = True
-        Me.lblBorrarMaletasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorrarMaletasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarMaletasFVeh.Location = New System.Drawing.Point(206, 147)
-        Me.lblBorrarMaletasFVeh.Name = "lblBorrarMaletasFVeh"
-        Me.lblBorrarMaletasFVeh.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorrarMaletasFVeh.TabIndex = 25
-        Me.lblBorrarMaletasFVeh.Text = "←"
+        Me.cbxMaletasFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxMaletasFVeh.FormattingEnabled = True
+        Me.cbxMaletasFVeh.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
+        Me.cbxMaletasFVeh.Location = New System.Drawing.Point(599, 73)
+        Me.cbxMaletasFVeh.Name = "cbxMaletasFVeh"
+        Me.cbxMaletasFVeh.Size = New System.Drawing.Size(105, 21)
+        Me.cbxMaletasFVeh.TabIndex = 13
         '
-        'lblBorrarPuertasFVeh
+        'lblaño
         '
-        Me.lblBorrarPuertasFVeh.AutoSize = True
-        Me.lblBorrarPuertasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorrarPuertasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarPuertasFVeh.Location = New System.Drawing.Point(446, 147)
-        Me.lblBorrarPuertasFVeh.Name = "lblBorrarPuertasFVeh"
-        Me.lblBorrarPuertasFVeh.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorrarPuertasFVeh.TabIndex = 25
-        Me.lblBorrarPuertasFVeh.Text = "←"
+        Me.lblaño.AutoSize = True
+        Me.lblaño.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblaño.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblaño.Location = New System.Drawing.Point(488, 53)
+        Me.lblaño.Name = "lblaño"
+        Me.lblaño.Size = New System.Drawing.Size(32, 17)
+        Me.lblaño.TabIndex = 39
+        Me.lblaño.Text = "Año"
+        '
+        'txtAnioFVeh
+        '
+        Me.txtAnioFVeh.Location = New System.Drawing.Point(483, 72)
+        Me.txtAnioFVeh.Name = "txtAnioFVeh"
+        Me.txtAnioFVeh.Size = New System.Drawing.Size(104, 20)
+        Me.txtAnioFVeh.TabIndex = 12
+        '
+        'lblsucursal
+        '
+        Me.lblsucursal.AutoSize = True
+        Me.lblsucursal.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblsucursal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblsucursal.Location = New System.Drawing.Point(363, 52)
+        Me.lblsucursal.Name = "lblsucursal"
+        Me.lblsucursal.Size = New System.Drawing.Size(57, 17)
+        Me.lblsucursal.TabIndex = 27
+        Me.lblsucursal.Text = "Sucursal"
+        '
+        'cbxSucursalFVeh
+        '
+        Me.cbxSucursalFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxSucursalFVeh.FormattingEnabled = True
+        Me.cbxSucursalFVeh.Location = New System.Drawing.Point(366, 72)
+        Me.cbxSucursalFVeh.Name = "cbxSucursalFVeh"
+        Me.cbxSucursalFVeh.Size = New System.Drawing.Size(105, 21)
+        Me.cbxSucursalFVeh.TabIndex = 11
+        '
+        'lblcat
+        '
+        Me.lblcat.AutoSize = True
+        Me.lblcat.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblcat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblcat.Location = New System.Drawing.Point(16, 53)
+        Me.lblcat.Name = "lblcat"
+        Me.lblcat.Size = New System.Drawing.Size(69, 17)
+        Me.lblcat.TabIndex = 37
+        Me.lblcat.Text = "Categoría"
+        '
+        'cbxModeloFVeh
+        '
+        Me.cbxModeloFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxModeloFVeh.FormattingEnabled = True
+        Me.cbxModeloFVeh.Location = New System.Drawing.Point(234, 73)
+        Me.cbxModeloFVeh.Name = "cbxModeloFVeh"
+        Me.cbxModeloFVeh.Size = New System.Drawing.Size(121, 21)
+        Me.cbxModeloFVeh.TabIndex = 9
+        '
+        'cbxCategoriaFVeh
+        '
+        Me.cbxCategoriaFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxCategoriaFVeh.FormattingEnabled = True
+        Me.cbxCategoriaFVeh.Location = New System.Drawing.Point(13, 73)
+        Me.cbxCategoriaFVeh.Name = "cbxCategoriaFVeh"
+        Me.cbxCategoriaFVeh.Size = New System.Drawing.Size(104, 21)
+        Me.cbxCategoriaFVeh.TabIndex = 7
+        '
+        'lblmodelo
+        '
+        Me.lblmodelo.AutoSize = True
+        Me.lblmodelo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmodelo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblmodelo.Location = New System.Drawing.Point(237, 54)
+        Me.lblmodelo.Name = "lblmodelo"
+        Me.lblmodelo.Size = New System.Drawing.Size(54, 17)
+        Me.lblmodelo.TabIndex = 26
+        Me.lblmodelo.Text = "Modelo"
+        '
+        'cbxMarcaFVeh
+        '
+        Me.cbxMarcaFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxMarcaFVeh.FormattingEnabled = True
+        Me.cbxMarcaFVeh.Items.AddRange(New Object() {"asd"})
+        Me.cbxMarcaFVeh.Location = New System.Drawing.Point(123, 73)
+        Me.cbxMarcaFVeh.Name = "cbxMarcaFVeh"
+        Me.cbxMarcaFVeh.Size = New System.Drawing.Size(105, 21)
+        Me.cbxMarcaFVeh.TabIndex = 8
         '
         'btnVaciarFVeh
         '
@@ -5618,397 +5780,129 @@ Partial Class frmMainMenuInvitado
         Me.btnVaciarFVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVaciarFVeh.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVaciarFVeh.ForeColor = System.Drawing.Color.White
-        Me.btnVaciarFVeh.Location = New System.Drawing.Point(1211, 175)
+        Me.btnVaciarFVeh.Location = New System.Drawing.Point(1229, 175)
         Me.btnVaciarFVeh.Name = "btnVaciarFVeh"
         Me.btnVaciarFVeh.Size = New System.Drawing.Size(99, 31)
         Me.btnVaciarFVeh.TabIndex = 16
         Me.btnVaciarFVeh.Text = "Vaciar"
         Me.btnVaciarFVeh.UseVisualStyleBackColor = False
         '
-        'cbxMarcaFVeh
-        '
-        Me.cbxMarcaFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxMarcaFVeh.FormattingEnabled = True
-        Me.cbxMarcaFVeh.Items.AddRange(New Object() {"asd"})
-        Me.cbxMarcaFVeh.Location = New System.Drawing.Point(123, 73)
-        Me.cbxMarcaFVeh.Name = "cbxMarcaFVeh"
-        Me.cbxMarcaFVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxMarcaFVeh.TabIndex = 8
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label50.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label50.Location = New System.Drawing.Point(237, 54)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(54, 17)
-        Me.Label50.TabIndex = 26
-        Me.Label50.Text = "Modelo"
-        '
-        'cbxCategoriaFVeh
-        '
-        Me.cbxCategoriaFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxCategoriaFVeh.FormattingEnabled = True
-        Me.cbxCategoriaFVeh.Location = New System.Drawing.Point(13, 73)
-        Me.cbxCategoriaFVeh.Name = "cbxCategoriaFVeh"
-        Me.cbxCategoriaFVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxCategoriaFVeh.TabIndex = 7
-        '
-        'cbxModeloFVeh
-        '
-        Me.cbxModeloFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxModeloFVeh.FormattingEnabled = True
-        Me.cbxModeloFVeh.Location = New System.Drawing.Point(234, 73)
-        Me.cbxModeloFVeh.Name = "cbxModeloFVeh"
-        Me.cbxModeloFVeh.Size = New System.Drawing.Size(121, 21)
-        Me.cbxModeloFVeh.TabIndex = 9
-        '
-        'Label61
-        '
-        Me.Label61.AutoSize = True
-        Me.Label61.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label61.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label61.Location = New System.Drawing.Point(16, 53)
-        Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(69, 17)
-        Me.Label61.TabIndex = 37
-        Me.Label61.Text = "Categoría"
-        '
-        'cbxSucursalFVeh
-        '
-        Me.cbxSucursalFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxSucursalFVeh.FormattingEnabled = True
-        Me.cbxSucursalFVeh.Location = New System.Drawing.Point(471, 73)
-        Me.cbxSucursalFVeh.Name = "cbxSucursalFVeh"
-        Me.cbxSucursalFVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxSucursalFVeh.TabIndex = 11
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label49.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label49.Location = New System.Drawing.Point(468, 53)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(57, 17)
-        Me.Label49.TabIndex = 27
-        Me.Label49.Text = "Sucursal"
-        '
-        'Label109
-        '
-        Me.Label109.AutoSize = True
-        Me.Label109.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label109.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label109.Location = New System.Drawing.Point(799, 53)
-        Me.Label109.Name = "Label109"
-        Me.Label109.Size = New System.Drawing.Size(76, 17)
-        Me.Label109.TabIndex = 50
-        Me.Label109.Text = "Kilometraje"
-        '
-        'txtAnioFVeh
-        '
-        Me.txtAnioFVeh.Location = New System.Drawing.Point(14, 162)
-        Me.txtAnioFVeh.Name = "txtAnioFVeh"
-        Me.txtAnioFVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtAnioFVeh.TabIndex = 12
-        '
-        'Label62
-        '
-        Me.Label62.AutoSize = True
-        Me.Label62.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label62.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label62.Location = New System.Drawing.Point(19, 143)
-        Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(32, 17)
-        Me.Label62.TabIndex = 39
-        Me.Label62.Text = "Año"
-        '
-        'Label113
-        '
-        Me.Label113.AutoSize = True
-        Me.Label113.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label113.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label113.Location = New System.Drawing.Point(929, 53)
-        Me.Label113.Name = "Label113"
-        Me.Label113.Size = New System.Drawing.Size(70, 17)
-        Me.Label113.TabIndex = 50
-        Me.Label113.Text = "Deducible"
-        '
-        'Label64
-        '
-        Me.Label64.AutoSize = True
-        Me.Label64.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label64.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label64.Location = New System.Drawing.Point(581, 54)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(90, 17)
-        Me.Label64.TabIndex = 52
-        Me.Label64.Text = "Nro. de chasis"
-        '
-        'cbxMaletasFVeh
-        '
-        Me.cbxMaletasFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxMaletasFVeh.FormattingEnabled = True
-        Me.cbxMaletasFVeh.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
-        Me.cbxMaletasFVeh.Location = New System.Drawing.Point(124, 162)
-        Me.cbxMaletasFVeh.Name = "cbxMaletasFVeh"
-        Me.cbxMaletasFVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxMaletasFVeh.TabIndex = 13
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label45.Location = New System.Drawing.Point(127, 142)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(56, 17)
-        Me.Label45.TabIndex = 41
-        Me.Label45.Text = "Maletas"
-        '
-        'txtNroChasisFVeh
-        '
-        Me.txtNroChasisFVeh.Location = New System.Drawing.Point(579, 74)
-        Me.txtNroChasisFVeh.Name = "txtNroChasisFVeh"
-        Me.txtNroChasisFVeh.Size = New System.Drawing.Size(103, 20)
-        Me.txtNroChasisFVeh.TabIndex = 2
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label47.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label47.Location = New System.Drawing.Point(238, 142)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(64, 17)
-        Me.Label47.TabIndex = 29
-        Me.Label47.Text = "Pasajeros"
-        '
-        'lblParamIgnore
-        '
-        Me.lblParamIgnore.AutoSize = True
-        Me.lblParamIgnore.Font = New System.Drawing.Font("Century Gothic", 8.25!)
-        Me.lblParamIgnore.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblParamIgnore.Location = New System.Drawing.Point(235, 182)
-        Me.lblParamIgnore.Name = "lblParamIgnore"
-        Me.lblParamIgnore.Size = New System.Drawing.Size(149, 16)
-        Me.lblParamIgnore.TabIndex = 29
-        Me.lblParamIgnore.Text = "0 Ignorará este parámetro"
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label48.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label48.Location = New System.Drawing.Point(364, 142)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(52, 17)
-        Me.Label48.TabIndex = 28
-        Me.Label48.Text = "Puertas"
-        '
-        'Label106
-        '
-        Me.Label106.AutoSize = True
-        Me.Label106.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label106.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label106.Location = New System.Drawing.Point(700, 54)
-        Me.Label106.Name = "Label106"
-        Me.Label106.Size = New System.Drawing.Size(65, 17)
-        Me.Label106.TabIndex = 57
-        Me.Label106.Text = "Matrícula"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label26.Location = New System.Drawing.Point(363, 53)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(32, 17)
-        Me.Label26.TabIndex = 41
-        Me.Label26.Text = "Tipo"
-        '
-        'txtKMFVeh
-        '
-        Me.txtKMFVeh.Location = New System.Drawing.Point(799, 73)
-        Me.txtKMFVeh.Name = "txtKMFVeh"
-        Me.txtKMFVeh.Size = New System.Drawing.Size(119, 20)
-        Me.txtKMFVeh.TabIndex = 4
-        '
-        'Label104
-        '
-        Me.Label104.AutoSize = True
-        Me.Label104.Font = New System.Drawing.Font("Century Gothic", 8.25!)
-        Me.Label104.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label104.Location = New System.Drawing.Point(611, 142)
-        Me.Label104.Name = "Label104"
-        Me.Label104.Size = New System.Drawing.Size(71, 16)
-        Me.Label104.TabIndex = 28
-        Me.Label104.Text = "Automático"
-        '
-        'txtDeducibleFVeh
-        '
-        Me.txtDeducibleFVeh.Location = New System.Drawing.Point(927, 73)
-        Me.txtDeducibleFVeh.Name = "txtDeducibleFVeh"
-        Me.txtDeducibleFVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtDeducibleFVeh.TabIndex = 5
-        '
-        'Label105
-        '
-        Me.Label105.AutoSize = True
-        Me.Label105.Font = New System.Drawing.Font("Century Gothic", 8.25!)
-        Me.Label105.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label105.Location = New System.Drawing.Point(484, 142)
-        Me.Label105.Name = "Label105"
-        Me.Label105.Size = New System.Drawing.Size(115, 16)
-        Me.Label105.TabIndex = 28
-        Me.Label105.Text = "Aire acondicionado"
-        '
-        'cbxPuertasFVeh
-        '
-        Me.cbxPuertasFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxPuertasFVeh.FormattingEnabled = True
-        Me.cbxPuertasFVeh.Items.AddRange(New Object() {"2", "3", "4", "5"})
-        Me.cbxPuertasFVeh.Location = New System.Drawing.Point(362, 162)
-        Me.cbxPuertasFVeh.Name = "cbxPuertasFVeh"
-        Me.cbxPuertasFVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxPuertasFVeh.TabIndex = 15
-        '
-        'cbxAutomaticoFVeh
-        '
-        Me.cbxAutomaticoFVeh.AutoCompleteCustomSource.AddRange(New String() {"Todos", "Si", "No"})
-        Me.cbxAutomaticoFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxAutomaticoFVeh.FormattingEnabled = True
-        Me.cbxAutomaticoFVeh.Items.AddRange(New Object() {"Si", "No"})
-        Me.cbxAutomaticoFVeh.Location = New System.Drawing.Point(642, 161)
-        Me.cbxAutomaticoFVeh.Name = "cbxAutomaticoFVeh"
-        Me.cbxAutomaticoFVeh.Size = New System.Drawing.Size(40, 21)
-        Me.cbxAutomaticoFVeh.TabIndex = 1
-        '
-        'cbxAireFVeh
-        '
-        Me.cbxAireFVeh.AutoCompleteCustomSource.AddRange(New String() {"Todos", "Si", "No"})
-        Me.cbxAireFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxAireFVeh.FormattingEnabled = True
-        Me.cbxAireFVeh.Items.AddRange(New Object() {"Si", "No"})
-        Me.cbxAireFVeh.Location = New System.Drawing.Point(551, 161)
-        Me.cbxAireFVeh.Name = "cbxAireFVeh"
-        Me.cbxAireFVeh.Size = New System.Drawing.Size(40, 21)
-        Me.cbxAireFVeh.TabIndex = 0
-        '
-        'txtMatriculaFVeh
-        '
-        Me.txtMatriculaFVeh.Location = New System.Drawing.Point(690, 74)
-        Me.txtMatriculaFVeh.Name = "txtMatriculaFVeh"
-        Me.txtMatriculaFVeh.Size = New System.Drawing.Size(103, 20)
-        Me.txtMatriculaFVeh.TabIndex = 3
-        '
-        'cbxTipoFVeh
-        '
-        Me.cbxTipoFVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxTipoFVeh.FormattingEnabled = True
-        Me.cbxTipoFVeh.Location = New System.Drawing.Point(361, 73)
-        Me.cbxTipoFVeh.Name = "cbxTipoFVeh"
-        Me.cbxTipoFVeh.Size = New System.Drawing.Size(104, 21)
-        Me.cbxTipoFVeh.TabIndex = 10
-        '
-        'numPasajerosFVeh
-        '
-        Me.numPasajerosFVeh.Location = New System.Drawing.Point(235, 162)
-        Me.numPasajerosFVeh.Name = "numPasajerosFVeh"
-        Me.numPasajerosFVeh.Size = New System.Drawing.Size(121, 20)
-        Me.numPasajerosFVeh.TabIndex = 14
-        '
-        'txtColorFVeh
-        '
-        Me.txtColorFVeh.Location = New System.Drawing.Point(1037, 72)
-        Me.txtColorFVeh.Name = "txtColorFVeh"
-        Me.txtColorFVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtColorFVeh.TabIndex = 6
-        '
-        'lblColorFveh
-        '
-        Me.lblColorFveh.AutoSize = True
-        Me.lblColorFveh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblColorFveh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblColorFveh.Location = New System.Drawing.Point(1040, 52)
-        Me.lblColorFveh.Name = "lblColorFveh"
-        Me.lblColorFveh.Size = New System.Drawing.Size(40, 17)
-        Me.lblColorFveh.TabIndex = 65
-        Me.lblColorFveh.Text = "Color"
-        '
-        'dgvVehiculos
-        '
-        Me.dgvVehiculos.AllowUserToAddRows = False
-        Me.dgvVehiculos.AllowUserToDeleteRows = False
-        Me.dgvVehiculos.AllowUserToResizeColumns = False
-        Me.dgvVehiculos.AllowUserToResizeRows = False
-        Me.dgvVehiculos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.dgvVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvVehiculos.BackgroundColor = System.Drawing.SystemColors.Window
-        Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoriaveh, Me.idmodeloveh, Me.idtipoveh, Me.idsucursalveh, Me.idmarcaveh, Me.estadov, Me.colorvehdgv})
-        Me.dgvVehiculos.Location = New System.Drawing.Point(0, 0)
-        Me.dgvVehiculos.MultiSelect = False
-        Me.dgvVehiculos.Name = "dgvVehiculos"
-        Me.dgvVehiculos.ReadOnly = True
-        Me.dgvVehiculos.RowHeadersVisible = False
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.NullValue = False
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.dgvVehiculos.RowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvVehiculos.Size = New System.Drawing.Size(1332, 577)
-        Me.dgvVehiculos.TabIndex = 37
-        '
-        'TabControl2
-        '
-        Me.TabControl2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TabControl2.Controls.Add(Me.TabPage1)
-        Me.TabControl2.Location = New System.Drawing.Point(26, 0)
-        Me.TabControl2.Name = "TabControl2"
-        Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(1340, 838)
-        Me.TabControl2.TabIndex = 38
+        'lblBorrarPuertasFVeh
+        '
+        Me.lblBorrarPuertasFVeh.AutoSize = True
+        Me.lblBorrarPuertasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarPuertasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarPuertasFVeh.Location = New System.Drawing.Point(921, 58)
+        Me.lblBorrarPuertasFVeh.Name = "lblBorrarPuertasFVeh"
+        Me.lblBorrarPuertasFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarPuertasFVeh.TabIndex = 25
+        Me.lblBorrarPuertasFVeh.Text = "←"
+        '
+        'lblBorrarMaletasFVeh
+        '
+        Me.lblBorrarMaletasFVeh.AutoSize = True
+        Me.lblBorrarMaletasFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarMaletasFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarMaletasFVeh.Location = New System.Drawing.Point(681, 58)
+        Me.lblBorrarMaletasFVeh.Name = "lblBorrarMaletasFVeh"
+        Me.lblBorrarMaletasFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarMaletasFVeh.TabIndex = 25
+        Me.lblBorrarMaletasFVeh.Text = "←"
+        '
+        'lblBorrarSucursalFVeh
+        '
+        Me.lblBorrarSucursalFVeh.AutoSize = True
+        Me.lblBorrarSucursalFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarSucursalFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarSucursalFVeh.Location = New System.Drawing.Point(451, 57)
+        Me.lblBorrarSucursalFVeh.Name = "lblBorrarSucursalFVeh"
+        Me.lblBorrarSucursalFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarSucursalFVeh.TabIndex = 25
+        Me.lblBorrarSucursalFVeh.Text = "←"
+        '
+        'lblBorrarModeloFVeh
+        '
+        Me.lblBorrarModeloFVeh.AutoSize = True
+        Me.lblBorrarModeloFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarModeloFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarModeloFVeh.Location = New System.Drawing.Point(337, 59)
+        Me.lblBorrarModeloFVeh.Name = "lblBorrarModeloFVeh"
+        Me.lblBorrarModeloFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarModeloFVeh.TabIndex = 25
+        Me.lblBorrarModeloFVeh.Text = "←"
+        '
+        'lblBorrarCategoriaFVeh
+        '
+        Me.lblBorrarCategoriaFVeh.AutoSize = True
+        Me.lblBorrarCategoriaFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarCategoriaFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarCategoriaFVeh.Location = New System.Drawing.Point(96, 58)
+        Me.lblBorrarCategoriaFVeh.Name = "lblBorrarCategoriaFVeh"
+        Me.lblBorrarCategoriaFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarCategoriaFVeh.TabIndex = 25
+        Me.lblBorrarCategoriaFVeh.Text = "←"
+        '
+        'lblBorrarMarcaFVeh
+        '
+        Me.lblBorrarMarcaFVeh.AutoSize = True
+        Me.lblBorrarMarcaFVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarMarcaFVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarMarcaFVeh.Location = New System.Drawing.Point(207, 58)
+        Me.lblBorrarMarcaFVeh.Name = "lblBorrarMarcaFVeh"
+        Me.lblBorrarMarcaFVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarMarcaFVeh.TabIndex = 25
+        Me.lblBorrarMarcaFVeh.Text = "←"
+        '
+        'lblmarca
+        '
+        Me.lblmarca.AutoSize = True
+        Me.lblmarca.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmarca.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblmarca.Location = New System.Drawing.Point(126, 53)
+        Me.lblmarca.Name = "lblmarca"
+        Me.lblmarca.Size = New System.Drawing.Size(47, 17)
+        Me.lblmarca.TabIndex = 25
+        Me.lblmarca.Text = "Marca"
+        '
+        'lblSearchVehicles
+        '
+        Me.lblSearchVehicles.AutoSize = True
+        Me.lblSearchVehicles.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSearchVehicles.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblSearchVehicles.Location = New System.Drawing.Point(9, 17)
+        Me.lblSearchVehicles.Name = "lblSearchVehicles"
+        Me.lblSearchVehicles.Size = New System.Drawing.Size(162, 22)
+        Me.lblSearchVehicles.TabIndex = 24
+        Me.lblSearchVehicles.Text = "Buscar vehículos"
         '
         'nrochasis
         '
-        Me.nrochasis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.nrochasis.DataPropertyName = "nrochasis"
         Me.nrochasis.HeaderText = "Nro Chasis"
         Me.nrochasis.Name = "nrochasis"
         Me.nrochasis.ReadOnly = True
         Me.nrochasis.Visible = False
-        Me.nrochasis.Width = 83
         '
         'matricula
         '
-        Me.matricula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.matricula.DataPropertyName = "matricula"
         Me.matricula.HeaderText = "Matrícula"
         Me.matricula.Name = "matricula"
         Me.matricula.ReadOnly = True
-        Me.matricula.Width = 77
         '
         'marca
         '
-        Me.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.marca.DataPropertyName = "marca"
         Me.marca.HeaderText = "Marca"
         Me.marca.Name = "marca"
         Me.marca.ReadOnly = True
-        Me.marca.Width = 62
         '
         'Modelo
         '
-        Me.Modelo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Modelo.DataPropertyName = "modelo"
         Me.Modelo.HeaderText = "Modelo"
         Me.Modelo.Name = "Modelo"
         Me.Modelo.ReadOnly = True
-        Me.Modelo.Width = 67
         '
         'tipo
         '
@@ -6016,101 +5910,82 @@ Partial Class frmMainMenuInvitado
         Me.tipo.HeaderText = "Tipo"
         Me.tipo.Name = "tipo"
         Me.tipo.ReadOnly = True
+        Me.tipo.Visible = False
         '
         'categoria
         '
-        Me.categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.categoria.DataPropertyName = "categoria"
         Me.categoria.HeaderText = "Categoria"
         Me.categoria.Name = "categoria"
         Me.categoria.ReadOnly = True
-        Me.categoria.Width = 77
         '
         'aniov
         '
-        Me.aniov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
         Me.aniov.DataPropertyName = "anio"
         Me.aniov.HeaderText = "Año"
         Me.aniov.Name = "aniov"
         Me.aniov.ReadOnly = True
-        Me.aniov.Width = 51
         '
         'kilometraje
         '
-        Me.kilometraje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.kilometraje.DataPropertyName = "kilometraje"
         Me.kilometraje.HeaderText = "KM"
         Me.kilometraje.Name = "kilometraje"
         Me.kilometraje.ReadOnly = True
         Me.kilometraje.Visible = False
-        Me.kilometraje.Width = 48
         '
         'cantidaddepuertas
         '
-        Me.cantidaddepuertas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.cantidaddepuertas.DataPropertyName = "cantidaddepuertas"
         Me.cantidaddepuertas.HeaderText = "Puertas"
         Me.cantidaddepuertas.Name = "cantidaddepuertas"
         Me.cantidaddepuertas.ReadOnly = True
-        Me.cantidaddepuertas.Width = 68
         '
         'cantidaddepasajeros
         '
-        Me.cantidaddepasajeros.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.cantidaddepasajeros.DataPropertyName = "cantidaddepasajeros"
         Me.cantidaddepasajeros.HeaderText = "Pasajeros"
         Me.cantidaddepasajeros.Name = "cantidaddepasajeros"
         Me.cantidaddepasajeros.ReadOnly = True
-        Me.cantidaddepasajeros.Width = 78
         '
         'cantidaddemaletas
         '
-        Me.cantidaddemaletas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.cantidaddemaletas.DataPropertyName = "cantidaddemaletas"
         Me.cantidaddemaletas.HeaderText = "Maletas"
         Me.cantidaddemaletas.Name = "cantidaddemaletas"
         Me.cantidaddemaletas.ReadOnly = True
-        Me.cantidaddemaletas.Width = 69
         '
         'deducible
         '
-        Me.deducible.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.deducible.DataPropertyName = "deducible"
         Me.deducible.HeaderText = "Deducible"
         Me.deducible.Name = "deducible"
         Me.deducible.ReadOnly = True
         Me.deducible.Visible = False
-        Me.deducible.Width = 80
         '
         'aireacondicionado
         '
-        Me.aireacondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.aireacondicionado.DataPropertyName = "aireacondicionado"
         Me.aireacondicionado.HeaderText = "Aire"
         Me.aireacondicionado.Name = "aireacondicionado"
         Me.aireacondicionado.ReadOnly = True
         Me.aireacondicionado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.aireacondicionado.Width = 50
         '
         'esmanual
         '
-        Me.esmanual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.esmanual.DataPropertyName = "esmanual"
         Me.esmanual.HeaderText = "Manual"
         Me.esmanual.Name = "esmanual"
         Me.esmanual.ReadOnly = True
         Me.esmanual.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.esmanual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.esmanual.Width = 67
         '
         'sucursal
         '
-        Me.sucursal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.sucursal.DataPropertyName = "sucursal"
         Me.sucursal.HeaderText = "Sucursal"
         Me.sucursal.Name = "sucursal"
         Me.sucursal.ReadOnly = True
-        Me.sucursal.Width = 73
         '
         'idcategoriaveh
         '
@@ -6173,84 +6048,7 @@ Partial Class frmMainMenuInvitado
         Me.colorvehdgv.HeaderText = "Color"
         Me.colorvehdgv.Name = "colorvehdgv"
         Me.colorvehdgv.ReadOnly = True
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label27.Location = New System.Drawing.Point(34, 299)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(177, 22)
-        Me.Label27.TabIndex = 36
-        Me.Label27.Text = "Seleccione Idioma"
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Spain_48
-        Me.PictureBox5.Location = New System.Drawing.Point(174, 339)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(48, 47)
-        Me.PictureBox5.TabIndex = 39
-        Me.PictureBox5.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Germany_48
-        Me.PictureBox4.Location = New System.Drawing.Point(104, 339)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(48, 47)
-        Me.PictureBox4.TabIndex = 38
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Great_Britain_48
-        Me.PictureBox3.Location = New System.Drawing.Point(36, 339)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(48, 47)
-        Me.PictureBox3.TabIndex = 37
-        Me.PictureBox3.TabStop = False
-        '
-        'pcboxloading
-        '
-        Me.pcboxloading.Image = Global.CarSolutioner.My.Resources.Resources.jiyu
-        Me.pcboxloading.Location = New System.Drawing.Point(36, 46)
-        Me.pcboxloading.Name = "pcboxloading"
-        Me.pcboxloading.Size = New System.Drawing.Size(186, 114)
-        Me.pcboxloading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pcboxloading.TabIndex = 34
-        Me.pcboxloading.TabStop = False
-        Me.pcboxloading.Visible = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.CarSolutioner.My.Resources.Resources.r
-        Me.PictureBox2.Location = New System.Drawing.Point(36, 46)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(186, 114)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 35
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.CarSolutioner.My.Resources.Resources.CoypyRight
-        Me.PictureBox1.Location = New System.Drawing.Point(367, 238)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(667, 337)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = Global.CarSolutioner.My.Resources.Resources.icons8_Spain_48
-        Me.PictureBox6.Location = New System.Drawing.Point(36, 410)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(48, 47)
-        Me.PictureBox6.TabIndex = 40
-        Me.PictureBox6.TabStop = False
+        Me.colorvehdgv.Visible = False
         '
         'frmMainMenuInvitado
         '
@@ -6258,9 +6056,7 @@ Partial Class frmMainMenuInvitado
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1604, 882)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.btnCerrar)
-        Me.Controls.Add(Me.btnMinimizar)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pnlSidebar)
         Me.Controls.Add(Me.tbcTabControl)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -6345,19 +6141,23 @@ Partial Class frmMainMenuInvitado
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.tbpMenuPrincipal.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.pnlFVehi.ResumeLayout(False)
-        Me.pnlFVehi.PerformLayout()
-        CType(Me.numPasajerosFVeh, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvVehiculos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabControl2.ResumeLayout(False)
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PbcRussia, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PbcFrance, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PbcItaly, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PbcJapan, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PbcChina, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PbcBrasil, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PbcSpain, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PbcGermany, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbcEngland, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        CType(Me.dgvVehiculos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlFVehi.ResumeLayout(False)
+        Me.pnlFVehi.PerformLayout()
+        CType(Me.numPasajerosFVeh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -6399,7 +6199,6 @@ Partial Class frmMainMenuInvitado
     Friend WithEvents Label75 As Label
     Friend WithEvents Label76 As Label
     Friend WithEvents txtNroDocEempleado As TextBox
-    Friend WithEvents btnCerrar As Button
     Friend WithEvents pnlBClientes As Panel
     Friend WithEvents btnBajaCliente As Button
     Friend WithEvents Label79 As Label
@@ -6490,8 +6289,6 @@ Partial Class frmMainMenuInvitado
     Friend WithEvents chbxFechaFClientes As CheckBox
     Friend WithEvents cbxTipoDocumACliente As ComboBox
     Friend WithEvents cbxTipoDocumMCliente As ComboBox
-    Friend WithEvents btnMinimizar As Button
-    Friend WithEvents Button1 As Button
     Friend WithEvents gbxFecNacFCliente As GroupBox
     Public WithEvents dgvReservas As DataGridView
     Friend WithEvents tabRes_Alq As TabControl
@@ -6799,11 +6596,46 @@ Partial Class frmMainMenuInvitado
     Friend WithEvents mes As DataGridViewTextBoxColumn
     Friend WithEvents anio As DataGridViewTextBoxColumn
     Friend WithEvents telefonos As DataGridViewButtonColumn
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents Label27 As Label
-    Friend WithEvents TabControl2 As TabControl
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents pbcEngland As PictureBox
+    Friend WithEvents lblLanguage As Label
+    Friend WithEvents PbcGermany As PictureBox
+    Friend WithEvents PbcSpain As PictureBox
+    Friend WithEvents PbcBrasil As PictureBox
+    Friend WithEvents PbcChina As PictureBox
+    Friend WithEvents PbcJapan As PictureBox
+    Friend WithEvents PbcItaly As PictureBox
+    Friend WithEvents PbcFrance As PictureBox
+    Friend WithEvents PbcRussia As PictureBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button1 As Button
     Friend WithEvents dgvVehiculos As DataGridView
+    Friend WithEvents pnlFVehi As Panel
+    Friend WithEvents chbxFiltro As CheckBox
+    Friend WithEvents numPasajerosFVeh As NumericUpDown
+    Friend WithEvents cbxPuertasFVeh As ComboBox
+    Friend WithEvents lblpuertas As Label
+    Friend WithEvents lblParamIgnore As Label
+    Friend WithEvents lblpasajeros As Label
+    Friend WithEvents lblmaletas As Label
+    Friend WithEvents cbxMaletasFVeh As ComboBox
+    Friend WithEvents lblaño As Label
+    Friend WithEvents txtAnioFVeh As TextBox
+    Friend WithEvents lblsucursal As Label
+    Friend WithEvents cbxSucursalFVeh As ComboBox
+    Friend WithEvents lblcat As Label
+    Friend WithEvents cbxModeloFVeh As ComboBox
+    Friend WithEvents cbxCategoriaFVeh As ComboBox
+    Friend WithEvents lblmodelo As Label
+    Friend WithEvents cbxMarcaFVeh As ComboBox
+    Friend WithEvents btnVaciarFVeh As Button
+    Friend WithEvents lblBorrarPuertasFVeh As Label
+    Friend WithEvents lblBorrarMaletasFVeh As Label
+    Friend WithEvents lblBorrarSucursalFVeh As Label
+    Friend WithEvents lblBorrarModeloFVeh As Label
+    Friend WithEvents lblBorrarCategoriaFVeh As Label
+    Friend WithEvents lblBorrarMarcaFVeh As Label
+    Friend WithEvents lblmarca As Label
+    Friend WithEvents lblSearchVehicles As Label
     Friend WithEvents nrochasis As DataGridViewTextBoxColumn
     Friend WithEvents matricula As DataGridViewTextBoxColumn
     Friend WithEvents marca As DataGridViewTextBoxColumn
@@ -6826,50 +6658,4 @@ Partial Class frmMainMenuInvitado
     Friend WithEvents idmarcaveh As DataGridViewTextBoxColumn
     Friend WithEvents estadov As DataGridViewCheckBoxColumn
     Friend WithEvents colorvehdgv As DataGridViewTextBoxColumn
-    Friend WithEvents pnlFVehi As Panel
-    Friend WithEvents lblColorFveh As Label
-    Friend WithEvents txtColorFVeh As TextBox
-    Friend WithEvents numPasajerosFVeh As NumericUpDown
-    Friend WithEvents cbxTipoFVeh As ComboBox
-    Friend WithEvents txtMatriculaFVeh As TextBox
-    Friend WithEvents cbxAireFVeh As ComboBox
-    Friend WithEvents cbxAutomaticoFVeh As ComboBox
-    Friend WithEvents cbxPuertasFVeh As ComboBox
-    Friend WithEvents Label105 As Label
-    Friend WithEvents txtDeducibleFVeh As TextBox
-    Friend WithEvents Label104 As Label
-    Friend WithEvents txtKMFVeh As TextBox
-    Friend WithEvents Label26 As Label
-    Friend WithEvents Label106 As Label
-    Friend WithEvents Label48 As Label
-    Friend WithEvents lblParamIgnore As Label
-    Friend WithEvents Label47 As Label
-    Friend WithEvents txtNroChasisFVeh As TextBox
-    Friend WithEvents Label45 As Label
-    Friend WithEvents cbxMaletasFVeh As ComboBox
-    Friend WithEvents Label64 As Label
-    Friend WithEvents Label113 As Label
-    Friend WithEvents Label62 As Label
-    Friend WithEvents txtAnioFVeh As TextBox
-    Friend WithEvents Label109 As Label
-    Friend WithEvents Label49 As Label
-    Friend WithEvents cbxSucursalFVeh As ComboBox
-    Friend WithEvents Label61 As Label
-    Friend WithEvents cbxModeloFVeh As ComboBox
-    Friend WithEvents cbxCategoriaFVeh As ComboBox
-    Friend WithEvents Label50 As Label
-    Friend WithEvents cbxMarcaFVeh As ComboBox
-    Friend WithEvents btnVaciarFVeh As Button
-    Friend WithEvents lblBorrarPuertasFVeh As Label
-    Friend WithEvents lblBorrarMaletasFVeh As Label
-    Friend WithEvents lblBorrarTipoFVeh As Label
-    Friend WithEvents lblBorrarSucursalFVeh As Label
-    Friend WithEvents lblBorrarModeloFVeh As Label
-    Friend WithEvents lblBorrarCategoriaFVeh As Label
-    Friend WithEvents lblBorrarMarcaFVeh As Label
-    Friend WithEvents Label51 As Label
-    Friend WithEvents Label52 As Label
-    Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents PictureBox5 As PictureBox
-    Friend WithEvents PictureBox6 As PictureBox
 End Class

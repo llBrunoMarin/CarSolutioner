@@ -26,7 +26,6 @@ Partial Class Reconectar
         Me.pboxreconnecting = New System.Windows.Forms.PictureBox()
         Me.pboxfija = New System.Windows.Forms.PictureBox()
         Me.lblreconnect = New System.Windows.Forms.Label()
-        Me.btnCerrar = New System.Windows.Forms.Button()
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.btnreconectar = New System.Windows.Forms.Button()
         Me.btncontinuar = New System.Windows.Forms.Button()
@@ -68,22 +67,6 @@ Partial Class Reconectar
         Me.lblreconnect.TabIndex = 37
         Me.lblreconnect.Text = "Se ha perdido la conexión"
         Me.lblreconnect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnCerrar
-        '
-        Me.btnCerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCerrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCerrar.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCerrar.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCerrar.Location = New System.Drawing.Point(264, 0)
-        Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(32, 30)
-        Me.btnCerrar.TabIndex = 40
-        Me.btnCerrar.Text = "✕"
-        Me.btnCerrar.UseVisualStyleBackColor = False
         '
         'mstMenuStrip
         '
@@ -149,7 +132,6 @@ Partial Class Reconectar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ClientSize = New System.Drawing.Size(296, 203)
-        Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnreconectar)
         Me.Controls.Add(Me.mstMenuStrip)
@@ -171,7 +153,6 @@ Partial Class Reconectar
     Friend WithEvents pboxreconnecting As PictureBox
     Friend WithEvents pboxfija As PictureBox
     Friend WithEvents lblreconnect As Label
-    Friend WithEvents btnCerrar As Button
     Friend WithEvents mstMenuStrip As MenuStrip
     Friend WithEvents btnreconectar As Button
     Friend WithEvents btncontinuar As Button

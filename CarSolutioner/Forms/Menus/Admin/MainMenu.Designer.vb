@@ -115,7 +115,6 @@ Partial Class frmMainMenu
         Me.Label80 = New System.Windows.Forms.Label()
         Me.txtDocumentoBCliente = New System.Windows.Forms.TextBox()
         Me.pnlFClientes = New System.Windows.Forms.Panel()
-        Me.numDescuentoFCliente = New System.Windows.Forms.NumericUpDown()
         Me.Label107 = New System.Windows.Forms.Label()
         Me.lblBorrarTipoDocFCliente = New System.Windows.Forms.Label()
         Me.gbxFecNacFCliente = New System.Windows.Forms.GroupBox()
@@ -136,7 +135,6 @@ Partial Class frmMainMenu
         Me.txtDocumFClientes = New System.Windows.Forms.TextBox()
         Me.txtApellidoFClientes = New System.Windows.Forms.TextBox()
         Me.txtNombreFClientes = New System.Windows.Forms.TextBox()
-        Me.Label132 = New System.Windows.Forms.Label()
         Me.pnlAClientes = New System.Windows.Forms.Panel()
         Me.numDescuentoACliente = New System.Windows.Forms.NumericUpDown()
         Me.gbxFecNacACliente = New System.Windows.Forms.GroupBox()
@@ -205,6 +203,7 @@ Partial Class frmMainMenu
         Me.Label32 = New System.Windows.Forms.Label()
         Me.txtMatriculaBVeh = New System.Windows.Forms.TextBox()
         Me.pnlFVehi = New System.Windows.Forms.Panel()
+        Me.chbxFiltroVehiculos = New System.Windows.Forms.CheckBox()
         Me.lblColorFveh = New System.Windows.Forms.Label()
         Me.txtColorFVeh = New System.Windows.Forms.TextBox()
         Me.numPasajerosFVeh = New System.Windows.Forms.NumericUpDown()
@@ -368,6 +367,7 @@ Partial Class frmMainMenu
         Me.Label76 = New System.Windows.Forms.Label()
         Me.txtNroDocEempleado = New System.Windows.Forms.TextBox()
         Me.pnlFemp = New System.Windows.Forms.Panel()
+        Me.chbxFiltroEmpleados = New System.Windows.Forms.CheckBox()
         Me.lblBorrarSucursalFEmpleado = New System.Windows.Forms.Label()
         Me.lblBorrarTipoFEmpleado = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
@@ -553,14 +553,18 @@ Partial Class frmMainMenu
         Me.cbxSucLlegFRes = New System.Windows.Forms.ComboBox()
         Me.Alquileres = New System.Windows.Forms.TabPage()
         Me.pnlMAlq = New System.Windows.Forms.Panel()
+        Me.lblnombreCMalq = New System.Windows.Forms.Label()
+        Me.txtNombreMAlq = New System.Windows.Forms.TextBox()
         Me.btnModificarAlquiler = New System.Windows.Forms.Button()
         Me.Label153 = New System.Windows.Forms.Label()
         Me.Label156 = New System.Windows.Forms.Label()
         Me.Label157 = New System.Windows.Forms.Label()
         Me.txtDocumentoMAlquileres = New System.Windows.Forms.TextBox()
         Me.cbxKilomMAlquileres = New System.Windows.Forms.ComboBox()
+        Me.Label158 = New System.Windows.Forms.Label()
         Me.Label159 = New System.Windows.Forms.Label()
         Me.cbxDestinoMAlquileres = New System.Windows.Forms.ComboBox()
+        Me.txtCostoMAlquileres = New System.Windows.Forms.TextBox()
         Me.dgvAlquileres = New System.Windows.Forms.DataGridView()
         Me.matriculaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nrodocumalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -645,38 +649,6 @@ Partial Class frmMainMenu
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.chbxFiltroEmpleados = New System.Windows.Forms.CheckBox()
-        Me.chbxFiltroVehiculos = New System.Windows.Forms.CheckBox()
-        Me.Label158 = New System.Windows.Forms.Label()
-        Me.txtCostoMAlquileres = New System.Windows.Forms.TextBox()
-        Me.lblnombreCMalq = New System.Windows.Forms.Label()
-        Me.txtNombreMAlq = New System.Windows.Forms.TextBox()
-        Me.matriculaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrodocumalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombreapellidoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idreservaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechareservainicioalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechaalquilerinicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechaalquilerfin = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechareservafinalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidadkmalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidadkmtextalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.categoriaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tipoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.costototalalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sucursalsalidaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sucursaldestinoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalsalidaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idsucursalllegadaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fechatramitealq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.usuarioempleadoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.deduciblealq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estadoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idestado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idpersonaalquiler = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idcategoriaalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idtipoalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nrochasisalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -691,7 +663,6 @@ Partial Class frmMainMenu
         Me.gbxFecNacMCliente.SuspendLayout()
         Me.pnlBClientes.SuspendLayout()
         Me.pnlFClientes.SuspendLayout()
-        CType(Me.numDescuentoFCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbxFecNacFCliente.SuspendLayout()
         Me.pnlAClientes.SuspendLayout()
         CType(Me.numDescuentoACliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1532,7 +1503,6 @@ Partial Class frmMainMenu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFClientes.BackColor = System.Drawing.Color.Silver
         Me.pnlFClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlFClientes.Controls.Add(Me.numDescuentoFCliente)
         Me.pnlFClientes.Controls.Add(Me.Label107)
         Me.pnlFClientes.Controls.Add(Me.lblBorrarTipoDocFCliente)
         Me.pnlFClientes.Controls.Add(Me.gbxFecNacFCliente)
@@ -1550,18 +1520,10 @@ Partial Class frmMainMenu
         Me.pnlFClientes.Controls.Add(Me.txtDocumFClientes)
         Me.pnlFClientes.Controls.Add(Me.txtApellidoFClientes)
         Me.pnlFClientes.Controls.Add(Me.txtNombreFClientes)
-        Me.pnlFClientes.Controls.Add(Me.Label132)
         Me.pnlFClientes.Location = New System.Drawing.Point(746, 3)
         Me.pnlFClientes.Name = "pnlFClientes"
         Me.pnlFClientes.Size = New System.Drawing.Size(578, 199)
         Me.pnlFClientes.TabIndex = 42
-        '
-        'numDescuentoFCliente
-        '
-        Me.numDescuentoFCliente.Location = New System.Drawing.Point(15, 162)
-        Me.numDescuentoFCliente.Name = "numDescuentoFCliente"
-        Me.numDescuentoFCliente.Size = New System.Drawing.Size(126, 20)
-        Me.numDescuentoFCliente.TabIndex = 6
         '
         'Label107
         '
@@ -1781,17 +1743,6 @@ Partial Class frmMainMenu
         Me.txtNombreFClientes.Name = "txtNombreFClientes"
         Me.txtNombreFClientes.Size = New System.Drawing.Size(124, 20)
         Me.txtNombreFClientes.TabIndex = 2
-        '
-        'Label132
-        '
-        Me.Label132.AutoSize = True
-        Me.Label132.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label132.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label132.Location = New System.Drawing.Point(12, 140)
-        Me.Label132.Name = "Label132"
-        Me.Label132.Size = New System.Drawing.Size(94, 17)
-        Me.Label132.TabIndex = 25
-        Me.Label132.Text = "Descuento (%)"
         '
         'pnlAClientes
         '
@@ -2619,6 +2570,17 @@ Partial Class frmMainMenu
         Me.pnlFVehi.Name = "pnlFVehi"
         Me.pnlFVehi.Size = New System.Drawing.Size(661, 216)
         Me.pnlFVehi.TabIndex = 36
+        '
+        'chbxFiltroVehiculos
+        '
+        Me.chbxFiltroVehiculos.AutoSize = True
+        Me.chbxFiltroVehiculos.Location = New System.Drawing.Point(303, 21)
+        Me.chbxFiltroVehiculos.Name = "chbxFiltroVehiculos"
+        Me.chbxFiltroVehiculos.Size = New System.Drawing.Size(81, 17)
+        Me.chbxFiltroVehiculos.TabIndex = 66
+        Me.chbxFiltroVehiculos.Text = "CheckBox1"
+        Me.chbxFiltroVehiculos.UseVisualStyleBackColor = True
+        Me.chbxFiltroVehiculos.Visible = False
         '
         'lblColorFveh
         '
@@ -4376,6 +4338,17 @@ Partial Class frmMainMenu
         Me.pnlFemp.Name = "pnlFemp"
         Me.pnlFemp.Size = New System.Drawing.Size(575, 190)
         Me.pnlFemp.TabIndex = 33
+        '
+        'chbxFiltroEmpleados
+        '
+        Me.chbxFiltroEmpleados.AutoSize = True
+        Me.chbxFiltroEmpleados.Location = New System.Drawing.Point(401, 29)
+        Me.chbxFiltroEmpleados.Name = "chbxFiltroEmpleados"
+        Me.chbxFiltroEmpleados.Size = New System.Drawing.Size(81, 17)
+        Me.chbxFiltroEmpleados.TabIndex = 46
+        Me.chbxFiltroEmpleados.Text = "CheckBox1"
+        Me.chbxFiltroEmpleados.UseVisualStyleBackColor = True
+        Me.chbxFiltroEmpleados.Visible = False
         '
         'lblBorrarSucursalFEmpleado
         '
@@ -6472,7 +6445,25 @@ Partial Class frmMainMenu
         Me.pnlMAlq.Name = "pnlMAlq"
         Me.pnlMAlq.Size = New System.Drawing.Size(652, 216)
         Me.pnlMAlq.TabIndex = 43
-
+        '
+        'lblnombreCMalq
+        '
+        Me.lblnombreCMalq.AutoSize = True
+        Me.lblnombreCMalq.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnombreCMalq.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblnombreCMalq.Location = New System.Drawing.Point(19, 63)
+        Me.lblnombreCMalq.Name = "lblnombreCMalq"
+        Me.lblnombreCMalq.Size = New System.Drawing.Size(56, 17)
+        Me.lblnombreCMalq.TabIndex = 31
+        Me.lblnombreCMalq.Text = "Nombre"
+        '
+        'txtNombreMAlq
+        '
+        Me.txtNombreMAlq.Enabled = False
+        Me.txtNombreMAlq.Location = New System.Drawing.Point(22, 84)
+        Me.txtNombreMAlq.Name = "txtNombreMAlq"
+        Me.txtNombreMAlq.Size = New System.Drawing.Size(182, 20)
+        Me.txtNombreMAlq.TabIndex = 30
         '
         'btnModificarAlquiler
         '
@@ -6542,6 +6533,17 @@ Partial Class frmMainMenu
         Me.cbxKilomMAlquileres.Size = New System.Drawing.Size(121, 21)
         Me.cbxKilomMAlquileres.TabIndex = 16
         '
+        'Label158
+        '
+        Me.Label158.AutoSize = True
+        Me.Label158.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label158.Location = New System.Drawing.Point(425, 107)
+        Me.Label158.Name = "Label158"
+        Me.Label158.Size = New System.Drawing.Size(75, 17)
+        Me.Label158.TabIndex = 29
+        Me.Label158.Text = "Costo Total"
+        '
         'Label159
         '
         Me.Label159.AutoSize = True
@@ -6561,6 +6563,15 @@ Partial Class frmMainMenu
         Me.cbxDestinoMAlquileres.Name = "cbxDestinoMAlquileres"
         Me.cbxDestinoMAlquileres.Size = New System.Drawing.Size(121, 21)
         Me.cbxDestinoMAlquileres.TabIndex = 19
+        '
+        'txtCostoMAlquileres
+        '
+        Me.txtCostoMAlquileres.Enabled = False
+        Me.txtCostoMAlquileres.Location = New System.Drawing.Point(424, 128)
+        Me.txtCostoMAlquileres.Name = "txtCostoMAlquileres"
+        Me.txtCostoMAlquileres.Size = New System.Drawing.Size(121, 20)
+        Me.txtCostoMAlquileres.TabIndex = 22
+        Me.txtCostoMAlquileres.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'dgvAlquileres
         '
@@ -6605,6 +6616,8 @@ Partial Class frmMainMenu
         Me.nombreapellidoalq.HeaderText = "Nombre"
         Me.nombreapellidoalq.Name = "nombreapellidoalq"
         Me.nombreapellidoalq.ReadOnly = True
+        Me.nombreapellidoalq.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.nombreapellidoalq.Visible = False
         '
         'idreservaalquiler
         '
@@ -7406,128 +7419,6 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'Label158
-        '
-        Me.Label158.AutoSize = True
-        Me.Label158.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label158.Location = New System.Drawing.Point(425, 107)
-        Me.Label158.Name = "Label158"
-        Me.Label158.Size = New System.Drawing.Size(75, 17)
-        Me.Label158.TabIndex = 29
-        Me.Label158.Text = "Costo Total"
-        '
-        'txtCostoMAlquileres
-        '
-        Me.txtCostoMAlquileres.Enabled = False
-        Me.txtCostoMAlquileres.Location = New System.Drawing.Point(424, 128)
-        Me.txtCostoMAlquileres.Name = "txtCostoMAlquileres"
-        Me.txtCostoMAlquileres.Size = New System.Drawing.Size(121, 20)
-        Me.txtCostoMAlquileres.TabIndex = 22
-        Me.txtCostoMAlquileres.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'lblnombreCMalq
-        '
-        Me.lblnombreCMalq.AutoSize = True
-        Me.lblnombreCMalq.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblnombreCMalq.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblnombreCMalq.Location = New System.Drawing.Point(19, 63)
-        Me.lblnombreCMalq.Name = "lblnombreCMalq"
-        Me.lblnombreCMalq.Size = New System.Drawing.Size(56, 17)
-        Me.lblnombreCMalq.TabIndex = 31
-        Me.lblnombreCMalq.Text = "Nombre"
-        '
-        'txtNombreMAlq
-        '
-        Me.txtNombreMAlq.Enabled = False
-        Me.txtNombreMAlq.Location = New System.Drawing.Point(22, 84)
-        Me.txtNombreMAlq.Name = "txtNombreMAlq"
-        Me.txtNombreMAlq.Size = New System.Drawing.Size(182, 20)
-        Me.txtNombreMAlq.TabIndex = 30
-        '
-        'matriculaalq
-        '
-        Me.matriculaalq.DataPropertyName = "matricula"
-        Me.matriculaalq.HeaderText = "Matricula"
-        Me.matriculaalq.Name = "matriculaalq"
-        Me.matriculaalq.ReadOnly = True
-        '
-        'nrodocumalq
-        '
-        Me.nrodocumalq.DataPropertyName = "nrodocumento"
-        Me.nrodocumalq.HeaderText = "Documento"
-        Me.nrodocumalq.Name = "nrodocumalq"
-        Me.nrodocumalq.ReadOnly = True
-        '
-        'nombreapellidoalq
-        '
-        Me.nombreapellidoalq.DataPropertyName = "nombreapellido"
-        Me.nombreapellidoalq.HeaderText = "Nombre"
-        Me.nombreapellidoalq.Name = "nombreapellidoalq"
-        Me.nombreapellidoalq.ReadOnly = True
-        Me.nombreapellidoalq.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.nombreapellidoalq.Visible = False
-        '
-        'idreservaalquiler
-        '
-        Me.idreservaalquiler.DataPropertyName = "idreserva"
-        Me.idreservaalquiler.HeaderText = "idreservaalquiler"
-        Me.idreservaalquiler.Name = "idreservaalquiler"
-        Me.idreservaalquiler.ReadOnly = True
-        Me.idreservaalquiler.Visible = False
-        '
-        'fechareservainicioalq
-        '
-        Me.fechareservainicioalq.DataPropertyName = "fechareservainicio"
-        DataGridViewCellStyle16.Format = "dd/MM/yyyy HH:mm"
-        DataGridViewCellStyle16.NullValue = Nothing
-        Me.fechareservainicioalq.DefaultCellStyle = DataGridViewCellStyle16
-        Me.fechareservainicioalq.HeaderText = "Inicio Reserva"
-        Me.fechareservainicioalq.Name = "fechareservainicioalq"
-        Me.fechareservainicioalq.ReadOnly = True
-        '
-        'fechaalquilerinicio
-        '
-        Me.fechaalquilerinicio.DataPropertyName = "fechaalquilerinicio"
-        DataGridViewCellStyle17.Format = "dd/MM/yyyy HH:mm"
-        DataGridViewCellStyle17.NullValue = Nothing
-        Me.fechaalquilerinicio.DefaultCellStyle = DataGridViewCellStyle17
-        Me.fechaalquilerinicio.HeaderText = "Fecha Inicio"
-        Me.fechaalquilerinicio.Name = "fechaalquilerinicio"
-        Me.fechaalquilerinicio.ReadOnly = True
-        '
-        'fechaalquilerfin
-        '
-        Me.fechaalquilerfin.DataPropertyName = "fechaalquilerfin"
-        DataGridViewCellStyle18.Format = "dd/MM/yyyy HH:mm"
-        DataGridViewCellStyle18.NullValue = Nothing
-        Me.fechaalquilerfin.DefaultCellStyle = DataGridViewCellStyle18
-        Me.fechaalquilerfin.HeaderText = "Fecha Fin"
-        Me.fechaalquilerfin.Name = "fechaalquilerfin"
-        Me.fechaalquilerfin.ReadOnly = True
-        '
-        'fechareservafinalq
-        '
-        Me.chbxFiltroEmpleados.AutoSize = True
-        Me.chbxFiltroEmpleados.Location = New System.Drawing.Point(401, 29)
-        Me.chbxFiltroEmpleados.Name = "chbxFiltroEmpleados"
-        Me.chbxFiltroEmpleados.Size = New System.Drawing.Size(81, 17)
-        Me.chbxFiltroEmpleados.TabIndex = 46
-        Me.chbxFiltroEmpleados.Text = "CheckBox1"
-        Me.chbxFiltroEmpleados.UseVisualStyleBackColor = True
-        Me.chbxFiltroEmpleados.Visible = False
-        '
-        'chbxFiltroVehiculos
-        '
-        Me.chbxFiltroVehiculos.AutoSize = True
-        Me.chbxFiltroVehiculos.Location = New System.Drawing.Point(303, 21)
-        Me.chbxFiltroVehiculos.Name = "chbxFiltroVehiculos"
-        Me.chbxFiltroVehiculos.Size = New System.Drawing.Size(81, 17)
-        Me.chbxFiltroVehiculos.TabIndex = 66
-        Me.chbxFiltroVehiculos.Text = "CheckBox1"
-        Me.chbxFiltroVehiculos.UseVisualStyleBackColor = True
-        Me.chbxFiltroVehiculos.Visible = False
-        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -7567,7 +7458,6 @@ Partial Class frmMainMenu
         Me.pnlBClientes.PerformLayout()
         Me.pnlFClientes.ResumeLayout(False)
         Me.pnlFClientes.PerformLayout()
-        CType(Me.numDescuentoFCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbxFecNacFCliente.ResumeLayout(False)
         Me.pnlAClientes.ResumeLayout(False)
         Me.pnlAClientes.PerformLayout()
@@ -8153,8 +8043,6 @@ Partial Class frmMainMenu
     Friend WithEvents numDescuentoACliente As NumericUpDown
     Friend WithEvents btnDescuentoACliente As Button
     Friend WithEvents Label115 As Label
-    Friend WithEvents numDescuentoFCliente As NumericUpDown
-    Friend WithEvents Label132 As Label
     Friend WithEvents lblKilometrajeAVeh As Label
     Friend WithEvents lblColorFveh As Label
     Friend WithEvents txtColorFVeh As TextBox

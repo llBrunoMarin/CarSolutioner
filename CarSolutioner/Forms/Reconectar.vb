@@ -30,8 +30,9 @@
         Login.bgwLogin.RunWorkerAsync()
     End Sub
 
-    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
+    Private Sub btnCerrar_Click(sender As Object, e As EventArgs)
         Me.Dispose()
+
     End Sub
 
     Private Sub bgwcargando_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwcargando.DoWork

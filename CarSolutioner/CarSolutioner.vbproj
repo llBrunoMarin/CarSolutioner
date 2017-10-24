@@ -410,5 +410,14 @@
   <ItemGroup>
     <None Include="Resources\preg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Great Britain-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Germany-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-Spain-48.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

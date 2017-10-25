@@ -31,7 +31,9 @@
         If Disponibles.Rows.Count <> 0 Then
             Me.DialogResult = vbYes
             Dim AlquilarReserva As New frmAlquilar(Disponibles, frmAlquilar.VistaAlquilar.Editado, ReservaSeleccionada)
-            AlquilarReserva.ShowDialog()
+            Using AlquilarReserva
+                AlquilarReserva.ShowDialog(Me.Owner)
+            End Using
             Me.Dispose()
         Else
             AmaranthMessagebox("No hay vehículos disponibles con estas características. Por favor, intente nuevamente.", "Error")

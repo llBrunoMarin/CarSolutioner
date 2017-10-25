@@ -31,56 +31,75 @@
     Private Sub CalculoKMExcedidos(sender As Object, e As EventArgs) Handles txtKMAutoAhora.TextChanged
         Dim Diferencia As Integer
         Dim Permitidos As Integer
+        If Not txtKMAutoAhora.Text = "" Then
 
-        Select Case ReservaSeleccionada.IdCantKM
-            Case 1
-                If Not txtKMAutoAhora.Text = "" Then
-                    Diferencia = CInt(txtKMAutoAhora.Text) - CInt(txtKMAutoAntes.Text)
-                    Permitidos = 150 * If((Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days = 0, 1, (Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days)
+            Diferencia = CInt(txtKMAutoAhora.Text) - CInt(txtKMAutoAntes.Text)
 
-                    If Diferencia > Permitidos Then
-                        lblAdvertencia.Visible = True
-                        lblAdvertencia.Text = "Atención: Este cliente se pasó " + (Diferencia - Permitidos).ToString + " KM de los Kilómetros acordados. " + vbNewLine + " " + vbNewLine + " Se cobrará un recargo acorde."
-                    Else
+            If Not Diferencia < 0 Then
+
+                Select Case ReservaSeleccionada.IdCantKM
+                    Case 1
+
+
+                        Permitidos = 150 * If((Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days = 0, 1, (Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days)
+
+                        If Diferencia > Permitidos Then
+                            lblAdvertencia.Visible = True
+                            lblAdvertencia.Text = "Atención: Este cliente se pasó " + (Diferencia - Permitidos).ToString + " KM de los Kilómetros acordados. " + vbNewLine + " " + vbNewLine + " Se cobrará un recargo acorde."
+                        Else
+                            lblAdvertencia.Visible = False
+                        End If
+
+
+                    Case 2
+
+                        Permitidos = 300 * If((Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days = 0, 1, (Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days)
+
+                        If Diferencia > Permitidos Then
+                            lblAdvertencia.Visible = True
+                            lblAdvertencia.Text = "Atención: Este cliente se pasó " + (Diferencia - Permitidos).ToString + " KM de los Kilómetros acordados. " + vbNewLine + " " + vbNewLine + " Se cobrará un recargo acorde."
+                        Else
+                            lblAdvertencia.Visible = False
+                        End If
+
+
+                    Case 3
                         lblAdvertencia.Visible = False
-                    End If
+
+                End Select
+
+                Dim CostoTotal As Integer = ReservaSeleccionada.CostoTotal
+                Dim Recargo As Integer = 0
+                If Diferencia > Permitidos Then
+                    Recargo = (Diferencia - Permitidos) * conexion.Categorias.Select("idcategoria = " + ReservaSeleccionada.IdCategoria.ToString + "").CopyToDataTable.Rows(0)("precioxkmexcedido")
                 End If
 
-            Case 2
-                If Not txtKMAutoAhora.Text = "" Then
-                    Diferencia = CInt(txtKMAutoAhora.Text) - CInt(txtKMAutoAntes.Text)
-                    Permitidos = 300 * If((Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days = 0, 1, (Date.Now - ReservaSeleccionada.FechaAlquilerInicio).Days)
 
-                    If Diferencia > Permitidos Then
-                        lblAdvertencia.Visible = True
-                        lblAdvertencia.Text = "Atención: Este cliente se pasó " + (Diferencia - Permitidos).ToString + " KM de los Kilómetros acordados. " + vbNewLine + " " + vbNewLine + " Se cobrará un recargo acorde."
-                    Else
-                        lblAdvertencia.Visible = False
-                    End If
-                End If
+                txtCostoTotal.Text = CostoTotal
+                txtRecargo.Text = Recargo
+                txtCostoTotalTotal.Text = (CostoTotal + Recargo).ToString
+            End If
 
-            Case 3
-                lblAdvertencia.Visible = False
+        End If
 
-        End Select
-
-        Dim CostoTotal As Integer = ReservaSeleccionada.CostoTotal
-        Dim Recargo As Integer = 0
-
-        txtCostoTotal.Text = CostoTotal
-        txtRecargo.Text = Recargo
-        txtCostoTotalTotal.Text = (CostoTotal + Recargo).ToString
     End Sub
 
     Private Sub CompletarAlquiler(sender As Object, e As EventArgs) Handles btnAccept.Click
+
         If Not txtKMAutoAhora.Text = "" Then
-            conexion.EjecutarNonQuery("UPDATE Reserva SET fechaalquilerfin = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', estado = 2, costototal = '" + txtCostoTotalTotal.Text + "' WHERE idreserva = '" + ReservaSeleccionada.IdReserva.ToString + "'")
-            conexion.EjecutarNonQuery("UPDATE Vehiculo SET kilometraje = '" + txtKMAutoAhora.Text + "', idsucursal = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "' WHERE nrochasis = '" + ReservaSeleccionada.NroChasis.ToString + "'")
-            CargarTodosDatos(frmMainMenu)
-            AmaranthMessagebox("Alquiler finalizado satisfactoriamente.", "Continuar")
-            Me.Dispose()
+            If Not (CInt(txtKMAutoAhora.Text) - CInt(txtKMAutoAntes.Text)) < 0 Then
+
+                conexion.EjecutarNonQuery("UPDATE Reserva SET fechaalquilerfin = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', estado = 2, costototal = '" + txtCostoTotalTotal.Text + "' WHERE idreserva = '" + ReservaSeleccionada.IdReserva.ToString + "'")
+                conexion.EjecutarNonQuery("UPDATE Vehiculo SET kilometraje = '" + txtKMAutoAhora.Text + "', idsucursal = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "' WHERE nrochasis = '" + ReservaSeleccionada.NroChasis.ToString + "'")
+                CargarTodosDatos(frmMainMenu)
+                AmaranthMessagebox("Alquiler finalizado satisfactoriamente.", "Continuar")
+                Me.Dispose()
+
+            Else
+                AmaranthMessagebox("El kilometraje actual no puede ser menor al de salida. Por favor verifique.", "Error", Me)
+            End If
         Else
-            AmaranthMessagebox("Por favor, especifique el kilometraje actual del vehículo.", "Error")
+            AmaranthMessagebox("Por favor, especifique el kilometraje actual del vehículo.", "Error", Me)
         End If
     End Sub
 

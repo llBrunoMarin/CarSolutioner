@@ -79,11 +79,12 @@
 
 
     Private Sub Cerrar(sender As Object, e As EventArgs) Handles btnCerrarMsgbox.Click
-        Me.DialogResult = vbNo
+        Me.DialogResult = DialogResult.None
         Me.Dispose()
     End Sub
 
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
-        Me.Close()
+        Me.DialogResult = DialogResult.None
+        Me.Dispose()
     End Sub
 End Class

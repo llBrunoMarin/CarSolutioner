@@ -22,7 +22,6 @@ Partial Class frmMainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -646,9 +645,9 @@ Partial Class frmMainMenu
         Me.estadoE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idsucursalE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.sfdSaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.lbl162N = New System.Windows.Forms.Label()
+        Me.LupaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -776,7 +775,7 @@ Partial Class frmMainMenu
         '
         'tsItemHerramientas
         '
-        Me.tsItemHerramientas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsitemCambiosGenerales})
+        Me.tsItemHerramientas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsitemCambiosGenerales, Me.LupaToolStripMenuItem})
         Me.tsItemHerramientas.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tsItemHerramientas.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.tsItemHerramientas.Name = "tsItemHerramientas"
@@ -7419,6 +7418,12 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
+        'LupaToolStripMenuItem
+        '
+        Me.LupaToolStripMenuItem.Name = "LupaToolStripMenuItem"
+        Me.LupaToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.LupaToolStripMenuItem.Text = "Lupa"
+        '
         'frmMainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -7948,7 +7953,7 @@ Partial Class frmMainMenu
     Friend WithEvents fechainicio As DataGridViewTextBoxColumn
     Friend WithEvents fechafin As DataGridViewTextBoxColumn
     Friend WithEvents btnVaciarIngresoMant As Button
-    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents sfdSaveFileDialog As SaveFileDialog
     Friend WithEvents pnlMAlq As Panel
     Friend WithEvents btnModificarAlquiler As Button
     Friend WithEvents Label153 As Label
@@ -7988,7 +7993,6 @@ Partial Class frmMainMenu
     Friend WithEvents dtpDesdeFAlquileres As DateTimePicker
     Friend WithEvents cbxSucursalPartidaFAlquileres As ComboBox
     Friend WithEvents cbxSucursalDestinoFAlquileres As ComboBox
-    Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents Label161 As Label
 
     Friend WithEvents cbxMaletasAVeh As ComboBox
@@ -8149,4 +8153,5 @@ Partial Class frmMainMenu
     Friend WithEvents nrochasisalq As DataGridViewTextBoxColumn
     Friend WithEvents chbxFiltroEmpleados As CheckBox
     Friend WithEvents chbxFiltroVehiculos As CheckBox
+    Friend WithEvents LupaToolStripMenuItem As ToolStripMenuItem
 End Class

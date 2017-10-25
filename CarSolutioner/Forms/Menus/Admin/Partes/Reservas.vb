@@ -84,10 +84,19 @@ Partial Public Class frmMainMenu
 
     Public Sub AlquilarReserva(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvReservas.CellMouseDoubleClick
         Dim ReservaSeleccionadaAlquiler As New ReservaSeleccionada()
-        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 
-            Dim selectedRow As DataGridViewRow = dgvReservas.Rows(e.RowIndex)
+        Dim selectedRow As DataGridViewRow
 
+        If sender Is dgvReservas Then
+            If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+                selectedRow = dgvReservas.Rows(DirectCast(e, DataGridViewCellMouseEventArgs).RowIndex)
+            End If
+        Else
+            selectedRow = dgvReservas.CurrentRow
+        End If
+
+
+        If Not selectedRow Is Nothing Then
             If selectedRow.Cells("idestadoreserva").Value = 1 Then
 
                 ReservaSeleccionadaAlquiler.IdReserva = selectedRow.Cells("idreserva").Value.ToString
@@ -130,20 +139,20 @@ Partial Public Class frmMainMenu
                         Dim resultado As DialogResult = AmaranthMessagebox("Esta reserva era para hace más de " + Diferencia.ToString + " horas atrás. ¿Está seguro que quiere realizar el Alquiler?", "Si/No")
 
                         If resultado = vbYes Then
+                            If Autorizar(Me) = vbYes Then
+                                If Disponibles.Rows.Count <> 0 Then
 
-                            If Disponibles.Rows.Count <> 0 Then
-
-                                Dim AlquilarReserva As New frmAlquilar(ReservaSeleccionadaAlquiler.AutosDisponibles, frmAlquilar.VistaAlquilar.Normal, ReservaSeleccionadaAlquiler)
-                                Using AlquilarReserva
-                                    AlquilarReserva.ShowDialog(Me)
-                                End Using
-                            Else
-                                Dim ModificarReserva As New frmModificarReserva(ReservaSeleccionadaAlquiler)
-                                Using ModificarReserva
-                                    ModificarReserva.ShowDialog(Me)
-                                End Using
+                                    Dim AlquilarReserva As New frmAlquilar(ReservaSeleccionadaAlquiler.AutosDisponibles, frmAlquilar.VistaAlquilar.Normal, ReservaSeleccionadaAlquiler)
+                                    Using AlquilarReserva
+                                        AlquilarReserva.ShowDialog(Me)
+                                    End Using
+                                Else
+                                    Dim ModificarReserva As New frmModificarReserva(ReservaSeleccionadaAlquiler)
+                                    Using ModificarReserva
+                                        ModificarReserva.ShowDialog(Me)
+                                    End Using
+                                End If
                             End If
-
                         End If
                     End If
                 Else
@@ -152,9 +161,11 @@ Partial Public Class frmMainMenu
             Else
                 AmaranthMessagebox("Solo puede alquilar reservas activas.", "Error")
             End If
-
-
         End If
+
+
+
+
     End Sub
 
     Private Sub btnVaciarFiltrosReservaBoton(sender As Object, e As EventArgs) Handles btnVaciarFRes.Click
@@ -185,19 +196,23 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub btnBajaBRes_Click(sender As Object, e As EventArgs) Handles btnBajaBRes.Click
-        If (AmaranthMessagebox("Seguro que quiere dar de baja esta reserva?", "Si/No") = vbYes) Then
+        If dgvReservas.CurrentRow.Index >= 0 AndAlso dgvReservas.CurrentCell.ColumnIndex >= 0 Then
+            If (AmaranthMessagebox("¿Está seguro que quiere anular esta reserva?", "Si/No") = vbYes) Then
 
-            Dim reservaseleccionadaid As String
-            reservaseleccionadaid = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString()
+                Dim reservaseleccionadaid As String
+                reservaseleccionadaid = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString()
 
-            If conexion.EjecutarNonQuery("Update reserva set estado = 3 where idreserva = " + reservaseleccionadaid.ToString() + "") = True Then
-                RecargarDatos(dgvReservas)
-                MsgBox("Reserva anulada satisfactoriamente.", MsgBoxStyle.Information, "Notificacion")
+                If conexion.EjecutarNonQuery("Update reserva set estado = 3 where idreserva = " + reservaseleccionadaid.ToString() + "") = True Then
 
-            Else
-                MsgBox("No se pudo eliminar la reserva.", MsgBoxStyle.Critical, "Notificacion")
+                    RecargarDatos(dgvReservas)
+                    AmaranthMessagebox("Reserva anulada satisfactoriamente.", "Continuar")
+
+                Else
+                    AmaranthMessagebox("No se pudo anular la reserva", "Error")
+                End If
             End If
         End If
+
     End Sub
 
     Private Sub RellenarDatosReserva(sender As Object, e As EventArgs) Handles dgvReservas.SelectionChanged
@@ -283,7 +298,7 @@ Partial Public Class frmMainMenu
 
                             Dim reserva As New Reserva(ReservaSeleccionadaReserva, Reserva.Tipo.Agregar)
                             Using reserva
-                                reserva.ShowDialog()
+                                reserva.ShowDialog(Me)
                             End Using
 
                             dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()

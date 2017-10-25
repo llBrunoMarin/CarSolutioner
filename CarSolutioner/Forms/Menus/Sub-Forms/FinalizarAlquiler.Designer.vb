@@ -27,7 +27,6 @@ Partial Class FinalizarAlquiler
         Me.txtCantidadDias = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCostoTotal = New System.Windows.Forms.TextBox()
-        Me.lblCostoTotal = New System.Windows.Forms.Label()
         Me.btnAccept = New System.Windows.Forms.Button()
         Me.lblCostoYRecargo = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -40,10 +39,10 @@ Partial Class FinalizarAlquiler
         Me.lblTitulo = New System.Windows.Forms.Label()
         Me.txtRecargo = New System.Windows.Forms.TextBox()
         Me.lblRecargo = New System.Windows.Forms.Label()
-        Me.txtCostoTotalTotal = New System.Windows.Forms.TextBox()
         Me.btnAgregarDescuentoAlquiler = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtDeducible = New System.Windows.Forms.TextBox()
+        Me.txtCostoTotalTotal = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -62,6 +61,7 @@ Partial Class FinalizarAlquiler
         'txtKMAutoAhora
         '
         Me.txtKMAutoAhora.Location = New System.Drawing.Point(9, 87)
+        Me.txtKMAutoAhora.MaxLength = 7
         Me.txtKMAutoAhora.Name = "txtKMAutoAhora"
         Me.txtKMAutoAhora.Size = New System.Drawing.Size(121, 20)
         Me.txtKMAutoAhora.TabIndex = 47
@@ -92,17 +92,6 @@ Partial Class FinalizarAlquiler
         Me.txtCostoTotal.Name = "txtCostoTotal"
         Me.txtCostoTotal.Size = New System.Drawing.Size(121, 20)
         Me.txtCostoTotal.TabIndex = 47
-        '
-        'lblCostoTotal
-        '
-        Me.lblCostoTotal.AutoSize = True
-        Me.lblCostoTotal.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCostoTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblCostoTotal.Location = New System.Drawing.Point(275, 147)
-        Me.lblCostoTotal.Name = "lblCostoTotal"
-        Me.lblCostoTotal.Size = New System.Drawing.Size(75, 17)
-        Me.lblCostoTotal.TabIndex = 48
-        Me.lblCostoTotal.Text = "Costo total"
         '
         'btnAccept
         '
@@ -237,7 +226,7 @@ Partial Class FinalizarAlquiler
         'txtRecargo
         '
         Me.txtRecargo.Enabled = False
-        Me.txtRecargo.Location = New System.Drawing.Point(276, 120)
+        Me.txtRecargo.Location = New System.Drawing.Point(276, 143)
         Me.txtRecargo.Name = "txtRecargo"
         Me.txtRecargo.Size = New System.Drawing.Size(121, 20)
         Me.txtRecargo.TabIndex = 47
@@ -248,19 +237,11 @@ Partial Class FinalizarAlquiler
         Me.lblRecargo.Enabled = False
         Me.lblRecargo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRecargo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblRecargo.Location = New System.Drawing.Point(273, 96)
+        Me.lblRecargo.Location = New System.Drawing.Point(273, 122)
         Me.lblRecargo.Name = "lblRecargo"
         Me.lblRecargo.Size = New System.Drawing.Size(59, 17)
         Me.lblRecargo.TabIndex = 48
         Me.lblRecargo.Text = "Recargo"
-        '
-        'txtCostoTotalTotal
-        '
-        Me.txtCostoTotalTotal.Enabled = False
-        Me.txtCostoTotalTotal.Location = New System.Drawing.Point(278, 171)
-        Me.txtCostoTotalTotal.Name = "txtCostoTotalTotal"
-        Me.txtCostoTotalTotal.Size = New System.Drawing.Size(121, 20)
-        Me.txtCostoTotalTotal.TabIndex = 47
         '
         'btnAgregarDescuentoAlquiler
         '
@@ -272,7 +253,7 @@ Partial Class FinalizarAlquiler
         Me.btnAgregarDescuentoAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarDescuentoAlquiler.Font = New System.Drawing.Font("Century Gothic", 8.5!)
         Me.btnAgregarDescuentoAlquiler.ForeColor = System.Drawing.Color.White
-        Me.btnAgregarDescuentoAlquiler.Location = New System.Drawing.Point(403, 121)
+        Me.btnAgregarDescuentoAlquiler.Location = New System.Drawing.Point(403, 143)
         Me.btnAgregarDescuentoAlquiler.Name = "btnAgregarDescuentoAlquiler"
         Me.btnAgregarDescuentoAlquiler.Size = New System.Drawing.Size(18, 18)
         Me.btnAgregarDescuentoAlquiler.TabIndex = 49
@@ -285,7 +266,7 @@ Partial Class FinalizarAlquiler
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(275, 198)
+        Me.Label2.Location = New System.Drawing.Point(275, 197)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(70, 17)
         Me.Label2.TabIndex = 48
@@ -294,10 +275,19 @@ Partial Class FinalizarAlquiler
         'txtDeducible
         '
         Me.txtDeducible.Enabled = False
-        Me.txtDeducible.Location = New System.Drawing.Point(278, 222)
+        Me.txtDeducible.Location = New System.Drawing.Point(276, 217)
         Me.txtDeducible.Name = "txtDeducible"
         Me.txtDeducible.Size = New System.Drawing.Size(121, 20)
         Me.txtDeducible.TabIndex = 47
+        '
+        'txtCostoTotalTotal
+        '
+        Me.txtCostoTotalTotal.Enabled = False
+        Me.txtCostoTotalTotal.Location = New System.Drawing.Point(276, 283)
+        Me.txtCostoTotalTotal.Name = "txtCostoTotalTotal"
+        Me.txtCostoTotalTotal.Size = New System.Drawing.Size(121, 20)
+        Me.txtCostoTotalTotal.TabIndex = 47
+        Me.txtCostoTotalTotal.Visible = False
         '
         'FinalizarAlquiler
         '
@@ -314,7 +304,6 @@ Partial Class FinalizarAlquiler
         Me.Controls.Add(Me.txtRecargo)
         Me.Controls.Add(Me.lblCostoYRecargo)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.lblCostoTotal)
         Me.Controls.Add(Me.txtCostoTotal)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FinalizarAlquiler"
@@ -334,7 +323,6 @@ Partial Class FinalizarAlquiler
     Friend WithEvents txtCantidadDias As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txtCostoTotal As TextBox
-    Friend WithEvents lblCostoTotal As Label
     Friend WithEvents btnAccept As Button
     Friend WithEvents lblCostoYRecargo As Label
     Friend WithEvents Panel1 As Panel
@@ -345,10 +333,10 @@ Partial Class FinalizarAlquiler
     Friend WithEvents lblTitulo As Label
     Friend WithEvents txtRecargo As TextBox
     Friend WithEvents lblRecargo As Label
-    Friend WithEvents txtCostoTotalTotal As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txtKMAutoAntes As TextBox
     Friend WithEvents btnAgregarDescuentoAlquiler As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents txtDeducible As TextBox
+    Friend WithEvents txtCostoTotalTotal As TextBox
 End Class

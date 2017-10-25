@@ -23,36 +23,51 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub TerminarAlquiler(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvAlquileres.CellMouseDoubleClick
+    Private Sub TerminarAlquiler(sender As Object, e As EventArgs) Handles dgvAlquileres.CellMouseDoubleClick, btnFinalizarAlquiler.Click
 
-        Dim selectedRow As DataGridViewRow = dgvAlquileres.CurrentRow
+        Dim selectedRow As DataGridViewRow
 
-        If selectedRow.Cells("idestado").Value = 1 Then
-            ReservaSeleccionadaFinalizarAlquiler.IdReserva = selectedRow.Cells("idreservaalquiler").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.IdCliente = selectedRow.Cells("idpersonaalquiler").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.Matricula = selectedRow.Cells("matriculaalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.FechaReservaInicio = selectedRow.Cells("fechareservainicioalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.FechaReservaFin = selectedRow.Cells("fechareservafinalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.FechaAlquilerInicio = selectedRow.Cells("fechaalquilerinicio").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.IdCantKM = selectedRow.Cells("cantidadkmalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.CostoTotal = selectedRow.Cells("costototalalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.FechaTramite = selectedRow.Cells("fechatramitealq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.NomCliente = selectedRow.Cells("nombreapellidoalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.NroChasis = selectedRow.Cells("nrochasisalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.IdCategoria = selectedRow.Cells("idcategoriaalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.IdTipo = selectedRow.Cells("idtipoalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalidaalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegadaalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleadoalq").Value.ToString
-            ReservaSeleccionadaFinalizarAlquiler.DeducibleVehiculo = selectedRow.Cells("deduciblealq").Value
-
-            Dim TerminarAlquiler As New FinalizarAlquiler(ReservaSeleccionadaFinalizarAlquiler)
-            Using TerminarAlquiler
-                TerminarAlquiler.ShowDialog()
-
-            End Using
+        If sender Is dgvAlquileres Then
+            If DirectCast(e, DataGridViewCellMouseEventArgs).RowIndex >= 0 AndAlso DirectCast(e, DataGridViewCellMouseEventArgs).ColumnIndex >= 0 Then
+                selectedRow = dgvAlquileres.Rows(DirectCast(e, DataGridViewCellMouseEventArgs).RowIndex)
+            End If
         Else
-            AmaranthMessagebox("Solo pueden finalizar alquileres que esten activos.", "Error")
+            selectedRow = dgvAlquileres.CurrentRow
+        End If
+
+
+        If Not selectedRow Is Nothing Then
+            If selectedRow.Cells("idestado").Value = 1 Then
+                If selectedRow.Cells("idsucursalllegadaalq").Value = conexion.IdSucursalUsuario Then
+
+                    ReservaSeleccionadaFinalizarAlquiler.IdReserva = selectedRow.Cells("idreservaalquiler").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.IdCliente = selectedRow.Cells("idpersonaalquiler").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.Matricula = selectedRow.Cells("matriculaalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.FechaReservaInicio = selectedRow.Cells("fechareservainicioalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.FechaReservaFin = selectedRow.Cells("fechareservafinalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.FechaAlquilerInicio = selectedRow.Cells("fechaalquilerinicio").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.IdCantKM = selectedRow.Cells("cantidadkmalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.CostoTotal = selectedRow.Cells("costototalalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.FechaTramite = selectedRow.Cells("fechatramitealq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.NomCliente = selectedRow.Cells("nombreapellidoalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.NroChasis = selectedRow.Cells("nrochasisalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.IdCategoria = selectedRow.Cells("idcategoriaalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.IdTipo = selectedRow.Cells("idtipoalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.IdSucursalPartida = selectedRow.Cells("idsucursalsalidaalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.IdSucursalDestino = selectedRow.Cells("idsucursalllegadaalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.UsuarioEmpleado = selectedRow.Cells("usuarioempleadoalq").Value.ToString
+                    ReservaSeleccionadaFinalizarAlquiler.DeducibleVehiculo = selectedRow.Cells("deduciblealq").Value
+
+                    Dim TerminarAlquiler As New FinalizarAlquiler(ReservaSeleccionadaFinalizarAlquiler)
+                    Using TerminarAlquiler
+                        TerminarAlquiler.ShowDialog(Me)
+                    End Using
+                Else
+                    AmaranthMessagebox("No puede finalizar alquileres que terminen en otra sucursal. Modifique el alquiler de ser necesario.", "Error")
+                End If
+            Else
+                AmaranthMessagebox("Solo pueden finalizar alquileres que esten activos.", "Error")
+            End If
         End If
 
 

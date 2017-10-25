@@ -141,6 +141,7 @@ Public Class frmMainMenu
 
     'TODO: Reportar estado de carga en el formulario Loading
     Public Sub CargarDatos()
+        Cargando(3000, Me)
         'Se marcan como inactivas las reservas que pasen la fecha de hoy
         conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO = 2 WHERE fechareservafin < TO_DATE('" + Date.Now.ToString("dd/MM/yyyy HH:mm") + "', '%d/%m/%Y %H:%M') ")
 
@@ -207,6 +208,11 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxSucursalLlegadaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalSalidaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxDestinoMAlquileres, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+
+        cbxSucSalidaARes.Enabled = True
+        cbxSucSalidaARes.SelectedValue = conexion.IdSucursalUsuario
+        cbxSucSalidaARes.Enabled = False
+
 
         'DOCUMENTOS
         CargarDatosComboBox(cbxTipoDocumFCliente, conexion.Documentos, "nombre", "idtipodoc")
@@ -296,5 +302,15 @@ Public Class frmMainMenu
         CargarTodosDatos(Me)
     End Sub
 
+    Private Sub LupaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LupaToolStripMenuItem.Click
+        Dim p As Process() = Process.GetProcessesByName("Magnify")
+        If p.Count > 0 Then
+            For Each pr In p
+                pr.Kill()
+            Next
+        Else
+            Process.Start("C:\Windows\system32\Magnify.exe")
+        End If
 
+    End Sub
 End Class

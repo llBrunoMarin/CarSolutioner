@@ -35,28 +35,10 @@ Module Metodos
         End Select
     End Sub
 
-
-    Dim _list As New List(Of Control)
-    Public Sub GetChilds(container As Control)
-        For Each child As Control In container.Controls
-            _list.Add(child)
-            If (child.HasChildren) Then
-                GetChilds(child)
-            End If
-        Next
-    End Sub
-
-
-
     Public Sub RecargarDatosEspecificos(form As Form, dgv As String)
-        Dim GridView As New DataGridView
+        Dim GridView As DataGridView
 
-        GetChilds(form)
-        For Each cntrl As Control In _list
-            If TypeOf (cntrl) Is DataGridView And cntrl.Name = dgv Then
-                GridView = cntrl
-            End If
-        Next
+        GridView = DirectCast(form.Controls(dgv), DataGridView)
 
         Select Case form.Name
             Case "frmMainMenu"
@@ -198,21 +180,14 @@ Module Metodos
     Public Function TipoFiltro(ctrl As Control, columna As String) As String
 
         Select Case ctrl.GetType()
-
             Case GetType(ComboBox)
-
                 Dim cbx As ComboBox = DirectCast(ctrl, ComboBox)
 
                 If Not (cbx.SelectedItem Is Nothing) Then
                     If Not (cbx.DataSource Is Nothing) Then
                         Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedValue.ToString + ""
                     Else
-                        'If (TypeOf (cbx.SelectedValue) Is String) Then
-
                         Return " AND " + columna + " = '" + DirectCast(ctrl, ComboBox).SelectedItem.ToString + "'"
-                        ' Else
-                        'Return " AND " + columna + " = " + DirectCast(ctrl, ComboBox).SelectedItem.ToString + ""
-                        'End If
                     End If
                 Else
                     Return ""
@@ -231,7 +206,6 @@ Module Metodos
                 Return ""
 
         End Select
-
 
     End Function
 
@@ -279,14 +253,16 @@ Module Metodos
     End Sub
 
     'Msgbox personalizado de AmaranthSolutions
-    Public Function AmaranthMessagebox(Texto As String, Tipo As String) As DialogResult
+    Public Function AmaranthMessagebox(Texto As String, Tipo As String, Optional sender As Form = Nothing) As DialogResult
 
         Dim AmaranthMsgbox As New AmaranthMsgbox(Texto, Tipo)
-
-        Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog()
+        If Not sender Is Nothing Then
+            Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog(sender)
             Return resultado
-
-
+        Else
+            Dim resultado2 As DialogResult = AmaranthMsgbox.ShowDialog()
+            Return resultado2
+        End If
 
     End Function
 

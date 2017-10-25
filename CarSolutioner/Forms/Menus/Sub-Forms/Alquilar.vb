@@ -167,8 +167,15 @@
 
     'Doble click en el dgv alquilar, o click en el botón Alquilar
     Public Sub AlquilarAutoSeleccionado(sender As Object, e As EventArgs) Handles dgvAlquilar.CellMouseDoubleClick, btnAlquilar.Click
-
         Dim selectedRow As DataGridViewRow
+
+        If sender Is dgvAlquilar Then
+            If (DirectCast(e, DataGridViewCellMouseEventArgs)).RowIndex >= 0 AndAlso (DirectCast(e, DataGridViewCellMouseEventArgs)).ColumnIndex >= 0 Then
+                selectedRow = dgvAlquilar.Rows(DirectCast(e, DataGridViewCellMouseEventArgs).RowIndex)
+            End If
+        Else
+            selectedRow = dgvAlquilar.CurrentRow
+        End If
 
         If sender Is dgvAlquilar Then
             selectedRow = dgvAlquilar.Rows(DirectCast(e, DataGridViewCellMouseEventArgs).RowIndex)
@@ -185,11 +192,10 @@
             'Actualiza la Reserva para que sea un ALQUILER, con NroChasis = al seleccionado, fechaalquilerinicio = hoy, fechareservafin = seleccionada (en caso que el cliente cambie su fecha reserva fin)
             conexion.EjecutarNonQuery("UPDATE Reserva SET nrochasis = '" + NroChasis + "', idsucursalllegada = '" + cbxSucLlegada.SelectedValue.ToString + "', fechaalquilerinicio = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', fechareservafin = '" + dtpFRfin.Value.ToString("yyyy-MM-dd HH:mm") + "' WHERE idreserva = " + ReservaSeleccionada.IdReserva.ToString + " ")
             conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = NULL WHERE nrochasis='" + NroChasis + "'")
-            AmaranthMessagebox("Alquiler Ingresado", "Continuar")
+
             CargarTodosDatos(Me.Owner)
+            AmaranthMessagebox("Alquiler Ingresado", "Continuar")
             Me.Dispose()
-
-
 
         End If
 

@@ -526,7 +526,7 @@ Module Metodos
 
     Public Sub CrearPDF(dgv As DataGridView, textoencabezado As String)
 
-        Dim doc As New Document(PageSize.A4.Rotate(), 10, 10, 10, 10)
+        Dim doc As New Document(PageSize.A4.Rotate, 10, 10, 10, 10)
         Dim fileName As String
         Dim dlg As New SaveFileDialog()
         dlg.Filter = "PDF Files|*.pdf"

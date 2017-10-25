@@ -16,7 +16,7 @@
         txtDeducible.Text = ReservaSeleccionada.DeducibleVehiculo
     End Sub
 
-    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtKMAutoAhora.KeyPress, txtRecargo.KeyPress
+    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtKMAutoAhora.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -76,7 +76,7 @@
 
 
                 txtCostoTotal.Text = CostoTotal
-                txtRecargo.Text = Recargo
+                numRecargo.Value = Recargo
                 txtCostoTotalTotal.Text = (CostoTotal + Recargo).ToString
             End If
 
@@ -93,7 +93,7 @@
                 conexion.EjecutarNonQuery("UPDATE Vehiculo SET kilometraje = '" + txtKMAutoAhora.Text + "', idsucursal = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "' WHERE nrochasis = '" + ReservaSeleccionada.NroChasis.ToString + "'")
                 CargarTodosDatos(Me.Owner)
 
-                AmaranthMessagebox("Alquiler finalizado satisfactoriamente.", "Continuar")
+                AmaranthMessagebox("Alquiler finalizado satisfactoriamente.", "Continuar", Me)
                 Me.Dispose()
 
             Else
@@ -110,7 +110,7 @@
 
     Private Sub btnAgregarDescuentoAlquiler_Click(sender As Object, e As EventArgs) Handles btnAgregarDescuentoAlquiler.Click
         If Autorizar(Me) = vbYes Then
-            txtRecargo.Enabled = True
+            numRecargo.Enabled = True
         End If
     End Sub
 End Class

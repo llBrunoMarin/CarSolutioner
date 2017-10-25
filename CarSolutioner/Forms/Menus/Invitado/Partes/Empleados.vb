@@ -86,23 +86,23 @@ Partial Public Class frmMainMenuInvitado
 
                             If (conexion.EjecutarNonQuery("INSERT INTO trabaja VALUES ('" + txtNombreUsuarioCempleado.Text + "','" + cbxSucursalCempleados.SelectedValue.ToString + "','" + fechActual.ToString + "',NULL)") = True) Then
 
-                                MsgBox("Empleado insertado correctamente")
+                                AmaranthMessagebox("Empleado ingresado correctamente", "Continuar", Me)
                                 RecargarDatos(dgvEmpleados)
                             End If
                         Else
-                            MsgBox("Error en el insert")
+                            AmaranthMessagebox("Ocurrió un error", "Error", Me)
                         End If
                     Else
-                        MsgBox("Este empleado ya existe")
+                        AmaranthMessagebox("Este empleado ya existe", "Error", Me)
                     End If
                 Else
-                    AmaranthMessagebox("Ya existe un empleado con este nombre de usuario", "Advertencia")
+                    AmaranthMessagebox("Ya existe un empleado con este nombre de usuario", "Error", Me)
                 End If
             Else
-                    MsgBox("Ese cliente no existe por favor verifique")
+                AmaranthMessagebox("Ese cliente no existe por favor verifique", "Error", Me)
             End If
         Else
-            MsgBox("Por favor, rellene todos los campos.")
+            AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia", Me)
         End If
     End Sub
 
@@ -137,15 +137,15 @@ Partial Public Class frmMainMenuInvitado
                 Dim NuevoEstado As Boolean = Not EstadoActual
                 If (conexion.EjecutarNonQuery("UPDATE empleado SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
 
-                    MsgBox("Empleado pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                    AmaranthMessagebox("Empleado pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar", Me)
                     RecargarDatos(dgvEmpleados)
                 End If
             Else
-                MsgBox("Ese cliente no existe. Por favor, verifique.")
+                AmaranthMessagebox("Ese cliente no existe. Por favor, verifique.", "Error", Me)
 
             End If
         Else
-            AmaranthMessagebox("Ingrese un número de documento", "Advertencia")
+            AmaranthMessagebox("Ingrese un número de documento, por favor.", "Advertencia", Me)
         End If
     End Sub
 

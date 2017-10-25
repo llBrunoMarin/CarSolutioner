@@ -332,6 +332,10 @@ Public Class frmMainMenu
                 End Select
 
             Case "tbpClientes"
+                Select Case child.Name
+                    Case "Clientes"
+
+                End Select
                 CrearPDF(dgvClientes, "Clientes")
 
             Case "tbpVehiculos"

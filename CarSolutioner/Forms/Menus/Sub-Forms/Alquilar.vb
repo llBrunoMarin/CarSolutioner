@@ -186,15 +186,15 @@
         Dim NroChasis As String = selectedRow.Cells("nrochasis").Value.ToString
 
         'Dim resultado As DialogResult = MsgBox("Estas seguro que deseas alquilar el vehiculo?", MsgBoxStyle.YesNo, "Desea continuar?")
-        Dim resultado As DialogResult = AmaranthMessagebox("¿Estás seguro que deseas alquilar el vehículo?", "Si/No")
+        Dim resultado As DialogResult = AmaranthMessagebox("¿Estás seguro que deseas alquilar el vehículo?", "Si/No", Me)
         If resultado = vbYes Then
 
             'Actualiza la Reserva para que sea un ALQUILER, con NroChasis = al seleccionado, fechaalquilerinicio = hoy, fechareservafin = seleccionada (en caso que el cliente cambie su fecha reserva fin)
             conexion.EjecutarNonQuery("UPDATE Reserva SET nrochasis = '" + NroChasis + "', idsucursalllegada = '" + cbxSucLlegada.SelectedValue.ToString + "', fechaalquilerinicio = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', fechareservafin = '" + dtpFRfin.Value.ToString("yyyy-MM-dd HH:mm") + "' WHERE idreserva = " + ReservaSeleccionada.IdReserva.ToString + " ")
             conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = NULL WHERE nrochasis='" + NroChasis + "'")
 
-            CargarTodosDatos(Me.Owner)
-            AmaranthMessagebox("Alquiler Ingresado", "Continuar")
+            RecargarDatosEspecificos(Me.Owner, "dgvReservas")
+            AmaranthMessagebox("Alquiler Ingresado", "Continuar", Me)
             Me.Dispose()
 
         End If

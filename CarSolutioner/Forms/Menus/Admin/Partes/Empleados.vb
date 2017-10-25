@@ -88,26 +88,26 @@ Partial Public Class frmMainMenu
                                 Dim descripcion As String = "Ingreso al empleado con el numero de documento : " + txtNroDocumentoCempleado.Text + ", con el tipo : " + cbxTipoCempleados.SelectedItem.ToString + " y en la sucursal : " + cbxSucursalCempleados.SelectedItem.ToString + " "
                                 conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
-                                AmaranthMessagebox("Empleado insertado correctamente", "Continuar")
+                                AmaranthMessagebox("Empleado insertado correctamente", "Continuar", Me)
                                 RecargarDatos(dgvEmpleados)
                                 For Each control As Control In pnlAEmp.Controls
                                     VaciarControl(control)
                                 Next
                             End If
                         Else
-                            AmaranthMessagebox("Error en el insert", "Error")
+                            AmaranthMessagebox("Error en el insert", "Error", Me)
                         End If
                     Else
-                        AmaranthMessagebox("Este empleado ya existe", "Advertencia")
+                        AmaranthMessagebox("Este empleado ya existe", "Advertencia", Me)
                     End If
                 Else
-                    AmaranthMessagebox("Ya existe un empleado con este nombre de usuario", "Advertencia")
+                    AmaranthMessagebox("Ya existe un empleado con este nombre de usuario", "Advertencia", Me)
                 End If
             Else
-                AmaranthMessagebox("Ese cliente no existe por favor verifique", "Advertencia")
+                AmaranthMessagebox("Ese cliente no existe por favor verifique", "Advertencia", Me)
             End If
         Else
-            AmaranthMessagebox("Por favor, rellene todos los campos.", "Error")
+            AmaranthMessagebox("Por favor, rellene todos los campos.", "Error", Me)
         End If
     End Sub
 
@@ -129,7 +129,7 @@ Partial Public Class frmMainMenu
         Dim idpersonaUsuarioEmpA As New DataTable
         idpersonaUsuarioEmpA = conexion.EjecutarSelect("SELECT empleado.idpersona, empleado.estado, cliente.nrodocumento, cliente.idpersona FROM empleado,cliente WHERE cliente.idpersona = empleado.idpersona AND nrodocumento = '" & txtNroDocEempleado.Text & "'")
 
-        If AmaranthMessagebox("Desea cambiar el estado de este empleado?", "Si/No") = vbYes Then
+        If AmaranthMessagebox("Desea cambiar el estado de este empleado?", "Si/No", Me) = vbYes Then
 
             If Not (txtNroDocEempleado.Text = "") Then
                 If (idpersonaUsuarioEmpA.Rows.Count <> 0) Then
@@ -142,15 +142,15 @@ Partial Public Class frmMainMenu
                         Dim descripcion As String = "Modifico el estado a inactivo del empleado con el numero de documento : " + txtNroDocumentoCempleado.Text + " "
                         conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
-                        AmaranthMessagebox("Empleado pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar")
+                        AmaranthMessagebox("Empleado pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar", Me)
 
                         RecargarDatos(dgvEmpleados)
                     End If
                 Else
-                    AmaranthMessagebox("Ese cliente no existe. Por favor, verifique.", "Advertencia")
+                    AmaranthMessagebox("Ese cliente no existe. Por favor, verifique.", "Advertencia", Me)
                 End If
             Else
-                AmaranthMessagebox("Ingrese un número de documento", "Advertencia")
+                AmaranthMessagebox("Ingrese un número de documento", "Advertencia", Me)
             End If
 
         End If
@@ -211,12 +211,12 @@ Partial Public Class frmMainMenu
                             Dim descripcion As String = "Modifico al empleado con el numero de documento : " + nrodoc + ", con el tipo : " + TipoUsuarioEmpM + " y con la sucursal a : " + SucursalUsuarioEmpM + " "
                             conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
-                            AmaranthMessagebox("Empleado modificado correctamente", "Continuar")
+                            AmaranthMessagebox("Empleado modificado correctamente", "Continuar", Me)
                             RecargarDatos(dgvEmpleados)
 
                         ElseIf (TipoUsuarioEmpM.ToString() <> TipoEmpleadoDGV) Then
                             conexion.EjecutarNonQuery("UPDATE empleado SET tipo = " + TipoUsuarioEmpM + " WHERE idpersona = '" + idPersonaUsuarioEM + "'")
-                            AmaranthMessagebox("Tipo empleado modificado correctamente", "Continuar")
+                            AmaranthMessagebox("Tipo empleado modificado correctamente", "Continuar", Me)
 
                             Dim ip As String = GetIPAddress()
                             Dim descripcion As String = "Modifico al empleado con el numero de documento : " + nrodoc + ", con el tipo : " + TipoUsuarioEmpM + ""
@@ -232,24 +232,24 @@ Partial Public Class frmMainMenu
                             Dim descripcion As String = "Modifico al empleado con el numero de documento : " + nrodoc + ", y la sucursal a : " + SucursalUsuarioEmpM + ""
                             conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
-                            AmaranthMessagebox("Sucursal empleado modificada correctamente", "Continuar")
+                            AmaranthMessagebox("Sucursal empleado modificada correctamente", "Continuar", Me)
                             RecargarDatos(dgvEmpleados)
 
                         End If
 
                     Else
-                        AmaranthMessagebox("Debe modificar algo", "Advertencia")
+                        AmaranthMessagebox("Debe modificar algo", "Advertencia", Me)
                     End If
 
                 Else
-                    AmaranthMessagebox("No existe ese empleado", "Error")
+                    AmaranthMessagebox("No existe ese empleado", "Error", Me)
                 End If
 
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
         Else
-            AmaranthMessagebox("Rellene todos los campos", "Error")
+            AmaranthMessagebox("Rellene todos los campos", "Error", Me)
         End If
 
     End Sub

@@ -63,10 +63,10 @@ Partial Public Class frmMainMenu
                         TerminarAlquiler.ShowDialog(Me)
                     End Using
                 Else
-                    AmaranthMessagebox("No puede finalizar alquileres que terminen en otra sucursal. Modifique el alquiler de ser necesario.", "Error")
+                    AmaranthMessagebox("No puede finalizar alquileres que terminen en otra sucursal. Modifique el alquiler de ser necesario.", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Solo pueden finalizar alquileres que esten activos.", "Error")
+                AmaranthMessagebox("Solo pueden finalizar alquileres que esten activos.", "Error", Me)
             End If
         End If
 
@@ -142,11 +142,11 @@ Partial Public Class frmMainMenu
         If Not (cbxKilomMAlquileres.SelectedValue.ToString = kilometrajeI And cbxDestinoMAlquileres.SelectedValue.ToString = sucursalDestinoI) Then
 
             conexion.EjecutarNonQuery("UPDATE reserva SET  cantidadkm = " + cbxKilomMAlquileres.SelectedValue.ToString + ",  idsucursalllegada = '" + cbxDestinoMAlquileres.SelectedValue.ToString + "' WHERE idreserva = " + idreservaI + " ")
-            AmaranthMessagebox("Alquiler modificado correctamente", "Continuar")
+            AmaranthMessagebox("Alquiler modificado correctamente", "Continuar", Me)
             RecargarDatos(dgvAlquileres)
 
         Else
-            AmaranthMessagebox("Modifique algo", "Advertencia")
+            AmaranthMessagebox("Modifique algo", "Advertencia", Me)
         End If
 
     End Sub

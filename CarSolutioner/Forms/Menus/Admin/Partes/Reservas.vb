@@ -134,7 +134,7 @@ Partial Public Class frmMainMenu
                     Else
 
                         Dim Diferencia As Integer = Math.Truncate((Date.Now - Date.Parse(selectedRow.Cells("fechareservainicio").Value.ToString())).TotalHours)
-                        Dim resultado As DialogResult = AmaranthMessagebox("Esta reserva era para hace más de " + Diferencia.ToString + " horas atrás. ¿Está seguro que quiere realizar el Alquiler?", "Si/No")
+                        Dim resultado As DialogResult = AmaranthMessagebox("Esta reserva era para hace más de " + Diferencia.ToString + " horas atrás. ¿Está seguro que quiere realizar el Alquiler?", "Si/No", Me)
 
                         If resultado = vbYes Then
                             If Autorizar(Me) = vbYes Then
@@ -155,10 +155,10 @@ Partial Public Class frmMainMenu
 
                     End If
                 Else
-                    AmaranthMessagebox("Solo puede alquilar reservas futuras con 2 horas de antelación como máximo.", "Error")
+                    AmaranthMessagebox("Solo puede alquilar reservas futuras con 2 horas de antelación como máximo.", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Solo puede alquilar reservas activas.", "Error")
+                AmaranthMessagebox("Solo puede alquilar reservas activas.", "Error", Me)
             End If
         End If
 
@@ -195,7 +195,7 @@ Partial Public Class frmMainMenu
 
     Private Sub btnBajaBRes_Click(sender As Object, e As EventArgs) Handles btnBajaBRes.Click
         If dgvReservas.CurrentRow.Index >= 0 AndAlso dgvReservas.CurrentCell.ColumnIndex >= 0 Then
-            If (AmaranthMessagebox("¿Está seguro que quiere anular esta reserva?", "Si/No") = vbYes) Then
+            If (AmaranthMessagebox("¿Está seguro que quiere anular esta reserva?", "Si/No", Me) = vbYes) Then
 
                 Dim reservaseleccionadaid As String
                 reservaseleccionadaid = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString()
@@ -204,10 +204,10 @@ Partial Public Class frmMainMenu
                 If conexion.EjecutarNonQuery("Update reserva set estado = 3 where idreserva = " + reservaseleccionadaid.ToString() + "") = True Then
 
                     RecargarDatos(dgvReservas)
-                    AmaranthMessagebox("Reserva anulada satisfactoriamente.", "Continuar")
+                    AmaranthMessagebox("Reserva anulada satisfactoriamente.", "Continuar", Me)
 
                 Else
-                    AmaranthMessagebox("No se pudo anular la reserva", "Error")
+                    AmaranthMessagebox("No se pudo anular la reserva", "Error", Me)
                 End If
             End If
         End If
@@ -304,21 +304,21 @@ Partial Public Class frmMainMenu
                             dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
 
                         Else
-                            AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")
+                            AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error", Me)
                         End If
 
                     Else
-                            AmaranthMessagebox("Ese cliente no está registrado o está inactivo.", "Error")
-                        End If
-                    Else
-                        AmaranthMessagebox("Las reservas tienen que ser de mínimo 24 horas.", "Error")
+                        AmaranthMessagebox("Ese cliente no está registrado o está inactivo.", "Error", Me)
                     End If
-                Else
-                    AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error")
+                    Else
+                    AmaranthMessagebox("Las reservas tienen que ser de mínimo 24 horas.", "Error", Me)
                 End If
-            Else
-                AmaranthMessagebox("Las fechas no pueden ser menores a la de hoy", "Error")
+                Else
+                AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error", Me)
             End If
+            Else
+            AmaranthMessagebox("Las fechas no pueden ser menores a la de hoy", "Error", Me)
+        End If
 
     End Sub
 
@@ -372,13 +372,13 @@ Partial Public Class frmMainMenu
                     End Using
 
                 Else
-                    AmaranthMessagebox("Ese cliente ya tiene una reserva activa entre esas fechas.", "Error")
+                    AmaranthMessagebox("Ese cliente ya tiene una reserva activa entre esas fechas.", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Ese cliente no está registrado.", "Error")
+                AmaranthMessagebox("Ese cliente no está registrado.", "Error", Me)
             End If
         Else
-            AmaranthMessagebox("Tiene que realizar alguna modifiación.", "Error")
+            AmaranthMessagebox("Tiene que realizar alguna modifiación.", "Error", Me)
         End If
     End Sub
 

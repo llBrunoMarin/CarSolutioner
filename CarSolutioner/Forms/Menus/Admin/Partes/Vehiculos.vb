@@ -123,7 +123,7 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub VaciarFiltrosVehiculo(sender As Object, e As EventArgs) Handles lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click
+    Private Sub VaciarFiltrosVehiculo(sender As Object, e As EventArgs) Handles lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click, lblBorrarColorVeh.Click
 
         Select Case sender.Name
 
@@ -172,6 +172,11 @@ Partial Public Class frmMainMenu
                 If Not cbxSucursalFVeh.SelectedItem Is Nothing Then
                     cbxSucursalFVeh.SelectedItem = Nothing
                 End If
+            Case "lblBorrarColorVeh"
+                If Not cbxColorFVehiculo.SelectedItem Is Nothing Then
+                    cbxColorFVehiculo.SelectedItem = Nothing
+                End If
+
         End Select
 
     End Sub
@@ -197,12 +202,12 @@ Partial Public Class frmMainMenu
         sender.focus()
     End Sub
 
-    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxCategoriaFVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxTipoFVeh.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectionChangeCommitted, lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click, cbxAireFVeh.SelectionChangeCommitted, cbxManualFVeh.SelectionChangeCommitted, chbxFiltroVehiculos.CheckedChanged
+    Private Sub FiltrarVehiculos(sender As Object, e As EventArgs) Handles txtNroChasisFVeh.TextChanged, txtMatriculaFVeh.TextChanged, cbxCategoriaFVeh.SelectionChangeCommitted, cbxMarcaFVeh.SelectionChangeCommitted, cbxModeloFVeh.SelectionChangeCommitted, cbxTipoFVeh.SelectionChangeCommitted, cbxSucursalFVeh.SelectionChangeCommitted, txtAnioFVeh.TextChanged, cbxMaletasFVeh.SelectionChangeCommitted, numPasajerosFVeh.ValueChanged, cbxPuertasFVeh.SelectionChangeCommitted, lblBorrarCategoriaFVeh.Click, lblBorrarEstadoFVeh.Click, lblBorrarMaletasFVeh.Click, lblBorrarMarcaFVeh.Click, lblBorrarModeloFVeh.Click, lblBorrarPuertasFVeh.Click, lblBorrarSucursalFVeh.Click, lblBorrarTipoFVeh.Click, cbxAireFVeh.SelectionChangeCommitted, cbxManualFVeh.SelectionChangeCommitted, chbxFiltroVehiculos.CheckedChanged, lblBorrarColorVeh.Click, cbxColorFVehiculo.SelectionChangeCommitted
 
         Dim Filtro As String
         'TODO: filtrar por deducible, color, kilometraje
         'Siguen sin funcionar los cbx de aire y automatico
-        Filtro = "nrochasis LIKE '%" + txtNroChasisFVeh.Text + "%' AND matricula LIKE '%" + txtMatriculaFVeh.Text + "%'" + TipoFiltro(cbxAireFVeh, "aireacondicionado") + TipoFiltro(cbxManualFVeh, "esmanual") + TipoFiltro(cbxMaletasFVeh, "cantidaddemaletas") + TipoFiltro(cbxPuertasFVeh, "cantidaddepuertas") + TipoFiltro(numPasajerosFVeh, "cantidaddepasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxTipoFVeh, "idtipo") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND anio = " + txtAnioFVeh.Text + "", "")
+        Filtro = "nrochasis LIKE '%" + txtNroChasisFVeh.Text + "%' AND matricula LIKE '%" + txtMatriculaFVeh.Text + "%'" + TipoFiltro(cbxAireFVeh, "aireacondicionado") + TipoFiltro(cbxManualFVeh, "esmanual") + TipoFiltro(cbxMaletasFVeh, "cantidaddemaletas") + TipoFiltro(cbxPuertasFVeh, "cantidaddepuertas") + TipoFiltro(numPasajerosFVeh, "cantidaddepasajeros") + TipoFiltro(cbxCategoriaFVeh, "idcategoria") + TipoFiltro(cbxMarcaFVeh, "idmarca") + TipoFiltro(cbxModeloFVeh, "idmodelo") + TipoFiltro(cbxTipoFVeh, "idtipo") + TipoFiltro(cbxColorFVehiculo, "color") + TipoFiltro(cbxSucursalFVeh, "idsucursal") + If(IsNumeric(txtAnioFVeh.Text) And (Not (txtAnioFVeh.Text = "")), "AND Convert(anio, System.String) LIKE '" + txtAnioFVeh.Text + "%'", "")
 
         dgvVehiculos.DataSource.Filter = Filtro
 
@@ -237,7 +242,7 @@ Partial Public Class frmMainMenu
             numPasajerosMVehiculo.Value = dgvVehiculos.CurrentRow.Cells("cantidaddepasajeros").Value.ToString()
             txtAnioMVeh.Text = dgvVehiculos.CurrentRow.Cells("aniov").Value.ToString()
             cbxPuertasMVeh.SelectedItem = dgvVehiculos.CurrentRow.Cells("cantidaddepuertas").Value.ToString()
-            txtColorMVeh.Text = dgvVehiculos.CurrentRow.Cells("colorvehdgv").Value.ToString()
+            cbxColorMVehiculo.SelectedItem = dgvVehiculos.CurrentRow.Cells("colorvehdgv").Value.ToString()
             Dim chbxaireMvehI As Boolean = dgvVehiculos.CurrentRow.Cells("aireacondicionado").Value
             Dim chbxautomaticoMvehI As Boolean = dgvVehiculos.CurrentRow.Cells("esmanual").Value
             chbxAireMVeh.Checked = chbxaireMvehI
@@ -301,21 +306,21 @@ Partial Public Class frmMainMenu
                             conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
                             RecargarDatos(dgvVehiculos)
-                            AmaranthMessagebox("Vehiculo agregado correctamente", "Continuar")
+                            AmaranthMessagebox("Vehiculo agregado correctamente", "Continuar", Me)
                         Else
-                            AmaranthMessagebox("Ya posee un vehiculo con el mismo número de chasis.", "Advertencia")
+                            AmaranthMessagebox("Ya posee un vehiculo con el mismo número de chasis.", "Advertencia", Me)
                         End If
                     Else
-                        AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error")
+                        AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error", Me)
                     End If
                 Else
-                    AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error")
+                    AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia")
+                AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia", Me)
             End If
         Else
-            AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia")
+            AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia", Me)
         End If
     End Sub
 
@@ -393,24 +398,24 @@ Partial Public Class frmMainMenu
                         If (mantenimientoActivo.Rows.Count = 0) Then
 
                             Dim sentencia As String
-                            sentencia = "UPDATE vehiculo SET matricula = '" + txtMatriculaMVeh.Text.ToString.ToUpper + "', anio ='" + txtAnioMVeh.Text + "',  kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "',  cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "', cantidaddepasajeros='" + cantpasajeros + "',  cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "',  deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "',  idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T', color = '" + txtColorMVeh.Text.ToString + "' WHERE nrochasis = '" + nrochasisI + "'"
+                            sentencia = "UPDATE vehiculo SET matricula = '" + txtMatriculaMVeh.Text.ToString.ToUpper + "', anio ='" + txtAnioMVeh.Text + "',  kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "',  cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "', cantidaddepasajeros='" + cantpasajeros + "',  cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "',  deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "',  idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T', color = '" + cbxColorMVehiculo.SelectedItem.ToString + "' WHERE nrochasis = '" + nrochasisI + "'"
                             conexion.EjecutarNonQuery(sentencia)
                             RecargarDatos(dgvVehiculos)
-                            AmaranthMessagebox("Modificado correctamente", "Continuar")
+                            AmaranthMessagebox("Modificado correctamente", "Continuar", Me)
 
                         Else
-                            AmaranthMessagebox("Este vehiculo se encuentra en mantenimiento no puede modificarlo.", "Error")
+                            AmaranthMessagebox("Este vehiculo se encuentra en mantenimiento no puede modificarlo.", "Error", Me)
                         End If
 
                     Else
-                        AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error")
+                        AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error", Me)
                     End If
                 Else
-                    AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error")
+                    AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Modifique algo por favor", "Advertencia")
-                End If
+                AmaranthMessagebox("Modifique algo por favor", "Advertencia", Me)
+            End If
             'Else
             '    AmaranthMessagebox("Por favor, rellene todos los campos", "Advertencia")
             'End If
@@ -419,7 +424,7 @@ Partial Public Class frmMainMenu
             'End If
         Catch ex As Exception
             If (ex.Message.Contains("Referencia a objeto no establecida como instancia de un objeto.")) Then
-                AmaranthMessagebox("Este vehiculo se encuentra alquilado, no puede modificarlo", "Error")
+                AmaranthMessagebox("Este vehiculo se encuentra alquilado, no puede modificarlo", "Error", Me)
             End If
         End Try
     End Sub
@@ -451,7 +456,7 @@ Partial Public Class frmMainMenu
 
                 If (mantenimientoActivo.Rows.Count = 0 And alquilerActivo.Rows.Count = 0) Then
 
-                    If (AmaranthMessagebox("Seguro que quiere dar de baja este vehiculo?", "Si/No") = vbYes) Then
+                    If (AmaranthMessagebox("Seguro que quiere dar de baja este vehiculo?", "Si/No", Me) = vbYes) Then
 
                         Dim matriculaI As String = matriculaDT.Rows(0)("matricula").ToString()
                         Dim EstadoActual As Boolean = matriculaDT.Rows(0)("estado")
@@ -465,13 +470,13 @@ Partial Public Class frmMainMenu
                         End If
                     End If
                 Else
-                    AmaranthMessagebox("No es posible dar de baja este vehiculo debido a que tiene un alquiler o mantenimiento activo", "Advertencia")
+                    AmaranthMessagebox("No es posible dar de baja este vehiculo debido a que tiene un alquiler o mantenimiento activo", "Advertencia", Me)
                 End If
             Else
-                AmaranthMessagebox("No existe esa matricula", "Error")
+                AmaranthMessagebox("No existe esa matricula", "Error", Me)
             End If
         Else
-            AmaranthMessagebox("Ingrese una matricula", "Advertencia")
+            AmaranthMessagebox("Ingrese una matricula", "Advertencia", Me)
         End If
     End Sub
 

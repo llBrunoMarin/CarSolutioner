@@ -29,7 +29,6 @@
         txtKMElegidos.Text = conexion.Kilometros.Select("id = '" + ReservaSeleccionada.IdCantKM.ToString + "'").CopyToDataTable.Rows(0)("km").ToString
         txtDescuentoCliente.Text = ReservaSeleccionada.DescuentoCliente.ToString
 
-
         CalcularCosto()
 
     End Sub

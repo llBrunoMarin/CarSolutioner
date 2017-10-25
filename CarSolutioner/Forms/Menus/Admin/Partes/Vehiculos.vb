@@ -291,9 +291,15 @@ Partial Public Class frmMainMenu
 
 
                         If Not (nrochasisrepetido.Rows.Count > 0) Then
+
                             Dim sentencia As String
                             sentencia = "insert into vehiculo values('" + txtNroChasisAVeh.Text.ToString + "','" + txtMatriculaAVeh.Text.ToString + "','" + txtAnioAVeh.Text.ToString + "','" + txtKilometrajeAVeh.Text.ToString + "','" + aireAVeh + "','" + cbxPuertasAVeh.SelectedItem.ToString + "','" + cantpasajeros + "','" + cbxMaletasAVeh.SelectedItem.ToString + "','" + automaticoAVeh + "','" + txtDeducibleAVeh.Text.ToString + "','" + cbxCategoriaAVeh.SelectedValue.ToString + "','" + cbxModeloAVeh.SelectedValue.ToString + "','" + cbxSucursalAVeh.SelectedValue.ToString + "','t')"
                             conexion.EjecutarNonQuery(sentencia)
+
+                            Dim ip As String = GetIPAddress()
+                            Dim descripcion As String = "Ingreso un vehiculo con el numero de chasis : " + txtNroChasisAVeh.Text + " la matricula : " + txtMatriculaAVeh.Text + " y con el modelo : " + cbxModeloAVeh.SelectedItem + ""
+                            conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
+
                             RecargarDatos(dgvVehiculos)
                             AmaranthMessagebox("Vehiculo agregado correctamente", "Continuar")
                         Else

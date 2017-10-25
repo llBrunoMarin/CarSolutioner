@@ -6,8 +6,6 @@ End Class
 
 Partial Public Class frmMainMenu
 
-
-
     Private Sub EstadoFechas(sender As Object, e As EventArgs) Handles chboxFechaFRes.CheckedChanged, chboxFechaTramiteFReserva.CheckedChanged
 
         Select Case sender.Name
@@ -154,6 +152,7 @@ Partial Public Class frmMainMenu
                                 End If
                             End If
                         End If
+
                     End If
                 Else
                     AmaranthMessagebox("Solo puede alquilar reservas futuras con 2 horas de antelación como máximo.", "Error")
@@ -163,8 +162,7 @@ Partial Public Class frmMainMenu
             End If
         End If
 
-
-
+        End If
 
     End Sub
 
@@ -201,6 +199,7 @@ Partial Public Class frmMainMenu
 
                 Dim reservaseleccionadaid As String
                 reservaseleccionadaid = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString()
+
 
                 If conexion.EjecutarNonQuery("Update reserva set estado = 3 where idreserva = " + reservaseleccionadaid.ToString() + "") = True Then
 
@@ -306,9 +305,9 @@ Partial Public Class frmMainMenu
 
                         Else
                             AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error")
-                            End If
+                        End If
 
-                        Else
+                    Else
                             AmaranthMessagebox("Ese cliente no está registrado o está inactivo.", "Error")
                         End If
                     Else

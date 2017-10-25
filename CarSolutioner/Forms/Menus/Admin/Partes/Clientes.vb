@@ -33,15 +33,13 @@ Partial Public Class frmMainMenu
 
         If chbxFechaFClientes.Checked = True Then
 
-            filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc") + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"),
-                                                            "nrodocumento", txtDocumFClientes.Text, "nombre", txtNombreFClientes.Text, "apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "empresa", txtEmpresaFClientes.Text)
+            filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc") + TipoFiltro(cbxDiaNFCliente, "dia") + TipoFiltro(cbxMesNFCliente, "mes") + TipoFiltro(cbxAnioNFCliente, "anio"), "nrodocumento", txtDocumFClientes.Text, "nombre", txtNombreFClientes.Text, "apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "empresa", txtEmpresaFClientes.Text)
 
             dgvClientes.DataSource.Filter = filtro
 
         Else
 
-            filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc"),
-                                                            "nrodocumento", txtDocumFClientes.Text, "nombre", txtNombreFClientes.Text, "apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "empresa", txtEmpresaFClientes.Text)
+            filtro = String.Format("{0} LIKE '{1}%' AND {2} LIKE '%{3}%' AND {4} LIKE '%{5}%' AND {6} LIKE '%{7}%' AND {8} LIKE '%{9}%'" + TipoFiltro(cbxTipoDocumFCliente, "idtipodoc"), "nrodocumento", txtDocumFClientes.Text, "nombre", txtNombreFClientes.Text, "apellido", txtApellidoFClientes.Text, "email", txtCorreoFClientes.Text, "empresa", txtEmpresaFClientes.Text)
 
             dgvClientes.DataSource.Filter = filtro
 
@@ -66,7 +64,6 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub AltaCliente(sender As Object, e As EventArgs) Handles btnIngresarACliente.Click
-
         Dim FechaSeleccionada As String = cbxDiaNACliente.Text + "/" + cbxMesNACliente.Text + "/" + cbxAnioNACliente.Text
         Dim FaltaDato As Boolean = False
 
@@ -119,18 +116,36 @@ Partial Public Class frmMainMenu
                             If VerificarCI(txtDocumACliente.Text) Then
                                 'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
                                 If conexion.EjecutarNonQuery(sentencia) Then
+
+                                    Dim ip As String = GetIPAddress()
+                                    Dim descripcion As String = "Ingreso al cliente con el numero de documento : " + txtDocumACliente.Text + " y con un descuento del : " + numDescuentoACliente.Value.ToString + "%"
+                                    conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
+
                                     AmaranthMessagebox("Cliente ingresado satisfactoriamente", "Continuar")
                                     RecargarDatos(dgvClientes)
-                                    Dim IDPersonaInsertada As String = conexion.EjecutarSelect("SELECT idpersona FROM Cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'").Rows(0)(0).ToString
+
+                                    For Each control As Control In pnlAClientes.Controls
+                                        VaciarControl(control)
+                                    Next
                                 End If
                             End If
                         Else
-
                             'Si el cliente se ingresa satisfactoriamente, recargar y desactivar descuento.
                             If conexion.EjecutarNonQuery(sentencia) Then
                                 AmaranthMessagebox("Cliente ingresado satisfactoriamente", "Continuar")
+
+                                Dim ip As String = GetIPAddress()
+                                Dim descripcion As String = "Ingreso al cliente con el numero de documento : " + txtDocumACliente.Text + " y con un descuento del : " + numDescuentoACliente.Value.ToString + "%"
+                                conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
+
                                 RecargarDatos(dgvClientes)
                                 numDescuentoACliente.Enabled = False
+                                For Each control As Control In gbxFecNacACliente.Controls
+                                    VaciarControl(control)
+                                Next
+                                For Each control As Control In pnlAClientes.Controls
+                                    VaciarControl(control)
+                                Next
                             End If
                         End If
                     Else
@@ -143,7 +158,6 @@ Partial Public Class frmMainMenu
             Else
                 'Si la fecha seleccionada no es una fecha válida, mostramos un mensaje de error y salimos del Sub.
                 AmaranthMessagebox("Por favor, seleccione una fecha válida.", "Advertencia")
-
             End If
         Else
             'Si falta rellenar algún dato necesario:
@@ -223,14 +237,18 @@ Partial Public Class frmMainMenu
 
                             If (cbxTipoDocumMCliente.SelectedValue = 1) Then
                                 If (VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
+                                    'ponerinsert
                                     conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
-                                    MsgBox("Persona modificada satisfactoriamente.")
+                                    AmaranthMessagebox("Persona modificada satisfactoriamente.", "Continuar")
+
                                     RecargarDatos(dgvClientes)
                                     numDescuentoMCliente.Enabled = False
                                 End If
                             Else
+                                'ponerinsert
                                 conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
-                                MsgBox("Persona modificada satisfactoriamente.")
+                                AmaranthMessagebox("Persona modificada satisfactoriamente.", "Continuar")
+
                                 RecargarDatos(dgvClientes)
                                 numDescuentoMCliente.Enabled = False
                             End If
@@ -242,11 +260,11 @@ Partial Public Class frmMainMenu
                             AmaranthMessagebox("Modifique algo por favor.", "Advertencia")
                     End If
                 Else
-                    MsgBox("Por favor, ingrese una fecha válida.")
+                    AmaranthMessagebox("Por favor, ingrese una fecha válida.", "Advertencia")
                 End If
 
             Else
-                MsgBox("Debe cargar los teléfonos de la persona antes de modificar sus datos.")
+                AmaranthMessagebox("Debe cargar los teléfonos de la persona antes de modificar sus datos.", "Advertencia")
             End If
         Else
             AmaranthMessagebox("Rellene todos los campos obligatorios (*)", "Advertencia")
@@ -264,50 +282,53 @@ Partial Public Class frmMainMenu
         Dim Persona As New DataTable
         Persona = conexion.EjecutarSelect("SELECT idpersona, estado FROM cliente where nrodocumento = '" + txtDocumentoBCliente.Text + "'")
 
-        If Not (txtDocumentoBCliente.Text = "") Then
+        If AmaranthMessagebox("Desea cambiar el estado de este cliente?", "Si/No") = vbYes Then
 
-            'Si el cliente existe
-            If (Persona.Rows.Count <> 0) Then
-                Dim IdPersona As String = Persona.Rows(0)("idpersona").ToString()
+            If Not (txtDocumentoBCliente.Text = "") Then
 
-                Dim alquileresActivos As New DataTable
-                Dim sentencia As String = "SELECT nrochasis FROM reserva WHERE idpersona = '" + IdPersona + "' AND estado = '1'"
-                alquileresActivos = conexion.EjecutarSelect(sentencia)
-                If Not (alquileresActivos.Rows.Count = 0) Then
-                    nrochasis = alquileresActivos.Rows(0)("nrochasis").ToString
-                End If
+                'Si el cliente existe
+                If (Persona.Rows.Count <> 0) Then
+                    Dim IdPersona As String = Persona.Rows(0)("idpersona").ToString()
 
-                If (nrochasis = "") Then
-
-                    Dim ReservasActivasPersona As DataTable
-                    Dim sentencia2 As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1"
-                    ReservasActivasPersona = conexion.EjecutarSelect(sentencia2)
-                    If Not (ReservasActivasPersona.Rows.Count = 0) Then
-                        idreserva = ReservasActivasPersona.Rows(0)("idreserva").ToString
+                    Dim alquileresActivos As New DataTable
+                    Dim sentencia As String = "SELECT nrochasis FROM reserva WHERE idpersona = '" + IdPersona + "' AND estado = '1'"
+                    alquileresActivos = conexion.EjecutarSelect(sentencia)
+                    If Not (alquileresActivos.Rows.Count = 0) Then
+                        nrochasis = alquileresActivos.Rows(0)("nrochasis").ToString
                     End If
 
-                    If (idreserva = "") Then
-                        Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
-                        Dim NuevoEstado As Boolean = Not EstadoActual
-                        If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
-                            RecargarDatos(dgvClientes)
-                            MsgBox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                    If (nrochasis = "") Then
+
+                        Dim ReservasActivasPersona As DataTable
+                        Dim sentencia2 As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1"
+                        ReservasActivasPersona = conexion.EjecutarSelect(sentencia2)
+                        If Not (ReservasActivasPersona.Rows.Count = 0) Then
+                            idreserva = ReservasActivasPersona.Rows(0)("idreserva").ToString
+                        End If
+
+                        If (idreserva = "") Then
+                            Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
+                            Dim NuevoEstado As Boolean = Not EstadoActual
+                            'ponerinsert
+                            If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
+                                RecargarDatos(dgvClientes)
+                                AmaranthMessagebox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar")
+                            Else
+                                AmaranthMessagebox("Por favor, verifique que pueda eliminar ese cliente.", "Error")
+                            End If
                         Else
-                            MsgBox("Hubo un error. Por favor, verifique que pueda eliminar ese cliente.")
+                            AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene reservas activas.", "Error")
                         End If
                     Else
-                        AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene reservas activas.", "Error")
-                    End If
-                Else
-                    AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene un alquiler activo.", "Error")
+                        AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene un alquiler activo.", "Error")
                     End If
 
                 Else
-                    MsgBox("Ese cliente no existe. Por favor, verifique.")
-
+                    AmaranthMessagebox("Ese cliente no existe. Por favor, verifique.", "Advertencia")
+                End If
+            Else
+                AmaranthMessagebox("Ingrese un número de documento.", "Advertencia")
             End If
-        Else
-            AmaranthMessagebox("Ingrese un número de documento.", "Advertencia")
         End If
     End Sub
 

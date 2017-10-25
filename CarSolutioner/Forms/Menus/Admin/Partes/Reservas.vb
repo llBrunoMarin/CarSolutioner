@@ -162,7 +162,7 @@ Partial Public Class frmMainMenu
             End If
         End If
 
-        End If
+
 
     End Sub
 

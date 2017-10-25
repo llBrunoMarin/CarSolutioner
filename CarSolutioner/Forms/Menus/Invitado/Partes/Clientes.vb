@@ -142,18 +142,18 @@ Partial Public Class frmMainMenuInvitado
 
                     End If
                 Else
-                    AmaranthMessagebox("Solo puede registrar clientes mayores a 18 años.", "Advertencia")
+                    AmaranthMessagebox("Solo puede registrar clientes mayores a 18 años.", "Advertencia", Me)
                 End If
 
 
             Else
                 'Si la fecha seleccionada no es una fecha válida, mostramos un mensaje de error y salimos del Sub.
-                MsgBox("Por favor, seleccione una fecha válida.")
+                AmaranthMessagebox("Por favor, seleccione una fecha válida.", "Error", Me)
 
             End If
         Else
             'Si falta rellenar algún dato necesario:
-            MsgBox("Por favor, rellene todos los campos obligatorios.")
+            AmaranthMessagebox("Por favor, rellene todos los campos obligatorios.", "Advertencia", Me)
         End If
 
     End Sub
@@ -237,17 +237,17 @@ Partial Public Class frmMainMenuInvitado
                             numDescuentoMCliente.Enabled = False
                         End If
                     Else
-                        AmaranthMessagebox("Modifique algo por favor.", "Advertencia")
+                        AmaranthMessagebox("Modifique algo por favor.", "Advertencia", Me)
                     End If
                 Else
-                    MsgBox("Por favor, ingrese una fecha válida.")
+                    AmaranthMessagebox("Por favor, ingrese una fecha válida.", "Error", Me)
                 End If
 
             Else
-                MsgBox("Debe cargar los teléfonos de la persona antes de modificar sus datos.")
+                AmaranthMessagebox("Debe cargar los teléfonos de la persona antes de modificar sus datos.", "Error", Me)
             End If
         Else
-            AmaranthMessagebox("Rellene todos los campos obligatorios (*)", "Advertencia")
+            AmaranthMessagebox("Rellene todos los campos obligatorios (*)", "Advertencia", Me)
         End If
     End Sub
 
@@ -289,23 +289,23 @@ Partial Public Class frmMainMenuInvitado
                         Dim NuevoEstado As Boolean = Not EstadoActual
                         If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
                             RecargarDatos(dgvClientes)
-                            MsgBox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                            AmaranthMessagebox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar", Me)
                         Else
-                            MsgBox("Hubo un error. Por favor, verifique que pueda eliminar ese cliente.")
+                            AmaranthMessagebox("Hubo un error. Por favor, verifique que pueda eliminar ese cliente.", "Error", Me)
                         End If
                     Else
-                        AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene reservas activas.", "Error")
+                        AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene reservas activas.", "Error", Me)
                     End If
                 Else
-                    AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene un alquiler activo.", "Error")
-                    End If
+                    AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene un alquiler activo.", "Error", Me)
+                End If
 
                 Else
-                    MsgBox("Ese cliente no existe. Por favor, verifique.")
+                AmaranthMessagebox("Ese cliente no existe. Por favor, verifique.", "Error", Me)
 
             End If
         Else
-            AmaranthMessagebox("Ingrese un número de documento.", "Advertencia")
+            AmaranthMessagebox("Ingrese un número de documento.", "Advertencia", Me)
         End If
     End Sub
 

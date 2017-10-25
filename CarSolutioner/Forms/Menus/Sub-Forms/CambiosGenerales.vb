@@ -380,7 +380,7 @@
                         MsgBox("Modificacion exitosa")
                         conexion.RellenarDataGridView(dgvCategorias, "SELECT * FROM categoria")
                     Else
-                        AmaranthMessagebox("Esa categoria ya existe", "Error")
+                        AmaranthMessagebox("Esa categoria ya existe", "Error", Me)
                     End If
                 ElseIf Not cbxcatmov.SelectedItem Is Nothing Then
 
@@ -469,10 +469,10 @@
         Dim idtipo As String = dgvTipos.CurrentRow.Cells("idtipo").Value.ToString()
 
         If txtModificarTipo.Text = dgvTipos.CurrentRow.Cells("nombre").Value.ToString() Then
-            AmaranthMessagebox("No has hecho ningun cambio", "Advertencia")
+            AmaranthMessagebox("No has hecho ningun cambio", "Advertencia", Me)
         ElseIf Not txtModificarTipo.Text = Nothing Then
             If conexion.EjecutarNonQuery("UPDATE TIPO Set NOMBRE='" + txtModificarTipo.Text.ToString + "' WHERE IDTIPO='" + idtipo + "'") Then
-                AmaranthMessagebox("Se modifico el nombre del tipo correctamente", "Continuar")
+                AmaranthMessagebox("Se modifico el nombre del tipo correctamente", "Continuar", Me)
                 conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
                 txtModificarTipo.Text = dgvTipos.CurrentRow.Cells("nombre").Value.ToString()
             Else
@@ -680,10 +680,10 @@
 
 
         If txtModificarMarca.Text = dgvMarcas.CurrentRow.Cells("nombremarca").Value.ToString() Then
-            AmaranthMessagebox("No has hecho ningun cambio", "Advertencia")
+            AmaranthMessagebox("No has hecho ningun cambio", "Advertencia", Me)
         ElseIf Not txtModificarMarca.Text = Nothing Then
             If conexion.EjecutarNonQuery("UPDATE marca Set NOMBRE='" + txtModificarMarca.Text.ToString + "' WHERE IDmarca='" + idmarca + "'") Then
-                AmaranthMessagebox("Se modifico el nombre de la marca correctamente", "Continuar")
+                AmaranthMessagebox("Se modifico el nombre de la marca correctamente", "Continuar", Me)
                 conexion.RellenarDataGridView(dgvMarcas, "SELECT * FROM Marca")
                 txtModificarTipo.Text = dgvMarcas.CurrentRow.Cells("nombremarca").Value.ToString()
             Else
@@ -699,22 +699,22 @@
         Dim idtipodoc As String = dgvDocumentos.CurrentRow.Cells("idtipodoc").Value.ToString()
 
         If txtmodificartipodoc.Text = dgvDocumentos.CurrentRow.Cells("nombretipodoc").Value.ToString() Then
-            AmaranthMessagebox("No has hecho ningun cambio", "Advertencia")
+            AmaranthMessagebox("No has hecho ningun cambio", "Advertencia", Me)
         ElseIf Not txtmodificartipodoc.Text = Nothing Then
             If Not dgvDocumentos.CurrentRow.Cells("nombretipodoc").Value.ToString() = "CI UY" Then
                 If conexion.EjecutarNonQuery("UPDATE tipodocumento Set NOMBRE='" + txtmodificartipodoc.Text.ToString + "' WHERE IDtipodoc='" + idtipodoc + "'") Then
-                    AmaranthMessagebox("Se modifico el nombre del tipo correctamente", "Continuar")
+                    AmaranthMessagebox("Se modifico el nombre del tipo correctamente", "Continuar", Me)
                     conexion.RellenarDataGridView(dgvDocumentos, "SELECT * FROM tipodocumento")
                     txtmodificartipodoc.Text = dgvDocumentos.CurrentRow.Cells("nombretipodoc").Value.ToString()
                 Else
-                    AmaranthMessagebox("Ese tipo ya existe actualmente.", "Error")
+                    AmaranthMessagebox("Ese tipo ya existe actualmente.", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("No puede modificar la Cedula Uruguaya. Es un documento base.", "Error")
+                AmaranthMessagebox("No puede modificar la Cedula Uruguaya. Es un documento base.", "Error", Me)
             End If
 
         Else
-            AmaranthMessagebox("Debe modificar algo.", "Error")
+            AmaranthMessagebox("Debe modificar algo.", "Error", Me)
         End If
     End Sub
     Private Sub btnAddMarca_Click(sender As Object, e As EventArgs) Handles btnAddMarca.Click

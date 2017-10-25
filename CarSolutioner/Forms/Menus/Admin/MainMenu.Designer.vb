@@ -47,12 +47,12 @@ Partial Class frmMainMenu
         Me.mstMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprmirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListadoActualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GuardarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AparienciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ItemGuardarPDF = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsItemHerramientas = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsitemCambiosGenerales = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LupaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AcercaDeCarSolutionerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlSidebar = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.btnReservas = New System.Windows.Forms.Button()
@@ -204,7 +204,6 @@ Partial Class frmMainMenu
         Me.pnlFVehi = New System.Windows.Forms.Panel()
         Me.chbxFiltroVehiculos = New System.Windows.Forms.CheckBox()
         Me.lblColorFveh = New System.Windows.Forms.Label()
-        Me.txtColorFVeh = New System.Windows.Forms.TextBox()
         Me.numPasajerosFVeh = New System.Windows.Forms.NumericUpDown()
         Me.cbxTipoFVeh = New System.Windows.Forms.ComboBox()
         Me.txtMatriculaFVeh = New System.Windows.Forms.TextBox()
@@ -248,7 +247,6 @@ Partial Class frmMainMenu
         Me.pnlAVehi = New System.Windows.Forms.Panel()
         Me.Label138 = New System.Windows.Forms.Label()
         Me.Label133 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.lblKilometrajeAVeh = New System.Windows.Forms.Label()
         Me.txtKilometrajeAVeh = New System.Windows.Forms.TextBox()
         Me.numPasajerosAVeh = New System.Windows.Forms.NumericUpDown()
@@ -281,7 +279,6 @@ Partial Class frmMainMenu
         Me.Label60 = New System.Windows.Forms.Label()
         Me.pnlMVehi = New System.Windows.Forms.Panel()
         Me.lblColorMveh = New System.Windows.Forms.Label()
-        Me.txtColorMVeh = New System.Windows.Forms.TextBox()
         Me.numPasajerosMVehiculo = New System.Windows.Forms.NumericUpDown()
         Me.Label101 = New System.Windows.Forms.Label()
         Me.txtNroChasisMVeh = New System.Windows.Forms.TextBox()
@@ -448,8 +445,8 @@ Partial Class frmMainMenu
         Me.Label135 = New System.Windows.Forms.Label()
         Me.txtMatriculaMant = New System.Windows.Forms.TextBox()
         Me.tbpReservas = New System.Windows.Forms.TabPage()
-        Me.tabRes_Alq = New System.Windows.Forms.TabControl()
-        Me.Reservas = New System.Windows.Forms.TabPage()
+        Me.tabResAlq = New System.Windows.Forms.TabControl()
+        Me.tpgReservas = New System.Windows.Forms.TabPage()
         Me.dgvReservas = New System.Windows.Forms.DataGridView()
         Me.nombreapellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nrodocumentores = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -550,7 +547,7 @@ Partial Class frmMainMenu
         Me.dtpDesdeFReserva = New System.Windows.Forms.DateTimePicker()
         Me.cbxSucSalFres = New System.Windows.Forms.ComboBox()
         Me.cbxSucLlegFRes = New System.Windows.Forms.ComboBox()
-        Me.Alquileres = New System.Windows.Forms.TabPage()
+        Me.tpgAlquileres = New System.Windows.Forms.TabPage()
         Me.pnlMAlq = New System.Windows.Forms.Panel()
         Me.lblnombreCMalq = New System.Windows.Forms.Label()
         Me.txtNombreMAlq = New System.Windows.Forms.TextBox()
@@ -631,6 +628,7 @@ Partial Class frmMainMenu
         Me.cbxSucursalDestinoFAlquileres = New System.Windows.Forms.ComboBox()
         Me.btnVaciarFAlquiler = New System.Windows.Forms.Button()
         Me.Label147 = New System.Windows.Forms.Label()
+        Me.tpgReportesResAlq = New System.Windows.Forms.TabPage()
         Me.tbpMenuPrincipal = New System.Windows.Forms.TabPage()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.emailE = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -647,7 +645,10 @@ Partial Class frmMainMenu
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sfdSaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.LupaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cbxColorFVehiculo = New System.Windows.Forms.ComboBox()
+        Me.lblBorrarColorVeh = New System.Windows.Forms.Label()
+        Me.cbxColorMVehiculo = New System.Windows.Forms.ComboBox()
+        Me.cbxColorAVeh = New System.Windows.Forms.ComboBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -700,14 +701,14 @@ Partial Class frmMainMenu
         CType(Me.dgvMant, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAmant.SuspendLayout()
         Me.tbpReservas.SuspendLayout()
-        Me.tabRes_Alq.SuspendLayout()
-        Me.Reservas.SuspendLayout()
+        Me.tabResAlq.SuspendLayout()
+        Me.tpgReservas.SuspendLayout()
         CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMres.SuspendLayout()
         Me.pnlNuevaReserva.SuspendLayout()
         Me.pnlBRes.SuspendLayout()
         Me.pnlFReserva.SuspendLayout()
-        Me.Alquileres.SuspendLayout()
+        Me.tpgAlquileres.SuspendLayout()
         Me.pnlMAlq.SuspendLayout()
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
@@ -721,8 +722,8 @@ Partial Class frmMainMenu
         '
         Me.mstMenuStrip.AutoSize = False
         Me.mstMenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.mstMenuStrip.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.999999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mstMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem, Me.tsItemHerramientas})
+        Me.mstMenuStrip.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.mstMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.tsItemHerramientas, Me.ToolStripMenuItem1})
         Me.mstMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.mstMenuStrip.Name = "mstMenuStrip"
         Me.mstMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -741,37 +742,16 @@ Partial Class frmMainMenu
         '
         'ImprmirToolStripMenuItem
         '
-        Me.ImprmirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListadoActualToolStripMenuItem, Me.GuardarToolStripMenuItem1})
+        Me.ImprmirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ItemGuardarPDF})
         Me.ImprmirToolStripMenuItem.Name = "ImprmirToolStripMenuItem"
         Me.ImprmirToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.ImprmirToolStripMenuItem.Text = "Listado actual"
         '
-        'ListadoActualToolStripMenuItem
+        'ItemGuardarPDF
         '
-        Me.ListadoActualToolStripMenuItem.Name = "ListadoActualToolStripMenuItem"
-        Me.ListadoActualToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
-        Me.ListadoActualToolStripMenuItem.Text = "Imprimir"
-        '
-        'GuardarToolStripMenuItem1
-        '
-        Me.GuardarToolStripMenuItem1.Name = "GuardarToolStripMenuItem1"
-        Me.GuardarToolStripMenuItem1.Size = New System.Drawing.Size(188, 22)
-        Me.GuardarToolStripMenuItem1.Text = "Guardar como PDF"
-        '
-        'EditarToolStripMenuItem
-        '
-        Me.EditarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AparienciaToolStripMenuItem})
-        Me.EditarToolStripMenuItem.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EditarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(59, 26)
-        Me.EditarToolStripMenuItem.Text = "EDITAR"
-        '
-        'AparienciaToolStripMenuItem
-        '
-        Me.AparienciaToolStripMenuItem.Name = "AparienciaToolStripMenuItem"
-        Me.AparienciaToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.AparienciaToolStripMenuItem.Text = "Apariencia"
+        Me.ItemGuardarPDF.Name = "ItemGuardarPDF"
+        Me.ItemGuardarPDF.Size = New System.Drawing.Size(188, 22)
+        Me.ItemGuardarPDF.Text = "Guardar como PDF"
         '
         'tsItemHerramientas
         '
@@ -787,6 +767,27 @@ Partial Class frmMainMenu
         Me.tsitemCambiosGenerales.Name = "tsitemCambiosGenerales"
         Me.tsitemCambiosGenerales.Size = New System.Drawing.Size(190, 22)
         Me.tsitemCambiosGenerales.Text = "Cambios generales"
+        '
+        'LupaToolStripMenuItem
+        '
+        Me.LupaToolStripMenuItem.Name = "LupaToolStripMenuItem"
+        Me.LupaToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.LupaToolStripMenuItem.Text = "Lupa"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeCarSolutionerToolStripMenuItem})
+        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(62, 26)
+        Me.ToolStripMenuItem1.Text = "AYUDA"
+        '
+        'AcercaDeCarSolutionerToolStripMenuItem
+        '
+        Me.AcercaDeCarSolutionerToolStripMenuItem.Name = "AcercaDeCarSolutionerToolStripMenuItem"
+        Me.AcercaDeCarSolutionerToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.AcercaDeCarSolutionerToolStripMenuItem.Text = "Acerca de CarSolutioner"
         '
         'pnlSidebar
         '
@@ -997,6 +998,7 @@ Partial Class frmMainMenu
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.ReadOnly = True
         Me.dgvClientes.RowHeadersVisible = False
+        Me.dgvClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvClientes.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -2142,6 +2144,7 @@ Partial Class frmMainMenu
         Me.dgvMasAlquileresRClientes.Name = "dgvMasAlquileresRClientes"
         Me.dgvMasAlquileresRClientes.ReadOnly = True
         Me.dgvMasAlquileresRClientes.RowHeadersVisible = False
+        Me.dgvMasAlquileresRClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvMasAlquileresRClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvMasAlquileresRClientes.Size = New System.Drawing.Size(614, 373)
         Me.dgvMasAlquileresRClientes.TabIndex = 0
@@ -2193,6 +2196,7 @@ Partial Class frmMainMenu
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(17, 49)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DataGridView1.Size = New System.Drawing.Size(613, 373)
         Me.DataGridView1.TabIndex = 0
         '
@@ -2245,12 +2249,14 @@ Partial Class frmMainMenu
         Me.dgvVehiculos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.dgvVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvVehiculos.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvVehiculos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nrochasis, Me.matricula, Me.marca, Me.Modelo, Me.tipo, Me.categoria, Me.aniov, Me.kilometraje, Me.cantidaddepuertas, Me.cantidaddepasajeros, Me.cantidaddemaletas, Me.deducible, Me.aireacondicionado, Me.esmanual, Me.sucursal, Me.idcategoriaveh, Me.idmodeloveh, Me.idtipoveh, Me.idsucursalveh, Me.idmarcaveh, Me.estadov, Me.colorvehdgv})
         Me.dgvVehiculos.Location = New System.Drawing.Point(0, 0)
         Me.dgvVehiculos.MultiSelect = False
         Me.dgvVehiculos.Name = "dgvVehiculos"
         Me.dgvVehiculos.ReadOnly = True
         Me.dgvVehiculos.RowHeadersVisible = False
+        Me.dgvVehiculos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.NullValue = False
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
@@ -2524,7 +2530,6 @@ Partial Class frmMainMenu
         Me.pnlFVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlFVehi.Controls.Add(Me.chbxFiltroVehiculos)
         Me.pnlFVehi.Controls.Add(Me.lblColorFveh)
-        Me.pnlFVehi.Controls.Add(Me.txtColorFVeh)
         Me.pnlFVehi.Controls.Add(Me.numPasajerosFVeh)
         Me.pnlFVehi.Controls.Add(Me.cbxTipoFVeh)
         Me.pnlFVehi.Controls.Add(Me.txtMatriculaFVeh)
@@ -2549,6 +2554,7 @@ Partial Class frmMainMenu
         Me.pnlFVehi.Controls.Add(Me.txtAnioFVeh)
         Me.pnlFVehi.Controls.Add(Me.Label109)
         Me.pnlFVehi.Controls.Add(Me.Label49)
+        Me.pnlFVehi.Controls.Add(Me.cbxColorFVehiculo)
         Me.pnlFVehi.Controls.Add(Me.cbxSucursalFVeh)
         Me.pnlFVehi.Controls.Add(Me.Label61)
         Me.pnlFVehi.Controls.Add(Me.cbxModeloFVeh)
@@ -2559,6 +2565,7 @@ Partial Class frmMainMenu
         Me.pnlFVehi.Controls.Add(Me.lblBorrarPuertasFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarMaletasFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarTipoFVeh)
+        Me.pnlFVehi.Controls.Add(Me.lblBorrarColorVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarSucursalFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarModeloFVeh)
         Me.pnlFVehi.Controls.Add(Me.lblBorrarCategoriaFVeh)
@@ -2591,13 +2598,6 @@ Partial Class frmMainMenu
         Me.lblColorFveh.Size = New System.Drawing.Size(40, 17)
         Me.lblColorFveh.TabIndex = 65
         Me.lblColorFveh.Text = "Color"
-        '
-        'txtColorFVeh
-        '
-        Me.txtColorFVeh.Location = New System.Drawing.Point(472, 72)
-        Me.txtColorFVeh.Name = "txtColorFVeh"
-        Me.txtColorFVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtColorFVeh.TabIndex = 6
         '
         'numPasajerosFVeh
         '
@@ -3018,7 +3018,6 @@ Partial Class frmMainMenu
         Me.pnlAVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlAVehi.Controls.Add(Me.Label138)
         Me.pnlAVehi.Controls.Add(Me.Label133)
-        Me.pnlAVehi.Controls.Add(Me.TextBox1)
         Me.pnlAVehi.Controls.Add(Me.lblKilometrajeAVeh)
         Me.pnlAVehi.Controls.Add(Me.txtKilometrajeAVeh)
         Me.pnlAVehi.Controls.Add(Me.numPasajerosAVeh)
@@ -3043,6 +3042,7 @@ Partial Class frmMainMenu
         Me.pnlAVehi.Controls.Add(Me.Label56)
         Me.pnlAVehi.Controls.Add(Me.Label57)
         Me.pnlAVehi.Controls.Add(Me.Label58)
+        Me.pnlAVehi.Controls.Add(Me.cbxColorAVeh)
         Me.pnlAVehi.Controls.Add(Me.Label59)
         Me.pnlAVehi.Controls.Add(Me.Label63)
         Me.pnlAVehi.Controls.Add(Me.cbxModeloAVeh)
@@ -3076,13 +3076,6 @@ Partial Class frmMainMenu
         Me.Label133.Size = New System.Drawing.Size(46, 17)
         Me.Label133.TabIndex = 66
         Me.Label133.Text = "Color*"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(474, 73)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(104, 20)
-        Me.TextBox1.TabIndex = 6
         '
         'lblKilometrajeAVeh
         '
@@ -3395,7 +3388,6 @@ Partial Class frmMainMenu
         Me.pnlMVehi.BackColor = System.Drawing.Color.Silver
         Me.pnlMVehi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlMVehi.Controls.Add(Me.lblColorMveh)
-        Me.pnlMVehi.Controls.Add(Me.txtColorMVeh)
         Me.pnlMVehi.Controls.Add(Me.numPasajerosMVehiculo)
         Me.pnlMVehi.Controls.Add(Me.Label101)
         Me.pnlMVehi.Controls.Add(Me.txtNroChasisMVeh)
@@ -3421,6 +3413,7 @@ Partial Class frmMainMenu
         Me.pnlMVehi.Controls.Add(Me.Label38)
         Me.pnlMVehi.Controls.Add(Me.Label39)
         Me.pnlMVehi.Controls.Add(Me.Label40)
+        Me.pnlMVehi.Controls.Add(Me.cbxColorMVehiculo)
         Me.pnlMVehi.Controls.Add(Me.Label41)
         Me.pnlMVehi.Controls.Add(Me.cbxModeloMVeh)
         Me.pnlMVehi.Controls.Add(Me.cbxSucursalMVeh)
@@ -3441,13 +3434,6 @@ Partial Class frmMainMenu
         Me.lblColorMveh.Size = New System.Drawing.Size(40, 17)
         Me.lblColorMveh.TabIndex = 66
         Me.lblColorMveh.Text = "Color"
-        '
-        'txtColorMVeh
-        '
-        Me.txtColorMVeh.Location = New System.Drawing.Point(472, 74)
-        Me.txtColorMVeh.Name = "txtColorMVeh"
-        Me.txtColorMVeh.Size = New System.Drawing.Size(104, 20)
-        Me.txtColorMVeh.TabIndex = 6
         '
         'numPasajerosMVehiculo
         '
@@ -3790,6 +3776,7 @@ Partial Class frmMainMenu
         Me.dgvVehiculosDisponibles.Name = "dgvVehiculosDisponibles"
         Me.dgvVehiculosDisponibles.ReadOnly = True
         Me.dgvVehiculosDisponibles.RowHeadersVisible = False
+        Me.dgvVehiculosDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle5.NullValue = False
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
@@ -4079,6 +4066,7 @@ Partial Class frmMainMenu
         Me.dgvEmpleados.Name = "dgvEmpleados"
         Me.dgvEmpleados.ReadOnly = True
         Me.dgvEmpleados.RowHeadersVisible = False
+        Me.dgvEmpleados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvEmpleados.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -5052,6 +5040,7 @@ Partial Class frmMainMenu
         Me.dgvMant.Name = "dgvMant"
         Me.dgvMant.ReadOnly = True
         Me.dgvMant.RowHeadersVisible = False
+        Me.dgvMant.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvMant.RowsDefaultCellStyle = DataGridViewCellStyle11
         Me.dgvMant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -5281,7 +5270,7 @@ Partial Class frmMainMenu
         'tbpReservas
         '
         Me.tbpReservas.BackColor = System.Drawing.Color.Silver
-        Me.tbpReservas.Controls.Add(Me.tabRes_Alq)
+        Me.tbpReservas.Controls.Add(Me.tabResAlq)
         Me.tbpReservas.Location = New System.Drawing.Point(4, 25)
         Me.tbpReservas.Name = "tbpReservas"
         Me.tbpReservas.Padding = New System.Windows.Forms.Padding(3)
@@ -5289,34 +5278,35 @@ Partial Class frmMainMenu
         Me.tbpReservas.TabIndex = 0
         Me.tbpReservas.Text = "Reservas"
         '
-        'tabRes_Alq
+        'tabResAlq
         '
-        Me.tabRes_Alq.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.tabResAlq.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tabRes_Alq.Controls.Add(Me.Reservas)
-        Me.tabRes_Alq.Controls.Add(Me.Alquileres)
-        Me.tabRes_Alq.Location = New System.Drawing.Point(27, 2)
-        Me.tabRes_Alq.Name = "tabRes_Alq"
-        Me.tabRes_Alq.SelectedIndex = 0
-        Me.tabRes_Alq.Size = New System.Drawing.Size(1328, 834)
-        Me.tabRes_Alq.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight
-        Me.tabRes_Alq.TabIndex = 37
+        Me.tabResAlq.Controls.Add(Me.tpgReservas)
+        Me.tabResAlq.Controls.Add(Me.tpgAlquileres)
+        Me.tabResAlq.Controls.Add(Me.tpgReportesResAlq)
+        Me.tabResAlq.Location = New System.Drawing.Point(27, 2)
+        Me.tabResAlq.Name = "tabResAlq"
+        Me.tabResAlq.SelectedIndex = 0
+        Me.tabResAlq.Size = New System.Drawing.Size(1328, 834)
+        Me.tabResAlq.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight
+        Me.tabResAlq.TabIndex = 37
         '
-        'Reservas
+        'tpgReservas
         '
-        Me.Reservas.BackColor = System.Drawing.Color.Silver
-        Me.Reservas.Controls.Add(Me.dgvReservas)
-        Me.Reservas.Controls.Add(Me.pnlMres)
-        Me.Reservas.Controls.Add(Me.pnlNuevaReserva)
-        Me.Reservas.Controls.Add(Me.pnlBRes)
-        Me.Reservas.Controls.Add(Me.pnlFReserva)
-        Me.Reservas.Location = New System.Drawing.Point(4, 22)
-        Me.Reservas.Name = "Reservas"
-        Me.Reservas.Padding = New System.Windows.Forms.Padding(3)
-        Me.Reservas.Size = New System.Drawing.Size(1320, 808)
-        Me.Reservas.TabIndex = 0
-        Me.Reservas.Text = "Reservas"
+        Me.tpgReservas.BackColor = System.Drawing.Color.Silver
+        Me.tpgReservas.Controls.Add(Me.dgvReservas)
+        Me.tpgReservas.Controls.Add(Me.pnlMres)
+        Me.tpgReservas.Controls.Add(Me.pnlNuevaReserva)
+        Me.tpgReservas.Controls.Add(Me.pnlBRes)
+        Me.tpgReservas.Controls.Add(Me.pnlFReserva)
+        Me.tpgReservas.Location = New System.Drawing.Point(4, 22)
+        Me.tpgReservas.Name = "tpgReservas"
+        Me.tpgReservas.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpgReservas.Size = New System.Drawing.Size(1320, 808)
+        Me.tpgReservas.TabIndex = 0
+        Me.tpgReservas.Text = "Reservas"
         '
         'dgvReservas
         '
@@ -5335,6 +5325,7 @@ Partial Class frmMainMenu
         Me.dgvReservas.Name = "dgvReservas"
         Me.dgvReservas.ReadOnly = True
         Me.dgvReservas.RowHeadersVisible = False
+        Me.dgvReservas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle15
         Me.dgvReservas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -6408,20 +6399,20 @@ Partial Class frmMainMenu
         Me.cbxSucLlegFRes.Size = New System.Drawing.Size(121, 21)
         Me.cbxSucLlegFRes.TabIndex = 8
         '
-        'Alquileres
+        'tpgAlquileres
         '
-        Me.Alquileres.BackColor = System.Drawing.Color.Silver
-        Me.Alquileres.Controls.Add(Me.pnlMAlq)
-        Me.Alquileres.Controls.Add(Me.dgvAlquileres)
-        Me.Alquileres.Controls.Add(Me.Panel5)
-        Me.Alquileres.Controls.Add(Me.pnlFinAlq)
-        Me.Alquileres.Controls.Add(Me.Panel3)
-        Me.Alquileres.Location = New System.Drawing.Point(4, 22)
-        Me.Alquileres.Name = "Alquileres"
-        Me.Alquileres.Padding = New System.Windows.Forms.Padding(3)
-        Me.Alquileres.Size = New System.Drawing.Size(1320, 808)
-        Me.Alquileres.TabIndex = 1
-        Me.Alquileres.Text = "Alquileres"
+        Me.tpgAlquileres.BackColor = System.Drawing.Color.Silver
+        Me.tpgAlquileres.Controls.Add(Me.pnlMAlq)
+        Me.tpgAlquileres.Controls.Add(Me.dgvAlquileres)
+        Me.tpgAlquileres.Controls.Add(Me.Panel5)
+        Me.tpgAlquileres.Controls.Add(Me.pnlFinAlq)
+        Me.tpgAlquileres.Controls.Add(Me.Panel3)
+        Me.tpgAlquileres.Location = New System.Drawing.Point(4, 22)
+        Me.tpgAlquileres.Name = "tpgAlquileres"
+        Me.tpgAlquileres.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpgAlquileres.Size = New System.Drawing.Size(1320, 808)
+        Me.tpgAlquileres.TabIndex = 1
+        Me.tpgAlquileres.Text = "Alquileres"
         '
         'pnlMAlq
         '
@@ -6589,6 +6580,7 @@ Partial Class frmMainMenu
         Me.dgvAlquileres.Name = "dgvAlquileres"
         Me.dgvAlquileres.ReadOnly = True
         Me.dgvAlquileres.RowHeadersVisible = False
+        Me.dgvAlquileres.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvAlquileres.RowsDefaultCellStyle = DataGridViewCellStyle21
         Me.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -7273,6 +7265,15 @@ Partial Class frmMainMenu
         Me.Label147.TabIndex = 24
         Me.Label147.Text = "Buscar alquileres"
         '
+        'tpgReportesResAlq
+        '
+        Me.tpgReportesResAlq.Location = New System.Drawing.Point(4, 22)
+        Me.tpgReportesResAlq.Name = "tpgReportesResAlq"
+        Me.tpgReportesResAlq.Size = New System.Drawing.Size(1320, 808)
+        Me.tpgReportesResAlq.TabIndex = 2
+        Me.tpgReportesResAlq.Text = "Reportes de Reserva y Alquiler"
+        Me.tpgReportesResAlq.UseVisualStyleBackColor = True
+        '
         'tbpMenuPrincipal
         '
         Me.tbpMenuPrincipal.BackColor = System.Drawing.Color.Silver
@@ -7418,11 +7419,46 @@ Partial Class frmMainMenu
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'LupaToolStripMenuItem
+        'cbxColorFVehiculo
         '
-        Me.LupaToolStripMenuItem.Name = "LupaToolStripMenuItem"
-        Me.LupaToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
-        Me.LupaToolStripMenuItem.Text = "Lupa"
+        Me.cbxColorFVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxColorFVehiculo.FormattingEnabled = True
+        Me.cbxColorFVehiculo.Items.AddRange(New Object() {"Amarillo", "Azul", "Blanco", "Dorado", "Gris", "Negro", "Rojo", "Turquesa", "Verde", "Violeta", "Otro"})
+        Me.cbxColorFVehiculo.Location = New System.Drawing.Point(472, 72)
+        Me.cbxColorFVehiculo.Name = "cbxColorFVehiculo"
+        Me.cbxColorFVehiculo.Size = New System.Drawing.Size(105, 21)
+        Me.cbxColorFVehiculo.TabIndex = 11
+        '
+        'lblBorrarColorVeh
+        '
+        Me.lblBorrarColorVeh.AutoSize = True
+        Me.lblBorrarColorVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarColorVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarColorVeh.Location = New System.Drawing.Point(556, 55)
+        Me.lblBorrarColorVeh.Name = "lblBorrarColorVeh"
+        Me.lblBorrarColorVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarColorVeh.TabIndex = 25
+        Me.lblBorrarColorVeh.Text = "←"
+        '
+        'cbxColorMVehiculo
+        '
+        Me.cbxColorMVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxColorMVehiculo.FormattingEnabled = True
+        Me.cbxColorMVehiculo.Items.AddRange(New Object() {"Amarillo", "Azul", "Blanco", "Dorado", "Gris", "Negro", "Rojo", "Turquesa", "Verde", "Violeta", "Otro"})
+        Me.cbxColorMVehiculo.Location = New System.Drawing.Point(472, 72)
+        Me.cbxColorMVehiculo.Name = "cbxColorMVehiculo"
+        Me.cbxColorMVehiculo.Size = New System.Drawing.Size(105, 21)
+        Me.cbxColorMVehiculo.TabIndex = 11
+        '
+        'cbxColorAVeh
+        '
+        Me.cbxColorAVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxColorAVeh.FormattingEnabled = True
+        Me.cbxColorAVeh.Items.AddRange(New Object() {"Amarillo", "Azul", "Blanco", "Dorado", "Gris", "Negro", "Rojo", "Turquesa", "Verde", "Violeta", "Otro"})
+        Me.cbxColorAVeh.Location = New System.Drawing.Point(474, 75)
+        Me.cbxColorAVeh.Name = "cbxColorAVeh"
+        Me.cbxColorAVeh.Size = New System.Drawing.Size(105, 21)
+        Me.cbxColorAVeh.TabIndex = 11
         '
         'frmMainMenu
         '
@@ -7517,8 +7553,8 @@ Partial Class frmMainMenu
         Me.pnlAmant.ResumeLayout(False)
         Me.pnlAmant.PerformLayout()
         Me.tbpReservas.ResumeLayout(False)
-        Me.tabRes_Alq.ResumeLayout(False)
-        Me.Reservas.ResumeLayout(False)
+        Me.tabResAlq.ResumeLayout(False)
+        Me.tpgReservas.ResumeLayout(False)
         CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMres.ResumeLayout(False)
         Me.pnlMres.PerformLayout()
@@ -7528,7 +7564,7 @@ Partial Class frmMainMenu
         Me.pnlBRes.PerformLayout()
         Me.pnlFReserva.ResumeLayout(False)
         Me.pnlFReserva.PerformLayout()
-        Me.Alquileres.ResumeLayout(False)
+        Me.tpgAlquileres.ResumeLayout(False)
         Me.pnlMAlq.ResumeLayout(False)
         Me.pnlMAlq.PerformLayout()
         CType(Me.dgvAlquileres, System.ComponentModel.ISupportInitialize).EndInit()
@@ -7547,7 +7583,6 @@ Partial Class frmMainMenu
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents pnlSidebar As Panel
     Friend WithEvents btnReservas As Button
-    Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents tsItemHerramientas As ToolStripMenuItem
     Friend WithEvents btnVehiculos As Button
     Friend WithEvents btnClientes As Button
@@ -7746,7 +7781,6 @@ Partial Class frmMainMenu
     Friend WithEvents Label28 As Label
     Friend WithEvents Label82 As Label
     Friend WithEvents ImprmirToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AparienciaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents chbxFechaFClientes As CheckBox
     Friend WithEvents cbxTipoDocumACliente As ComboBox
     Friend WithEvents cbxTipoDocumMCliente As ComboBox
@@ -7774,9 +7808,9 @@ Partial Class frmMainMenu
     Friend WithEvents lblBorrarCategoriaFVeh As Label
     Friend WithEvents lblBorrarMaletasFVeh As Label
     Public WithEvents dgvReservas As DataGridView
-    Friend WithEvents tabRes_Alq As TabControl
-    Friend WithEvents Reservas As TabPage
-    Friend WithEvents Alquileres As TabPage
+    Friend WithEvents tabResAlq As TabControl
+    Friend WithEvents tpgReservas As TabPage
+    Friend WithEvents tpgAlquileres As TabPage
     Public WithEvents dgvAlquileres As DataGridView
     Friend WithEvents pnlNuevaReserva As Panel
     Friend WithEvents btnReservarARes As Button
@@ -8049,9 +8083,7 @@ Partial Class frmMainMenu
     Friend WithEvents Label115 As Label
     Friend WithEvents lblKilometrajeAVeh As Label
     Friend WithEvents lblColorFveh As Label
-    Friend WithEvents txtColorFVeh As TextBox
-    Friend WithEvents ListadoActualToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GuardarToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ItemGuardarPDF As ToolStripMenuItem
     Friend WithEvents tipodocumento As DataGridViewTextBoxColumn
     Friend WithEvents nrodocumento As DataGridViewTextBoxColumn
     Friend WithEvents nombre As DataGridViewTextBoxColumn
@@ -8068,9 +8100,7 @@ Partial Class frmMainMenu
     Friend WithEvents anio As DataGridViewTextBoxColumn
     Friend WithEvents telefonos As DataGridViewButtonColumn
     Friend WithEvents Label133 As Label
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents lblColorMveh As Label
-    Friend WithEvents txtColorMVeh As TextBox
     Friend WithEvents nrochasis As DataGridViewTextBoxColumn
     Friend WithEvents matricula As DataGridViewTextBoxColumn
     Friend WithEvents marca As DataGridViewTextBoxColumn
@@ -8154,4 +8184,12 @@ Partial Class frmMainMenu
     Friend WithEvents chbxFiltroEmpleados As CheckBox
     Friend WithEvents chbxFiltroVehiculos As CheckBox
     Friend WithEvents LupaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tpgReportesResAlq As TabPage
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents AcercaDeCarSolutionerToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cbxColorFVehiculo As ComboBox
+    Friend WithEvents lblBorrarColorVeh As Label
+    Friend WithEvents cbxColorAVeh As ComboBox
+    Friend WithEvents cbxColorMVehiculo As ComboBox
+
 End Class

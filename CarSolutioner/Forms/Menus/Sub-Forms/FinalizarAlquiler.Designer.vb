@@ -37,14 +37,15 @@ Partial Class FinalizarAlquiler
         Me.btnCerrarMsgbox = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.lblTitulo = New System.Windows.Forms.Label()
-        Me.txtRecargo = New System.Windows.Forms.TextBox()
         Me.lblRecargo = New System.Windows.Forms.Label()
         Me.btnAgregarDescuentoAlquiler = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtDeducible = New System.Windows.Forms.TextBox()
         Me.txtCostoTotalTotal = New System.Windows.Forms.TextBox()
+        Me.numRecargo = New System.Windows.Forms.NumericUpDown()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.numRecargo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label150
@@ -223,18 +224,9 @@ Partial Class FinalizarAlquiler
         Me.lblTitulo.TabIndex = 35
         Me.lblTitulo.Text = "Alquiler de: "
         '
-        'txtRecargo
-        '
-        Me.txtRecargo.Enabled = False
-        Me.txtRecargo.Location = New System.Drawing.Point(276, 143)
-        Me.txtRecargo.Name = "txtRecargo"
-        Me.txtRecargo.Size = New System.Drawing.Size(121, 20)
-        Me.txtRecargo.TabIndex = 47
-        '
         'lblRecargo
         '
         Me.lblRecargo.AutoSize = True
-        Me.lblRecargo.Enabled = False
         Me.lblRecargo.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRecargo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.lblRecargo.Location = New System.Drawing.Point(273, 122)
@@ -289,11 +281,21 @@ Partial Class FinalizarAlquiler
         Me.txtCostoTotalTotal.TabIndex = 47
         Me.txtCostoTotalTotal.Visible = False
         '
+        'numRecargo
+        '
+        Me.numRecargo.Enabled = False
+        Me.numRecargo.Location = New System.Drawing.Point(276, 143)
+        Me.numRecargo.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.numRecargo.Name = "numRecargo"
+        Me.numRecargo.Size = New System.Drawing.Size(120, 20)
+        Me.numRecargo.TabIndex = 58
+        '
         'FinalizarAlquiler
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(433, 311)
+        Me.Controls.Add(Me.numRecargo)
         Me.Controls.Add(Me.btnAgregarDescuentoAlquiler)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -301,7 +303,6 @@ Partial Class FinalizarAlquiler
         Me.Controls.Add(Me.lblRecargo)
         Me.Controls.Add(Me.txtDeducible)
         Me.Controls.Add(Me.txtCostoTotalTotal)
-        Me.Controls.Add(Me.txtRecargo)
         Me.Controls.Add(Me.lblCostoYRecargo)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtCostoTotal)
@@ -313,6 +314,7 @@ Partial Class FinalizarAlquiler
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.numRecargo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -331,7 +333,6 @@ Partial Class FinalizarAlquiler
     Friend WithEvents btnCerrarMsgbox As Button
     Friend WithEvents btnCerrar As Button
     Friend WithEvents lblTitulo As Label
-    Friend WithEvents txtRecargo As TextBox
     Friend WithEvents lblRecargo As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents txtKMAutoAntes As TextBox
@@ -339,4 +340,5 @@ Partial Class FinalizarAlquiler
     Friend WithEvents Label2 As Label
     Friend WithEvents txtDeducible As TextBox
     Friend WithEvents txtCostoTotalTotal As TextBox
+    Friend WithEvents numRecargo As NumericUpDown
 End Class

@@ -259,16 +259,12 @@ Module Metodos
     End Sub
 
     'Msgbox personalizado de AmaranthSolutions
-    Public Function AmaranthMessagebox(Texto As String, Tipo As String, Optional sender As Form = Nothing) As DialogResult
+    Public Function AmaranthMessagebox(Texto As String, Tipo As String, sender As Form) As DialogResult
 
         Dim AmaranthMsgbox As New AmaranthMsgbox(Texto, Tipo)
-        If Not sender Is Nothing Then
-            Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog(sender)
-            Return resultado
-        Else
-            Dim resultado2 As DialogResult = AmaranthMsgbox.ShowDialog()
-            Return resultado2
-        End If
+        Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog(sender)
+        Return resultado
+
 
     End Function
 

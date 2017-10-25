@@ -68,6 +68,8 @@ Partial Class frmCambiosGenerales
         Me.inactivascategorias = New System.Windows.Forms.CheckBox()
         Me.dgvCategorias = New System.Windows.Forms.DataGridView()
         Me.pnlcatcambios = New System.Windows.Forms.Panel()
+        Me.lblkmexce = New System.Windows.Forms.Label()
+        Me.txtKmExcedido = New System.Windows.Forms.TextBox()
         Me.txttarifalibrecatadd = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -81,6 +83,8 @@ Partial Class frmCambiosGenerales
         Me.Label9 = New System.Windows.Forms.Label()
         Me.btncatadd = New System.Windows.Forms.Button()
         Me.pnlmodificarcat = New System.Windows.Forms.Panel()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.txtRecargoKmextramodif = New System.Windows.Forms.TextBox()
         Me.pnlcatmov = New System.Windows.Forms.Panel()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.cbxcatmov = New System.Windows.Forms.ComboBox()
@@ -214,8 +218,6 @@ Partial Class frmCambiosGenerales
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.txtKmExcedido = New System.Windows.Forms.TextBox()
-        Me.lblkmexce = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         Me.tbpDocumento.SuspendLayout()
@@ -716,7 +718,7 @@ Partial Class frmCambiosGenerales
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvCategorias.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCategorias.Size = New System.Drawing.Size(439, 589)
+        Me.dgvCategorias.Size = New System.Drawing.Size(510, 564)
         Me.dgvCategorias.TabIndex = 74
         '
         'pnlcatcambios
@@ -738,10 +740,28 @@ Partial Class frmCambiosGenerales
         Me.pnlcatcambios.Controls.Add(Me.Label8)
         Me.pnlcatcambios.Controls.Add(Me.Label9)
         Me.pnlcatcambios.Controls.Add(Me.btncatadd)
-        Me.pnlcatcambios.Location = New System.Drawing.Point(455, 29)
+        Me.pnlcatcambios.Location = New System.Drawing.Point(523, 29)
         Me.pnlcatcambios.Name = "pnlcatcambios"
-        Me.pnlcatcambios.Size = New System.Drawing.Size(478, 183)
+        Me.pnlcatcambios.Size = New System.Drawing.Size(410, 183)
         Me.pnlcatcambios.TabIndex = 72
+        '
+        'lblkmexce
+        '
+        Me.lblkmexce.AutoSize = True
+        Me.lblkmexce.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblkmexce.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblkmexce.Location = New System.Drawing.Point(220, 46)
+        Me.lblkmexce.Name = "lblkmexce"
+        Me.lblkmexce.Size = New System.Drawing.Size(113, 17)
+        Me.lblkmexce.TabIndex = 72
+        Me.lblkmexce.Text = "Recargo km extra"
+        '
+        'txtKmExcedido
+        '
+        Me.txtKmExcedido.Location = New System.Drawing.Point(223, 66)
+        Me.txtKmExcedido.Name = "txtKmExcedido"
+        Me.txtKmExcedido.Size = New System.Drawing.Size(96, 20)
+        Me.txtKmExcedido.TabIndex = 71
         '
         'txttarifalibrecatadd
         '
@@ -766,7 +786,7 @@ Partial Class frmCambiosGenerales
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(6, 38)
+        Me.Label4.Location = New System.Drawing.Point(9, 46)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(65, 17)
         Me.Label4.TabIndex = 52
@@ -785,28 +805,28 @@ Partial Class frmCambiosGenerales
         '
         'txtnomcatadd
         '
-        Me.txtnomcatadd.Location = New System.Drawing.Point(12, 58)
+        Me.txtnomcatadd.Location = New System.Drawing.Point(15, 66)
         Me.txtnomcatadd.Name = "txtnomcatadd"
         Me.txtnomcatadd.Size = New System.Drawing.Size(96, 20)
         Me.txtnomcatadd.TabIndex = 45
         '
         'txttarifa150catadd
         '
-        Me.txttarifa150catadd.Location = New System.Drawing.Point(229, 58)
+        Me.txttarifa150catadd.Location = New System.Drawing.Point(114, 111)
         Me.txttarifa150catadd.Name = "txttarifa150catadd"
         Me.txttarifa150catadd.Size = New System.Drawing.Size(100, 20)
         Me.txttarifa150catadd.TabIndex = 47
         '
         'txttarifa300catadd
         '
-        Me.txttarifa300catadd.Location = New System.Drawing.Point(335, 58)
+        Me.txttarifa300catadd.Location = New System.Drawing.Point(220, 111)
         Me.txttarifa300catadd.Name = "txttarifa300catadd"
         Me.txttarifa300catadd.Size = New System.Drawing.Size(100, 20)
         Me.txttarifa300catadd.TabIndex = 48
         '
         'txttarifabasecatadd
         '
-        Me.txttarifabasecatadd.Location = New System.Drawing.Point(118, 58)
+        Me.txttarifabasecatadd.Location = New System.Drawing.Point(117, 66)
         Me.txttarifabasecatadd.Name = "txttarifabasecatadd"
         Me.txttarifabasecatadd.Size = New System.Drawing.Size(100, 20)
         Me.txttarifabasecatadd.TabIndex = 46
@@ -816,7 +836,7 @@ Partial Class frmCambiosGenerales
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(115, 38)
+        Me.Label7.Location = New System.Drawing.Point(118, 46)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 17)
         Me.Label7.TabIndex = 53
@@ -827,7 +847,7 @@ Partial Class frmCambiosGenerales
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(332, 38)
+        Me.Label8.Location = New System.Drawing.Point(217, 91)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(83, 17)
         Me.Label8.TabIndex = 54
@@ -838,7 +858,7 @@ Partial Class frmCambiosGenerales
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(226, 40)
+        Me.Label9.Location = New System.Drawing.Point(112, 91)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(83, 17)
         Me.Label9.TabIndex = 55
@@ -855,7 +875,7 @@ Partial Class frmCambiosGenerales
         Me.btncatadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncatadd.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncatadd.ForeColor = System.Drawing.Color.White
-        Me.btncatadd.Location = New System.Drawing.Point(380, 150)
+        Me.btncatadd.Location = New System.Drawing.Point(312, 150)
         Me.btncatadd.Name = "btncatadd"
         Me.btncatadd.Size = New System.Drawing.Size(91, 30)
         Me.btncatadd.TabIndex = 49
@@ -866,6 +886,8 @@ Partial Class frmCambiosGenerales
         '
         Me.pnlmodificarcat.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlmodificarcat.BackColor = System.Drawing.Color.Silver
+        Me.pnlmodificarcat.Controls.Add(Me.Label63)
+        Me.pnlmodificarcat.Controls.Add(Me.txtRecargoKmextramodif)
         Me.pnlmodificarcat.Controls.Add(Me.pnlcatmov)
         Me.pnlmodificarcat.Controls.Add(Me.Label28)
         Me.pnlmodificarcat.Controls.Add(Me.txtKmLibreModCat)
@@ -881,10 +903,28 @@ Partial Class frmCambiosGenerales
         Me.pnlmodificarcat.Controls.Add(Me.Label25)
         Me.pnlmodificarcat.Controls.Add(Me.txtTarifaBaseModCat)
         Me.pnlmodificarcat.Controls.Add(Me.Label24)
-        Me.pnlmodificarcat.Location = New System.Drawing.Point(455, 219)
+        Me.pnlmodificarcat.Location = New System.Drawing.Point(523, 219)
         Me.pnlmodificarcat.Name = "pnlmodificarcat"
-        Me.pnlmodificarcat.Size = New System.Drawing.Size(478, 336)
+        Me.pnlmodificarcat.Size = New System.Drawing.Size(410, 376)
         Me.pnlmodificarcat.TabIndex = 73
+        '
+        'Label63
+        '
+        Me.Label63.AutoSize = True
+        Me.Label63.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label63.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Label63.Location = New System.Drawing.Point(229, 29)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(113, 17)
+        Me.Label63.TabIndex = 72
+        Me.Label63.Text = "Recargo km extra"
+        '
+        'txtRecargoKmextramodif
+        '
+        Me.txtRecargoKmextramodif.Location = New System.Drawing.Point(236, 50)
+        Me.txtRecargoKmextramodif.Name = "txtRecargoKmextramodif"
+        Me.txtRecargoKmextramodif.Size = New System.Drawing.Size(96, 20)
+        Me.txtRecargoKmextramodif.TabIndex = 71
         '
         'pnlcatmov
         '
@@ -895,9 +935,9 @@ Partial Class frmCambiosGenerales
         Me.pnlcatmov.Controls.Add(Me.lblcatmod)
         Me.pnlcatmov.Controls.Add(Me.Label40)
         Me.pnlcatmov.Enabled = False
-        Me.pnlcatmov.Location = New System.Drawing.Point(8, 140)
+        Me.pnlcatmov.Location = New System.Drawing.Point(8, 184)
         Me.pnlcatmov.Name = "pnlcatmov"
-        Me.pnlcatmov.Size = New System.Drawing.Size(463, 148)
+        Me.pnlcatmov.Size = New System.Drawing.Size(395, 148)
         Me.pnlcatmov.TabIndex = 82
         '
         'Label37
@@ -905,7 +945,7 @@ Partial Class frmCambiosGenerales
         Me.Label37.AutoSize = True
         Me.Label37.Font = New System.Drawing.Font("Century Gothic", 7.0!)
         Me.Label37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label37.Location = New System.Drawing.Point(201, 10)
+        Me.Label37.Location = New System.Drawing.Point(164, 10)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(218, 30)
         Me.Label37.TabIndex = 76
@@ -958,7 +998,7 @@ Partial Class frmCambiosGenerales
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(119, 83)
+        Me.Label28.Location = New System.Drawing.Point(12, 136)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(57, 17)
         Me.Label28.TabIndex = 81
@@ -976,7 +1016,7 @@ Partial Class frmCambiosGenerales
         Me.cbxModCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxModCat.FormattingEnabled = True
         Me.cbxModCat.Items.AddRange(New Object() {"Activa", "Inactiva"})
-        Me.cbxModCat.Location = New System.Drawing.Point(122, 103)
+        Me.cbxModCat.Location = New System.Drawing.Point(12, 156)
         Me.cbxModCat.Name = "cbxModCat"
         Me.cbxModCat.Size = New System.Drawing.Size(100, 21)
         Me.cbxModCat.TabIndex = 72
@@ -1003,7 +1043,7 @@ Partial Class frmCambiosGenerales
         Me.btnModificarCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificarCat.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificarCat.ForeColor = System.Drawing.Color.White
-        Me.btnModificarCat.Location = New System.Drawing.Point(380, 298)
+        Me.btnModificarCat.Location = New System.Drawing.Point(312, 338)
         Me.btnModificarCat.Name = "btnModificarCat"
         Me.btnModificarCat.Size = New System.Drawing.Size(91, 30)
         Me.btnModificarCat.TabIndex = 69
@@ -1015,7 +1055,7 @@ Partial Class frmCambiosGenerales
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label23.Location = New System.Drawing.Point(9, 30)
+        Me.Label23.Location = New System.Drawing.Point(9, 29)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(65, 17)
         Me.Label23.TabIndex = 75
@@ -1041,7 +1081,7 @@ Partial Class frmCambiosGenerales
         '
         'txtTarifa150ModCat
         '
-        Me.txtTarifa150ModCat.Location = New System.Drawing.Point(233, 50)
+        Me.txtTarifa150ModCat.Location = New System.Drawing.Point(126, 103)
         Me.txtTarifa150ModCat.Name = "txtTarifa150ModCat"
         Me.txtTarifa150ModCat.Size = New System.Drawing.Size(100, 20)
         Me.txtTarifa150ModCat.TabIndex = 73
@@ -1051,7 +1091,7 @@ Partial Class frmCambiosGenerales
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(230, 32)
+        Me.Label27.Location = New System.Drawing.Point(123, 85)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(83, 17)
         Me.Label27.TabIndex = 78
@@ -1059,7 +1099,7 @@ Partial Class frmCambiosGenerales
         '
         'txtTarifa300ModCat
         '
-        Me.txtTarifa300ModCat.Location = New System.Drawing.Point(339, 50)
+        Me.txtTarifa300ModCat.Location = New System.Drawing.Point(232, 103)
         Me.txtTarifa300ModCat.Name = "txtTarifa300ModCat"
         Me.txtTarifa300ModCat.Size = New System.Drawing.Size(100, 20)
         Me.txtTarifa300ModCat.TabIndex = 74
@@ -1069,7 +1109,7 @@ Partial Class frmCambiosGenerales
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label25.Location = New System.Drawing.Point(336, 30)
+        Me.Label25.Location = New System.Drawing.Point(229, 83)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(83, 17)
         Me.Label25.TabIndex = 77
@@ -1077,7 +1117,7 @@ Partial Class frmCambiosGenerales
         '
         'txtTarifaBaseModCat
         '
-        Me.txtTarifaBaseModCat.Location = New System.Drawing.Point(122, 50)
+        Me.txtTarifaBaseModCat.Location = New System.Drawing.Point(124, 50)
         Me.txtTarifaBaseModCat.Name = "txtTarifaBaseModCat"
         Me.txtTarifaBaseModCat.Size = New System.Drawing.Size(100, 20)
         Me.txtTarifaBaseModCat.TabIndex = 72
@@ -1087,7 +1127,7 @@ Partial Class frmCambiosGenerales
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label24.Location = New System.Drawing.Point(119, 30)
+        Me.Label24.Location = New System.Drawing.Point(119, 29)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(80, 17)
         Me.Label24.TabIndex = 76
@@ -2415,24 +2455,6 @@ Partial Class frmCambiosGenerales
         Me.DataGridView3.Size = New System.Drawing.Size(187, 332)
         Me.DataGridView3.TabIndex = 43
         '
-        'txtKmExcedido
-        '
-        Me.txtKmExcedido.Location = New System.Drawing.Point(118, 111)
-        Me.txtKmExcedido.Name = "txtKmExcedido"
-        Me.txtKmExcedido.Size = New System.Drawing.Size(96, 20)
-        Me.txtKmExcedido.TabIndex = 71
-        '
-        'lblkmexce
-        '
-        Me.lblkmexce.AutoSize = True
-        Me.lblkmexce.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblkmexce.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblkmexce.Location = New System.Drawing.Point(119, 91)
-        Me.lblkmexce.Name = "lblkmexce"
-        Me.lblkmexce.Size = New System.Drawing.Size(68, 17)
-        Me.lblkmexce.TabIndex = 72
-        Me.lblkmexce.Text = "km/Libre *"
-        '
         'frmCambiosGenerales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2682,4 +2704,6 @@ Partial Class frmCambiosGenerales
     Friend WithEvents estadotipodoc As DataGridViewCheckBoxColumn
     Friend WithEvents lblkmexce As Label
     Friend WithEvents txtKmExcedido As TextBox
+    Friend WithEvents Label63 As Label
+    Friend WithEvents txtRecargoKmextramodif As TextBox
 End Class

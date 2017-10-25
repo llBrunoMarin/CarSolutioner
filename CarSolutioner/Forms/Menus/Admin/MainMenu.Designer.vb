@@ -8191,4 +8191,5 @@ Partial Class frmMainMenu
     Friend WithEvents lblBorrarColorVeh As Label
     Friend WithEvents cbxColorAVeh As ComboBox
     Friend WithEvents cbxColorMVehiculo As ComboBox
+
 End Class

@@ -289,8 +289,10 @@ Public Class frmMainMenu
             Case "dgvMasAlquileresRClientes"
                 conexion.RellenarDataGridView(dgvMasAlquileresRClientes, "SELECT C.apellido  , c.nombre, c.email, 0 Alquileres FROM Cliente c group by apellido, nombre,email UNION SELECT c.apellido , c.nombre, c.email, count(r.nrochasis) Alquileres from cliente c, vehiculo v, reserva r where c.idpersona = r.idpersona and r.nrochasis=v.nrochasis group by apellido, nombre,email order by alquileres desc")
 
-                Case "dgvVehiculosDisponibles"
-                conexion.RellenarDataGridView(dgvVehiculosDisponibles, "SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND V.idsucursal = S.idsucursal UNION SELECT  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, 'En la calle' Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T WHERE V.idsucursal is null AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND idsucursal = '" + conexion.IdSucursalUsuario.ToString + "' AND nrochasis NOT IN (SELECT nrochasis FROM Reserva R WHERE fechaalquilerfin IS NOT NULL) AND nrochasis NOT IN (SELECT nrochasis FROM mantenimiento WHERE TODAY BETWEEN fechainicio AND fechafin)")
+            Case "dgvVehiculosDisponibles"
+                Dim sentencia2 As String = "Select  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE v.idsucursal = '" + conexion.IdSucursalUsuario.ToString + "' AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND v.nrochasis NOT IN (SELECT r.nrochasis FROM Reserva R WHERE r.fechaalquilerfin IS NOT NULL) AND  v.nrochasis NOT IN (SELECT m.nrochasis FROM mantenimiento m WHERE TODAY BETWEEN m.fechainicio AND m.fechafin)"
+                conexion.RellenarDataGridView(dgvVehiculosDisponibles, sentencia2)
+
             Case Else
                 conexion.RellenarDataGridView(dgv, sentencia)
 

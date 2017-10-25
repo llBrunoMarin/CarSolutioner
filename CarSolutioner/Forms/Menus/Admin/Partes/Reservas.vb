@@ -352,7 +352,7 @@ Partial Public Class frmMainMenu
 
                 If conexion.EjecutarSelect(sentencia).Rows.Count = 0 Then
 
-
+                    ReservaSeleccionadaModificar.IdReserva = dgvReservas.CurrentRow.Cells("idreserva").Value.ToString()
                     ReservaSeleccionadaModificar.IdCliente = IdPersona
                     ReservaSeleccionadaModificar.FechaReservaInicio = dtpFechaInicioMReserva.Value
                     ReservaSeleccionadaModificar.FechaReservaFin = dtpFechaFinMReserva.Value

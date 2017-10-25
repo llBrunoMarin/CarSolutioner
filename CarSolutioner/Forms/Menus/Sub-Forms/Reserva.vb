@@ -76,7 +76,23 @@
             conexion.EjecutarNonQuery("INSERT INTO Reserva VALUES (0, NULL, NULL, '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd HH:mm") + "', '" + ReservaSeleccionada.IdCantKM.ToString + "', '" + ReservaSeleccionada.CostoTotal.ToString + "', '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', 1, NULL, '" + ReservaSeleccionada.IdCliente.ToString + "', '" + ReservaSeleccionada.IdCategoria.ToString + "', '" + ReservaSeleccionada.IdTipo.ToString + "', '" + ReservaSeleccionada.IdSucursalPartida.ToString + "', '" + ReservaSeleccionada.IdSucursalDestino.ToString + "', '" + conexion.Usuario + "'  )")
             AmaranthMessagebox("Reserva ingresada correctamente", "Continuar", Me)
         Else
-            conexion.EjecutarNonQuery("UPDATE RESERVA SET fechaalquilerinicio = NULL, fechaalquilerfin = NULL, fechareservainicio = '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd HH:mm") + "', fechareservafin = '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd HH:mm") + "', cantidadkm = '" + ReservaSeleccionada.IdCantKM.ToString + "', costototal = '" + ReservaSeleccionada.CostoTotal.ToString + "', estado = '1', nrochasis = NULL, idpersona = '" + ReservaSeleccionada.IdCliente.ToString + "', idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "', idtipo = '" + ReservaSeleccionada.IdTipo.ToString + "', idsucursalsalida = '" + ReservaSeleccionada.IdSucursalPartida.ToString + "',  idsucursalllegada = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "' WHERE idreserva = '" + ReservaSeleccionada.IdReserva.ToString + "'")
+
+            Dim sentencia As String = "UPDATE RESERVA SET fechaalquilerinicio = NULL, 
+                                       fechaalquilerfin = NULL,
+                                       fechareservainicio = '" + ReservaSeleccionada.FechaReservaInicio.ToString("yyyy-MM-dd HH:mm") + "', 
+                                       fechareservafin = '" + ReservaSeleccionada.FechaReservaFin.ToString("yyyy-MM-dd HH:mm") + "', 
+                                       cantidadkm = '" + ReservaSeleccionada.IdCantKM.ToString + "',
+                                       costototal = '" + ReservaSeleccionada.CostoTotal.ToString + "', 
+                                       estado = '1', 
+                                       nrochasis = NULL, idpersona = '" + ReservaSeleccionada.IdCliente.ToString + "', 
+                                       idcategoria = '" + ReservaSeleccionada.IdCategoria.ToString + "', 
+                                       idtipo = '" + ReservaSeleccionada.IdTipo.ToString + "',
+                                       idsucursalsalida = '" + ReservaSeleccionada.IdSucursalPartida.ToString + "', 
+                                       idsucursalllegada = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "'
+                                       WHERE idreserva = '" + ReservaSeleccionada.IdReserva.ToString + "'"
+
+            conexion.EjecutarNonQuery(sentencia)
+
             AmaranthMessagebox("Reserva modificada correctamente", "Continuar", Me)
         End If
 

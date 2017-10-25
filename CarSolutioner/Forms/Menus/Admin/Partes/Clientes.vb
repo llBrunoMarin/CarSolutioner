@@ -105,9 +105,9 @@ Partial Public Class frmMainMenu
                         End If
                     Next
                     Dim nrodocRepetido As New DataTable
-                    nrodocRepetido = conexion.EjecutarSelect("SELECT nrodocumento,idtipodoc FROM cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "' and idtipodoc = '" + cbxTipoDocumACliente.SelectedValue.ToString + "'")
+                    nrodocRepetido = conexion.EjecutarSelect("SELECT nrodocumento FROM cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'")
 
-                    If Not nrodocRepetido.Rows.Count > 0 Then
+                    If nrodocRepetido.Rows.Count = 0 Then
                         Dim sentencia As String
                         sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, porcdescuento, estado, telefono) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, Date.Parse(FechaSeleccionada).ToString("dd/MM/yyyy"), If(txtEmpresaACliente.Text = "", "-", txtEmpresaACliente.Text), numDescuentoACliente.Value.ToString, "t", numeros.ToString)
 
@@ -127,7 +127,6 @@ Partial Public Class frmMainMenu
                                     For Each control As Control In pnlAClientes.Controls
                                         VaciarControl(control)
                                     Next
-
                                     cbxTelefonosACliente.DataSource = Nothing
                                 End If
                             End If
@@ -151,7 +150,7 @@ Partial Public Class frmMainMenu
                             End If
                         End If
                     Else
-                        AmaranthMessagebox("Ya existe un cliente con el mismo número y tipo de documento, por favor modifique", "Error", Me)
+                        AmaranthMessagebox("Ya existe un cliente con el mismo número de documento, por favor modifique", "Error", Me)
                     End If
                 Else
                     AmaranthMessagebox("Solo puede registrar clientes mayores a 18 años.", "Advertencia", Me)
@@ -232,11 +231,34 @@ Partial Public Class frmMainMenu
 
                     If Not (cbxTipoDocumMCliente.SelectedValue = idtipodocm And txtDocumMCliente.Text.ToString = nrodocM And txtNombreMCliente.Text.ToString = nombreM And txtApellidoMCliente.Text.ToString = apellidoM And txtCorreoMCliente.Text.ToString = emailM And txtEmpresaMCliente.Text.ToString = empresaM And numDescuentoMCliente.Value.ToString = descuentoM And FechaSeleccionada = FechaModificar And telefonoM = numeros) Then
 
-                        Dim nrodocRepetido As New DataTable
-                        nrodocRepetido = conexion.EjecutarSelect("SELECT nrodocumento,idtipodoc FROM cliente WHERE nrodocumento = '" + txtDocumMCliente.Text + "' and idtipodoc = '" + cbxTipoDocumMCliente.SelectedValue.ToString + "'")
+                        If Not (txtDocumMCliente.Text.ToString = nrodocM) Then
 
-                        If Not nrodocRepetido.Rows.Count > 0 Then
+                            Dim nrodocRepetido As New DataTable
+                            nrodocRepetido = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" + txtDocumMCliente.Text + "'")
 
+                            If nrodocRepetido.Rows.Count = 0 Then
+
+                                If (cbxTipoDocumMCliente.SelectedValue = 1) Then
+                                    If (VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
+                                        'ponerinsert
+                                        conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                                        AmaranthMessagebox("Persona modificada satisfactoriamente.", "Continuar", Me)
+
+                                        RecargarDatos(dgvClientes)
+                                        numDescuentoMCliente.Enabled = False
+                                    End If
+                                Else
+                                    'ponerinsert
+                                    conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                                    AmaranthMessagebox("Persona modificada satisfactoriamente.", "Continuar", Me)
+
+                                    RecargarDatos(dgvClientes)
+                                    numDescuentoMCliente.Enabled = False
+                                End If
+                            Else
+                                AmaranthMessagebox("Ya existe un cliente con ese número de documento.", "Advertencia", Me)
+                            End If
+                        Else
                             If (cbxTipoDocumMCliente.SelectedValue = 1) Then
                                 If (VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
                                     'ponerinsert
@@ -254,12 +276,9 @@ Partial Public Class frmMainMenu
                                 RecargarDatos(dgvClientes)
                                 numDescuentoMCliente.Enabled = False
                             End If
-
-                        Else
-                            AmaranthMessagebox("Ya existe un cliente con el mismo número y tipo de documento, por favor modifique", "Error", Me)
                         End If
                     Else
-                        AmaranthMessagebox("Modifique algo por favor.", "Advertencia", Me)
+                            AmaranthMessagebox("Modifique algo por favor.", "Advertencia", Me)
                     End If
                 Else
                     AmaranthMessagebox("Por favor, ingrese una fecha válida.", "Advertencia", Me)

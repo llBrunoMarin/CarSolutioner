@@ -228,6 +228,7 @@ Partial Class frmMainMenu
         Me.txtAnioFVeh = New System.Windows.Forms.TextBox()
         Me.Label109 = New System.Windows.Forms.Label()
         Me.Label49 = New System.Windows.Forms.Label()
+        Me.cbxColorFVehiculo = New System.Windows.Forms.ComboBox()
         Me.cbxSucursalFVeh = New System.Windows.Forms.ComboBox()
         Me.Label61 = New System.Windows.Forms.Label()
         Me.cbxModeloFVeh = New System.Windows.Forms.ComboBox()
@@ -238,6 +239,7 @@ Partial Class frmMainMenu
         Me.lblBorrarPuertasFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarMaletasFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarTipoFVeh = New System.Windows.Forms.Label()
+        Me.lblBorrarColorVeh = New System.Windows.Forms.Label()
         Me.lblBorrarSucursalFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarModeloFVeh = New System.Windows.Forms.Label()
         Me.lblBorrarCategoriaFVeh = New System.Windows.Forms.Label()
@@ -271,6 +273,7 @@ Partial Class frmMainMenu
         Me.Label56 = New System.Windows.Forms.Label()
         Me.Label57 = New System.Windows.Forms.Label()
         Me.Label58 = New System.Windows.Forms.Label()
+        Me.cbxColorAVeh = New System.Windows.Forms.ComboBox()
         Me.Label59 = New System.Windows.Forms.Label()
         Me.Label63 = New System.Windows.Forms.Label()
         Me.cbxModeloAVeh = New System.Windows.Forms.ComboBox()
@@ -304,6 +307,7 @@ Partial Class frmMainMenu
         Me.Label38 = New System.Windows.Forms.Label()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
+        Me.cbxColorMVehiculo = New System.Windows.Forms.ComboBox()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.cbxModeloMVeh = New System.Windows.Forms.ComboBox()
         Me.cbxSucursalMVeh = New System.Windows.Forms.ComboBox()
@@ -645,10 +649,6 @@ Partial Class frmMainMenu
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sfdSaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.cbxColorFVehiculo = New System.Windows.Forms.ComboBox()
-        Me.lblBorrarColorVeh = New System.Windows.Forms.Label()
-        Me.cbxColorMVehiculo = New System.Windows.Forms.ComboBox()
-        Me.cbxColorAVeh = New System.Windows.Forms.ComboBox()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1252,6 +1252,7 @@ Partial Class frmMainMenu
         '
         Me.txtEmpresaMCliente.Location = New System.Drawing.Point(275, 121)
         Me.txtEmpresaMCliente.Name = "txtEmpresaMCliente"
+        Me.txtEmpresaMCliente.ShortcutsEnabled = False
         Me.txtEmpresaMCliente.Size = New System.Drawing.Size(124, 20)
         Me.txtEmpresaMCliente.TabIndex = 6
         '
@@ -1259,6 +1260,7 @@ Partial Class frmMainMenu
         '
         Me.txtCorreoMCliente.Location = New System.Drawing.Point(14, 122)
         Me.txtCorreoMCliente.Name = "txtCorreoMCliente"
+        Me.txtCorreoMCliente.ShortcutsEnabled = False
         Me.txtCorreoMCliente.Size = New System.Drawing.Size(126, 20)
         Me.txtCorreoMCliente.TabIndex = 4
         '
@@ -1266,6 +1268,7 @@ Partial Class frmMainMenu
         '
         Me.txtApellidoMCliente.Location = New System.Drawing.Point(405, 72)
         Me.txtApellidoMCliente.Name = "txtApellidoMCliente"
+        Me.txtApellidoMCliente.ShortcutsEnabled = False
         Me.txtApellidoMCliente.Size = New System.Drawing.Size(125, 20)
         Me.txtApellidoMCliente.TabIndex = 3
         '
@@ -1273,6 +1276,7 @@ Partial Class frmMainMenu
         '
         Me.txtNombreMCliente.Location = New System.Drawing.Point(275, 72)
         Me.txtNombreMCliente.Name = "txtNombreMCliente"
+        Me.txtNombreMCliente.ShortcutsEnabled = False
         Me.txtNombreMCliente.Size = New System.Drawing.Size(125, 20)
         Me.txtNombreMCliente.TabIndex = 2
         '
@@ -1372,6 +1376,7 @@ Partial Class frmMainMenu
         '
         Me.txtDocumMCliente.Location = New System.Drawing.Point(144, 72)
         Me.txtDocumMCliente.Name = "txtDocumMCliente"
+        Me.txtDocumMCliente.ShortcutsEnabled = False
         Me.txtDocumMCliente.Size = New System.Drawing.Size(125, 20)
         Me.txtDocumMCliente.TabIndex = 1
         '
@@ -1495,6 +1500,7 @@ Partial Class frmMainMenu
         '
         Me.txtDocumentoBCliente.Location = New System.Drawing.Point(12, 78)
         Me.txtDocumentoBCliente.Name = "txtDocumentoBCliente"
+        Me.txtDocumentoBCliente.ShortcutsEnabled = False
         Me.txtDocumentoBCliente.Size = New System.Drawing.Size(127, 20)
         Me.txtDocumentoBCliente.TabIndex = 0
         '
@@ -1714,6 +1720,7 @@ Partial Class frmMainMenu
         '
         Me.txtEmpresaFClientes.Location = New System.Drawing.Point(14, 117)
         Me.txtEmpresaFClientes.Name = "txtEmpresaFClientes"
+        Me.txtEmpresaFClientes.ShortcutsEnabled = False
         Me.txtEmpresaFClientes.Size = New System.Drawing.Size(125, 20)
         Me.txtEmpresaFClientes.TabIndex = 4
         '
@@ -1721,6 +1728,7 @@ Partial Class frmMainMenu
         '
         Me.txtCorreoFClientes.Location = New System.Drawing.Point(145, 117)
         Me.txtCorreoFClientes.Name = "txtCorreoFClientes"
+        Me.txtCorreoFClientes.ShortcutsEnabled = False
         Me.txtCorreoFClientes.Size = New System.Drawing.Size(124, 20)
         Me.txtCorreoFClientes.TabIndex = 5
         '
@@ -1728,6 +1736,7 @@ Partial Class frmMainMenu
         '
         Me.txtDocumFClientes.Location = New System.Drawing.Point(144, 68)
         Me.txtDocumFClientes.Name = "txtDocumFClientes"
+        Me.txtDocumFClientes.ShortcutsEnabled = False
         Me.txtDocumFClientes.Size = New System.Drawing.Size(125, 20)
         Me.txtDocumFClientes.TabIndex = 1
         '
@@ -1735,6 +1744,7 @@ Partial Class frmMainMenu
         '
         Me.txtApellidoFClientes.Location = New System.Drawing.Point(405, 68)
         Me.txtApellidoFClientes.Name = "txtApellidoFClientes"
+        Me.txtApellidoFClientes.ShortcutsEnabled = False
         Me.txtApellidoFClientes.Size = New System.Drawing.Size(124, 20)
         Me.txtApellidoFClientes.TabIndex = 3
         '
@@ -1742,6 +1752,7 @@ Partial Class frmMainMenu
         '
         Me.txtNombreFClientes.Location = New System.Drawing.Point(275, 68)
         Me.txtNombreFClientes.Name = "txtNombreFClientes"
+        Me.txtNombreFClientes.ShortcutsEnabled = False
         Me.txtNombreFClientes.Size = New System.Drawing.Size(124, 20)
         Me.txtNombreFClientes.TabIndex = 2
         '
@@ -1890,6 +1901,7 @@ Partial Class frmMainMenu
         Me.txtEmpresaACliente.Enabled = False
         Me.txtEmpresaACliente.Location = New System.Drawing.Point(275, 119)
         Me.txtEmpresaACliente.Name = "txtEmpresaACliente"
+        Me.txtEmpresaACliente.ShortcutsEnabled = False
         Me.txtEmpresaACliente.Size = New System.Drawing.Size(124, 20)
         Me.txtEmpresaACliente.TabIndex = 6
         Me.txtEmpresaACliente.Text = "-"
@@ -1898,6 +1910,7 @@ Partial Class frmMainMenu
         '
         Me.txtCorreoACliente.Location = New System.Drawing.Point(15, 119)
         Me.txtCorreoACliente.Name = "txtCorreoACliente"
+        Me.txtCorreoACliente.ShortcutsEnabled = False
         Me.txtCorreoACliente.Size = New System.Drawing.Size(124, 20)
         Me.txtCorreoACliente.TabIndex = 4
         '
@@ -1905,6 +1918,7 @@ Partial Class frmMainMenu
         '
         Me.txtApellidoACliente.Location = New System.Drawing.Point(405, 68)
         Me.txtApellidoACliente.Name = "txtApellidoACliente"
+        Me.txtApellidoACliente.ShortcutsEnabled = False
         Me.txtApellidoACliente.Size = New System.Drawing.Size(124, 20)
         Me.txtApellidoACliente.TabIndex = 3
         '
@@ -1912,6 +1926,7 @@ Partial Class frmMainMenu
         '
         Me.txtNombreACliente.Location = New System.Drawing.Point(275, 68)
         Me.txtNombreACliente.Name = "txtNombreACliente"
+        Me.txtNombreACliente.ShortcutsEnabled = False
         Me.txtNombreACliente.Size = New System.Drawing.Size(124, 20)
         Me.txtNombreACliente.TabIndex = 2
         '
@@ -1919,6 +1934,7 @@ Partial Class frmMainMenu
         '
         Me.txtDocumACliente.Location = New System.Drawing.Point(144, 68)
         Me.txtDocumACliente.Name = "txtDocumACliente"
+        Me.txtDocumACliente.ShortcutsEnabled = False
         Me.txtDocumACliente.Size = New System.Drawing.Size(125, 20)
         Me.txtDocumACliente.TabIndex = 1
         '
@@ -2520,6 +2536,7 @@ Partial Class frmMainMenu
         '
         Me.txtMatriculaBVeh.Location = New System.Drawing.Point(14, 74)
         Me.txtMatriculaBVeh.Name = "txtMatriculaBVeh"
+        Me.txtMatriculaBVeh.ShortcutsEnabled = False
         Me.txtMatriculaBVeh.Size = New System.Drawing.Size(121, 20)
         Me.txtMatriculaBVeh.TabIndex = 0
         '
@@ -2619,6 +2636,7 @@ Partial Class frmMainMenu
         '
         Me.txtMatriculaFVeh.Location = New System.Drawing.Point(125, 74)
         Me.txtMatriculaFVeh.Name = "txtMatriculaFVeh"
+        Me.txtMatriculaFVeh.ShortcutsEnabled = False
         Me.txtMatriculaFVeh.Size = New System.Drawing.Size(103, 20)
         Me.txtMatriculaFVeh.TabIndex = 3
         '
@@ -2669,6 +2687,7 @@ Partial Class frmMainMenu
         '
         Me.txtDeducibleFVeh.Location = New System.Drawing.Point(362, 73)
         Me.txtDeducibleFVeh.Name = "txtDeducibleFVeh"
+        Me.txtDeducibleFVeh.ShortcutsEnabled = False
         Me.txtDeducibleFVeh.Size = New System.Drawing.Size(104, 20)
         Me.txtDeducibleFVeh.TabIndex = 5
         '
@@ -2687,6 +2706,7 @@ Partial Class frmMainMenu
         '
         Me.txtKMFVeh.Location = New System.Drawing.Point(234, 73)
         Me.txtKMFVeh.Name = "txtKMFVeh"
+        Me.txtKMFVeh.ShortcutsEnabled = False
         Me.txtKMFVeh.Size = New System.Drawing.Size(119, 20)
         Me.txtKMFVeh.TabIndex = 4
         '
@@ -2749,6 +2769,7 @@ Partial Class frmMainMenu
         '
         Me.txtNroChasisFVeh.Location = New System.Drawing.Point(14, 74)
         Me.txtNroChasisFVeh.Name = "txtNroChasisFVeh"
+        Me.txtNroChasisFVeh.ShortcutsEnabled = False
         Me.txtNroChasisFVeh.Size = New System.Drawing.Size(103, 20)
         Me.txtNroChasisFVeh.TabIndex = 2
         '
@@ -2810,6 +2831,7 @@ Partial Class frmMainMenu
         '
         Me.txtAnioFVeh.Location = New System.Drawing.Point(14, 162)
         Me.txtAnioFVeh.Name = "txtAnioFVeh"
+        Me.txtAnioFVeh.ShortcutsEnabled = False
         Me.txtAnioFVeh.Size = New System.Drawing.Size(104, 20)
         Me.txtAnioFVeh.TabIndex = 12
         '
@@ -2834,6 +2856,16 @@ Partial Class frmMainMenu
         Me.Label49.Size = New System.Drawing.Size(57, 17)
         Me.Label49.TabIndex = 27
         Me.Label49.Text = "Sucursal"
+        '
+        'cbxColorFVehiculo
+        '
+        Me.cbxColorFVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxColorFVehiculo.FormattingEnabled = True
+        Me.cbxColorFVehiculo.Items.AddRange(New Object() {"Amarillo", "Azul", "Blanco", "Dorado", "Gris", "Negro", "Rojo", "Turquesa", "Verde", "Violeta", "Otro"})
+        Me.cbxColorFVehiculo.Location = New System.Drawing.Point(472, 72)
+        Me.cbxColorFVehiculo.Name = "cbxColorFVehiculo"
+        Me.cbxColorFVehiculo.Size = New System.Drawing.Size(105, 21)
+        Me.cbxColorFVehiculo.TabIndex = 11
         '
         'cbxSucursalFVeh
         '
@@ -2944,6 +2976,17 @@ Partial Class frmMainMenu
         Me.lblBorrarTipoFVeh.Size = New System.Drawing.Size(20, 17)
         Me.lblBorrarTipoFVeh.TabIndex = 25
         Me.lblBorrarTipoFVeh.Text = "←"
+        '
+        'lblBorrarColorVeh
+        '
+        Me.lblBorrarColorVeh.AutoSize = True
+        Me.lblBorrarColorVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBorrarColorVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.lblBorrarColorVeh.Location = New System.Drawing.Point(556, 55)
+        Me.lblBorrarColorVeh.Name = "lblBorrarColorVeh"
+        Me.lblBorrarColorVeh.Size = New System.Drawing.Size(20, 17)
+        Me.lblBorrarColorVeh.TabIndex = 25
+        Me.lblBorrarColorVeh.Text = "←"
         '
         'lblBorrarSucursalFVeh
         '
@@ -3092,6 +3135,7 @@ Partial Class frmMainMenu
         '
         Me.txtKilometrajeAVeh.Location = New System.Drawing.Point(237, 75)
         Me.txtKilometrajeAVeh.Name = "txtKilometrajeAVeh"
+        Me.txtKilometrajeAVeh.ShortcutsEnabled = False
         Me.txtKilometrajeAVeh.Size = New System.Drawing.Size(117, 20)
         Me.txtKilometrajeAVeh.TabIndex = 4
         '
@@ -3106,6 +3150,7 @@ Partial Class frmMainMenu
         '
         Me.txtDeducibleAVeh.Location = New System.Drawing.Point(364, 75)
         Me.txtDeducibleAVeh.Name = "txtDeducibleAVeh"
+        Me.txtDeducibleAVeh.ShortcutsEnabled = False
         Me.txtDeducibleAVeh.Size = New System.Drawing.Size(104, 20)
         Me.txtDeducibleAVeh.TabIndex = 5
         '
@@ -3144,6 +3189,7 @@ Partial Class frmMainMenu
         '
         Me.txtMatriculaAVeh.Location = New System.Drawing.Point(124, 75)
         Me.txtMatriculaAVeh.Name = "txtMatriculaAVeh"
+        Me.txtMatriculaAVeh.ShortcutsEnabled = False
         Me.txtMatriculaAVeh.Size = New System.Drawing.Size(105, 20)
         Me.txtMatriculaAVeh.TabIndex = 3
         '
@@ -3225,6 +3271,7 @@ Partial Class frmMainMenu
         '
         Me.txtAnioAVeh.Location = New System.Drawing.Point(14, 161)
         Me.txtAnioAVeh.Name = "txtAnioAVeh"
+        Me.txtAnioAVeh.ShortcutsEnabled = False
         Me.txtAnioAVeh.Size = New System.Drawing.Size(103, 20)
         Me.txtAnioAVeh.TabIndex = 12
         '
@@ -3261,6 +3308,7 @@ Partial Class frmMainMenu
         '
         Me.txtNroChasisAVeh.Location = New System.Drawing.Point(14, 75)
         Me.txtNroChasisAVeh.Name = "txtNroChasisAVeh"
+        Me.txtNroChasisAVeh.ShortcutsEnabled = False
         Me.txtNroChasisAVeh.Size = New System.Drawing.Size(105, 20)
         Me.txtNroChasisAVeh.TabIndex = 2
         '
@@ -3320,6 +3368,16 @@ Partial Class frmMainMenu
         Me.Label58.Size = New System.Drawing.Size(66, 17)
         Me.Label58.TabIndex = 49
         Me.Label58.Text = "Sucursal *"
+        '
+        'cbxColorAVeh
+        '
+        Me.cbxColorAVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxColorAVeh.FormattingEnabled = True
+        Me.cbxColorAVeh.Items.AddRange(New Object() {"Amarillo", "Azul", "Blanco", "Dorado", "Gris", "Negro", "Rojo", "Turquesa", "Verde", "Violeta", "Otro"})
+        Me.cbxColorAVeh.Location = New System.Drawing.Point(474, 75)
+        Me.cbxColorAVeh.Name = "cbxColorAVeh"
+        Me.cbxColorAVeh.Size = New System.Drawing.Size(105, 21)
+        Me.cbxColorAVeh.TabIndex = 11
         '
         'Label59
         '
@@ -3458,6 +3516,7 @@ Partial Class frmMainMenu
         Me.txtNroChasisMVeh.Enabled = False
         Me.txtNroChasisMVeh.Location = New System.Drawing.Point(14, 75)
         Me.txtNroChasisMVeh.Name = "txtNroChasisMVeh"
+        Me.txtNroChasisMVeh.ShortcutsEnabled = False
         Me.txtNroChasisMVeh.Size = New System.Drawing.Size(103, 20)
         Me.txtNroChasisMVeh.TabIndex = 2
         '
@@ -3529,6 +3588,7 @@ Partial Class frmMainMenu
         '
         Me.txtDeducibleMVeh.Location = New System.Drawing.Point(362, 74)
         Me.txtDeducibleMVeh.Name = "txtDeducibleMVeh"
+        Me.txtDeducibleMVeh.ShortcutsEnabled = False
         Me.txtDeducibleMVeh.Size = New System.Drawing.Size(104, 20)
         Me.txtDeducibleMVeh.TabIndex = 5
         '
@@ -3536,6 +3596,7 @@ Partial Class frmMainMenu
         '
         Me.txtKMMVeh.Location = New System.Drawing.Point(235, 75)
         Me.txtKMMVeh.Name = "txtKMMVeh"
+        Me.txtKMMVeh.ShortcutsEnabled = False
         Me.txtKMMVeh.Size = New System.Drawing.Size(118, 20)
         Me.txtKMMVeh.TabIndex = 4
         '
@@ -3543,6 +3604,7 @@ Partial Class frmMainMenu
         '
         Me.txtAnioMVeh.Location = New System.Drawing.Point(14, 162)
         Me.txtAnioMVeh.Name = "txtAnioMVeh"
+        Me.txtAnioMVeh.ShortcutsEnabled = False
         Me.txtAnioMVeh.Size = New System.Drawing.Size(105, 20)
         Me.txtAnioMVeh.TabIndex = 12
         '
@@ -3601,6 +3663,7 @@ Partial Class frmMainMenu
         '
         Me.txtMatriculaMVeh.Location = New System.Drawing.Point(125, 75)
         Me.txtMatriculaMVeh.Name = "txtMatriculaMVeh"
+        Me.txtMatriculaMVeh.ShortcutsEnabled = False
         Me.txtMatriculaMVeh.Size = New System.Drawing.Size(104, 20)
         Me.txtMatriculaMVeh.TabIndex = 3
         '
@@ -3682,6 +3745,16 @@ Partial Class frmMainMenu
         Me.Label40.Size = New System.Drawing.Size(54, 17)
         Me.Label40.TabIndex = 48
         Me.Label40.Text = "Modelo"
+        '
+        'cbxColorMVehiculo
+        '
+        Me.cbxColorMVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxColorMVehiculo.FormattingEnabled = True
+        Me.cbxColorMVehiculo.Items.AddRange(New Object() {"Amarillo", "Azul", "Blanco", "Dorado", "Gris", "Negro", "Rojo", "Turquesa", "Verde", "Violeta", "Otro"})
+        Me.cbxColorMVehiculo.Location = New System.Drawing.Point(472, 72)
+        Me.cbxColorMVehiculo.Name = "cbxColorMVehiculo"
+        Me.cbxColorMVehiculo.Size = New System.Drawing.Size(105, 21)
+        Me.cbxColorMVehiculo.TabIndex = 11
         '
         'Label41
         '
@@ -4297,6 +4370,7 @@ Partial Class frmMainMenu
         '
         Me.txtNroDocEempleado.Location = New System.Drawing.Point(11, 84)
         Me.txtNroDocEempleado.Name = "txtNroDocEempleado"
+        Me.txtNroDocEempleado.ShortcutsEnabled = False
         Me.txtNroDocEempleado.Size = New System.Drawing.Size(119, 20)
         Me.txtNroDocEempleado.TabIndex = 0
         '
@@ -4385,6 +4459,7 @@ Partial Class frmMainMenu
         '
         Me.txtApellidoFempleado.Location = New System.Drawing.Point(306, 74)
         Me.txtApellidoFempleado.Name = "txtApellidoFempleado"
+        Me.txtApellidoFempleado.ShortcutsEnabled = False
         Me.txtApellidoFempleado.Size = New System.Drawing.Size(125, 20)
         Me.txtApellidoFempleado.TabIndex = 2
         '
@@ -4392,6 +4467,7 @@ Partial Class frmMainMenu
         '
         Me.txtNombreFempleado.Location = New System.Drawing.Point(164, 74)
         Me.txtNombreFempleado.Name = "txtNombreFempleado"
+        Me.txtNombreFempleado.ShortcutsEnabled = False
         Me.txtNombreFempleado.Size = New System.Drawing.Size(125, 20)
         Me.txtNombreFempleado.TabIndex = 1
         '
@@ -4480,6 +4556,7 @@ Partial Class frmMainMenu
         '
         Me.txtNroDocFempleado.Location = New System.Drawing.Point(17, 74)
         Me.txtNroDocFempleado.Name = "txtNroDocFempleado"
+        Me.txtNroDocFempleado.ShortcutsEnabled = False
         Me.txtNroDocFempleado.Size = New System.Drawing.Size(125, 20)
         Me.txtNroDocFempleado.TabIndex = 0
         '
@@ -4530,6 +4607,7 @@ Partial Class frmMainMenu
         '
         Me.txtNombreUsuarioCempleado.Location = New System.Drawing.Point(401, 81)
         Me.txtNombreUsuarioCempleado.Name = "txtNombreUsuarioCempleado"
+        Me.txtNombreUsuarioCempleado.ShortcutsEnabled = False
         Me.txtNombreUsuarioCempleado.Size = New System.Drawing.Size(125, 20)
         Me.txtNombreUsuarioCempleado.TabIndex = 3
         '
@@ -4546,6 +4624,7 @@ Partial Class frmMainMenu
         '
         Me.txtNroDocumentoCempleado.Location = New System.Drawing.Point(11, 82)
         Me.txtNroDocumentoCempleado.Name = "txtNroDocumentoCempleado"
+        Me.txtNroDocumentoCempleado.ShortcutsEnabled = False
         Me.txtNroDocumentoCempleado.Size = New System.Drawing.Size(125, 20)
         Me.txtNroDocumentoCempleado.TabIndex = 0
         '
@@ -4840,6 +4919,7 @@ Partial Class frmMainMenu
         '
         Me.txtModifMatriculaMant.Location = New System.Drawing.Point(13, 94)
         Me.txtModifMatriculaMant.Name = "txtModifMatriculaMant"
+        Me.txtModifMatriculaMant.ShortcutsEnabled = False
         Me.txtModifMatriculaMant.Size = New System.Drawing.Size(100, 20)
         Me.txtModifMatriculaMant.TabIndex = 0
         '
@@ -5011,6 +5091,7 @@ Partial Class frmMainMenu
         '
         Me.txtFiltrarMatriculaMant.Location = New System.Drawing.Point(13, 133)
         Me.txtFiltrarMatriculaMant.Name = "txtFiltrarMatriculaMant"
+        Me.txtFiltrarMatriculaMant.ShortcutsEnabled = False
         Me.txtFiltrarMatriculaMant.Size = New System.Drawing.Size(100, 20)
         Me.txtFiltrarMatriculaMant.TabIndex = 3
         '
@@ -5264,6 +5345,7 @@ Partial Class frmMainMenu
         '
         Me.txtMatriculaMant.Location = New System.Drawing.Point(24, 74)
         Me.txtMatriculaMant.Name = "txtMatriculaMant"
+        Me.txtMatriculaMant.ShortcutsEnabled = False
         Me.txtMatriculaMant.Size = New System.Drawing.Size(100, 20)
         Me.txtMatriculaMant.TabIndex = 0
         '
@@ -5650,6 +5732,7 @@ Partial Class frmMainMenu
         '
         Me.txtDocumMReserva.Location = New System.Drawing.Point(12, 70)
         Me.txtDocumMReserva.Name = "txtDocumMReserva"
+        Me.txtDocumMReserva.ShortcutsEnabled = False
         Me.txtDocumMReserva.Size = New System.Drawing.Size(129, 20)
         Me.txtDocumMReserva.TabIndex = 0
         '
@@ -5877,6 +5960,7 @@ Partial Class frmMainMenu
         '
         Me.txtDocumARes.Location = New System.Drawing.Point(12, 71)
         Me.txtDocumARes.Name = "txtDocumARes"
+        Me.txtDocumARes.ShortcutsEnabled = False
         Me.txtDocumARes.Size = New System.Drawing.Size(130, 20)
         Me.txtDocumARes.TabIndex = 0
         '
@@ -6336,6 +6420,7 @@ Partial Class frmMainMenu
         '
         Me.txtUsuarioFReserva.Location = New System.Drawing.Point(521, 124)
         Me.txtUsuarioFReserva.Name = "txtUsuarioFReserva"
+        Me.txtUsuarioFReserva.ShortcutsEnabled = False
         Me.txtUsuarioFReserva.Size = New System.Drawing.Size(121, 20)
         Me.txtUsuarioFReserva.TabIndex = 11
         '
@@ -6343,6 +6428,7 @@ Partial Class frmMainMenu
         '
         Me.txtCostoTotalFReserva.Location = New System.Drawing.Point(521, 71)
         Me.txtCostoTotalFReserva.Name = "txtCostoTotalFReserva"
+        Me.txtCostoTotalFReserva.ShortcutsEnabled = False
         Me.txtCostoTotalFReserva.Size = New System.Drawing.Size(121, 20)
         Me.txtCostoTotalFReserva.TabIndex = 6
         '
@@ -6350,6 +6436,7 @@ Partial Class frmMainMenu
         '
         Me.txtDocumFRes.Location = New System.Drawing.Point(13, 71)
         Me.txtDocumFRes.Name = "txtDocumFRes"
+        Me.txtDocumFRes.ShortcutsEnabled = False
         Me.txtDocumFRes.Size = New System.Drawing.Size(121, 20)
         Me.txtDocumFRes.TabIndex = 2
         '
@@ -7418,47 +7505,6 @@ Partial Class frmMainMenu
         Me.lbl162N.Size = New System.Drawing.Size(152, 22)
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
-        '
-        'cbxColorFVehiculo
-        '
-        Me.cbxColorFVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxColorFVehiculo.FormattingEnabled = True
-        Me.cbxColorFVehiculo.Items.AddRange(New Object() {"Amarillo", "Azul", "Blanco", "Dorado", "Gris", "Negro", "Rojo", "Turquesa", "Verde", "Violeta", "Otro"})
-        Me.cbxColorFVehiculo.Location = New System.Drawing.Point(472, 72)
-        Me.cbxColorFVehiculo.Name = "cbxColorFVehiculo"
-        Me.cbxColorFVehiculo.Size = New System.Drawing.Size(105, 21)
-        Me.cbxColorFVehiculo.TabIndex = 11
-        '
-        'lblBorrarColorVeh
-        '
-        Me.lblBorrarColorVeh.AutoSize = True
-        Me.lblBorrarColorVeh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBorrarColorVeh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.lblBorrarColorVeh.Location = New System.Drawing.Point(556, 55)
-        Me.lblBorrarColorVeh.Name = "lblBorrarColorVeh"
-        Me.lblBorrarColorVeh.Size = New System.Drawing.Size(20, 17)
-        Me.lblBorrarColorVeh.TabIndex = 25
-        Me.lblBorrarColorVeh.Text = "←"
-        '
-        'cbxColorMVehiculo
-        '
-        Me.cbxColorMVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxColorMVehiculo.FormattingEnabled = True
-        Me.cbxColorMVehiculo.Items.AddRange(New Object() {"Amarillo", "Azul", "Blanco", "Dorado", "Gris", "Negro", "Rojo", "Turquesa", "Verde", "Violeta", "Otro"})
-        Me.cbxColorMVehiculo.Location = New System.Drawing.Point(472, 72)
-        Me.cbxColorMVehiculo.Name = "cbxColorMVehiculo"
-        Me.cbxColorMVehiculo.Size = New System.Drawing.Size(105, 21)
-        Me.cbxColorMVehiculo.TabIndex = 11
-        '
-        'cbxColorAVeh
-        '
-        Me.cbxColorAVeh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxColorAVeh.FormattingEnabled = True
-        Me.cbxColorAVeh.Items.AddRange(New Object() {"Amarillo", "Azul", "Blanco", "Dorado", "Gris", "Negro", "Rojo", "Turquesa", "Verde", "Violeta", "Otro"})
-        Me.cbxColorAVeh.Location = New System.Drawing.Point(474, 75)
-        Me.cbxColorAVeh.Name = "cbxColorAVeh"
-        Me.cbxColorAVeh.Size = New System.Drawing.Size(105, 21)
-        Me.cbxColorAVeh.TabIndex = 11
         '
         'frmMainMenu
         '

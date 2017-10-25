@@ -38,7 +38,13 @@ Module Metodos
     Public Sub RecargarDatosEspecificos(form As Form, dgv As String)
         Dim GridView As DataGridView
 
-        GridView = DirectCast(form.Controls(dgv), DataGridView)
+
+        For Each control As Control In form.Controls.Find(dgv, True)
+            If (control.Name = dgv) And (control.GetType() Is GetType(DataGridView)) Then
+                GridView = DirectCast(control, DataGridView)
+            End If
+        Next
+
 
         Select Case form.Name
             Case "frmMainMenu"

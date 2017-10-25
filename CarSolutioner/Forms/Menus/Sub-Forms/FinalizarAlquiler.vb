@@ -91,7 +91,8 @@
 
                 conexion.EjecutarNonQuery("UPDATE Reserva SET fechaalquilerfin = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "', estado = 2, costototal = '" + txtCostoTotalTotal.Text + "' WHERE idreserva = '" + ReservaSeleccionada.IdReserva.ToString + "'")
                 conexion.EjecutarNonQuery("UPDATE Vehiculo SET kilometraje = '" + txtKMAutoAhora.Text + "', idsucursal = '" + ReservaSeleccionada.IdSucursalDestino.ToString + "' WHERE nrochasis = '" + ReservaSeleccionada.NroChasis.ToString + "'")
-                CargarTodosDatos(frmMainMenu)
+                CargarTodosDatos(Me.Owner)
+
                 AmaranthMessagebox("Alquiler finalizado satisfactoriamente.", "Continuar")
                 Me.Dispose()
 

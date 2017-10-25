@@ -313,4 +313,40 @@ Public Class frmMainMenu
         End If
 
     End Sub
+
+    Private Sub GenerarPdfDgvActual(tpg As TabPage, Optional child As TabPage = Nothing)
+
+        Select Case tpg.Name
+
+            Case "tbpMantenimiento"
+                CrearPDF(dgvMant, "Mantenimientos")
+
+            Case "tbpReservas"
+                Select Case child.Name
+                    Case "tpgReservas"
+                        CrearPDF(dgvReservas, "Reservas")
+
+                    Case "tpgAlquileres"
+                        CrearPDF(dgvAlquileres, "Alquileres")
+
+                End Select
+
+            Case "tbpClientes"
+                CrearPDF(dgvClientes, "Clientes")
+
+            Case "tbpVehiculos"
+                CrearPDF(dgvVehiculos, "Vehiculos")
+
+            Case "tbpEmpleados"
+                CrearPDF(dgvEmpleados, "Empleados")
+
+        End Select
+
+    End Sub
+
+    Private Sub GuardarPdf(sender As Object, e As EventArgs) Handles ItemGuardarPDF.Click
+
+        GenerarPdfDgvActual(tbcTabControl.SelectedTab, tabResAlq.SelectedTab)
+
+    End Sub
 End Class

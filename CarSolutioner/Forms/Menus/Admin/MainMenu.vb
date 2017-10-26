@@ -171,6 +171,10 @@ Public Class frmMainMenu
         RecargarDatos(dgvMant)
         RecargarDatos(dgvMasAlquileresRClientes)
         RecargarDatos(dgvVehiculosDisponibles)
+        RecargarDatos(dgvAccionesEmp)
+        RecargarDatos(dgvAutosMasRentables)
+        RecargarDatos(dgvPorcVeh)
+        RecargarDatos(dgvClientesMasGastaron)
 
         'Cargas de ComboBox
         'MARCAS
@@ -301,11 +305,16 @@ Public Class frmMainMenu
                 'REPORTES
             Case "dgvMasAlquileresRClientes"
                 conexion.RellenarDataGridView(dgvMasAlquileresRClientes, "SELECT C.apellido  , c.nombre, c.email, 0 Alquileres FROM Cliente c group by apellido, nombre,email UNION SELECT c.apellido , c.nombre, c.email, count(r.nrochasis) Alquileres from cliente c, vehiculo v, reserva r where c.idpersona = r.idpersona and r.nrochasis=v.nrochasis group by apellido, nombre,email order by alquileres desc")
-
             Case "dgvVehiculosDisponibles"
-                Dim sentencia2 As String = "Select  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE v.idsucursal = '" + conexion.IdSucursalUsuario.ToString + "' AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND v.nrochasis NOT IN (SELECT r.nrochasis FROM Reserva R WHERE r.fechaalquilerfin IS NOT NULL) AND  v.nrochasis NOT IN (SELECT m.nrochasis FROM mantenimiento m WHERE TODAY BETWEEN m.fechainicio AND m.fechafin)"
-                conexion.RellenarDataGridView(dgvVehiculosDisponibles, sentencia2)
-
+                conexion.RellenarDataGridView(dgvVehiculosDisponibles, "Select  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE v.idsucursal = '" + conexion.IdSucursalUsuario.ToString + "' AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND v.nrochasis NOT IN (SELECT r.nrochasis FROM Reserva R WHERE r.fechaalquilerfin IS NOT NULL) AND  v.nrochasis NOT IN (SELECT m.nrochasis FROM mantenimiento m WHERE TODAY BETWEEN m.fechainicio AND m.fechafin)")
+            Case "dgvAccionesEmp"
+                conexion.RellenarDataGridView(dgvAccionesEmp, "SELECT IP, TO_CHAR(fechayhora, '%d/%m/%Y') Fecha, TO_CHAR(fechayhora, '%h:%m') Hora, descripcion FROM Accion ORDER BY fechayhora DESC")
+            Case "dgvAutosMasRentables"
+                conexion.RellenarDataGridView(dgvAutosMasRentables, "SELECT V.matricula, Ma.nombre Marca, Mo.nombre Modelo, T.total FROM Vehiculo V, Marca Ma, Modelo Mo, RentTotalVehiculos T WHERE V.idmodelo = Mo.idmodelo AND Mo.idmarca = Ma.idmarca AND V.nrochasis = T.nrochasis ORDER BY total DESC")
+            Case "dgvPorcVeh"
+                'conexion.RellenarDataGridView(dgvPorcVeh, "SELECT nombre, TotalSuc(idsucursal, CURRENT Year to Day) Total, PorcAlq(idsucursal, CURRENT Year to Day)|| ""%"" PorcAlq, PorcMant(idsucursal, CURRENT YEAR TO DAY)|| ""%"" PorcMant, PorcDispon(idsucursal, CURRENT YEAR TO DAY)|| ""%""  PorcDispon FROM Sucursal")
+            Case "dgvClientesMasGastaron"
+                conexion.RellenarDataGridView(dgvClientesMasGastaron, "SELECT C.nombre, C.apellido, T.total, S.nombre FROM Cliente C, RentTotalClientes T, Sucursal S WHERE C.idpersona = T.idpersona AND S.idsucursal = T.idsucursal")
             Case Else
                 conexion.RellenarDataGridView(dgv, sentencia)
 

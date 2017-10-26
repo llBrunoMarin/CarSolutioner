@@ -194,6 +194,9 @@
             conexion.EjecutarNonQuery("UPDATE vehiculo set idsucursal = NULL WHERE nrochasis='" + NroChasis + "'")
 
             RecargarDatosEspecificos(Me.Owner, "dgvReservas")
+            RecargarDatosEspecificos(Me.Owner, "dgvAlquileres")
+            RecargarReportes(Me.Owner)
+
             AmaranthMessagebox("Alquiler Ingresado", "Continuar", Me)
             Me.Dispose()
 

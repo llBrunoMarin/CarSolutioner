@@ -149,7 +149,6 @@ Public Class frmMainMenu
 
     'TODO: Reportar estado de carga en el formulario Loading
     Public Sub CargarDatos()
-        Cargando(3000, Me)
         'Se marcan como inactivas las reservas que pasen la fecha de hoy
         conexion.EjecutarNonQuery("UPDATE RESERVA SET ESTADO = 2 WHERE fechareservafin < TO_DATE('" + Date.Now.ToString("dd/MM/yyyy HH:mm") + "', '%d/%m/%Y %H:%M') ")
 
@@ -169,12 +168,8 @@ Public Class frmMainMenu
         RecargarDatos(dgvVehiculos)
         RecargarDatos(dgvEmpleados)
         RecargarDatos(dgvMant)
-        RecargarDatos(dgvMasAlquileresRClientes)
-        RecargarDatos(dgvVehiculosDisponibles)
-        RecargarDatos(dgvAccionesEmp)
-        RecargarDatos(dgvAutosMasRentables)
-        RecargarDatos(dgvPorcVeh)
-        RecargarDatos(dgvClientesMasGastaron)
+        CargarReportes()
+
 
         'Cargas de ComboBox
         'MARCAS
@@ -295,6 +290,8 @@ Public Class frmMainMenu
             Case "dgvAlquileres"
                 dgvAlquileres.AutoGenerateColumns = False
                 conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio, CASE WHEN R.fechaalquilerfin IS NULL Then ""En proceso"" ELSE TO_CHAR(R.fechaalquilerfin, '%d/%m/%Y %H:%M') END fechaalquilerfin, R.fechareservainicio, R.fechareservafin, R.cantidadkm idcantidadkm, V.deducible, R.costototal, R.fechatramite, TO_CHAR(R.fechatramite,'%d/%m/%Y') fechatramitef, R.estado idestado, R.nrochasis, V.matricula, Cl.nombre ||"" ""|| Cl.apellido nombreapellido, Cl.nrodocumento, ca.idcategoria, Ca.nombre categoria, T.idtipo, T.nombre tipo, SS.nombre sucsalida, SS.idsucursal idsucsalida, SL.nombre sucllegada, SL.idsucursal idsucllegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkmtext, CASE WHEN R.estado = 1 THEN ""Activa"" WHEN R.estado = 2 THEN ""Inactiva"" WHEN R.estado = 3 THEN ""Anulada"" ELSE NULL END estadotext FROM Reserva R, Vehiculo V, Cliente Cl, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY nombreapellido")
+                chboxAlquileresProceso.Checked = Not chboxAlquileresProceso.Checked
+                chboxAlquileresProceso.Checked = Not chboxAlquileresProceso.Checked
 
 
             Case "dgvMant"
@@ -312,14 +309,23 @@ Public Class frmMainMenu
             Case "dgvAutosMasRentables"
                 conexion.RellenarDataGridView(dgvAutosMasRentables, "SELECT V.matricula, Ma.nombre Marca, Mo.nombre Modelo, T.total FROM Vehiculo V, Marca Ma, Modelo Mo, RentTotalVehiculos T WHERE V.idmodelo = Mo.idmodelo AND Mo.idmarca = Ma.idmarca AND V.nrochasis = T.nrochasis ORDER BY total DESC")
             Case "dgvPorcVeh"
-                'conexion.RellenarDataGridView(dgvPorcVeh, "SELECT nombre, TotalSuc(idsucursal, CURRENT Year to Day) Total, PorcAlq(idsucursal, CURRENT Year to Day)|| ""%"" PorcAlq, PorcMant(idsucursal, CURRENT YEAR TO DAY)|| ""%"" PorcMant, PorcDispon(idsucursal, CURRENT YEAR TO DAY)|| ""%""  PorcDispon FROM Sucursal")
+                conexion.RellenarDataGridView(dgvPorcVeh, "SELECT nombre, TotalSuc(idsucursal, CURRENT Year to Day) Total, PorcAlq(idsucursal, CURRENT Year to Day) || ""%"" PorcAlq, PorcMant(idsucursal, CURRENT YEAR TO DAY) || ""%"" PorcMant, PorcDispon(idsucursal, CURRENT YEAR TO DAY)|| ""%""  PorcDispon FROM Sucursal")
             Case "dgvClientesMasGastaron"
-                conexion.RellenarDataGridView(dgvClientesMasGastaron, "SELECT C.nombre, C.apellido, T.total, S.nombre FROM Cliente C, RentTotalClientes T, Sucursal S WHERE C.idpersona = T.idpersona AND S.idsucursal = T.idsucursal")
+                conexion.RellenarDataGridView(dgvClientesMasGastaron, "SELECT C.nombre, C.apellido, T.total, S.nombre FROM Cliente C, RentTotalClientes T, Sucursal S WHERE C.idpersona = T.idpersona AND S.idsucursal = T.sucursal")
             Case Else
                 conexion.RellenarDataGridView(dgv, sentencia)
 
         End Select
 
+    End Sub
+
+    Public Sub CargarReportes()
+        RecargarDatos(dgvMasAlquileresRClientes)
+        RecargarDatos(dgvVehiculosDisponibles)
+        RecargarDatos(dgvAccionesEmp)
+        RecargarDatos(dgvAutosMasRentables)
+        RecargarDatos(dgvPorcVeh)
+        RecargarDatos(dgvClientesMasGastaron)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -387,5 +393,13 @@ Public Class frmMainMenu
 
     Private Sub AcercaDeCarSolutionerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcercaDeCarSolutionerToolStripMenuItem.Click
         Acercade.Show()
+    End Sub
+
+    Private Sub btnExportarVehDispHoy_Click(sender As Object, e As EventArgs) Handles btnExportarVehDispHoy.Click
+        CrearPDF(dgvVehiculosDisponibles, "Vehiculos disponibles para hoy en esta Sucursal")
+    End Sub
+
+    Private Sub btnExportarEstadoVeh_Click(sender As Object, e As EventArgs) Handles btnExportarEstadoVeh.Click
+        CrearPDF(dgvPorcVeh, "Estado actual de los Vehiculos")
     End Sub
 End Class

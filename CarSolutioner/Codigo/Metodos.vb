@@ -66,6 +66,14 @@ Module Metodos
         End Select
     End Sub
 
+    Public Sub RecargarReportes(form As Form)
+        Select Case form.Name
+            Case "frmMainMenu"
+                frmMainMenu.CargarReportes()
+
+        End Select
+    End Sub
+
     Public Sub VaciarPanel(panel As Panel)
         For Each item In panel.Controls
 

@@ -38,7 +38,34 @@ Partial Public Class frmMainMenu
 
     End Sub
 
+    Private Sub VaciarFiltro(sender As Object, e As EventArgs) Handles btnVaciarFAlquiler.Click
+        For Each item In pnlFiltradoAlquileres.Controls
 
+            If TypeOf item Is TextBox Then
+                item.text = ""
+            End If
+
+            If TypeOf item Is ComboBox Then
+                item.SelectedItem = Nothing
+            End If
+
+            If TypeOf item Is NumericUpDown Then
+                DirectCast(item, NumericUpDown).Value = Nothing
+            End If
+
+            If TypeOf item Is Label Then
+
+                VaciarFiltroAlquiler(item, New EventArgs)
+
+            End If
+        Next
+    End Sub
+
+    Private Sub VaciarFiltroTipo(sender As Object, e As EventArgs) Handles lblBorrarTipoFAlquileres.Click
+        If Not cbxTipoFAlquileres.SelectedItem Is Nothing Then
+            cbxTipoFAlquileres.SelectedItem = Nothing
+        End If
+    End Sub
     Private Sub VaciarFiltroAlquiler(sender As Object, e As EventArgs) Handles lblBorrarCategoriaFAlquileres.Click, lblBorrarTipoFAlquileres.Click, lblBorrarKilomFAlquileres.Click, lblBorrarPartidaFAlquileres.Click, lblBorrarDestinoFAlquileres.Click
 
         Select Case sender.Name

@@ -8,12 +8,75 @@ Partial Public Class frmMainMenu
 
     Public ReservaSeleccionadaFinalizarAlquiler As New ReservaSeleccionada
 
-    Private Sub FiltrosAlquiler(sender As Object, e As EventArgs) Handles txtDocumFRes.TextChanged, txtCostoTotalFReserva.TextChanged, txtUsuarioFReserva.TextChanged, cbxCategoriaFRes.SelectionChangeCommitted, cbxTipoFRes.SelectionChangeCommitted, cbxKilomFRes.SelectionChangeCommitted, cbxSucLlegFRes.SelectionChangeCommitted, cbxSucSalFres.SelectionChangeCommitted, lblBorrarCategoriaFReserva.Click, lblBorrarKMFReserva.Click, lblBorrarSucLlegadaFReserva.Click, lblBorrarSucSalidaFReserva.Click, lblBorrarTipoFReserva.Click, chboxFechaFRes.CheckedChanged, chboxFechaTramiteFReserva.CheckedChanged, dtpDesdeFReserva.ValueChanged, dtpHastaFReserva.ValueChanged, dtpFechaTramiteFReserva.ValueChanged, chboxVerHoyFReserva.CheckedChanged, chboxInactivasFReserva.CheckedChanged
+    Private Sub FechasCheckbox(sender As Object, e As EventArgs) Handles chbxFiltrarFechaFAlquileres.CheckedChanged, chbxFechaTramiteFAlquileres.CheckedChanged
+
+        Select Case sender.Name
+            Case "chbxFiltrarFechaFAlquileres"
+                If sender.Checked Then
+                    dtpDesdeFAlquileres.Enabled = True
+                    dtpHastaFAlquileres.Enabled = True
+                    lblDesdeFAlquiler.Enabled = True
+                    lblHastaFAlquiler.Enabled = True
+
+                Else
+                    dtpDesdeFAlquileres.Enabled = False
+                    dtpHastaFAlquileres.Enabled = False
+                    lblDesdeFAlquiler.Enabled = False
+                    lblHastaFAlquiler.Enabled = False
+                End If
+
+            Case "chbxFechaTramiteFAlquileres"
+                If sender.Checked Then
+                    dtpFechaTramiteFAlquileres.Enabled = True
+                    lblFechaTramiteFAlquiler.Enabled = True
+                Else
+                    dtpFechaTramiteFAlquileres.Enabled = False
+                    lblFechaTramiteFAlquiler.Enabled = False
+
+                End If
+        End Select
+
+    End Sub
+
+
+    Private Sub VaciarFiltroAlquiler(sender As Object, e As EventArgs) Handles lblBorrarCategoriaFAlquileres.Click, lblBorrarTipoFAlquileres.Click, lblBorrarKilomFAlquileres.Click, lblBorrarPartidaFAlquileres.Click, lblBorrarDestinoFAlquileres.Click
+
+        Select Case sender.Name
+
+            Case "lblBorrarCategoriaFAlquileres"
+                If Not cbxCategoriaFAlquiler.SelectedItem Is Nothing Then
+                    cbxCategoriaFAlquiler.SelectedItem = Nothing
+                End If
+
+            Case "lblBorrarTipoFAlquileres"
+                If Not cbxSucursalPartidaFAlquileres.SelectedItem Is Nothing Then
+                    cbxSucursalPartidaFAlquileres.SelectedItem = Nothing
+                End If
+
+            Case "lblBorrarKilomFAlquileres"
+                If Not cbxKilometrajeFAlquileres.SelectedItem Is Nothing Then
+                    cbxKilometrajeFAlquileres.SelectedItem = Nothing
+                End If
+
+            Case "lblBorrarPartidaFAlquileres"
+                If Not cbxSucursalPartidaFAlquileres.SelectedItem Is Nothing Then
+                    cbxSucursalPartidaFAlquileres.SelectedItem = Nothing
+                End If
+
+            Case "lblBorrarDestinoFAlquileres"
+                If Not cbxSucursalDestinoFAlquileres.SelectedItem Is Nothing Then
+                    cbxSucursalDestinoFAlquileres.SelectedItem = Nothing
+                End If
+
+        End Select
+    End Sub
+
+    Private Sub FiltrosAlquiler(sender As Object, e As EventArgs) Handles txtDocumentoFAlquileres.TextChanged, txtCostoFAlquileres.TextChanged, txtUsuarioFAlquileres.TextChanged, cbxCategoriaFAlquiler.SelectionChangeCommitted, cbxTipoFAlquileres.SelectionChangeCommitted, cbxKilometrajeFAlquileres.SelectionChangeCommitted, cbxSucursalDestinoFAlquileres.SelectionChangeCommitted, cbxSucursalPartidaFAlquileres.SelectionChangeCommitted, lblBorrarCategoriaFAlquileres.Click, lblBorrarKilomFAlquileres.Click, lblBorrarDestinoFAlquileres.Click, lblBorrarPartidaFAlquileres.Click, lblBorrarTipoFAlquileres.Click, chbxFiltrarFechaFAlquileres.CheckedChanged, chbxFechaTramiteFAlquileres.CheckedChanged, dtpDesdeFAlquileres.ValueChanged, dtpHastaFAlquileres.ValueChanged, dtpFechaTramiteFAlquileres.ValueChanged, chboxAlquileresProceso.CheckedChanged
 
         Try
             Dim filtrado As String
 
-            'filtrado = "nrodocumento LIKE '" + txtDocumentoFAlquileres.Text.ToString + "%' AND Convert(costototal, System.String) LIKE '%" + txtCostoFAlquileres.Text.ToString + "%' AND usuarioempleado LIKE '%" + txtUsuarioFAlquileres.Text + "%'" + TipoFiltroAlquiler(chbxFiltrarFechaFAlquileres) + TipoFiltroAlquiler(chbxFechaTramiteFAlquileres) + TipoFiltroAlquiler(chboxAlquileresProceso) + TipoFiltro(cbxCategoriaFAlquiler, "idcategoria") + TipoFiltro(cbxTipoFAlquileres, "idtipo") + TipoFiltro(cbxSucursalDestinoFAlquileres, "idsucursalllegada") + TipoFiltro(cbxSucursalPartidaFAlquileres, "idsucursalsalida") + TipoFiltro(cbxKilometrajeFAlquileres, "idcantidadkm")
+            filtrado = "nrodocumento LIKE '" + txtDocumentoFAlquileres.Text.ToString + "%' AND Convert(costototal, System.String) LIKE '" + txtCostoFAlquileres.Text.ToString + "%' AND usuarioempleado LIKE '%" + txtUsuarioFAlquileres.Text + "%'" + TipoFiltroAlquiler(chbxFiltrarFechaFAlquileres) + TipoFiltroAlquiler(chbxFechaTramiteFAlquileres) + TipoFiltroAlquiler(chboxAlquileresProceso) + TipoFiltro(cbxCategoriaFAlquiler, "idcategoria") + TipoFiltro(cbxTipoFAlquileres, "idtipo") + TipoFiltro(cbxSucursalDestinoFAlquileres, "idsucllegada") + TipoFiltro(cbxSucursalPartidaFAlquileres, "idsucsalida") + TipoFiltro(cbxKilometrajeFAlquileres, "idcantidadkm")
 
             dgvAlquileres.DataSource.Filter = filtrado
 
@@ -77,35 +140,20 @@ Partial Public Class frmMainMenu
         Select Case chbx.Name
             Case "chboxAlquileresProceso"
                 If chboxAlquileresProceso.Checked = True Then
-                    Return " And fechaalquilerinicio >= '" + dtpDesdeFReserva.Value.ToString("dd/MM/yyyy HH:mm") + "' AND fechaalquilerfin = 'En proceso'"
-                Else
-                    Return ""
-                End If
-            Case "chboxAlquileresProceso"
-                If chboxAlquileresProceso.Checked = True Then
-                    Return " And fechaalquilerinicio >= '" + dtpDesdeFReserva.Value.ToString("dd/MM/yyyy HH:mm") + "' AND fechaalquilerfin = 'En proceso'"
+                    Return "AND fechaalquilerfin = 'En proceso'"
                 Else
                     Return ""
                 End If
             Case "chbxFechaTramiteFAlquileres"
                 If chbxFechaTramiteFAlquileres.Checked = True Then
-                    Return " AND fechatramite = '" + dtpFechaTramiteFReserva.Value.ToString("dd/MM/yyyy HH:mm") + "'"
+                    Return " AND fechatramitef = '" + dtpFechaTramiteFAlquileres.Value.ToString("dd/MM/yyyy") + "'"
                 Else
                     Return ""
                 End If
 
-            Case "chboxInactivasFReserva"
-                If chboxInactivasFReserva.Checked = True Then
-                    Return ""
-                Else
-                    Return " AND idestado = 1"
-                End If
-
-            Case "chboxVerHoyFReserva"
-                If chboxVerHoyFReserva.Checked = True Then
-                    Return " AND fechareservainiciof = '" + Date.Now.ToString("dd/MM/yyyy") + "'"
-                Else
-                    Return ""
+            Case "chbxFiltrarFechaFAlquileres"
+                If chbxFiltrarFechaFAlquileres.Checked = True Then
+                    Return " And fechaalquilerinicio >= '" + dtpDesdeFAlquileres.Value.ToString("dd/MM/yyyy HH:mm") + "' AND fechaalquilerfin < '" + dtpHastaFAlquileres.Value.ToString("dd/MM/yyyy HH:mm") + "'"
                 End If
 
         End Select
@@ -150,6 +198,7 @@ Partial Public Class frmMainMenu
         End If
 
     End Sub
+
 
 
 End Class

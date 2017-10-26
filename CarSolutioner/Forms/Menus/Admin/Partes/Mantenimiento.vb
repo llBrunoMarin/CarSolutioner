@@ -51,7 +51,7 @@ Partial Public Class frmMainMenu
                 Dim verifestadoveh As New DataTable
                 Dim verifnrochasis As New DataTable
                 verifalquiler = conexion.EjecutarSelect("SELECT * FROM reserva where nrochasis = '" + nrochasisinsert + "'")
-                verifnrochasis = conexion.EjecutarSelect("SELECT * FROM mantenimiento WHERE nrochasis = '" + nrochasisinsert + "' AND ((fechafin BETWEEN '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio BETWEEN '" + dtpFiltrarFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFiltrarFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio < '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechafin > '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "'))")
+                verifnrochasis = conexion.EjecutarSelect("SELECT * FROM mantenimiento WHERE nrochasis = '" + nrochasisinsert + "' AND descripcion = '" + cbxTipoMant.SelectedItem + "' AND ((fechafin BETWEEN '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio BETWEEN '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "') OR (fechainicio < '" + dtpFechaInicioMant.Value.ToString("yyyy-MM-dd HH:mm") + "' AND fechafin > '" + dtpFechaFinMant.Value.ToString("yyyy-MM-dd HH:mm") + "'))")
                 verifestadoveh = conexion.EjecutarSelect("SELECT * FROM vehiculo where nrochasis ='" + nrochasisinsert + "' AND estado= 'f'")
 
                 If Not (verifestadoveh.Rows.Count <> 0) Then
@@ -238,45 +238,6 @@ Partial Public Class frmMainMenu
         dtpFiltrarFechaFinMant.Value = Date.Now.Round().AddHours(1)
         chbxFiltrarFechaMant.Checked = False
         RecargarDatos(dgvMant)
-    End Sub
-
-    'Private Sub VaciarModificarMantenimiento(sender As Object, e As EventArgs) Handles btnVaciarMant.Click
-    '    For Each item In pnlmmant.Controls
-
-    '        If TypeOf item Is TextBox Then
-    '            item.text = ""
-    '        End If
-
-    '        If TypeOf item Is ComboBox Then
-    '            item.SelectedItem = Nothing
-    '        End If
-
-    '        If TypeOf item Is NumericUpDown Then
-    '            DirectCast(item, NumericUpDown).Value = Nothing
-    '        End If
-    '    Next
-    'End Sub
-
-    Private Sub btnVaciarIngresoMant_Click(sender As Object, e As EventArgs) Handles btnVaciarIngresoMant.Click
-
-        For Each item In pnlAmant.Controls
-
-            If TypeOf item Is TextBox Then
-                item.text = ""
-            End If
-
-            If TypeOf item Is ComboBox Then
-                item.SelectedItem = Nothing
-            End If
-
-            If TypeOf item Is NumericUpDown Then
-                DirectCast(item, NumericUpDown).Value = Nothing
-            End If
-        Next
-
-        dtpFechaInicioMant.Value = Date.Now.Round
-        dtpFechaFinMant.Value = Date.Now.Round().AddMinutes(30)
-
     End Sub
 
     Private Sub btnBajamant_Click(sender As Object, e As EventArgs) Handles btnBajamant.Click

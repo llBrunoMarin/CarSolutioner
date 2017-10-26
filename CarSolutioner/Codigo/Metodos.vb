@@ -20,6 +20,16 @@ Module Metodos
 
     End Function
 
+    Public Function FindControlRecursive(ByVal list As List(Of Control), ByVal parent As Control, ByVal ctrlType As System.Type) As List(Of Control)
+        If parent Is Nothing Then Return list
+        If parent.GetType Is ctrlType Then
+            list.Add(parent)
+        End If
+        For Each child As Control In parent.Controls
+            FindControlRecursive(list, child, ctrlType)
+        Next
+        Return list
+    End Function
     Public Declare Function GetTickCount Lib "kernel32" () As Integer
     Public conexion As New ConnectionBD
     Public bgwCargar As New ComponentModel.BackgroundWorker
@@ -262,8 +272,11 @@ Module Metodos
     Public Function AmaranthMessagebox(Texto As String, Tipo As String, sender As Form) As DialogResult
 
         Dim AmaranthMsgbox As New AmaranthMsgbox(Texto, Tipo)
-        Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog(sender)
-        Return resultado
+        Using AmaranthMsgbox
+            Dim resultado As DialogResult = AmaranthMsgbox.ShowDialog(sender)
+            Return resultado
+        End Using
+
 
 
     End Function
@@ -501,7 +514,7 @@ Module Metodos
             For j As Integer = 0 To dgv.ColumnCount - 1
                 If dgv.Columns(j).Visible = True Then
 
-                    Dim century As New Font(GetCentury().BaseFont, 12.0F, FontStyle.Regular, BaseColor.BLACK)
+                    Dim century As New Font(GetCentury().BaseFont, 9.0F, FontStyle.Regular, BaseColor.BLACK)
                     Dim texto As New Phrase(dgv(j, i).Value.ToString(), century)
                     Dim cell As New PdfPCell(texto)
                     PdfTable.AddCell(cell)

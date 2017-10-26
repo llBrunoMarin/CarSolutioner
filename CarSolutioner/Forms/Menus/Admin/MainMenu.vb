@@ -19,15 +19,19 @@ Public Class frmMainMenu
         'Hacemos toda la carga de datos
         CargarTodosDatos(Me)
 
+        NoInjection()
+
         cbxTipoDocumFCliente.SelectedItem = Nothing
 
         cbxCategoriaFRes.SelectedItem = Nothing
         cbxCategoriaFVeh.SelectedItem = Nothing
         cbxCategoriaAVeh.SelectedItem = Nothing
+        cbxCategoriaFAlquiler.SelectedItem = Nothing
 
         cbxTipoFVeh.SelectedItem = Nothing
         cbxTipoAVeh.SelectedItem = Nothing
         cbxTipoFRes.SelectedItem = Nothing
+        cbxTipoFAlquileres.SelectedItem = Nothing
 
         cbxMarcaFVeh.SelectedItem = Nothing
         cbxMarcaAVeh.SelectedItem = Nothing
@@ -39,6 +43,8 @@ Public Class frmMainMenu
         cbxSucSalFres.SelectedItem = Nothing
         cbxSucursalAVeh.SelectedItem = Nothing
         cbxSucursalFVeh.SelectedItem = Nothing
+        cbxSucursalDestinoFAlquileres.SelectedItem = Nothing
+        cbxSucursalPartidaFAlquileres.SelectedItem = Nothing
 
         cbxAnioNACliente.SelectedItem = Nothing
         cbxAnioNFCliente.SelectedItem = Nothing
@@ -46,9 +52,11 @@ Public Class frmMainMenu
         cbxSucursalFempleados.SelectedItem = Nothing
         cbxTipoFempleados.SelectedItem = Nothing
         chbxFiltrarEstadoMant.Checked = True
+        chboxAlquileresProceso.Checked = True
 
         cbxKilomFRes.SelectedItem = Nothing
         chboxVerHoyFReserva.Checked = True
+        cbxKilometrajeFAlquileres.SelectedItem = Nothing
 
         cbxAireFVeh.SelectedItem = Nothing
         cbxManualFVeh.SelectedItem = Nothing
@@ -170,7 +178,6 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxMarcaMVeh, conexion.MarcasConModelo, "nombre", "idmarca")
         CargarDatosComboBox(cbxMarcaFVeh, conexion.MarcasConModelo, "nombre", "idmarca")
 
-
         'TIPOS
         CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
@@ -178,6 +185,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxTipoFRes, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
+        CargarDatosComboBox(cbxTipoFAlquileres, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
 
         'RANGOS EMPLEADOS
         CargarDatosComboBox(cbxTipoFempleados, conexion.TipoEmpleados, "tipos", "id")
@@ -191,6 +199,7 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaMVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
+        CargarDatosComboBox(cbxCategoriaFAlquiler, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
 
         'Los modelos se cargan en el apartado "Vehiculos".
 
@@ -208,6 +217,8 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxSucursalLlegadaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucursalSalidaMReserva, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxDestinoMAlquileres, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalPartidaFAlquileres, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
+        CargarDatosComboBox(cbxSucursalDestinoFAlquileres, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
 
         cbxSucSalidaARes.Enabled = True
         cbxSucSalidaARes.SelectedValue = conexion.IdSucursalUsuario
@@ -229,6 +240,8 @@ Public Class frmMainMenu
         CargarDatosComboBox(cbxKmARes, conexion.Kilometros, "km", "id")
         CargarDatosComboBox(cbxKilomMReserva, conexion.Kilometros, "km", "id")
         CargarDatosComboBox(cbxKilomMAlquileres, conexion.Kilometros, "km", "id")
+        CargarDatosComboBox(cbxKilometrajeFAlquileres, conexion.Kilometros, "km", "id")
+
         Me.Opacity = 100
 
         'Comboboxes de Si y No
@@ -277,7 +290,7 @@ Public Class frmMainMenu
 
             Case "dgvAlquileres"
                 dgvAlquileres.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio, CASE WHEN R.fechaalquilerfin IS NULL Then ""En proceso"" ELSE TO_CHAR(R.fechaalquilerfin, '%Y-%m-%d %H:%M') END fechaalquilerfin, R.fechareservainicio, R.fechareservafin, R.cantidadkm idcantidadkm, V.deducible, R.costototal, R.fechatramite, R.estado idestado, R.nrochasis, V.matricula, Cl.nombre ||"" ""|| Cl.apellido nombreapellido, Cl.nrodocumento, ca.idcategoria, Ca.nombre categoria, T.idtipo, T.nombre tipo, SS.nombre sucsalida, SS.idsucursal idsucsalida, SL.nombre sucllegada, SL.idsucursal idsucllegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkmtext, CASE WHEN R.estado = 1 THEN ""Activa"" WHEN R.estado = 2 THEN ""Inactiva"" WHEN R.estado = 3 THEN ""Anulada"" ELSE NULL END estadotext FROM Reserva R, Vehiculo V, Cliente Cl, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY nombreapellido")
+                conexion.RellenarDataGridView(dgvAlquileres, "SELECT R.idreserva, R.idpersona, R.fechaalquilerinicio, CASE WHEN R.fechaalquilerfin IS NULL Then ""En proceso"" ELSE TO_CHAR(R.fechaalquilerfin, '%d/%m/%Y %H:%M') END fechaalquilerfin, R.fechareservainicio, R.fechareservafin, R.cantidadkm idcantidadkm, V.deducible, R.costototal, R.fechatramite, TO_CHAR(R.fechatramite,'%d/%m/%Y') fechatramitef, R.estado idestado, R.nrochasis, V.matricula, Cl.nombre ||"" ""|| Cl.apellido nombreapellido, Cl.nrodocumento, ca.idcategoria, Ca.nombre categoria, T.idtipo, T.nombre tipo, SS.nombre sucsalida, SS.idsucursal idsucsalida, SL.nombre sucllegada, SL.idsucursal idsucllegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkmtext, CASE WHEN R.estado = 1 THEN ""Activa"" WHEN R.estado = 2 THEN ""Inactiva"" WHEN R.estado = 3 THEN ""Anulada"" ELSE NULL END estadotext FROM Reserva R, Vehiculo V, Cliente Cl, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE R.idtipo = T.idtipo AND R.idcategoria = Ca.idcategoria AND Cl.idpersona = R.idpersona AND R.idsucursalsalida = SS.idsucursal AND R.idsucursalllegada = SL.idsucursal AND V.nrochasis = R.nrochasis ORDER BY nombreapellido")
 
 
             Case "dgvMant"
@@ -348,6 +361,13 @@ Public Class frmMainMenu
 
         End Select
 
+    End Sub
+
+    Private Sub NoInjection()
+        Dim allTxt As New List(Of Control)
+        For Each txt As TextBox In FindControlRecursive(allTxt, Me, GetType(TextBox))
+            AddHandler txt.KeyPress, AddressOf antiSQLInjection
+        Next
     End Sub
 
     Private Sub GuardarPdf(sender As Object, e As EventArgs) Handles ItemGuardarPDF.Click

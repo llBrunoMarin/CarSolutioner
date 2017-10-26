@@ -195,9 +195,7 @@
                 cx.ConnectionTimeout = 2
 
                 'SERVIDOR UTU
-
                 cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
-
 
 
                 'SERVIDOR VICTOR
@@ -222,29 +220,17 @@
             If (ex.Message.Contains("[28000] [Informix][Informix ODBC Driver]")) Then
 
                 Me.ConnectionStatus = "BadCredentials"
-
-
                 Cerrar()
 
             ElseIf (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver][-11302] Insufficient Connection information was supplied")) Then
                 Me.ConnectionStatus = "MissingData"
-
                 Cerrar()
             Else
-
-                ' MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
-                'TODO: Quitar este MsgBox, está por motivos de solucion de errores:
                 Me.ConnectionStatus = "NetworkFailure"
                 If Not Application.OpenForms().OfType(Of Reconectar).Any Then
                     Reconectar.ShowDialog()
                 End If
             End If
-
-
-
-            'MsgBox("Error desconocido (#002)", MsgBoxStyle.Exclamation, "Error")
-            ' MsgBox(ex.Message)
-
 
         End Try
 

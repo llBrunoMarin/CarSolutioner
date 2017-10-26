@@ -309,7 +309,7 @@ Public Class frmMainMenu
             Case "dgvAutosMasRentables"
                 conexion.RellenarDataGridView(dgvAutosMasRentables, "SELECT V.matricula, Ma.nombre Marca, Mo.nombre Modelo, T.total FROM Vehiculo V, Marca Ma, Modelo Mo, RentTotalVehiculos T WHERE V.idmodelo = Mo.idmodelo AND Mo.idmarca = Ma.idmarca AND V.nrochasis = T.nrochasis ORDER BY total DESC")
             Case "dgvPorcVeh"
-                conexion.RellenarDataGridView(dgvPorcVeh, "SELECT nombre, TotalSuc(idsucursal, CURRENT Year to Day) Total, PorcAlq(idsucursal, CURRENT Year to Day) || ""%"" PorcAlq, PorcMant(idsucursal, CURRENT YEAR TO DAY) || ""%"" PorcMant, PorcDispon(idsucursal, CURRENT YEAR TO DAY)|| ""%""  PorcDispon FROM Sucursal")
+                conexion.RellenarDataGridView(dgvPorcVeh, "SELECT nombre, TotalSuc(idsucursal, CURRENT Year to Day) Total, PorcAlq(idsucursal, CURRENT Year to Day) || ""%"" PorcAlq, PorcMant(idsucursal, CURRENT YEAR TO DAY) || ""%"" PorcMant, PorcDispon(idsucursal, CURRENT YEAR TO DAY)|| ""%""  PorcDispon FROM Sucursal WHERE TotalSuc(idsucursal, CURRENT Year to Day) > 0")
             Case "dgvClientesMasGastaron"
                 conexion.RellenarDataGridView(dgvClientesMasGastaron, "SELECT C.nombre, C.apellido, T.total, S.nombre FROM Cliente C, RentTotalClientes T, Sucursal S WHERE C.idpersona = T.idpersona AND S.idsucursal = T.sucursal")
             Case Else
@@ -381,7 +381,17 @@ Public Class frmMainMenu
     Private Sub NoInjection()
         Dim allTxt As New List(Of Control)
         For Each txt As TextBox In FindControlRecursive(allTxt, Me, GetType(TextBox))
-            AddHandler txt.KeyPress, AddressOf antiSQLInjection
+            If ((txt.Name = "txtCorreoACliente") Or (txt.Name = "txtCorreoMCliente")) Then
+
+            Else
+
+                AddHandler txt.KeyPress, AddressOf antiSQLInjection
+            End If
+        Next
+
+        Dim allNum As New List(Of Control)
+        For Each num As NumericUpDown In FindControlRecursive(allNum, Me, GetType(NumericUpDown))
+            AddHandler num.KeyPress, AddressOf antiSQLInjection
         Next
     End Sub
 

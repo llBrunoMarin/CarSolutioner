@@ -191,7 +191,7 @@ Partial Public Class frmMainMenu
 
     End Sub
 
-    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtDeducibleAVeh.KeyPress, txtKilometrajeAVeh.KeyPress, txtAnioAVeh.KeyPress, txtDeducibleMVeh.KeyPress, txtKilometrajeAVeh.KeyPress, txtAnioMVeh.KeyPress, txtAnioFVeh.KeyPress, txtDeducibleFVeh.KeyPress, txtKMFVeh.KeyPress
+    Private Sub SoloNumeros(sender As Object, e As KeyPressEventArgs) Handles txtDeducibleAVeh.KeyPress, txtKilometrajeAVeh.KeyPress, txtAnioAVeh.KeyPress, txtDeducibleMVeh.KeyPress, txtKilometrajeAVeh.KeyPress, txtAnioMVeh.KeyPress, txtAnioFVeh.KeyPress, txtDeducibleFVeh.KeyPress, txtKMFVeh.KeyPress, txtDeducibleAVeh.KeyPress, txtKilometrajeAVeh.KeyPress
         If Char.IsDigit(e.KeyChar) Or Char.IsControl(e.KeyChar) Or Char.IsSeparator(e.KeyChar) Then
             e.Handled = False
         Else
@@ -296,11 +296,11 @@ Partial Public Class frmMainMenu
                         If Not (nrochasisrepetido.Rows.Count > 0) Then
 
                             Dim sentencia As String
-                            sentencia = "insert into vehiculo values('" + txtNroChasisAVeh.Text.ToString + "','" + txtMatriculaAVeh.Text.ToString + "','" + txtAnioAVeh.Text.ToString + "','" + txtKilometrajeAVeh.Text.ToString + "','" + aireAVeh + "','" + cbxPuertasAVeh.SelectedItem.ToString + "','" + cantpasajeros + "','" + cbxMaletasAVeh.SelectedItem.ToString + "','" + automaticoAVeh + "','" + txtDeducibleAVeh.Text.ToString + "','" + cbxCategoriaAVeh.SelectedValue.ToString + "','" + cbxModeloAVeh.SelectedValue.ToString + "','" + cbxSucursalAVeh.SelectedValue.ToString + "','t')"
+                            sentencia = "insert into vehiculo values('" + txtNroChasisAVeh.Text.ToString + "','" + txtMatriculaAVeh.Text.ToString + "','" + txtAnioAVeh.Text.ToString + "','" + txtKilometrajeAVeh.Text.ToString + "','" + aireAVeh + "','" + cbxPuertasAVeh.SelectedItem.ToString + "','" + cantpasajeros + "','" + cbxMaletasAVeh.SelectedItem.ToString + "','" + automaticoAVeh + "','" + txtDeducibleAVeh.Text.ToString + "','" + cbxCategoriaAVeh.SelectedValue.ToString + "','" + cbxModeloAVeh.SelectedValue.ToString + "','" + cbxSucursalAVeh.SelectedValue.ToString + "','t', '" + cbxColorAVeh.SelectedItem.ToString + "')"
                             conexion.EjecutarNonQuery(sentencia)
 
                             Dim ip As String = GetIPAddress()
-                            Dim descripcion As String = "Ingreso un vehiculo con el numero de chasis : " + txtNroChasisAVeh.Text + " la matricula : " + txtMatriculaAVeh.Text + " y con el modelo : " + cbxModeloAVeh.SelectedItem + ""
+                            Dim descripcion As String = "Ingreso un vehiculo con el numero de chasis : " + txtNroChasisAVeh.Text + " la matricula : " + txtMatriculaAVeh.Text + " "
                             conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
                             RecargarDatos(dgvVehiculos)
@@ -479,7 +479,11 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub antiSQLInjection(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles txtMatriculaFVeh.KeyPress
+
+
         e.Handled = Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsNumber(e.KeyChar)
+
+
     End Sub
 
 End Class

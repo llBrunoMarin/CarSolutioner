@@ -152,9 +152,14 @@ Partial Class frmMainMenu
         Me.txtNombreACliente = New System.Windows.Forms.TextBox()
         Me.txtDocumACliente = New System.Windows.Forms.TextBox()
         Me.btnDescuentoACliente = New System.Windows.Forms.Button()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.btnAgregarTelefonosACliente = New System.Windows.Forms.Button()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.btnIngresarACliente = New System.Windows.Forms.Button()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label93 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label94 = New System.Windows.Forms.Label()
         Me.Label95 = New System.Windows.Forms.Label()
         Me.Label96 = New System.Windows.Forms.Label()
@@ -311,9 +316,16 @@ Partial Class frmMainMenu
         Me.btnModificarVeh = New System.Windows.Forms.Button()
         Me.Label43 = New System.Windows.Forms.Label()
         Me.ReportesVehiculos = New System.Windows.Forms.TabPage()
+        Me.btnExportarEstadoVeh = New System.Windows.Forms.Button()
         Me.dgvPorcVeh = New System.Windows.Forms.DataGridView()
+        Me.nomsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dispon = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.porcalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.mant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnExportarVehDispHoy = New System.Windows.Forms.Button()
         Me.dgvVehiculosDisponibles = New System.Windows.Forms.DataGridView()
         Me.nrochasisdisponibles = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.matriculadisponibles = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -395,6 +407,7 @@ Partial Class frmMainMenu
         Me.Label68 = New System.Windows.Forms.Label()
         Me.Label73 = New System.Windows.Forms.Label()
         Me.tabReporteEmpleado = New System.Windows.Forms.TabPage()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Label120 = New System.Windows.Forms.Label()
         Me.dgvAccionesEmp = New System.Windows.Forms.DataGridView()
         Me.ip = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -637,6 +650,8 @@ Partial Class frmMainMenu
         Me.btnVaciarFAlquiler = New System.Windows.Forms.Button()
         Me.Label147 = New System.Windows.Forms.Label()
         Me.tpgReportesReserva = New System.Windows.Forms.TabPage()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Label111 = New System.Windows.Forms.Label()
         Me.Label121 = New System.Windows.Forms.Label()
         Me.dgvClientesMasGastaron = New System.Windows.Forms.DataGridView()
@@ -665,16 +680,6 @@ Partial Class frmMainMenu
         Me.idpersonaE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sfdSaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.lbl162N = New System.Windows.Forms.Label()
-        Me.btnExportarVehDispHoy = New System.Windows.Forms.Button()
-        Me.btnExportarEstadoVeh = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.nomsucursal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dispon = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.porcalq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.mant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mstMenuStrip.SuspendLayout()
         Me.pnlSidebar.SuspendLayout()
         CType(Me.pcboxloading, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1280,6 +1285,7 @@ Partial Class frmMainMenu
         'txtEmpresaMCliente
         '
         Me.txtEmpresaMCliente.Location = New System.Drawing.Point(275, 121)
+        Me.txtEmpresaMCliente.MaxLength = 20
         Me.txtEmpresaMCliente.Name = "txtEmpresaMCliente"
         Me.txtEmpresaMCliente.ShortcutsEnabled = False
         Me.txtEmpresaMCliente.Size = New System.Drawing.Size(124, 20)
@@ -1288,6 +1294,7 @@ Partial Class frmMainMenu
         'txtCorreoMCliente
         '
         Me.txtCorreoMCliente.Location = New System.Drawing.Point(14, 122)
+        Me.txtCorreoMCliente.MaxLength = 20
         Me.txtCorreoMCliente.Name = "txtCorreoMCliente"
         Me.txtCorreoMCliente.ShortcutsEnabled = False
         Me.txtCorreoMCliente.Size = New System.Drawing.Size(126, 20)
@@ -1296,6 +1303,7 @@ Partial Class frmMainMenu
         'txtApellidoMCliente
         '
         Me.txtApellidoMCliente.Location = New System.Drawing.Point(405, 72)
+        Me.txtApellidoMCliente.MaxLength = 20
         Me.txtApellidoMCliente.Name = "txtApellidoMCliente"
         Me.txtApellidoMCliente.ShortcutsEnabled = False
         Me.txtApellidoMCliente.Size = New System.Drawing.Size(125, 20)
@@ -1304,6 +1312,7 @@ Partial Class frmMainMenu
         'txtNombreMCliente
         '
         Me.txtNombreMCliente.Location = New System.Drawing.Point(275, 72)
+        Me.txtNombreMCliente.MaxLength = 20
         Me.txtNombreMCliente.Name = "txtNombreMCliente"
         Me.txtNombreMCliente.ShortcutsEnabled = False
         Me.txtNombreMCliente.Size = New System.Drawing.Size(125, 20)
@@ -1404,6 +1413,7 @@ Partial Class frmMainMenu
         'txtDocumMCliente
         '
         Me.txtDocumMCliente.Location = New System.Drawing.Point(144, 72)
+        Me.txtDocumMCliente.MaxLength = 20
         Me.txtDocumMCliente.Name = "txtDocumMCliente"
         Me.txtDocumMCliente.ShortcutsEnabled = False
         Me.txtDocumMCliente.Size = New System.Drawing.Size(125, 20)
@@ -1528,6 +1538,7 @@ Partial Class frmMainMenu
         'txtDocumentoBCliente
         '
         Me.txtDocumentoBCliente.Location = New System.Drawing.Point(12, 78)
+        Me.txtDocumentoBCliente.MaxLength = 20
         Me.txtDocumentoBCliente.Name = "txtDocumentoBCliente"
         Me.txtDocumentoBCliente.ShortcutsEnabled = False
         Me.txtDocumentoBCliente.Size = New System.Drawing.Size(127, 20)
@@ -1804,9 +1815,14 @@ Partial Class frmMainMenu
         Me.pnlAClientes.Controls.Add(Me.txtNombreACliente)
         Me.pnlAClientes.Controls.Add(Me.txtDocumACliente)
         Me.pnlAClientes.Controls.Add(Me.btnDescuentoACliente)
+        Me.pnlAClientes.Controls.Add(Me.TextBox5)
         Me.pnlAClientes.Controls.Add(Me.btnAgregarTelefonosACliente)
+        Me.pnlAClientes.Controls.Add(Me.TextBox4)
         Me.pnlAClientes.Controls.Add(Me.btnIngresarACliente)
+        Me.pnlAClientes.Controls.Add(Me.TextBox3)
+        Me.pnlAClientes.Controls.Add(Me.TextBox2)
         Me.pnlAClientes.Controls.Add(Me.Label93)
+        Me.pnlAClientes.Controls.Add(Me.TextBox1)
         Me.pnlAClientes.Controls.Add(Me.Label94)
         Me.pnlAClientes.Controls.Add(Me.Label95)
         Me.pnlAClientes.Controls.Add(Me.Label96)
@@ -1929,6 +1945,7 @@ Partial Class frmMainMenu
         '
         Me.txtEmpresaACliente.Enabled = False
         Me.txtEmpresaACliente.Location = New System.Drawing.Point(275, 119)
+        Me.txtEmpresaACliente.MaxLength = 20
         Me.txtEmpresaACliente.Name = "txtEmpresaACliente"
         Me.txtEmpresaACliente.ShortcutsEnabled = False
         Me.txtEmpresaACliente.Size = New System.Drawing.Size(124, 20)
@@ -1938,6 +1955,7 @@ Partial Class frmMainMenu
         'txtCorreoACliente
         '
         Me.txtCorreoACliente.Location = New System.Drawing.Point(15, 119)
+        Me.txtCorreoACliente.MaxLength = 20
         Me.txtCorreoACliente.Name = "txtCorreoACliente"
         Me.txtCorreoACliente.ShortcutsEnabled = False
         Me.txtCorreoACliente.Size = New System.Drawing.Size(124, 20)
@@ -1946,6 +1964,7 @@ Partial Class frmMainMenu
         'txtApellidoACliente
         '
         Me.txtApellidoACliente.Location = New System.Drawing.Point(405, 68)
+        Me.txtApellidoACliente.MaxLength = 20
         Me.txtApellidoACliente.Name = "txtApellidoACliente"
         Me.txtApellidoACliente.ShortcutsEnabled = False
         Me.txtApellidoACliente.Size = New System.Drawing.Size(124, 20)
@@ -1954,6 +1973,7 @@ Partial Class frmMainMenu
         'txtNombreACliente
         '
         Me.txtNombreACliente.Location = New System.Drawing.Point(275, 68)
+        Me.txtNombreACliente.MaxLength = 20
         Me.txtNombreACliente.Name = "txtNombreACliente"
         Me.txtNombreACliente.ShortcutsEnabled = False
         Me.txtNombreACliente.Size = New System.Drawing.Size(124, 20)
@@ -1962,6 +1982,7 @@ Partial Class frmMainMenu
         'txtDocumACliente
         '
         Me.txtDocumACliente.Location = New System.Drawing.Point(144, 68)
+        Me.txtDocumACliente.MaxLength = 20
         Me.txtDocumACliente.Name = "txtDocumACliente"
         Me.txtDocumACliente.ShortcutsEnabled = False
         Me.txtDocumACliente.Size = New System.Drawing.Size(125, 20)
@@ -1985,6 +2006,15 @@ Partial Class frmMainMenu
         Me.btnDescuentoACliente.UseCompatibleTextRendering = True
         Me.btnDescuentoACliente.UseVisualStyleBackColor = False
         '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(116, -87)
+        Me.TextBox5.MaxLength = 5
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.ShortcutsEnabled = False
+        Me.TextBox5.Size = New System.Drawing.Size(125, 20)
+        Me.TextBox5.TabIndex = 4
+        '
         'btnAgregarTelefonosACliente
         '
         Me.btnAgregarTelefonosACliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
@@ -2002,6 +2032,15 @@ Partial Class frmMainMenu
         Me.btnAgregarTelefonosACliente.Text = "+"
         Me.btnAgregarTelefonosACliente.UseCompatibleTextRendering = True
         Me.btnAgregarTelefonosACliente.UseVisualStyleBackColor = False
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(247, -87)
+        Me.TextBox4.MaxLength = 5
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ShortcutsEnabled = False
+        Me.TextBox4.Size = New System.Drawing.Size(124, 20)
+        Me.TextBox4.TabIndex = 5
         '
         'btnIngresarACliente
         '
@@ -2021,6 +2060,24 @@ Partial Class frmMainMenu
         Me.btnIngresarACliente.Text = "Ingresar"
         Me.btnIngresarACliente.UseVisualStyleBackColor = False
         '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(246, -136)
+        Me.TextBox3.MaxLength = 5
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.ShortcutsEnabled = False
+        Me.TextBox3.Size = New System.Drawing.Size(125, 20)
+        Me.TextBox3.TabIndex = 1
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(507, -136)
+        Me.TextBox2.MaxLength = 5
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.ShortcutsEnabled = False
+        Me.TextBox2.Size = New System.Drawing.Size(124, 20)
+        Me.TextBox2.TabIndex = 3
+        '
         'Label93
         '
         Me.Label93.AutoSize = True
@@ -2031,6 +2088,15 @@ Partial Class frmMainMenu
         Me.Label93.Size = New System.Drawing.Size(49, 17)
         Me.Label93.TabIndex = 29
         Me.Label93.Text = "Correo"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(377, -136)
+        Me.TextBox1.MaxLength = 5
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ShortcutsEnabled = False
+        Me.TextBox1.Size = New System.Drawing.Size(124, 20)
+        Me.TextBox1.TabIndex = 2
         '
         'Label94
         '
@@ -3794,6 +3860,24 @@ Partial Class frmMainMenu
         Me.ReportesVehiculos.TabIndex = 1
         Me.ReportesVehiculos.Text = "Reportes de Vehículos"
         '
+        'btnExportarEstadoVeh
+        '
+        Me.btnExportarEstadoVeh.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportarEstadoVeh.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnExportarEstadoVeh.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnExportarEstadoVeh.FlatAppearance.BorderSize = 0
+        Me.btnExportarEstadoVeh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnExportarEstadoVeh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnExportarEstadoVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExportarEstadoVeh.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportarEstadoVeh.ForeColor = System.Drawing.Color.White
+        Me.btnExportarEstadoVeh.Location = New System.Drawing.Point(1224, 429)
+        Me.btnExportarEstadoVeh.Name = "btnExportarEstadoVeh"
+        Me.btnExportarEstadoVeh.Size = New System.Drawing.Size(99, 31)
+        Me.btnExportarEstadoVeh.TabIndex = 41
+        Me.btnExportarEstadoVeh.Text = "Exportar"
+        Me.btnExportarEstadoVeh.UseVisualStyleBackColor = False
+        '
         'dgvPorcVeh
         '
         Me.dgvPorcVeh.AllowUserToAddRows = False
@@ -3819,6 +3903,41 @@ Partial Class frmMainMenu
         Me.dgvPorcVeh.Size = New System.Drawing.Size(1320, 331)
         Me.dgvPorcVeh.TabIndex = 38
         '
+        'nomsucursal
+        '
+        Me.nomsucursal.DataPropertyName = "nombre"
+        Me.nomsucursal.HeaderText = "Sucursal"
+        Me.nomsucursal.Name = "nomsucursal"
+        Me.nomsucursal.ReadOnly = True
+        '
+        'cantotal
+        '
+        Me.cantotal.DataPropertyName = "total"
+        Me.cantotal.HeaderText = "Cantidad Total"
+        Me.cantotal.Name = "cantotal"
+        Me.cantotal.ReadOnly = True
+        '
+        'dispon
+        '
+        Me.dispon.DataPropertyName = "porcdispon"
+        Me.dispon.HeaderText = "Disponibles (%)"
+        Me.dispon.Name = "dispon"
+        Me.dispon.ReadOnly = True
+        '
+        'porcalq
+        '
+        Me.porcalq.DataPropertyName = "porcalq"
+        Me.porcalq.HeaderText = "Alquilados (%)"
+        Me.porcalq.Name = "porcalq"
+        Me.porcalq.ReadOnly = True
+        '
+        'mant
+        '
+        Me.mant.DataPropertyName = "porcmant"
+        Me.mant.HeaderText = "Mantenimiento (%)"
+        Me.mant.Name = "mant"
+        Me.mant.ReadOnly = True
+        '
         'Label33
         '
         Me.Label33.AutoSize = True
@@ -3839,6 +3958,24 @@ Partial Class frmMainMenu
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1320, 386)
         Me.Panel1.TabIndex = 40
+        '
+        'btnExportarVehDispHoy
+        '
+        Me.btnExportarVehDispHoy.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportarVehDispHoy.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnExportarVehDispHoy.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnExportarVehDispHoy.FlatAppearance.BorderSize = 0
+        Me.btnExportarVehDispHoy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnExportarVehDispHoy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnExportarVehDispHoy.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExportarVehDispHoy.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportarVehDispHoy.ForeColor = System.Drawing.Color.White
+        Me.btnExportarVehDispHoy.Location = New System.Drawing.Point(1218, 15)
+        Me.btnExportarVehDispHoy.Name = "btnExportarVehDispHoy"
+        Me.btnExportarVehDispHoy.Size = New System.Drawing.Size(99, 31)
+        Me.btnExportarVehDispHoy.TabIndex = 41
+        Me.btnExportarVehDispHoy.Text = "Exportar"
+        Me.btnExportarVehDispHoy.UseVisualStyleBackColor = False
         '
         'dgvVehiculosDisponibles
         '
@@ -4728,6 +4865,24 @@ Partial Class frmMainMenu
         Me.tabReporteEmpleado.Size = New System.Drawing.Size(1337, 807)
         Me.tabReporteEmpleado.TabIndex = 1
         Me.tabReporteEmpleado.Text = "Reportes Empleados"
+        '
+        'Button4
+        '
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.Color.White
+        Me.Button4.Location = New System.Drawing.Point(1230, 52)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(99, 31)
+        Me.Button4.TabIndex = 41
+        Me.Button4.Text = "Exportar"
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Label120
         '
@@ -7421,6 +7576,42 @@ Partial Class frmMainMenu
         Me.tpgReportesReserva.TabIndex = 2
         Me.tpgReportesReserva.Text = "Reportes de Reserva y Alquiler"
         '
+        'Button6
+        '
+        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button6.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ForeColor = System.Drawing.Color.White
+        Me.Button6.Location = New System.Drawing.Point(794, 437)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(99, 31)
+        Me.Button6.TabIndex = 41
+        Me.Button6.Text = "Exportar"
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'Button5
+        '
+        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.Color.White
+        Me.Button5.Location = New System.Drawing.Point(438, 437)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(99, 31)
+        Me.Button5.TabIndex = 41
+        Me.Button5.Text = "Exportar"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'Label111
         '
         Me.Label111.AutoSize = True
@@ -7691,131 +7882,6 @@ Partial Class frmMainMenu
         Me.lbl162N.Size = New System.Drawing.Size(152, 22)
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
-        '
-        'btnExportarVehDispHoy
-        '
-        Me.btnExportarVehDispHoy.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExportarVehDispHoy.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnExportarVehDispHoy.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnExportarVehDispHoy.FlatAppearance.BorderSize = 0
-        Me.btnExportarVehDispHoy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnExportarVehDispHoy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnExportarVehDispHoy.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExportarVehDispHoy.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExportarVehDispHoy.ForeColor = System.Drawing.Color.White
-        Me.btnExportarVehDispHoy.Location = New System.Drawing.Point(1218, 15)
-        Me.btnExportarVehDispHoy.Name = "btnExportarVehDispHoy"
-        Me.btnExportarVehDispHoy.Size = New System.Drawing.Size(99, 31)
-        Me.btnExportarVehDispHoy.TabIndex = 41
-        Me.btnExportarVehDispHoy.Text = "Exportar"
-        Me.btnExportarVehDispHoy.UseVisualStyleBackColor = False
-        '
-        'btnExportarEstadoVeh
-        '
-        Me.btnExportarEstadoVeh.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExportarEstadoVeh.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnExportarEstadoVeh.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.btnExportarEstadoVeh.FlatAppearance.BorderSize = 0
-        Me.btnExportarEstadoVeh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.btnExportarEstadoVeh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.btnExportarEstadoVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExportarEstadoVeh.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExportarEstadoVeh.ForeColor = System.Drawing.Color.White
-        Me.btnExportarEstadoVeh.Location = New System.Drawing.Point(1224, 429)
-        Me.btnExportarEstadoVeh.Name = "btnExportarEstadoVeh"
-        Me.btnExportarEstadoVeh.Size = New System.Drawing.Size(99, 31)
-        Me.btnExportarEstadoVeh.TabIndex = 41
-        Me.btnExportarEstadoVeh.Text = "Exportar"
-        Me.btnExportarEstadoVeh.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Location = New System.Drawing.Point(1230, 52)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(99, 31)
-        Me.Button4.TabIndex = 41
-        Me.Button4.Text = "Exportar"
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'Button5
-        '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.White
-        Me.Button5.Location = New System.Drawing.Point(438, 437)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(99, 31)
-        Me.Button5.TabIndex = 41
-        Me.Button5.Text = "Exportar"
-        Me.Button5.UseVisualStyleBackColor = False
-        '
-        'Button6
-        '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button6.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.ForeColor = System.Drawing.Color.White
-        Me.Button6.Location = New System.Drawing.Point(794, 437)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(99, 31)
-        Me.Button6.TabIndex = 41
-        Me.Button6.Text = "Exportar"
-        Me.Button6.UseVisualStyleBackColor = False
-        '
-        'nomsucursal
-        '
-        Me.nomsucursal.DataPropertyName = "nombre"
-        Me.nomsucursal.HeaderText = "Sucursal"
-        Me.nomsucursal.Name = "nomsucursal"
-        Me.nomsucursal.ReadOnly = True
-        '
-        'cantotal
-        '
-        Me.cantotal.DataPropertyName = "total"
-        Me.cantotal.HeaderText = "Cantidad Total"
-        Me.cantotal.Name = "cantotal"
-        Me.cantotal.ReadOnly = True
-        '
-        'dispon
-        '
-        Me.dispon.DataPropertyName = "porcdispon"
-        Me.dispon.HeaderText = "Disponibles (%)"
-        Me.dispon.Name = "dispon"
-        Me.dispon.ReadOnly = True
-        '
-        'porcalq
-        '
-        Me.porcalq.DataPropertyName = "porcalq"
-        Me.porcalq.HeaderText = "Alquilados (%)"
-        Me.porcalq.Name = "porcalq"
-        Me.porcalq.ReadOnly = True
-        '
-        'mant
-        '
-        Me.mant.DataPropertyName = "porcmant"
-        Me.mant.HeaderText = "Mantenimiento (%)"
-        Me.mant.Name = "mant"
-        Me.mant.ReadOnly = True
         '
         'frmMainMenu
         '
@@ -8577,4 +8643,9 @@ Partial Class frmMainMenu
     Friend WithEvents dispon As DataGridViewTextBoxColumn
     Friend WithEvents porcalq As DataGridViewTextBoxColumn
     Friend WithEvents mant As DataGridViewTextBoxColumn
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox1 As TextBox
 End Class

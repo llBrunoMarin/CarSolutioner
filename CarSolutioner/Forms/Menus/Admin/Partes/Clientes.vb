@@ -109,6 +109,8 @@ Partial Public Class frmMainMenu
 
                     If nrodocRepetido.Rows.Count = 0 Then
                         Dim sentencia As String
+
+
                         sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, porcdescuento, estado, telefono) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, Date.Parse(FechaSeleccionada).ToString("dd/MM/yyyy"), If(txtEmpresaACliente.Text = "", "-", txtEmpresaACliente.Text), numDescuentoACliente.Value.ToString, "t", numeros.ToString)
 
                         If cbxTipoDocumACliente.SelectedValue = 1 Then
@@ -150,19 +152,19 @@ Partial Public Class frmMainMenu
                             End If
                         End If
                     Else
-                        AmaranthMessagebox("Ya existe un cliente con el mismo número de documento, por favor modifique", "Error", Me)
+                        AmaranthMessagebox("Ya existe un cliente con el mismo número de documento, por favor modifique. (#030)", "Error", Me)
                     End If
                 Else
-                    AmaranthMessagebox("Solo puede registrar clientes mayores a 18 años.", "Advertencia", Me)
+                    AmaranthMessagebox("Solo puede registrar clientes mayores a 18 años. (#031)", "Advertencia", Me)
                 End If
 
             Else
                 'Si la fecha seleccionada no es una fecha válida, mostramos un mensaje de error y salimos del Sub.
-                AmaranthMessagebox("Por favor, seleccione una fecha válida.", "Advertencia", Me)
+                AmaranthMessagebox("Por favor, seleccione una fecha válida. (#032)", "Advertencia", Me)
             End If
         Else
             'Si falta rellenar algún dato necesario:
-            AmaranthMessagebox("Por favor, rellene todos los campos obligatorios.", "Advertencia", Me)
+            AmaranthMessagebox("Por favor, rellene todos los campos obligatorios. (#009)", "Advertencia", Me)
         End If
 
     End Sub
@@ -256,14 +258,15 @@ Partial Public Class frmMainMenu
                                         numDescuentoMCliente.Enabled = False
                                     End If
                                 Else
-                                    AmaranthMessagebox("Ya existe un cliente con ese número de documento.", "Advertencia", Me)
+                                    AmaranthMessagebox("Ya existe un cliente con ese número de documento. (#030)", "Advertencia", Me)
                                 End If
                             Else
                                 If (cbxTipoDocumMCliente.SelectedValue = 1) Then
                                     If (VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
                                         'ponerinsert
                                         conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
-                                        AmaranthMessagebox("Persona modificada satisfactoriamente.", "Continuar", Me)
+
+                                        MsgBox("Persona modificada satisfactoriamente.", "Continuar", Me)
 
                                         RecargarDatos(dgvClientes)
                                         numDescuentoMCliente.Enabled = False
@@ -278,17 +281,17 @@ Partial Public Class frmMainMenu
                                 End If
                             End If
                         Else
-                            AmaranthMessagebox("Modifique algo por favor.", "Advertencia", Me)
+                            AmaranthMessagebox("Modifique algo por favor. (#010)", "Advertencia", Me)
                         End If
                     Else
-                        AmaranthMessagebox("Por favor, ingrese una fecha válida.", "Advertencia", Me)
+                        AmaranthMessagebox("Por favor, ingrese una fecha válida. (#032)", "Advertencia", Me)
                     End If
 
                 Else
-                    AmaranthMessagebox("Debe cargar los teléfonos de la persona antes de modificar sus datos.", "Advertencia", Me)
+                    AmaranthMessagebox("Debe cargar los teléfonos de la persona antes de modificar sus datos. (#033)", "Advertencia", Me)
                 End If
             Else
-                AmaranthMessagebox("Rellene todos los campos obligatorios (*)", "Advertencia", Me)
+                AmaranthMessagebox("Rellene todos los campos obligatorios (*). (#009)", "Advertencia", Me)
             End If
         End If
     End Sub
@@ -336,20 +339,20 @@ Partial Public Class frmMainMenu
                                 RecargarDatos(dgvClientes)
                                 AmaranthMessagebox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar", Me)
                             Else
-                                AmaranthMessagebox("Por favor, verifique que pueda eliminar ese cliente.", "Error", Me)
+                                AmaranthMessagebox("Por favor, verifique que pueda eliminar ese cliente. (#034)", "Error", Me)
                             End If
                         Else
-                            AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene reservas activas.", "Error", Me)
+                            AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene reservas activas. (#035)", "Error", Me)
                         End If
                     Else
-                        AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene un alquiler activo.", "Error", Me)
+                        AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene un alquiler activo. (#036)", "Error", Me)
                     End If
 
                 Else
-                    AmaranthMessagebox("Ese cliente no existe. Por favor, verifique.", "Advertencia", Me)
+                    AmaranthMessagebox("Ese cliente no existe. Por favor, verifique. (#037)", "Advertencia", Me)
                 End If
             Else
-                AmaranthMessagebox("Ingrese un número de documento.", "Advertencia", Me)
+                AmaranthMessagebox("Ingrese un número de documento. (#038)", "Advertencia", Me)
             End If
         End If
     End Sub
@@ -436,7 +439,11 @@ Partial Public Class frmMainMenu
                 TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + " ")
 
                 Dim telefonospersonaS As String
-                telefonospersonaS = TelefonosPersona.Rows(0)(0).ToString()
+                Try
+                    telefonospersonaS = TelefonosPersona.Rows(0)(0).ToString()
+                Catch ex As Exception
+
+                End Try
 
                 Dim TelArray() As String = telefonospersonaS.Split(",")
 

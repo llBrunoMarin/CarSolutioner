@@ -160,6 +160,12 @@
     <Compile Include="Forms\Menus\Invitado\Partes\Mantenimiento.vb" />
     <Compile Include="Forms\Menus\Invitado\Partes\Reservas.vb" />
     <Compile Include="Forms\Menus\Invitado\Partes\Vehiculos.vb" />
+    <Compile Include="Forms\Menus\Sub-Forms\Acercade.Designer.vb">
+      <DependentUpon>Acercade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menus\Sub-Forms\Acercade.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Menus\Sub-Forms\Alquilar.Designer.vb">
       <DependentUpon>Alquilar.vb</DependentUpon>
     </Compile>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menus\Invitado\MainMenuInvitado.resx">
       <DependentUpon>MainMenuInvitado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Menus\Sub-Forms\Acercade.resx">
+      <DependentUpon>Acercade.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menus\Sub-Forms\Alquilar.resx">
       <DependentUpon>Alquilar.vb</DependentUpon>
@@ -436,6 +445,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-Russian Federation-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asaraasa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

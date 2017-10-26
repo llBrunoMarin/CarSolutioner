@@ -155,10 +155,10 @@ Partial Public Class frmMainMenu
 
                     End If
                 Else
-                    AmaranthMessagebox("Solo puede alquilar reservas futuras con 2 horas de antelación como máximo.", "Error", Me)
+                    AmaranthMessagebox("Solo puede alquilar reservas futuras con 2 horas de antelación como máximo. (#054)", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Solo puede alquilar reservas activas.", "Error", Me)
+                AmaranthMessagebox("Solo puede alquilar reservas activas. (#055)", "Error", Me)
             End If
         End If
 
@@ -207,7 +207,7 @@ Partial Public Class frmMainMenu
                     AmaranthMessagebox("Reserva anulada satisfactoriamente.", "Continuar", Me)
 
                 Else
-                    AmaranthMessagebox("No se pudo anular la reserva", "Error", Me)
+                    AmaranthMessagebox("No se pudo anular la reserva. (#053)", "Error", Me)
                 End If
             End If
         End If
@@ -304,20 +304,20 @@ Partial Public Class frmMainMenu
                             dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
 
                         Else
-                            AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas.", "Error", Me)
+                            AmaranthMessagebox("Ese cliente ya tiene un alquiler o reserva activos para esas fechas. (#048)", "Error", Me)
                         End If
 
                     Else
-                        AmaranthMessagebox("Ese cliente no está registrado o está inactivo.", "Error", Me)
+                        AmaranthMessagebox("Ese cliente no está registrado o está inactivo. (#049)", "Error", Me)
                     End If
                     Else
-                    AmaranthMessagebox("Las reservas tienen que ser de mínimo 24 horas.", "Error", Me)
+                    AmaranthMessagebox("Las reservas tienen que ser de mínimo 24 horas. (#050)", "Error", Me)
                 End If
                 Else
-                AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio.", "Error", Me)
+                AmaranthMessagebox("La fecha fin no puede ser menor a la de Inicio. (#051)", "Error", Me)
             End If
             Else
-            AmaranthMessagebox("Las fechas no pueden ser menores a la de hoy", "Error", Me)
+            AmaranthMessagebox("Las fechas no pueden ser menores a la de hoy. (#052)", "Error", Me)
         End If
 
     End Sub
@@ -372,13 +372,13 @@ Partial Public Class frmMainMenu
                     End Using
 
                 Else
-                    AmaranthMessagebox("Ese cliente ya tiene una reserva activa entre esas fechas.", "Error", Me)
+                    AmaranthMessagebox("Ese cliente ya tiene una reserva activa entre esas fechas. (#048)", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Ese cliente no está registrado.", "Error", Me)
+                AmaranthMessagebox("Ese cliente no está registrado. (#049)", "Error", Me)
             End If
         Else
-            AmaranthMessagebox("Tiene que realizar alguna modifiación.", "Error", Me)
+            AmaranthMessagebox("Tiene que realizar alguna modifiación. (#010)", "Error", Me)
         End If
     End Sub
 

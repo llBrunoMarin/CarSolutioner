@@ -384,4 +384,8 @@ Public Class frmMainMenu
         GenerarPdfDgvActual(tbcTabControl.SelectedTab, tabResAlq.SelectedTab)
 
     End Sub
+
+    Private Sub AcercaDeCarSolutionerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcercaDeCarSolutionerToolStripMenuItem.Click
+        Acercade.Show()
+    End Sub
 End Class

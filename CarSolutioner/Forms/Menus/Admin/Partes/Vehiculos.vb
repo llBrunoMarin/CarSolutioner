@@ -304,21 +304,21 @@ Partial Public Class frmMainMenu
                             conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
                             RecargarDatos(dgvVehiculos)
-                            AmaranthMessagebox("Vehiculo agregado correctamente", "Continuar", Me)
+                            AmaranthMessagebox("Vehiculo agregado correctamente.", "Continuar", Me)
                         Else
-                            AmaranthMessagebox("Ya posee un vehiculo con el mismo número de chasis.", "Advertencia", Me)
+                            AmaranthMessagebox("Ya posee un vehiculo con el mismo número de chasis. (#039)", "Advertencia", Me)
                         End If
                     Else
-                        AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error", Me)
+                        AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + " (#040)", "Error", Me)
                     End If
                 Else
-                    AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error", Me)
+                    AmaranthMessagebox("La cantidad de pasajeros no puede ser 0. (#041)", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia", Me)
+                AmaranthMessagebox("Por favor, rellene todos los campos. (#009)", "Advertencia", Me)
             End If
         Else
-            AmaranthMessagebox("Por favor, rellene todos los campos.", "Advertencia", Me)
+            AmaranthMessagebox("Por favor, rellene todos los campos. (#009)", "Advertencia", Me)
         End If
     End Sub
 
@@ -399,20 +399,20 @@ Partial Public Class frmMainMenu
                             sentencia = "UPDATE vehiculo SET matricula = '" + txtMatriculaMVeh.Text.ToString.ToUpper + "', anio ='" + txtAnioMVeh.Text + "',  kilometraje ='" + txtKMMVeh.Text + "', aireacondicionado ='" + aireMVeh + "',  cantidaddepuertas ='" + cbxPuertasMVeh.SelectedItem.ToString + "', cantidaddepasajeros='" + cantpasajeros + "',  cantidaddemaletas='" + cbxMaletasMVeh.SelectedItem.ToString + "', esmanual='" + automaticoMVeh + "',  deducible ='" + txtDeducibleMVeh.Text.ToString + "', idcategoria='" + cbxCategoriaMVeh.SelectedValue.ToString + "', idmodelo='" + cbxModeloMVeh.SelectedValue.ToString + "',  idsucursal='" + cbxSucursalMVeh.SelectedValue.ToString + "', estado ='T', color = '" + cbxColorMVehiculo.SelectedItem.ToString + "' WHERE nrochasis = '" + nrochasisI + "'"
                             conexion.EjecutarNonQuery(sentencia)
                             RecargarDatos(dgvVehiculos)
-                            AmaranthMessagebox("Modificado correctamente", "Continuar", Me)
+                            AmaranthMessagebox("Modificado correctamente.", "Continuar", Me)
 
                         Else
-                            AmaranthMessagebox("Este vehiculo se encuentra en mantenimiento no puede modificarlo.", "Error", Me)
+                            AmaranthMessagebox("Este vehiculo se encuentra en mantenimiento no puede modificarlo. (#042)", "Error", Me)
                         End If
 
                     Else
-                        AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + "", "Error", Me)
+                        AmaranthMessagebox("El año del vehiculo no puede ser mayor a " + (añoActual + 1).ToString + " (#040)", "Error", Me)
                     End If
                 Else
-                    AmaranthMessagebox("La cantidad de pasajeros no puede ser 0.", "Error", Me)
+                    AmaranthMessagebox("La cantidad de pasajeros no puede ser 0. (#041)", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Modifique algo por favor", "Advertencia", Me)
+                AmaranthMessagebox("Modifique algo por favor. (#010)", "Advertencia", Me)
             End If
             'Else
             '    AmaranthMessagebox("Por favor, rellene todos los campos", "Advertencia")
@@ -422,7 +422,7 @@ Partial Public Class frmMainMenu
             'End If
         Catch ex As Exception
             If (ex.Message.Contains("Referencia a objeto no establecida como instancia de un objeto.")) Then
-                AmaranthMessagebox("Este vehiculo se encuentra alquilado, no puede modificarlo", "Error", Me)
+                AmaranthMessagebox("Este vehiculo se encuentra alquilado, no puede modificarlo. (#043)", "Error", Me)
             End If
         End Try
     End Sub
@@ -454,7 +454,7 @@ Partial Public Class frmMainMenu
 
                 If (mantenimientoActivo.Rows.Count = 0 And alquilerActivo.Rows.Count = 0) Then
 
-                    If (AmaranthMessagebox("Seguro que quiere dar de baja este vehiculo?", "Si/No", Me) = vbYes) Then
+                    If (AmaranthMessagebox("Seguro que quiere dar de baja este vehiculo?.", "Si/No", Me) = vbYes) Then
 
                         Dim matriculaI As String = matriculaDT.Rows(0)("matricula").ToString()
                         Dim EstadoActual As Boolean = matriculaDT.Rows(0)("estado")
@@ -468,13 +468,13 @@ Partial Public Class frmMainMenu
                         End If
                     End If
                 Else
-                    AmaranthMessagebox("No es posible dar de baja este vehiculo debido a que tiene un alquiler o mantenimiento activo", "Advertencia", Me)
+                    AmaranthMessagebox("No es posible dar de baja este vehiculo debido a que tiene un alquiler o mantenimiento activo, (#042,#043)0", "Advertencia", Me)
                 End If
             Else
-                AmaranthMessagebox("No existe esa matricula", "Error", Me)
+                AmaranthMessagebox("No existe esa matricula. (#044)", "Error", Me)
             End If
         Else
-            AmaranthMessagebox("Ingrese una matricula", "Advertencia", Me)
+            AmaranthMessagebox("Ingrese una matricul. (#045)", "Advertencia", Me)
         End If
     End Sub
 

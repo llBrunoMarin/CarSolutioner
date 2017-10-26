@@ -36,7 +36,7 @@
             End Using
             Me.Dispose()
         Else
-            AmaranthMessagebox("No hay vehículos disponibles con estas características. Por favor, intente nuevamente.", "Error", Me)
+            AmaranthMessagebox("No hay vehículos disponibles con estas características. Por favor, intente nuevamente. (#056) ", "Error", Me)
         End If
 
     End Sub

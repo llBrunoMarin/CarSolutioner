@@ -126,10 +126,10 @@ Partial Public Class frmMainMenu
                         TerminarAlquiler.ShowDialog(Me)
                     End Using
                 Else
-                    AmaranthMessagebox("No puede finalizar alquileres que terminen en otra sucursal. Modifique el alquiler de ser necesario.", "Error", Me)
+                    AmaranthMessagebox("No puede finalizar alquileres que terminen en otra sucursal. Modifique el alquiler de ser necesario. (#046)", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("Solo pueden finalizar alquileres que esten activos.", "Error", Me)
+                AmaranthMessagebox("Solo pueden finalizar alquileres que esten activos. (#047)", "Error", Me)
             End If
         End If
 
@@ -194,7 +194,7 @@ Partial Public Class frmMainMenu
             RecargarDatos(dgvAlquileres)
 
         Else
-            AmaranthMessagebox("Modifique algo", "Advertencia", Me)
+            AmaranthMessagebox("Modifique algo. (#010)", "Advertencia", Me)
         End If
 
     End Sub

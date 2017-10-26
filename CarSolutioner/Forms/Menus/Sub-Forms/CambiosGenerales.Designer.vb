@@ -605,9 +605,9 @@ Partial Class frmCambiosGenerales
         Me.Label52.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label52.Location = New System.Drawing.Point(343, 461)
         Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(56, 17)
+        Me.Label52.Size = New System.Drawing.Size(65, 17)
         Me.Label52.TabIndex = 86
-        Me.Label52.Text = "Nombre"
+        Me.Label52.Text = "Nombre *"
         '
         'Label57
         '
@@ -616,9 +616,9 @@ Partial Class frmCambiosGenerales
         Me.Label57.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label57.Location = New System.Drawing.Point(21, 459)
         Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(56, 17)
+        Me.Label57.Size = New System.Drawing.Size(65, 17)
         Me.Label57.TabIndex = 85
-        Me.Label57.Text = "Nombre"
+        Me.Label57.Text = "Nombre *"
         '
         'txtnombretipodoc
         '
@@ -1672,9 +1672,9 @@ Partial Class frmCambiosGenerales
         Me.Label49.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label49.Location = New System.Drawing.Point(350, 411)
         Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(32, 17)
+        Me.Label49.Size = New System.Drawing.Size(41, 17)
         Me.Label49.TabIndex = 95
-        Me.Label49.Text = "Tipo"
+        Me.Label49.Text = "Tipo *"
         '
         'cbxTipoModeloModificar
         '
@@ -1822,9 +1822,9 @@ Partial Class frmCambiosGenerales
         Me.Label55.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label55.Location = New System.Drawing.Point(6, 411)
         Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(32, 17)
+        Me.Label55.Size = New System.Drawing.Size(41, 17)
         Me.Label55.TabIndex = 92
-        Me.Label55.Text = "Tipo"
+        Me.Label55.Text = "Tipo *"
         '
         'cboxTipoModelo
         '
@@ -1842,9 +1842,9 @@ Partial Class frmCambiosGenerales
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(3, 364)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(47, 17)
+        Me.Label10.Size = New System.Drawing.Size(56, 17)
         Me.Label10.TabIndex = 90
-        Me.Label10.Text = "Marca"
+        Me.Label10.Text = "Marca *"
         '
         'cboxMarcasModelo
         '
@@ -1862,9 +1862,9 @@ Partial Class frmCambiosGenerales
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label14.Location = New System.Drawing.Point(353, 367)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(47, 17)
+        Me.Label14.Size = New System.Drawing.Size(56, 17)
         Me.Label14.TabIndex = 87
-        Me.Label14.Text = "Marca"
+        Me.Label14.Text = "Marca *"
         '
         'Label15
         '
@@ -1873,9 +1873,9 @@ Partial Class frmCambiosGenerales
         Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label15.Location = New System.Drawing.Point(350, 461)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(56, 17)
+        Me.Label15.Size = New System.Drawing.Size(65, 17)
         Me.Label15.TabIndex = 86
-        Me.Label15.Text = "Nombre"
+        Me.Label15.Text = "Nombre *"
         '
         'Label39
         '
@@ -1884,9 +1884,9 @@ Partial Class frmCambiosGenerales
         Me.Label39.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label39.Location = New System.Drawing.Point(3, 459)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(56, 17)
+        Me.Label39.Size = New System.Drawing.Size(65, 17)
         Me.Label39.TabIndex = 85
-        Me.Label39.Text = "Nombre"
+        Me.Label39.Text = "Nombre *"
         '
         'cboxModeloModificarMarca
         '
@@ -1980,9 +1980,9 @@ Partial Class frmCambiosGenerales
         Me.Label43.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label43.Location = New System.Drawing.Point(134, 446)
         Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(56, 17)
+        Me.Label43.Size = New System.Drawing.Size(65, 17)
         Me.Label43.TabIndex = 96
-        Me.Label43.Text = "Nombre"
+        Me.Label43.Text = "Nombre *"
         '
         'dgvMarcas
         '
@@ -2037,9 +2037,9 @@ Partial Class frmCambiosGenerales
         Me.Label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label44.Location = New System.Drawing.Point(9, 446)
         Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(56, 17)
+        Me.Label44.Size = New System.Drawing.Size(65, 17)
         Me.Label44.TabIndex = 95
-        Me.Label44.Text = "Nombre"
+        Me.Label44.Text = "Nombre *"
         '
         'Label53
         '
@@ -2222,9 +2222,9 @@ Partial Class frmCambiosGenerales
         Me.Label45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label45.Location = New System.Drawing.Point(131, 450)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(56, 17)
+        Me.Label45.Size = New System.Drawing.Size(65, 17)
         Me.Label45.TabIndex = 86
-        Me.Label45.Text = "Nombre"
+        Me.Label45.Text = "Nombre *"
         '
         'Label46
         '
@@ -2233,9 +2233,9 @@ Partial Class frmCambiosGenerales
         Me.Label46.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.Label46.Location = New System.Drawing.Point(6, 450)
         Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(56, 17)
+        Me.Label46.Size = New System.Drawing.Size(65, 17)
         Me.Label46.TabIndex = 85
-        Me.Label46.Text = "Nombre"
+        Me.Label46.Text = "Nombre *"
         '
         'txtNombreTipo
         '

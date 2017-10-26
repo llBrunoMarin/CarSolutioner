@@ -165,25 +165,25 @@ Module Metodos
 
                     Else
 
-                        MsgBox("Su cédula es inválida. Por favor verifique.", MsgBoxStyle.Critical, "CI Inválida")
+                        MsgBox("Su cédula es inválida. Por favor verifique. (#003)", MsgBoxStyle.Critical, "CI Inválida")
                         Return False
 
                     End If
 
                 Catch ex As Exception
 
-                    MsgBox("Su cédula es inválida. Por favor verifique.", MsgBoxStyle.Critical, "CI Inválida")
+                    MsgBox("Su cédula es inválida. Por favor verifique. (#003)", MsgBoxStyle.Critical, "CI Inválida")
                     Return False
 
                 End Try
 
             Else
-                MsgBox("Ingrese una cédula de largo válido por favor.", MsgBoxStyle.Critical, "CI Inválida")
+                MsgBox("Ingrese una cédula de largo válido por favor. (#004)", MsgBoxStyle.Critical, "CI Inválida")
                 Return False
             End If
 
         Else
-            MsgBox("Limítese solo a numeros en los campos numéricos, por favor.", MsgBoxStyle.Critical, "CI Inválida")
+            MsgBox("Limítese solo a numeros en los campos numéricos, por favor. (#005)", MsgBoxStyle.Critical, "CI Inválida")
             Return False
         End If
 
@@ -346,14 +346,14 @@ Module Metodos
 
                     Else
 
-                        MsgBox("Su codigo es inválido. Por favor verifique.")
+                        MsgBox("Su codigo es inválido. Por favor verifique. (#006)")
                         Return False
 
                     End If
 
                 Catch ex As Exception
 
-                    MsgBox("Su codigo es inválido. Por favor verifique.")
+                    MsgBox("Su codigo es inválido. Por favor verifique. (#006)")
                     Return False
 
                 End Try
@@ -401,20 +401,20 @@ Module Metodos
 
                         Return True
                     Else
-                        MsgBox("Su codigo es inválido. Por favor verifique.")
+                        MsgBox("Su codigo es inválido. Por favor verifique. (#006)")
                         Return False
                     End If
                 Catch ex As Exception
 
-                    MsgBox("Su codigo es inválido. Por favor verifique.")
+                    MsgBox("Su codigo es inválido. Por favor verifique. (#006)")
                     Return False
                 End Try
             Else
-                MsgBox("Largo Inválido")
+                MsgBox("Largo Inválido. (#007)")
                 Return False
             End If
         Else
-            MsgBox("Limítese solo a numeros en los campos numéricos, por favor.")
+            MsgBox("Limítese solo a numeros en los campos numéricos, por favor. (#005)")
             Return False
         End If
 

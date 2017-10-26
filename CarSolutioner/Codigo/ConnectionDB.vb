@@ -195,7 +195,7 @@
                 cx.ConnectionTimeout = 2
 
                 'SERVIDOR UTU
-                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                ' cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
 
                 'SERVIDOR VICTOR
@@ -203,7 +203,7 @@
 
 
                 'SERVIDOR VICTOR 32 BITS
-                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
 
                 'Servidor victor 64 bits EN UTU (probar si anda)
@@ -240,7 +240,7 @@
 
 
 
-            'MsgBox("Error desconocido", MsgBoxStyle.Exclamation, "Error")
+            MsgBox("Error desconocido (#002)", MsgBoxStyle.Exclamation, "Error")
             ' MsgBox(ex.Message)
 
 
@@ -353,9 +353,9 @@
 
             If nrofilas = 0 Then
                 If frase = Nothing Then
-                    MsgBox("No se realizaron cambios.", MsgBoxStyle.Information, "Advertencia")
+                    MsgBox("No se realizaron cambios. (#001)", MsgBoxStyle.Information, "Advertencia")
                 Else
-                    MsgBox("No se realizaron cambios, en: " + frase, MsgBoxStyle.Information, "Advertencia")
+                    MsgBox("No se realizaron cambios (#001), en: " + frase, MsgBoxStyle.Information, "Advertencia")
 
                 End If
                 Return False
@@ -368,7 +368,7 @@
 
         Catch ex As Exception
 
-            'MsgBox(ex.Message)
+            MsgBox(ex.Message)
 
             Return False
 

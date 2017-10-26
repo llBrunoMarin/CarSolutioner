@@ -69,6 +69,7 @@ Partial Class frmTelefonosCliente
         'lblAyuda
         '
         Me.lblAyuda.Font = New System.Drawing.Font("Century Gothic", 9.0!)
+        Me.lblAyuda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.lblAyuda.Location = New System.Drawing.Point(8, 191)
         Me.lblAyuda.Name = "lblAyuda"
         Me.lblAyuda.Size = New System.Drawing.Size(369, 145)

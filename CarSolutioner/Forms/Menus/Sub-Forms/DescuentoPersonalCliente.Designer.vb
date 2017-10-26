@@ -22,6 +22,7 @@ Partial Class DescuentoPersonalCliente
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DescuentoPersonalCliente))
         Me.pnlEncabezado = New System.Windows.Forms.Panel()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.lblTitulo2 = New System.Windows.Forms.Label()
@@ -116,6 +117,7 @@ Partial Class DescuentoPersonalCliente
         Me.Controls.Add(Me.lblTitulo2)
         Me.Controls.Add(Me.pnlEncabezado)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "DescuentoPersonalCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "DescuentoPersonalCliente"

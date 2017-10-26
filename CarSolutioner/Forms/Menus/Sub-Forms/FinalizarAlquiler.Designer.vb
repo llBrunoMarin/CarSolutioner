@@ -22,6 +22,7 @@ Partial Class FinalizarAlquiler
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FinalizarAlquiler))
         Me.Label150 = New System.Windows.Forms.Label()
         Me.txtKMAutoAhora = New System.Windows.Forms.TextBox()
         Me.txtCantidadDias = New System.Windows.Forms.TextBox()
@@ -307,6 +308,7 @@ Partial Class FinalizarAlquiler
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtCostoTotal)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FinalizarAlquiler"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FinalizarAlquiler"

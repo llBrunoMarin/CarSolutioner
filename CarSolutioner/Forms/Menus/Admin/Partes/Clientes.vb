@@ -265,8 +265,8 @@ Partial Public Class frmMainMenu
                                     If (VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
                                         'ponerinsert
                                         conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
-                                        
-                                        ("Persona modificada satisfactoriamente.", "Continuar", Me)
+
+                                        MsgBox("Persona modificada satisfactoriamente.", "Continuar", Me)
 
                                         RecargarDatos(dgvClientes)
                                         numDescuentoMCliente.Enabled = False

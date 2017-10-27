@@ -71,12 +71,12 @@ Partial Public Class frmMainMenu
                                     AmaranthMessagebox("Mantenimiento ingresado", "Continuar", Me)
 
                                 Else
-                                    AmaranthMessagebox("Mantenimiento ya existente", "Error", Me)
+                                    AmaranthMessagebox("Mantenimiento ya existente.(#057)", "Error", Me)
 
                                 End If
                             End If
                         Else
-                            AmaranthMessagebox("Existe un mantenimiento activo", "Error", Me)
+                            AmaranthMessagebox("Existe un mantenimiento activo.(#057)", "Error", Me)
                         End If
                     Else
                         AmaranthMessagebox("El vehículo se encuentra en alquiler", "Advertencia", Me)
@@ -85,10 +85,10 @@ Partial Public Class frmMainMenu
                     AmaranthMessagebox("El vehículo está inactivo", "Advertencia", Me)
                 End If
             Else
-                AmaranthMessagebox("Matricula no existe", "Error", Me)
+                AmaranthMessagebox("Matricula no existe.(#044)", "Error", Me)
             End If
         Else
-            AmaranthMessagebox("No pueden quedar campos vacíos", "Advertencia", Me)
+            AmaranthMessagebox("No pueden quedar campos vacíos.(#009)", "Advertencia", Me)
         End If
     End Sub
 
@@ -152,19 +152,19 @@ Partial Public Class frmMainMenu
                             RecargarDatos(dgvMant)
 
                         Else
-                            MsgBox("Error")
+
                         End If
 
                     End If
                 Else
-                    AmaranthMessagebox("No se han realizado cambios", "Advertencia", Me)
+                    AmaranthMessagebox("No se han realizado cambios.(#010)", "Advertencia", Me)
                 End If
 
                 Else
-                AmaranthMessagebox("Matricula no existente", "Error", Me)
+                AmaranthMessagebox("Matricula no existente.(#044)", "Error", Me)
             End If
         Else
-            AmaranthMessagebox("No pueden quedar campos vacios", "Advertencia", Me)
+            AmaranthMessagebox("No pueden quedar campos vacios.(#009)", "Advertencia", Me)
         End If
     End Sub
 

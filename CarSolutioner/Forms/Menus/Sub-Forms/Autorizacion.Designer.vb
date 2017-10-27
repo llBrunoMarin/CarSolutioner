@@ -37,6 +37,7 @@ Partial Class Autorizacion
         'txtDescuento
         '
         Me.txtDescuento.Location = New System.Drawing.Point(67, 80)
+        Me.txtDescuento.MaxLength = 8
         Me.txtDescuento.Name = "txtDescuento"
         Me.txtDescuento.Size = New System.Drawing.Size(150, 20)
         Me.txtDescuento.TabIndex = 0

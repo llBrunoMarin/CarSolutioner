@@ -58,7 +58,7 @@ Partial Public Class frmMainMenu
                     If Not (verifalquiler.Rows.Count <> 0) Then
                         If Not (verifnrochasis.Rows.Count <> 0) Then
                             If dtpFechaInicioMant.Value.ToString(format) > dtpFechaFinMant.Value.ToString(format) Then
-                                AmaranthMessagebox("No puede definir una fecha de inicio mayor a la fecha de fin", "Advertencia", Me)
+                                AmaranthMessagebox("No puede definir una fecha de inicio mayor a la fecha de fin.(#051)", "Advertencia", Me)
                             Else
 
                                 If (conexion.EjecutarNonQuery("INSERT into mantenimiento VALUES ('" + cbxTipoMant.SelectedItem.ToString() + "','" + dtpFechaInicioMant.Value.ToString(format) + "', '" + dtpFechaFinMant.Value.ToString(format) + "', '" + nrochasisinsert + "')") = True) Then

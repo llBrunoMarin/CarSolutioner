@@ -152,14 +152,9 @@ Partial Class frmMainMenu
         Me.txtNombreACliente = New System.Windows.Forms.TextBox()
         Me.txtDocumACliente = New System.Windows.Forms.TextBox()
         Me.btnDescuentoACliente = New System.Windows.Forms.Button()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.btnAgregarTelefonosACliente = New System.Windows.Forms.Button()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.btnIngresarACliente = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label93 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label94 = New System.Windows.Forms.Label()
         Me.Label95 = New System.Windows.Forms.Label()
         Me.Label96 = New System.Windows.Forms.Label()
@@ -650,8 +645,8 @@ Partial Class frmMainMenu
         Me.btnVaciarFAlquiler = New System.Windows.Forms.Button()
         Me.Label147 = New System.Windows.Forms.Label()
         Me.tpgReportesReserva = New System.Windows.Forms.TabPage()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnClientesMasGastaron = New System.Windows.Forms.Button()
+        Me.btnMasRentables = New System.Windows.Forms.Button()
         Me.Label111 = New System.Windows.Forms.Label()
         Me.Label121 = New System.Windows.Forms.Label()
         Me.dgvClientesMasGastaron = New System.Windows.Forms.DataGridView()
@@ -1815,14 +1810,9 @@ Partial Class frmMainMenu
         Me.pnlAClientes.Controls.Add(Me.txtNombreACliente)
         Me.pnlAClientes.Controls.Add(Me.txtDocumACliente)
         Me.pnlAClientes.Controls.Add(Me.btnDescuentoACliente)
-        Me.pnlAClientes.Controls.Add(Me.TextBox5)
         Me.pnlAClientes.Controls.Add(Me.btnAgregarTelefonosACliente)
-        Me.pnlAClientes.Controls.Add(Me.TextBox4)
         Me.pnlAClientes.Controls.Add(Me.btnIngresarACliente)
-        Me.pnlAClientes.Controls.Add(Me.TextBox3)
-        Me.pnlAClientes.Controls.Add(Me.TextBox2)
         Me.pnlAClientes.Controls.Add(Me.Label93)
-        Me.pnlAClientes.Controls.Add(Me.TextBox1)
         Me.pnlAClientes.Controls.Add(Me.Label94)
         Me.pnlAClientes.Controls.Add(Me.Label95)
         Me.pnlAClientes.Controls.Add(Me.Label96)
@@ -2006,15 +1996,6 @@ Partial Class frmMainMenu
         Me.btnDescuentoACliente.UseCompatibleTextRendering = True
         Me.btnDescuentoACliente.UseVisualStyleBackColor = False
         '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(116, -87)
-        Me.TextBox5.MaxLength = 5
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.ShortcutsEnabled = False
-        Me.TextBox5.Size = New System.Drawing.Size(125, 20)
-        Me.TextBox5.TabIndex = 4
-        '
         'btnAgregarTelefonosACliente
         '
         Me.btnAgregarTelefonosACliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
@@ -2032,15 +2013,6 @@ Partial Class frmMainMenu
         Me.btnAgregarTelefonosACliente.Text = "+"
         Me.btnAgregarTelefonosACliente.UseCompatibleTextRendering = True
         Me.btnAgregarTelefonosACliente.UseVisualStyleBackColor = False
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(247, -87)
-        Me.TextBox4.MaxLength = 5
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ShortcutsEnabled = False
-        Me.TextBox4.Size = New System.Drawing.Size(124, 20)
-        Me.TextBox4.TabIndex = 5
         '
         'btnIngresarACliente
         '
@@ -2060,24 +2032,6 @@ Partial Class frmMainMenu
         Me.btnIngresarACliente.Text = "Ingresar"
         Me.btnIngresarACliente.UseVisualStyleBackColor = False
         '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(246, -136)
-        Me.TextBox3.MaxLength = 5
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.ShortcutsEnabled = False
-        Me.TextBox3.Size = New System.Drawing.Size(125, 20)
-        Me.TextBox3.TabIndex = 1
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(507, -136)
-        Me.TextBox2.MaxLength = 5
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ShortcutsEnabled = False
-        Me.TextBox2.Size = New System.Drawing.Size(124, 20)
-        Me.TextBox2.TabIndex = 3
-        '
         'Label93
         '
         Me.Label93.AutoSize = True
@@ -2088,15 +2042,6 @@ Partial Class frmMainMenu
         Me.Label93.Size = New System.Drawing.Size(49, 17)
         Me.Label93.TabIndex = 29
         Me.Label93.Text = "Correo"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(377, -136)
-        Me.TextBox1.MaxLength = 5
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ShortcutsEnabled = False
-        Me.TextBox1.Size = New System.Drawing.Size(124, 20)
-        Me.TextBox1.TabIndex = 2
         '
         'Label94
         '
@@ -5613,7 +5558,6 @@ Partial Class frmMainMenu
         Me.dgvReservas.ReadOnly = True
         Me.dgvReservas.RowHeadersVisible = False
         Me.dgvReservas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle19.Format = "dd/MM/yyyy HH:mm"
         DataGridViewCellStyle19.NullValue = Nothing
         DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.dgvReservas.RowsDefaultCellStyle = DataGridViewCellStyle19
@@ -7564,8 +7508,8 @@ Partial Class frmMainMenu
         'tpgReportesReserva
         '
         Me.tpgReportesReserva.BackColor = System.Drawing.Color.Silver
-        Me.tpgReportesReserva.Controls.Add(Me.Button6)
-        Me.tpgReportesReserva.Controls.Add(Me.Button5)
+        Me.tpgReportesReserva.Controls.Add(Me.btnClientesMasGastaron)
+        Me.tpgReportesReserva.Controls.Add(Me.btnMasRentables)
         Me.tpgReportesReserva.Controls.Add(Me.Label111)
         Me.tpgReportesReserva.Controls.Add(Me.Label121)
         Me.tpgReportesReserva.Controls.Add(Me.dgvClientesMasGastaron)
@@ -7576,41 +7520,41 @@ Partial Class frmMainMenu
         Me.tpgReportesReserva.TabIndex = 2
         Me.tpgReportesReserva.Text = "Reportes de Reserva y Alquiler"
         '
-        'Button6
+        'btnClientesMasGastaron
         '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button6.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.ForeColor = System.Drawing.Color.White
-        Me.Button6.Location = New System.Drawing.Point(794, 437)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(99, 31)
-        Me.Button6.TabIndex = 41
-        Me.Button6.Text = "Exportar"
-        Me.Button6.UseVisualStyleBackColor = False
+        Me.btnClientesMasGastaron.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClientesMasGastaron.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnClientesMasGastaron.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnClientesMasGastaron.FlatAppearance.BorderSize = 0
+        Me.btnClientesMasGastaron.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnClientesMasGastaron.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnClientesMasGastaron.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClientesMasGastaron.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClientesMasGastaron.ForeColor = System.Drawing.Color.White
+        Me.btnClientesMasGastaron.Location = New System.Drawing.Point(794, 437)
+        Me.btnClientesMasGastaron.Name = "btnClientesMasGastaron"
+        Me.btnClientesMasGastaron.Size = New System.Drawing.Size(99, 31)
+        Me.btnClientesMasGastaron.TabIndex = 41
+        Me.btnClientesMasGastaron.Text = "Exportar"
+        Me.btnClientesMasGastaron.UseVisualStyleBackColor = False
         '
-        'Button5
+        'btnMasRentables
         '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.White
-        Me.Button5.Location = New System.Drawing.Point(438, 437)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(99, 31)
-        Me.Button5.TabIndex = 41
-        Me.Button5.Text = "Exportar"
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.btnMasRentables.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMasRentables.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnMasRentables.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed
+        Me.btnMasRentables.FlatAppearance.BorderSize = 0
+        Me.btnMasRentables.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.btnMasRentables.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnMasRentables.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMasRentables.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMasRentables.ForeColor = System.Drawing.Color.White
+        Me.btnMasRentables.Location = New System.Drawing.Point(438, 437)
+        Me.btnMasRentables.Name = "btnMasRentables"
+        Me.btnMasRentables.Size = New System.Drawing.Size(99, 31)
+        Me.btnMasRentables.TabIndex = 41
+        Me.btnMasRentables.Text = "Exportar"
+        Me.btnMasRentables.UseVisualStyleBackColor = False
         '
         'Label111
         '
@@ -8636,16 +8580,11 @@ Partial Class frmMainMenu
     Friend WithEvents btnExportarEstadoVeh As Button
     Friend WithEvents btnExportarVehDispHoy As Button
     Friend WithEvents Button4 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnClientesMasGastaron As Button
+    Friend WithEvents btnMasRentables As Button
     Friend WithEvents nomsucursal As DataGridViewTextBoxColumn
     Friend WithEvents cantotal As DataGridViewTextBoxColumn
     Friend WithEvents dispon As DataGridViewTextBoxColumn
     Friend WithEvents porcalq As DataGridViewTextBoxColumn
     Friend WithEvents mant As DataGridViewTextBoxColumn
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
 End Class

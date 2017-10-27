@@ -281,9 +281,10 @@ Public Class frmMainMenu
 
             Case "dgvReservas"
                 dgvReservas.AutoGenerateColumns = False
-                conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.fechareservafin, TO_CHAR(r.fechareservainicio, '%d/%m/%Y') fechareservainiciof, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria,R.costototal, R.fechatramite, R.estado idestado, R.idpersona, R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkmtext, CASE WHEN R.estado = 1 THEN ""Activa"" WHEN R.estado = 2 THEN ""Inactiva"" WHEN R.estado = 3 THEN ""Anulada"" ELSE NULL END estado, R.cantidadkm idcantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada AND R.nrochasis IS NULL ORDER BY fechareservainicio")
+                conexion.RellenarDataGridView(dgvReservas, "SELECT R.fechareservainicio, R.fechareservafin, TO_CHAR(r.fechareservainicio, '%d/%m/%Y') fechareservainiciof, R.idreserva, T.nombre tipo, C.nombre || ' ' || C.apellido nombreapellido, C.nrodocumento, ca.nombre categoria, R.costototal, R.fechatramite, R.estado idestado, R.idpersona, R.idcategoria, R.idtipo, R.idsucursalsalida, R.idsucursalllegada, SS.nombre salida, SL.nombre llegada, R.usuarioempleado, CASE WHEN R.cantidadkm = 1 THEN ""150 KM/Día"" WHEN R.cantidadkm = 2 THEN ""300 KM/Día"" WHEN R.cantidadkm = 3 THEN ""KM Libres"" ELSE NULL END cantidadkmtext, CASE WHEN R.estado = 1 THEN ""Activa"" WHEN R.estado = 2 THEN ""Inactiva"" WHEN R.estado = 3 THEN ""Anulada"" ELSE NULL END estado, R.cantidadkm idcantidadkm FROM Reserva R, Cliente C, Categoria Ca, Tipo T, Sucursal SS, Sucursal SL WHERE C.idpersona = R.idpersona AND Ca.idcategoria = R.idcategoria AND T.idtipo = R.idtipo AND SS.idsucursal = R.idsucursalsalida AND SL.idsucursal = R.idsucursalllegada AND R.nrochasis IS NULL ORDER BY fechareservainicio")
                 dgvReservas.Columns("fechareservainicio").ValueType = GetType(Date)
                 dgvReservas.Columns("fechareservafin").ValueType = GetType(Date)
+
                 chboxFechaFRes.Checked = Not chboxFechaFRes.Checked
                 chboxFechaFRes.Checked = Not chboxFechaFRes.Checked
 
@@ -305,7 +306,7 @@ Public Class frmMainMenu
             Case "dgvVehiculosDisponibles"
                 conexion.RellenarDataGridView(dgvVehiculosDisponibles, "Select  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE v.idsucursal = '" + conexion.IdSucursalUsuario.ToString + "' AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND v.nrochasis NOT IN (SELECT r.nrochasis FROM Reserva R WHERE r.fechaalquilerfin IS NOT NULL) AND  v.nrochasis NOT IN (SELECT m.nrochasis FROM mantenimiento m WHERE TODAY BETWEEN m.fechainicio AND m.fechafin)")
             Case "dgvAccionesEmp"
-                conexion.RellenarDataGridView(dgvAccionesEmp, "SELECT IP, TO_CHAR(fechayhora, '%d/%m/%Y') Fecha, TO_CHAR(fechayhora, '%h:%m') Hora, descripcion FROM Accion ORDER BY fechayhora DESC")
+                conexion.RellenarDataGridView(dgvAccionesEmp, "SELECT IP, TO_CHAR(fechayhora, '%d/%m/%Y') Fecha, TO_CHAR(fechayhora, '%H:%M') Hora, descripcion FROM Accion ORDER BY fechayhora DESC")
             Case "dgvAutosMasRentables"
                 conexion.RellenarDataGridView(dgvAutosMasRentables, "SELECT V.matricula, Ma.nombre Marca, Mo.nombre Modelo, T.total FROM Vehiculo V, Marca Ma, Modelo Mo, RentTotalVehiculos T WHERE V.idmodelo = Mo.idmodelo AND Mo.idmarca = Ma.idmarca AND V.nrochasis = T.nrochasis ORDER BY total DESC")
             Case "dgvPorcVeh"
@@ -411,5 +412,17 @@ Public Class frmMainMenu
 
     Private Sub btnExportarEstadoVeh_Click(sender As Object, e As EventArgs) Handles btnExportarEstadoVeh.Click
         CrearPDF(dgvPorcVeh, "Estado actual de los Vehiculos")
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        CrearPDF(dgvAccionesEmp, "Acciones de los Empleados")
+    End Sub
+
+    Private Sub btnMasRentables_Click(sender As Object, e As EventArgs) Handles btnMasRentables.Click
+        CrearPDF(dgvAutosMasRentables, "Autos más rentables")
+    End Sub
+
+    Private Sub btnClientesMasGastaron_Click(sender As Object, e As EventArgs) Handles btnClientesMasGastaron.Click
+        CrearPDF(dgvClientesMasGastaron, "Clientes que más han gastado")
     End Sub
 End Class

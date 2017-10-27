@@ -88,7 +88,7 @@ Partial Public Class frmMainMenu
                 AmaranthMessagebox("Matricula no existe", "Error", Me)
             End If
         Else
-            AmaranthMessagebox("No pueden quedar campos vacíos", "Advertencia", Me)
+            AmaranthMessagebox("No pueden quedar campos vacíos. (#009)", "Advertencia", Me)
         End If
     End Sub
 

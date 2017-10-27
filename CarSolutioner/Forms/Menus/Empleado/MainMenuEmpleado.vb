@@ -25,23 +25,18 @@ Public Class frmMainMenuEmpleado
 
         cbxCategoriaFRes.SelectedItem = Nothing
         cbxCategoriaFVeh.SelectedItem = Nothing
-        cbxCategoriaAVeh.SelectedItem = Nothing
         cbxCategoriaFAlquiler.SelectedItem = Nothing
 
         cbxTipoFVeh.SelectedItem = Nothing
-        cbxTipoAVeh.SelectedItem = Nothing
         cbxTipoFRes.SelectedItem = Nothing
         cbxTipoFAlquileres.SelectedItem = Nothing
 
         cbxMarcaFVeh.SelectedItem = Nothing
-        cbxMarcaAVeh.SelectedItem = Nothing
 
-        cbxModeloAVeh.SelectedItem = Nothing
         cbxModeloFVeh.SelectedItem = Nothing
 
         cbxSucLlegFRes.SelectedItem = Nothing
         cbxSucSalFres.SelectedItem = Nothing
-        cbxSucursalAVeh.SelectedItem = Nothing
         cbxSucursalFVeh.SelectedItem = Nothing
         cbxSucursalDestinoFAlquileres.SelectedItem = Nothing
         cbxSucursalPartidaFAlquileres.SelectedItem = Nothing
@@ -91,7 +86,6 @@ Public Class frmMainMenuEmpleado
                 SetTabAndColors(btnVehiculos, tbpVehiculos, Color.Silver)
 
             Case "btnEmpleados"
-                SetTabAndColors(btnEmpleados, tbpEmpleados, Color.Silver)
 
             Case "pbxVehiculo"
                 tbcTabControl.SelectedTab = tbpMenuPrincipal
@@ -173,14 +167,10 @@ Public Class frmMainMenuEmpleado
 
         'Cargas de ComboBox
         'MARCAS
-        CargarDatosComboBox(cbxMarcaAVeh, conexion.MarcasConModelo, "nombre", "idmarca")
-        CargarDatosComboBox(cbxMarcaMVeh, conexion.MarcasConModelo, "nombre", "idmarca")
         CargarDatosComboBox(cbxMarcaFVeh, conexion.MarcasConModelo, "nombre", "idmarca")
 
         'TIPOS
         CargarDatosComboBox(cbxTipoFVeh, conexion.Tipos, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoAVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
-        CargarDatosComboBox(cbxTipoMVeh, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoFRes, conexion.Tipos, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoAReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
         CargarDatosComboBox(cbxTipoMReserva, conexion.Tipos.Select("estado = true").CopyToDataTable, "nombre", "idtipo")
@@ -194,18 +184,14 @@ Public Class frmMainMenuEmpleado
         'CATEGORIAS
         CargarDatosComboBox(cbxCategoriaMReserva, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaFRes, conexion.Categorias, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaAVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaARes, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaFVeh, conexion.Categorias, "nombre", "idcategoria")
-        CargarDatosComboBox(cbxCategoriaMVeh, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
         CargarDatosComboBox(cbxCategoriaFAlquiler, conexion.Categorias.Select("estado = true").CopyToDataTable, "nombre", "idcategoria")
 
         'Los modelos se cargan en el apartado "Vehiculos".
 
         'SUCURSALES
         CargarDatosComboBox(cbxSucursalFVeh, conexion.Sucursales, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalAVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
-        CargarDatosComboBox(cbxSucursalMVeh, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucSalFres, conexion.Sucursales, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucLlegFRes, conexion.Sucursales, "nombre", "idsucursal")
         CargarDatosComboBox(cbxSucSalidaARes, conexion.Sucursales.Select("estado = true").CopyToDataTable, "nombre", "idsucursal")
@@ -301,18 +287,8 @@ Public Class frmMainMenuEmpleado
                 chbxFiltrarEstadoMant.Checked = Not chbxFiltrarEstadoMant.Checked
 
                 'REPORTES
-            Case "dgvMasAlquileresRClientes"
-                conexion.RellenarDataGridView(dgvMasAlquileresRClientes, "SELECT C.apellido  , c.nombre, c.email, 0 Alquileres FROM Cliente c group by apellido, nombre,email UNION SELECT c.apellido , c.nombre, c.email, count(r.nrochasis) Alquileres from cliente c, vehiculo v, reserva r where c.idpersona = r.idpersona and r.nrochasis=v.nrochasis group by apellido, nombre,email order by alquileres desc")
             Case "dgvVehiculosDisponibles"
                 conexion.RellenarDataGridView(dgvVehiculosDisponibles, "Select  V.*, Ma.nombre marca, Ma.idmarca, Mo.nombre modelo, T.nombre tipo, T.idtipo, C.nombre categoria, S.nombre Sucursal FROM Vehiculo V, Categoria C, Marca Ma, Modelo Mo, Tipo T, Sucursal S WHERE v.idsucursal = '" + conexion.IdSucursalUsuario.ToString + "' AND V.idcategoria = C.idcategoria AND V.idmodelo = Mo.idmodelo AND Mo.Idmarca = Ma.Idmarca AND Mo.Idtipo = T.idtipo AND v.nrochasis NOT IN (SELECT r.nrochasis FROM Reserva R WHERE r.fechaalquilerfin IS NOT NULL) AND  v.nrochasis NOT IN (SELECT m.nrochasis FROM mantenimiento m WHERE TODAY BETWEEN m.fechainicio AND m.fechafin)")
-            Case "dgvAccionesEmp"
-                conexion.RellenarDataGridView(dgvAccionesEmp, "SELECT IP, TO_CHAR(fechayhora, '%d/%m/%Y') Fecha, TO_CHAR(fechayhora, '%H:%M') Hora, descripcion FROM Accion ORDER BY fechayhora DESC")
-            Case "dgvAutosMasRentables"
-                conexion.RellenarDataGridView(dgvAutosMasRentables, "SELECT V.matricula, Ma.nombre Marca, Mo.nombre Modelo, T.total FROM Vehiculo V, Marca Ma, Modelo Mo, RentTotalVehiculos T WHERE V.idmodelo = Mo.idmodelo AND Mo.idmarca = Ma.idmarca AND V.nrochasis = T.nrochasis ORDER BY total DESC")
-            Case "dgvPorcVeh"
-                conexion.RellenarDataGridView(dgvPorcVeh, "SELECT nombre, TotalSuc(idsucursal, CURRENT Year to Day) Total, PorcAlq(idsucursal, CURRENT Year to Day) || ""%"" PorcAlq, PorcMant(idsucursal, CURRENT YEAR TO DAY) || ""%"" PorcMant, PorcDispon(idsucursal, CURRENT YEAR TO DAY)|| ""%""  PorcDispon FROM Sucursal WHERE TotalSuc(idsucursal, CURRENT Year to Day) > 0")
-            Case "dgvClientesMasGastaron"
-                conexion.RellenarDataGridView(dgvClientesMasGastaron, "SELECT C.nombre, C.apellido, T.total, S.nombre FROM Cliente C, RentTotalClientes T, Sucursal S WHERE C.idpersona = T.idpersona AND S.idsucursal = T.sucursal")
             Case Else
                 conexion.RellenarDataGridView(dgv, sentencia)
 
@@ -321,12 +297,7 @@ Public Class frmMainMenuEmpleado
     End Sub
 
     Public Sub CargarReportes()
-        RecargarDatos(dgvMasAlquileresRClientes)
         RecargarDatos(dgvVehiculosDisponibles)
-        RecargarDatos(dgvAccionesEmp)
-        RecargarDatos(dgvAutosMasRentables)
-        RecargarDatos(dgvPorcVeh)
-        RecargarDatos(dgvClientesMasGastaron)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -411,18 +382,14 @@ Public Class frmMainMenuEmpleado
     End Sub
 
     Private Sub btnExportarEstadoVeh_Click(sender As Object, e As EventArgs)
-        CrearPDF(dgvPorcVeh, "Estado actual de los Vehiculos")
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) 
-        CrearPDF(dgvAccionesEmp, "Acciones de los Empleados")
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
     End Sub
 
-    Private Sub btnMasRentables_Click(sender As Object, e As EventArgs) 
-        CrearPDF(dgvAutosMasRentables, "Autos más rentables")
+    Private Sub btnMasRentables_Click(sender As Object, e As EventArgs)
     End Sub
 
-    Private Sub btnClientesMasGastaron_Click(sender As Object, e As EventArgs) 
-        CrearPDF(dgvClientesMasGastaron, "Clientes que más han gastado")
+    Private Sub btnClientesMasGastaron_Click(sender As Object, e As EventArgs)
     End Sub
 End Class

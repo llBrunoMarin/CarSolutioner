@@ -666,7 +666,7 @@ Partial Class frmMainMenuEmpleado
         'LupaToolStripMenuItem
         '
         Me.LupaToolStripMenuItem.Name = "LupaToolStripMenuItem"
-        Me.LupaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LupaToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
         Me.LupaToolStripMenuItem.Text = "Lupa"
         '
         'ToolStripMenuItem1
@@ -735,7 +735,7 @@ Partial Class frmMainMenuEmpleado
         Me.btnMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMantenimiento.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMantenimiento.ForeColor = System.Drawing.Color.White
-        Me.btnMantenimiento.Location = New System.Drawing.Point(2, 457)
+        Me.btnMantenimiento.Location = New System.Drawing.Point(3, 392)
         Me.btnMantenimiento.Name = "btnMantenimiento"
         Me.btnMantenimiento.Size = New System.Drawing.Size(255, 65)
         Me.btnMantenimiento.TabIndex = 2

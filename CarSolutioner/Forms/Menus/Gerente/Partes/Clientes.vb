@@ -3,7 +3,7 @@ Imports iTextSharp.text.pdf
 Imports System.IO
 'Ignorar, es para que no abra un Designer.
 <System.ComponentModel.DesignerCategory("")>
-Public Class NoDesignerClientes
+Public Class NoDesignerClientesGerente
 End Class
 
 'CLIENTES

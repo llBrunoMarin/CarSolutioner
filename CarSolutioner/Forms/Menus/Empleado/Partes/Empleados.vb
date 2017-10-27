@@ -68,7 +68,6 @@ Partial Public Class frmMainMenuEmpleado
             idPersonaInsertar = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" + txtNroDocumentoCempleado.Text.ToString + "'")
 
             If (idPersonaInsertar.Rows.Count <> 0) Then
-
                 Dim idpersonaRepetido As New DataTable
                 idpersonaRepetido = conexion.EjecutarSelect("SELECT idpersona FROM empleado where idpersona = '" + idPersonaInsertar.Rows(0)(0).ToString + "'")
 
@@ -103,6 +102,13 @@ Partial Public Class frmMainMenuEmpleado
                 Else
                     AmaranthMessagebox("Ya existe un empleado con este nombre de usuario", "Advertencia", Me)
                 End If
+
+
+
+
+
+
+
             Else
                 AmaranthMessagebox("Ese cliente no existe por favor verifique", "Advertencia", Me)
             End If

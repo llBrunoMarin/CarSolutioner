@@ -73,7 +73,8 @@ Partial Public Class frmMainMenuGerente
                 idpersonaRepetido = conexion.EjecutarSelect("SELECT idpersona FROM empleado where idpersona = '" + idPersonaInsertar.Rows(0)(0).ToString + "'")
 
                 Dim NombreUsuarioEmpA As String = dgvEmpleados.CurrentRow.Cells("usuariosEmpleado").Value.ToString()
-                If Not cbxTipoCempleados.SelectedValue = 1 Then
+
+                If Not cbxTipoCempleados.SelectedValue < CInt(conexion.TipoUsuario) Then
 
 
 

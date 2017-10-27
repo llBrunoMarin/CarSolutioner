@@ -1,7 +1,7 @@
 ﻿Public Class Autorizacion
     Private Sub btnVerificar_Click(sender As Object, e As EventArgs) Handles btnVerificar.Click
 
-        If conexion.TipoUsuario = "3" Then
+        If conexion.TipoUsuario = "4" Then
             If VerificarCodigo(txtDescuento.Text) = True Then
                 lbldataincorrect.Visible = False
                 Me.DialogResult = vbYes

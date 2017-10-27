@@ -72,15 +72,15 @@ Public Class Login
 
                         Case 2
                             Me.Hide()
-                            'MainMenuAdmin.Show()
+                            frmMainMenuGerente.Show()
 
                         Case 3
                             Me.Hide()
-                            'MainMenuMod.Show()
+                            frmMainMenuGerente.Show()
 
                         Case 4
                             Me.Hide()
-                            'MainMenuEmp.Show()
+                            frmMainMenuEmpleado.Show()
 
                     End Select
 
@@ -138,8 +138,8 @@ Public Class Login
     End Sub
 
     Private Sub lblInvitado_Click(sender As Object, e As EventArgs) Handles lblInvitado.Click
-        conexion.Usuario = "masteras"
-        conexion.Contraseña = "Ma5t3rxd"
+        conexion.Usuario = "invas"
+        conexion.Contraseña = "inv123"
         frmMainMenuInvitado.Show()
         Me.Hide()
     End Sub

@@ -66,6 +66,7 @@ Partial Public Class frmMainMenu
             cbxTipoFAlquileres.SelectedItem = Nothing
         End If
     End Sub
+
     Private Sub VaciarFiltroAlquiler(sender As Object, e As EventArgs) Handles lblBorrarCategoriaFAlquileres.Click, lblBorrarTipoFAlquileres.Click, lblBorrarKilomFAlquileres.Click, lblBorrarPartidaFAlquileres.Click, lblBorrarDestinoFAlquileres.Click
 
         Select Case sender.Name
@@ -209,23 +210,23 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub ModificarAlquiler(sender As Object, e As EventArgs) Handles btnModificarAlquiler.Click
+        If Not dgvAlquileres.CurrentRow Is Nothing Then
 
-        Dim kilometrajeI As String = dgvAlquileres.CurrentRow.Cells("cantidadkmalq").Value.ToString
-        Dim sucursalDestinoI As String = dgvAlquileres.CurrentRow.Cells("idsucursalllegadaalq").Value.ToString()
-        Dim idreservaI As String = dgvAlquileres.CurrentRow.Cells("idreservaalquiler").Value.ToString()
+            Dim kilometrajeI As String = dgvAlquileres.CurrentRow.Cells("cantidadkmalq").Value.ToString
+            Dim sucursalDestinoI As String = dgvAlquileres.CurrentRow.Cells("idsucursalllegadaalq").Value.ToString()
+            Dim idreservaI As String = dgvAlquileres.CurrentRow.Cells("idreservaalquiler").Value.ToString()
 
-        If Not (cbxKilomMAlquileres.SelectedValue.ToString = kilometrajeI And cbxDestinoMAlquileres.SelectedValue.ToString = sucursalDestinoI) Then
+            If Not (cbxKilomMAlquileres.SelectedValue.ToString = kilometrajeI And cbxDestinoMAlquileres.SelectedValue.ToString = sucursalDestinoI) Then
 
-            conexion.EjecutarNonQuery("UPDATE reserva SET  cantidadkm = " + cbxKilomMAlquileres.SelectedValue.ToString + ",  idsucursalllegada = '" + cbxDestinoMAlquileres.SelectedValue.ToString + "' WHERE idreserva = " + idreservaI + " ")
-            AmaranthMessagebox("Alquiler modificado correctamente", "Continuar", Me)
-            RecargarDatos(dgvAlquileres)
+                conexion.EjecutarNonQuery("UPDATE reserva SET  cantidadkm = " + cbxKilomMAlquileres.SelectedValue.ToString + ",  idsucursalllegada = '" + cbxDestinoMAlquileres.SelectedValue.ToString + "' WHERE idreserva = " + idreservaI + " ")
+                AmaranthMessagebox("Alquiler modificado correctamente", "Continuar", Me)
+                RecargarDatos(dgvAlquileres)
 
-        Else
-            AmaranthMessagebox("Modifique algo. (#010)", "Advertencia", Me)
+            Else
+                AmaranthMessagebox("Modifique algo. (#010)", "Advertencia", Me)
+            End If
         End If
 
     End Sub
-
-
 
 End Class

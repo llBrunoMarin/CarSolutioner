@@ -323,62 +323,56 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub ModificarVehiculo(sender As Object, e As EventArgs) Handles btnModificarVeh.Click
+        If Not dgvVehiculos.CurrentRow Is Nothing Then
 
-        Dim FaltaDato As Boolean = False
+            Dim FaltaDato As Boolean = False
 
-        For Each ctrl As Control In pnlMVehi.Controls
-            If TypeOf (ctrl) Is TextBox Then
-                If ctrl.Text = "" Then
-                    FaltaDato = True
-                    Exit For
-                End If
-            Else
-                If TypeOf (ctrl) Is ComboBox Then
-                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Or DirectCast(ctrl, ComboBox).SelectedValue Is Nothing Then
+            For Each ctrl As Control In pnlMVehi.Controls
+                If TypeOf (ctrl) Is TextBox Then
+                    If ctrl.Text = "" Then
                         FaltaDato = True
+                        Exit For
+                    End If
+                Else
+                    If TypeOf (ctrl) Is ComboBox Then
+                        If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Or DirectCast(ctrl, ComboBox).SelectedValue Is Nothing Then
+                            FaltaDato = True
+                        End If
                     End If
                 End If
-            End If
-        Next
+            Next
 
-        Dim automaticoMVeh As String
-        Dim aireMVeh As String
-        Dim cantpasajeros As String
-        Dim añoActual As String = Date.Now.Year
-        Dim añoInsertar As String
+            Dim automaticoMVeh As String
+            Dim aireMVeh As String
+            Dim cantpasajeros As String
+            Dim añoActual As String = Date.Now.Year
+            Dim añoInsertar As String
 
-        Dim nrochasisI As String = dgvVehiculos.CurrentRow.Cells("nrochasis").Value.ToString()
-        Dim matriculaI As String = dgvVehiculos.CurrentRow.Cells("matricula").Value.ToString()
-        Dim kmvehI As String = dgvVehiculos.CurrentRow.Cells("kilometraje").Value.ToString()
-        Dim deducibleI As String = dgvVehiculos.CurrentRow.Cells("deducible").Value.ToString()
-        Dim categoriaI As String = dgvVehiculos.CurrentRow.Cells("idcategoriaveh").Value
-        Dim marcaI As String = dgvVehiculos.CurrentRow.Cells("idmarcaveh").Value.ToString()
-        Dim modeloI As String = dgvVehiculos.CurrentRow.Cells("idmodeloveh").Value.ToString()
-        Dim tipoI As String = dgvVehiculos.CurrentRow.Cells("idtipoveh").Value.ToString()
-        Dim sucursalI As String = dgvVehiculos.CurrentRow.Cells("idsucursalveh").Value.ToString()
-        Dim anioI As String = dgvVehiculos.CurrentRow.Cells("aniov").Value.ToString()
-        Dim maletasI As String = dgvVehiculos.CurrentRow.Cells("cantidaddemaletas").Value.ToString()
-        Dim nropasajerosI As String = dgvVehiculos.CurrentRow.Cells("cantidaddepasajeros").Value.ToString()
-        Dim puertasI As String = dgvVehiculos.CurrentRow.Cells("cantidaddepuertas").Value.ToString()
-        Dim chbxaireMvehI As String = dgvVehiculos.CurrentRow.Cells("aireacondicionado").Value
-        Dim chbxautomaticoMvehI As String = dgvVehiculos.CurrentRow.Cells("esmanual").Value
+            Dim nrochasisI As String = dgvVehiculos.CurrentRow.Cells("nrochasis").Value.ToString()
+            Dim matriculaI As String = dgvVehiculos.CurrentRow.Cells("matricula").Value.ToString()
+            Dim kmvehI As String = dgvVehiculos.CurrentRow.Cells("kilometraje").Value.ToString()
+            Dim deducibleI As String = dgvVehiculos.CurrentRow.Cells("deducible").Value.ToString()
+            Dim categoriaI As String = dgvVehiculos.CurrentRow.Cells("idcategoriaveh").Value
+            Dim marcaI As String = dgvVehiculos.CurrentRow.Cells("idmarcaveh").Value.ToString()
+            Dim modeloI As String = dgvVehiculos.CurrentRow.Cells("idmodeloveh").Value.ToString()
+            Dim tipoI As String = dgvVehiculos.CurrentRow.Cells("idtipoveh").Value.ToString()
+            Dim sucursalI As String = dgvVehiculos.CurrentRow.Cells("idsucursalveh").Value.ToString()
+            Dim anioI As String = dgvVehiculos.CurrentRow.Cells("aniov").Value.ToString()
+            Dim maletasI As String = dgvVehiculos.CurrentRow.Cells("cantidaddemaletas").Value.ToString()
+            Dim nropasajerosI As String = dgvVehiculos.CurrentRow.Cells("cantidaddepasajeros").Value.ToString()
+            Dim puertasI As String = dgvVehiculos.CurrentRow.Cells("cantidaddepuertas").Value.ToString()
+            Dim chbxaireMvehI As String = dgvVehiculos.CurrentRow.Cells("aireacondicionado").Value
+            Dim chbxautomaticoMvehI As String = dgvVehiculos.CurrentRow.Cells("esmanual").Value
 
-        Dim aireMvehI As String = chbxaireMvehI.Substring(0, 1)
-        Dim automaticoMvehI As String = chbxautomaticoMvehI.Substring(0, 1)
+            Dim aireMvehI As String = chbxaireMvehI.Substring(0, 1)
+            Dim automaticoMvehI As String = chbxautomaticoMvehI.Substring(0, 1)
 
-        Try
-
-            'If (FaltaDato) Then
-            'If Not (txtNroChasisMVeh.Text = "" Or txtDeducibleMVeh.Text = "" Or txtKMMVeh.Text = "" Or txtMatriculaMVeh.Text = "" Or txtAnioMVeh.Text = "" Or
-            '    cbxCategoriaMVeh.SelectedItem Is Nothing Or cbxMarcaMVeh.SelectedItem Is Nothing Or cbxMaletasMVeh.SelectedItem Is Nothing Or
-            '    cbxModeloMVeh.SelectedItem Is Nothing Or cbxTipoMVeh.SelectedItem Is Nothing Or cbxSucursalMVeh.SelectedItem Is Nothing Or
-            '    txtAnioMVeh.Text = "" Or cbxMarcaMVeh.SelectedItem Is Nothing Or cbxPuertasMVeh.SelectedItem Is Nothing) Then
 
             'Me quedo con solo el 1er digito para hacer el insert despues
             automaticoMVeh = cbxManualMVeh.Checked.ToString.Substring(0, 1)
-            aireMVeh = chbxAireMVeh.Checked.ToString.Substring(0, 1)
-            cantpasajeros = numPasajerosMVehiculo.Value.ToString
-            añoInsertar = txtAnioMVeh.Text
+                aireMVeh = chbxAireMVeh.Checked.ToString.Substring(0, 1)
+                cantpasajeros = numPasajerosMVehiculo.Value.ToString
+                añoInsertar = txtAnioMVeh.Text
 
             If Not (txtMatriculaMVeh.Text = matriculaI And txtAnioMVeh.Text = anioI And txtKMMVeh.Text = kmvehI And chbxAireMVeh.Checked.ToString.Substring(0, 1) = aireMvehI And cbxPuertasMVeh.SelectedItem.ToString = puertasI And cantpasajeros = nropasajerosI And cbxManualMVeh.Checked.ToString.Substring(0, 1) = automaticoMvehI And txtDeducibleMVeh.Text.ToString = deducibleI And cbxCategoriaMVeh.SelectedValue.ToString = categoriaI And cbxModeloMVeh.SelectedValue.ToString = modeloI And cbxSucursalMVeh.SelectedValue.ToString = sucursalI And txtNroChasisMVeh.Text.ToString = nrochasisI And cbxTipoMVeh.SelectedValue.ToString = tipoI And cbxMarcaMVeh.SelectedValue.ToString = marcaI) Then
 
@@ -389,9 +383,6 @@ Partial Public Class frmMainMenu
                         'TODO: No controla si el mantenimiento esta activo.
                         Dim mantenimientoActivo As New DataTable
                         mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisI + "'")
-
-                        'MsgBox(mantenimientoActivo.ToString)
-                        ' Dim mantenimientoActivoS As String = mantenimientoActivo.Rows(0)("nrochasis").ToString()
 
                         If (mantenimientoActivo.Rows.Count = 0) Then
 
@@ -414,76 +405,66 @@ Partial Public Class frmMainMenu
             Else
                 AmaranthMessagebox("Modifique algo por favor. (#010)", "Advertencia", Me)
             End If
-            'Else
-            '    AmaranthMessagebox("Por favor, rellene todos los campos", "Advertencia")
-            'End If
-            'Else
-            '    AmaranthMessagebox("Por favor, rellene todos los campos", "Advertencia")
-            'End If
-        Catch ex As Exception
-            If (ex.Message.Contains("Referencia a objeto no establecida como instancia de un objeto.")) Then
-                AmaranthMessagebox("Este vehiculo se encuentra alquilado, no puede modificarlo. (#043)", "Error", Me)
-            End If
-        End Try
+        End If
+
     End Sub
 
     Private Sub ActualizarVehiculo(sender As Object, e As EventArgs) Handles btnBajaBVeh.Click
+        If Not dgvVehiculos.CurrentRow Is Nothing Then
 
-        Dim Valores As New Dictionary(Of Boolean, String)
-        Valores.Add(True, "Activo")
-        Valores.Add(False, "Inactivo")
+            Dim Valores As New Dictionary(Of Boolean, String)
+            Valores.Add(True, "Activo")
+            Valores.Add(False, "Inactivo")
 
-        If Not (txtMatriculaBVeh.Text.ToString = "") Then
+            If Not (txtMatriculaBVeh.Text.ToString = "") Then
 
-            Dim matriculaDT As New DataTable
-            matriculaDT = conexion.EjecutarSelect("Select matricula, estado FROM vehiculo WHERE matricula='" + txtMatriculaBVeh.Text.ToString + "'")
+                Dim matriculaDT As New DataTable
+                matriculaDT = conexion.EjecutarSelect("Select matricula, estado FROM vehiculo WHERE matricula='" + txtMatriculaBVeh.Text.ToString + "'")
 
-            If (matriculaDT.Rows.Count <> 0) Then
+                If (matriculaDT.Rows.Count <> 0) Then
 
-                Dim nrochasis As New DataTable
-                nrochasis = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula = '" + txtMatriculaBVeh.Text.ToString + "'")
+                    Dim nrochasis As New DataTable
+                    nrochasis = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula = '" + txtMatriculaBVeh.Text.ToString + "'")
 
-                Dim nrochasisS As String
-                nrochasisS = nrochasis.Rows(0)("nrochasis").ToString()
+                    Dim nrochasisS As String
+                    nrochasisS = nrochasis.Rows(0)("nrochasis").ToString()
 
-                Dim alquilerActivo As New DataTable
-                alquilerActivo = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE nrochasis = '" + nrochasisS + "' and idsucursal is null")
+                    Dim alquilerActivo As New DataTable
+                    alquilerActivo = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE nrochasis = '" + nrochasisS + "' and idsucursal is null")
 
-                Dim mantenimientoActivo As New DataTable
-                mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisS + "'")
+                    Dim mantenimientoActivo As New DataTable
+                    mantenimientoActivo = conexion.EjecutarSelect("SELECT nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and nrochasis = '" + nrochasisS + "'")
 
-                If (mantenimientoActivo.Rows.Count = 0 And alquilerActivo.Rows.Count = 0) Then
+                    If (mantenimientoActivo.Rows.Count = 0 And alquilerActivo.Rows.Count = 0) Then
 
-                    If (AmaranthMessagebox("Seguro que quiere dar de baja este vehiculo?.", "Si/No", Me) = vbYes) Then
+                        If (AmaranthMessagebox("Seguro que quiere dar de baja este vehiculo?.", "Si/No", Me) = vbYes) Then
 
-                        Dim matriculaI As String = matriculaDT.Rows(0)("matricula").ToString()
-                        Dim EstadoActual As Boolean = matriculaDT.Rows(0)("estado")
-                        Dim NuevoEstado As Boolean = Not EstadoActual
-                        Dim sentencia As String
-                        sentencia = "UPDATE vehiculo SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE matricula = '" + matriculaI.ToString + "'"
-                        If (conexion.EjecutarNonQuery(sentencia)) Then
+                            Dim matriculaI As String = matriculaDT.Rows(0)("matricula").ToString()
+                            Dim EstadoActual As Boolean = matriculaDT.Rows(0)("estado")
+                            Dim NuevoEstado As Boolean = Not EstadoActual
+                            Dim sentencia As String
+                            sentencia = "UPDATE vehiculo SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE matricula = '" + matriculaI.ToString + "'"
+                            If (conexion.EjecutarNonQuery(sentencia)) Then
 
-                            MsgBox("Vehiculo pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
-                            RecargarDatos(dgvVehiculos)
+                                MsgBox("Vehiculo pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "")
+                                RecargarDatos(dgvVehiculos)
+                            End If
                         End If
+                    Else
+                        AmaranthMessagebox("No es posible dar de baja este vehiculo debido a que tiene un alquiler o mantenimiento activo, (#042,#043)0", "Advertencia", Me)
                     End If
                 Else
-                    AmaranthMessagebox("No es posible dar de baja este vehiculo debido a que tiene un alquiler o mantenimiento activo, (#042,#043)0", "Advertencia", Me)
+                    AmaranthMessagebox("No existe esa matricula. (#044)", "Error", Me)
                 End If
             Else
-                AmaranthMessagebox("No existe esa matricula. (#044)", "Error", Me)
+                AmaranthMessagebox("Ingrese una matricul. (#045)", "Advertencia", Me)
             End If
-        Else
-            AmaranthMessagebox("Ingrese una matricul. (#045)", "Advertencia", Me)
         End If
+
     End Sub
 
     Private Sub antiSQLInjection(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles txtMatriculaFVeh.KeyPress
-
-
         e.Handled = Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsNumber(e.KeyChar)
-
-
     End Sub
 
 End Class

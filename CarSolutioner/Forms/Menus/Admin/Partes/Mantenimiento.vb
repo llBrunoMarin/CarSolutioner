@@ -58,7 +58,7 @@ Partial Public Class frmMainMenu
                     If Not (verifalquiler.Rows.Count <> 0) Then
                         If Not (verifnrochasis.Rows.Count <> 0) Then
                             If dtpFechaInicioMant.Value.ToString(format) > dtpFechaFinMant.Value.ToString(format) Then
-                                AmaranthMessagebox("No puede definir una fecha de inicio mayor a la fecha de fin", "Advertencia", Me)
+                                AmaranthMessagebox("No puede definir una fecha de inicio mayor a la fecha de fin.(#051)", "Advertencia", Me)
                             Else
 
                                 If (conexion.EjecutarNonQuery("INSERT into mantenimiento VALUES ('" + cbxTipoMant.SelectedItem.ToString() + "','" + dtpFechaInicioMant.Value.ToString(format) + "', '" + dtpFechaFinMant.Value.ToString(format) + "', '" + nrochasisinsert + "')") = True) Then
@@ -71,12 +71,12 @@ Partial Public Class frmMainMenu
                                     AmaranthMessagebox("Mantenimiento ingresado", "Continuar", Me)
 
                                 Else
-                                    AmaranthMessagebox("Mantenimiento ya existente", "Error", Me)
+                                    AmaranthMessagebox("Mantenimiento ya existente.(#057)", "Error", Me)
 
                                 End If
                             End If
                         Else
-                            AmaranthMessagebox("Existe un mantenimiento activo", "Error", Me)
+                            AmaranthMessagebox("Existe un mantenimiento activo.(#057)", "Error", Me)
                         End If
                     Else
                         AmaranthMessagebox("El vehículo se encuentra en alquiler", "Advertencia", Me)
@@ -85,10 +85,10 @@ Partial Public Class frmMainMenu
                     AmaranthMessagebox("El vehículo está inactivo", "Advertencia", Me)
                 End If
             Else
-                AmaranthMessagebox("Matricula no existe", "Error", Me)
+                AmaranthMessagebox("Matricula no existe.(#044)", "Error", Me)
             End If
         Else
-            AmaranthMessagebox("No pueden quedar campos vacíos. (#009)", "Advertencia", Me)
+            AmaranthMessagebox("No pueden quedar campos vacíos.(#009)", "Advertencia", Me)
         End If
     End Sub
 
@@ -153,21 +153,26 @@ Partial Public Class frmMainMenu
                                 AmaranthMessagebox("Modificación existosa", "Continuar", Me)
                                 RecargarDatos(dgvMant)
 
-                            Else
-                                MsgBox("Error")
-                            End If
+
+                        Else
+
+                        End If
+
 
                         End If
                     Else
                         AmaranthMessagebox("No se han realizado cambios", "Advertencia", Me)
                     End If
+                Else
+                    AmaranthMessagebox("No se han realizado cambios.(#010)", "Advertencia", Me)
+                End If
 
                 Else
-                    AmaranthMessagebox("Matricula no existente", "Error", Me)
-                End If
-            Else
-                AmaranthMessagebox("No pueden quedar campos vacios", "Advertencia", Me)
+                AmaranthMessagebox("Matricula no existente.(#044)", "Error", Me)
             End If
+        Else
+            AmaranthMessagebox("No pueden quedar campos vacios.(#009)", "Advertencia", Me)
+
         End If
     End Sub
 

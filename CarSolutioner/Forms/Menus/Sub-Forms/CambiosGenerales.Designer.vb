@@ -623,6 +623,7 @@ Partial Class frmCambiosGenerales
         'txtnombretipodoc
         '
         Me.txtnombretipodoc.Location = New System.Drawing.Point(21, 481)
+        Me.txtnombretipodoc.MaxLength = 19
         Me.txtnombretipodoc.Name = "txtnombretipodoc"
         Me.txtnombretipodoc.Size = New System.Drawing.Size(83, 20)
         Me.txtnombretipodoc.TabIndex = 79
@@ -653,6 +654,7 @@ Partial Class frmCambiosGenerales
         'txtmodificartipodoc
         '
         Me.txtmodificartipodoc.Location = New System.Drawing.Point(346, 481)
+        Me.txtmodificartipodoc.MaxLength = 19
         Me.txtmodificartipodoc.Name = "txtmodificartipodoc"
         Me.txtmodificartipodoc.Size = New System.Drawing.Size(82, 20)
         Me.txtmodificartipodoc.TabIndex = 78
@@ -759,6 +761,7 @@ Partial Class frmCambiosGenerales
         'txtKmExcedido
         '
         Me.txtKmExcedido.Location = New System.Drawing.Point(223, 66)
+        Me.txtKmExcedido.MaxLength = 5
         Me.txtKmExcedido.Name = "txtKmExcedido"
         Me.txtKmExcedido.Size = New System.Drawing.Size(96, 20)
         Me.txtKmExcedido.TabIndex = 71
@@ -766,6 +769,7 @@ Partial Class frmCambiosGenerales
         'txttarifalibrecatadd
         '
         Me.txttarifalibrecatadd.Location = New System.Drawing.Point(12, 111)
+        Me.txttarifalibrecatadd.MaxLength = 5
         Me.txttarifalibrecatadd.Name = "txttarifalibrecatadd"
         Me.txttarifalibrecatadd.Size = New System.Drawing.Size(96, 20)
         Me.txttarifalibrecatadd.TabIndex = 49
@@ -806,6 +810,7 @@ Partial Class frmCambiosGenerales
         'txtnomcatadd
         '
         Me.txtnomcatadd.Location = New System.Drawing.Point(15, 66)
+        Me.txtnomcatadd.MaxLength = 19
         Me.txtnomcatadd.Name = "txtnomcatadd"
         Me.txtnomcatadd.Size = New System.Drawing.Size(96, 20)
         Me.txtnomcatadd.TabIndex = 45
@@ -813,6 +818,7 @@ Partial Class frmCambiosGenerales
         'txttarifa150catadd
         '
         Me.txttarifa150catadd.Location = New System.Drawing.Point(114, 111)
+        Me.txttarifa150catadd.MaxLength = 5
         Me.txttarifa150catadd.Name = "txttarifa150catadd"
         Me.txttarifa150catadd.Size = New System.Drawing.Size(100, 20)
         Me.txttarifa150catadd.TabIndex = 47
@@ -820,6 +826,7 @@ Partial Class frmCambiosGenerales
         'txttarifa300catadd
         '
         Me.txttarifa300catadd.Location = New System.Drawing.Point(220, 111)
+        Me.txttarifa300catadd.MaxLength = 5
         Me.txttarifa300catadd.Name = "txttarifa300catadd"
         Me.txttarifa300catadd.Size = New System.Drawing.Size(100, 20)
         Me.txttarifa300catadd.TabIndex = 48
@@ -827,6 +834,7 @@ Partial Class frmCambiosGenerales
         'txttarifabasecatadd
         '
         Me.txttarifabasecatadd.Location = New System.Drawing.Point(117, 66)
+        Me.txttarifabasecatadd.MaxLength = 5
         Me.txttarifabasecatadd.Name = "txttarifabasecatadd"
         Me.txttarifabasecatadd.Size = New System.Drawing.Size(100, 20)
         Me.txttarifabasecatadd.TabIndex = 46
@@ -922,6 +930,7 @@ Partial Class frmCambiosGenerales
         'txtRecargoKmextramodif
         '
         Me.txtRecargoKmextramodif.Location = New System.Drawing.Point(236, 50)
+        Me.txtRecargoKmextramodif.MaxLength = 5
         Me.txtRecargoKmextramodif.Name = "txtRecargoKmextramodif"
         Me.txtRecargoKmextramodif.Size = New System.Drawing.Size(96, 20)
         Me.txtRecargoKmextramodif.TabIndex = 71
@@ -1007,6 +1016,7 @@ Partial Class frmCambiosGenerales
         'txtKmLibreModCat
         '
         Me.txtKmLibreModCat.Location = New System.Drawing.Point(12, 103)
+        Me.txtKmLibreModCat.MaxLength = 5
         Me.txtKmLibreModCat.Name = "txtKmLibreModCat"
         Me.txtKmLibreModCat.Size = New System.Drawing.Size(100, 20)
         Me.txtKmLibreModCat.TabIndex = 75
@@ -1075,6 +1085,7 @@ Partial Class frmCambiosGenerales
         'txtNomCatMod
         '
         Me.txtNomCatMod.Location = New System.Drawing.Point(12, 50)
+        Me.txtNomCatMod.MaxLength = 19
         Me.txtNomCatMod.Name = "txtNomCatMod"
         Me.txtNomCatMod.Size = New System.Drawing.Size(100, 20)
         Me.txtNomCatMod.TabIndex = 71
@@ -1082,6 +1093,7 @@ Partial Class frmCambiosGenerales
         'txtTarifa150ModCat
         '
         Me.txtTarifa150ModCat.Location = New System.Drawing.Point(126, 103)
+        Me.txtTarifa150ModCat.MaxLength = 5
         Me.txtTarifa150ModCat.Name = "txtTarifa150ModCat"
         Me.txtTarifa150ModCat.Size = New System.Drawing.Size(100, 20)
         Me.txtTarifa150ModCat.TabIndex = 73
@@ -1100,6 +1112,7 @@ Partial Class frmCambiosGenerales
         'txtTarifa300ModCat
         '
         Me.txtTarifa300ModCat.Location = New System.Drawing.Point(232, 103)
+        Me.txtTarifa300ModCat.MaxLength = 5
         Me.txtTarifa300ModCat.Name = "txtTarifa300ModCat"
         Me.txtTarifa300ModCat.Size = New System.Drawing.Size(100, 20)
         Me.txtTarifa300ModCat.TabIndex = 74
@@ -1118,6 +1131,7 @@ Partial Class frmCambiosGenerales
         'txtTarifaBaseModCat
         '
         Me.txtTarifaBaseModCat.Location = New System.Drawing.Point(124, 50)
+        Me.txtTarifaBaseModCat.MaxLength = 5
         Me.txtTarifaBaseModCat.Name = "txtTarifaBaseModCat"
         Me.txtTarifaBaseModCat.Size = New System.Drawing.Size(100, 20)
         Me.txtTarifaBaseModCat.TabIndex = 72
@@ -1205,6 +1219,7 @@ Partial Class frmCambiosGenerales
         'txtDicSuc
         '
         Me.txtDicSuc.Location = New System.Drawing.Point(7, 99)
+        Me.txtDicSuc.MaxLength = 49
         Me.txtDicSuc.Name = "txtDicSuc"
         Me.txtDicSuc.Size = New System.Drawing.Size(100, 20)
         Me.txtDicSuc.TabIndex = 49
@@ -1245,6 +1260,7 @@ Partial Class frmCambiosGenerales
         'txtNomSuc
         '
         Me.txtNomSuc.Location = New System.Drawing.Point(8, 58)
+        Me.txtNomSuc.MaxLength = 19
         Me.txtNomSuc.Name = "txtNomSuc"
         Me.txtNomSuc.Size = New System.Drawing.Size(100, 20)
         Me.txtNomSuc.TabIndex = 45
@@ -1252,6 +1268,7 @@ Partial Class frmCambiosGenerales
         'txttelefono2suc
         '
         Me.txttelefono2suc.Location = New System.Drawing.Point(227, 58)
+        Me.txttelefono2suc.MaxLength = 49
         Me.txttelefono2suc.Name = "txttelefono2suc"
         Me.txttelefono2suc.Size = New System.Drawing.Size(100, 20)
         Me.txttelefono2suc.TabIndex = 47
@@ -1259,6 +1276,7 @@ Partial Class frmCambiosGenerales
         'txtCidSuc
         '
         Me.txtCidSuc.Location = New System.Drawing.Point(117, 99)
+        Me.txtCidSuc.MaxLength = 49
         Me.txtCidSuc.Name = "txtCidSuc"
         Me.txtCidSuc.Size = New System.Drawing.Size(100, 20)
         Me.txtCidSuc.TabIndex = 48
@@ -1266,6 +1284,7 @@ Partial Class frmCambiosGenerales
         'txtTelSuc1
         '
         Me.txtTelSuc1.Location = New System.Drawing.Point(118, 58)
+        Me.txtTelSuc1.MaxLength = 49
         Me.txtTelSuc1.Name = "txtTelSuc1"
         Me.txtTelSuc1.Size = New System.Drawing.Size(100, 20)
         Me.txtTelSuc1.TabIndex = 46
@@ -1348,6 +1367,7 @@ Partial Class frmCambiosGenerales
         'txttelefonosucmod2
         '
         Me.txttelefonosucmod2.Location = New System.Drawing.Point(226, 50)
+        Me.txttelefonosucmod2.MaxLength = 49
         Me.txttelefonosucmod2.Name = "txttelefonosucmod2"
         Me.txttelefonosucmod2.Size = New System.Drawing.Size(100, 20)
         Me.txttelefonosucmod2.TabIndex = 71
@@ -1495,6 +1515,7 @@ Partial Class frmCambiosGenerales
         'txtnombresucmod
         '
         Me.txtnombresucmod.Location = New System.Drawing.Point(8, 50)
+        Me.txtnombresucmod.MaxLength = 19
         Me.txtnombresucmod.Name = "txtnombresucmod"
         Me.txtnombresucmod.Size = New System.Drawing.Size(100, 20)
         Me.txtnombresucmod.TabIndex = 50
@@ -1502,6 +1523,7 @@ Partial Class frmCambiosGenerales
         'txtdireccionsucmod
         '
         Me.txtdireccionsucmod.Location = New System.Drawing.Point(8, 92)
+        Me.txtdireccionsucmod.MaxLength = 49
         Me.txtdireccionsucmod.Name = "txtdireccionsucmod"
         Me.txtdireccionsucmod.Size = New System.Drawing.Size(100, 20)
         Me.txtdireccionsucmod.TabIndex = 52
@@ -1509,6 +1531,7 @@ Partial Class frmCambiosGenerales
         'txtciudadsucmod
         '
         Me.txtciudadsucmod.Location = New System.Drawing.Point(118, 93)
+        Me.txtciudadsucmod.MaxLength = 49
         Me.txtciudadsucmod.Name = "txtciudadsucmod"
         Me.txtciudadsucmod.Size = New System.Drawing.Size(100, 20)
         Me.txtciudadsucmod.TabIndex = 53
@@ -1516,6 +1539,7 @@ Partial Class frmCambiosGenerales
         'txttelefonosucmod1
         '
         Me.txttelefonosucmod1.Location = New System.Drawing.Point(118, 50)
+        Me.txttelefonosucmod1.MaxLength = 49
         Me.txttelefonosucmod1.Name = "txttelefonosucmod1"
         Me.txttelefonosucmod1.Size = New System.Drawing.Size(100, 20)
         Me.txttelefonosucmod1.TabIndex = 51
@@ -1900,6 +1924,7 @@ Partial Class frmCambiosGenerales
         'txtNombreModelo
         '
         Me.txtNombreModelo.Location = New System.Drawing.Point(3, 481)
+        Me.txtNombreModelo.MaxLength = 49
         Me.txtNombreModelo.Name = "txtNombreModelo"
         Me.txtNombreModelo.Size = New System.Drawing.Size(83, 20)
         Me.txtNombreModelo.TabIndex = 79
@@ -1930,6 +1955,7 @@ Partial Class frmCambiosGenerales
         'txtNombreModeloModificar
         '
         Me.txtNombreModeloModificar.Location = New System.Drawing.Point(353, 481)
+        Me.txtNombreModeloModificar.MaxLength = 49
         Me.txtNombreModeloModificar.Name = "txtNombreModeloModificar"
         Me.txtNombreModeloModificar.Size = New System.Drawing.Size(82, 20)
         Me.txtNombreModeloModificar.TabIndex = 78
@@ -2055,6 +2081,7 @@ Partial Class frmCambiosGenerales
         'txtNombreMarcaAgregar
         '
         Me.txtNombreMarcaAgregar.Location = New System.Drawing.Point(12, 472)
+        Me.txtNombreMarcaAgregar.MaxLength = 49
         Me.txtNombreMarcaAgregar.Name = "txtNombreMarcaAgregar"
         Me.txtNombreMarcaAgregar.Size = New System.Drawing.Size(61, 20)
         Me.txtNombreMarcaAgregar.TabIndex = 94
@@ -2074,6 +2101,7 @@ Partial Class frmCambiosGenerales
         'txtModificarMarca
         '
         Me.txtModificarMarca.Location = New System.Drawing.Point(137, 472)
+        Me.txtModificarMarca.MaxLength = 49
         Me.txtModificarMarca.Name = "txtModificarMarca"
         Me.txtModificarMarca.Size = New System.Drawing.Size(71, 20)
         Me.txtModificarMarca.TabIndex = 93
@@ -2240,6 +2268,7 @@ Partial Class frmCambiosGenerales
         'txtNombreTipo
         '
         Me.txtNombreTipo.Location = New System.Drawing.Point(6, 472)
+        Me.txtNombreTipo.MaxLength = 19
         Me.txtNombreTipo.Name = "txtNombreTipo"
         Me.txtNombreTipo.Size = New System.Drawing.Size(64, 20)
         Me.txtNombreTipo.TabIndex = 79
@@ -2270,6 +2299,7 @@ Partial Class frmCambiosGenerales
         'txtModificarTipo
         '
         Me.txtModificarTipo.Location = New System.Drawing.Point(134, 472)
+        Me.txtModificarTipo.MaxLength = 19
         Me.txtModificarTipo.Name = "txtModificarTipo"
         Me.txtModificarTipo.Size = New System.Drawing.Size(73, 20)
         Me.txtModificarTipo.TabIndex = 78

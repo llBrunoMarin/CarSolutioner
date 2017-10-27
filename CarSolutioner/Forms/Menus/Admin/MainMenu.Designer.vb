@@ -1280,7 +1280,7 @@ Partial Class frmMainMenu
         'txtEmpresaMCliente
         '
         Me.txtEmpresaMCliente.Location = New System.Drawing.Point(275, 121)
-        Me.txtEmpresaMCliente.MaxLength = 20
+        Me.txtEmpresaMCliente.MaxLength = 19
         Me.txtEmpresaMCliente.Name = "txtEmpresaMCliente"
         Me.txtEmpresaMCliente.ShortcutsEnabled = False
         Me.txtEmpresaMCliente.Size = New System.Drawing.Size(124, 20)
@@ -1289,7 +1289,7 @@ Partial Class frmMainMenu
         'txtCorreoMCliente
         '
         Me.txtCorreoMCliente.Location = New System.Drawing.Point(14, 122)
-        Me.txtCorreoMCliente.MaxLength = 20
+        Me.txtCorreoMCliente.MaxLength = 69
         Me.txtCorreoMCliente.Name = "txtCorreoMCliente"
         Me.txtCorreoMCliente.ShortcutsEnabled = False
         Me.txtCorreoMCliente.Size = New System.Drawing.Size(126, 20)
@@ -1298,7 +1298,7 @@ Partial Class frmMainMenu
         'txtApellidoMCliente
         '
         Me.txtApellidoMCliente.Location = New System.Drawing.Point(405, 72)
-        Me.txtApellidoMCliente.MaxLength = 20
+        Me.txtApellidoMCliente.MaxLength = 19
         Me.txtApellidoMCliente.Name = "txtApellidoMCliente"
         Me.txtApellidoMCliente.ShortcutsEnabled = False
         Me.txtApellidoMCliente.Size = New System.Drawing.Size(125, 20)
@@ -1307,7 +1307,7 @@ Partial Class frmMainMenu
         'txtNombreMCliente
         '
         Me.txtNombreMCliente.Location = New System.Drawing.Point(275, 72)
-        Me.txtNombreMCliente.MaxLength = 20
+        Me.txtNombreMCliente.MaxLength = 19
         Me.txtNombreMCliente.Name = "txtNombreMCliente"
         Me.txtNombreMCliente.ShortcutsEnabled = False
         Me.txtNombreMCliente.Size = New System.Drawing.Size(125, 20)
@@ -1408,7 +1408,7 @@ Partial Class frmMainMenu
         'txtDocumMCliente
         '
         Me.txtDocumMCliente.Location = New System.Drawing.Point(144, 72)
-        Me.txtDocumMCliente.MaxLength = 20
+        Me.txtDocumMCliente.MaxLength = 49
         Me.txtDocumMCliente.Name = "txtDocumMCliente"
         Me.txtDocumMCliente.ShortcutsEnabled = False
         Me.txtDocumMCliente.Size = New System.Drawing.Size(125, 20)
@@ -1533,7 +1533,7 @@ Partial Class frmMainMenu
         'txtDocumentoBCliente
         '
         Me.txtDocumentoBCliente.Location = New System.Drawing.Point(12, 78)
-        Me.txtDocumentoBCliente.MaxLength = 20
+        Me.txtDocumentoBCliente.MaxLength = 49
         Me.txtDocumentoBCliente.Name = "txtDocumentoBCliente"
         Me.txtDocumentoBCliente.ShortcutsEnabled = False
         Me.txtDocumentoBCliente.Size = New System.Drawing.Size(127, 20)
@@ -1754,6 +1754,7 @@ Partial Class frmMainMenu
         'txtEmpresaFClientes
         '
         Me.txtEmpresaFClientes.Location = New System.Drawing.Point(14, 117)
+        Me.txtEmpresaFClientes.MaxLength = 20
         Me.txtEmpresaFClientes.Name = "txtEmpresaFClientes"
         Me.txtEmpresaFClientes.ShortcutsEnabled = False
         Me.txtEmpresaFClientes.Size = New System.Drawing.Size(125, 20)
@@ -1762,6 +1763,7 @@ Partial Class frmMainMenu
         'txtCorreoFClientes
         '
         Me.txtCorreoFClientes.Location = New System.Drawing.Point(145, 117)
+        Me.txtCorreoFClientes.MaxLength = 69
         Me.txtCorreoFClientes.Name = "txtCorreoFClientes"
         Me.txtCorreoFClientes.ShortcutsEnabled = False
         Me.txtCorreoFClientes.Size = New System.Drawing.Size(124, 20)
@@ -1770,6 +1772,7 @@ Partial Class frmMainMenu
         'txtDocumFClientes
         '
         Me.txtDocumFClientes.Location = New System.Drawing.Point(144, 68)
+        Me.txtDocumFClientes.MaxLength = 49
         Me.txtDocumFClientes.Name = "txtDocumFClientes"
         Me.txtDocumFClientes.ShortcutsEnabled = False
         Me.txtDocumFClientes.Size = New System.Drawing.Size(125, 20)
@@ -1778,6 +1781,7 @@ Partial Class frmMainMenu
         'txtApellidoFClientes
         '
         Me.txtApellidoFClientes.Location = New System.Drawing.Point(405, 68)
+        Me.txtApellidoFClientes.MaxLength = 20
         Me.txtApellidoFClientes.Name = "txtApellidoFClientes"
         Me.txtApellidoFClientes.ShortcutsEnabled = False
         Me.txtApellidoFClientes.Size = New System.Drawing.Size(124, 20)
@@ -1786,6 +1790,7 @@ Partial Class frmMainMenu
         'txtNombreFClientes
         '
         Me.txtNombreFClientes.Location = New System.Drawing.Point(275, 68)
+        Me.txtNombreFClientes.MaxLength = 20
         Me.txtNombreFClientes.Name = "txtNombreFClientes"
         Me.txtNombreFClientes.ShortcutsEnabled = False
         Me.txtNombreFClientes.Size = New System.Drawing.Size(124, 20)
@@ -1935,7 +1940,7 @@ Partial Class frmMainMenu
         '
         Me.txtEmpresaACliente.Enabled = False
         Me.txtEmpresaACliente.Location = New System.Drawing.Point(275, 119)
-        Me.txtEmpresaACliente.MaxLength = 20
+        Me.txtEmpresaACliente.MaxLength = 19
         Me.txtEmpresaACliente.Name = "txtEmpresaACliente"
         Me.txtEmpresaACliente.ShortcutsEnabled = False
         Me.txtEmpresaACliente.Size = New System.Drawing.Size(124, 20)
@@ -1945,7 +1950,7 @@ Partial Class frmMainMenu
         'txtCorreoACliente
         '
         Me.txtCorreoACliente.Location = New System.Drawing.Point(15, 119)
-        Me.txtCorreoACliente.MaxLength = 20
+        Me.txtCorreoACliente.MaxLength = 69
         Me.txtCorreoACliente.Name = "txtCorreoACliente"
         Me.txtCorreoACliente.ShortcutsEnabled = False
         Me.txtCorreoACliente.Size = New System.Drawing.Size(124, 20)
@@ -1972,7 +1977,7 @@ Partial Class frmMainMenu
         'txtDocumACliente
         '
         Me.txtDocumACliente.Location = New System.Drawing.Point(144, 68)
-        Me.txtDocumACliente.MaxLength = 20
+        Me.txtDocumACliente.MaxLength = 50
         Me.txtDocumACliente.Name = "txtDocumACliente"
         Me.txtDocumACliente.ShortcutsEnabled = False
         Me.txtDocumACliente.Size = New System.Drawing.Size(125, 20)
@@ -2512,6 +2517,7 @@ Partial Class frmMainMenu
         'txtMatriculaBVeh
         '
         Me.txtMatriculaBVeh.Location = New System.Drawing.Point(14, 74)
+        Me.txtMatriculaBVeh.MaxLength = 14
         Me.txtMatriculaBVeh.Name = "txtMatriculaBVeh"
         Me.txtMatriculaBVeh.ShortcutsEnabled = False
         Me.txtMatriculaBVeh.Size = New System.Drawing.Size(121, 20)
@@ -3111,6 +3117,7 @@ Partial Class frmMainMenu
         'txtKilometrajeAVeh
         '
         Me.txtKilometrajeAVeh.Location = New System.Drawing.Point(237, 75)
+        Me.txtKilometrajeAVeh.MaxLength = 7
         Me.txtKilometrajeAVeh.Name = "txtKilometrajeAVeh"
         Me.txtKilometrajeAVeh.ShortcutsEnabled = False
         Me.txtKilometrajeAVeh.Size = New System.Drawing.Size(117, 20)
@@ -3126,6 +3133,7 @@ Partial Class frmMainMenu
         'txtDeducibleAVeh
         '
         Me.txtDeducibleAVeh.Location = New System.Drawing.Point(364, 75)
+        Me.txtDeducibleAVeh.MaxLength = 5
         Me.txtDeducibleAVeh.Name = "txtDeducibleAVeh"
         Me.txtDeducibleAVeh.ShortcutsEnabled = False
         Me.txtDeducibleAVeh.Size = New System.Drawing.Size(104, 20)
@@ -3165,6 +3173,7 @@ Partial Class frmMainMenu
         'txtMatriculaAVeh
         '
         Me.txtMatriculaAVeh.Location = New System.Drawing.Point(124, 75)
+        Me.txtMatriculaAVeh.MaxLength = 8
         Me.txtMatriculaAVeh.Name = "txtMatriculaAVeh"
         Me.txtMatriculaAVeh.ShortcutsEnabled = False
         Me.txtMatriculaAVeh.Size = New System.Drawing.Size(105, 20)
@@ -3247,6 +3256,7 @@ Partial Class frmMainMenu
         'txtAnioAVeh
         '
         Me.txtAnioAVeh.Location = New System.Drawing.Point(14, 161)
+        Me.txtAnioAVeh.MaxLength = 5
         Me.txtAnioAVeh.Name = "txtAnioAVeh"
         Me.txtAnioAVeh.ShortcutsEnabled = False
         Me.txtAnioAVeh.Size = New System.Drawing.Size(103, 20)
@@ -3284,6 +3294,7 @@ Partial Class frmMainMenu
         'txtNroChasisAVeh
         '
         Me.txtNroChasisAVeh.Location = New System.Drawing.Point(14, 75)
+        Me.txtNroChasisAVeh.MaxLength = 49
         Me.txtNroChasisAVeh.Name = "txtNroChasisAVeh"
         Me.txtNroChasisAVeh.ShortcutsEnabled = False
         Me.txtNroChasisAVeh.Size = New System.Drawing.Size(105, 20)
@@ -3492,6 +3503,7 @@ Partial Class frmMainMenu
         '
         Me.txtNroChasisMVeh.Enabled = False
         Me.txtNroChasisMVeh.Location = New System.Drawing.Point(14, 75)
+        Me.txtNroChasisMVeh.MaxLength = 49
         Me.txtNroChasisMVeh.Name = "txtNroChasisMVeh"
         Me.txtNroChasisMVeh.ShortcutsEnabled = False
         Me.txtNroChasisMVeh.Size = New System.Drawing.Size(103, 20)
@@ -3564,6 +3576,7 @@ Partial Class frmMainMenu
         'txtDeducibleMVeh
         '
         Me.txtDeducibleMVeh.Location = New System.Drawing.Point(362, 74)
+        Me.txtDeducibleMVeh.MaxLength = 5
         Me.txtDeducibleMVeh.Name = "txtDeducibleMVeh"
         Me.txtDeducibleMVeh.ShortcutsEnabled = False
         Me.txtDeducibleMVeh.Size = New System.Drawing.Size(104, 20)
@@ -3572,6 +3585,7 @@ Partial Class frmMainMenu
         'txtKMMVeh
         '
         Me.txtKMMVeh.Location = New System.Drawing.Point(235, 75)
+        Me.txtKMMVeh.MaxLength = 5
         Me.txtKMMVeh.Name = "txtKMMVeh"
         Me.txtKMMVeh.ShortcutsEnabled = False
         Me.txtKMMVeh.Size = New System.Drawing.Size(118, 20)
@@ -3580,6 +3594,7 @@ Partial Class frmMainMenu
         'txtAnioMVeh
         '
         Me.txtAnioMVeh.Location = New System.Drawing.Point(14, 162)
+        Me.txtAnioMVeh.MaxLength = 5
         Me.txtAnioMVeh.Name = "txtAnioMVeh"
         Me.txtAnioMVeh.ShortcutsEnabled = False
         Me.txtAnioMVeh.Size = New System.Drawing.Size(105, 20)
@@ -3639,6 +3654,7 @@ Partial Class frmMainMenu
         'txtMatriculaMVeh
         '
         Me.txtMatriculaMVeh.Location = New System.Drawing.Point(125, 75)
+        Me.txtMatriculaMVeh.MaxLength = 14
         Me.txtMatriculaMVeh.Name = "txtMatriculaMVeh"
         Me.txtMatriculaMVeh.ShortcutsEnabled = False
         Me.txtMatriculaMVeh.Size = New System.Drawing.Size(104, 20)
@@ -4457,6 +4473,7 @@ Partial Class frmMainMenu
         'txtNroDocEempleado
         '
         Me.txtNroDocEempleado.Location = New System.Drawing.Point(11, 84)
+        Me.txtNroDocEempleado.MaxLength = 19
         Me.txtNroDocEempleado.Name = "txtNroDocEempleado"
         Me.txtNroDocEempleado.ShortcutsEnabled = False
         Me.txtNroDocEempleado.Size = New System.Drawing.Size(119, 20)
@@ -4546,6 +4563,7 @@ Partial Class frmMainMenu
         'txtApellidoFempleado
         '
         Me.txtApellidoFempleado.Location = New System.Drawing.Point(306, 74)
+        Me.txtApellidoFempleado.MaxLength = 20
         Me.txtApellidoFempleado.Name = "txtApellidoFempleado"
         Me.txtApellidoFempleado.ShortcutsEnabled = False
         Me.txtApellidoFempleado.Size = New System.Drawing.Size(125, 20)
@@ -4554,6 +4572,7 @@ Partial Class frmMainMenu
         'txtNombreFempleado
         '
         Me.txtNombreFempleado.Location = New System.Drawing.Point(164, 74)
+        Me.txtNombreFempleado.MaxLength = 20
         Me.txtNombreFempleado.Name = "txtNombreFempleado"
         Me.txtNombreFempleado.ShortcutsEnabled = False
         Me.txtNombreFempleado.Size = New System.Drawing.Size(125, 20)
@@ -4643,6 +4662,7 @@ Partial Class frmMainMenu
         'txtNroDocFempleado
         '
         Me.txtNroDocFempleado.Location = New System.Drawing.Point(17, 74)
+        Me.txtNroDocFempleado.MaxLength = 49
         Me.txtNroDocFempleado.Name = "txtNroDocFempleado"
         Me.txtNroDocFempleado.ShortcutsEnabled = False
         Me.txtNroDocFempleado.Size = New System.Drawing.Size(125, 20)
@@ -4694,6 +4714,7 @@ Partial Class frmMainMenu
         'txtNombreUsuarioCempleado
         '
         Me.txtNombreUsuarioCempleado.Location = New System.Drawing.Point(401, 81)
+        Me.txtNombreUsuarioCempleado.MaxLength = 20
         Me.txtNombreUsuarioCempleado.Name = "txtNombreUsuarioCempleado"
         Me.txtNombreUsuarioCempleado.ShortcutsEnabled = False
         Me.txtNombreUsuarioCempleado.Size = New System.Drawing.Size(125, 20)
@@ -4711,6 +4732,7 @@ Partial Class frmMainMenu
         'txtNroDocumentoCempleado
         '
         Me.txtNroDocumentoCempleado.Location = New System.Drawing.Point(11, 82)
+        Me.txtNroDocumentoCempleado.MaxLength = 49
         Me.txtNroDocumentoCempleado.Name = "txtNroDocumentoCempleado"
         Me.txtNroDocumentoCempleado.ShortcutsEnabled = False
         Me.txtNroDocumentoCempleado.Size = New System.Drawing.Size(125, 20)
@@ -5087,6 +5109,7 @@ Partial Class frmMainMenu
         'txtModifMatriculaMant
         '
         Me.txtModifMatriculaMant.Location = New System.Drawing.Point(13, 94)
+        Me.txtModifMatriculaMant.MaxLength = 49
         Me.txtModifMatriculaMant.Name = "txtModifMatriculaMant"
         Me.txtModifMatriculaMant.ShortcutsEnabled = False
         Me.txtModifMatriculaMant.Size = New System.Drawing.Size(100, 20)
@@ -5259,6 +5282,7 @@ Partial Class frmMainMenu
         'txtFiltrarMatriculaMant
         '
         Me.txtFiltrarMatriculaMant.Location = New System.Drawing.Point(13, 133)
+        Me.txtFiltrarMatriculaMant.MaxLength = 49
         Me.txtFiltrarMatriculaMant.Name = "txtFiltrarMatriculaMant"
         Me.txtFiltrarMatriculaMant.ShortcutsEnabled = False
         Me.txtFiltrarMatriculaMant.Size = New System.Drawing.Size(100, 20)
@@ -5494,6 +5518,7 @@ Partial Class frmMainMenu
         'txtMatriculaMant
         '
         Me.txtMatriculaMant.Location = New System.Drawing.Point(24, 74)
+        Me.txtMatriculaMant.MaxLength = 49
         Me.txtMatriculaMant.Name = "txtMatriculaMant"
         Me.txtMatriculaMant.ShortcutsEnabled = False
         Me.txtMatriculaMant.Size = New System.Drawing.Size(100, 20)
@@ -5882,6 +5907,7 @@ Partial Class frmMainMenu
         'txtDocumMReserva
         '
         Me.txtDocumMReserva.Location = New System.Drawing.Point(12, 70)
+        Me.txtDocumMReserva.MaxLength = 49
         Me.txtDocumMReserva.Name = "txtDocumMReserva"
         Me.txtDocumMReserva.ShortcutsEnabled = False
         Me.txtDocumMReserva.Size = New System.Drawing.Size(129, 20)
@@ -6110,6 +6136,7 @@ Partial Class frmMainMenu
         'txtDocumARes
         '
         Me.txtDocumARes.Location = New System.Drawing.Point(12, 71)
+        Me.txtDocumARes.MaxLength = 49
         Me.txtDocumARes.Name = "txtDocumARes"
         Me.txtDocumARes.ShortcutsEnabled = False
         Me.txtDocumARes.Size = New System.Drawing.Size(130, 20)

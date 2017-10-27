@@ -563,9 +563,11 @@
                     If conexion.EjecutarNonQuery("UPDATE vehiculo set estado= 'f' where idmodelo IN(Select idmodelo from modelo m where m.idtipo='" + idtipo + "')", "Vehiculos, debido a que este tipo no estaba asignado a ningun vehiculo") = False Then
                         MsgBox("Tipo dado de baja")
 
+
                     Else
                         MsgBox("Vehiculos y Tipo dados de baja.")
                     End If
+
 
                     conexion.RellenarDataGridView(dgvTipos, "SELECT * FROM TIPO")
                 ElseIf resultado = MsgBoxResult.No Then
@@ -911,7 +913,6 @@
                 conexion.EjecutarNonQuery("Update modelo set estado='t' where idmodelo='" + idmodelo + "'")
                 MsgBox("El modelo " + dgvModelos.CurrentRow.Cells("modelo").Value.ToString + " de la marca" + dgvModelos.CurrentRow.Cells("Marca").Value.ToString + " se ha dado de alta.")
                 conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
-
             ElseIf conexion.EjecutarSelect("SELECT IDRESERVA FROM RESERVA WHERE NROCHASIS IN (SELECT NROCHASIS FROM VEHICULO V, MODELO MO WHERE V.IDMODELO='" + idmodelo + "' ) and estado='1'").Rows.Count > 0 Or conexion.EjecutarSelect(sentencia2).Rows.Count > 0 Then         'agregar un and con el mantenimiento activo companieros niapalo toco fechas
                 MsgBox("No puedes cambiar el estado de este modelo porque esta siendo usado en otros registros activos. (#027)")
             Else

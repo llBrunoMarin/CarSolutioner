@@ -241,7 +241,7 @@
             cx.Close()
             Return True
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
 
             Throw ex
             Return False
@@ -267,7 +267,7 @@
 
         Catch ex As Exception
 
-            MsgBox(ex.Message)
+            ' MsgBox(ex.Message)
 
             Return dt
 
@@ -296,7 +296,7 @@
 
         Catch ex As Exception
 
-            MsgBox(ex.Message)
+            ' MsgBox(ex.Message)
 
         Finally
 
@@ -356,7 +356,7 @@
 
         Catch ex As Exception
 
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
 
             Return False
 

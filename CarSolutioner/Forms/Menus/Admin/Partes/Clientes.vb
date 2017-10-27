@@ -104,56 +104,65 @@ Partial Public Class frmMainMenu
                             numeros += "," + Telefono
                         End If
                     Next
-                    Dim nrodocRepetido As New DataTable
-                    nrodocRepetido = conexion.EjecutarSelect("SELECT nrodocumento FROM cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'")
 
-                    If nrodocRepetido.Rows.Count = 0 Then
-                        Dim sentencia As String
+                    If Not numeros.Length > 255 Then
 
 
-                        sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, porcdescuento, estado, telefono) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, Date.Parse(FechaSeleccionada).ToString("dd/MM/yyyy"), If(txtEmpresaACliente.Text = "", "-", txtEmpresaACliente.Text), numDescuentoACliente.Value.ToString, "t", numeros.ToString)
+                        Dim nrodocRepetido As New DataTable
+                        nrodocRepetido = conexion.EjecutarSelect("SELECT nrodocumento FROM cliente WHERE nrodocumento = '" + txtDocumACliente.Text + "'")
 
-                        If cbxTipoDocumACliente.SelectedValue = 1 Then
-                            'Si la cédula es válida
-                            If VerificarCI(txtDocumACliente.Text) Then
-                                'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
+                        If nrodocRepetido.Rows.Count = 0 Then
+                            Dim sentencia As String
+
+
+                            sentencia = String.Format("INSERT INTO Cliente (idtipodoc, nrodocumento, nombre, apellido, email, fecnac, empresa, porcdescuento, estado, telefono) VALUES ( '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", cbxTipoDocumACliente.SelectedValue, txtDocumACliente.Text, txtNombreACliente.Text, txtApellidoACliente.Text, txtCorreoACliente.Text, Date.Parse(FechaSeleccionada).ToString("dd/MM/yyyy"), If(txtEmpresaACliente.Text = "", "-", txtEmpresaACliente.Text), numDescuentoACliente.Value.ToString, "t", numeros.ToString)
+
+                            If cbxTipoDocumACliente.SelectedValue = 1 Then
+                                'Si la cédula es válida
+                                If VerificarCI(txtDocumACliente.Text) Then
+                                    'Si el cliente se ingresa satisfactoriamente, mostrar mensaje y agregar teléfonos.
+                                    If conexion.EjecutarNonQuery(sentencia) Then
+
+                                        Dim ip As String = GetIPAddress()
+                                        Dim descripcion As String = "Ingreso al cliente con el numero de documento : " + txtDocumACliente.Text + " y con un descuento del : " + numDescuentoACliente.Value.ToString + "%"
+                                        conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
+
+                                        AmaranthMessagebox("Cliente ingresado satisfactoriamente", "Continuar", Me)
+                                        RecargarDatos(dgvClientes)
+
+                                        For Each control As Control In pnlAClientes.Controls
+                                            VaciarControl(control)
+                                        Next
+                                        cbxTelefonosACliente.DataSource = Nothing
+                                    End If
+                                End If
+                            Else
+                                'Si el cliente se ingresa satisfactoriamente, recargar y desactivar descuento.
                                 If conexion.EjecutarNonQuery(sentencia) Then
+                                    AmaranthMessagebox("Cliente ingresado satisfactoriamente", "Continuar", Me)
 
                                     Dim ip As String = GetIPAddress()
                                     Dim descripcion As String = "Ingreso al cliente con el numero de documento : " + txtDocumACliente.Text + " y con un descuento del : " + numDescuentoACliente.Value.ToString + "%"
                                     conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
-                                    AmaranthMessagebox("Cliente ingresado satisfactoriamente", "Continuar", Me)
                                     RecargarDatos(dgvClientes)
-
+                                    numDescuentoACliente.Enabled = False
+                                    For Each control As Control In gbxFecNacACliente.Controls
+                                        VaciarControl(control)
+                                    Next
                                     For Each control As Control In pnlAClientes.Controls
                                         VaciarControl(control)
                                     Next
-                                    cbxTelefonosACliente.DataSource = Nothing
                                 End If
                             End If
                         Else
-                            'Si el cliente se ingresa satisfactoriamente, recargar y desactivar descuento.
-                            If conexion.EjecutarNonQuery(sentencia) Then
-                                AmaranthMessagebox("Cliente ingresado satisfactoriamente", "Continuar", Me)
-
-                                Dim ip As String = GetIPAddress()
-                                Dim descripcion As String = "Ingreso al cliente con el numero de documento : " + txtDocumACliente.Text + " y con un descuento del : " + numDescuentoACliente.Value.ToString + "%"
-                                conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
-
-                                RecargarDatos(dgvClientes)
-                                numDescuentoACliente.Enabled = False
-                                For Each control As Control In gbxFecNacACliente.Controls
-                                    VaciarControl(control)
-                                Next
-                                For Each control As Control In pnlAClientes.Controls
-                                    VaciarControl(control)
-                                Next
-                            End If
+                            AmaranthMessagebox("Ya existe un cliente con el mismo número de documento, por favor modifique. (#030)", "Error", Me)
                         End If
                     Else
-                        AmaranthMessagebox("Ya existe un cliente con el mismo número de documento, por favor modifique. (#030)", "Error", Me)
+                        AmaranthMessagebox("Ha ingresado demasiados telefonos. Por favor, elimine alguno. (#030)", "Error", Me)
+
                     End If
+
                 Else
                     AmaranthMessagebox("Solo puede registrar clientes mayores a 18 años. (#031)", "Advertencia", Me)
                 End If
@@ -217,34 +226,56 @@ Partial Public Class frmMainMenu
                                 numeros += "," + Telefono
                             End If
                         Next
+                        If Not numeros.Length > 255 Then
+                            Dim telefonoM As String = TelefonosPersona.Rows(0)("telefono").ToString()
+                            Dim idtipodocm As String = dgvClientes.CurrentRow.Cells("idtipodoc").Value.ToString()
+                            Dim nrodocM As String = dgvClientes.CurrentRow.Cells("nrodocumento").Value.ToString()
+                            Dim nombreM As String = dgvClientes.CurrentRow.Cells("nombre").Value.ToString
+                            Dim apellidoM As String = dgvClientes.CurrentRow.Cells("apellido").Value.ToString()
+                            Dim emailM As String = dgvClientes.CurrentRow.Cells("email").Value.ToString()
+                            Dim empresaM As String = dgvClientes.CurrentRow.Cells("empresa").Value.ToString()
+                            Dim descuentoM As String = dgvClientes.CurrentRow.Cells("porcdescuento").Value
+                            Dim diaM As String = dgvClientes.CurrentRow.Cells("dia").Value.ToString()
+                            Dim mesM As String = dgvClientes.CurrentRow.Cells("mes").Value.ToString()
+                            Dim anioM As String = dgvClientes.CurrentRow.Cells("anio").Value.ToString()
+                            Dim FechaModificar As String = diaM + "/" + mesM + "/" + anioM
 
-                        Dim telefonoM As String = TelefonosPersona.Rows(0)("telefono").ToString()
-                        Dim idtipodocm As String = dgvClientes.CurrentRow.Cells("idtipodoc").Value.ToString()
-                        Dim nrodocM As String = dgvClientes.CurrentRow.Cells("nrodocumento").Value.ToString()
-                        Dim nombreM As String = dgvClientes.CurrentRow.Cells("nombre").Value.ToString
-                        Dim apellidoM As String = dgvClientes.CurrentRow.Cells("apellido").Value.ToString()
-                        Dim emailM As String = dgvClientes.CurrentRow.Cells("email").Value.ToString()
-                        Dim empresaM As String = dgvClientes.CurrentRow.Cells("empresa").Value.ToString()
-                        Dim descuentoM As String = dgvClientes.CurrentRow.Cells("porcdescuento").Value
-                        Dim diaM As String = dgvClientes.CurrentRow.Cells("dia").Value.ToString()
-                        Dim mesM As String = dgvClientes.CurrentRow.Cells("mes").Value.ToString()
-                        Dim anioM As String = dgvClientes.CurrentRow.Cells("anio").Value.ToString()
-                        Dim FechaModificar As String = diaM + "/" + mesM + "/" + anioM
+                            If Not (cbxTipoDocumMCliente.SelectedValue = idtipodocm And txtDocumMCliente.Text.ToString = nrodocM And txtNombreMCliente.Text.ToString = nombreM And txtApellidoMCliente.Text.ToString = apellidoM And txtCorreoMCliente.Text.ToString = emailM And txtEmpresaMCliente.Text.ToString = empresaM And numDescuentoMCliente.Value.ToString = descuentoM And FechaSeleccionada = FechaModificar And telefonoM = numeros) Then
 
-                        If Not (cbxTipoDocumMCliente.SelectedValue = idtipodocm And txtDocumMCliente.Text.ToString = nrodocM And txtNombreMCliente.Text.ToString = nombreM And txtApellidoMCliente.Text.ToString = apellidoM And txtCorreoMCliente.Text.ToString = emailM And txtEmpresaMCliente.Text.ToString = empresaM And numDescuentoMCliente.Value.ToString = descuentoM And FechaSeleccionada = FechaModificar And telefonoM = numeros) Then
+                                If Not (txtDocumMCliente.Text.ToString = nrodocM) Then
 
-                            If Not (txtDocumMCliente.Text.ToString = nrodocM) Then
+                                    Dim nrodocRepetido As New DataTable
+                                    nrodocRepetido = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" + txtDocumMCliente.Text + "'")
 
-                                Dim nrodocRepetido As New DataTable
-                                nrodocRepetido = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" + txtDocumMCliente.Text + "'")
+                                    If nrodocRepetido.Rows.Count = 0 Then
 
-                                If nrodocRepetido.Rows.Count = 0 Then
+                                        If (cbxTipoDocumMCliente.SelectedValue = 1) Then
+                                            If (VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
+                                                'ponerinsert
+                                                conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                                                AmaranthMessagebox("Persona modificada satisfactoriamente.", "Continuar", Me)
 
+                                                RecargarDatos(dgvClientes)
+                                                numDescuentoMCliente.Enabled = False
+                                            End If
+                                        Else
+                                            'ponerinsert
+                                            conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
+                                            AmaranthMessagebox("Persona modificada satisfactoriamente.", "Continuar", Me)
+
+                                            RecargarDatos(dgvClientes)
+                                            numDescuentoMCliente.Enabled = False
+                                        End If
+                                    Else
+                                        AmaranthMessagebox("Ya existe un cliente con ese número de documento. (#030)", "Advertencia", Me)
+                                    End If
+                                Else
                                     If (cbxTipoDocumMCliente.SelectedValue = 1) Then
                                         If (VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
                                             'ponerinsert
                                             conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
-                                            AmaranthMessagebox("Persona modificada satisfactoriamente.", "Continuar", Me)
+
+                                            MsgBox("Persona modificada satisfactoriamente.", "Continuar", Me)
 
                                             RecargarDatos(dgvClientes)
                                             numDescuentoMCliente.Enabled = False
@@ -257,32 +288,16 @@ Partial Public Class frmMainMenu
                                         RecargarDatos(dgvClientes)
                                         numDescuentoMCliente.Enabled = False
                                     End If
-                                Else
-                                    AmaranthMessagebox("Ya existe un cliente con ese número de documento. (#030)", "Advertencia", Me)
                                 End If
                             Else
-                                If (cbxTipoDocumMCliente.SelectedValue = 1) Then
-                                    If (VerificarCI(txtDocumMCliente.Text.ToString) = True) Then
-                                        'ponerinsert
-                                        conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "',  apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "',  fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
-
-                                        MsgBox("Persona modificada satisfactoriamente.", "Continuar", Me)
-
-                                        RecargarDatos(dgvClientes)
-                                        numDescuentoMCliente.Enabled = False
-                                    End If
-                                Else
-                                    'ponerinsert
-                                    conexion.EjecutarNonQuery("UPDATE Cliente SET idtipodoc = " + cbxTipoDocumMCliente.SelectedValue.ToString() + ", nrodocumento = '" + txtDocumMCliente.Text + "', nombre = '" + txtNombreMCliente.Text + "', apellido = '" + txtApellidoMCliente.Text + "', email = '" + txtCorreoMCliente.Text + "', fecnac = '" + FechaSeleccionada + "', empresa = '" + txtEmpresaMCliente.Text + "', porcdescuento = '" + numDescuentoMCliente.Value.ToString + "', telefono ='" + numeros + "' WHERE idpersona = " + IdPersona + "")
-                                    AmaranthMessagebox("Persona modificada satisfactoriamente.", "Continuar", Me)
-
-                                    RecargarDatos(dgvClientes)
-                                    numDescuentoMCliente.Enabled = False
-                                End If
+                                AmaranthMessagebox("Modifique algo por favor. (#010)", "Advertencia", Me)
                             End If
                         Else
-                            AmaranthMessagebox("Modifique algo por favor. (#010)", "Advertencia", Me)
+                            AmaranthMessagebox("Ha ingresado demasiados teléfonos. Por favor, elimine alguno.", "Error", Me)
+
                         End If
+
+
                     Else
                         AmaranthMessagebox("Por favor, ingrese una fecha válida. (#032)", "Advertencia", Me)
                     End If

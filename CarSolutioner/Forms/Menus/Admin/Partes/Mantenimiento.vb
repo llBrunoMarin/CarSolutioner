@@ -97,8 +97,8 @@ Partial Public Class frmMainMenu
             Dim format As String = "yyyy-MM-dd HH:mm"
             txtModifMatriculaMant.Text = dgvMant.CurrentRow.Cells("matriculamant").Value.ToString()
             cbxModifTipoMant.SelectedIndex = cbxModifTipoMant.FindString(dgvMant.CurrentRow.Cells("tipomant").Value.ToString())
-            dtpModifFechaInicioMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToString(Format)
-            dtpModifFechaFinMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToString(Format)
+            dtpModifFechaInicioMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToString(format)
+            dtpModifFechaFinMant.Value = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToString(format)
         End If
     End Sub
 
@@ -154,9 +154,9 @@ Partial Public Class frmMainMenu
                                 RecargarDatos(dgvMant)
 
 
-                        Else
+                            Else
 
-                        End If
+                            End If
 
 
                         End If
@@ -167,7 +167,7 @@ Partial Public Class frmMainMenu
                     AmaranthMessagebox("No se han realizado cambios.(#010)", "Advertencia", Me)
                 End If
 
-                Else
+            Else
                 AmaranthMessagebox("Matricula no existente.(#044)", "Error", Me)
             End If
         Else

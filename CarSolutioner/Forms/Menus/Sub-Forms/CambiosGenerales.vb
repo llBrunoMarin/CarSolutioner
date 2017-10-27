@@ -551,8 +551,6 @@
             Dim sentencia As String = "select v.nrochasis from vehiculo v, modelo mo where mo.idtipo=" + idtipo + " and v.idmodelo=mo.idmodelo and V.nrochasis IN (Select nrochasis FROM Mantenimiento WHERE fechainicio <=  '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' and fechafin >= '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "'    )"
             If conexion.EjecutarSelect("SELECT idreserva from reserva where idtipo='" + idtipo + "' and estado=1").Rows.Count > 0 Or conexion.EjecutarSelect(sentencia).Rows.Count > 0 Then
                 MsgBox("Existen Alquileres, Mantenimientos o Reservas relacionadas con este tipo. (#017)")
-                MsgBox(conexion.EjecutarSelect("SELECT idreserva from reserva where idtipo='" + idtipo + "' and estado=1").Rows.Count.ToString)
-                MsgBox(conexion.EjecutarSelect(sentencia).Rows.Count.ToString)
             ElseIf dgvTipos.CurrentRow.Cells("estado").Value.ToString() = True Then
                 Dim resultado As MsgBoxResult
                 resultado = MsgBox("Los vehiculos de este tipo seran dados de baja, desea continuar?", MsgBoxStyle.YesNo)
@@ -926,7 +924,6 @@
                     conexion.RellenarDataGridView(dgvModelos, "Select mo.nombre nombremodelo, ma.nombre nombremarca, t.nombre nombretipo, mo.idmodelo, ma.idmarca, t.idtipo, mo.estado estadomodelo from modelo mo, marca ma, tipo t where ma.idmarca=mo.idmarca and t.idtipo = mo.idtipo")
                 ElseIf resultado = MsgBoxResult.No Then
 
-                    MsgBox("No puede eliminar su ultimo modelo. (#028)")
 
                 End If
             End If

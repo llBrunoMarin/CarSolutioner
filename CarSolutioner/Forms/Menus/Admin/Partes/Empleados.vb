@@ -122,76 +122,79 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub ActualizarEstadoEmpleado(sender As Object, e As EventArgs) Handles btnEstadoEmpleado.Click
-        Dim Valores As New Dictionary(Of Boolean, String)
-        Valores.Add(True, "Activo")
-        Valores.Add(False, "Inactivo")
+        If Not dgvEmpleados.CurrentRow Is Nothing Then
 
-        Dim idpersonaUsuarioEmpA As New DataTable
-        idpersonaUsuarioEmpA = conexion.EjecutarSelect("SELECT empleado.idpersona, empleado.estado, cliente.nrodocumento, cliente.idpersona FROM empleado,cliente WHERE cliente.idpersona = empleado.idpersona AND nrodocumento = '" & txtNroDocEempleado.Text & "'")
+            Dim Valores As New Dictionary(Of Boolean, String)
+            Valores.Add(True, "Activo")
+            Valores.Add(False, "Inactivo")
 
-        If AmaranthMessagebox("Desea cambiar el estado de este empleado?", "Si/No", Me) = vbYes Then
+            Dim idpersonaUsuarioEmpA As New DataTable
+            idpersonaUsuarioEmpA = conexion.EjecutarSelect("SELECT empleado.idpersona, empleado.estado, cliente.nrodocumento, cliente.idpersona FROM empleado,cliente WHERE cliente.idpersona = empleado.idpersona AND nrodocumento = '" & txtNroDocEempleado.Text & "'")
 
-            If Not (txtNroDocEempleado.Text = "") Then
-                If (idpersonaUsuarioEmpA.Rows.Count <> 0) Then
-                    Dim IdPersona As String = idpersonaUsuarioEmpA.Rows(0)("idpersona").ToString()
-                    Dim EstadoActual As Boolean = idpersonaUsuarioEmpA.Rows(0)("estado")
-                    Dim NuevoEstado As Boolean = Not EstadoActual
-                    If (conexion.EjecutarNonQuery("UPDATE empleado SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
+            If AmaranthMessagebox("Desea cambiar el estado de este empleado?", "Si/No", Me) = vbYes Then
 
-                        Dim ip As String = GetIPAddress()
-                        Dim descripcion As String = "Modifico el estado a inactivo del empleado con el numero de documento : " + txtNroDocumentoCempleado.Text + " "
-                        conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
+                If Not (txtNroDocEempleado.Text = "") Then
+                    If (idpersonaUsuarioEmpA.Rows.Count <> 0) Then
+                        Dim IdPersona As String = idpersonaUsuarioEmpA.Rows(0)("idpersona").ToString()
+                        Dim EstadoActual As Boolean = idpersonaUsuarioEmpA.Rows(0)("estado")
+                        Dim NuevoEstado As Boolean = Not EstadoActual
+                        If (conexion.EjecutarNonQuery("UPDATE empleado SET estado ='" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
 
-                        AmaranthMessagebox("Empleado pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar", Me)
+                            Dim ip As String = GetIPAddress()
+                            Dim descripcion As String = "Modifico el estado a inactivo del empleado con el numero de documento : " + txtNroDocumentoCempleado.Text + " "
+                            conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
-                        RecargarDatos(dgvEmpleados)
+                            AmaranthMessagebox("Empleado pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar", Me)
+
+                            RecargarDatos(dgvEmpleados)
+                        End If
+                    Else
+                        AmaranthMessagebox("Ese cliente no existe. Por favor, verifique.", "Advertencia", Me)
                     End If
                 Else
-                    AmaranthMessagebox("Ese cliente no existe. Por favor, verifique.", "Advertencia", Me)
+                    AmaranthMessagebox("Ingrese un número de documento", "Advertencia", Me)
                 End If
-            Else
-                AmaranthMessagebox("Ingrese un número de documento", "Advertencia", Me)
-            End If
 
+            End If
         End If
 
     End Sub
 
     Private Sub ModificarEmpleado(sender As Object, e As EventArgs) Handles btnModificarEmpleado.Click
+        If Not dgvEmpleados.CurrentRow Is Nothing Then
 
-        Dim FaltaDato As Boolean = False
+            Dim FaltaDato As Boolean = False
 
-        For Each ctrl As Control In pnlMEmp.Controls
-            If TypeOf (ctrl) Is ComboBox Then
-                If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
-                    FaltaDato = True
+            For Each ctrl As Control In pnlMEmp.Controls
+                If TypeOf (ctrl) Is ComboBox Then
+                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                        FaltaDato = True
+                    End If
                 End If
-            End If
-        Next
+            Next
 
-        If Not (FaltaDato) Then
+            If Not (FaltaDato) Then
 
-            Dim idPersonaUsuarioEM As String
-            Dim NombreUsuarioEmpM As String
-            Dim SucursalUsuarioEmpM As String
-            Dim TipoUsuarioEmpM As String
-            Dim fechActual As String
-            Dim TipoEmpleadoDGV As String
-            Dim SucursalEmpleadoDGV As String
-            fechActual = DateTime.Now.ToString("dd/MM/yyyy")
+                Dim idPersonaUsuarioEM As String
+                Dim NombreUsuarioEmpM As String
+                Dim SucursalUsuarioEmpM As String
+                Dim TipoUsuarioEmpM As String
+                Dim fechActual As String
+                Dim TipoEmpleadoDGV As String
+                Dim SucursalEmpleadoDGV As String
+                fechActual = DateTime.Now.ToString("dd/MM/yyyy")
 
-            Try
 
                 idPersonaUsuarioEM = conexion.EjecutarSelect("SELECT idpersona FROM cliente WHERE nrodocumento = '" & dgvEmpleados.CurrentRow.Cells("nrodocumentoEmpleado").Value.ToString() & "'").Rows(0)(0).ToString()
-                NombreUsuarioEmpM = dgvEmpleados.CurrentRow.Cells("usuariosEmpleado").Value.ToString()
-                TipoEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idtipoEmpleado").Value.ToString()
-                SucursalEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idsucursalEmpleado").Value.ToString()
-                Dim nrodoc As String = dgvEmpleados.CurrentRow.Cells("nrodocumentoEmpleado").Value.ToString()
-                SucursalUsuarioEmpM = cbxSucursalMempleados.SelectedValue
-                TipoUsuarioEmpM = cbxTipoMempleados.SelectedValue
+                    NombreUsuarioEmpM = dgvEmpleados.CurrentRow.Cells("usuariosEmpleado").Value.ToString()
+                    TipoEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idtipoEmpleado").Value.ToString()
+                    SucursalEmpleadoDGV = dgvEmpleados.CurrentRow.Cells("idsucursalEmpleado").Value.ToString()
+                    Dim nrodoc As String = dgvEmpleados.CurrentRow.Cells("nrodocumentoEmpleado").Value.ToString()
+                    SucursalUsuarioEmpM = cbxSucursalMempleados.SelectedValue
+                    TipoUsuarioEmpM = cbxTipoMempleados.SelectedValue
 
-                Dim test As New DataTable
-                test = conexion.EjecutarSelect("SELECT * FROM trabaja WHERE usuarioempleado ='" + NombreUsuarioEmpM + "' and fechafin is NULL")
+                    Dim test As New DataTable
+                    test = conexion.EjecutarSelect("SELECT * FROM trabaja WHERE usuarioempleado ='" + NombreUsuarioEmpM + "' and fechafin is NULL")
                 If (test.Rows.Count <> 0) Then
 
 
@@ -244,12 +247,9 @@ Partial Public Class frmMainMenu
                 Else
                     AmaranthMessagebox("No existe ese empleado", "Error", Me)
                 End If
-
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        Else
-            AmaranthMessagebox("Rellene todos los campos", "Error", Me)
+            Else
+                AmaranthMessagebox("Rellene todos los campos", "Error", Me)
+            End If
         End If
 
     End Sub

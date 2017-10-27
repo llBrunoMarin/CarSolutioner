@@ -103,58 +103,65 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub btnModifMant_Click(sender As Object, e As EventArgs) Handles btnModifMant.Click
+        If Not dgvMant.CurrentRow Is Nothing Then
 
-        Dim format As String = "yyyy-MM-dd HH:mm"
-        Dim nrochasismodif As String = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
-        Dim fechainicioant As String = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToString(format)
-        Dim nrochasisant As String = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
-        Dim tipoant As String = dgvMant.CurrentRow.Cells("tipomant").Value.ToString()
-        Dim fechafinant As String = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToString(format)
-        Dim matriculaant As String = dgvMant.CurrentRow.Cells("matriculamant").Value.ToString()
-        Dim FaltaDato As Boolean = False
 
-        For Each ctrl As Control In pnlmmant.Controls
-            If TypeOf (ctrl) Is TextBox Then
-                If ctrl.Text = "" Then
-                    FaltaDato = True
-                    Exit For
-                End If
-            Else
-                If TypeOf (ctrl) Is ComboBox Then
-                    If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+            Dim format As String = "yyyy-MM-dd HH:mm"
+            Dim nrochasismodif As String = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
+            Dim fechainicioant As String = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToString(format)
+            Dim nrochasisant As String = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
+            Dim tipoant As String = dgvMant.CurrentRow.Cells("tipomant").Value.ToString()
+            Dim fechafinant As String = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToString(format)
+            Dim matriculaant As String = dgvMant.CurrentRow.Cells("matriculamant").Value.ToString()
+            Dim FaltaDato As Boolean = False
+
+            For Each ctrl As Control In pnlmmant.Controls
+                If TypeOf (ctrl) Is TextBox Then
+                    If ctrl.Text = "" Then
                         FaltaDato = True
+                        Exit For
+                    End If
+                Else
+                    If TypeOf (ctrl) Is ComboBox Then
+                        If DirectCast(ctrl, ComboBox).SelectedItem Is Nothing Then
+                            FaltaDato = True
+                        End If
                     End If
                 End If
-            End If
-        Next
+            Next
 
-        If Not FaltaDato = True Then
-            Dim nrochasisdt As New DataTable
-            nrochasisdt = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtModifMatriculaMant.Text.ToString + "'")
-            Dim nrochasisinsert As String
-            If (nrochasisdt.Rows.Count > 0) Then
-                nrochasisinsert = nrochasisdt.Rows(0)(0).ToString()
+            If Not FaltaDato = True Then
+                Dim nrochasisdt As New DataTable
+                nrochasisdt = conexion.EjecutarSelect("SELECT nrochasis FROM vehiculo WHERE matricula ='" + txtModifMatriculaMant.Text.ToString + "'")
+                Dim nrochasisinsert As String
+                If (nrochasisdt.Rows.Count > 0) Then
+                    nrochasisinsert = nrochasisdt.Rows(0)(0).ToString()
 
-                If Not (dtpModifFechaInicioMant.Value.ToString(format) = fechainicioant And dtpModifFechaFinMant.Value.ToString(format) = fechafinant And tipoant = cbxModifTipoMant.SelectedItem And txtModifMatriculaMant.Text = matriculaant) Then
+                    If Not (dtpModifFechaInicioMant.Value.ToString(format) = fechainicioant And dtpModifFechaFinMant.Value.ToString(format) = fechafinant And tipoant = cbxModifTipoMant.SelectedItem And txtModifMatriculaMant.Text = matriculaant) Then
 
-                    If dtpModifFechaInicioMant.Value.ToString(format) > dtpModifFechaFinMant.Value.ToString(format) Then
+                        If dtpModifFechaInicioMant.Value.ToString(format) > dtpModifFechaFinMant.Value.ToString(format) Then
 
-                        AmaranthMessagebox("No puede definir una fecha de inicio mayor a la fecha de fin", "Advertencia", Me)
+                            AmaranthMessagebox("No puede definir una fecha de inicio mayor a la fecha de fin", "Advertencia", Me)
 
-                    Else
-                        If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET descripcion ='" + cbxModifTipoMant.SelectedItem + "', fechainicio = '" + dtpModifFechaInicioMant.Value.ToString(format) + "', fechafin = '" + dtpModifFechaFinMant.Value.ToString(format) + "' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "'") = True) Then
+                        Else
+                            If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET descripcion ='" + cbxModifTipoMant.SelectedItem + "', fechainicio = '" + dtpModifFechaInicioMant.Value.ToString(format) + "', fechafin = '" + dtpModifFechaFinMant.Value.ToString(format) + "' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "'") = True) Then
 
-                            Dim ip As String = GetIPAddress()
-                            Dim descripcion As String = "Modifico el mantenimiento con la matricula : " + matriculaant + ", con la fecha de inicio :" + dtpModifFechaInicioMant.Value.ToString(format) + ", la fecha fin :" + dtpModifFechaFinMant.Value.ToString(format) + " y la descripcion a :" + cbxModifTipoMant.SelectedItem + ""
-                            conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
+                                Dim ip As String = GetIPAddress()
+                                Dim descripcion As String = "Modifico el mantenimiento con la matricula : " + matriculaant + ", con la fecha de inicio :" + dtpModifFechaInicioMant.Value.ToString(format) + ", la fecha fin :" + dtpModifFechaFinMant.Value.ToString(format) + " y la descripcion a :" + cbxModifTipoMant.SelectedItem + ""
+                                conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
-                            AmaranthMessagebox("Modificación existosa", "Continuar", Me)
-                            RecargarDatos(dgvMant)
+                                AmaranthMessagebox("Modificación existosa", "Continuar", Me)
+                                RecargarDatos(dgvMant)
+
 
                         Else
 
                         End If
 
+
+                        End If
+                    Else
+                        AmaranthMessagebox("No se han realizado cambios", "Advertencia", Me)
                     End If
                 Else
                     AmaranthMessagebox("No se han realizado cambios.(#010)", "Advertencia", Me)
@@ -165,6 +172,7 @@ Partial Public Class frmMainMenu
             End If
         Else
             AmaranthMessagebox("No pueden quedar campos vacios.(#009)", "Advertencia", Me)
+
         End If
     End Sub
 
@@ -241,36 +249,44 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub btnBajamant_Click(sender As Object, e As EventArgs) Handles btnBajamant.Click
+        If Not dgvMant.CurrentRow Is Nothing Then
 
-        Dim format As String = "yyyy-MM-dd HH:mm"
-        Dim nrochasismodif As String
-        nrochasismodif = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
-        Dim fechainicioant As String
-        fechainicioant = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToString(format)
-        Dim nrochasisant As String
-        nrochasisant = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
-        Dim tipoant As String
-        tipoant = dgvMant.CurrentRow.Cells("tipomant").Value.ToString()
-        Dim fechafinant As String
-        fechafinant = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToString(format)
-        Dim matriculaant As String
-        matriculaant = dgvMant.CurrentRow.Cells("matriculamant").Value.ToString()
-        Dim FaltaDato As Boolean = False
+            Dim format As String = "yyyy-MM-dd HH:mm"
+            Dim nrochasismodif As String
+            nrochasismodif = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
+            Dim fechainicioant As String
+            fechainicioant = Date.Parse(dgvMant.CurrentRow.Cells("fechainiciomant").Value).ToString(format)
+            Dim nrochasisant As String
+            nrochasisant = dgvMant.CurrentRow.Cells("nrochasismant").Value.ToString()
+            Dim tipoant As String
+            tipoant = dgvMant.CurrentRow.Cells("tipomant").Value.ToString()
+            Dim fechafinant As String
+            fechafinant = Date.Parse(dgvMant.CurrentRow.Cells("fechafinmant").Value).ToString(format)
+            Dim matriculaant As String
+            matriculaant = dgvMant.CurrentRow.Cells("matriculamant").Value.ToString()
+            Dim FaltaDato As Boolean = False
 
-        If AmaranthMessagebox("Desea cambiar el estado de este mantenimiento?", "Si/No", Me) = vbYes Then
+            If Not dgvMant.CurrentRow.Cells("fechainiciomant").Value > Date.Now.ToString("dd/MM/yyyy HH:mm") Then
 
-            If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET  fechafin = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "' ") = True) Then
 
-                Dim ip As String = GetIPAddress()
-                Dim descripcion As String = "Modifico el estado del mantenimiento con la matricula : " + matriculaant + ""
-                conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
 
-                MsgBox("Modificación existosa")
-                RecargarDatos(dgvMant)
+                If AmaranthMessagebox("¿Desea cambiar el estado de este mantenimiento?", "Si/No", Me) = vbYes Then
+
+                    If (conexion.EjecutarNonQuery("UPDATE mantenimiento SET  fechafin = '" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "' WHERE nrochasis='" + nrochasisant + "' AND fechainicio = '" + fechainicioant + "' AND descripcion = '" + tipoant + "' ") = True) Then
+
+                        Dim ip As String = GetIPAddress()
+                        Dim descripcion As String = "Modifico el estado del mantenimiento con la matricula : " + matriculaant + ""
+                        conexion.EjecutarNonQuery("INSERT INTO accion VALUES('" + ip + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm") + "','" + descripcion + "','" + conexion.Usuario.ToString + "')")
+
+                        MsgBox("Modificación existosa")
+                        RecargarDatos(dgvMant)
+                    End If
+
+                End If
+            Else
+                AmaranthMessagebox("No puede finalizar mantenimientos que aún no han empezado.", "Error", Me)
             End If
-
         End If
-
     End Sub
 
 End Class

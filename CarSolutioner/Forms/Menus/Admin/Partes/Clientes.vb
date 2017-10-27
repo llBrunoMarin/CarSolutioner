@@ -312,64 +312,67 @@ Partial Public Class frmMainMenu
     End Sub
 
     Private Sub BajaCliente(sender As Object, e As EventArgs) Handles btnBajaCliente.Click
+        If Not dgvClientes.CurrentRow Is Nothing Then
 
-        Dim Valores As New Dictionary(Of Boolean, String)
-        Valores.Add(True, "Activo")
-        Valores.Add(False, "Inactivo")
-        Dim nrochasis As String = ""
-        Dim idreserva As String = ""
+            Dim Valores As New Dictionary(Of Boolean, String)
+            Valores.Add(True, "Activo")
+            Valores.Add(False, "Inactivo")
+            Dim nrochasis As String = ""
+            Dim idreserva As String = ""
 
-        Dim Persona As New DataTable
-        Persona = conexion.EjecutarSelect("SELECT idpersona, estado FROM cliente where nrodocumento = '" + txtDocumentoBCliente.Text + "'")
+            Dim Persona As New DataTable
+            Persona = conexion.EjecutarSelect("SELECT idpersona, estado FROM cliente where nrodocumento = '" + txtDocumentoBCliente.Text + "'")
 
-        If AmaranthMessagebox("Desea cambiar el estado de este cliente?", "Si/No", Me) = vbYes Then
+            If AmaranthMessagebox("Desea cambiar el estado de este cliente?", "Si/No", Me) = vbYes Then
 
-            If Not (txtDocumentoBCliente.Text = "") Then
+                If Not (txtDocumentoBCliente.Text = "") Then
 
-                'Si el cliente existe
-                If (Persona.Rows.Count <> 0) Then
-                    Dim IdPersona As String = Persona.Rows(0)("idpersona").ToString()
+                    'Si el cliente existe
+                    If (Persona.Rows.Count <> 0) Then
+                        Dim IdPersona As String = Persona.Rows(0)("idpersona").ToString()
 
-                    Dim alquileresActivos As New DataTable
-                    Dim sentencia As String = "SELECT nrochasis FROM reserva WHERE idpersona = '" + IdPersona + "' AND estado = '1'"
-                    alquileresActivos = conexion.EjecutarSelect(sentencia)
-                    If Not (alquileresActivos.Rows.Count = 0) Then
-                        nrochasis = alquileresActivos.Rows(0)("nrochasis").ToString
-                    End If
-
-                    If (nrochasis = "") Then
-
-                        Dim ReservasActivasPersona As DataTable
-                        Dim sentencia2 As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1"
-                        ReservasActivasPersona = conexion.EjecutarSelect(sentencia2)
-                        If Not (ReservasActivasPersona.Rows.Count = 0) Then
-                            idreserva = ReservasActivasPersona.Rows(0)("idreserva").ToString
+                        Dim alquileresActivos As New DataTable
+                        Dim sentencia As String = "SELECT nrochasis FROM reserva WHERE idpersona = '" + IdPersona + "' AND estado = '1'"
+                        alquileresActivos = conexion.EjecutarSelect(sentencia)
+                        If Not (alquileresActivos.Rows.Count = 0) Then
+                            nrochasis = alquileresActivos.Rows(0)("nrochasis").ToString
                         End If
 
-                        If (idreserva = "") Then
-                            Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
-                            Dim NuevoEstado As Boolean = Not EstadoActual
-                            'ponerinsert
-                            If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
-                                RecargarDatos(dgvClientes)
-                                AmaranthMessagebox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar", Me)
+                        If (nrochasis = "") Then
+
+                            Dim ReservasActivasPersona As DataTable
+                            Dim sentencia2 As String = "SELECT idreserva FROM Reserva WHERE idpersona = '" + IdPersona + "' AND estado = 1"
+                            ReservasActivasPersona = conexion.EjecutarSelect(sentencia2)
+                            If Not (ReservasActivasPersona.Rows.Count = 0) Then
+                                idreserva = ReservasActivasPersona.Rows(0)("idreserva").ToString
+                            End If
+
+                            If (idreserva = "") Then
+                                Dim EstadoActual As Boolean = Persona.Rows(0)("estado")
+                                Dim NuevoEstado As Boolean = Not EstadoActual
+                                'ponerinsert
+                                If (conexion.EjecutarNonQuery("UPDATE Cliente SET estado = '" + NuevoEstado.ToString().Substring(0, 1) + "' WHERE idpersona = " + IdPersona + "")) Then
+                                    RecargarDatos(dgvClientes)
+                                    AmaranthMessagebox("Presona pasó del estado " + Valores.Item(EstadoActual) + " a " + Valores.Item(NuevoEstado) + "", "Continuar", Me)
+                                Else
+                                    AmaranthMessagebox("Por favor, verifique que pueda eliminar ese cliente. (#034)", "Error", Me)
+                                End If
                             Else
-                                AmaranthMessagebox("Por favor, verifique que pueda eliminar ese cliente. (#034)", "Error", Me)
+                                AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene reservas activas. (#035)", "Error", Me)
                             End If
                         Else
-                            AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene reservas activas. (#035)", "Error", Me)
+                            AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene un alquiler activo. (#036)", "Error", Me)
                         End If
-                    Else
-                        AmaranthMessagebox("No puede cambiar el estado de este cliente debido a que tiene un alquiler activo. (#036)", "Error", Me)
-                    End If
 
+                    Else
+                        AmaranthMessagebox("Ese cliente no existe. Por favor, verifique. (#037)", "Advertencia", Me)
+                    End If
                 Else
-                    AmaranthMessagebox("Ese cliente no existe. Por favor, verifique. (#037)", "Advertencia", Me)
+                    AmaranthMessagebox("Ingrese un número de documento. (#038)", "Advertencia", Me)
                 End If
-            Else
-                AmaranthMessagebox("Ingrese un número de documento. (#038)", "Advertencia", Me)
             End If
         End If
+
     End Sub
 
     Private Sub RellenarDatosCliente(sender As Object, e As EventArgs) Handles dgvClientes.SelectionChanged

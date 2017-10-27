@@ -41,6 +41,10 @@ Module Metodos
                 frmMainMenu.CargarDatos()
             Case "frmMainMenuInvitado"
                 frmMainMenuInvitado.CargarDatos()
+            Case "frmMainMenuEmpleado"
+                frmMainMenuEmpleado.CargarDatos()
+            Case "frmMainMenuGerente"
+                frmMainMenuGerente.CargarDatos()
 
         End Select
     End Sub
@@ -63,13 +67,26 @@ Module Metodos
             Case "frmMainMenuInvitado"
                 frmMainMenuInvitado.RecargarDatos(GridView)
 
+            Case "frmMainMenuGerente"
+                frmMainMenuGerente.RecargarDatos(GridView)
+
+            Case "frmMainMenuEmpleado"
+                frmMainMenuEmpleado.RecargarDatos(GridView)
+
         End Select
     End Sub
 
     Public Sub RecargarReportes(form As Form)
+
         Select Case form.Name
             Case "frmMainMenu"
                 frmMainMenu.CargarReportes()
+            Case "frmMainMenuEmpleado"
+                frmMainMenuEmpleado.CargarReportes()
+            Case "frmMainMenuGerente"
+                frmMainMenuGerente.CargarReportes()
+
+
 
         End Select
     End Sub
@@ -112,6 +129,20 @@ Module Metodos
                 '    frmMainMenu.pcboxloading.Visible = True
                 'End While
                 'frmMainMenu.pcboxloading.Visible = False
+
+            Case "frmMainMenuGerente"
+                While retraso >= GetTickCount
+                    Application.DoEvents()
+                    frmMainMenuGerente.pcboxloading.Visible = True
+                End While
+                frmMainMenuGerente.pcboxloading.Visible = False
+
+            Case "frmMainMenuEmpleado"
+                While retraso >= GetTickCount
+                    Application.DoEvents()
+                    frmMainMenuEmpleado.pcboxloading.Visible = True
+                End While
+                frmMainMenuEmpleado.pcboxloading.Visible = False
 
         End Select
 

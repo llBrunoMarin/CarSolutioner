@@ -148,6 +148,30 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Menus\Admin\Partes\Alquileres.vb" />
+    <Compile Include="Forms\Menus\Empleado\MainMenuEmpleado.Designer.vb">
+      <DependentUpon>MainMenuEmpleado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menus\Empleado\MainMenuEmpleado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menus\Empleado\Partes\Alquileres.vb" />
+    <Compile Include="Forms\Menus\Empleado\Partes\Clientes.vb" />
+    <Compile Include="Forms\Menus\Empleado\Partes\Empleados.vb" />
+    <Compile Include="Forms\Menus\Empleado\Partes\Mantenimiento.vb" />
+    <Compile Include="Forms\Menus\Empleado\Partes\Reservas.vb" />
+    <Compile Include="Forms\Menus\Empleado\Partes\Vehiculos.vb" />
+    <Compile Include="Forms\Menus\Gerente\MainMenuGerente.Designer.vb">
+      <DependentUpon>MainMenuGerente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menus\Gerente\MainMenuGerente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menus\Gerente\Partes\Alquileres.vb" />
+    <Compile Include="Forms\Menus\Gerente\Partes\Clientes.vb" />
+    <Compile Include="Forms\Menus\Gerente\Partes\Empleados.vb" />
+    <Compile Include="Forms\Menus\Gerente\Partes\Mantenimiento.vb" />
+    <Compile Include="Forms\Menus\Gerente\Partes\Reservas.vb" />
+    <Compile Include="Forms\Menus\Gerente\Partes\Vehiculos.vb" />
     <Compile Include="Forms\Menus\Invitado\MainMenuInvitado.Designer.vb">
       <DependentUpon>MainMenuInvitado.vb</DependentUpon>
     </Compile>
@@ -259,6 +283,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\AmaranthMsgbox.resx">
       <DependentUpon>AmaranthMsgbox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Menus\Empleado\MainMenuEmpleado.resx">
+      <DependentUpon>MainMenuEmpleado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Menus\Gerente\MainMenuGerente.resx">
+      <DependentUpon>MainMenuGerente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menus\Invitado\MainMenuInvitado.resx">
       <DependentUpon>MainMenuInvitado.vb</DependentUpon>

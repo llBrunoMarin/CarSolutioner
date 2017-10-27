@@ -60,6 +60,7 @@ Public Class frmMainMenuEmpleado
         dtpFiltrarFechaInicioMant.Enabled = False
         dtpFiltrarFechaFinMant.Enabled = False
 
+        dtpFechaInicioMant.Value = Date.Now
 
         dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()
         dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)

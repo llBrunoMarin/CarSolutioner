@@ -95,6 +95,9 @@ Public Class Login
                     btnLogin.Visible = True
                     lblpass.Visible = True
                     lbluser.Visible = True
+                    lblInvitado.Visible = True
+                    lblpass.Visible = True
+                    PictureBox2.Visible = True
 
                 End Try
 
@@ -108,6 +111,10 @@ Public Class Login
                 lblpass.Visible = True
                 PictureBox2.Visible = True
                 lbluser.Visible = True
+                lblInvitado.Visible = True
+                lblpass.Visible = True
+                PictureBox2.Visible = True
+
 
             Case "NetworkFailure"
 
@@ -121,6 +128,25 @@ Public Class Login
                 lblpass.Visible = True
                 PictureBox2.Visible = True
                 lbluser.Visible = True
+                lblInvitado.Visible = True
+                lblpass.Visible = True
+                PictureBox2.Visible = True
+
+
+            Case "NoPermission"
+                pboxLoading.Visible = False
+                lbldataincorrect.Text = "Permisos insuficientes para conectarte. Contacta al soporte."
+                lbldataincorrect.Visible = True
+                txtContraseña.Visible = True
+                txtUsuario.Visible = True
+                btnLogin.Visible = True
+                lblpass.Visible =
+                     PictureBox2.Visible = True
+                lbluser.Visible = True
+                lblInvitado.Visible = True
+                lblpass.Visible = True
+                PictureBox2.Visible = True
+
 
             Case Else
                 pboxLoading.Visible = False
@@ -132,6 +158,10 @@ Public Class Login
                 lblpass.Visible =
                      PictureBox2.Visible = True
                 lbluser.Visible = True
+                lblInvitado.Visible = True
+                lblpass.Visible = True
+                PictureBox2.Visible = True
+
 
         End Select
 

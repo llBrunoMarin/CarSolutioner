@@ -46,7 +46,6 @@
         Select Case conexion.ConnectionStatus
 
             Case "Opened"
-
                 conexion.ConnectionStatus = "Opened"
                 lblreconnect.Text = "Conexion establecida, pulse continuar."
                 pboxreconnecting.Visible = False

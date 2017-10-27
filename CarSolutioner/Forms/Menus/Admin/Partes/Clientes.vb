@@ -456,7 +456,7 @@ Partial Public Class frmMainMenu
                 'Obtiene los teléfonos de la persona seleccionada y los carga en el DataGridView, pero los borra de la BD (ya que serán ingresados nuevamente con (o sin) modificaciones)
                 TelefonosPersona = conexion.EjecutarSelect("SELECT telefono FROM cliente WHERE idpersona = " + IdPersona + " ")
 
-                Dim telefonospersonaS As String
+                Dim telefonospersonaS As String = ""
                 Try
                     telefonospersonaS = TelefonosPersona.Rows(0)(0).ToString()
                 Catch ex As Exception

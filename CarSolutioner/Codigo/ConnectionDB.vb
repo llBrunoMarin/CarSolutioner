@@ -195,11 +195,11 @@
                 cx.ConnectionTimeout = 2
 
                 'SERVIDOR UTU
-                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=10.0.29.6;SERVER=ol_informix1;SERVICE=1526;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
 
                 'SERVIDOR VICTOR
-                'cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
+                cx.ConnectionString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};UID=" + Usuario + ";PWD=" + Contraseña + ";DATABASE=amaranthsolutions;HOST=vdo.dyndns.org;SERVER=proyectoUTU;SERVICE=9088;PROTOCOL=olsoctcp;CLIENT_LOCALE=en_US.CP1252;DB_LOCALE=en_US.819;"
 
 
                 'SERVIDOR VICTOR 32 BITS
@@ -225,10 +225,16 @@
             ElseIf (ex.Message.Contains("[HY000] [Informix][Informix ODBC Driver][-11302] Insufficient Connection information was supplied")) Then
                 Me.ConnectionStatus = "MissingData"
                 Cerrar()
+            ElseIf (ex.Message.Contains("ERROR [HY000] [Informix][Informix ODBC Driver][Informix]No connect permission. sqlerrm(sysusers)" & vbCrLf & "ERROR [HY000] [Informix][Informix ODBC Driver][Informix]No connect permission.")) Then
+                Me.ConnectionStatus = "NoPermission"
+                Cerrar()
             Else
                 Me.ConnectionStatus = "NetworkFailure"
                 If Not Application.OpenForms().OfType(Of Reconectar).Any Then
-                    Reconectar.ShowDialog()
+                    Dim recon As New Reconectar
+                    Using recon
+                        recon.ShowDialog()
+                    End Using
                 End If
             End If
 

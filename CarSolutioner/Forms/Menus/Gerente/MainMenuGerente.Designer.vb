@@ -7558,7 +7558,7 @@ Partial Class frmMainMenuGerente
         Me.btnClientesMasGastaron.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClientesMasGastaron.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClientesMasGastaron.ForeColor = System.Drawing.Color.White
-        Me.btnClientesMasGastaron.Location = New System.Drawing.Point(794, 437)
+        Me.btnClientesMasGastaron.Location = New System.Drawing.Point(756, 451)
         Me.btnClientesMasGastaron.Name = "btnClientesMasGastaron"
         Me.btnClientesMasGastaron.Size = New System.Drawing.Size(99, 31)
         Me.btnClientesMasGastaron.TabIndex = 41
@@ -7576,7 +7576,7 @@ Partial Class frmMainMenuGerente
         Me.btnMasRentables.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMasRentables.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMasRentables.ForeColor = System.Drawing.Color.White
-        Me.btnMasRentables.Location = New System.Drawing.Point(438, 437)
+        Me.btnMasRentables.Location = New System.Drawing.Point(459, 451)
         Me.btnMasRentables.Name = "btnMasRentables"
         Me.btnMasRentables.Size = New System.Drawing.Size(99, 31)
         Me.btnMasRentables.TabIndex = 41
@@ -7588,7 +7588,7 @@ Partial Class frmMainMenuGerente
         Me.Label111.AutoSize = True
         Me.Label111.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label111.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label111.Location = New System.Drawing.Point(1050, 32)
+        Me.Label111.Location = New System.Drawing.Point(752, 32)
         Me.Label111.Name = "Label111"
         Me.Label111.Size = New System.Drawing.Size(253, 22)
         Me.Label111.TabIndex = 40
@@ -7599,7 +7599,7 @@ Partial Class frmMainMenuGerente
         Me.Label121.AutoSize = True
         Me.Label121.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label121.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Label121.Location = New System.Drawing.Point(24, 32)
+        Me.Label121.Location = New System.Drawing.Point(45, 32)
         Me.Label121.Name = "Label121"
         Me.Label121.Size = New System.Drawing.Size(230, 22)
         Me.Label121.TabIndex = 40
@@ -7617,7 +7617,7 @@ Partial Class frmMainMenuGerente
         Me.dgvClientesMasGastaron.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvClientesMasGastaron.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvClientesMasGastaron.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Nombrerep, Me.apellidorep, Me.DataGridViewTextBoxColumn4, Me.sucrep})
-        Me.dgvClientesMasGastaron.Location = New System.Drawing.Point(794, 66)
+        Me.dgvClientesMasGastaron.Location = New System.Drawing.Point(756, 66)
         Me.dgvClientesMasGastaron.MultiSelect = False
         Me.dgvClientesMasGastaron.Name = "dgvClientesMasGastaron"
         Me.dgvClientesMasGastaron.ReadOnly = True
@@ -7669,7 +7669,7 @@ Partial Class frmMainMenuGerente
         Me.dgvAutosMasRentables.BackgroundColor = System.Drawing.SystemColors.Window
         Me.dgvAutosMasRentables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvAutosMasRentables.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.matricularep, Me.marcarep, Me.modelorep, Me.totalrep})
-        Me.dgvAutosMasRentables.Location = New System.Drawing.Point(28, 66)
+        Me.dgvAutosMasRentables.Location = New System.Drawing.Point(49, 66)
         Me.dgvAutosMasRentables.MultiSelect = False
         Me.dgvAutosMasRentables.Name = "dgvAutosMasRentables"
         Me.dgvAutosMasRentables.ReadOnly = True
@@ -7854,7 +7854,7 @@ Partial Class frmMainMenuGerente
         Me.lbl162N.TabIndex = 24
         Me.lbl162N.Text = "Realizar Alquiler"
         '
-        'frmMainMenu
+        'frmMainMenuGerente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font

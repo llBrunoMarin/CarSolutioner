@@ -65,6 +65,7 @@ Public Class frmMainMenu
         dtpFiltrarFechaInicioMant.Enabled = False
         dtpFiltrarFechaFinMant.Enabled = False
 
+        dtpFechaInicioMant.Value = Date.Now
 
         dtpInicioARes.MinDate = Date.Now.AddMinutes(5).Round()
         dtpFinARes.MinDate = dtpInicioARes.Value.AddDays(1)
@@ -312,7 +313,7 @@ Public Class frmMainMenu
             Case "dgvPorcVeh"
                 conexion.RellenarDataGridView(dgvPorcVeh, "SELECT nombre, TotalSuc(idsucursal, CURRENT Year to Day) Total, PorcAlq(idsucursal, CURRENT Year to Day) || ""%"" PorcAlq, PorcMant(idsucursal, CURRENT YEAR TO DAY) || ""%"" PorcMant, PorcDispon(idsucursal, CURRENT YEAR TO DAY)|| ""%""  PorcDispon FROM Sucursal WHERE TotalSuc(idsucursal, CURRENT Year to Day) > 0")
             Case "dgvClientesMasGastaron"
-                conexion.RellenarDataGridView(dgvClientesMasGastaron, "SELECT C.nombre, C.apellido, T.total, S.nombre FROM Cliente C, RentTotalClientes T, Sucursal S WHERE C.idpersona = T.idpersona AND S.idsucursal = T.sucursal")
+                conexion.RellenarDataGridView(dgvClientesMasGastaron, "SELECT S.nombre, C.apellido, C.nombre, T.total FROM Sucursal S, Cliente C, RentTotalClientesMdeo T WHERE S.idsucursal = T.sucursal AND C.idpersona = T.idpersona UNION SELECT S.nombre, C.apellido, C.nombre, Ta.total FROM Sucursal S, Cliente C, RentTotalClientesAereopuerto TA WHERE S.idsucursal = TA.sucursal AND C.idpersona = TA.idpersona UNION SELECT S.nombre, C.apellido, C.nombre, Tp.total FROM Sucursal S, Cliente C, RentTotalClientesPEste TP WHERE S.idsucursal = TP.sucursal AND C.idpersona = TP.idpersona UNION SELECT S.nombre, C.apellido, C.nombre, TPa.total FROM Sucursal S, Cliente C, RentTotalClientesPaloma TPA WHERE S.idsucursal = TPA.sucursal AND C.idpersona = TPA.idpersona")
             Case Else
                 conexion.RellenarDataGridView(dgv, sentencia)
 

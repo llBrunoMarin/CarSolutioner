@@ -9,12 +9,22 @@
             Else
                 lbldataincorrect.Visible = True
             End If
+        Else
+            Me.DialogResult = vbYes
+            Me.Dispose()
         End If
 
     End Sub
 
     Private Sub Descuento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lbldataincorrect.Visible = False
+        If conexion.TipoUsuario = "4" Then
+            lbldataincorrect.Visible = False
+        Else
+            Me.DialogResult = vbYes
+            Me.Dispose()
+        End If
+
+
     End Sub
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrarDescuento.Click
